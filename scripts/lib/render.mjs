@@ -12,12 +12,6 @@ const localeCopy = {
     sourceHeading: "公開根拠",
     sourceNote: "公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。",
     allReports: "すべてのレポートを見る",
-    editorialCardTitle: "編集方針",
-    editorialCardBody: "一次情報で話題を確認し、公開時は公式ドキュメントと論文だけに絞って根拠を提示します。",
-    policyCardTitle: "配信契約",
-    policyCardBody: "日英別ページ、SEO metadata、Atom feed、GitHub Pages 配信を標準化しています。",
-    audienceCardTitle: "対象読者",
-    audienceCardBody: "ビジネスの経営層が短時間で判断に使えるよう、論点と前提条件を分けて提示します。",
     readReport: "レポートを開く",
     sourceCount: "根拠数",
     tagHeading: "Tags",
@@ -36,15 +30,6 @@ const localeCopy = {
     sourceNote:
       "Public pages list only evidence that can be verified as official documentation or papers.",
     allReports: "Browse the archive",
-    editorialCardTitle: "Editorial policy",
-    editorialCardBody:
-      "Topics can be discovered broadly, but publication evidence is restricted to official documentation and papers.",
-    policyCardTitle: "Publishing contract",
-    policyCardBody:
-      "Bilingual pages, SEO metadata, Atom feeds, and GitHub Pages deployment are part of the default release flow.",
-    audienceCardTitle: "Audience",
-    audienceCardBody:
-      "Each briefing is structured so executives can separate signals, caveats, and implications quickly.",
     readReport: "Open briefing",
     sourceCount: "Sources",
     tagHeading: "Tags",
@@ -191,26 +176,12 @@ export function renderPage({
       </header>
       <main class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 pb-16 pt-6 md:px-8">
         <section class="hero-panel">
-          <div class="max-w-3xl">
+          <div class="max-w-4xl">
             <p class="section-kicker">${escapeHtml(siteConfig.heroKicker[locale])}</p>
             <h1 class="font-display text-4xl font-bold tracking-tight text-primary md:text-6xl">${escapeHtml(
               pageHeading
             )}</h1>
             <p class="mt-4 max-w-2xl text-base leading-7 text-slate-700 md:text-lg">${escapeHtml(pageIntro)}</p>
-          </div>
-          <div class="hero-aside">
-            <div class="metric-card">
-              <p class="metric-label">Evidence rule</p>
-              <p class="metric-value">Official docs / Papers</p>
-            </div>
-            <div class="metric-card">
-              <p class="metric-label">Delivery</p>
-              <p class="metric-value">Static HTML + GitHub Pages</p>
-            </div>
-            <div class="metric-card">
-              <p class="metric-label">Format</p>
-              <p class="metric-value">Executive infographic briefing</p>
-            </div>
           </div>
         </section>
         ${body}
@@ -219,10 +190,6 @@ export function renderPage({
         <div>
           <p class="font-display text-lg font-semibold text-primary">${escapeHtml(siteConfig.name)}</p>
           <p class="mt-2 max-w-xl text-sm leading-6 text-slate-600">${escapeHtml(siteConfig.taglines[locale])}</p>
-        </div>
-        <div class="text-sm text-slate-600">
-          <p>${escapeHtml(copy.sourceNote)}</p>
-          <p class="mt-2">© ${new Date().getUTCFullYear()} ${escapeHtml(siteConfig.owner)}</p>
         </div>
       </footer>
     </div>
@@ -260,8 +227,7 @@ function renderArticleCard(article, locale) {
 export function renderIndexPage(locale, articles) {
   const copy = localeCopy[locale];
   const cards = articles.map((article) => renderArticleCard(article, locale)).join("");
-  const body = `<section class="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-    <div class="panel-block">
+  const body = `<section class="panel-block">
       <div class="flex items-center justify-between gap-4">
         <div>
           <p class="section-kicker">${escapeHtml(copy.latestTitle)}</p>
@@ -272,25 +238,7 @@ export function renderIndexPage(locale, articles) {
         )}</a>
       </div>
       <div class="mt-6 grid gap-5">${cards || '<div class="empty-state">No published reports yet.</div>'}</div>
-    </div>
-    <aside class="panel-stack">
-      <section class="insight-panel">
-        <p class="section-kicker">${escapeHtml(copy.editorialCardTitle)}</p>
-        <h2 class="panel-title">${escapeHtml(copy.editorialCardTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.editorialCardBody)}</p>
-      </section>
-      <section class="insight-panel">
-        <p class="section-kicker">${escapeHtml(copy.policyCardTitle)}</p>
-        <h2 class="panel-title">${escapeHtml(copy.policyCardTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.policyCardBody)}</p>
-      </section>
-      <section class="insight-panel">
-        <p class="section-kicker">${escapeHtml(copy.audienceCardTitle)}</p>
-        <h2 class="panel-title">${escapeHtml(copy.audienceCardTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.audienceCardBody)}</p>
-      </section>
-    </aside>
-  </section>`;
+    </section>`;
 
   return renderPage({
     locale,
