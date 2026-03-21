@@ -1,0 +1,33 @@
+{
+  "slug": "enterprise-ai-agents-readiness",
+  "date": "2026-03-21",
+  "titleJa": "AI エージェント導入の論点は、単体性能よりもワークフロー設計へ",
+  "titleEn": "AI agent adoption is shifting from model-only performance to workflow design",
+  "summaryJa": "ReAct、Toolformer、WebArena、SWE-bench を手がかりに、企業導入の焦点が『高性能な単体モデル』から『ツール接続・評価・制御を含む運用設計』へ移っていることを整理する。",
+  "summaryEn": "Using ReAct, Toolformer, WebArena, and SWE-bench as anchors, this briefing outlines how enterprise adoption is moving from model-only performance toward workflow design with tools, evaluation, and control.",
+  "category": "AI Agents",
+  "tags": ["LLM", "AI Agent", "Enterprise", "Evaluation"],
+  "publishedSources": [
+    {
+      "label": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "type": "paper"
+    },
+    {
+      "label": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "url": "https://arxiv.org/abs/2302.04761",
+      "type": "paper"
+    },
+    {
+      "label": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
+      "url": "https://arxiv.org/abs/2307.13854",
+      "type": "paper"
+    },
+    {
+      "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "url": "https://arxiv.org/abs/2310.06770",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}

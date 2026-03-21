@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-base-100 text-base-content;
+  }
+
+  ::selection {
+    @apply bg-secondary/20 text-primary;
+  }
+}
+
+@layer components {
+  .page-shell {
+    @apply relative min-h-screen overflow-hidden bg-[radial-gradient(circle_at_top_left,rgba(209,76,47,0.14),transparent_34%),linear-gradient(180deg,#fcfaf5_0%,#f7f1e6_52%,#efe5d5_100%)];
+  }
+
+  .hero-backdrop {
+    @apply absolute inset-x-0 top-0 h-[34rem] bg-hero-grid bg-[size:32px_32px] opacity-90;
+  }
+
+  .site-header {
+    @apply relative z-10 mx-auto flex w-full max-w-7xl flex-col gap-4 px-4 pb-2 pt-6 md:flex-row md:items-center md:justify-between md:px-8;
+  }
+
+  .brand-mark {
+    @apply inline-flex items-center gap-3;
+  }
+
+  .brand-badge {
+    @apply inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary font-display text-xl font-bold tracking-wide text-base-100 shadow-panel;
+  }
+
+  .hero-panel {
+    @apply grid gap-8 rounded-[2rem] border border-white/70 bg-white/80 p-8 shadow-panel backdrop-blur lg:grid-cols-[1.3fr_0.7fr] lg:p-10;
+  }
+
+  .hero-aside {
+    @apply grid gap-4;
+  }
+
+  .metric-card {
+    @apply rounded-[1.5rem] border border-primary/10 bg-primary/5 p-5;
+  }
+
+  .metric-label {
+    @apply text-xs font-semibold uppercase tracking-[0.3em] text-slate-500;
+  }
+
+  .metric-value {
+    @apply mt-2 font-display text-xl font-semibold text-primary;
+  }
+
+  .panel-block {
+    @apply rounded-[2rem] border border-white/70 bg-white/85 p-6 shadow-panel backdrop-blur md:p-8;
+  }
+
+  .panel-stack {
+    @apply grid gap-5;
+  }
+
+  .insight-panel {
+    @apply rounded-[2rem] border border-primary/10 bg-primary/5 p-6;
+  }
+
+  .panel-title {
+    @apply mt-2 font-display text-2xl font-semibold tracking-tight text-primary md:text-3xl;
+  }
+
+  .panel-copy {
+    @apply mt-3 text-sm leading-7 text-slate-700 md:text-base;
+  }
+
+  .section-kicker {
+    @apply text-xs font-semibold uppercase tracking-[0.34em] text-secondary;
+  }
+
+  .article-card {
+    @apply rounded-[1.8rem] border border-slate-200 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-panel;
+  }
+
+  .article-shell {
+    @apply grid gap-8;
+  }
+
+  .article-meta {
+    @apply rounded-[1.8rem] border border-white/70 bg-white/85 p-6 shadow-panel;
+  }
+
+  .article-body {
+    @apply grid gap-8;
+  }
+
+  .report-section {
+    @apply rounded-[2rem] border border-white/70 bg-white/85 p-6 shadow-panel md:p-8;
+  }
+
+  .report-section h2 {
+    @apply mt-3 font-display text-2xl font-semibold tracking-tight text-primary md:text-4xl;
+  }
+
+  .report-section p {
+    @apply mt-4 text-sm leading-7 text-slate-700 md:text-base;
+  }
+
+  .infographic-grid {
+    @apply mt-6 grid gap-4 md:grid-cols-3;
+  }
+
+  .stat-card {
+    @apply rounded-[1.6rem] border border-primary/10 bg-primary/5 p-5;
+  }
+
+  .stat-value {
+    @apply font-display text-4xl font-bold text-primary;
+  }
+
+  .stat-title {
+    @apply mt-3 font-semibold text-primary;
+  }
+
+  .stat-note {
+    @apply mt-2 text-sm leading-6 text-slate-600;
+  }
+
+  .comparison-grid {
+    @apply mt-6 grid gap-5 lg:grid-cols-2;
+  }
+
+  .comparison-card {
+    @apply rounded-[1.8rem] border border-slate-200 bg-base-100 p-6;
+  }
+
+  .comparison-card h3 {
+    @apply font-display text-xl font-semibold text-primary;
+  }
+
+  .bullet-list {
+    @apply mt-4 grid gap-3 text-sm leading-6 text-slate-700;
+  }
+
+  .bullet-list li {
+    @apply flex gap-3;
+  }
+
+  .bullet-list li::before {
+    content: "";
+    @apply mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-secondary;
+  }
+
+  .timeline {
+    @apply mt-6 grid gap-4;
+  }
+
+  .timeline-item {
+    @apply grid gap-4 rounded-[1.6rem] border border-slate-200 bg-base-100 p-5 md:grid-cols-[120px_1fr];
+  }
+
+  .timeline-year {
+    @apply font-display text-2xl font-semibold text-secondary;
+  }
+
+  .callout-panel {
+    @apply mt-6 rounded-[1.8rem] border border-secondary/20 bg-secondary/10 p-6;
+  }
+
+  .callout-title {
+    @apply font-display text-xl font-semibold text-primary;
+  }
+
+  .signal-chart {
+    @apply mt-6 overflow-hidden rounded-[1.8rem] border border-slate-200 bg-base-100 p-4;
+  }
+
+  .source-row {
+    @apply flex flex-col justify-between gap-4 rounded-[1.5rem] border border-slate-200 bg-base-100 p-5 transition duration-200 hover:border-secondary/40 hover:shadow-sm md:flex-row md:items-center;
+  }
+
+  .empty-state {
+    @apply rounded-[1.5rem] border border-dashed border-slate-300 bg-base-100 p-8 text-center text-slate-500;
+  }
+
+  .footer-panel {
+    @apply mx-auto flex w-full max-w-7xl flex-col gap-4 border-t border-primary/10 px-4 py-8 md:flex-row md:items-end md:justify-between md:px-8;
+  }
+}

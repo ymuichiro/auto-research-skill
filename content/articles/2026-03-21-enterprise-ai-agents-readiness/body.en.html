@@ -1,0 +1,115 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>The visible shift is not more autonomy by itself, but more design responsibility</h2>
+  <p>
+    Recent research increasingly frames AI agents as workflow systems rather than isolated models. For enterprise deployment, the key question is not whether a model can answer impressively in one turn, but how tool access, state management, task decomposition, and evaluation are designed across the full operating loop.
+  </p>
+  <div class="infographic-grid">
+    <article class="stat-card">
+      <p class="stat-value">3 layers</p>
+      <p class="stat-title">Model, tools, and evaluation now separate</p>
+      <p class="stat-note">Research signals show tool use and task scoring emerging as design dimensions, not side notes to reasoning quality.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">2 outcomes</p>
+      <p class="stat-title">What deployment teams actually measure</p>
+      <p class="stat-note">Near term, teams look for time savings. Longer term, they redesign quality control and operational governance.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 starting point</p>
+      <p class="stat-title">Begin with constrained task boundaries</p>
+      <p class="stat-note">Published benchmarks consistently make differences visible when tools, environments, and completion criteria are explicit.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>From one-shot assistants to executable workflows</h2>
+  <p>
+    ReAct and Toolformer helped normalize designs in which models reason while using external tools. Benchmarks such as WebArena and SWE-bench go further by comparing systems on realistic task completion, not only on answer quality. The practical implication is a stronger focus on orchestration, control, and evaluation.
+  </p>
+  <div class="comparison-grid">
+    <article class="comparison-card">
+      <h3>Assistant-first pattern</h3>
+      <ul class="bullet-list">
+        <li>Single-prompt response quality tends to dominate the KPI discussion.</li>
+        <li>Tool access is often treated as an optional add-on.</li>
+        <li>Success measurement can drift toward subjective review.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Agentic workflow pattern</h3>
+      <ul class="bullet-list">
+        <li>Task decomposition, state transitions, and tool use are part of the design contract.</li>
+        <li>Retry logic and human escalation are decided up front.</li>
+        <li>Operational quality is checked through completion rates or benchmark-like tasks.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="signal-chart">
+    <svg viewBox="0 0 680 240" class="w-full" aria-label="Shift from prompt quality to workflow design">
+      <rect x="0" y="0" width="680" height="240" rx="24" fill="#fcfaf5"></rect>
+      <g stroke="#cbd5e1" stroke-width="1">
+        <path d="M60 40V190"></path>
+        <path d="M180 40V190"></path>
+        <path d="M300 40V190"></path>
+        <path d="M420 40V190"></path>
+        <path d="M540 40V190"></path>
+        <path d="M60 190H620"></path>
+      </g>
+      <path d="M60 162C130 154 170 146 240 132C308 118 372 90 438 76C498 63 556 52 620 44" fill="none" stroke="#132238" stroke-width="6" stroke-linecap="round"></path>
+      <path d="M60 178C136 176 198 170 264 160C330 150 384 142 448 136C510 130 564 118 620 110" fill="none" stroke="#d14c2f" stroke-width="6" stroke-linecap="round"></path>
+      <text x="60" y="214" font-size="14" fill="#64748b">2022</text>
+      <text x="292" y="214" font-size="14" fill="#64748b">2023</text>
+      <text x="526" y="214" font-size="14" fill="#64748b">2024+</text>
+      <text x="60" y="28" font-size="14" fill="#64748b">Importance</text>
+      <text x="458" y="58" font-size="15" fill="#132238">Workflow design / evaluation</text>
+      <text x="470" y="126" font-size="15" fill="#d14c2f">Prompt-only optimization</text>
+    </svg>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evidence Timeline</p>
+  <h2>How the center of gravity moved in the literature</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">2022</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">ReAct</h3>
+        <p>Highlighted the value of combining reasoning and acting, helping make environment interaction part of the core agent design story.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2023</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Toolformer</h3>
+        <p>Strengthened the idea that tool use can be learned and normalized, not treated as a narrow exception path.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2023</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">WebArena / SWE-bench</h3>
+        <p>Shifted attention toward realistic, multi-step task completion in environments that better resemble practical work.</p>
+      </div>
+    </article>
+  </div>
+  <div class="callout-panel">
+    <p class="callout-title">Implication for leadership teams</p>
+    <p>
+      The decision is no longer only about which model appears strongest. It is about whether the operating boundary, system access, review checkpoints, and failure ownership can be defined clearly enough to move from experimentation into governed execution.
+    </p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Executive Takeaway</p>
+  <h2>The next discussion is operational boundaries, not only leaderboard performance</h2>
+  <ul class="bullet-list">
+    <li>Start with constrained business tasks where tools and completion criteria can be specified precisely.</li>
+    <li>Design retries, escalation, and review checkpoints before optimizing for broader autonomy.</li>
+    <li>Translate published evaluation patterns into internal production KPIs before scaling a proof of concept.</li>
+  </ul>
+</section>
