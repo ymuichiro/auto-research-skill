@@ -64,6 +64,20 @@ function jsonLdBlock(payload) {
   return `<script type="application/ld+json">${JSON.stringify(payload)}</script>`;
 }
 
+function renderSharedHeadAssets() {
+  return `    <link rel="icon" href="${assetPath("assets/favicon.ico")}" sizes="any">
+    <link rel="shortcut icon" href="${assetPath("assets/favicon.ico")}">
+    <link rel="icon" href="${assetPath("assets/favicon.svg")}" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="${assetPath("assets/favicon-32.png")}" type="image/png" sizes="32x32">
+    <link rel="icon" href="${assetPath("assets/favicon-16.png")}" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="${assetPath("assets/apple-touch-icon.png")}" sizes="180x180">
+    <link rel="manifest" href="${assetPath("site.webmanifest")}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="${assetPath("assets/site.css")}">`;
+}
+
 function localeTag(locale) {
   return locale === "ja" ? "ja_JP" : "en_US";
 }
@@ -204,17 +218,7 @@ export function renderPage({
     <link rel="alternate" type="application/atom+xml" href="${absoluteUrl(locale === "ja" ? "feed.xml" : "en/feed.xml")}" title="${escapeHtml(
       siteConfig.name
     )}">
-    <link rel="icon" href="${assetPath("assets/favicon.ico")}" sizes="any">
-    <link rel="shortcut icon" href="${assetPath("assets/favicon.ico")}">
-    <link rel="icon" href="${assetPath("assets/favicon.svg")}" type="image/svg+xml" sizes="any">
-    <link rel="icon" href="${assetPath("assets/favicon-32.png")}" type="image/png" sizes="32x32">
-    <link rel="icon" href="${assetPath("assets/favicon-16.png")}" type="image/png" sizes="16x16">
-    <link rel="apple-touch-icon" href="${assetPath("assets/apple-touch-icon.png")}" sizes="180x180">
-    <link rel="manifest" href="${assetPath("site.webmanifest")}">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="${assetPath("assets/site.css")}">
+${renderSharedHeadAssets()}
     ${pageType === "article" && article
       ? `<meta property="article:published_time" content="${article.publishedAtIso}">
     <meta property="article:modified_time" content="${article.lastModified}">
