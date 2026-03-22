@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI agent adoption is shifting from model races to operational architecture | Auto Research Digest EN</title>
+    <meta name="description" content="Using research from ReAct through OSWorld together with official platform documentation from OpenAI, Anthropic, Google, Microsoft, and AWS, this briefing shows how enterprise adoption is moving from model races toward operational architecture with tooling, evaluation, safety, and oversight, and maps that shift into concrete use cases such as software engineering, browser automation, enterprise knowledge workflows, and FinOps.">
+    <meta name="theme-color" content="#132238">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="AI agent adoption is shifting from model races to operational architecture">
+    <meta property="og:description" content="Using research from ReAct through OSWorld together with official platform documentation from OpenAI, Anthropic, Google, Microsoft, and AWS, this briefing shows how enterprise adoption is moving from model races toward operational architecture with tooling, evaluation, safety, and oversight, and maps that shift into concrete use cases such as software engineering, browser automation, enterprise knowledge workflows, and FinOps.">
+    <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/en/2026-03-21-enterprise-ai-agents-readiness.html">
+    <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI agent adoption is shifting from model races to operational architecture">
+    <meta name="twitter:description" content="Using research from ReAct through OSWorld together with official platform documentation from OpenAI, Anthropic, Google, Microsoft, and AWS, this briefing shows how enterprise adoption is moving from model races toward operational architecture with tooling, evaluation, safety, and oversight, and maps that shift into concrete use cases such as software engineering, browser automation, enterprise knowledge workflows, and FinOps.">
+    <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-21-enterprise-ai-agents-readiness.html">
+    <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-21-enterprise-ai-agents-readiness.html">
+    <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-21-enterprise-ai-agents-readiness.html">
+    <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2026-03-21-enterprise-ai-agents-readiness.html">
+    <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/en/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI agent adoption is shifting from model races to operational architecture","description":"Using research from ReAct through OSWorld together with official platform documentation from OpenAI, Anthropic, Google, Microsoft, and AWS, this briefing shows how enterprise adoption is moving from model races toward operational architecture with tooling, evaluation, safety, and oversight, and maps that shift into concrete use cases such as software engineering, browser automation, enterprise knowledge workflows, and FinOps.","datePublished":"2026-03-21","inLanguage":"en","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-21-enterprise-ai-agents-readiness.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-21-enterprise-ai-agents-readiness.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+  </head>
+  <body class="min-h-screen bg-base-100 text-base-content">
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/auto-research-skill/en/">
+          <span class="brand-badge">AR</span>
+          <span>
+            <span class="block text-xs uppercase tracking-[0.3em] text-secondary">Executive Research Signal</span>
+            <span class="block font-display text-lg font-bold text-primary">Auto Research Digest</span>
+          </span>
+        </a>
+        <nav class="flex flex-wrap items-center gap-2"><a class="btn btn-sm btn-primary rounded-full" href="/auto-research-skill/en/">Home</a><a class="btn btn-sm btn-ghost rounded-full" href="/auto-research-skill/en/archive/">Archive</a><a class="btn btn-sm btn-ghost rounded-full" href="/auto-research-skill/en/feed.xml">Feed</a></nav>
+        <a class="btn btn-sm btn-outline rounded-full" href="/auto-research-skill/2026-03-21-enterprise-ai-agents-readiness.html">日本語</a>
+      </header>
+      <main class="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 pb-16 pt-6 md:px-8">
+        <section class="hero-panel">
+          <div class="max-w-4xl">
+            <p class="section-kicker">Executive Research Signal</p>
+            <h1 class="font-display text-4xl font-bold tracking-tight text-primary md:text-6xl">AI agent adoption is shifting from model races to operational architecture</h1>
+            <p class="mt-4 max-w-2xl text-base leading-7 text-slate-700 md:text-lg">Using research from ReAct through OSWorld together with official platform documentation from OpenAI, Anthropic, Google, Microsoft, and AWS, this briefing shows how enterprise adoption is moving from model races toward operational architecture with tooling, evaluation, safety, and oversight, and maps that shift into concrete use cases such as software engineering, browser automation, enterprise knowledge workflows, and FinOps.</p>
+          </div>
+        </section>
+        <article class="article-shell">
+    <section class="article-meta">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="badge badge-secondary">AI Agents</span>
+        <time class="text-sm text-slate-500" datetime="2026-03-21">March 21, 2026</time>
+      </div>
+      <div class="mt-4 flex flex-wrap gap-2"><span class="badge badge-outline">LLM</span><span class="badge badge-outline">AI Agent</span><span class="badge badge-outline">Benchmark</span><span class="badge badge-outline">Orchestration</span><span class="badge badge-outline">Use Case</span><span class="badge badge-outline">Governance</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>The center of gravity is moving from model races to operational architecture</h2>
+  <p>
+    Looking across papers and official platform documentation available as of March 2026, the agent discussion is no longer just about which model is strongest in isolation.
+    The stronger signal is that enterprise deployment now depends on the surrounding operating system: tool access, state handling, workflow decomposition, evaluation, oversight, and guardrails.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">Model, tools, orchestration, evaluation</p>
+      <p class="stat-note">Both the research track and official docs now surface design responsibility outside the base model itself.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">2 tracks</p>
+      <p class="stat-title">Benchmarks and production platforms are converging</p>
+      <p class="stat-note">Research measures task completion, while vendors formalize tooling, evaluation, safety, and supervision for deployment.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5+ vendors</p>
+      <p class="stat-title">Major platforms show similar patterns</p>
+      <p class="stat-note">OpenAI, Anthropic, Google, Microsoft, and AWS increasingly treat agents as managed operational systems.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 takeaway</p>
+      <p class="stat-title">Performance alone is no longer enough</p>
+      <p class="stat-note">The practical advantage comes from defining tool boundaries, approval points, and evaluation loops before scaling autonomy.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Research Shift</p>
+  <h2>The literature is moving from answer quality toward realistic task completion</h2>
+  <p>
+    ReAct and Toolformer helped normalize agents that reason while acting through tools. The next wave, including Mind2Web, AgentBench, WebArena, SWE-bench, GAIA, WebVoyager,
+    VisualWebArena, OSWorld, and tau-bench, pushed evaluation toward realistic multi-step environments. The question became less about sounding capable and more about completing real work.
+  </p>
+  <div class="signal-chart">
+    <svg viewBox="0 0 680 240" class="w-full" aria-label="Shift from isolated model quality to operational agent systems">
+      <rect x="0" y="0" width="680" height="240" rx="24" fill="#fcfaf5"></rect>
+      <g stroke="#cbd5e1" stroke-width="1">
+        <path d="M60 40V190"></path>
+        <path d="M180 40V190"></path>
+        <path d="M300 40V190"></path>
+        <path d="M420 40V190"></path>
+        <path d="M540 40V190"></path>
+        <path d="M60 190H620"></path>
+      </g>
+      <path d="M60 168C128 162 188 150 250 134C314 118 378 92 440 74C500 58 556 48 620 40" fill="none" stroke="#132238" stroke-width="6" stroke-linecap="round"></path>
+      <path d="M60 176C122 172 184 166 250 156C316 146 378 136 442 126C500 118 560 110 620 100" fill="none" stroke="#d14c2f" stroke-width="6" stroke-linecap="round"></path>
+      <text x="60" y="214" font-size="14" fill="#64748b">2022</text>
+      <text x="292" y="214" font-size="14" fill="#64748b">2023</text>
+      <text x="526" y="214" font-size="14" fill="#64748b">2024-2026</text>
+      <text x="60" y="28" font-size="14" fill="#64748b">Relative focus</text>
+      <text x="420" y="56" font-size="15" fill="#132238">Task completion in realistic environments</text>
+      <text x="414" y="118" font-size="15" fill="#d14c2f">Prompt-only response quality</text>
+    </svg>
+  </div>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">2022</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">ReAct</h3>
+        <p>Established a widely reusable framing in which reasoning and acting are intertwined, making environment interaction part of the agent story.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2023</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Toolformer / Mind2Web / AgentBench</h3>
+        <p>Tool use, web interaction, and realistic task evaluation moved to the center of the discussion.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2023-2025</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">WebArena / SWE-bench / GAIA / OSWorld / tau-bench</h3>
+        <p>The evaluation target expanded into browsers, software engineering, computer use, and user-tool-agent interaction in more operationally realistic settings.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Convergence</p>
+  <h2>Official docs increasingly standardize orchestration, evaluation, and safety controls</h2>
+  <p>
+    The shift is not limited to papers. Across official documentation from OpenAI, Anthropic, Google, Microsoft, and AWS, agents are increasingly described not as single API calls
+    but as systems with tools, workers, memory, evaluation, approval, and auditability. The common patterns below are an inference from those public materials.
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <article class="comparison-card">
+      <h3>OpenAI</h3>
+      <ul class="bullet-list">
+        <li>Agent Builder and the Agents SDK frame the problem at the workflow level rather than the prompt level.</li>
+        <li>Agent evals and safety guidance make verification and control first-class concerns.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic</h3>
+      <ul class="bullet-list">
+        <li>Tool use, Computer use, and MCP support formalize how agents interact with external environments.</li>
+        <li>The evaluation tool reinforces the idea that post-build validation is a separate operational layer.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Google</h3>
+      <ul class="bullet-list">
+        <li>Agent Engine, Agent Builder, and ADK separate development, execution, and management roles.</li>
+        <li>The emphasis appears to be on how agents are assembled and operated, not only on the underlying model.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft</h3>
+      <ul class="bullet-list">
+        <li>Foundry Agent Service, Semantic Kernel, and design-pattern docs explicitly address multi-agent and workflow integration.</li>
+        <li>The documentation places clear weight on enterprise integration, accountability, and supervision.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS</h3>
+      <ul class="bullet-list">
+        <li>Bedrock Agents documentation treats tools, knowledge, controls, and operations as a combined deployment unit.</li>
+        <li>The framing aligns with agents as automation layers inside business systems rather than model-only endpoints.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Inference</h3>
+      <ul class="bullet-list">
+        <li>The competitive unit appears to be shifting from the smartness of a model toward the manageability of an agent platform.</li>
+        <li>The next gap may come less from raw model gains and more from evaluation and safety implementation speed.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Case Archetypes</p>
+  <h2>Once the public materials are layered together, the likely first-wave use cases become more concrete</h2>
+  <p>
+    The early enterprise uses are not “general AI that does everything.” They cluster around bounded workflows where steps, tools, and review points can be made explicit.
+    The archetypes below are directly compatible with the benchmark literature and the official platform documentation.
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Software engineering assistance</h3>
+      <ul class="bullet-list">
+        <li>SWE-bench makes real-world issue resolution a serious evaluation target rather than a toy coding prompt.</li>
+        <li>In practice, this maps to workflows such as incident triage, repository search, patch drafting, test execution, and review summaries.</li>
+        <li>The core design challenge is permissioning: what can the agent inspect, change, test, and submit without human signoff.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Browser and desktop operations</h3>
+      <ul class="bullet-list">
+        <li>WebArena, WebVoyager, VisualWebArena, and OSWorld all reinforce the importance of real interface interaction.</li>
+        <li>Anthropic’s Computer use and Microsoft’s Browser Automation point toward tasks like portal navigation, data entry, and workflow execution across existing UIs.</li>
+        <li>This is most practical for back-office work with stable procedures and clear rollback or approval points.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Enterprise knowledge plus action workflows</h3>
+      <ul class="bullet-list">
+        <li>Microsoft’s tool documentation explicitly combines search, workflow tools, OpenAPI, functions, MCP, and browser automation.</li>
+        <li>Google’s Sessions, Memory Bank, Code Execution, and observability features point toward longer-running, context-aware business workflows.</li>
+        <li>A common pattern is: retrieve grounded internal knowledge, call the right system action, and draft a response or recommendation.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Analytical and operational copilots</h3>
+      <ul class="bullet-list">
+        <li>AWS Prescriptive Guidance describes a FinOps-oriented Bedrock Agents example that analyzes spend, generates recommendations, and forecasts outcomes.</li>
+        <li>Microsoft’s agent evaluators also reflect business-process use cases through task completion, intent resolution, and tool-call quality.</li>
+        <li>These patterns fit reporting, cost analysis, operational summaries, and first-pass inquiry handling.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>In operational terms, the first real deployments look more specific than the market narrative suggests</h2>
+  <p>
+    The useful framing is not “what should AI do?” but “which segment of a workflow can be delegated under controlled conditions?”
+    When translated into execution design, realistic first deployments tend to look like the following.
+  </p>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Dev</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Incident and issue-resolution assistant</h3>
+        <p>
+          The agent receives an issue or failure signal, searches relevant code and logs, proposes a patch, and prepares a test plan. Merge or release actions stay behind human approval. This aligns closely with the SWE-bench style of task framing.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Portal-based workflow execution</h3>
+        <p>
+          The agent navigates existing internal or third-party portals, gathers status information, drafts updates, or prepares input actions. High-risk or irreversible actions remain gated. This matches the public shape of computer-use and browser-automation tooling.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">First-line support triage</h3>
+        <p>
+          The system classifies intent, grounds itself in internal knowledge, calls approved tools when needed, and drafts a response. Only edge cases or policy-sensitive cases are handed off to people.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Finance</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">FinOps and analytical briefing support</h3>
+        <p>
+          The agent pulls usage or cost data, explains the main drivers, identifies optimization opportunities, and drafts a report. Human teams keep the decision authority while compressing collection and synthesis time.
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="callout-panel">
+    <p class="callout-title">A practical selection rule</p>
+    <p>
+      The best first projects usually satisfy four conditions: the steps are visible, the tools are known, the completion criteria can be written down,
+      and the workflow can be safely interrupted or reversed. Once any of those conditions disappear, rollout risk rises quickly.
+    </p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Implications</p>
+  <h2>Four responsibilities increasingly need to be designed separately</h2>
+  <div class="comparison-grid">
+    <article class="comparison-card">
+      <h3>1. Execution</h3>
+      <ul class="bullet-list">
+        <li>Which task should run through which tool.</li>
+        <li>How browser actions, code changes, and data access are permissioned and bounded.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Orchestration</h3>
+      <ul class="bullet-list">
+        <li>Whether one agent is sufficient or a worker pattern is required.</li>
+        <li>How retries, branching, stop conditions, and human escalation are defined.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Evaluation</h3>
+      <ul class="bullet-list">
+        <li>Success needs to be measured by completion rate, reproducibility, failure modes, and review burden, not only answer quality.</li>
+        <li>The translation layer between research benchmarks and internal KPIs becomes critical.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Governance</h3>
+      <ul class="bullet-list">
+        <li>Approval points, logging, auditability, and ownership boundaries need to be part of the design.</li>
+        <li>Without this layer, strong technical performance still struggles to become a production system.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="callout-panel">
+    <p class="callout-title">Leadership translation</p>
+    <p>
+      The budgeting discussion should not stop at model usage fees. The real operating cost includes evaluation infrastructure, logs, approval flows,
+      and the design work required to define where autonomy starts and where it must stop.
+    </p>
+  </div>
+  <p class="mt-6 text-sm leading-7 text-slate-700 md:text-base">
+    In that sense, concrete use-case definition is not a downstream detail. It is the mechanism that determines whether architecture, controls,
+    and evaluation can be specified clearly enough for a production rollout.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Executive Takeaway</p>
+  <h2>The next question is not which model wins, but which operating boundary can be deployed safely</h2>
+  <ul class="bullet-list">
+    <li>Start with tasks where steps, tools, completion criteria, and review points can be defined explicitly.</li>
+    <li>Decide evaluation metrics, retry conditions, approval points, and log retention before broadening autonomy.</li>
+    <li>Do not map research benchmark results directly into production expectations without translating them into workflow-specific KPIs.</li>
+    <li>Because vendor docs are converging, the competitive difference is likely to move toward how fast an organization can build and govern agent operations.</li>
+  </ul>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="max-w-xl text-sm leading-6 text-slate-600">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">ReAct: Synergizing Reasoning and Acting in Language Models</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2210.03629</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2302.04761" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Toolformer: Language Models Can Teach Themselves to Use Tools</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2302.04761</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2308.08155" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2308.08155</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2306.06070" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Mind2Web: Towards a Generalist Agent for the Web</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2306.06070</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2307.12856" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">A Real-World WebAgent with Planning, Long Context Understanding, and Program Synthesis</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2307.12856</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2308.03688" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">AgentBench: Evaluating LLMs as Agents</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2308.03688</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2307.13854" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">WebArena: A Realistic Web Environment for Building Autonomous Agents</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2307.13854</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2310.06770</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2311.12983" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">GAIA: a benchmark for General AI Assistants</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2311.12983</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2401.13919" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2401.13919</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2401.13649" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">VisualWebArena: Evaluating Multimodal Agents on Realistic Visual Web Tasks</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2401.13649</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2404.07972</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-secondary">paper</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</p>
+              <p class="mt-1 text-xs text-slate-500">https://arxiv.org/abs/2406.12045</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/agent-builder" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">OpenAI Agent Builder</p>
+              <p class="mt-1 text-xs text-slate-500">https://platform.openai.com/docs/guides/agent-builder</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/agents-sdk" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">OpenAI Agents SDK</p>
+              <p class="mt-1 text-xs text-slate-500">https://platform.openai.com/docs/guides/agents-sdk</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/agent-evals" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">OpenAI Agent evals</p>
+              <p class="mt-1 text-xs text-slate-500">https://platform.openai.com/docs/guides/agent-evals</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/agent-builder-safety" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">OpenAI Safety in building agents</p>
+              <p class="mt-1 text-xs text-slate-500">https://platform.openai.com/docs/guides/agent-builder-safety</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Anthropic Tool use overview</p>
+              <p class="mt-1 text-xs text-slate-500">https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/build-with-claude/computer-use" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Anthropic Computer use</p>
+              <p class="mt-1 text-xs text-slate-500">https://docs.anthropic.com/en/docs/build-with-claude/computer-use</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Anthropic Evaluation Tool</p>
+              <p class="mt-1 text-xs text-slate-500">https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Anthropic MCP connector</p>
+              <p class="mt-1 text-xs text-slate-500">https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Google Vertex AI Agent Engine overview</p>
+              <p class="mt-1 text-xs text-slate-500">https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/overview</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/vertex-ai/generative-ai/docs/agent-development-kit/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Google Agent Development Kit overview</p>
+              <p class="mt-1 text-xs text-slate-500">https://cloud.google.com/vertex-ai/generative-ai/docs/agent-development-kit/overview</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/vertex-ai/generative-ai/docs/agent-builder/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Google Vertex AI Agent Builder overview</p>
+              <p class="mt-1 text-xs text-slate-500">https://cloud.google.com/vertex-ai/generative-ai/docs/agent-builder/overview</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://google.github.io/adk-docs/agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Google ADK Agents overview</p>
+              <p class="mt-1 text-xs text-slate-500">https://google.github.io/adk-docs/agents/</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Microsoft Azure AI Foundry Agent Service overview</p>
+              <p class="mt-1 text-xs text-slate-500">https://learn.microsoft.com/en-us/azure/ai-foundry/agents/overview</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Microsoft AI agent design patterns</p>
+              <p class="mt-1 text-xs text-slate-500">https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Microsoft Semantic Kernel Agent Framework</p>
+              <p class="mt-1 text-xs text-slate-500">https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-orchestration/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Microsoft Semantic Kernel Agent Orchestration</p>
+              <p class="mt-1 text-xs text-slate-500">https://learn.microsoft.com/en-us/semantic-kernel/frameworks/agent/agent-orchestration/</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/foundry-classic/agents/how-to/tools-classic/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Microsoft Foundry Agent Service tools overview</p>
+              <p class="mt-1 text-xs text-slate-500">https://learn.microsoft.com/en-us/azure/foundry-classic/agents/how-to/tools-classic/overview</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">Microsoft Agent Evaluators for Generative AI</p>
+              <p class="mt-1 text-xs text-slate-500">https://learn.microsoft.com/en-us/azure/foundry/concepts/evaluation-evaluators/agent-evaluators</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-create.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">AWS Create and configure agent manually for Amazon Bedrock</p>
+              <p class="mt-1 text-xs text-slate-500">https://docs.aws.amazon.com/bedrock/latest/userguide/agents-create.html</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/bedrock-agents.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="flex flex-wrap items-center gap-3">
+                <span class="badge badge-primary">official</span>
+                
+              </div>
+              <p class="mt-2 text-base font-medium text-primary">AWS Amazon Bedrock Agents prescriptive guidance</p>
+              <p class="mt-1 text-xs text-slate-500">https://docs.aws.amazon.com/prescriptive-guidance/latest/agentic-ai-frameworks/bedrock-agents.html</p>
+            </div>
+            <span class="text-xs uppercase tracking-[0.25em] text-secondary">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+      </main>
+      <footer class="footer-panel">
+        <div>
+          <p class="font-display text-lg font-semibold text-primary">Auto Research Digest</p>
+          <p class="mt-2 max-w-xl text-sm leading-6 text-slate-600">Visualizing practical AI trends with official documentation and paper-backed evidence.</p>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
