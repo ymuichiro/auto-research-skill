@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>open runtime と managed platform が、同じ議論の中で交わり始める | Auto Research Digest</title>
-    <meta name="description" content="2025年5月時点では、Google の ADK / A2A / Agent Engine、Anthropic の Claude Code、Microsoft の Semantic Kernel Agents GA がそろい、agent stack を open / managed の二者択一で捉えにくくなっていた。">
+    <title>open runtime と managed platform が、同じ設計図の上で接続され始める | Auto Research Digest</title>
+    <meta name="description" content="2025年5月時点では、OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっていた。">
     <meta name="theme-color" content="#0d0f14">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="open runtime と managed platform が、同じ議論の中で交わり始める">
-    <meta property="og:description" content="2025年5月時点では、Google の ADK / A2A / Agent Engine、Anthropic の Claude Code、Microsoft の Semantic Kernel Agents GA がそろい、agent stack を open / managed の二者択一で捉えにくくなっていた。">
+    <meta property="og:title" content="open runtime と managed platform が、同じ設計図の上で接続され始める">
+    <meta property="og:description" content="2025年5月時点では、OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっていた。">
     <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="open runtime と managed platform が、同じ議論の中で交わり始める">
-    <meta name="twitter:description" content="2025年5月時点では、Google の ADK / A2A / Agent Engine、Anthropic の Claude Code、Microsoft の Semantic Kernel Agents GA がそろい、agent stack を open / managed の二者択一で捉えにくくなっていた。">
+    <meta name="twitter:title" content="open runtime と managed platform が、同じ設計図の上で接続され始める">
+    <meta name="twitter:description" content="2025年5月時点では、OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっていた。">
     <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
     <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"open runtime と managed platform が、同じ議論の中で交わり始める","description":"2025年5月時点では、Google の ADK / A2A / Agent Engine、Anthropic の Claude Code、Microsoft の Semantic Kernel Agents GA がそろい、agent stack を open / managed の二者択一で捉えにくくなっていた。","datePublished":"2025-05-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-05-01-open-runtimes-and-managed-platforms-converge.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-05-01-open-runtimes-and-managed-platforms-converge.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"open runtime と managed platform が、同じ設計図の上で接続され始める","description":"2025年5月時点では、OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっていた。","datePublished":"2025-05-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-05-01-open-runtimes-and-managed-platforms-converge.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-05-01-open-runtimes-and-managed-platforms-converge.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -43,8 +43,8 @@
       <main class="site-main">
         <section class="hero-panel">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">open runtime と managed platform が、同じ議論の中で交わり始める</h1>
-          <p class="hero-copy">2025年5月時点では、Google の ADK / A2A / Agent Engine、Anthropic の Claude Code、Microsoft の Semantic Kernel Agents GA がそろい、agent stack を open / managed の二者択一で捉えにくくなっていた。</p>
+          <h1 class="hero-title">open runtime と managed platform が、同じ設計図の上で接続され始める</h1>
+          <p class="hero-copy">2025年5月時点では、OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっていた。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -53,24 +53,24 @@
         <span class="meta-pill is-accent">AI Agents</span>
         <time class="mono-note" datetime="2025-05-01">2025年5月1日</time>
       </div>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Interoperability</span><span class="meta-chip">SDK</span></div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Runtime</span><span class="meta-chip">Approval</span></div>
     </section>
     <section class="article-body"><section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>open runtime と managed platform が、同じ議論の中で交わり始める</h2>
-  <p>4月の発表群から読み取れるのは、ベンダー各社が agent を単一サービスではなく、protocol、SDK、runtime、hosted execution をまたぐ層として設計し始めていることだ。</p>
+  <h2>open runtime と managed platform を分けて組み合わせる設計が現実味を持ち始める</h2>
+  <p>2025年5月時点の一次情報を並べると、agent stack は単一ベンダー製品の比較ではなくなりつつあった。OpenAI は agent building の基本部品を公開し、AWS は multi-agent collaboration と human-in-the-loop を具体機能として見せ、Google は multi-system agents と A2A を同日に打ち出し、Microsoft は Semantic Kernel Agents を GA に進めた。Anthropic の Code with Claude は event announcement ではあるものの、tool を使う developer agent への関心が強まっていたことを補強している。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8件</p>
+      <p class="stat-value">11件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+      <p class="stat-note">主要主張に直結する論文と公式 announcement / docs のみを掲載。</p>
     </article><article class="stat-card">
-      <p class="stat-value">37件</p>
-      <p class="stat-title">当月までの調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+      <p class="stat-value">20+</p>
+      <p class="stat-title">調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された一次情報 URL だけで棚卸しした。</p>
     </article><article class="stat-card">
-      <p class="stat-value">2層</p>
-      <p class="stat-title">研究と公式発表</p>
-      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+      <p class="stat-value">3論点</p>
+      <p class="stat-title">収束点</p>
+      <p class="stat-note">protocol、hosted runtime、approval path を切り分けて設計する見方が強まった。</p>
     </article></div>
 </section>
 
@@ -78,14 +78,14 @@
   <p class="section-kicker">What Stood Out</p>
   <h2>この時点で見えていた主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Google は protocol と platform を同時に押し出す</h3>
-      <p>Vertex AI の multi-system agents と A2A は、単一ベンダー内に閉じない agent coordination を前提にしている。hosted platform を出しつつ、接続規約も外へ開こうとしている点が特徴的だ。</p>
+      <h3>Google は protocol と platform を同時に押し出した</h3>
+      <p>Vertex AI の multi-system agents と A2A は、managed platform と open coordination rule をセットで考える流れを前に進めた。agent を自社クラウドの内側だけで完結させず、他システムや他 vendor と接続できる前提を作ろうとしていた点が重要だ。</p>
     </article><article class="comparison-card">
-      <h3>Anthropic と Microsoft は開発者 runtime を厚くする</h3>
-      <p>Claude Code と Semantic Kernel Agents GA は、agent が単なる prompt template ではなく、開発ループやワーカー構成の一部として扱われる流れを強めた。SDK と host の関係が重要になる。</p>
+      <h3>AWS と Microsoft は managed orchestration を実装論へ近づけた</h3>
+      <p>AWS は supervisor / routing を含む multi-agent collaboration の GA と、行為前確認を入れる human-in-the-loop パターンを並べて示した。Microsoft の Semantic Kernel Agents GA も、役割分担した worker と orchestration を experiment ではなく SDK の安定機能として扱う方向を強めている。</p>
     </article><article class="comparison-card">
-      <h3>open と managed を組み合わせる設計が現実路線になる</h3>
-      <p>この時点では、すべてを self-host するか、すべてを managed に寄せるかの二択ではなくなっている。protocol や SDK は open に寄せ、運用基盤は managed feature を使う、という混成構成が見え始めた。</p>
+      <h3>OpenAI と Anthropic は developer loop 側の期待を押し上げた</h3>
+      <p>OpenAI の new tools for building agents と Operator は、web / tool / computer use を前提にした agent loop を見えやすくした。Anthropic の Code with Claude announcement は enterprise runtime の GA ではないが、tool-using coding workflow が注目の中心に入り始めていたことを示していた。</p>
     </article></div>
 </section>
 
@@ -93,11 +93,23 @@
   <p class="section-kicker">Use Cases</p>
   <h2>その時点で現実味が高かったユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>コーディング支援の multi-tool ループ</h3>
-      <ul class="bullet-list"><li>コード探索、要約、テスト実行、レビュー観点整理を複数ツールで分担する。</li><li>役割分離した worker を使う場合も、最終的な変更適用は人間が保持する構成が向く。</li></ul>
+      <h3>ブラウザ操作を伴う調査・申請補助</h3>
+      <ul class="bullet-list"><li>Operator のような browser-oriented agent は、情報収集やフォーム準備の自動化を前に進めた。</li><li>ただし submit を完全自動にするより、最終確認を人間に残す構成のほうが当時の一次情報と整合的だった。</li></ul>
     </article><article class="comparison-card">
       <h3>複数システムをまたぐ社内アシスタント</h3>
-      <ul class="bullet-list"><li>検索、チケット、通知、承認系をつなぎ、回答案と次アクション候補を出す。</li><li>A2A や SDK の抽象があると、将来の接続先変更に備えやすい。</li></ul>
+      <ul class="bullet-list"><li>検索、FAQ、データ取得、通知、承認依頼を分担する multi-agent 構成は、single prompt よりも管理しやすい形として見え始めていた。</li><li>A2A や orchestration SDK があると、将来の接続先変更を吸収しやすくなる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>一次情報に現れていた具体シナリオ</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>AWS は PTO 申請の確認フローを例に、automation と承認の境界を示した</h3>
+      <p>AWS の human-in-the-loop post では、休暇申請 agent が create / update / cancel のような DB 更新前に user confirmation を求める構成と、より複雑な場合は return of control で application 側へ制御を戻す構成が説明されている。ここから読み取れるのは、価値のある agent は「全部自動でやるもの」ではなく、「実行前に止められるもの」だということだ。</p>
+    </article><article class="comparison-card">
+      <h3>A2A と multi-system agents は specialist の束ね方を具体化した</h3>
+      <p>Google の A2A announcement は candidate sourcing の例を使い、client agent が remote agent 群へ役割ごとに task を渡し、長い task lifecycle を追跡する姿を描いた。AWS の supervisor pattern や AutoGen v0.4 と重ねると、調査、取得、検証、要約を specialist ごとに分ける設計が当時すでに現実的だったことが見えてくる。</p>
     </article></div>
 </section>
 
@@ -106,15 +118,15 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>5月時点では、ベンダーごとの feature 差より、どこを open にし、どこを managed にするかの設計が中核になっていた。</p>
+    <p>5月時点での実務論点は、「どの vendor を選ぶか」よりも、「protocol、hosted execution、approval をどこで分けるか」に移り始めていた。</p>
   </div>
-  <ul class="bullet-list mt-6"><li>接続規約、tool schema、session 管理のどこを共通化するかを決める。</li><li>single agent で足りる工程と、role-based workers が必要な工程を分ける。</li><li>将来のベンダー変更や接続先増加を見越し、強く結合しすぎない。</li></ul>
+  <ul class="bullet-list mt-6"><li>tool schema と message contract は、runtime を差し替えても壊れにくい形で定義する。</li><li>read-only automation と write action を分け、変更系の操作には確認か return of control を入れる。</li><li>single agent で十分な工程と、supervisor + specialist に分ける工程を早い段階で整理する。</li><li>event announcement と GA release を混同せず、platform maturity は source ごとに温度差を付けて読む。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
   <h2>この時点で引けた暫定結論</h2>
-  <p>2025年5月の時点では、agent stack は『単一製品の選定』ではなく、『接続規約と運用基盤をどう組み合わせるか』という設計問題になっていた。</p>
+  <p>2025年5月の時点で、agent stack は「単一製品の採用判断」ではなく、「open な接続規約と managed な実行基盤、そして承認設計をどう重ねるか」という architecture の問題になり始めていた。</p>
 </section>
 </section>
     <section class="panel-block">
@@ -146,6 +158,26 @@
               <p class="source-url">https://arxiv.org/abs/2412.05467</p>
             </div>
             <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年1月17日</span>
+              </div>
+              <p class="source-title">Microsoft Research: AutoGen v0.4</p>
+              <p class="source-url">https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年1月23日</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing Operator</p>
+              <p class="source-url">https://openai.com/index/introducing-operator/</p>
+            </div>
+            <span class="source-action">Open</span>
           </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -156,14 +188,24 @@
               <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://aws.amazon.com/blogs/aws/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2025年3月10日</span>
               </div>
               <p class="source-title">AWS: Amazon Bedrock announces general availability of multi-agent collaboration</p>
-              <p class="source-url">https://aws.amazon.com/blogs/aws/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/</p>
+              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年4月9日</span>
+              </div>
+              <p class="source-title">AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents</p>
+              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
@@ -182,18 +224,18 @@
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2025年4月9日</span>
               </div>
-              <p class="source-title">Google Developers Blog: A2A, a new era of agent interoperability</p>
+              <p class="source-title">Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)</p>
               <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://www.anthropic.com/news/claude-code" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.anthropic.com/news/Introducing-code-with-claude" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2025年4月3日</span>
               </div>
-              <p class="source-title">Anthropic: Claude Code</p>
-              <p class="source-url">https://www.anthropic.com/news/claude-code</p>
+              <p class="source-title">Anthropic: Introducing Code with Claude</p>
+              <p class="source-url">https://www.anthropic.com/news/Introducing-code-with-claude</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/" target="_blank" rel="noopener noreferrer">

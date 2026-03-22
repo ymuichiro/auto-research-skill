@@ -3,19 +3,19 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める | Auto Research Digest</title>
-    <meta name="description" content="2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。">
+    <title>相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める | Auto Research Digest</title>
+    <meta name="description" content="2025年7月時点では、Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は将来論ではなく current architecture の一部として扱われ始めていた。">
     <meta name="theme-color" content="#0d0f14">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める">
-    <meta property="og:description" content="2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。">
+    <meta property="og:title" content="相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める">
+    <meta property="og:description" content="2025年7月時点では、Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は将来論ではなく current architecture の一部として扱われ始めていた。">
     <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html">
     <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める">
-    <meta name="twitter:description" content="2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。">
+    <meta name="twitter:title" content="相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める">
+    <meta name="twitter:description" content="2025年7月時点では、Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は将来論ではなく current architecture の一部として扱われ始めていた。">
     <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
     <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html">
     <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html">
@@ -27,7 +27,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める","description":"2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。","datePublished":"2025-07-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める","description":"2025年7月時点では、Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は将来論ではなく current architecture の一部として扱われ始めていた。","datePublished":"2025-07-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -43,8 +43,8 @@
       <main class="site-main">
         <section class="hero-panel">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める</h1>
-          <p class="hero-copy">2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。</p>
+          <h1 class="hero-title">相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める</h1>
+          <p class="hero-copy">2025年7月時点では、Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は将来論ではなく current architecture の一部として扱われ始めていた。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -53,24 +53,24 @@
         <span class="meta-pill is-accent">AI Agents</span>
         <time class="mono-note" datetime="2025-07-01">2025年7月1日</time>
       </div>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span></div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span><span class="meta-chip">Interoperability</span></div>
     </section>
     <section class="article-body"><section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める</h2>
-  <p>6月の公開情報から見えるのは、agent platform が『自社製品だけで完結する箱』ではなく、他システムや他ベンダーと接続する前提を持ち始めたことだ。</p>
+  <h2>相互運用性は roadmap 上の理想論ではなく、現在の integration premise に近づき始める</h2>
+  <p>2025年7月時点の一次情報では、相互運用性は「そのうち対応する」機能ではなく、設計初期から入れておくべき条件になり始めていた。Google は A2A を Linux Foundation に寄贈し、MCP Toolbox を通じて database 接続を IDE に近づけた。Microsoft Foundry は A2A、MCP、OpenAPI を managed platform の語彙に入れ、OpenAI も Responses API で remote MCP support を前に出した。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">6件</p>
+      <p class="stat-value">10件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+      <p class="stat-note">論文と official announcement / docs だけで主要主張を構成した。</p>
     </article><article class="stat-card">
-      <p class="stat-value">43件</p>
-      <p class="stat-title">当月までの調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+      <p class="stat-value">20+</p>
+      <p class="stat-title">調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された一次情報だけで候補を整理した。</p>
     </article><article class="stat-card">
-      <p class="stat-value">2層</p>
-      <p class="stat-title">研究と公式発表</p>
-      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+      <p class="stat-value">3接点</p>
+      <p class="stat-title">具体化した層</p>
+      <p class="stat-note">agent-to-agent、database-to-agent、managed runtime の接続が同時に具体化した。</p>
     </article></div>
 </section>
 
@@ -78,14 +78,14 @@
   <p class="section-kicker">What Stood Out</p>
   <h2>この時点で見えていた主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>A2A が『将来対応』ではなく現在の論点になる</h3>
-      <p>Google が A2A を Linux Foundation へ寄贈したことは、相互運用性を単なるベンダー広報ではなく ecosystem 課題として扱う姿勢を示した。接続規約が固定化される可能性が見え始めている。</p>
+      <h3>A2A は vendor launch から ecosystem governance の論点へ進んだ</h3>
+      <p>Google の A2A donation は、相互運用性を自社広報ではなく Linux Foundation 配下の project として扱い始めた点が大きい。spec、SDK、developer tooling を寄贈することで、agent card、task lifecycle、long-running task を ecosystem 共通課題に引き上げた。</p>
     </article><article class="comparison-card">
-      <h3>MCP 系の発表で、データ接続が一段具体化する</h3>
-      <p>Google Cloud の MCP integrations は、agent が会話するだけでなく、既存データベースや BI 基盤とどう接続するかを前に出した。これにより、agent は UI 層ではなく data-action layer として見やすくなる。</p>
+      <h3>MCP は data connectivity を daily tooling へ寄せた</h3>
+      <p>Google Cloud Databases の MCP integrations は、agent をチャット UI の延長ではなく、IDE 内で DB 探索、schema change、test 更新まで進める開発補助として見せた。MCP は future protocol ではなく、今月の developer workflow に入ってきている。</p>
     </article><article class="comparison-card">
-      <h3>protocol をまたぐ設計が、運用責任も増やす</h3>
-      <p>相互運用性が進むほど、認証、権限、失敗時の責任分界も広がる。便利さだけでなく、接続先ごとの trust boundary をどう持つかが新しい運用論点になる。</p>
+      <h3>managed platform 側も open connection を前提にし始めた</h3>
+      <p>Microsoft Foundry の GA / developer essentials は、A2A、MCP、OpenAPI を agent service の一部として扱っていた。OpenAI の Responses API も remote MCP support を加え、closed runtime と open connector が両立する設計が現実路線になってきた。</p>
     </article></div>
 </section>
 
@@ -93,11 +93,26 @@
   <p class="section-kicker">Use Cases</p>
   <h2>その時点で現実味が高かったユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>データベース接続型の分析アシスタント</h3>
-      <ul class="bullet-list"><li>自然言語の問いから、必要なデータ取得、集計、説明文作成までをひとつの flow で扱う。</li><li>MCP のような共通接続層があると、データソース追加時の変更範囲を抑えやすい。</li></ul>
+      <h3>database-connected developer assistant</h3>
+      <ul class="bullet-list"><li>開発者が自然言語で schema を把握し、必要な query や model change を agent に委ねる。</li><li>単なる SQL 生成ではなく、DB と codebase をまたいだ変更をまとめて進める形が現実味を帯びていた。</li></ul>
     </article><article class="comparison-card">
-      <h3>複数ツールをまたぐ調査フロー</h3>
-      <ul class="bullet-list"><li>社内検索、Web 調査、表計算、通知をまたいで一次調査の下書きを作る。</li><li>接続先が増えるほど、どこまで自動で進めて、どこで人間へ返すかの設計が重要になる。</li></ul>
+      <h3>複数 agent をまたぐ case routing と調査補助</h3>
+      <ul class="bullet-list"><li>採用、問い合わせ、社内申請のように複数システムへ task を振る業務では、agent 間 handoff が重要になる。</li><li>接続仕様が open であるほど、後から tool や runtime を差し替えやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>一次情報に書かれていた具体シナリオ</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Google Cloud は DB 接続付き開発補助をかなり具体的に描いた</h3>
+      <p>Google Cloud Databases の MCP post では、新任開発者 Sara が自然言語で table を調べ、open orders を確認し、vendors table と inventory の vendor_id を追加し、InventoryDAO の test まで更新する流れが示されている。ここでは assistant が IDE、database、application code をまたいで同じ task を扱う。</p>
+    </article><article class="comparison-card">
+      <h3>A2A は採用業務の handoff を例に、task lifecycle を明示した</h3>
+      <p>Google の A2A announcement は、hiring manager の依頼を起点に sourcing 用 agent、面接調整用 agent、background check 用 agent が連携する candidate sourcing の例を載せている。これは「agent が agent を呼ぶ」こと自体より、capability discovery、status update、artifact 返却を protocol で持つ必要性を示した。</p>
+    </article><article class="comparison-card">
+      <h3>Microsoft Foundry は enterprise connector の組み合わせを現実の product surface にした</h3>
+      <p>Foundry Agent Service GA と developer essentials では、Bing、SharePoint、Azure AI Search、Fabric、Logic Apps、OpenAPI、MCP、A2A が同じ managed surface で説明されている。相互運用性は外部 spec の話ではなく、既存 SaaS や internal system をどうつなぐかの実装論に入っていた。</p>
     </article></div>
 </section>
 
@@ -106,15 +121,15 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>7月時点では、相互運用性は『あれば便利』ではなく、将来の接続変更コストを左右する設計変数になり始めていた。</p>
+    <p>7月時点では、賢い agent を作ることより、接続先を増やしても trust boundary と data contract を保てるかが競争力になり始めていた。</p>
   </div>
-  <ul class="bullet-list mt-6"><li>protocol の境界ごとに認証、権限、fallback を定義する。</li><li>接続先追加を前提に、tool schema と session 情報を共通化する。</li><li>相互運用性を広げるほど、失敗時の責任分界を明文化する。</li></ul>
+  <ul class="bullet-list mt-6"><li>agent card、tool schema、artifact format の ownership を決め、誰が変更管理するか明確にする。</li><li>database access や workflow trigger を agent に渡すときは、権限範囲と監査ログを最初から分けて設計する。</li><li>protocol 境界を越える long-running task では、status update、timeout、fallback を仕様として持つ。</li><li>interoperability を広げるほど、失敗時にどの agent / tool が原因だったか追える trace が重要になる。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
   <h2>この時点で引けた暫定結論</h2>
-  <p>2025年7月の時点で、agent の将来性は『どれだけ賢いか』だけでなく、『どれだけ接続先を増やしても壊れにくいか』で測られ始めていた。</p>
+  <p>2025年7月の時点で、相互運用性は roadmap の美辞麗句ではなく、agent を production に寄せるなら最初から織り込むべき architecture 条件になり始めていた。</p>
 </section>
 </section>
     <section class="panel-block">
@@ -146,6 +161,16 @@
               <p class="source-url">https://arxiv.org/abs/2412.05467</p>
             </div>
             <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年3月11日</span>
+              </div>
+              <p class="source-title">OpenAI: New tools for building agents</p>
+              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
+            </div>
+            <span class="source-action">Open</span>
           </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -156,21 +181,51 @@
               <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年5月27日</span>
+                <span class="mono-note">2025年4月9日</span>
               </div>
-              <p class="source-title">Microsoft: Semantic Kernel multi-agent orchestration</p>
-              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/</p>
+              <p class="source-title">Google Cloud: Build and manage multi-system agents with Vertex AI</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年4月9日</span>
+              </div>
+              <p class="source-title">Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)</p>
+              <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月19日</span>
+              </div>
+              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
+              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月19日</span>
+              </div>
+              <p class="source-title">Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry</p>
+              <p class="source-url">https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年6月4日</span>
+                <span class="mono-note">2025年6月5日</span>
               </div>
               <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
               <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
