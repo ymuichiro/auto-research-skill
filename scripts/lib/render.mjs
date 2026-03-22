@@ -65,8 +65,8 @@ function jsonLdBlock(payload) {
 }
 
 function renderSharedHeadAssets() {
-  return `    <link rel="icon" href="${assetPath("assets/favicon.ico")}" sizes="any">
-    <link rel="shortcut icon" href="${assetPath("assets/favicon.ico")}">
+  return `    <link rel="icon" href="${assetPath("assets/favicon.ico")}" type="image/x-icon">
+    <link rel="shortcut icon" href="${assetPath("assets/favicon.ico")}" type="image/x-icon">
     <link rel="icon" href="${assetPath("assets/favicon.svg")}" type="image/svg+xml" sizes="any">
     <link rel="icon" href="${assetPath("assets/favicon-32.png")}" type="image/png" sizes="32x32">
     <link rel="icon" href="${assetPath("assets/favicon-16.png")}" type="image/png" sizes="16x16">
