@@ -165,13 +165,9 @@ export function renderPage({
       </header>
       <main class="site-main">
         <section class="hero-panel">
-          <div class="hero-lead">
-            <p class="section-kicker">${escapeHtml(siteConfig.heroKicker[locale])}</p>
-            <h1 class="hero-title">${escapeHtml(pageHeading)}</h1>
-          </div>
-          <div class="hero-aside">
-            <p class="hero-copy">${escapeHtml(pageIntro)}</p>
-          </div>
+          <p class="section-kicker">${escapeHtml(siteConfig.heroKicker[locale])}</p>
+          <h1 class="hero-title">${escapeHtml(pageHeading)}</h1>
+          <p class="hero-copy">${escapeHtml(pageIntro)}</p>
         </section>
         <div class="content-stack">
           ${body}
