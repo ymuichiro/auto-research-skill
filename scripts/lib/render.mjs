@@ -128,6 +128,7 @@ export function renderPage({
     <title>${escapeHtml(pageTitle(title, locale))}</title>
     <meta name="description" content="${escapeHtml(metaDescription(description, locale))}">
     <meta name="theme-color" content="${siteConfig.themeColor}">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="${pageType === "article" ? "article" : "website"}">
     <meta property="og:site_name" content="${escapeHtml(siteConfig.name)}">
     <meta property="og:title" content="${escapeHtml(title)}">
