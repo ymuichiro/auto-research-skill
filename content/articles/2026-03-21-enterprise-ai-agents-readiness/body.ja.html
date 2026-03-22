@@ -1,62 +1,44 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>観測されるのは「自律化の拡大」より「設計責任の増加」</h2>
+  <h2>研究競争は続いているが、企業導入の重心は「運用アーキテクチャ」に移っている</h2>
   <p>
-    近年の研究は、AI エージェントの価値を単体モデルの応答品質だけで測るのではなく、外部ツール接続、状態管理、タスク分解、評価方法まで含めた
-    ワークフロー全体で捉える方向へ進んでいる。企業導入で重要になるのは、モデルの万能感ではなく、どこまでを自動化し、どこで制御を戻すかという設計である。
+    2026年3月時点で公開されている論文群と各社の公式ドキュメントを並べてみると、AI エージェントの議論は単なるモデル性能競争では終わっていない。
+    公開資料から読み取れるのは、企業導入の焦点が、ツール接続、状態管理、ワークフロー分解、評価、監督、ガードレールを含む運用システム全体へ移っているという点である。
   </p>
-  <div class="infographic-grid">
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
     <article class="stat-card">
-      <p class="stat-value">3層</p>
-      <p class="stat-title">モデル、ツール、評価の分離</p>
-      <p class="stat-note">研究トレンドでは、推論性能だけでなくツール使用とタスク評価が独立した論点として扱われている。</p>
+      <p class="stat-value">4層</p>
+      <p class="stat-title">モデル、ツール、オーケストレーション、評価</p>
+      <p class="stat-note">主要論文と主要ベンダー docs の両方で、単体モデルの外側にある設計責任が明示されている。</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">2種類</p>
-      <p class="stat-title">導入判断で見るべき成果</p>
-      <p class="stat-note">短期では作業圧縮、長期では品質保証と運用統制の再設計が主要な評価軸になる。</p>
+      <p class="stat-value">2系統</p>
+      <p class="stat-title">研究ベンチマークと実装基盤の並走</p>
+      <p class="stat-note">研究は完遂率を測り、公式 docs は本番運用に必要なツール・評価・安全制御を整備している。</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">1前提</p>
-      <p class="stat-title">制約された業務境界から始める</p>
-      <p class="stat-note">公開研究の多くは、道具・環境・評価基準を明示できる領域ほど性能差が見えやすいことを示している。</p>
+      <p class="stat-value">5社+</p>
+      <p class="stat-title">主要プラットフォームが収束</p>
+      <p class="stat-note">OpenAI、Anthropic、Google、Microsoft、AWS が、エージェントを「製品機能」ではなく「運用基盤」として扱い始めている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1結論</p>
+      <p class="stat-title">導入判断は性能比較だけでは足りない</p>
+      <p class="stat-note">どのツールに触れるか、誰が承認するか、どう評価するかを先に設計できるかが差になる。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">What Changed</p>
-  <h2>単発アシスタントから、実行可能なワークフローへ</h2>
+  <p class="section-kicker">Research Shift</p>
+  <h2>論文で見える変化は、知識応答から「実環境での完遂」への移動</h2>
   <p>
-    ReAct と Toolformer は、モデルが外部情報やツール呼び出しを前提に振る舞う設計を広く浸透させた。さらに WebArena や SWE-bench のような評価環境は、
-    エージェントを「考え方がうまいか」ではなく「実際に仕事を完了できるか」で比較する流れを強めている。
+    ReAct と Toolformer は、推論と行動、ツール利用を組み合わせる基本形を広めた。その後、Mind2Web、AgentBench、WebArena、SWE-bench、
+    GAIA、WebVoyager、VisualWebArena、OSWorld、tau-bench といった流れは、エージェント評価を「それらしい答えを返せるか」から
+    「複数手順を伴う現実的タスクを完了できるか」へと押し出している。
   </p>
-  <div class="comparison-grid">
-    <article class="comparison-card">
-      <h3>従来のアシスタント型</h3>
-      <ul class="bullet-list">
-        <li>単一プロンプトの応答品質が主要 KPI になりやすい。</li>
-        <li>ツール接続は補助的で、失敗時の回復設計が弱い。</li>
-        <li>成果の測定が主観評価に寄りやすい。</li>
-      </ul>
-    </article>
-    <article class="comparison-card">
-      <h3>近年のエージェント型</h3>
-      <ul class="bullet-list">
-        <li>タスク分解、状態遷移、ツール使用を含めて設計する。</li>
-        <li>失敗時の再試行条件や人間へのエスカレーションを先に決める。</li>
-        <li>ベンチマークや実タスク完了率で運用品質を確認する。</li>
-      </ul>
-    </article>
-  </div>
   <div class="signal-chart">
-    <svg viewBox="0 0 680 240" class="w-full" aria-label="Shift from prompt quality to workflow design">
-      <defs>
-        <linearGradient id="trend-ja" x1="0%" x2="100%" y1="100%" y2="0%">
-          <stop offset="0%" stop-color="#d14c2f" stop-opacity="0.2"></stop>
-          <stop offset="100%" stop-color="#132238" stop-opacity="0.35"></stop>
-        </linearGradient>
-      </defs>
+    <svg viewBox="0 0 680 240" class="w-full" aria-label="Shift from isolated model quality to operational agent systems">
       <rect x="0" y="0" width="680" height="240" rx="24" fill="#fcfaf5"></rect>
       <g stroke="#cbd5e1" stroke-width="1">
         <path d="M60 40V190"></path>
@@ -66,59 +48,143 @@
         <path d="M540 40V190"></path>
         <path d="M60 190H620"></path>
       </g>
-      <path d="M60 162C130 154 170 146 240 132C308 118 372 90 438 76C498 63 556 52 620 44" fill="none" stroke="#132238" stroke-width="6" stroke-linecap="round"></path>
-      <path d="M60 178C136 176 198 170 264 160C330 150 384 142 448 136C510 130 564 118 620 110" fill="none" stroke="#d14c2f" stroke-width="6" stroke-linecap="round"></path>
+      <path d="M60 168C128 162 188 150 250 134C314 118 378 92 440 74C500 58 556 48 620 40" fill="none" stroke="#132238" stroke-width="6" stroke-linecap="round"></path>
+      <path d="M60 176C122 172 184 166 250 156C316 146 378 136 442 126C500 118 560 110 620 100" fill="none" stroke="#d14c2f" stroke-width="6" stroke-linecap="round"></path>
       <text x="60" y="214" font-size="14" fill="#64748b">2022</text>
       <text x="292" y="214" font-size="14" fill="#64748b">2023</text>
-      <text x="526" y="214" font-size="14" fill="#64748b">2024+</text>
-      <text x="60" y="28" font-size="14" fill="#64748b">Importance</text>
-      <text x="458" y="58" font-size="15" fill="#132238">Workflow design / evaluation</text>
-      <text x="470" y="126" font-size="15" fill="#d14c2f">Prompt-only optimization</text>
+      <text x="526" y="214" font-size="14" fill="#64748b">2024-2026</text>
+      <text x="60" y="28" font-size="14" fill="#64748b">Relative focus</text>
+      <text x="420" y="56" font-size="15" fill="#132238">Task completion in realistic environments</text>
+      <text x="414" y="118" font-size="15" fill="#d14c2f">Prompt-only response quality</text>
     </svg>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Evidence Timeline</p>
-  <h2>研究で見える論点の移動</h2>
   <div class="timeline">
     <article class="timeline-item">
       <div class="timeline-year">2022</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">ReAct</h3>
-        <p>推論と行動の往復を組み合わせる考え方を提示し、外部環境との相互作用を前提にしたエージェント設計を一般化した。</p>
+        <p>推論と行動を往復させる構成により、エージェントを「回答器」ではなく「外部環境と相互作用する実行主体」として捉える見方を広げた。</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">2023</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Toolformer</h3>
-        <p>モデル自身がツール利用を学習できるという方向を示し、ツール接続を例外処理ではなく標準機能として扱う流れを後押しした。</p>
+        <h3 class="font-display text-xl font-semibold text-primary">Toolformer / Mind2Web / AgentBench</h3>
+        <p>ツール使用の学習、Web 操作、現実的タスク評価が論点化し、エージェントの能力をタスク完了ベースで見る流れが強くなった。</p>
       </div>
     </article>
     <article class="timeline-item">
-      <div class="timeline-year">2023</div>
+      <div class="timeline-year">2023-2025</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">WebArena / SWE-bench</h3>
-        <p>評価の焦点が、知識問題の正答率から、複数手順を伴う現実的タスクの完遂率へと移ったことを示す代表例として位置付けられる。</p>
+        <h3 class="font-display text-xl font-semibold text-primary">WebArena / SWE-bench / GAIA / OSWorld / tau-bench</h3>
+        <p>評価対象はブラウザ、開発環境、PC 操作、ユーザーとの相互作用に広がり、エージェントは「複雑な作業系システム」として扱われ始めている。</p>
       </div>
     </article>
   </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Convergence</p>
+  <h2>公式ドキュメントに見える共通点は、オーケストレーション、評価、安全制御の標準化</h2>
+  <p>
+    これは論文側だけの変化ではない。OpenAI、Anthropic、Google、Microsoft、AWS の公開 docs を横断すると、各社はエージェントを
+    単一 API 呼び出しではなく、ツール、メモリ、ワーカー、評価、承認、監査を伴う運用システムとして整理している。以下は公開資料から読み取れる共通パターンである。
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <article class="comparison-card">
+      <h3>OpenAI</h3>
+      <ul class="bullet-list">
+        <li>Agent Builder と Agents SDK で、エージェント構築をワークフロー単位で扱っている。</li>
+        <li>Agent evals や safety ガイドは、性能だけでなく検証と制御を初期設計に含める前提になっている。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic</h3>
+      <ul class="bullet-list">
+        <li>Tool use、Computer use、MCP connector を通じて、外部環境との接続を構造化している。</li>
+        <li>Evaluation Tool が、導入後の検証を別レイヤーとして扱う考え方を補強している。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Google</h3>
+      <ul class="bullet-list">
+        <li>Agent Engine、Agent Builder、ADK が、開発・実行・管理の役割分担を前提に整理されている。</li>
+        <li>モデル選定より、エージェントをどう組み上げて運用するかに重点が置かれている。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft</h3>
+      <ul class="bullet-list">
+        <li>Foundry Agent Service、Semantic Kernel、設計パターン docs が、マルチエージェントと業務フロー統合を明示している。</li>
+        <li>企業システムとの接続、責任分界、監督を含めた設計を重視している。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS</h3>
+      <ul class="bullet-list">
+        <li>Bedrock Agents の docs では、ツール、知識、制御、運用の組み合わせが実装前提になっている。</li>
+        <li>エージェントは単体モデル利用ではなく、企業システム上の自動化レイヤーとして位置づけられている。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>推論</h3>
+      <ul class="bullet-list">
+        <li>公開資料から推測できるのは、市場が「賢いモデル」より「管理できるエージェント基盤」を競争単位にし始めていることだ。</li>
+        <li>今後の差は、モデル単体の伸びだけでなく、評価系と安全制御の実装速度で開きやすい。</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Implications</p>
+  <h2>導入設計で共通して見えるのは、4つの責務の分離</h2>
+  <div class="comparison-grid">
+    <article class="comparison-card">
+      <h3>1. 実行責務</h3>
+      <ul class="bullet-list">
+        <li>どのタスクをどのツール経由で実行させるか。</li>
+        <li>ブラウザ操作、コード修正、データ取得など、環境ごとの権限範囲をどう切るか。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. オーケストレーション責務</h3>
+      <ul class="bullet-list">
+        <li>単一エージェントで済ませるか、複数ワーカーへ分割するか。</li>
+        <li>再試行、分岐、停止条件、人間へのエスカレーションをどう定義するか。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. 評価責務</h3>
+      <ul class="bullet-list">
+        <li>回答品質ではなく、タスク完遂率、再現性、失敗率、レビュー負荷で測る必要がある。</li>
+        <li>研究ベンチマークと本番 KPI の間をどう接続するかが PoC の成否を左右する。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. ガバナンス責務</h3>
+      <ul class="bullet-list">
+        <li>承認点、ログ、監査、責任分界を設計に含める必要がある。</li>
+        <li>この層が欠けると、性能が高くても本番運用に載りにくい。</li>
+      </ul>
+    </article>
+  </div>
   <div class="callout-panel">
-    <p class="callout-title">経営層向けの含意</p>
+    <p class="callout-title">経営層向けの読み替え</p>
     <p>
-      エージェント投資の判断軸は「どのモデルが最も賢いか」だけでは足りない。対象業務、接続先システム、レビュー点、人間の介在条件、失敗時の責任分界を
-      先に定義できるかが、PoC を運用へ進められるかを左右する。
+      エージェント導入の議論は「どのモデルを採用するか」だけではなく、「どの業務単位を、どの制御条件で、どこまで自動化するか」へ置き換える必要がある。
+      予算判断の対象はモデル利用料だけでなく、評価基盤、ログ、承認フロー、運用責任の設計費用まで含む。
     </p>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Executive Takeaway</p>
-  <h2>次の議論は、性能比較より運用境界の明確化</h2>
+  <h2>次の論点は、性能比較ではなく「導入可能な運用境界」をどこまで明示できるか</h2>
   <ul class="bullet-list">
-    <li>まずは制約の強い業務を選び、利用可能ツールと評価基準を明示する。</li>
-    <li>モデル性能の改善を待つより、失敗時の再試行と人間介在の設計を先に固める。</li>
-    <li>公開研究で確認できる評価方法を、自社の本番 KPI に翻訳してから PoC を設計する。</li>
+    <li>着手領域は、手順、使用ツール、完了条件、レビュー点を定義できる業務から選ぶ。</li>
+    <li>モデル比較の前に、評価指標、失敗時の再試行条件、承認点、ログ保持方針を決める。</li>
+    <li>研究ベンチマークで示される能力を、そのまま本番期待値に読み替えず、自社ワークフローに翻訳する。</li>
+    <li>各社の公式 docs が収束している以上、今後の競争は「モデル API の差」より「運用アーキテクチャをどれだけ素早く回せるか」に移りやすい。</li>
   </ul>
 </section>

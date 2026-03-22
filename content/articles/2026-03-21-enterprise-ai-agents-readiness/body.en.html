@@ -1,54 +1,43 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>The visible shift is not more autonomy by itself, but more design responsibility</h2>
+  <h2>The center of gravity is moving from model races to operational architecture</h2>
   <p>
-    Recent research increasingly frames AI agents as workflow systems rather than isolated models. For enterprise deployment, the key question is not whether a model can answer impressively in one turn, but how tool access, state management, task decomposition, and evaluation are designed across the full operating loop.
+    Looking across papers and official platform documentation available as of March 2026, the agent discussion is no longer just about which model is strongest in isolation.
+    The stronger signal is that enterprise deployment now depends on the surrounding operating system: tool access, state handling, workflow decomposition, evaluation, oversight, and guardrails.
   </p>
-  <div class="infographic-grid">
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
     <article class="stat-card">
-      <p class="stat-value">3 layers</p>
-      <p class="stat-title">Model, tools, and evaluation now separate</p>
-      <p class="stat-note">Research signals show tool use and task scoring emerging as design dimensions, not side notes to reasoning quality.</p>
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">Model, tools, orchestration, evaluation</p>
+      <p class="stat-note">Both the research track and official docs now surface design responsibility outside the base model itself.</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">2 outcomes</p>
-      <p class="stat-title">What deployment teams actually measure</p>
-      <p class="stat-note">Near term, teams look for time savings. Longer term, they redesign quality control and operational governance.</p>
+      <p class="stat-value">2 tracks</p>
+      <p class="stat-title">Benchmarks and production platforms are converging</p>
+      <p class="stat-note">Research measures task completion, while vendors formalize tooling, evaluation, safety, and supervision for deployment.</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">1 starting point</p>
-      <p class="stat-title">Begin with constrained task boundaries</p>
-      <p class="stat-note">Published benchmarks consistently make differences visible when tools, environments, and completion criteria are explicit.</p>
+      <p class="stat-value">5+ vendors</p>
+      <p class="stat-title">Major platforms show similar patterns</p>
+      <p class="stat-note">OpenAI, Anthropic, Google, Microsoft, and AWS increasingly treat agents as managed operational systems.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 takeaway</p>
+      <p class="stat-title">Performance alone is no longer enough</p>
+      <p class="stat-note">The practical advantage comes from defining tool boundaries, approval points, and evaluation loops before scaling autonomy.</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">What Changed</p>
-  <h2>From one-shot assistants to executable workflows</h2>
+  <p class="section-kicker">Research Shift</p>
+  <h2>The literature is moving from answer quality toward realistic task completion</h2>
   <p>
-    ReAct and Toolformer helped normalize designs in which models reason while using external tools. Benchmarks such as WebArena and SWE-bench go further by comparing systems on realistic task completion, not only on answer quality. The practical implication is a stronger focus on orchestration, control, and evaluation.
+    ReAct and Toolformer helped normalize agents that reason while acting through tools. The next wave, including Mind2Web, AgentBench, WebArena, SWE-bench, GAIA, WebVoyager,
+    VisualWebArena, OSWorld, and tau-bench, pushed evaluation toward realistic multi-step environments. The question became less about sounding capable and more about completing real work.
   </p>
-  <div class="comparison-grid">
-    <article class="comparison-card">
-      <h3>Assistant-first pattern</h3>
-      <ul class="bullet-list">
-        <li>Single-prompt response quality tends to dominate the KPI discussion.</li>
-        <li>Tool access is often treated as an optional add-on.</li>
-        <li>Success measurement can drift toward subjective review.</li>
-      </ul>
-    </article>
-    <article class="comparison-card">
-      <h3>Agentic workflow pattern</h3>
-      <ul class="bullet-list">
-        <li>Task decomposition, state transitions, and tool use are part of the design contract.</li>
-        <li>Retry logic and human escalation are decided up front.</li>
-        <li>Operational quality is checked through completion rates or benchmark-like tasks.</li>
-      </ul>
-    </article>
-  </div>
   <div class="signal-chart">
-    <svg viewBox="0 0 680 240" class="w-full" aria-label="Shift from prompt quality to workflow design">
+    <svg viewBox="0 0 680 240" class="w-full" aria-label="Shift from isolated model quality to operational agent systems">
       <rect x="0" y="0" width="680" height="240" rx="24" fill="#fcfaf5"></rect>
       <g stroke="#cbd5e1" stroke-width="1">
         <path d="M60 40V190"></path>
@@ -58,58 +47,143 @@
         <path d="M540 40V190"></path>
         <path d="M60 190H620"></path>
       </g>
-      <path d="M60 162C130 154 170 146 240 132C308 118 372 90 438 76C498 63 556 52 620 44" fill="none" stroke="#132238" stroke-width="6" stroke-linecap="round"></path>
-      <path d="M60 178C136 176 198 170 264 160C330 150 384 142 448 136C510 130 564 118 620 110" fill="none" stroke="#d14c2f" stroke-width="6" stroke-linecap="round"></path>
+      <path d="M60 168C128 162 188 150 250 134C314 118 378 92 440 74C500 58 556 48 620 40" fill="none" stroke="#132238" stroke-width="6" stroke-linecap="round"></path>
+      <path d="M60 176C122 172 184 166 250 156C316 146 378 136 442 126C500 118 560 110 620 100" fill="none" stroke="#d14c2f" stroke-width="6" stroke-linecap="round"></path>
       <text x="60" y="214" font-size="14" fill="#64748b">2022</text>
       <text x="292" y="214" font-size="14" fill="#64748b">2023</text>
-      <text x="526" y="214" font-size="14" fill="#64748b">2024+</text>
-      <text x="60" y="28" font-size="14" fill="#64748b">Importance</text>
-      <text x="458" y="58" font-size="15" fill="#132238">Workflow design / evaluation</text>
-      <text x="470" y="126" font-size="15" fill="#d14c2f">Prompt-only optimization</text>
+      <text x="526" y="214" font-size="14" fill="#64748b">2024-2026</text>
+      <text x="60" y="28" font-size="14" fill="#64748b">Relative focus</text>
+      <text x="420" y="56" font-size="15" fill="#132238">Task completion in realistic environments</text>
+      <text x="414" y="118" font-size="15" fill="#d14c2f">Prompt-only response quality</text>
     </svg>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Evidence Timeline</p>
-  <h2>How the center of gravity moved in the literature</h2>
   <div class="timeline">
     <article class="timeline-item">
       <div class="timeline-year">2022</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">ReAct</h3>
-        <p>Highlighted the value of combining reasoning and acting, helping make environment interaction part of the core agent design story.</p>
+        <p>Established a widely reusable framing in which reasoning and acting are intertwined, making environment interaction part of the agent story.</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">2023</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Toolformer</h3>
-        <p>Strengthened the idea that tool use can be learned and normalized, not treated as a narrow exception path.</p>
+        <h3 class="font-display text-xl font-semibold text-primary">Toolformer / Mind2Web / AgentBench</h3>
+        <p>Tool use, web interaction, and realistic task evaluation moved to the center of the discussion.</p>
       </div>
     </article>
     <article class="timeline-item">
-      <div class="timeline-year">2023</div>
+      <div class="timeline-year">2023-2025</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">WebArena / SWE-bench</h3>
-        <p>Shifted attention toward realistic, multi-step task completion in environments that better resemble practical work.</p>
+        <h3 class="font-display text-xl font-semibold text-primary">WebArena / SWE-bench / GAIA / OSWorld / tau-bench</h3>
+        <p>The evaluation target expanded into browsers, software engineering, computer use, and user-tool-agent interaction in more operationally realistic settings.</p>
       </div>
     </article>
   </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Convergence</p>
+  <h2>Official docs increasingly standardize orchestration, evaluation, and safety controls</h2>
+  <p>
+    The shift is not limited to papers. Across official documentation from OpenAI, Anthropic, Google, Microsoft, and AWS, agents are increasingly described not as single API calls
+    but as systems with tools, workers, memory, evaluation, approval, and auditability. The common patterns below are an inference from those public materials.
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <article class="comparison-card">
+      <h3>OpenAI</h3>
+      <ul class="bullet-list">
+        <li>Agent Builder and the Agents SDK frame the problem at the workflow level rather than the prompt level.</li>
+        <li>Agent evals and safety guidance make verification and control first-class concerns.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic</h3>
+      <ul class="bullet-list">
+        <li>Tool use, Computer use, and MCP support formalize how agents interact with external environments.</li>
+        <li>The evaluation tool reinforces the idea that post-build validation is a separate operational layer.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Google</h3>
+      <ul class="bullet-list">
+        <li>Agent Engine, Agent Builder, and ADK separate development, execution, and management roles.</li>
+        <li>The emphasis appears to be on how agents are assembled and operated, not only on the underlying model.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft</h3>
+      <ul class="bullet-list">
+        <li>Foundry Agent Service, Semantic Kernel, and design-pattern docs explicitly address multi-agent and workflow integration.</li>
+        <li>The documentation places clear weight on enterprise integration, accountability, and supervision.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS</h3>
+      <ul class="bullet-list">
+        <li>Bedrock Agents documentation treats tools, knowledge, controls, and operations as a combined deployment unit.</li>
+        <li>The framing aligns with agents as automation layers inside business systems rather than model-only endpoints.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Inference</h3>
+      <ul class="bullet-list">
+        <li>The competitive unit appears to be shifting from the smartness of a model toward the manageability of an agent platform.</li>
+        <li>The next gap may come less from raw model gains and more from evaluation and safety implementation speed.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Implications</p>
+  <h2>Four responsibilities increasingly need to be designed separately</h2>
+  <div class="comparison-grid">
+    <article class="comparison-card">
+      <h3>1. Execution</h3>
+      <ul class="bullet-list">
+        <li>Which task should run through which tool.</li>
+        <li>How browser actions, code changes, and data access are permissioned and bounded.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Orchestration</h3>
+      <ul class="bullet-list">
+        <li>Whether one agent is sufficient or a worker pattern is required.</li>
+        <li>How retries, branching, stop conditions, and human escalation are defined.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Evaluation</h3>
+      <ul class="bullet-list">
+        <li>Success needs to be measured by completion rate, reproducibility, failure modes, and review burden, not only answer quality.</li>
+        <li>The translation layer between research benchmarks and internal KPIs becomes critical.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Governance</h3>
+      <ul class="bullet-list">
+        <li>Approval points, logging, auditability, and ownership boundaries need to be part of the design.</li>
+        <li>Without this layer, strong technical performance still struggles to become a production system.</li>
+      </ul>
+    </article>
+  </div>
   <div class="callout-panel">
-    <p class="callout-title">Implication for leadership teams</p>
+    <p class="callout-title">Leadership translation</p>
     <p>
-      The decision is no longer only about which model appears strongest. It is about whether the operating boundary, system access, review checkpoints, and failure ownership can be defined clearly enough to move from experimentation into governed execution.
+      The budgeting discussion should not stop at model usage fees. The real operating cost includes evaluation infrastructure, logs, approval flows,
+      and the design work required to define where autonomy starts and where it must stop.
     </p>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Executive Takeaway</p>
-  <h2>The next discussion is operational boundaries, not only leaderboard performance</h2>
+  <h2>The next question is not which model wins, but which operating boundary can be deployed safely</h2>
   <ul class="bullet-list">
-    <li>Start with constrained business tasks where tools and completion criteria can be specified precisely.</li>
-    <li>Design retries, escalation, and review checkpoints before optimizing for broader autonomy.</li>
-    <li>Translate published evaluation patterns into internal production KPIs before scaling a proof of concept.</li>
+    <li>Start with tasks where steps, tools, completion criteria, and review points can be defined explicitly.</li>
+    <li>Decide evaluation metrics, retry conditions, approval points, and log retention before broadening autonomy.</li>
+    <li>Do not map research benchmark results directly into production expectations without translating them into workflow-specific KPIs.</li>
+    <li>Because vendor docs are converging, the competitive difference is likely to move toward how fast an organization can build and govern agent operations.</li>
   </ul>
 </section>
