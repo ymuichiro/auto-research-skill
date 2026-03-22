@@ -1,27 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://ymuichiro.github.io/auto-research-skill/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/"/>
+    <lastmod>2026-03-21T00:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://ymuichiro.github.io/auto-research-skill/archive/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/archive/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/archive/"/>
+    <lastmod>2026-03-21T00:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://ymuichiro.github.io/auto-research-skill/en/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/"/>
+    <lastmod>2026-03-21T00:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://ymuichiro.github.io/auto-research-skill/en/archive/</loc>
-    <lastmod>2026-03-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/archive/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/archive/"/>
+    <lastmod>2026-03-21T00:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://ymuichiro.github.io/auto-research-skill/2026-03-21-enterprise-ai-agents-readiness.html</loc>
-    <lastmod>2026-03-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-21-enterprise-ai-agents-readiness.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-21-enterprise-ai-agents-readiness.html"/>
+    <lastmod>2026-03-21T00:00:00Z</lastmod>
   </url>
   <url>
     <loc>https://ymuichiro.github.io/auto-research-skill/en/2026-03-21-enterprise-ai-agents-readiness.html</loc>
-    <lastmod>2026-03-21</lastmod>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-21-enterprise-ai-agents-readiness.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-21-enterprise-ai-agents-readiness.html"/>
+    <lastmod>2026-03-21T00:00:00Z</lastmod>
   </url>
 </urlset>
