@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Workflow tooling is starting to catch up with agent complexity</h2>
+  <p>Using only launches available by early October, the pattern is clear: as agents grow more complex, workflow definition and the control plane become their own important layer.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">6</p>
+      <p class="stat-title">Published evidence links</p>
+      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">50</p>
+      <p class="stat-title">Eligible inventory by month</p>
+      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2 layers</p>
+      <p class="stat-title">Research plus official launches</p>
+      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>The main signals visible at that point</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>AgentKit and Agent Framework push toward reusable building blocks</h3>
+      <p>The OpenAI and Microsoft launches both reinforce a view of agent development as workflow composition rather than prompt craft. Graphs, handoffs, and tooling are being treated as reusable primitives.</p>
+    </article><article class="comparison-card">
+      <h3>Maintaining long-lived workflow state becomes central</h3>
+      <p>As more workflows extend across multiple steps or sessions, intermediate state, resume logic, and handoff records become critical. Runtime quality cannot be substituted away by a model upgrade.</p>
+    </article><article class="comparison-card">
+      <h3>Human checkpoints start to become a standard design element</h3>
+      <p>As workflow tooling improves, it becomes easier to express where humans review, approve, or interrupt the flow. Agent autonomy is now designed together with controllable stopping points.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>Use cases that already looked practical at that time</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Onboarding and process orchestration</h3>
+      <ul class="bullet-list"><li>Draft information collection, document generation, and handoffs to the relevant teams in sequence.</li><li>Because these flows carry state over time, resume and handoff handling become especially important.</li></ul>
+    </article><article class="comparison-card">
+      <h3>Incident-command assistance</h3>
+      <ul class="bullet-list"><li>Let agents help summarize status, draft notifications, and maintain action logs during an incident.</li><li>Explicit human checkpoints help increase speed without handing over critical judgment.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observed implication</p>
+    <p>By November, handling agent complexity increasingly depended on workflow tooling rather than on local prompt optimization alone.</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>Treat resume and replay as default requirements for workflows with long-lived state.</li><li>Embed human review into the flow definition rather than leaving it to an external process.</li><li>Do not force agent behavior onto workflow segments that can stay deterministic.</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>The provisional conclusion that could already be drawn</h2>
+  <p>By November 2025, the key to moving agent adoption forward was not model novelty but whether the team had workflow tooling that could absorb complexity.</p>
+</section>

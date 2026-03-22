@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>2025年を振り返ると、最も強いシグナルは operational boundary の明確化だった</h2>
+  <p>年初時点で 2025 年の流れを整理すると、強かったのは『より賢い agent』の単純な競争より、『どこまで安全に任せられるか』を設計する競争だった。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">51件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>control plane の有無が platform の差になる</h3>
+      <p>OpenAI、Anthropic、Google、Microsoft の発表を並べると、session、policy、trace、approval をどう持つかが共通の論点になっている。agent platform の比較軸が明確に増えた。</p>
+    </article><article class="comparison-card">
+      <h3>protocol と interoperability が lock-in 議論を変える</h3>
+      <p>A2A や MCP 系の発信により、ベンダー変更や接続先追加の難しさを architecture で吸収できる可能性が見えた。lock-in はモデルだけの問題ではなくなっている。</p>
+    </article><article class="comparison-card">
+      <h3>勝ち筋は bounded workflow の積み上げに寄る</h3>
+      <p>2025年の一次情報を通しで見ると、勝ちやすいのは万能 agent の一撃ではなく、責任範囲が明確な workflow を積み上げる構成である。導入速度もそのほうが出やすい。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>継続的なリサーチ desk</h3>
+      <ul class="bullet-list"><li>一次情報の収集、比較、下書き生成を毎週または毎月まわす。</li><li>protocol と evaluation が整っていると、継続運用の品質を安定させやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>Finance / Ops の例外処理</h3>
+      <ul class="bullet-list"><li>通常処理ではなく、例外や要確認案件の整理と下書きに agent を使う。</li><li>bounded workflow と approval chain の組み合わせが特に相性がよい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>年初の整理として重要なのは、pilot を増やすことではなく、再利用できる control plane と policy を持てるかだった。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>個別 PoC を増やす前に、session、identity、approval の共通レイヤーを持つ。</li><li>security、product、operations の責任分界を agent rollout に合わせて再定義する。</li><li>ベンダー差を model だけでなく protocol と control plane で比較する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2026年1月の時点で 2025 年を振り返ると、agent 導入の核心は『何ができるか』ではなく『どこまで任せ、どう止めるか』に移っていた。</p>
+</section>

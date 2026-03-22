@@ -1,0 +1,60 @@
+{
+  "slug": "agent-sdks-expand-beyond-coding",
+  "date": "2025-10-01",
+  "titleJa": "agent SDK は coding 補助の外へ広がり、汎用 workflow の部品になり始める",
+  "titleEn": "Agent SDKs are expanding beyond coding assistance into general workflow components",
+  "summaryJa": "2025年10月時点では、Claude Agent SDK、Agent Factory、Firestore 対応 MCP Toolbox がそろい、agent SDK がコード補助専用ではなく、汎用の agentic app を組み立てるための部品へ広がっていた。",
+  "summaryEn": "By October 2025, the Claude Agent SDK, Agent Factory, and Firestore-enabled MCP Toolbox all pointed to agent SDKs becoming building blocks for general agentic applications rather than just coding tools.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "SDK",
+    "MCP"
+  ],
+  "publishedSources": [
+    {
+      "label": "Agent S: An Open Agentic Framework that Uses Computers Like a Human",
+      "url": "https://arxiv.org/abs/2410.08164",
+      "type": "paper",
+      "publishedAt": "2024-10-10"
+    },
+    {
+      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
+      "url": "https://arxiv.org/abs/2411.15114",
+      "type": "paper",
+      "publishedAt": "2024-11-22"
+    },
+    {
+      "label": "Google Cloud: Introducing Looker MCP Server",
+      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/",
+      "type": "official",
+      "publishedAt": "2025-08-08"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5 for developers",
+      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
+      "type": "official",
+      "publishedAt": "2025-08-07"
+    },
+    {
+      "label": "Google Cloud: Firestore support and custom tools in MCP Toolbox",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox",
+      "type": "official",
+      "publishedAt": "2025-09-17"
+    },
+    {
+      "label": "Anthropic: Building agents with the Claude Agent SDK",
+      "url": "https://www.anthropic.com/engineering/claude-agent-sdk",
+      "type": "official",
+      "publishedAt": "2025-09-29"
+    },
+    {
+      "label": "Microsoft Azure: Agent Factory, designing the open agentic web stack",
+      "url": "https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/",
+      "type": "official",
+      "publishedAt": "2025-09-24"
+    }
+  ],
+  "draft": false
+}

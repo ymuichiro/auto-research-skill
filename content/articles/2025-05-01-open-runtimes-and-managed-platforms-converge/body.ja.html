@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>open runtime と managed platform が、同じ議論の中で交わり始める</h2>
+  <p>4月の発表群から読み取れるのは、ベンダー各社が agent を単一サービスではなく、protocol、SDK、runtime、hosted execution をまたぐ層として設計し始めていることだ。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">37件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Google は protocol と platform を同時に押し出す</h3>
+      <p>Vertex AI の multi-system agents と A2A は、単一ベンダー内に閉じない agent coordination を前提にしている。hosted platform を出しつつ、接続規約も外へ開こうとしている点が特徴的だ。</p>
+    </article><article class="comparison-card">
+      <h3>Anthropic と Microsoft は開発者 runtime を厚くする</h3>
+      <p>Claude Code と Semantic Kernel Agents GA は、agent が単なる prompt template ではなく、開発ループやワーカー構成の一部として扱われる流れを強めた。SDK と host の関係が重要になる。</p>
+    </article><article class="comparison-card">
+      <h3>open と managed を組み合わせる設計が現実路線になる</h3>
+      <p>この時点では、すべてを self-host するか、すべてを managed に寄せるかの二択ではなくなっている。protocol や SDK は open に寄せ、運用基盤は managed feature を使う、という混成構成が見え始めた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>コーディング支援の multi-tool ループ</h3>
+      <ul class="bullet-list"><li>コード探索、要約、テスト実行、レビュー観点整理を複数ツールで分担する。</li><li>役割分離した worker を使う場合も、最終的な変更適用は人間が保持する構成が向く。</li></ul>
+    </article><article class="comparison-card">
+      <h3>複数システムをまたぐ社内アシスタント</h3>
+      <ul class="bullet-list"><li>検索、チケット、通知、承認系をつなぎ、回答案と次アクション候補を出す。</li><li>A2A や SDK の抽象があると、将来の接続先変更に備えやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>5月時点では、ベンダーごとの feature 差より、どこを open にし、どこを managed にするかの設計が中核になっていた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>接続規約、tool schema、session 管理のどこを共通化するかを決める。</li><li>single agent で足りる工程と、role-based workers が必要な工程を分ける。</li><li>将来のベンダー変更や接続先増加を見越し、強く結合しすぎない。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年5月の時点では、agent stack は『単一製品の選定』ではなく、『接続規約と運用基盤をどう組み合わせるか』という設計問題になっていた。</p>
+</section>

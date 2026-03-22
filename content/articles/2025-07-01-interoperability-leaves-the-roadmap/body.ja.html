@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める</h2>
+  <p>6月の公開情報から見えるのは、agent platform が『自社製品だけで完結する箱』ではなく、他システムや他ベンダーと接続する前提を持ち始めたことだ。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">6件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">43件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>A2A が『将来対応』ではなく現在の論点になる</h3>
+      <p>Google が A2A を Linux Foundation へ寄贈したことは、相互運用性を単なるベンダー広報ではなく ecosystem 課題として扱う姿勢を示した。接続規約が固定化される可能性が見え始めている。</p>
+    </article><article class="comparison-card">
+      <h3>MCP 系の発表で、データ接続が一段具体化する</h3>
+      <p>Google Cloud の MCP integrations は、agent が会話するだけでなく、既存データベースや BI 基盤とどう接続するかを前に出した。これにより、agent は UI 層ではなく data-action layer として見やすくなる。</p>
+    </article><article class="comparison-card">
+      <h3>protocol をまたぐ設計が、運用責任も増やす</h3>
+      <p>相互運用性が進むほど、認証、権限、失敗時の責任分界も広がる。便利さだけでなく、接続先ごとの trust boundary をどう持つかが新しい運用論点になる。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>データベース接続型の分析アシスタント</h3>
+      <ul class="bullet-list"><li>自然言語の問いから、必要なデータ取得、集計、説明文作成までをひとつの flow で扱う。</li><li>MCP のような共通接続層があると、データソース追加時の変更範囲を抑えやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>複数ツールをまたぐ調査フロー</h3>
+      <ul class="bullet-list"><li>社内検索、Web 調査、表計算、通知をまたいで一次調査の下書きを作る。</li><li>接続先が増えるほど、どこまで自動で進めて、どこで人間へ返すかの設計が重要になる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>7月時点では、相互運用性は『あれば便利』ではなく、将来の接続変更コストを左右する設計変数になり始めていた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>protocol の境界ごとに認証、権限、fallback を定義する。</li><li>接続先追加を前提に、tool schema と session 情報を共通化する。</li><li>相互運用性を広げるほど、失敗時の責任分界を明文化する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年7月の時点で、agent の将来性は『どれだけ賢いか』だけでなく、『どれだけ接続先を増やしても壊れにくいか』で測られ始めていた。</p>
+</section>

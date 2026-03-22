@@ -1,0 +1,66 @@
+{
+  "slug": "managed-agent-primitives-arrive-together",
+  "date": "2025-04-01",
+  "titleJa": "managed agent の基本プリミティブが、複数ベンダーで一気に出そろい始める",
+  "titleEn": "Managed-agent primitives are starting to arrive across multiple vendors at once",
+  "summaryJa": "2025年4月時点では、OpenAI の new tools for building agents と AWS の multi-agent collaboration GA により、agent runtime、tooling、multi-agent coordination が製品レイヤーで比較される段階に入った。",
+  "summaryEn": "By April 2025, OpenAI's new agent-building tools and AWS's multi-agent collaboration GA signaled that runtimes, tooling, and multi-agent coordination were becoming vendor product surfaces rather than ad hoc engineering patterns.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Platform",
+    "Multi-Agent"
+  ],
+  "publishedSources": [
+    {
+      "label": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+      "url": "https://arxiv.org/abs/2308.08155",
+      "type": "paper",
+      "publishedAt": "2023-08-15"
+    },
+    {
+      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+      "url": "https://arxiv.org/abs/2411.04468",
+      "type": "paper",
+      "publishedAt": "2024-11-07"
+    },
+    {
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
+    },
+    {
+      "label": "OpenAI: Introducing Operator",
+      "url": "https://openai.com/index/introducing-operator/",
+      "type": "official",
+      "publishedAt": "2025-01-23"
+    },
+    {
+      "label": "Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai",
+      "type": "official",
+      "publishedAt": "2025-01-24"
+    },
+    {
+      "label": "OpenAI: New tools for building agents",
+      "url": "https://openai.com/index/new-tools-for-building-agents/",
+      "type": "official",
+      "publishedAt": "2025-03-11"
+    },
+    {
+      "label": "AWS: Amazon Bedrock announces general availability of multi-agent collaboration",
+      "url": "https://aws.amazon.com/blogs/aws/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/",
+      "type": "official",
+      "publishedAt": "2025-03-10"
+    }
+  ],
+  "draft": false
+}

@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Managed-agent primitives are starting to arrive across multiple vendors at once</h2>
+  <p>The March announcements strengthened a shift away from raw model APIs toward broader infrastructure comparisons that include runtimes, tooling, evaluation, and multi-agent coordination.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8</p>
+      <p class="stat-title">Published evidence links</p>
+      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">33</p>
+      <p class="stat-title">Eligible inventory by month</p>
+      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2 layers</p>
+      <p class="stat-title">Research plus official launches</p>
+      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>The main signals visible at that point</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>OpenAI starts packaging agent building as a product family</h3>
+      <p>OpenAI&#39;s new agent-building tools treat agents as a composition of responses, tool use, and evals instead of a single completions call. That marks a move in developer experience from text generation toward execution systems.</p>
+    </article><article class="comparison-card">
+      <h3>AWS turns multi-agent coordination into an official feature</h3>
+      <p>AWS making multi-agent collaboration generally available means coordinated agents are no longer just a design pattern but a managed capability. That makes single-agent versus multi-agent design a more concrete architecture choice.</p>
+    </article><article class="comparison-card">
+      <h3>Platform choice starts to double as architecture choice</h3>
+      <p>By this point, differences in native memory, tool execution, approvals, and evaluation surfaces were becoming visible across vendors. Comparing models alone was no longer enough.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>Use cases that already looked practical at that time</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>API-connected operations assistants</h3>
+      <ul class="bullet-list"><li>Gather state across search, CRM, ticketing, and notification APIs, then propose the next action.</li><li>Moving the flow into a managed runtime can simplify approval checkpoints and audit logging.</li></ul>
+    </article><article class="comparison-card">
+      <h3>Multi-agent loops that separate research from execution</h3>
+      <ul class="bullet-list"><li>Splitting research, synthesis, and execution roles makes ownership clearer on long tasks.</li><li>But every extra role also increases the need for explicit evaluation and stopping conditions.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observed implication</p>
+    <p>By April, the question was shifting from model comparison toward which runtime and orchestration abstractions to adopt.</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>Compare where memory, tool execution, and approvals actually live in each stack.</li><li>Separate workflows that fit a single agent from those that truly need multi-agent coordination.</li><li>Decide which layers can rely on managed features and which ones must remain under local control.</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>The provisional conclusion that could already be drawn</h2>
+  <p>By April 2025, agent adoption was starting to hinge less on calling a model and more on choosing an execution stack.</p>
+</section>

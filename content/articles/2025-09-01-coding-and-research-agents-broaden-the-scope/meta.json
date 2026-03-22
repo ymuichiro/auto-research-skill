@@ -1,0 +1,60 @@
+{
+  "slug": "coding-and-research-agents-broaden-the-scope",
+  "date": "2025-09-01",
+  "titleJa": "coding と research をまたぐ agent が、より広い業務へ踏み出し始める",
+  "titleEn": "Agents that span coding and research are beginning to reach broader workflows",
+  "summaryJa": "2025年9月時点では、GPT-5 for developers と Looker MCP Server の発表により、coding agent と data-connected analyst の境界が薄れ、コード・データ・文書を横断する assistant の像が濃くなっていた。",
+  "summaryEn": "By September 2025, GPT-5 for developers and Looker MCP Server made the line between coding agents and data-connected analyst assistants noticeably thinner, pointing toward workflows that cross code, data, and documents.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Coding Agent",
+    "Data Access"
+  ],
+  "publishedSources": [
+    {
+      "label": "MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering",
+      "url": "https://arxiv.org/abs/2410.07095",
+      "type": "paper",
+      "publishedAt": "2024-10-09"
+    },
+    {
+      "label": "Agent S: An Open Agentic Framework that Uses Computers Like a Human",
+      "url": "https://arxiv.org/abs/2410.08164",
+      "type": "paper",
+      "publishedAt": "2024-10-10"
+    },
+    {
+      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
+      "url": "https://arxiv.org/abs/2411.15114",
+      "type": "paper",
+      "publishedAt": "2024-11-22"
+    },
+    {
+      "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
+      "type": "official",
+      "publishedAt": "2025-06-04"
+    },
+    {
+      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
+      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
+      "type": "official",
+      "publishedAt": "2025-06-23"
+    },
+    {
+      "label": "Google Cloud: Introducing Looker MCP Server",
+      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/",
+      "type": "official",
+      "publishedAt": "2025-08-08"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5 for developers",
+      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
+      "type": "official",
+      "publishedAt": "2025-08-07"
+    }
+  ],
+  "draft": false
+}

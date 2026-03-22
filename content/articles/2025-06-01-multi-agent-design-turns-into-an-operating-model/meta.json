@@ -1,0 +1,66 @@
+{
+  "slug": "multi-agent-design-turns-into-an-operating-model",
+  "date": "2025-06-01",
+  "titleJa": "multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める",
+  "titleEn": "Multi-agent design is starting to be treated as an operating model, not just a concept diagram",
+  "summaryJa": "2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。",
+  "summaryEn": "By June 2025, the combination of Azure AI Foundry Agent Service GA, Developer Essentials, OpenAI's Responses API updates, and Semantic Kernel orchestration announcements turned multi-agent design into a concrete question of responsibility, evaluation, and auditability.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Orchestration",
+    "Evaluation"
+  ],
+  "publishedSources": [
+    {
+      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "url": "https://arxiv.org/abs/2406.12045",
+      "type": "paper",
+      "publishedAt": "2024-06-17"
+    },
+    {
+      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+      "url": "https://arxiv.org/abs/2411.04468",
+      "type": "paper",
+      "publishedAt": "2024-11-07"
+    },
+    {
+      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
+      "type": "official",
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "Google Developers Blog: A2A, a new era of agent interoperability",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "type": "official",
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
+      "url": "https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
+      "type": "official",
+      "publishedAt": "2025-05-19"
+    },
+    {
+      "label": "Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry",
+      "url": "https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/",
+      "type": "official",
+      "publishedAt": "2025-05-19"
+    },
+    {
+      "label": "OpenAI: New tools and features in the Responses API",
+      "url": "https://openai.com/index/new-tools-and-features-in-the-responses-api/",
+      "type": "official",
+      "publishedAt": "2025-05-21"
+    },
+    {
+      "label": "Microsoft: Semantic Kernel multi-agent orchestration",
+      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/",
+      "type": "official",
+      "publishedAt": "2025-05-27"
+    }
+  ],
+  "draft": false
+}

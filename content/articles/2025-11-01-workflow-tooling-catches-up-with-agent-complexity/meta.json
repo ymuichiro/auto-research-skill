@@ -1,0 +1,54 @@
+{
+  "slug": "workflow-tooling-catches-up-with-agent-complexity",
+  "date": "2025-11-01",
+  "titleJa": "workflow tooling が agent の複雑さに追いつき始める",
+  "titleEn": "Workflow tooling is starting to catch up with agent complexity",
+  "summaryJa": "2025年11月時点では、OpenAI AgentKit と Microsoft Agent Framework の公開により、SDK・runtime・agent graph・human checkpoint をまとめて扱うための tooling が見え始めていた。",
+  "summaryEn": "By November 2025, OpenAI AgentKit and Microsoft's Agent Framework were making it easier to talk about SDKs, runtimes, agent graphs, and human checkpoints as one workflow-tooling stack.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Workflow",
+    "Runtime"
+  ],
+  "publishedSources": [
+    {
+      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+      "url": "https://arxiv.org/abs/2411.04468",
+      "type": "paper",
+      "publishedAt": "2024-11-07"
+    },
+    {
+      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
+      "url": "https://arxiv.org/abs/2411.15114",
+      "type": "paper",
+      "publishedAt": "2024-11-22"
+    },
+    {
+      "label": "Anthropic: Building agents with the Claude Agent SDK",
+      "url": "https://www.anthropic.com/engineering/claude-agent-sdk",
+      "type": "official",
+      "publishedAt": "2025-09-29"
+    },
+    {
+      "label": "Microsoft Azure: Agent Factory, designing the open agentic web stack",
+      "url": "https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/",
+      "type": "official",
+      "publishedAt": "2025-09-24"
+    },
+    {
+      "label": "OpenAI: Introducing AgentKit",
+      "url": "https://openai.com/index/introducing-agentkit/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "Microsoft: Introducing Microsoft Agent Framework",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
+      "type": "official",
+      "publishedAt": "2025-10-01"
+    }
+  ],
+  "draft": false
+}

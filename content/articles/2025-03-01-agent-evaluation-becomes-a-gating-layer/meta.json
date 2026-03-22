@@ -1,0 +1,78 @@
+{
+  "slug": "agent-evaluation-becomes-a-gating-layer",
+  "date": "2025-03-01",
+  "titleJa": "AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく",
+  "titleEn": "Agent evaluation is becoming a gating layer rather than an afterthought",
+  "summaryJa": "2025年3月時点では、研究ベンチマークの増加と各社発表の流れから、prototype agent と production candidate を分ける軸が評価・再現性・監督に移りつつあった。",
+  "summaryEn": "By March 2025, the growing benchmark landscape and official platform messaging made it increasingly clear that evaluation, reproducibility, and oversight would separate prototype agents from production candidates.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Evaluation",
+    "Governance"
+  ],
+  "publishedSources": [
+    {
+      "label": "AgentBench: Evaluating LLMs as Agents",
+      "url": "https://arxiv.org/abs/2308.03688",
+      "type": "paper",
+      "publishedAt": "2023-08-07"
+    },
+    {
+      "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "url": "https://arxiv.org/abs/2310.06770",
+      "type": "paper",
+      "publishedAt": "2023-10-10"
+    },
+    {
+      "label": "GAIA: a benchmark for General AI Assistants",
+      "url": "https://arxiv.org/abs/2311.12983",
+      "type": "paper",
+      "publishedAt": "2023-11-21"
+    },
+    {
+      "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+      "url": "https://arxiv.org/abs/2404.07972",
+      "type": "paper",
+      "publishedAt": "2024-04-11"
+    },
+    {
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "Anthropic: Developing computer use",
+      "url": "https://www.anthropic.com/research/developing-computer-use",
+      "type": "official",
+      "publishedAt": "2024-10-22"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
+    },
+    {
+      "label": "Microsoft Research: AutoGen v0.4",
+      "url": "https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/",
+      "type": "official",
+      "publishedAt": "2025-01-17"
+    },
+    {
+      "label": "OpenAI: Introducing Operator",
+      "url": "https://openai.com/index/introducing-operator/",
+      "type": "official",
+      "publishedAt": "2025-01-23"
+    },
+    {
+      "label": "Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai",
+      "type": "official",
+      "publishedAt": "2025-01-24"
+    }
+  ],
+  "draft": false
+}

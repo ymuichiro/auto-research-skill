@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Browser-oriented agents are moving from research themes into product roadmaps</h2>
+  <p>The late-January launches around Operator and AutoGen v0.4 strengthened the idea of agents as stateful executors interacting with external environments, not just chat interfaces.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">10</p>
+      <p class="stat-title">Published evidence links</p>
+      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">31</p>
+      <p class="stat-title">Eligible inventory by month</p>
+      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2 layers</p>
+      <p class="stat-title">Research plus official launches</p>
+      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>The main signals visible at that point</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Browser and computer use enter product language</h3>
+      <p>Anthropic&#39;s computer-use work and OpenAI&#39;s Operator pushed real-environment interaction beyond the lab-demo category. Still limited, but portal operations and screen-based tasks are clearly entering the official product conversation.</p>
+    </article><article class="comparison-card">
+      <h3>Orchestration is moving from notebooks to runtimes</h3>
+      <p>AutoGen v0.4 reframed multi-agent conversation as something closer to a durable runtime than a prompt-chain experiment. The important question becomes who plans, who executes, and where the workflow is allowed to stop.</p>
+    </article><article class="comparison-card">
+      <h3>Evaluation and monitoring start to stand up as a separate layer</h3>
+      <p>Google&#39;s Vertex AI messaging makes evaluation look less like a post-build add-on and more like part of the design surface. Teams are being pushed to separate experimentation from measurement.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>Use cases that already looked practical at that time</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Portal-crossing operations assistants</h3>
+      <ul class="bullet-list"><li>Traverse several admin portals, gather the needed state, and prepare update candidates or drafts.</li><li>Keeping the final confirm step with a human makes computer-use automation much easier to govern.</li></ul>
+    </article><article class="comparison-card">
+      <h3>Codebase investigation assistants</h3>
+      <ul class="bullet-list"><li>Start from an issue or incident and trace relevant files, tests, and prior diffs across the repo.</li><li>These flows benefit from durable execution so intermediate findings and tool calls can be inspected and replayed.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observed implication</p>
+    <p>By February, the separation line was starting to move from capability alone toward how much of the execution path could be observed and replayed.</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>Separate read permissions from write permissions instead of treating them as one class of capability.</li><li>Maintain replayable tasks that exercise browser or terminal interaction end to end.</li><li>Keep tool-call histories and document the fallback steps when a run fails.</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>The provisional conclusion that could already be drawn</h2>
+  <p>Agents that touch browsers or terminals cannot be judged on model quality alone. Durable orchestration and observability are becoming the real entry requirements.</p>
+</section>

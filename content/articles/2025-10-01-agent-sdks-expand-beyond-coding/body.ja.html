@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>agent SDK は coding 補助の外へ広がり、汎用 workflow の部品になり始める</h2>
+  <p>9月末までの公式情報を見ると、SDK は codegen の支援に留まらず、memory、session、tool contract、environment permissions を含む application framework 側へ寄っている。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">7件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">49件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Claude Agent SDK が coding の外へ抽象を広げる</h3>
+      <p>Anthropic の Agent SDK は、tool use や workflow 制御を、エディタ補助ではなく agentic app の基本部品として見せている。これにより、同じ抽象を業務アプリ側へ持ち込みやすくなる。</p>
+    </article><article class="comparison-card">
+      <h3>データ接続の抽象も application framework に近づく</h3>
+      <p>Firestore support を含む MCP Toolbox の更新は、agent が document だけでなく transaction-aware なデータ基盤へ近づいていることを示す。接続方法が SDK と同じ議論に入ってくる。</p>
+    </article><article class="comparison-card">
+      <h3>open web stack の議論が control plane の必要性を強める</h3>
+      <p>Agent Factory のメッセージが示すのは、agentic app を増やすほど、共通の session、identity、policy、handoff を支える control plane が必要になることだ。SDK 単体では足りない。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>顧客対応のコーディネーション</h3>
+      <ul class="bullet-list"><li>問い合わせ、顧客情報、ナレッジ、承認フローをつなぎ、返信案や次アクションを整える。</li><li>SDK と data connector を組み合わせると、チャットの外で動く業務フローへ広げやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>日程・移動・社内手続きの実務補助</h3>
+      <ul class="bullet-list"><li>候補調査、必要情報収集、申請ドラフト作成までを自動化し、確定だけ人間が行う。</li><li>environment permissions を細かく分ければ、汎用 workflow にも展開しやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>10月時点では、SDK の選定は開発者体験だけでなく、共通 control plane をどう持つかの判断と結びついていた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>session、memory、policy を app 単位ではなく共通基盤で扱えるか確認する。</li><li>data connector と workflow runtime を別物として放置しない。</li><li>agentic app を増やす前に、identity と approval の共通ルールを作る。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年10月の時点で、agent SDK は coding 支援の外へ広がり、汎用 workflow を動かす application layer の部品になり始めていた。</p>
+</section>

@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>coding と research をまたぐ agent が、より広い業務へ踏み出し始める</h2>
+  <p>8月前半までの情報をみると、agent は coding だけ、search だけ、BI だけではなく、複数の知識源と実行手段をまたぐ assistant へ広がり始めていた。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">7件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">45件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>高性能 coding 能力が workflow の一部に埋め込まれる</h3>
+      <p>GPT-5 for developers は、コード生成や修正だけでなく、既存の execution loop に model capability を差し込む方向を強めた。coding agent は独立製品ではなく、より大きな作業フローの一部として見やすくなる。</p>
+    </article><article class="comparison-card">
+      <h3>MCP 系接続で、分析系 assistant がより具体化する</h3>
+      <p>Looker MCP Server は、agent が BI 基盤の上で問いとデータを結びつける像を明確にした。agent は検索より一歩進み、整形・解釈・下書き生成を含む分析補助に近づく。</p>
+    </article><article class="comparison-card">
+      <h3>広い workflow ほど cost と latency の設計が重要になる</h3>
+      <p>agent がコード、データ、文書をまたぐほど、tool call の回数や待ち時間が増えやすい。能力の向上と同時に、予算と応答時間をどう抑えるかが実装論点になる。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>BI とナレッジをまたぐ分析アシスタント</h3>
+      <ul class="bullet-list"><li>指標の確認、背景文書の参照、要点整理、報告ドラフト作成をひとつの flow で扱う。</li><li>単なる SQL 補助ではなく、意思決定用の文脈整理まで担わせやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>issue から patch と release note までの開発補助</h3>
+      <ul class="bullet-list"><li>課題の読解、修正候補、テスト観点、変更要約をひと続きで下書きする。</li><li>広い workflow になるほど、token 予算と tool 使用回数の上限が必要になる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>9月時点では、capability の伸びをそのまま採用理由にせず、workflow 全体の cost・latency・review 負荷で見直す必要が強まっていた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>unit task ではなく end-to-end workflow でベンチマークする。</li><li>tool call 数、token 予算、最大待ち時間を明示的に管理する。</li><li>prompt、tool schema、model version をセットで versioning する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年9月の時点で、agent の価値は『単一の得意分野』より『複数の知識源を横断してひとつの成果物を作れるか』へ広がり始めていた。</p>
+</section>

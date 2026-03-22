@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる</h2>
+  <p>1月後半に出た Operator や AutoGen v0.4 の発表は、エージェントを単純な chatbot ではなく、長い状態を持ちながら外部環境に触れる実行主体として扱う方向を強めた。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">10件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">31件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>ブラウザ・computer use が製品言語に入る</h3>
+      <p>Anthropic の computer use と OpenAI の Operator は、実環境操作を研究デモの外へ押し出した。まだ限定的ではあるが、ポータル操作や画面遷移を伴う仕事が正式な対象として扱われ始めている。</p>
+    </article><article class="comparison-card">
+      <h3>オーケストレーションは notebook から runtime へ移る</h3>
+      <p>AutoGen v0.4 は、複数エージェントの会話を実験的なプロンプト連鎖ではなく、より durable な構成要素として整理している。ここで論点になるのは、誰が planner で、誰が executor で、どこで止めるかだ。</p>
+    </article><article class="comparison-card">
+      <h3>評価と監視が別レイヤーとして立ち上がる</h3>
+      <p>Google の Vertex AI 側の発信を見ると、モデルやエージェントの評価が、アプリ完成後の付け足しではなく設計項目として浮上している。試すことと測ることを分ける必要が見え始めた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>ポータル横断の業務アシスタント</h3>
+      <ul class="bullet-list"><li>複数の管理画面を巡回し、必要情報を集めて更新候補の下書きを作る。</li><li>確定操作だけ人間が受け持つと、computer use 系の価値と安全性を両立しやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>コードベース調査アシスタント</h3>
+      <ul class="bullet-list"><li>障害報告や issue を起点に、関連ファイル、テスト、過去の差分を探索する。</li><li>長い調査手順を runtime 化し、途中結果や tool call を追跡できる構成が向く。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>2月時点では、『何ができるか』以上に、『途中経過をどこまで観測できるか』が導入可否を分け始めていた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>read 権限と write 権限を分けて設計し、最初から同じ扱いにしない。</li><li>ブラウザや端末操作を評価する replay 可能なタスク群を持つ。</li><li>tool call の履歴を残し、失敗時の差し戻し手順を明文化する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>ブラウザや端末に触れるエージェントは、単体モデルの強さだけで評価できない。durable orchestration と観測性が、ここから先の前提条件になる。</p>
+</section>

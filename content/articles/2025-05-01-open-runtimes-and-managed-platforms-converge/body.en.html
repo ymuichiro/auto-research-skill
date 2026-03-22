@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Open runtimes and managed platforms are starting to converge in the same conversation</h2>
+  <p>The April launch wave suggests vendors are designing agents as layered systems that span protocols, SDKs, runtimes, and hosted execution rather than as single products.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8</p>
+      <p class="stat-title">Published evidence links</p>
+      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">37</p>
+      <p class="stat-title">Eligible inventory by month</p>
+      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2 layers</p>
+      <p class="stat-title">Research plus official launches</p>
+      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>The main signals visible at that point</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Google is pushing protocol and platform together</h3>
+      <p>Google&#39;s multi-system agent work and A2A announcement assume coordination that does not stop at a single vendor boundary. The notable move is to launch hosted infrastructure while also promoting an external interoperability protocol.</p>
+    </article><article class="comparison-card">
+      <h3>Anthropic and Microsoft are thickening the developer runtime layer</h3>
+      <p>Claude Code and Semantic Kernel Agents GA both reinforce the idea that agents are part of a broader development loop and worker topology, not just a prompt template. The relationship between SDK and host environment becomes more important.</p>
+    </article><article class="comparison-card">
+      <h3>Combining open and managed layers becomes the practical path</h3>
+      <p>By this point, the choice is no longer between fully self-hosted and fully managed. A mixed approach is emerging: keep protocols or SDKs open where possible, while using managed features for operations.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>Use cases that already looked practical at that time</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Multi-tool coding loops</h3>
+      <ul class="bullet-list"><li>Split code exploration, summarization, test execution, and review preparation across multiple tools or workers.</li><li>Even with role-specific workers, keeping the final code-application step with a human remains the safer pattern.</li></ul>
+    </article><article class="comparison-card">
+      <h3>Enterprise assistants that cross several systems</h3>
+      <ul class="bullet-list"><li>Connect search, ticketing, notifications, and approval systems to propose responses and next actions.</li><li>Protocol and SDK layers like A2A can make future system changes easier to absorb.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observed implication</p>
+    <p>By May, the core design question was less about feature checklists and more about which layers should stay open versus managed.</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>Decide which parts of protocol, tool schema, and session management should be standardized internally.</li><li>Separate workflows that fit one agent from those that really benefit from role-based workers.</li><li>Avoid coupling too tightly to one vendor if more endpoints or providers are likely later.</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>The provisional conclusion that could already be drawn</h2>
+  <p>By May 2025, the agent stack looked less like a single-product decision and more like a design problem about how to combine connection protocols with operating infrastructure.</p>
+</section>

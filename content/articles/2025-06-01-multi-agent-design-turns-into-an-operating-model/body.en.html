@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Multi-agent design is starting to be treated as an operating model, not just a concept diagram</h2>
+  <p>Late-May launches linked agent value less to model quality and more to role separation, execution traces, approvals, and evaluation. Multi-agent systems were no longer just possible; they had to be operable.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8</p>
+      <p class="stat-title">Published evidence links</p>
+      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">41</p>
+      <p class="stat-title">Eligible inventory by month</p>
+      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2 layers</p>
+      <p class="stat-title">Research plus official launches</p>
+      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>The main signals visible at that point</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Managed agent services start assuming production use</h3>
+      <p>The general availability of Azure AI Foundry Agent Service makes it clear that agents are being positioned as long-lived operating components rather than experimental add-ons. Developer Essentials extends that framing into development, monitoring, and improvement.</p>
+    </article><article class="comparison-card">
+      <h3>OpenAI is turning responses and tools into workflow building blocks</h3>
+      <p>The Responses API updates make image generation, code execution, and file search feel like reusable workflow components. The result is a stack better suited to multi-step execution than to one-off answers.</p>
+    </article><article class="comparison-card">
+      <h3>The multi-agent question shifts toward division of labor and evaluation</h3>
+      <p>Semantic Kernel&#39;s orchestration messaging suggests that the key issue is not adding more agents, but deciding how planner, specialist, and reviewer roles should be divided. Role design and evaluation design become inseparable.</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>Use cases that already looked practical at that time</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Approval-heavy back-office flows</h3>
+      <ul class="bullet-list"><li>Let agents draft requests, collect evidence, prepare documents, and queue notifications while humans own the approvals.</li><li>Role-specific workers make it easier to separate investigation from execution in these flows.</li></ul>
+    </article><article class="comparison-card">
+      <h3>Procurement, budgeting, and FinOps analysis loops</h3>
+      <ul class="bullet-list"><li>Collect numbers across sources and summarize deltas, exceptions, and recommended next actions.</li><li>A human can retain the final financial judgment while the agent accelerates investigation and drafting.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observed implication</p>
+    <p>At this stage, the real requirement is not making multi-agent systems look impressive, but documenting each role&#39;s inputs, outputs, and stopping conditions.</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>Separate responsibilities and permissions across planner, executor, reviewer, and similar roles.</li><li>Use several evaluation axes such as task completion, tool accuracy, and review load.</li><li>Keep traces and approval logs from the start rather than adding them after rollout.</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>The provisional conclusion that could already be drawn</h2>
+  <p>By June 2025, multi-agent systems had crossed from research topic into operating model, with role design and auditability at the center.</p>
+</section>

@@ -1,6 +1,6 @@
 ---
 name: auto-research-digest-author
-description: Research, write, and update Auto Research Digest articles about LLM, AI, and AI agents for this repository. Use this whenever the user asks to investigate the latest AI or agent trends, gather official docs or papers, expand an article in content/articles/, create a new bilingual research briefing, or publish an infographic-style HTML report for this site. Always browse for current information, collect at least 20 official-doc or paper URLs before publishing a new or substantially revised article, keep public evidence limited to official docs and papers, and update both Japanese and English article files plus meta.json.
+description: Research, write, and update Auto Research Digest articles about LLM, AI, and AI agents for this repository. Use this whenever the user asks to investigate the latest AI or agent trends, gather official docs or papers, expand an article in content/articles/, create a new bilingual research briefing, publish an infographic-style HTML report for this site, or create retrospective snapshot articles. Always browse for current information, collect at least 20 primary-source URLs before publishing a new or substantially revised article, keep public evidence limited to official docs, official announcements, and papers, and update both Japanese and English article files plus meta.json.
 compatibility: Requires repo write access, shell commands, and web research.
 ---
 
@@ -24,20 +24,22 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 1. Identify whether you are updating an existing article or creating a new one.
 2. For new or time-sensitive topics, browse the web first. Do not rely on memory for "latest" questions.
 3. Start broad to map the topic, then narrow to official documentation and papers for anything that will appear in the public article.
-4. Build a research inventory of at least 20 official-doc or paper URLs before publishing a new article or substantially rewriting an existing one.
-5. Write or revise all three article files together:
+4. Build a research inventory of at least 20 primary-source URLs before publishing a new article or substantially rewriting an existing one.
+5. For retrospective or backfilled articles, use only sources that were publicly available on or before the article date.
+6. Write or revise all three article files together:
    - `meta.json`
    - `body.ja.html`
    - `body.en.html`
-6. Run `pnpm build` after edits. Use `pnpm validate` if you need a separate validation pass.
-7. If the user wants the change published, commit, push, watch GitHub Actions, and verify the public page.
+7. Run `pnpm build` after edits. Use `pnpm validate` if you need a separate validation pass.
+8. If the user wants the change published, commit, push, watch GitHub Actions, and verify the public page.
 
 ## Source Rules
 
-- Public evidence must be limited to official documentation or papers.
+- Public evidence must be limited to official documentation, vendor-published announcement / release / launch / product update pages, or papers.
 - `publishedSources` must never include news sites, blogs, social posts, recap articles, or other third-party copyrighted articles.
 - You may use broader sources for discovery, but do not surface them in the article body as public evidence and do not add them to `publishedSources`.
 - If a claim is materially time-sensitive, verify it against the current official page or paper page before publishing.
+- For retrospective articles, verify that every cited official page or paper existed on or before the article date.
 
 ## Writing Rules
 
@@ -49,6 +51,7 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 - Do not expose internal workflow language such as "配信契約", internal audience notes, or repo-only operating details on public pages.
 - Do not introduce audience-label wording such as "経営層向け", "エグゼクティブ", or "executive" into public pages unless the user explicitly asks for it.
 - For layout and styling, rely on the shared template and shared CSS. Do not add page-specific CSS for ordinary article additions.
+- New article content should inherit the shared design system automatically. Only add new shared semantic blocks when the existing classes are not enough.
 
 ## Minimum Article Depth
 
@@ -67,6 +70,12 @@ If the article still reads like an outline, add specifics:
 - task examples with tools, approvals, and failure boundaries
 - comparisons across vendors or research tracks
 - implications for rollout, cost, evaluation, or oversight
+
+For retrospective monthly series, also make sure each article answers:
+
+- what was already visible by that month
+- which signals were still early versus already converging
+- what concrete workflows were realistic at that time
 
 ## File Contract
 

@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>AI エージェントは、派手なデモから測定可能なシステム設計へ</h2>
+  <p>2025年1月の時点で見えていたのは、エージェント研究が回答品質よりも実環境での完遂率へ軸足を移し、公式発表側も tool use、computer use、managed agents を単発機能ではなくシステム設計として扱い始めたことだ。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">10件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">28件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>評価単位が『うまい回答』から『完了できた仕事』へ移る</h3>
+      <p>ReAct と Toolformer が基本形を示した後、WebArena、SWE-bench、OSWorld、BrowserGym は、評価の中心を実在タスクの完遂率へ押し出した。年末時点では、エージェントはチャット拡張ではなく作業システムとして見られ始めている。</p>
+    </article><article class="comparison-card">
+      <h3>公式発表もツール接続と監督を前提にし始める</h3>
+      <p>AWS の Bedrock Agents、Google の Vertex AI Agent Builder、Anthropic の tool use と effective agents は、モデル単体よりもツール呼び出し、制御、承認、実行境界を前面に出している。実装論点が API 単体から構成設計へ移っている。</p>
+    </article><article class="comparison-card">
+      <h3>早期導入は境界の明確な業務に集約する</h3>
+      <p>2024年末までの一次情報だけを見ても、成功しやすい用途は、使うツールが決まっていて、完了条件を書けて、失敗時に人間へ差し戻せる仕事である。『何でもできる AI』より、手順化できる作業への適用が現実的だった。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>障害切り分けと修正案作成</h3>
+      <ul class="bullet-list"><li>issue、ログ、過去の変更履歴を読み、関連箇所と調査観点を先に絞り込む。</li><li>修正候補やテスト観点の下書きまでは任せ、実変更やマージは人間承認に残す。</li></ul>
+    </article><article class="comparison-card">
+      <h3>社内ナレッジ検索と定型アクション</h3>
+      <ul class="bullet-list"><li>社内文書や FAQ を参照し、回答案や依頼文の下書きを作る。</li><li>送信、更新、申請などの書き込み系操作は承認点を置き、権限の境界を保つ。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>この段階では、モデル選定よりも『どの業務区間なら安全に測れるか』を決めるほうが、PoC の成否に直結していた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>モデル比較の前に、使わせるツールと禁止する操作を文章で決める。</li><li>社内の代表タスクを 5〜10 件選び、完遂率とレビュー負荷で測る。</li><li>書き込みや外部送信を伴う操作は、必ず人間承認点を先に置く。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年の出発点で重要だったのは、賢そうに見えるデモを増やすことではなく、完了条件と責任境界を持つ小さな業務へ落とし込めるかだった。</p>
+</section>

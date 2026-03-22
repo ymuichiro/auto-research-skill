@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める</h2>
+  <p>5月後半の発表では、agent の価値を model quality ではなく、役割分担、実行 trace、approval、evaluation と結びつける動きが目立つ。multi-agent は『できる』ではなく『どう運用する』が論点になった。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">41件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>managed agent service が本番運用を前提にし始める</h3>
+      <p>Azure AI Foundry Agent Service の GA は、agent を試験機能ではなく長期運用対象として扱う姿勢を明確にした。developer essentials でも、開発・観測・改善の一連の流れをまとめている。</p>
+    </article><article class="comparison-card">
+      <h3>OpenAI 側では responses と tools が workflow 構成要素になる</h3>
+      <p>Responses API の更新は、画像生成、code interpreter、file search などを agent workflow に組み込む方向を強めた。単発の回答より、複数ステップの実行系として agent を設計しやすくなる。</p>
+    </article><article class="comparison-card">
+      <h3>multi-agent の論点は分業と評価へ移る</h3>
+      <p>Semantic Kernel の orchestration 発信が示すのは、複数エージェントを増やすこと自体ではなく、planner、specialist、reviewer の責務をどう切るかだ。分業設計と評価設計が一体になる。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>承認を含む back-office フロー</h3>
+      <ul class="bullet-list"><li>申請、照会、文書生成、通知までを agent が下書きし、承認だけ人間が行う。</li><li>分業した worker を使うと、調査担当と実行担当を分けやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>調達・予算・FinOps の分析ループ</h3>
+      <ul class="bullet-list"><li>複数ソースから数字を集め、差分要因、例外、推奨アクションを整理する。</li><li>数値の最終判断は人間が持ちながら、調査と下書き生成を高速化できる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>この段階で必要なのは、multi-agent を派手に見せることではなく、役割ごとの入力・出力・停止条件を明文化することだった。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>planner、executor、reviewer などの役割ごとに責務と権限を切り分ける。</li><li>task completion、tool accuracy、review load のように評価軸を複数持つ。</li><li>監査用の trace と approval log を、運用開始前から保持する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年6月の時点で、multi-agent は研究テーマではなく、役割分担と監査性を伴う運用モデルとして考えるべき段階に入っていた。</p>
+</section>

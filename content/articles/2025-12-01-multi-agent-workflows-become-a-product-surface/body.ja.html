@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>multi-agent workflow そのものが product surface になり始める</h2>
+  <p>11月末までの一次情報から見えるのは、agent graph や worker collaboration が、実装の裏側から設定・観測・監査の対象へ出てきたことだ。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">5件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">51件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>multi-agent workflow が UI / managed surface に出てくる</h3>
+      <p>Azure AI Foundry の発表は、複数エージェントの協調をコード内部の工夫ではなく、製品 surface として前面に出した。これは、設計責任が開発者だけでなく運用側にも広がることを意味する。</p>
+    </article><article class="comparison-card">
+      <h3>graph 設計が governance 論点になる</h3>
+      <p>worker をどう分け、どこで handoff し、どこで reviewer を入れるかは、性能だけでなく責任分界に関わる。multi-agent では architecture と governance がより強く結びつく。</p>
+    </article><article class="comparison-card">
+      <h3>運用基盤の成熟度が差になりやすい</h3>
+      <p>同じ multi-agent 構成でも、trace、approval、rollback、audit を持つ team のほうが rollout しやすい。機能差より、運用成熟度が成果差を作りやすい。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>文書レビューと承認 routing</h3>
+      <ul class="bullet-list"><li>調査、要約、コンプライアンス確認、承認依頼を役割分担した flow にする。</li><li>reviewer を明示的な worker にすると、責任分界を保ちやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>IT 変更管理の補助</h3>
+      <ul class="bullet-list"><li>変更内容の要約、影響範囲の確認、関係者通知の下書きを agent が担う。</li><li>multi-agent 化する場合も、承認フローと監査ログが中心になる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>12月時点では、multi-agent を増やすこと自体より、どの graph をどの監査条件で回すかのほうが重要になっていた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>supervisor、specialist、reviewer の配置と権限を文書化する。</li><li>approval chain と rollback path を flow 設計の中に入れる。</li><li>運用上は、graph の複雑さより review 可能性を優先する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年12月の時点で、multi-agent workflow は『高度な実装例』ではなく、監査可能な product surface として扱うべき段階に入っていた。</p>
+</section>

@@ -1,0 +1,66 @@
+{
+  "slug": "open-runtimes-and-managed-platforms-converge",
+  "date": "2025-05-01",
+  "titleJa": "open runtime と managed platform が、同じ議論の中で交わり始める",
+  "titleEn": "Open runtimes and managed platforms are starting to converge in the same conversation",
+  "summaryJa": "2025年5月時点では、Google の ADK / A2A / Agent Engine、Anthropic の Claude Code、Microsoft の Semantic Kernel Agents GA がそろい、agent stack を open / managed の二者択一で捉えにくくなっていた。",
+  "summaryEn": "By May 2025, Google's ADK, A2A, and Agent Engine messaging, Anthropic's Claude Code, and Microsoft's Semantic Kernel Agents GA made it harder to think about the agent stack as a simple open-versus-managed choice.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Interoperability",
+    "SDK"
+  ],
+  "publishedSources": [
+    {
+      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+      "url": "https://arxiv.org/abs/2411.04468",
+      "type": "paper",
+      "publishedAt": "2024-11-07"
+    },
+    {
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "OpenAI: New tools for building agents",
+      "url": "https://openai.com/index/new-tools-for-building-agents/",
+      "type": "official",
+      "publishedAt": "2025-03-11"
+    },
+    {
+      "label": "AWS: Amazon Bedrock announces general availability of multi-agent collaboration",
+      "url": "https://aws.amazon.com/blogs/aws/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/",
+      "type": "official",
+      "publishedAt": "2025-03-10"
+    },
+    {
+      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
+      "type": "official",
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "Google Developers Blog: A2A, a new era of agent interoperability",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "type": "official",
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "Anthropic: Claude Code",
+      "url": "https://www.anthropic.com/news/claude-code",
+      "type": "official",
+      "publishedAt": "2025-04-03"
+    },
+    {
+      "label": "Microsoft: Semantic Kernel Agents are now generally available",
+      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/",
+      "type": "official",
+      "publishedAt": "2025-04-04"
+    }
+  ],
+  "draft": false
+}

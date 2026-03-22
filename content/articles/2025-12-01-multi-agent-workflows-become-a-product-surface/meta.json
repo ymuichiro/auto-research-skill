@@ -1,0 +1,48 @@
+{
+  "slug": "multi-agent-workflows-become-a-product-surface",
+  "date": "2025-12-01",
+  "titleJa": "multi-agent workflow そのものが product surface になり始める",
+  "titleEn": "Multi-agent workflows are starting to become a product surface in their own right",
+  "summaryJa": "2025年12月時点では、Azure AI Foundry の multi-agent workflows 発表を受け、multi-agent collaboration が SDK の内側だけでなく製品として可視化される段階に入っていた。",
+  "summaryEn": "By December 2025, Azure AI Foundry's multi-agent workflows announcement showed that multi-agent collaboration was becoming visible not just inside SDKs but as a product surface of its own.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Multi-Agent",
+    "Governance"
+  ],
+  "publishedSources": [
+    {
+      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+      "url": "https://arxiv.org/abs/2411.04468",
+      "type": "paper",
+      "publishedAt": "2024-11-07"
+    },
+    {
+      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
+      "url": "https://arxiv.org/abs/2411.15114",
+      "type": "paper",
+      "publishedAt": "2024-11-22"
+    },
+    {
+      "label": "OpenAI: Introducing AgentKit",
+      "url": "https://openai.com/index/introducing-agentkit/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "Microsoft: Introducing Microsoft Agent Framework",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
+      "type": "official",
+      "publishedAt": "2025-10-01"
+    },
+    {
+      "label": "Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-azure-ai-foundry-agent-service/",
+      "type": "official",
+      "publishedAt": "2025-11-25"
+    }
+  ],
+  "draft": false
+}

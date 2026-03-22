@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>control plane と eval discipline が、agent 導入の速度を決め始める</h2>
+  <p>1月までの情報を踏まえると、agent の成否を分けるのは model upgrade そのものより、同じ workflow を継続的に評価・改善できる control plane を持てるかどうかになっている。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">52件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>evals が『品質確認』から『運用 discipline』へ変わる</h3>
+      <p>Anthropic の demystifying evals は、agent を実務で使うには regression の考え方が必要だと明確にした。評価はデモの採点ではなく、変更後も壊れていないことを確かめる日常作業になる。</p>
+    </article><article class="comparison-card">
+      <h3>control plane が iteration の速度を左右する</h3>
+      <p>trace、approval、policy、run history がまとまっている team は、失敗箇所の特定と修正が速い。これは model quality だけでは埋められない差である。</p>
+    </article><article class="comparison-card">
+      <h3>agent は supervised worker として設計される</h3>
+      <p>最新の公式情報を通しで見ると、agent は autonomous magic ではなく、範囲、指示、観測、承認を持つ worker として整理されつつある。ここにプロダクト設計の成熟が表れている。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>workflow QA と regression testing</h3>
+      <ul class="bullet-list"><li>agent に任せる代表タスクを固定し、変更ごとに再実行して差分を見る。</li><li>tool chain が増えるほど、この基礎体力が rollout の前提になる。</li></ul>
+    </article><article class="comparison-card">
+      <h3>対外窓口の supervised automation</h3>
+      <ul class="bullet-list"><li>初回返信や情報整理は自動化しつつ、確定返答は人間が保持する。</li><li>regression evaluation があれば、変更の影響範囲を見ながら自動化範囲を広げやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>2月時点での実務論点は、agent を増やすことではなく、変化に耐える eval discipline と control plane を持てるかだった。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>workflow ごとに regression suite を持ち、改善のたびに回す。</li><li>policy review と approval step の変更履歴を残す。</li><li>model upgrade を導入理由にせず、workflow 指標の改善で判断する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2026年2月の時点で、agent rollout の速度を決めるのは frontier model ではなく、control plane と eval discipline の有無になりつつあった。</p>
+</section>

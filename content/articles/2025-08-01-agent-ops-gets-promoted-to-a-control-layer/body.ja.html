@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>AgentOps は補助機能ではなく control layer として扱われ始める</h2>
+  <p>この月の時点で目立つのは、agent を『動かす』ことより『止める・観測する・やり直す』ことが製品議論の中に入り始めたことだ。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">43件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>運用観測が purchase criteria に近づく</h3>
+      <p>Foundry 系の GA と Developer Essentials、OpenAI の Responses API 更新、Google の MCP 連携を見ると、team が求めているのは『何が起きたか見えること』である。trace と run history の有無が製品選定に効き始めている。</p>
+    </article><article class="comparison-card">
+      <h3>tool governance がモデル性能と別軸で効く</h3>
+      <p>どの tool を使えるか、どの操作は review 必須か、失敗時にどう roll back するかは、モデルの精度が高くても残る論点である。AgentOps はこの制御面をまとめて扱う層として重要度を増している。</p>
+    </article><article class="comparison-card">
+      <h3>『運用できる team』が成果差を生みやすい</h3>
+      <p>同じ基盤を使っていても、trace を見て改善できる team は iteration が速い。導入差は model choice より、運用面を回せる体制で開きやすい。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>support case operations</h3>
+      <ul class="bullet-list"><li>問い合わせの分類、既知事例の参照、返信ドラフト作成までを自動化する。</li><li>trace が取れていれば、誤分類や誤参照の原因を後から追いやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>IT 運用の診断補助</h3>
+      <ul class="bullet-list"><li>監視アラート、runbook、直近の変更情報をまとめて原因候補を整理する。</li><li>run history が残れば、再発時の比較や再現テストに使いやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>8月時点では、agent を導入する team に必要なのは、prompt のうまさより trace を読み、改善を回せる運用能力だった。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>trace、session、tool call history を標準で保存する。</li><li>review 画面や承認 UI を agent の外ではなく運用基盤の一部として考える。</li><li>失敗した run の再試行条件と recovery path を定義する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年8月の時点で、agent platform の差は『何ができるか』より『問題が起きたときにどう見えるか』で測られ始めていた。</p>
+</section>

@@ -33,7 +33,7 @@ Each article lives in:
 
 `publishedSources` rules:
 
-- show only official documentation or papers
+- show only official documentation, vendor-published announcement / release / launch / product update pages, or papers
 - each item needs `label`, `url`, `type`
 - `type` must be `official` or `paper`
 - do not include news articles, blogs, recap pages, or other third-party copyrighted material
@@ -46,13 +46,15 @@ Each article lives in:
    - refresh a public article and redeploy
 2. For unstable topics, browse first.
 3. Use broad discovery to identify themes and likely official sources.
-4. Build a research inventory of 20 or more official-doc or paper URLs before publishing a new article or substantial rewrite.
+4. Build a research inventory of 20 or more primary-source URLs before publishing a new article or substantial rewrite.
 5. Narrow public evidence to sources you can verify directly.
 6. If a source cannot be verified on its official page or paper page, exclude it from `publishedSources`.
+7. For retrospective articles, only use sources that were publicly available on or before the article date.
 
 Good official-source buckets:
 
 - vendor docs: OpenAI, Anthropic, Google, Microsoft, AWS, standards bodies
+- vendor announcement, release, launch, and product update pages on official domains
 - paper pages: arXiv, conference proceedings, official lab or university paper pages
 - official repos only when they are clearly the primary source for the claim
 
@@ -78,7 +80,7 @@ For substantial pieces, prefer a structure like:
 4. use-case archetypes
 5. concrete scenarios
 6. design, evaluation, and governance implications
-7. executive takeaway
+7. key takeaway
 
 Depth rules:
 
@@ -87,6 +89,7 @@ Depth rules:
 - mention approval boundaries, tool access, or operational constraints where relevant
 - keep Japanese and English versions aligned in meaning
 - avoid exposing repo-internal policy wording in public copy
+- for retrospective month-start snapshots, write from the perspective of what was knowable at that time
 
 ## 5. Build and verification
 
@@ -119,8 +122,9 @@ If the user wants publication:
 Before you stop, check:
 
 - official-doc or paper inventory reached 20 or more URLs for a new or heavily revised article
-- `publishedSources` contains only official docs or papers
+- retrospective articles only cite sources available by the article date
+- `publishedSources` contains only official docs, official announcement / release pages, or papers
 - the article has specific use cases and concrete scenarios
-- the article reads like an executive briefing, not a source dump
+- the article reads like a coherent synthesis, not a source dump
 - `pnpm build` succeeds
 - if published, GitHub Actions deploy succeeds

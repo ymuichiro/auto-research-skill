@@ -1,0 +1,66 @@
+{
+  "slug": "agent-architecture-matters-more-than-model-novelty",
+  "date": "2026-03-01",
+  "titleJa": "agent architecture は model novelty よりも重要な比較軸になっていく",
+  "titleEn": "Agent architecture is becoming a more important comparison axis than model novelty",
+  "summaryJa": "2026年3月1日時点では、2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっていることがより明確になっていた。",
+  "summaryEn": "By March 1, 2026, the accumulated 2025 launch cycle plus the benchmark literature had made it much clearer that protocol, SDK, runtime, evals, and approvals together define the real architecture question in agent adoption.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Architecture",
+    "Governance"
+  ],
+  "publishedSources": [
+    {
+      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
+      "url": "https://arxiv.org/abs/2411.15114",
+      "type": "paper",
+      "publishedAt": "2024-11-22"
+    },
+    {
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5 for developers",
+      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
+      "type": "official",
+      "publishedAt": "2025-08-07"
+    },
+    {
+      "label": "Microsoft Azure: Agent Factory, designing the open agentic web stack",
+      "url": "https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/",
+      "type": "official",
+      "publishedAt": "2025-09-24"
+    },
+    {
+      "label": "OpenAI: Introducing AgentKit",
+      "url": "https://openai.com/index/introducing-agentkit/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "Microsoft: Introducing Microsoft Agent Framework",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
+      "type": "official",
+      "publishedAt": "2025-10-01"
+    },
+    {
+      "label": "Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-azure-ai-foundry-agent-service/",
+      "type": "official",
+      "publishedAt": "2025-11-25"
+    },
+    {
+      "label": "Anthropic: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "type": "official",
+      "publishedAt": "2026-01-09"
+    }
+  ],
+  "draft": false
+}

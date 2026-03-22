@@ -1,0 +1,66 @@
+{
+  "slug": "the-2025-signal-is-operational-boundaries",
+  "date": "2026-01-01",
+  "titleJa": "2025年を振り返ると、最も強いシグナルは operational boundary の明確化だった",
+  "titleEn": "Looking back on 2025, the strongest signal was the rise of explicit operational boundaries",
+  "summaryJa": "2026年1月時点で 2025 年を通して見返すと、agent stack の主戦場は model novelty より、control plane、protocol、evaluation、approval を含む operational boundary に移っていた。",
+  "summaryEn": "Looking back from January 2026, the main battleground of the 2025 agent stack had shifted away from model novelty toward operational boundaries that include control planes, protocols, evaluation, and approvals.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Operations",
+    "Strategy"
+  ],
+  "publishedSources": [
+    {
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
+      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
+      "type": "official",
+      "publishedAt": "2025-06-23"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5 for developers",
+      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
+      "type": "official",
+      "publishedAt": "2025-08-07"
+    },
+    {
+      "label": "Anthropic: Building agents with the Claude Agent SDK",
+      "url": "https://www.anthropic.com/engineering/claude-agent-sdk",
+      "type": "official",
+      "publishedAt": "2025-09-29"
+    },
+    {
+      "label": "Microsoft Azure: Agent Factory, designing the open agentic web stack",
+      "url": "https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/",
+      "type": "official",
+      "publishedAt": "2025-09-24"
+    },
+    {
+      "label": "OpenAI: Introducing AgentKit",
+      "url": "https://openai.com/index/introducing-agentkit/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "Microsoft: Introducing Microsoft Agent Framework",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
+      "type": "official",
+      "publishedAt": "2025-10-01"
+    },
+    {
+      "label": "Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-azure-ai-foundry-agent-service/",
+      "type": "official",
+      "publishedAt": "2025-11-25"
+    }
+  ],
+  "draft": false
+}

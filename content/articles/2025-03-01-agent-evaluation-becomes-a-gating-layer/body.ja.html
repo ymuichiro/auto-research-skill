@@ -1,0 +1,61 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく</h2>
+  <p>この月までに集まっていた一次情報を並べると、エージェントは『動いたら成功』の段階を越えつつあり、どのタスクなら再現できるか、失敗をどう観測するかが中心論点になっていた。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">10件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">31件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>ベンチマークの増加が、評価軸の粗さを露出させる</h3>
+      <p>AgentBench、GAIA、SWE-bench、OSWorld、BrowserGym は、評価対象が単一質問では足りないことを示した。逆に言えば、社内で同じ粒度の評価セットを持たないまま PoC を進める危うさも見え始めている。</p>
+    </article><article class="comparison-card">
+      <h3>公式側も tracing と guardrail の必要性を前提化する</h3>
+      <p>Anthropic の effective agents と Google の評価系の発信は、プロンプト改善だけではなく、途中過程の観測と失敗の扱いを分離して考える必要性を強めている。導入論点が、回答品質から運用品質へ移る流れだ。</p>
+    </article><article class="comparison-card">
+      <h3>モデル更新より、適用範囲の切り方が効く</h3>
+      <p>この時点での公開根拠を読むと、同じモデルを使っていても、対象タスクを絞ったチームのほうが現実的な成果に近づいている。導入判断では『何をさせないか』が重要になっている。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>リサーチ・ダイジェスト作成</h3>
+      <ul class="bullet-list"><li>公開資料を集め、論点を分類し、下書きや比較表の初稿を作る。</li><li>引用可能な一次情報と探索用の情報源を分ければ、検証しやすい運用にしやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>問い合わせ一次切り分け</h3>
+      <ul class="bullet-list"><li>問い合わせの意図を分類し、必要な文書や runbook を引いて回答案を作る。</li><li>不確かな案件だけ人間へ上げる構成なら、評価セットを作りやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>ここで必要なのは、モデルの新旧比較より、自社の代表タスクで何を失敗とみなすかを先に決めることだった。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>代表的な 10 件前後の業務タスクに対し、完遂率と再現性を測る。</li><li>失敗した run を人間がレビューできる trace を必ず残す。</li><li>エスカレーション条件を先に定め、曖昧案件の無理な自動化を避ける。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年3月の時点で、エージェント導入の差は『できることの派手さ』より『失敗を測れること』で開き始めていた。</p>
+</section>

@@ -1,0 +1,78 @@
+{
+  "slug": "agents-shift-to-measurable-systems",
+  "date": "2025-01-01",
+  "titleJa": "AI エージェントは、派手なデモから測定可能なシステム設計へ",
+  "titleEn": "AI agents are moving from flashy demos to measurable system design",
+  "summaryJa": "2025年1月時点では、ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の 2024 年公式発表を通じて、関心が prompt 実験からツール接続、環境操作、評価可能なシステム設計へ移っていることが見えていた。",
+  "summaryEn": "As of January 2025, the combination of agent papers from ReAct through BrowserGym and 2024 announcements from Anthropic, AWS, and Google already pointed to a shift away from prompt experiments toward tool-connected, environment-aware, measurable systems.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Roundup",
+    "Benchmark",
+    "Tool Use"
+  ],
+  "publishedSources": [
+    {
+      "label": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "type": "paper",
+      "publishedAt": "2022-10-07"
+    },
+    {
+      "label": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "url": "https://arxiv.org/abs/2302.04761",
+      "type": "paper",
+      "publishedAt": "2023-02-09"
+    },
+    {
+      "label": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
+      "url": "https://arxiv.org/abs/2307.13854",
+      "type": "paper",
+      "publishedAt": "2023-07-26"
+    },
+    {
+      "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "url": "https://arxiv.org/abs/2310.06770",
+      "type": "paper",
+      "publishedAt": "2023-10-10"
+    },
+    {
+      "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+      "url": "https://arxiv.org/abs/2404.07972",
+      "type": "paper",
+      "publishedAt": "2024-04-11"
+    },
+    {
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "AWS: Agents for Amazon Bedrock simplified creation and configuration",
+      "url": "https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/",
+      "type": "official",
+      "publishedAt": "2024-04-23"
+    },
+    {
+      "label": "Google Cloud: Build generative AI experiences with Vertex AI Agent Builder",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder",
+      "type": "official",
+      "publishedAt": "2024-04-09"
+    },
+    {
+      "label": "Anthropic: Tool use is now available on Claude",
+      "url": "https://www.anthropic.com/news/tool-use-ga",
+      "type": "official",
+      "publishedAt": "2024-05-30"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
+    }
+  ],
+  "draft": false
+}
