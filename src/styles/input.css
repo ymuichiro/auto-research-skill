@@ -157,7 +157,7 @@
     letter-spacing: -0.03em;
     line-height: 1.05;
     margin-top: 1rem;
-    max-width: 100%;
+    max-width: 980px;
     text-wrap: balance;
   }
 
@@ -166,11 +166,7 @@
     font-size: clamp(0.98rem, 1.25vw, 1.15rem);
     line-height: 2;
     margin-top: 1.5rem;
-    max-width: 62ch;
-  }
-
-  .hero-panel-home .hero-copy {
-    max-width: 100%;
+    max-width: 980px;
   }
 
   .content-stack {
@@ -315,7 +311,7 @@
     letter-spacing: -0.03em;
     line-height: 1.22;
     margin-top: 1.2rem;
-    max-width: 18ch;
+    max-width: 100%;
   }
 
   .article-card-featured .article-card-copy {
