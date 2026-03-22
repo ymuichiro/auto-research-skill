@@ -44,8 +44,8 @@ export const siteConfig = {
     en: "Research Signal"
   },
   taglines: {
-    ja: "公式ドキュメントと論文を根拠に、AI の実務トレンドを見える化する。",
-    en: "Visualizing practical AI trends with official documentation and paper-backed evidence."
+    ja: "AI とエージェントの重要シグナルを、一次情報から読み解く。",
+    en: "Reading the key signals in AI and agents through primary-source reporting."
   },
   nav: {
     ja: [

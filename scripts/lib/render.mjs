@@ -8,7 +8,7 @@ const localeCopy = {
     latestTitle: "最新レポート",
     archiveIntro: "公開済みレポートを日付順に一覧化しています。",
     latestIntro:
-      "AI の導入事例、ユースケース、技術トレンドをインフォグラフィック形式で整理しています。",
+      "主要な発表、論文、実装の動きを横断しながら、AI の実務トレンドを簡潔に追います。",
     sourceHeading: "公開根拠",
     sourceNote: "公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。",
     allReports: "すべてのレポートを見る",
@@ -25,7 +25,7 @@ const localeCopy = {
     latestTitle: "Latest Briefings",
     archiveIntro: "Published briefings listed in reverse chronological order.",
     latestIntro:
-      "Static infographic briefings on AI deployments, use cases, and technical direction.",
+      "Tracking major launches, papers, and implementation signals to follow practical AI direction.",
     sourceHeading: "Published evidence",
     sourceNote:
       "Public pages list only evidence that can be verified as official documentation or papers.",
@@ -237,7 +237,7 @@ export function renderPage({
         <a class="lang-switch" href="${toggle.href}">${escapeHtml(toggle.label)}</a>
       </header>
       <main class="site-main">
-        <section class="hero-panel">
+        <section class="hero-panel ${pageType === "home" ? "hero-panel-home" : ""}">
           <p class="section-kicker">${escapeHtml(siteConfig.heroKicker[locale])}</p>
           <h1 class="hero-title">${escapeHtml(pageHeading)}</h1>
           <p class="hero-copy">${escapeHtml(pageIntro)}</p>
@@ -255,13 +255,14 @@ export function renderPage({
 </html>`;
 }
 
-function renderArticleCard(article, locale) {
+function renderArticleCard(article, locale, { featured = false } = {}) {
   const title = locale === "ja" ? article.titleJa : article.titleEn;
   const summary = locale === "ja" ? article.summaryJa : article.summaryEn;
   const path = locale === "ja" ? article.outputPaths.ja : article.outputPaths.en;
   const copy = localeCopy[locale];
+  const href = localizedPath(locale, path.replace(/^en\//, ""));
 
-  return `<article class="article-card">
+  return `<a class="article-card ${featured ? "article-card-featured" : ""}" href="${href}" aria-label="${escapeHtml(title)}">
     <div class="meta-row justify-between">
       <span class="meta-pill is-accent">${escapeHtml(article.category)}</span>
       <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
@@ -273,14 +274,16 @@ function renderArticleCard(article, locale) {
       .join("")}</div>
     <div class="article-card-foot">
       <span class="mono-note">${copy.sourceCount}: ${article.publishedSources.length}</span>
-      <a class="text-link" href="${localizedPath(locale, path.replace(/^en\//, ""))}">${escapeHtml(copy.readReport)}</a>
+      <span class="text-link">${escapeHtml(copy.readReport)}</span>
     </div>
-  </article>`;
+  </a>`;
 }
 
 export function renderIndexPage(locale, articles) {
   const copy = localeCopy[locale];
-  const cards = articles.map((article) => renderArticleCard(article, locale)).join("");
+  const cards = articles
+    .map((article, index) => renderArticleCard(article, locale, { featured: index === 0 }))
+    .join("");
   const body = `<section class="panel-block">
       <div class="flex items-center justify-between gap-4">
         <div>
@@ -300,6 +303,7 @@ export function renderIndexPage(locale, articles) {
     pageHeading: siteConfig.taglines[locale],
     pageIntro: copy.latestIntro,
     body,
+    pageType: "home",
     currentNavPath: copy.homePath,
     breadcrumbs: [{ name: copy.homeTitle, path: copy.homePath }]
   });
