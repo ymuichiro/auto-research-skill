@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>agent architecture は model novelty よりも重要な比較軸になっていく | Auto Research Digest</title>
+    <meta name="description" content="2026年3月1日時点では、2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっていることがより明確になっていた。">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="agent architecture は model novelty よりも重要な比較軸になっていく">
+    <meta property="og:description" content="2026年3月1日時点では、2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっていることがより明確になっていた。">
+    <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
+    <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="agent architecture は model novelty よりも重要な比較軸になっていく">
+    <meta name="twitter:description" content="2026年3月1日時点では、2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっていることがより明確になっていた。">
+    <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
+    <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
+    <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
+    <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
+    <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"agent architecture は model novelty よりも重要な比較軸になっていく","description":"2026年3月1日時点では、2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっていることがより明確になっていた。","datePublished":"2026-03-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-03-01-agent-architecture-matters-more-than-model-novelty.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-03-01-agent-architecture-matters-more-than-model-novelty.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/auto-research-skill/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/auto-research-skill/">トップ</a><a class="nav-link " href="/auto-research-skill/archive/">アーカイブ</a><a class="nav-link " href="/auto-research-skill/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/auto-research-skill/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">agent architecture は model novelty よりも重要な比較軸になっていく</h1>
+          <p class="hero-copy">2026年3月1日時点では、2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっていることがより明確になっていた。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-01">2026年3月1日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Architecture</span><span class="meta-chip">Governance</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>agent architecture は model novelty よりも重要な比較軸になっていく</h2>
+  <p>3月初日時点で振り返ると、agent stack はすでに recognizable な層構造を持ち始めている。model、tooling、protocol、runtime、control plane、approval が別々に比較される段階に入った。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">52件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>architecture の層が見えるようになる</h3>
+      <p>2025年の各発表をつなぐと、agent stack は model ひとつで語れなくなっている。protocol と SDK が接続を担い、runtime と control plane が運用を担うという分担が見えやすい。</p>
+    </article><article class="comparison-card">
+      <h3>bounded autonomy が現実路線として定着する</h3>
+      <p>最も筋のよいユースケースは、いまだに bounded workflow に集中している。違うのは、その bounded workflow がより多くの tool、data source、worker をまたげるようになったことだ。</p>
+    </article><article class="comparison-card">
+      <h3>比較すべきものは model より architecture になる</h3>
+      <p>どのベンダーが強いかを考えるときも、問うべきは model だけではない。protocol、developer tooling、approval、evals、interoperability をどう束ねるかが差を作る。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>multi-system enterprise assistant</h3>
+      <ul class="bullet-list"><li>検索、データ参照、通知、チケット更新、承認依頼をひとつの architecture で束ねる。</li><li>bounded autonomy を保ちながら、対象システムだけ広げる設計が現実的である。</li></ul>
+    </article><article class="comparison-card">
+      <h3>開発と調査をつなぐ loop</h3>
+      <ul class="bullet-list"><li>issue の理解、関連調査、修正案、テスト観点、説明文の下書きを連携させる。</li><li>model を替えるより、workflow の観測性と human review を厚くしたほうが成果が安定しやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>3月1日時点で必要なのは、agent を『何ができるか』で語ることではなく、『どの architecture で運用するか』に翻訳することだった。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>protocol、runtime、control plane を別レイヤーとして設計し、入れ替えやすくする。</li><li>bounded workflow から始め、recovery path がある範囲だけ autonomy を広げる。</li><li>vendor comparison は model と価格だけでなく、evaluation と approval の実装容易性で見る。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2026年3月1日の時点で、agent 導入の主論点は『どの model を選ぶか』より『どの architecture を維持できるか』へかなり移っていた。</p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年11月22日</span>
+              </div>
+              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
+              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年12月6日</span>
+              </div>
+              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-5-for-developers/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年8月7日</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing GPT-5 for developers</p>
+              <p class="source-url">https://openai.com/index/introducing-gpt-5-for-developers/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年9月24日</span>
+              </div>
+              <p class="source-title">Microsoft Azure: Agent Factory, designing the open agentic web stack</p>
+              <p class="source-url">https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-agentkit/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年10月6日</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing AgentKit</p>
+              <p class="source-url">https://openai.com/index/introducing-agentkit/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年10月1日</span>
+              </div>
+              <p class="source-title">Microsoft: Introducing Microsoft Agent Framework</p>
+              <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-azure-ai-foundry-agent-service/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年11月25日</span>
+              </div>
+              <p class="source-title">Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service</p>
+              <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-azure-ai-foundry-agent-service/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年1月9日</span>
+              </div>
+              <p class="source-title">Anthropic: Demystifying evals for AI agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">公式ドキュメントと論文を根拠に、AI の実務トレンドを見える化する。</p>
+      </footer>
+    </div>
+  </body>
+</html>

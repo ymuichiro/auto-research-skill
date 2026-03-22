@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める | Auto Research Digest</title>
+    <meta name="description" content="2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める">
+    <meta property="og:description" content="2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。">
+    <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
+    <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める">
+    <meta name="twitter:description" content="2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。">
+    <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
+    <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
+    <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
+    <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
+    <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める","description":"2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。","datePublished":"2025-06-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/auto-research-skill/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/auto-research-skill/">トップ</a><a class="nav-link " href="/auto-research-skill/archive/">アーカイブ</a><a class="nav-link " href="/auto-research-skill/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/auto-research-skill/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める</h1>
+          <p class="hero-copy">2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-06-01">2025年6月1日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める</h2>
+  <p>5月後半の発表では、agent の価値を model quality ではなく、役割分担、実行 trace、approval、evaluation と結びつける動きが目立つ。multi-agent は『できる』ではなく『どう運用する』が論点になった。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">41件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>managed agent service が本番運用を前提にし始める</h3>
+      <p>Azure AI Foundry Agent Service の GA は、agent を試験機能ではなく長期運用対象として扱う姿勢を明確にした。developer essentials でも、開発・観測・改善の一連の流れをまとめている。</p>
+    </article><article class="comparison-card">
+      <h3>OpenAI 側では responses と tools が workflow 構成要素になる</h3>
+      <p>Responses API の更新は、画像生成、code interpreter、file search などを agent workflow に組み込む方向を強めた。単発の回答より、複数ステップの実行系として agent を設計しやすくなる。</p>
+    </article><article class="comparison-card">
+      <h3>multi-agent の論点は分業と評価へ移る</h3>
+      <p>Semantic Kernel の orchestration 発信が示すのは、複数エージェントを増やすこと自体ではなく、planner、specialist、reviewer の責務をどう切るかだ。分業設計と評価設計が一体になる。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>承認を含む back-office フロー</h3>
+      <ul class="bullet-list"><li>申請、照会、文書生成、通知までを agent が下書きし、承認だけ人間が行う。</li><li>分業した worker を使うと、調査担当と実行担当を分けやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>調達・予算・FinOps の分析ループ</h3>
+      <ul class="bullet-list"><li>複数ソースから数字を集め、差分要因、例外、推奨アクションを整理する。</li><li>数値の最終判断は人間が持ちながら、調査と下書き生成を高速化できる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>この段階で必要なのは、multi-agent を派手に見せることではなく、役割ごとの入力・出力・停止条件を明文化することだった。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>planner、executor、reviewer などの役割ごとに責務と権限を切り分ける。</li><li>task completion、tool accuracy、review load のように評価軸を複数持つ。</li><li>監査用の trace と approval log を、運用開始前から保持する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年6月の時点で、multi-agent は研究テーマではなく、役割分担と監査性を伴う運用モデルとして考えるべき段階に入っていた。</p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年6月17日</span>
+              </div>
+              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</p>
+              <p class="source-url">https://arxiv.org/abs/2406.12045</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2411.04468" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年11月7日</span>
+              </div>
+              <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
+              <p class="source-url">https://arxiv.org/abs/2411.04468</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年4月9日</span>
+              </div>
+              <p class="source-title">Google Cloud: Build and manage multi-system agents with Vertex AI</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年4月9日</span>
+              </div>
+              <p class="source-title">Google Developers Blog: A2A, a new era of agent interoperability</p>
+              <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月19日</span>
+              </div>
+              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
+              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月19日</span>
+              </div>
+              <p class="source-title">Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry</p>
+              <p class="source-url">https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月21日</span>
+              </div>
+              <p class="source-title">OpenAI: New tools and features in the Responses API</p>
+              <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月27日</span>
+              </div>
+              <p class="source-title">Microsoft: Semantic Kernel multi-agent orchestration</p>
+              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">公式ドキュメントと論文を根拠に、AI の実務トレンドを見える化する。</p>
+      </footer>
+    </div>
+  </body>
+</html>

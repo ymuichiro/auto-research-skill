@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI エージェントは、派手なデモから測定可能なシステム設計へ | Auto Research Digest</title>
+    <meta name="description" content="2025年1月時点では、ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の 2024 年公式発表を通じて、関心が prompt 実験からツール接続、環境操作、評価可能なシステム設計へ移っていることが見えていた。">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="AI エージェントは、派手なデモから測定可能なシステム設計へ">
+    <meta property="og:description" content="2025年1月時点では、ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の 2024 年公式発表を通じて、関心が prompt 実験からツール接続、環境操作、評価可能なシステム設計へ移っていることが見えていた。">
+    <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2025-01-01-agents-shift-to-measurable-systems.html">
+    <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI エージェントは、派手なデモから測定可能なシステム設計へ">
+    <meta name="twitter:description" content="2025年1月時点では、ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の 2024 年公式発表を通じて、関心が prompt 実験からツール接続、環境操作、評価可能なシステム設計へ移っていることが見えていた。">
+    <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2025-01-01-agents-shift-to-measurable-systems.html">
+    <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2025-01-01-agents-shift-to-measurable-systems.html">
+    <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2025-01-01-agents-shift-to-measurable-systems.html">
+    <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2025-01-01-agents-shift-to-measurable-systems.html">
+    <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI エージェントは、派手なデモから測定可能なシステム設計へ","description":"2025年1月時点では、ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の 2024 年公式発表を通じて、関心が prompt 実験からツール接続、環境操作、評価可能なシステム設計へ移っていることが見えていた。","datePublished":"2025-01-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-01-01-agents-shift-to-measurable-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-01-01-agents-shift-to-measurable-systems.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/auto-research-skill/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/auto-research-skill/">トップ</a><a class="nav-link " href="/auto-research-skill/archive/">アーカイブ</a><a class="nav-link " href="/auto-research-skill/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/auto-research-skill/en/2025-01-01-agents-shift-to-measurable-systems.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">AI エージェントは、派手なデモから測定可能なシステム設計へ</h1>
+          <p class="hero-copy">2025年1月時点では、ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の 2024 年公式発表を通じて、関心が prompt 実験からツール接続、環境操作、評価可能なシステム設計へ移っていることが見えていた。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-01-01">2025年1月1日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Tool Use</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>AI エージェントは、派手なデモから測定可能なシステム設計へ</h2>
+  <p>2025年1月の時点で見えていたのは、エージェント研究が回答品質よりも実環境での完遂率へ軸足を移し、公式発表側も tool use、computer use、managed agents を単発機能ではなくシステム設計として扱い始めたことだ。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">10件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">28件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>評価単位が『うまい回答』から『完了できた仕事』へ移る</h3>
+      <p>ReAct と Toolformer が基本形を示した後、WebArena、SWE-bench、OSWorld、BrowserGym は、評価の中心を実在タスクの完遂率へ押し出した。年末時点では、エージェントはチャット拡張ではなく作業システムとして見られ始めている。</p>
+    </article><article class="comparison-card">
+      <h3>公式発表もツール接続と監督を前提にし始める</h3>
+      <p>AWS の Bedrock Agents、Google の Vertex AI Agent Builder、Anthropic の tool use と effective agents は、モデル単体よりもツール呼び出し、制御、承認、実行境界を前面に出している。実装論点が API 単体から構成設計へ移っている。</p>
+    </article><article class="comparison-card">
+      <h3>早期導入は境界の明確な業務に集約する</h3>
+      <p>2024年末までの一次情報だけを見ても、成功しやすい用途は、使うツールが決まっていて、完了条件を書けて、失敗時に人間へ差し戻せる仕事である。『何でもできる AI』より、手順化できる作業への適用が現実的だった。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>障害切り分けと修正案作成</h3>
+      <ul class="bullet-list"><li>issue、ログ、過去の変更履歴を読み、関連箇所と調査観点を先に絞り込む。</li><li>修正候補やテスト観点の下書きまでは任せ、実変更やマージは人間承認に残す。</li></ul>
+    </article><article class="comparison-card">
+      <h3>社内ナレッジ検索と定型アクション</h3>
+      <ul class="bullet-list"><li>社内文書や FAQ を参照し、回答案や依頼文の下書きを作る。</li><li>送信、更新、申請などの書き込み系操作は承認点を置き、権限の境界を保つ。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>この段階では、モデル選定よりも『どの業務区間なら安全に測れるか』を決めるほうが、PoC の成否に直結していた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>モデル比較の前に、使わせるツールと禁止する操作を文章で決める。</li><li>社内の代表タスクを 5〜10 件選び、完遂率とレビュー負荷で測る。</li><li>書き込みや外部送信を伴う操作は、必ず人間承認点を先に置く。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年の出発点で重要だったのは、賢そうに見えるデモを増やすことではなく、完了条件と責任境界を持つ小さな業務へ落とし込めるかだった。</p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2022年10月7日</span>
+              </div>
+              <p class="source-title">ReAct: Synergizing Reasoning and Acting in Language Models</p>
+              <p class="source-url">https://arxiv.org/abs/2210.03629</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2302.04761" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2023年2月9日</span>
+              </div>
+              <p class="source-title">Toolformer: Language Models Can Teach Themselves to Use Tools</p>
+              <p class="source-url">https://arxiv.org/abs/2302.04761</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2307.13854" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2023年7月26日</span>
+              </div>
+              <p class="source-title">WebArena: A Realistic Web Environment for Building Autonomous Agents</p>
+              <p class="source-url">https://arxiv.org/abs/2307.13854</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2023年10月10日</span>
+              </div>
+              <p class="source-title">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
+              <p class="source-url">https://arxiv.org/abs/2310.06770</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年4月11日</span>
+              </div>
+              <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
+              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年12月6日</span>
+              </div>
+              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年4月23日</span>
+              </div>
+              <p class="source-title">AWS: Agents for Amazon Bedrock simplified creation and configuration</p>
+              <p class="source-url">https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年4月9日</span>
+              </div>
+              <p class="source-title">Google Cloud: Build generative AI experiences with Vertex AI Agent Builder</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/news/tool-use-ga" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年5月30日</span>
+              </div>
+              <p class="source-title">Anthropic: Tool use is now available on Claude</p>
+              <p class="source-url">https://www.anthropic.com/news/tool-use-ga</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年12月19日</span>
+              </div>
+              <p class="source-title">Anthropic: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">公式ドキュメントと論文を根拠に、AI の実務トレンドを見える化する。</p>
+      </footer>
+    </div>
+  </body>
+</html>

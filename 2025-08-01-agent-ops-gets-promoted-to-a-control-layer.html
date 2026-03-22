@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AgentOps は補助機能ではなく control layer として扱われ始める | Auto Research Digest</title>
+    <meta name="description" content="2025年8月時点では、春から初夏にかけての Foundry・OpenAI・Google の発表を通じて、agent stack の競争が trace、review、observability、tool governance といった control layer に移り始めていた。">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="AgentOps は補助機能ではなく control layer として扱われ始める">
+    <meta property="og:description" content="2025年8月時点では、春から初夏にかけての Foundry・OpenAI・Google の発表を通じて、agent stack の競争が trace、review、observability、tool governance といった control layer に移り始めていた。">
+    <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
+    <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AgentOps は補助機能ではなく control layer として扱われ始める">
+    <meta name="twitter:description" content="2025年8月時点では、春から初夏にかけての Foundry・OpenAI・Google の発表を通じて、agent stack の競争が trace、review、observability、tool governance といった control layer に移り始めていた。">
+    <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
+    <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
+    <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
+    <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
+    <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AgentOps は補助機能ではなく control layer として扱われ始める","description":"2025年8月時点では、春から初夏にかけての Foundry・OpenAI・Google の発表を通じて、agent stack の競争が trace、review、observability、tool governance といった control layer に移り始めていた。","datePublished":"2025-08-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/auto-research-skill/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/auto-research-skill/">トップ</a><a class="nav-link " href="/auto-research-skill/archive/">アーカイブ</a><a class="nav-link " href="/auto-research-skill/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/auto-research-skill/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">AgentOps は補助機能ではなく control layer として扱われ始める</h1>
+          <p class="hero-copy">2025年8月時点では、春から初夏にかけての Foundry・OpenAI・Google の発表を通じて、agent stack の競争が trace、review、observability、tool governance といった control layer に移り始めていた。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-08-01">2025年8月1日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>AgentOps は補助機能ではなく control layer として扱われ始める</h2>
+  <p>この月の時点で目立つのは、agent を『動かす』ことより『止める・観測する・やり直す』ことが製品議論の中に入り始めたことだ。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">8件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">43件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>運用観測が purchase criteria に近づく</h3>
+      <p>Foundry 系の GA と Developer Essentials、OpenAI の Responses API 更新、Google の MCP 連携を見ると、team が求めているのは『何が起きたか見えること』である。trace と run history の有無が製品選定に効き始めている。</p>
+    </article><article class="comparison-card">
+      <h3>tool governance がモデル性能と別軸で効く</h3>
+      <p>どの tool を使えるか、どの操作は review 必須か、失敗時にどう roll back するかは、モデルの精度が高くても残る論点である。AgentOps はこの制御面をまとめて扱う層として重要度を増している。</p>
+    </article><article class="comparison-card">
+      <h3>『運用できる team』が成果差を生みやすい</h3>
+      <p>同じ基盤を使っていても、trace を見て改善できる team は iteration が速い。導入差は model choice より、運用面を回せる体制で開きやすい。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>support case operations</h3>
+      <ul class="bullet-list"><li>問い合わせの分類、既知事例の参照、返信ドラフト作成までを自動化する。</li><li>trace が取れていれば、誤分類や誤参照の原因を後から追いやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>IT 運用の診断補助</h3>
+      <ul class="bullet-list"><li>監視アラート、runbook、直近の変更情報をまとめて原因候補を整理する。</li><li>run history が残れば、再発時の比較や再現テストに使いやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>8月時点では、agent を導入する team に必要なのは、prompt のうまさより trace を読み、改善を回せる運用能力だった。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>trace、session、tool call history を標準で保存する。</li><li>review 画面や承認 UI を agent の外ではなく運用基盤の一部として考える。</li><li>失敗した run の再試行条件と recovery path を定義する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年8月の時点で、agent platform の差は『何ができるか』より『問題が起きたときにどう見えるか』で測られ始めていた。</p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年11月22日</span>
+              </div>
+              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
+              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年12月6日</span>
+              </div>
+              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月19日</span>
+              </div>
+              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
+              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-services-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月19日</span>
+              </div>
+              <p class="source-title">Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry</p>
+              <p class="source-url">https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月21日</span>
+              </div>
+              <p class="source-title">OpenAI: New tools and features in the Responses API</p>
+              <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月27日</span>
+              </div>
+              <p class="source-title">Microsoft: Semantic Kernel multi-agent orchestration</p>
+              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年6月4日</span>
+              </div>
+              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年6月23日</span>
+              </div>
+              <p class="source-title">Google Developers Blog: Google Cloud donates A2A to Linux Foundation</p>
+              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">公式ドキュメントと論文を根拠に、AI の実務トレンドを見える化する。</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める | Auto Research Digest</title>
+    <meta name="description" content="2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める">
+    <meta property="og:description" content="2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。">
+    <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html">
+    <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める">
+    <meta name="twitter:description" content="2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。">
+    <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html">
+    <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html">
+    <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2025-07-01-interoperability-leaves-the-roadmap.html">
+    <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html">
+    <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める","description":"2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。","datePublished":"2025-07-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-07-01-interoperability-leaves-the-roadmap.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/auto-research-skill/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/auto-research-skill/">トップ</a><a class="nav-link " href="/auto-research-skill/archive/">アーカイブ</a><a class="nav-link " href="/auto-research-skill/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/auto-research-skill/en/2025-07-01-interoperability-leaves-the-roadmap.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める</h1>
+          <p class="hero-copy">2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-07-01">2025年7月1日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める</h2>
+  <p>6月の公開情報から見えるのは、agent platform が『自社製品だけで完結する箱』ではなく、他システムや他ベンダーと接続する前提を持ち始めたことだ。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
+      <p class="stat-value">6件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">43件</p>
+      <p class="stat-title">当月までの調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+    </article><article class="stat-card">
+      <p class="stat-value">2層</p>
+      <p class="stat-title">研究と公式発表</p>
+      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Stood Out</p>
+  <h2>この時点で見えていた主要シグナル</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>A2A が『将来対応』ではなく現在の論点になる</h3>
+      <p>Google が A2A を Linux Foundation へ寄贈したことは、相互運用性を単なるベンダー広報ではなく ecosystem 課題として扱う姿勢を示した。接続規約が固定化される可能性が見え始めている。</p>
+    </article><article class="comparison-card">
+      <h3>MCP 系の発表で、データ接続が一段具体化する</h3>
+      <p>Google Cloud の MCP integrations は、agent が会話するだけでなく、既存データベースや BI 基盤とどう接続するかを前に出した。これにより、agent は UI 層ではなく data-action layer として見やすくなる。</p>
+    </article><article class="comparison-card">
+      <h3>protocol をまたぐ設計が、運用責任も増やす</h3>
+      <p>相互運用性が進むほど、認証、権限、失敗時の責任分界も広がる。便利さだけでなく、接続先ごとの trust boundary をどう持つかが新しい運用論点になる。</p>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>その時点で現実味が高かったユースケース</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>データベース接続型の分析アシスタント</h3>
+      <ul class="bullet-list"><li>自然言語の問いから、必要なデータ取得、集計、説明文作成までをひとつの flow で扱う。</li><li>MCP のような共通接続層があると、データソース追加時の変更範囲を抑えやすい。</li></ul>
+    </article><article class="comparison-card">
+      <h3>複数ツールをまたぐ調査フロー</h3>
+      <ul class="bullet-list"><li>社内検索、Web 調査、表計算、通知をまたいで一次調査の下書きを作る。</li><li>接続先が増えるほど、どこまで自動で進めて、どこで人間へ返すかの設計が重要になる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・運用で先に決めるべきこと</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>7月時点では、相互運用性は『あれば便利』ではなく、将来の接続変更コストを左右する設計変数になり始めていた。</p>
+  </div>
+  <ul class="bullet-list mt-6"><li>protocol の境界ごとに認証、権限、fallback を定義する。</li><li>接続先追加を前提に、tool schema と session 情報を共通化する。</li><li>相互運用性を広げるほど、失敗時の責任分界を明文化する。</li></ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>この時点で引けた暫定結論</h2>
+  <p>2025年7月の時点で、agent の将来性は『どれだけ賢いか』だけでなく、『どれだけ接続先を増やしても壊れにくいか』で測られ始めていた。</p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年6月17日</span>
+              </div>
+              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</p>
+              <p class="source-url">https://arxiv.org/abs/2406.12045</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年12月6日</span>
+              </div>
+              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月21日</span>
+              </div>
+              <p class="source-title">OpenAI: New tools and features in the Responses API</p>
+              <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月27日</span>
+              </div>
+              <p class="source-title">Microsoft: Semantic Kernel multi-agent orchestration</p>
+              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年6月4日</span>
+              </div>
+              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年6月23日</span>
+              </div>
+              <p class="source-title">Google Developers Blog: Google Cloud donates A2A to Linux Foundation</p>
+              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">公式ドキュメントと論文を根拠に、AI の実務トレンドを見える化する。</p>
+      </footer>
+    </div>
+  </body>
+</html>
