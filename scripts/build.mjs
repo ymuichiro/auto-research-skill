@@ -41,14 +41,59 @@ async function buildSite() {
     await writeTextFile(path.join(outputRoot, article.outputPaths.en), renderArticlePage(article, "en"));
   }
 
+  const latestUpdate = liveArticles[0]?.date ?? new Date().toISOString().slice(0, 10);
   const sitemapEntries = [
-    { path: "", lastModified: liveArticles[0]?.date ?? new Date().toISOString().slice(0, 10) },
-    { path: "archive/", lastModified: liveArticles[0]?.date ?? new Date().toISOString().slice(0, 10) },
-    { path: "en/", lastModified: liveArticles[0]?.date ?? new Date().toISOString().slice(0, 10) },
-    { path: "en/archive/", lastModified: liveArticles[0]?.date ?? new Date().toISOString().slice(0, 10) },
+    {
+      path: "",
+      lastModified: latestUpdate,
+      alternates: [
+        { hreflang: "ja", path: "" },
+        { hreflang: "en", path: "en/" },
+        { hreflang: "x-default", path: "" }
+      ]
+    },
+    {
+      path: "archive/",
+      lastModified: latestUpdate,
+      alternates: [
+        { hreflang: "ja", path: "archive/" },
+        { hreflang: "en", path: "en/archive/" }
+      ]
+    },
+    {
+      path: "en/",
+      lastModified: latestUpdate,
+      alternates: [
+        { hreflang: "ja", path: "" },
+        { hreflang: "en", path: "en/" },
+        { hreflang: "x-default", path: "" }
+      ]
+    },
+    {
+      path: "en/archive/",
+      lastModified: latestUpdate,
+      alternates: [
+        { hreflang: "ja", path: "archive/" },
+        { hreflang: "en", path: "en/archive/" }
+      ]
+    },
     ...liveArticles.flatMap((article) => [
-      { path: article.outputPaths.ja, lastModified: article.date },
-      { path: article.outputPaths.en, lastModified: article.date }
+      {
+        path: article.outputPaths.ja,
+        lastModified: article.date,
+        alternates: [
+          { hreflang: "ja", path: article.outputPaths.ja },
+          { hreflang: "en", path: article.outputPaths.en }
+        ]
+      },
+      {
+        path: article.outputPaths.en,
+        lastModified: article.date,
+        alternates: [
+          { hreflang: "ja", path: article.outputPaths.ja },
+          { hreflang: "en", path: article.outputPaths.en }
+        ]
+      }
     ])
   ];
 

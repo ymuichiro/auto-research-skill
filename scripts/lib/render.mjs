@@ -351,13 +351,33 @@ export function renderAtomFeed(locale, articles) {
 }
 
 export function renderSitemap(entries) {
+  const normalizeLastModified = (value) => {
+    if (!value) {
+      return new Date().toISOString();
+    }
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+      return `${value}T00:00:00Z`;
+    }
+
+    return value;
+  };
+
   return `<?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 ${entries
   .map(
     (entry) => `  <url>
     <loc>${formatXml(absoluteUrl(entry.path))}</loc>
-    <lastmod>${entry.lastModified}</lastmod>
+${(entry.alternates ?? [])
+  .map(
+    (alternate) =>
+      `    <xhtml:link rel="alternate" hreflang="${formatXml(alternate.hreflang)}" href="${formatXml(
+        absoluteUrl(alternate.path)
+      )}"/>`
+  )
+  .join("\n")}
+    <lastmod>${normalizeLastModified(entry.lastModified)}</lastmod>
   </url>`
   )
   .join("\n")}
