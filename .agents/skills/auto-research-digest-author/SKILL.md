@@ -1,6 +1,6 @@
 ---
 name: auto-research-digest-author
-description: Research, write, and update Auto Research Digest articles about LLM, AI, and AI agents for this repository. Use this whenever the user asks to investigate the latest AI or agent trends, gather official docs or papers, expand an article in content/articles/, create a new bilingual executive briefing, or publish an infographic-style HTML report for this site. Always browse for current information, collect at least 20 official-doc or paper URLs before publishing a new or substantially revised article, keep public evidence limited to official docs and papers, and update both Japanese and English article files plus meta.json.
+description: Research, write, and update Auto Research Digest articles about LLM, AI, and AI agents for this repository. Use this whenever the user asks to investigate the latest AI or agent trends, gather official docs or papers, expand an article in content/articles/, create a new bilingual research briefing, or publish an infographic-style HTML report for this site. Always browse for current information, collect at least 20 official-doc or paper URLs before publishing a new or substantially revised article, keep public evidence limited to official docs and papers, and update both Japanese and English article files plus meta.json.
 compatibility: Requires repo write access, shell commands, and web research.
 ---
 
@@ -14,6 +14,7 @@ Before writing, read these files:
 
 - `/Users/you/github/ymuichiro/auto-research-skill/guidelines/information-sourcing-policy.md`
 - `/Users/you/github/ymuichiro/auto-research-skill/guidelines/editorial-expression-guideline.md`
+- `/Users/you/github/ymuichiro/auto-research-skill/guidelines/design-system.md`
 - `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/auto-research-digest-author/references/workflow.md`
 
 When updating an existing article, also read that article's `meta.json`, `body.ja.html`, and `body.en.html`.
@@ -40,13 +41,14 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 
 ## Writing Rules
 
-- Write for executives and business decision-makers, not only for engineers.
 - Keep the tone neutral and evidence-led.
 - Distinguish clearly between fact, observed pattern, and inference.
 - Avoid thin articles. Compare and synthesize sources; do not merely list them.
 - Always include concrete use cases or operating scenarios so the article is not purely conceptual.
 - Keep Japanese and English versions aligned in meaning and confidence level.
 - Do not expose internal workflow language such as "配信契約", internal audience notes, or repo-only operating details on public pages.
+- Do not introduce audience-label wording such as "経営層向け", "エグゼクティブ", or "executive" into public pages unless the user explicitly asks for it.
+- For layout and styling, rely on the shared template and shared CSS. Do not add page-specific CSS for ordinary article additions.
 
 ## Minimum Article Depth
 
@@ -57,7 +59,7 @@ Unless the user explicitly asks for a shorter format, aim to cover:
 - Concrete use-case archetypes
 - Concrete operational scenarios or workflow examples
 - Design, evaluation, and governance implications
-- A short executive takeaway
+- A short takeaway
 
 If the article still reads like an outline, add specifics:
 
@@ -76,6 +78,7 @@ If the article still reads like an outline, add specifics:
 - Output pages are generated to:
   - `public/YYYY-MM-DD-slug.html`
   - `public/en/YYYY-MM-DD-slug.html`
+- New article content should fit the shared design system automatically. Only add new reusable semantic blocks when the existing shared classes are insufficient.
 
 For exact commands, file fields, and publish steps, read `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/auto-research-digest-author/references/workflow.md`.
 
@@ -89,5 +92,5 @@ For exact commands, file fields, and publish steps, read `/Users/you/github/ymui
 
 - "最新の AI Agent 動向を調べて新規記事を書いて"
 - "この既存記事を一次情報で厚くして"
-- "OpenAI / Google / Microsoft の公式 docs と論文を調べて経営層向けにまとめて"
+- "OpenAI / Google / Microsoft の公式 docs と論文を調べて中立的にまとめて"
 - "このトピックを Auto Research Digest の記事として公開して"
