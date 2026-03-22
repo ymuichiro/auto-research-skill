@@ -21,12 +21,12 @@ export const siteConfig = {
   themeColor: "#0d0f14",
   ogImage: "assets/og-default.svg",
   description: {
-    ja: "LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理する経営層向けリサーチ配信サイト。",
-    en: "A neutral executive briefing site on LLM, AI, and AI agent use cases, technical trends, and market direction."
+    ja: "LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理するリサーチ配信サイト。",
+    en: "A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction."
   },
   heroKicker: {
-    ja: "Executive Research Signal",
-    en: "Executive Research Signal"
+    ja: "Research Signal",
+    en: "Research Signal"
   },
   taglines: {
     ja: "公式ドキュメントと論文を根拠に、AI の実務トレンドを見える化する。",

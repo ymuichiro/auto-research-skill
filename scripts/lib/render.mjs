@@ -8,7 +8,7 @@ const localeCopy = {
     latestTitle: "最新レポート",
     archiveIntro: "公開済みレポートを日付順に一覧化しています。",
     latestIntro:
-      "経営層向けに、AI の導入事例、ユースケース、技術トレンドをインフォグラフィック形式で整理しています。",
+      "AI の導入事例、ユースケース、技術トレンドをインフォグラフィック形式で整理しています。",
     sourceHeading: "公開根拠",
     sourceNote: "公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。",
     allReports: "すべてのレポートを見る",
@@ -25,7 +25,7 @@ const localeCopy = {
     latestTitle: "Latest Briefings",
     archiveIntro: "Published briefings listed in reverse chronological order.",
     latestIntro:
-      "Executive-oriented briefings on AI deployments, use cases, and technical direction, presented as static infographics.",
+      "Static infographic briefings on AI deployments, use cases, and technical direction.",
     sourceHeading: "Published evidence",
     sourceNote:
       "Public pages list only evidence that can be verified as official documentation or papers.",
@@ -374,7 +374,7 @@ Sitemap: ${absoluteUrl("sitemap.xml")}
 export function renderDefaultOgSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Auto Research Digest</title>
-  <desc id="desc">Executive Research Signal</desc>
+  <desc id="desc">Research Signal</desc>
   <defs>
     <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
       <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#1f2433" stroke-width="1"/>
@@ -383,9 +383,9 @@ export function renderDefaultOgSvg() {
   <rect width="1200" height="630" fill="#0d0f14"/>
   <rect width="1200" height="630" fill="url(#grid)"/>
   <rect x="104" y="116" width="992" height="392" rx="28" fill="#13161f" stroke="#1f2433"/>
-  <text x="138" y="168" fill="#4af0d4" font-size="24" font-family="'DM Mono', monospace" letter-spacing="10">EXECUTIVE RESEARCH SIGNAL</text>
+  <text x="138" y="168" fill="#4af0d4" font-size="24" font-family="'DM Mono', monospace" letter-spacing="10">RESEARCH SIGNAL</text>
   <text x="138" y="248" fill="#eef2ff" font-size="66" font-weight="500" font-family="'Noto Sans JP', sans-serif">Auto Research Digest</text>
-  <text x="138" y="316" fill="#c0cce0" font-size="28" font-family="'Noto Sans JP', sans-serif">Neutral executive briefings for LLM, AI, and AI agents.</text>
+  <text x="138" y="316" fill="#c0cce0" font-size="28" font-family="'Noto Sans JP', sans-serif">Neutral research briefings for LLM, AI, and AI agents.</text>
   <rect x="138" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
   <rect x="454" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
   <rect x="770" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
@@ -394,7 +394,7 @@ export function renderDefaultOgSvg() {
   <text x="482" y="415" fill="#4af0d4" font-size="18" font-family="'DM Mono', monospace" letter-spacing="4">FORMAT</text>
   <text x="482" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Static HTML editorial pages</text>
   <text x="798" y="415" fill="#4af0d4" font-size="18" font-family="'DM Mono', monospace" letter-spacing="4">OUTPUT</text>
-  <text x="798" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Bilingual executive briefings</text>
+  <text x="798" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Bilingual research briefings</text>
 </svg>`;
 }
 
