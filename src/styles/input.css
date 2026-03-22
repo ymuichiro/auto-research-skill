@@ -138,15 +138,15 @@
   }
 
   .hero-panel {
-    @apply grid items-end gap-10 border-b pb-16 lg:grid-cols-[minmax(0,1.45fr)_minmax(320px,0.8fr)] lg:gap-16;
+    @apply mx-auto flex w-full max-w-[1120px] flex-col border-b pb-12;
     background: none;
     border-left: 0;
     border-right: 0;
     border-top: 0;
     box-shadow: none;
     border-color: var(--ard-border);
-    min-height: clamp(340px, 50vh, 620px);
-    padding: clamp(1rem, 2vw, 1.5rem) 0 0;
+    min-height: 0;
+    padding: 0;
   }
 
   .hero-lead {
@@ -154,7 +154,6 @@
   }
 
   .hero-aside {
-    @apply lg:justify-self-end;
     width: 100%;
   }
 
@@ -174,8 +173,8 @@
     color: var(--ard-text);
     font-size: clamp(0.98rem, 1.25vw, 1.15rem);
     line-height: 2;
-    margin-top: 0;
-    max-width: 34rem;
+    margin-top: 1.5rem;
+    max-width: 62ch;
   }
 
   .content-stack {
@@ -595,8 +594,7 @@
   }
 
   .hero-panel {
-    min-height: 0;
-    padding-top: 0.5rem;
+    padding-top: 0;
   }
 
   .hero-copy {
