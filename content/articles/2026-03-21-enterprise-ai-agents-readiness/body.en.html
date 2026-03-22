@@ -136,6 +136,103 @@
 </section>
 
 <section class="report-section">
+  <p class="section-kicker">Use Case Archetypes</p>
+  <h2>Once the public materials are layered together, the likely first-wave use cases become more concrete</h2>
+  <p>
+    The early enterprise uses are not “general AI that does everything.” They cluster around bounded workflows where steps, tools, and review points can be made explicit.
+    The archetypes below are directly compatible with the benchmark literature and the official platform documentation.
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Software engineering assistance</h3>
+      <ul class="bullet-list">
+        <li>SWE-bench makes real-world issue resolution a serious evaluation target rather than a toy coding prompt.</li>
+        <li>In practice, this maps to workflows such as incident triage, repository search, patch drafting, test execution, and review summaries.</li>
+        <li>The core design challenge is permissioning: what can the agent inspect, change, test, and submit without human signoff.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Browser and desktop operations</h3>
+      <ul class="bullet-list">
+        <li>WebArena, WebVoyager, VisualWebArena, and OSWorld all reinforce the importance of real interface interaction.</li>
+        <li>Anthropic’s Computer use and Microsoft’s Browser Automation point toward tasks like portal navigation, data entry, and workflow execution across existing UIs.</li>
+        <li>This is most practical for back-office work with stable procedures and clear rollback or approval points.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Enterprise knowledge plus action workflows</h3>
+      <ul class="bullet-list">
+        <li>Microsoft’s tool documentation explicitly combines search, workflow tools, OpenAPI, functions, MCP, and browser automation.</li>
+        <li>Google’s Sessions, Memory Bank, Code Execution, and observability features point toward longer-running, context-aware business workflows.</li>
+        <li>A common pattern is: retrieve grounded internal knowledge, call the right system action, and draft a response or recommendation.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Analytical and operational copilots</h3>
+      <ul class="bullet-list">
+        <li>AWS Prescriptive Guidance describes a FinOps-oriented Bedrock Agents example that analyzes spend, generates recommendations, and forecasts outcomes.</li>
+        <li>Microsoft’s agent evaluators also reflect business-process use cases through task completion, intent resolution, and tool-call quality.</li>
+        <li>These patterns fit reporting, cost analysis, operational summaries, and first-pass inquiry handling.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>In operational terms, the first real deployments look more specific than the market narrative suggests</h2>
+  <p>
+    The useful framing is not “what should AI do?” but “which segment of a workflow can be delegated under controlled conditions?”
+    When translated into execution design, realistic first deployments tend to look like the following.
+  </p>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Dev</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Incident and issue-resolution assistant</h3>
+        <p>
+          The agent receives an issue or failure signal, searches relevant code and logs, proposes a patch, and prepares a test plan. Merge or release actions stay behind human approval. This aligns closely with the SWE-bench style of task framing.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Portal-based workflow execution</h3>
+        <p>
+          The agent navigates existing internal or third-party portals, gathers status information, drafts updates, or prepares input actions. High-risk or irreversible actions remain gated. This matches the public shape of computer-use and browser-automation tooling.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">First-line support triage</h3>
+        <p>
+          The system classifies intent, grounds itself in internal knowledge, calls approved tools when needed, and drafts a response. Only edge cases or policy-sensitive cases are handed off to people.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Finance</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">FinOps and analytical briefing support</h3>
+        <p>
+          The agent pulls usage or cost data, explains the main drivers, identifies optimization opportunities, and drafts a report. Human teams keep the decision authority while compressing collection and synthesis time.
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="callout-panel">
+    <p class="callout-title">A practical selection rule</p>
+    <p>
+      The best first projects usually satisfy four conditions: the steps are visible, the tools are known, the completion criteria can be written down,
+      and the workflow can be safely interrupted or reversed. Once any of those conditions disappear, rollout risk rises quickly.
+    </p>
+  </div>
+</section>
+
+<section class="report-section">
   <p class="section-kicker">Design Implications</p>
   <h2>Four responsibilities increasingly need to be designed separately</h2>
   <div class="comparison-grid">
@@ -175,6 +272,10 @@
       and the design work required to define where autonomy starts and where it must stop.
     </p>
   </div>
+  <p class="mt-6 text-sm leading-7 text-slate-700 md:text-base">
+    In that sense, concrete use-case definition is not a downstream detail. It is the mechanism that determines whether architecture, controls,
+    and evaluation can be specified clearly enough for a production rollout.
+  </p>
 </section>
 
 <section class="report-section">

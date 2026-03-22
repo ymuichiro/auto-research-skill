@@ -137,6 +137,103 @@
 </section>
 
 <section class="report-section">
+  <p class="section-kicker">Use Case Archetypes</p>
+  <h2>公開資料を重ねると、先に立ち上がりやすい用途はかなり具体的に見えてくる</h2>
+  <p>
+    研究ベンチマークと公式 docs の両方を並べると、エージェント導入の初期用途は抽象的な「何でもできる AI」ではなく、
+    比較的境界が明確な作業に集まりやすい。以下は、公開資料から裏づけしやすい代表的なユースケースである。
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. ソフトウェア開発支援</h3>
+      <ul class="bullet-list">
+        <li>SWE-bench が示すのは、現実の GitHub issue を読み、関連コードを探索し、修正と検証まで進める系の課題が重要な評価対象になっていることだ。</li>
+        <li>AutoGen や各社 SDK / orchestration docs を踏まえると、実務では「障害切り分け」「修正案作成」「テスト実行」「レビュー用要約生成」のような流れが先行しやすい。</li>
+        <li>本番導入では、コード変更権限、テスト環境、レビュー承認点をどう切るかが中心設計になる。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. ブラウザ・デスクトップ操作の自動化</h3>
+      <ul class="bullet-list">
+        <li>WebArena、WebVoyager、VisualWebArena、OSWorld は、ブラウザや PC 操作を伴うタスク完遂を重要なベンチマークに押し上げた。</li>
+        <li>Anthropic の Computer use、Microsoft の Browser Automation は、ポータル操作、フォーム入力、情報取得、画面遷移のような実務系オペレーションを想起させる。</li>
+        <li>向いているのは、操作手順が比較的固定され、失敗時に人間が介入しやすい back-office 作業である。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. 社内ナレッジ検索と業務アクションの接続</h3>
+      <ul class="bullet-list">
+        <li>Microsoft Foundry の tools docs では、Azure AI Search、Bing、Logic Apps、OpenAPI、Azure Functions、MCP などを組み合わせる前提が明示されている。</li>
+        <li>Google Agent Engine の Sessions、Memory Bank、Code Execution、Observability は、社内知識参照と継続的な業務処理を結びつける実装像に近い。</li>
+        <li>典型例は「社内文書を検索し、必要な API を呼び、回答またはドラフトを作成する」タイプの業務アシスタントである。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 分析・運用アシスタント</h3>
+      <ul class="bullet-list">
+        <li>AWS Prescriptive Guidance では、Bedrock Agents を使った FinOps の例として、コスト分析、推奨、予測まで行う構成が紹介されている。</li>
+        <li>Microsoft の agent evaluators でも、task completion、intent resolution、tool call accuracy など、業務ワークフロー前提の評価軸が並んでいる。</li>
+        <li>この系統は、コスト分析、運用状況要約、調査レポート下書き、社内問い合わせの一次対応など、分析と判断材料整理が中心の業務に向く。</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>実務に落とすと、最初の導入像はこうなる</h2>
+  <p>
+    重要なのは、ユースケースを「AI に何をさせたいか」ではなく、「どの業務フローのどの区間を任せるか」で設計することである。
+    公開資料から逆算すると、初期導入として現実味が高いシナリオは次のように整理できる。
+  </p>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Dev</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">障害対応アシスタント</h3>
+        <p>
+          issue やログを受け取り、関連箇所を探索し、修正案とテスト方針を作成する。変更適用やマージは人間承認に残す。SWE-bench 的な課題設定と相性が良い。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">ポータル横断の業務処理</h3>
+        <p>
+          複数の管理画面を巡回して必要情報を取得し、定型入力や更新候補を作る。ブラウザ操作は自動化しつつ、確定操作は承認点を設ける。Computer use や Browser Automation の公開像に近い。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">問い合わせ一次対応</h3>
+        <p>
+          意図を分類し、社内ナレッジと公開情報を引き、必要なら外部 API やワークフローを呼び出して回答案を作成する。複雑案件だけ人間へ handoff する構成が現実的である。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Finance</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">FinOps / 分析レポート支援</h3>
+        <p>
+          コストや利用状況データを取得し、増減要因、削減候補、今後の見通しを整理する。判断そのものは人間が持つが、分析材料の収集と下書き生成を高速化できる。
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="callout-panel">
+    <p class="callout-title">ユースケース選定の実務基準</p>
+    <p>
+      適切な初期案件は、手順が見える、使用ツールが決まっている、完了条件を書ける、失敗時に差し戻せる、の4条件を満たしやすい。
+      逆に、評価基準が曖昧で責任分界が引けない仕事ほど、導入難度が急上昇する。
+    </p>
+  </div>
+</section>
+
+<section class="report-section">
   <p class="section-kicker">Design Implications</p>
   <h2>導入設計で共通して見えるのは、4つの責務の分離</h2>
   <div class="comparison-grid">
@@ -176,6 +273,10 @@
       予算判断の対象はモデル利用料だけでなく、評価基盤、ログ、承認フロー、運用責任の設計費用まで含む。
     </p>
   </div>
+  <p class="mt-6 text-sm leading-7 text-slate-700 md:text-base">
+    その意味で、具体ユースケースを先に定義しないまま基盤だけを作っても、期待値は揃いにくい。成功しやすいのは、
+    「誰が使うか」「どのツールに触るか」「何をもって完了とするか」「どこで人間が止めるか」を先に文章化してから設計に入るケースである。
+  </p>
 </section>
 
 <section class="report-section">
