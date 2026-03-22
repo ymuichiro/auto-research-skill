@@ -204,8 +204,9 @@ export function renderPage({
     <link rel="alternate" type="application/atom+xml" href="${absoluteUrl(locale === "ja" ? "feed.xml" : "en/feed.xml")}" title="${escapeHtml(
       siteConfig.name
     )}">
+    <link rel="icon" href="${assetPath("assets/favicon.ico")}" sizes="any">
+    <link rel="shortcut icon" href="${assetPath("assets/favicon.ico")}">
     <link rel="icon" href="${assetPath("assets/favicon.svg")}" type="image/svg+xml" sizes="any">
-    <link rel="shortcut icon" href="${assetPath("assets/favicon-32.png")}" type="image/png">
     <link rel="icon" href="${assetPath("assets/favicon-32.png")}" type="image/png" sizes="32x32">
     <link rel="icon" href="${assetPath("assets/favicon-16.png")}" type="image/png" sizes="16x16">
     <link rel="apple-touch-icon" href="${assetPath("assets/apple-touch-icon.png")}" sizes="180x180">

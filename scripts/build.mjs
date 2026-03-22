@@ -1,6 +1,7 @@
 import path from "node:path";
 import { mkdir } from "node:fs/promises";
 import sharp from "sharp";
+import pngToIco from "png-to-ico";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
 import {
   renderArchivePage,
@@ -30,10 +31,13 @@ async function buildFaviconAssets() {
   const sizes = [
     { name: "favicon-16.png", size: 16 },
     { name: "favicon-32.png", size: 32 },
+    { name: "favicon-48.png", size: 48 },
     { name: "apple-touch-icon.png", size: 180 },
     { name: "favicon-192.png", size: 192 },
     { name: "favicon-512.png", size: 512 }
   ];
+
+  const generated = new Map();
 
   for (const icon of sizes) {
     const buffer = await sharp(svgBuffer, { density: icon.size >= 180 ? 320 : 256 })
@@ -45,8 +49,17 @@ async function buildFaviconAssets() {
       })
       .toBuffer();
 
+    generated.set(icon.name, buffer);
     await writeBufferFile(path.join(iconRoot, icon.name), buffer);
   }
+
+  const icoBuffer = await pngToIco([
+    generated.get("favicon-16.png"),
+    generated.get("favicon-32.png"),
+    generated.get("favicon-48.png")
+  ]);
+
+  await writeBufferFile(path.join(iconRoot, "favicon.ico"), icoBuffer);
 }
 
 async function buildSite() {
