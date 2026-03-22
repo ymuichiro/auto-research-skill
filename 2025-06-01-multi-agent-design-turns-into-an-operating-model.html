@@ -4,30 +4,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める | Auto Research Digest</title>
-    <meta name="description" content="2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。">
+    <meta name="description" content="Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっている。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める">
-    <meta property="og:description" content="2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。">
+    <meta property="og:title" content="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める | Auto Research Digest">
+    <meta property="og:description" content="Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっている。">
     <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
     <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める">
-    <meta name="twitter:description" content="2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。">
+    <meta name="twitter:title" content="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める | Auto Research Digest">
+    <meta name="twitter:description" content="Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっている。">
     <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:image:alt" content="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める">
     <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
     <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
     <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
     <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
     <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/feed.xml" title="Auto Research Digest">
-    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="shortcut icon" href="/auto-research-skill/assets/favicon-32.png" type="image/png">
+    <link rel="icon" href="/auto-research-skill/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/auto-research-skill/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/auto-research-skill/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/auto-research-skill/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める","description":"2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。","datePublished":"2025-06-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+    <meta property="article:published_time" content="2025-06-01T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-03-22T18:49:38+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Roundup">
+    <meta property="article:tag" content="Orchestration">
+    <meta property="article:tag" content="Evaluation">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める","description":"Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっている。","datePublished":"2025-06-01T00:00:00+09:00","dateModified":"2026-03-22T18:49:38+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Orchestration, Evaluation","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://ymuichiro.github.io/auto-research-skill/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://ymuichiro.github.io/auto-research-skill/archive/"},{"@type":"ListItem","position":3,"name":"multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める","item":"https://ymuichiro.github.io/auto-research-skill/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -44,7 +65,7 @@
         <section class="hero-panel">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める</h1>
-          <p class="hero-copy">2025年6月時点では、Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっていた。</p>
+          <p class="hero-copy">Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっている。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -58,46 +79,61 @@
     <section class="article-body"><section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める</h2>
-  <p>5月後半の発表では、agent の価値を model quality ではなく、役割分担、実行 trace、approval、evaluation と結びつける動きが目立つ。multi-agent は『できる』ではなく『どう運用する』が論点になった。</p>
+  <p>multi-agent は、概念紹介の段階を越えつつある。Foundry Agent Service GA と Developer Essentials、OpenAI の Responses API 更新、Semantic Kernel の multi-agent orchestration 発表が重なり、worker の分担、handoff、tool governance、evaluation をどう設計するかが現実の運用課題として並び始めている。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">8件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+      <p class="stat-note">multi-agent operating model に直結する source のみに絞った。</p>
     </article><article class="stat-card">
       <p class="stat-value">41件</p>
-      <p class="stat-title">当月までの調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+      <p class="stat-title">調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された一次情報 URL だけを候補にした。</p>
     </article><article class="stat-card">
-      <p class="stat-value">2層</p>
-      <p class="stat-title">研究と公式発表</p>
-      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+      <p class="stat-value">4論点</p>
+      <p class="stat-title">設計責務</p>
+      <p class="stat-note">role split、handoff、connector、evaluation が一体で問われた。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>managed agent service が本番運用を前提にし始める</h3>
-      <p>Azure AI Foundry Agent Service の GA は、agent を試験機能ではなく長期運用対象として扱う姿勢を明確にした。developer essentials でも、開発・観測・改善の一連の流れをまとめている。</p>
+      <h3>enterprise connector と orchestration が同じ面に出てきた</h3>
+      <p>Foundry の GA / Developer Essentials は、Bing、SharePoint、Azure AI Search、Fabric、Logic Apps などの connector と agent runtime を同じ managed surface で説明した。worker 分担は diagram の話ではなく、既存 system integration の話へ進んでいる。</p>
     </article><article class="comparison-card">
-      <h3>OpenAI 側では responses と tools が workflow 構成要素になる</h3>
-      <p>Responses API の更新は、画像生成、code interpreter、file search などを agent workflow に組み込む方向を強めた。単発の回答より、複数ステップの実行系として agent を設計しやすくなる。</p>
+      <h3>OpenAI と Semantic Kernel も flow 設計を厚くした</h3>
+      <p>Responses API の更新や Semantic Kernel の orchestration 発信は、agent loop を単発 request ではなく、longer-lived workflow として扱う方向を補強した。tool call と routing の設計責務が増えている。</p>
     </article><article class="comparison-card">
-      <h3>multi-agent の論点は分業と評価へ移る</h3>
-      <p>Semantic Kernel の orchestration 発信が示すのは、複数エージェントを増やすこと自体ではなく、planner、specialist、reviewer の責務をどう切るかだ。分業設計と評価設計が一体になる。</p>
+      <h3>multi-agent の価値は worker 数ではなく operating model にある</h3>
+      <p>重要なのは agent を増やすことそのものではなく、どの role を固定し、どこで review を入れ、どの connector をどの権限で使うかを運用ルールへ落とせるかだった。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>現実味が高いユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>承認を含む back-office フロー</h3>
-      <ul class="bullet-list"><li>申請、照会、文書生成、通知までを agent が下書きし、承認だけ人間が行う。</li><li>分業した worker を使うと、調査担当と実行担当を分けやすい。</li></ul>
+      <h3>incident / service desk の分業フロー</h3>
+      <ul class="bullet-list"><li>collector が情報を集め、analyst が原因候補を並べ、reviewer が通知文面を確定する。</li><li>multi-agent 設計は、役割ごとに connector と権限を分けやすい。</li></ul>
     </article><article class="comparison-card">
-      <h3>調達・予算・FinOps の分析ループ</h3>
-      <ul class="bullet-list"><li>複数ソースから数字を集め、差分要因、例外、推奨アクションを整理する。</li><li>数値の最終判断は人間が持ちながら、調査と下書き生成を高速化できる。</li></ul>
+      <h3>research と document production の役割分担</h3>
+      <ul class="bullet-list"><li>search、retrieval、drafting、fact check を worker ごとに分ける。</li><li>handoff と evidence trace が残れば、knowledge workflow を継続運用しやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>公開根拠から見える具体シナリオ</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Foundry は connector-rich な enterprise workflow を前提にしていた</h3>
+      <p>SharePoint、Azure AI Search、Fabric、Logic Apps のような接続先が同じ surface で説明されていることから、multi-agent の実務価値は internal data と business process をまたぐ orchestrator にあると読み取れる。support case、knowledge retrieval、approval つき実行が典型だ。</p>
+    </article><article class="comparison-card">
+      <h3>Semantic Kernel の orchestration は reviewer を含む flow を考えやすくした</h3>
+      <p>multi-agent orchestration を SDK から扱えると、writer / researcher / reviewer のような分業が diagram に留まらず implementation artifact になる。これは regulated workflow や document-heavy process にとって重要な一歩だった。</p>
+    </article><article class="comparison-card">
+      <h3>Responses API の更新は tool-rich flow を production closer にした</h3>
+      <p>tool call と longer-lived response handling が厚くなると、agent は QA bot ではなく real workflow worker に近づく。research、triage、drafting をまたぐ flow を single request の外へ出して考えやすくなった。</p>
     </article></div>
 </section>
 
@@ -106,15 +142,15 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>この段階で必要なのは、multi-agent を派手に見せることではなく、役割ごとの入力・出力・停止条件を明文化することだった。</p>
+    <p>multi-agent を成立させる鍵は、賢い worker を増やすことより operating model を先に決めることにある。</p>
   </div>
-  <ul class="bullet-list mt-6"><li>planner、executor、reviewer などの役割ごとに責務と権限を切り分ける。</li><li>task completion、tool accuracy、review load のように評価軸を複数持つ。</li><li>監査用の trace と approval log を、運用開始前から保持する。</li></ul>
+  <ul class="bullet-list mt-6"><li>planner、specialist、reviewer の role と permission を分ける。</li><li>connector ごとに誰が呼べるか、何を write できるかを固定する。</li><li>handoff payload と evidence trace を後から読める形式で残す。</li><li>multi-agent を導入する前に、single-agent で十分な工程を切り出しておく。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2025年6月の時点で、multi-agent は研究テーマではなく、役割分担と監査性を伴う運用モデルとして考えるべき段階に入っていた。</p>
+  <h2>結論</h2>
+  <p>multi-agent 設計は、概念図ではなく、connector・handoff・review を含む operating model として扱う段階へ入っている。</p>
 </section>
 </section>
     <section class="panel-block">

@@ -1,5 +1,60 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="28" fill="#0d0f14"/>
-  <path d="M26 88V40h16l22 27 21-27h17v48H84V66L64 92 44 66v22H26z" fill="#eef2ff"/>
-  <path d="M18 24H110" stroke="#4af0d4" stroke-width="4" stroke-linecap="round"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Auto Research Digest favicon</title>
+  <desc id="desc">AR monogram on a dark grid with a cyan signal slash.</desc>
+  <defs>
+    <linearGradient id="bg" x1="32" y1="22" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#071018"/>
+      <stop offset="0.55" stop-color="#0a1822"/>
+      <stop offset="1" stop-color="#08111b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="44%" r="72%">
+      <stop offset="0" stop-color="#0f3342" stop-opacity="0.75"/>
+      <stop offset="0.62" stop-color="#0a1822" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#08111b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="70" y1="70" x2="198" y2="192" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.38" stop-color="#f2f7ff"/>
+      <stop offset="1" stop-color="#cfd7e6"/>
+    </linearGradient>
+    <linearGradient id="slash" x1="84" y1="162" x2="208" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00a9b0"/>
+      <stop offset="0.5" stop-color="#12d9df"/>
+      <stop offset="1" stop-color="#66ffe8"/>
+    </linearGradient>
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M 26 0 L 0 0 0 26" fill="none" stroke="#1a4b61" stroke-width="1.2" opacity="0.85"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="slashGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#25f4ee" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <rect width="256" height="256" rx="56" fill="url(#glow)"/>
+  <rect width="256" height="256" rx="56" fill="url(#grid)" opacity="0.92"/>
+  <g fill="#2df7ff" opacity="0.9">
+    <circle cx="48" cy="54" r="2.7"/>
+    <circle cx="78" cy="158" r="2.3"/>
+    <circle cx="124" cy="112" r="1.9"/>
+    <circle cx="186" cy="76" r="2.2"/>
+    <circle cx="208" cy="164" r="2.4"/>
+  </g>
+  <g fill="#2df7ff" opacity="0.45">
+    <circle cx="66" cy="92" r="1.1"/>
+    <circle cx="96" cy="66" r="1"/>
+    <circle cx="164" cy="54" r="1"/>
+    <circle cx="214" cy="104" r="1.1"/>
+    <circle cx="168" cy="188" r="1.2"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M44 188 102 80h24l-58 108Z" fill="url(#metal)"/>
+    <path d="m122 80 22 45-18 8-22-53Z" fill="url(#metal)"/>
+    <path d="M132 188 105 135l21-10 31 63Z" fill="url(#metal)"/>
+    <path d="M138 80h58c24 0 38 13 38 34v11c0 19-10 31-28 35l31 28h-31l-29-28h-19v28h-25Zm25 20v40h31c10 0 15-3 19-8 4-4 6-10 6-16v-2c0-10-5-14-10-16-4-2-9-2-16-2Z" fill="url(#metal)"/>
+  </g>
+  <path d="m82 162 118-49 14 10-118 49Z" fill="url(#slash)" filter="url(#slashGlow)"/>
+  <rect x="0.75" y="0.75" width="254.5" height="254.5" rx="55.25" fill="none" stroke="#08121c" stroke-width="1.5"/>
 </svg>

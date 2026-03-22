@@ -4,30 +4,51 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>control plane と eval discipline が、agent 導入の速度を決め始める | Auto Research Digest</title>
-    <meta name="description" content="2026年2月時点では、Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右し始めていた。">
+    <meta name="description" content="Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="control plane と eval discipline が、agent 導入の速度を決め始める">
-    <meta property="og:description" content="2026年2月時点では、Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右し始めていた。">
+    <meta property="og:title" content="control plane と eval discipline が、agent 導入の速度を決め始める | Auto Research Digest">
+    <meta property="og:description" content="Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。">
     <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html">
     <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="control plane と eval discipline が、agent 導入の速度を決め始める">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="control plane と eval discipline が、agent 導入の速度を決め始める">
-    <meta name="twitter:description" content="2026年2月時点では、Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右し始めていた。">
+    <meta name="twitter:title" content="control plane と eval discipline が、agent 導入の速度を決め始める | Auto Research Digest">
+    <meta name="twitter:description" content="Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。">
     <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:image:alt" content="control plane と eval discipline が、agent 導入の速度を決め始める">
     <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html">
     <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html">
     <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-02-01-control-planes-and-evals-set-the-pace.html">
     <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html">
     <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/feed.xml" title="Auto Research Digest">
-    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="shortcut icon" href="/auto-research-skill/assets/favicon-32.png" type="image/png">
+    <link rel="icon" href="/auto-research-skill/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/auto-research-skill/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/auto-research-skill/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/auto-research-skill/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"control plane と eval discipline が、agent 導入の速度を決め始める","description":"2026年2月時点では、Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右し始めていた。","datePublished":"2026-02-01","inLanguage":"ja","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html","image":"https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"}</script>
+    <meta property="article:published_time" content="2026-02-01T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-03-22T18:49:38+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Roundup">
+    <meta property="article:tag" content="Evaluation">
+    <meta property="article:tag" content="Control Plane">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"control plane と eval discipline が、agent 導入の速度を決め始める","description":"Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。","datePublished":"2026-02-01T00:00:00+09:00","dateModified":"2026-03-22T18:49:38+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Evaluation, Control Plane","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://ymuichiro.github.io/auto-research-skill/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://ymuichiro.github.io/auto-research-skill/archive/"},{"@type":"ListItem","position":3,"name":"control plane と eval discipline が、agent 導入の速度を決め始める","item":"https://ymuichiro.github.io/auto-research-skill/2026-02-01-control-planes-and-evals-set-the-pace.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -44,7 +65,7 @@
         <section class="hero-panel">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">control plane と eval discipline が、agent 導入の速度を決め始める</h1>
-          <p class="hero-copy">2026年2月時点では、Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右し始めていた。</p>
+          <p class="hero-copy">Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -58,46 +79,61 @@
     <section class="article-body"><section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>control plane と eval discipline が、agent 導入の速度を決め始める</h2>
-  <p>1月までの情報を踏まえると、agent の成否を分けるのは model upgrade そのものより、同じ workflow を継続的に評価・改善できる control plane を持てるかどうかになっている。</p>
+  <p>agent を supervised worker として扱う発想は、かなりはっきりしてきている。AgentKit、Agent Framework、Foundry workflows に加え、Anthropic の Demystifying evals for AI agents が入ったことで、workflow versioning、trace grading、regression checks、approval policy をどれだけ揃えられるかが rollout 速度の差になっている。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">8件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+      <p class="stat-note">control plane と eval discipline に直結する source に絞った。</p>
     </article><article class="stat-card">
       <p class="stat-value">52件</p>
-      <p class="stat-title">当月までの調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+      <p class="stat-title">調査母集団</p>
+      <p class="stat-note">公開日までに確認できる一次情報のみを採用候補にした。</p>
     </article><article class="stat-card">
-      <p class="stat-value">2層</p>
-      <p class="stat-title">研究と公式発表</p>
-      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+      <p class="stat-value">4条件</p>
+      <p class="stat-title">導入速度を決めるもの</p>
+      <p class="stat-note">workflow versioning、regression eval、approval policy、trace review が主な条件だった。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>evals が『品質確認』から『運用 discipline』へ変わる</h3>
-      <p>Anthropic の demystifying evals は、agent を実務で使うには regression の考え方が必要だと明確にした。評価はデモの採点ではなく、変更後も壊れていないことを確かめる日常作業になる。</p>
+      <h3>eval は benchmark ではなく shipping gate になった</h3>
+      <p>Anthropic の evals 記事は、agent を人の代替ではなく supervised worker として捉え、dataset と rubric を継続改善する必要を前に出した。良い model を選ぶだけでは shipping condition は満たせない。</p>
     </article><article class="comparison-card">
-      <h3>control plane が iteration の速度を左右する</h3>
-      <p>trace、approval、policy、run history がまとまっている team は、失敗箇所の特定と修正が速い。これは model quality だけでは埋められない差である。</p>
+      <h3>workflow versioning と trace review が control plane の中心に来た</h3>
+      <p>AgentKit、Agent Framework、Foundry workflows の発信を合わせると、graph や workflow definition を version 管理し、run trace と evaluation result を結びつける構成が標準に近づいている。control plane は抽象語ではなく運用画面の問題になった。</p>
     </article><article class="comparison-card">
-      <h3>agent は supervised worker として設計される</h3>
-      <p>最新の公式情報を通しで見ると、agent は autonomous magic ではなく、範囲、指示、観測、承認を持つ worker として整理されつつある。ここにプロダクト設計の成熟が表れている。</p>
+      <h3>human review の位置を固定できる team のほうが速い</h3>
+      <p>approval が曖昧なままだと rollout は止まりやすい。反対に、どの step を deterministic にし、どこで人が sign-off するかを決めた team は narrow workflow を速く出しやすい。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>現実味が高いユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>workflow QA と regression testing</h3>
-      <ul class="bullet-list"><li>agent に任せる代表タスクを固定し、変更ごとに再実行して差分を見る。</li><li>tool chain が増えるほど、この基礎体力が rollout の前提になる。</li></ul>
+      <h3>support / case operations の継続改善</h3>
+      <ul class="bullet-list"><li>intent 分類、根拠 retrieval、drafting、escalation を versioned workflow として運用する。</li><li>regression eval があれば、改善が本当に前進かを判断しやすい。</li></ul>
     </article><article class="comparison-card">
-      <h3>対外窓口の supervised automation</h3>
-      <ul class="bullet-list"><li>初回返信や情報整理は自動化しつつ、確定返答は人間が保持する。</li><li>regression evaluation があれば、変更の影響範囲を見ながら自動化範囲を広げやすい。</li></ul>
+      <h3>approval つき業務フロー</h3>
+      <ul class="bullet-list"><li>financial approvals、document review、ops change request など、approval chain を持つ flow は control plane と相性がよい。</li><li>human checkpoint の位置を固定すると rollout が進みやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>公開根拠から見える具体シナリオ</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>support workflow は versioned eval set を持つと改善を回しやすい</h3>
+      <p>dataset-based eval と trace review を持つと、intent classification が改善したのか、retrieval の質が上がったのか、escalation threshold が適切かを切り分けられる。これは Anthropic の evals 記事と AgentKit / Foundry の workflow surface が重なる代表例だ。</p>
+    </article><article class="comparison-card">
+      <h3>approval-heavy flow では deterministic step と agentic step を混ぜすぎないことが重要になる</h3>
+      <p>financial approvals や document review では、ルールで決まる step は deterministic にし、agent は要約、比較、候補提示に寄せたほうが control plane を保ちやすい。これが rollout 速度に直結する。</p>
+    </article><article class="comparison-card">
+      <h3>workflow graph の変更は model update と同じくらい慎重に扱う必要がある</h3>
+      <p>workflow definition が versioning と trace に結びつくと、branch 条件や reviewer node の変更も regression source になる。model upgrade だけでなく graph change を eval する考え方が、重要になっている。</p>
     </article></div>
 </section>
 
@@ -106,15 +142,15 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>2月時点での実務論点は、agent を増やすことではなく、変化に耐える eval discipline と control plane を持てるかだった。</p>
+    <p>導入速度を分けているのは、agent の賢さ以上に、workflow と eval を同じ release discipline で扱えるかどうかだ。</p>
   </div>
-  <ul class="bullet-list mt-6"><li>workflow ごとに regression suite を持ち、改善のたびに回す。</li><li>policy review と approval step の変更履歴を残す。</li><li>model upgrade を導入理由にせず、workflow 指標の改善で判断する。</li></ul>
+  <ul class="bullet-list mt-6"><li>workflow definition、dataset、rubric をひとまとまりで version 管理する。</li><li>human checkpoint を例外処理ではなく flow の正式 node として扱う。</li><li>model update と graph update の両方に regression eval をかける。</li><li>trace review を運用会議の routine に組み込み、failure class を継続更新する。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2026年2月の時点で、agent rollout の速度を決めるのは frontier model ではなく、control plane と eval discipline の有無になりつつあった。</p>
+  <h2>結論</h2>
+  <p>agent 導入の速度を決めるのは、model novelty ではなく、workflow versioning、evaluation discipline、approval policy をひとつの control plane に載せられるかどうかだ。</p>
 </section>
 </section>
     <section class="panel-block">
