@@ -3,14 +3,15 @@
   "date": "2025-10-01",
   "titleJa": "agent SDK は coding 補助の外へ広がり、汎用 workflow の部品になり始める",
   "titleEn": "Agent SDKs are expanding beyond coding assistance into general workflow components",
-  "summaryJa": "2025年10月時点では、Claude Agent SDK、Agent Factory、Firestore 対応 MCP Toolbox がそろい、agent SDK がコード補助専用ではなく、汎用の agentic app を組み立てるための部品へ広がっていた。",
-  "summaryEn": "By October 2025, the Claude Agent SDK, Agent Factory, and Firestore-enabled MCP Toolbox all pointed to agent SDKs becoming building blocks for general agentic applications rather than just coding tools.",
+  "summaryJa": "2025年10月時点では、Claude Agent SDK、Looker MCP Server、Firestore 対応 MCP Toolbox、Agent Factory、Microsoft Agent Framework により、agent SDK は code helper 専用ではなく、データ接続・権限設計・control plane を含む汎用 application layer として見られ始めていた。",
+  "summaryEn": "By October 2025, the Claude Agent SDK, Looker MCP Server, Firestore-enabled MCP Toolbox, Agent Factory, and Microsoft Agent Framework were turning agent SDKs into a broader application layer that includes data access, permission design, and control-plane concerns rather than just coding assistance.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
     "Roundup",
     "SDK",
-    "MCP"
+    "MCP",
+    "Workflow"
   ],
   "publishedSources": [
     {
@@ -26,16 +27,34 @@
       "publishedAt": "2024-11-22"
     },
     {
-      "label": "Google Cloud: Introducing Looker MCP Server",
-      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/",
+      "label": "OpenAI: New tools for building agents",
+      "url": "https://openai.com/index/new-tools-for-building-agents/",
       "type": "official",
-      "publishedAt": "2025-08-08"
+      "publishedAt": "2025-03-11"
+    },
+    {
+      "label": "OpenAI: New tools and features in the Responses API",
+      "url": "https://openai.com/index/new-tools-and-features-in-the-responses-api/",
+      "type": "official",
+      "publishedAt": "2025-05-21"
+    },
+    {
+      "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
+      "type": "official",
+      "publishedAt": "2025-06-05"
     },
     {
       "label": "OpenAI: Introducing GPT-5 for developers",
       "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
       "type": "official",
       "publishedAt": "2025-08-07"
+    },
+    {
+      "label": "Google Cloud: Introducing Looker MCP Server",
+      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server",
+      "type": "official",
+      "publishedAt": "2025-08-09"
     },
     {
       "label": "Google Cloud: Firestore support and custom tools in MCP Toolbox",
@@ -45,7 +64,7 @@
     },
     {
       "label": "Anthropic: Building agents with the Claude Agent SDK",
-      "url": "https://www.anthropic.com/engineering/claude-agent-sdk",
+      "url": "https://claude.com/blog/building-agents-with-the-claude-agent-sdk",
       "type": "official",
       "publishedAt": "2025-09-29"
     },
@@ -54,6 +73,12 @@
       "url": "https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/",
       "type": "official",
       "publishedAt": "2025-09-24"
+    },
+    {
+      "label": "Microsoft: Introducing Microsoft Agent Framework",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
+      "type": "official",
+      "publishedAt": "2025-10-01"
     }
   ],
   "draft": false

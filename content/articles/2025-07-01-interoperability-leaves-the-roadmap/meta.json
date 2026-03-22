@@ -1,16 +1,17 @@
 {
   "slug": "interoperability-leaves-the-roadmap",
   "date": "2025-07-01",
-  "titleJa": "相互運用性は roadmap 上の理想論ではなく、設計前提に近づき始める",
-  "titleEn": "Interoperability is starting to move from roadmap rhetoric to design premise",
-  "summaryJa": "2025年7月時点では、Google Cloud の A2A donation と MCP 連携の発表により、agent 間接続やデータ接続を vendor-internal feature のまま閉じない設計が現実味を帯びていた。",
-  "summaryEn": "By July 2025, Google's A2A donation and MCP integration announcements made interoperability across agents and data systems look less like a roadmap talking point and more like a practical design direction.",
+  "titleJa": "相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める",
+  "titleEn": "Interoperability is moving from roadmap rhetoric into a real integration premise",
+  "summaryJa": "2025年7月時点では、Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は将来論ではなく current architecture の一部として扱われ始めていた。",
+  "summaryEn": "By July 2025, Google’s A2A donation and MCP integrations, Microsoft Foundry’s A2A / MCP / OpenAPI surfaces, and OpenAI’s remote MCP support in the Responses API were turning agent-to-agent and data connectivity into part of the current architecture rather than a future aspiration.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
     "Roundup",
     "Protocol",
-    "MCP"
+    "MCP",
+    "Interoperability"
   ],
   "publishedSources": [
     {
@@ -26,22 +27,46 @@
       "publishedAt": "2024-12-06"
     },
     {
+      "label": "OpenAI: New tools for building agents",
+      "url": "https://openai.com/index/new-tools-for-building-agents/",
+      "type": "official",
+      "publishedAt": "2025-03-11"
+    },
+    {
       "label": "OpenAI: New tools and features in the Responses API",
       "url": "https://openai.com/index/new-tools-and-features-in-the-responses-api/",
       "type": "official",
       "publishedAt": "2025-05-21"
     },
     {
-      "label": "Microsoft: Semantic Kernel multi-agent orchestration",
-      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/",
+      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
       "type": "official",
-      "publishedAt": "2025-05-27"
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "type": "official",
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
+      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
+      "type": "official",
+      "publishedAt": "2025-05-19"
+    },
+    {
+      "label": "Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry",
+      "url": "https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/",
+      "type": "official",
+      "publishedAt": "2025-05-19"
     },
     {
       "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
       "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
       "type": "official",
-      "publishedAt": "2025-06-04"
+      "publishedAt": "2025-06-05"
     },
     {
       "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",

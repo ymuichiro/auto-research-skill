@@ -33,7 +33,7 @@
     },
     {
       "label": "Anthropic: Building agents with the Claude Agent SDK",
-      "url": "https://www.anthropic.com/engineering/claude-agent-sdk",
+      "url": "https://claude.com/blog/building-agents-with-the-claude-agent-sdk",
       "type": "official",
       "publishedAt": "2025-09-29"
     },
@@ -57,7 +57,7 @@
     },
     {
       "label": "Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service",
-      "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-azure-ai-foundry-agent-service/",
+      "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/",
       "type": "official",
       "publishedAt": "2025-11-25"
     }

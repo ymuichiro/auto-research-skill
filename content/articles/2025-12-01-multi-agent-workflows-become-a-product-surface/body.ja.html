@@ -1,19 +1,19 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>multi-agent workflow そのものが product surface になり始める</h2>
-  <p>11月末までの一次情報から見えるのは、agent graph や worker collaboration が、実装の裏側から設定・観測・監査の対象へ出てきたことだ。</p>
+  <h2>multi-agent workflow 自体が、設定・監視・監査できる product surface として立ち上がり始める</h2>
+  <p>2025年12月時点で目立っていたのは、multi-agent orchestration が SDK の裏側に隠れた implementation detail ではなく、builder / YAML / observability / evaluation を備えた公開 surface に出てきたことだ。Microsoft Foundry の workflow preview は、graph を visual でも code でも扱い、versioning、variables、Power Fx、built-in evaluators を同じ面で見せた。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">5件</p>
+      <p class="stat-value">9件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+      <p class="stat-note">workflow surface を裏づける papers と official posts だけを掲載。</p>
     </article><article class="stat-card">
-      <p class="stat-value">51件</p>
-      <p class="stat-title">当月までの調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+      <p class="stat-value">20+</p>
+      <p class="stat-title">調査母集団</p>
+      <p class="stat-note">2025年12月1日以前に確認できる一次情報 URL のみを候補にした。</p>
     </article><article class="stat-card">
-      <p class="stat-value">2層</p>
-      <p class="stat-title">研究と公式発表</p>
-      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+      <p class="stat-value">6機能</p>
+      <p class="stat-title">surface 化した要素</p>
+      <p class="stat-note">builder、YAML、template、variable、observability、evaluator が同じ製品面に並んだ。</p>
     </article></div>
 </section>
 
@@ -21,14 +21,14 @@
   <p class="section-kicker">What Stood Out</p>
   <h2>この時点で見えていた主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>multi-agent workflow が UI / managed surface に出てくる</h3>
-      <p>Azure AI Foundry の発表は、複数エージェントの協調をコード内部の工夫ではなく、製品 surface として前面に出した。これは、設計責任が開発者だけでなく運用側にも広がることを意味する。</p>
+      <h3>workflow graph が code artifact だけでなく shared design surface になった</h3>
+      <p>Foundry の preview は visual workflow builder と YAML definition の往復を前提にし、business 側と engineering 側が同じ graph を別の view で扱えるようにした。multi-agent orchestration が実装者の頭の中だけに閉じなくなる。</p>
     </article><article class="comparison-card">
-      <h3>graph 設計が governance 論点になる</h3>
-      <p>worker をどう分け、どこで handoff し、どこで reviewer を入れるかは、性能だけでなく責任分界に関わる。multi-agent では architecture と governance がより強く結びつく。</p>
+      <h3>変数、schema、expression が orchestration を review 可能にした</h3>
+      <p>local variables、JSON schema output、Power Fx expressions、immutable versioning が出てきたことで、workflow は「prompt をつないだもの」ではなく、出力 contract と branch logic を持つ artifact になった。これが governance と review の前提になる。</p>
     </article><article class="comparison-card">
-      <h3>運用基盤の成熟度が差になりやすい</h3>
-      <p>同じ multi-agent 構成でも、trace、approval、rollback、audit を持つ team のほうが rollout しやすい。機能差より、運用成熟度が成果差を作りやすい。</p>
+      <h3>observability と evaluators が graph 単位の運用品質を問うようになった</h3>
+      <p>granular tracing、built-in evaluators、custom evaluation logic、scheduled evaluation まで workflow surface に入ったことで、論点は「動くか」から「各 node と全体 flow をどう継続監視するか」へ移った。multi-agent は novelty より operations の勝負になっている。</p>
     </article></div>
 </section>
 
@@ -36,11 +36,26 @@
   <p class="section-kicker">Use Cases</p>
   <h2>その時点で現実味が高かったユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>文書レビューと承認 routing</h3>
-      <ul class="bullet-list"><li>調査、要約、コンプライアンス確認、承認依頼を役割分担した flow にする。</li><li>reviewer を明示的な worker にすると、責任分界を保ちやすい。</li></ul>
+      <h3>onboarding と case management</h3>
+      <ul class="bullet-list"><li>Foundry post は onboarding を例に、複数 step と human-in-the-loop を持つ flow を visual / YAML で扱う価値を示した。</li><li>情報収集、担当振り分け、確認、実行を graph として残せるのがポイントだった。</li></ul>
     </article><article class="comparison-card">
-      <h3>IT 変更管理の補助</h3>
-      <ul class="bullet-list"><li>変更内容の要約、影響範囲の確認、関係者通知の下書きを agent が担う。</li><li>multi-agent 化する場合も、承認フローと監査ログが中心になる。</li></ul>
+      <h3>financial approvals と IT service operations</h3>
+      <ul class="bullet-list"><li>financial approvals や IT service operations は、specialist agent と reviewer を分ける必要がある典型例として挙がる。</li><li>multi-agent workflow が product surface になると、承認経路や rollback path を仕様として持ちやすくなる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>一次情報に現れていた具体シナリオ</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>employee onboarding は multi-agent を業務フローとして見せる好例だった</h3>
+      <p>Foundry workflows post は onboarding を visual builder の代表例として扱っている。たとえば candidate / employee 情報の確認、必要書類の回収、manager approval、アカウント作成、最終通知といった step を graph に落とすと、specialist と reviewer の責務が可視化される。</p>
+    </article><article class="comparison-card">
+      <h3>financial approvals は variables と schema が効く領域だった</h3>
+      <p>workflow が variables、JSON schema output、Power Fx expressions を持つと、金額、部門、例外条件、承認結果を後段 node に安全に受け渡しやすい。これは multi-agent orchestration を chat 的な曖昧さから business process の artifact へ引き上げる。</p>
+    </article><article class="comparison-card">
+      <h3>IT service operations では trace と evaluator が運用品質を左右する</h3>
+      <p>IT service operations のような flow では、node ごとの input / output、variable update、branch path、tool call を追える granular tracing が重要になる。Foundry post が workflow 全体の observability と evaluators を強調したのは、この種の運用を想定しているからだ。</p>
     </article></div>
 </section>
 
@@ -49,13 +64,13 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>12月時点では、multi-agent を増やすこと自体より、どの graph をどの監査条件で回すかのほうが重要になっていた。</p>
+    <p>12月時点では、multi-agent を増やすこと自体より、workflow graph をどれだけ review・version・evaluate できるかが実運用の分かれ目になっていた。</p>
   </div>
-  <ul class="bullet-list mt-6"><li>supervisor、specialist、reviewer の配置と権限を文書化する。</li><li>approval chain と rollback path を flow 設計の中に入れる。</li><li>運用上は、graph の複雑さより review 可能性を優先する。</li></ul>
+  <ul class="bullet-list mt-6"><li>supervisor、specialist、reviewer の role を graph 上で明示し、権限差を残す。</li><li>variables と JSON schema を使って、node 間の handoff を自然言語の暗黙知にしない。</li><li>approval chain、rollback path、timeout handling を workflow 定義の中へ入れる。</li><li>observability は single agent trace だけでなく、end-to-end flow を見られるかで評価する。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
   <h2>この時点で引けた暫定結論</h2>
-  <p>2025年12月の時点で、multi-agent workflow は『高度な実装例』ではなく、監査可能な product surface として扱うべき段階に入っていた。</p>
+  <p>2025年12月の時点で、multi-agent workflow は「高度な実装テクニック」から離れ、review、version、evaluation を伴う product surface として扱う段階に入り始めていた。</p>
 </section>

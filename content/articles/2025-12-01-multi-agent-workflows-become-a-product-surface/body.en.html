@@ -1,61 +1,76 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>Multi-agent workflows are starting to become a product surface in their own right</h2>
-  <p>The source set available by late November shows agent graphs and worker collaboration moving from hidden implementation detail into something configurable, observable, and auditable.</p>
+  <h2>Multi-agent workflow itself was starting to appear as a configurable, observable product surface</h2>
+  <p>By December 2025, multi-agent orchestration was no longer staying hidden as an implementation detail behind an SDK. Microsoft Foundry's workflow preview exposed it through a visual builder, YAML definitions, observability, versioning, variables, Power Fx expressions, and built-in evaluators. The workflow graph itself was becoming something teams could configure, review, and monitor directly.</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">5</p>
-      <p class="stat-title">Published evidence links</p>
-      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+      <p class="stat-value">9</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">Only papers and official posts that support the workflow-surface thesis are listed.</p>
     </article><article class="stat-card">
-      <p class="stat-value">51</p>
-      <p class="stat-title">Eligible inventory by month</p>
-      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+      <p class="stat-value">20+</p>
+      <p class="stat-title">Research pool</p>
+      <p class="stat-note">Candidate URLs were limited to primary sources published on or before December 1, 2025.</p>
     </article><article class="stat-card">
-      <p class="stat-value">2 layers</p>
-      <p class="stat-title">Research plus official launches</p>
-      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+      <p class="stat-value">6 features</p>
+      <p class="stat-title">What became visible</p>
+      <p class="stat-note">Builder, YAML, templates, variables, observability, and evaluators arrived on one surface.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>The main signals visible at that point</h2>
+  <h2>The strongest signals visible at the time</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Multi-agent workflow is appearing as a managed UI surface</h3>
-      <p>Azure AI Foundry&#39;s announcement brings multi-agent collaboration out of hidden code and into an explicit product surface. That widens design responsibility beyond developers to operations teams as well.</p>
+      <h3>The workflow graph became a shared design surface, not just a code artifact</h3>
+      <p>Foundry's preview treated visual design and YAML definitions as interchangeable views of the same workflow. That mattered because orchestration could stop living only in the developer's head and become something operations and engineering could review together.</p>
     </article><article class="comparison-card">
-      <h3>Graph design is becoming a governance issue</h3>
-      <p>How workers are split, where handoffs happen, and where reviewers sit affects not only performance but responsibility boundaries. In multi-agent systems, architecture and governance become tightly coupled.</p>
+      <h3>Variables, schemas, and expressions made orchestration reviewable</h3>
+      <p>Local variables, JSON schema outputs, Power Fx expressions, and immutable versioning turned workflows into explicit artifacts with output contracts and branching logic. That is the kind of structure governance and review processes need.</p>
     </article><article class="comparison-card">
-      <h3>Operational maturity is becoming the differentiator</h3>
-      <p>Even with similar multi-agent designs, teams with traces, approvals, rollback, and auditability are more likely to deploy successfully. Operational maturity is becoming a stronger differentiator than raw feature count.</p>
+      <h3>Observability and evaluators shifted the question toward operational quality</h3>
+      <p>Once granular tracing, built-in evaluators, custom evaluation logic, and scheduled evaluation entered the workflow surface, the question changed from “can it run?” to “can we monitor and grade every node and the full flow over time?” Multi-agent design was becoming an operations problem.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that already looked practical at that time</h2>
+  <h2>Use cases that already looked practical</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Document review and approval routing</h3>
-      <ul class="bullet-list"><li>Split research, summarization, compliance checks, and approval requests into role-based stages.</li><li>Making the reviewer an explicit worker helps preserve ownership boundaries.</li></ul>
+      <h3>Onboarding and case management</h3>
+      <ul class="bullet-list"><li>The Foundry post used onboarding as a representative flow where multiple steps and human-in-the-loop behavior benefit from visual and YAML workflow definitions.</li><li>Information gathering, routing, approval, and execution could now be preserved as one graph.</li></ul>
     </article><article class="comparison-card">
-      <h3>IT change-management assistance</h3>
-      <ul class="bullet-list"><li>Let agents summarize change requests, inspect impact areas, and draft stakeholder notifications.</li><li>Even in a multi-agent design, approvals and audit logs remain the center of gravity.</li></ul>
+      <h3>Financial approvals and IT service operations</h3>
+      <ul class="bullet-list"><li>These were natural examples of processes where specialists and reviewers need different responsibilities.</li><li>Once multi-agent workflow becomes a product surface, approval chains and rollback paths can become part of the specification.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Specific scenarios already visible in the source set</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Employee onboarding was a clean example of workflow-first multi-agent design</h3>
+      <p>The Foundry workflows post used onboarding as a flagship case. Candidate or employee checks, document collection, manager approval, account provisioning, and final notifications can all be mapped onto a graph where specialist and reviewer responsibilities are explicit.</p>
+    </article><article class="comparison-card">
+      <h3>Financial approvals showed why variables and schemas matter</h3>
+      <p>When workflows include variables, JSON schema outputs, and Power Fx expressions, teams can safely pass amounts, departments, exception conditions, and approval results from one node to the next. That moves orchestration away from chat-like ambiguity and toward a business-process artifact.</p>
+    </article><article class="comparison-card">
+      <h3>IT service operations made tracing and evaluators central</h3>
+      <p>For IT service operations, granular tracing across inputs, outputs, variable updates, branch paths, and tool calls becomes critical. That is why the Foundry post emphasized end-to-end observability and evaluators at the workflow level, not just per-agent telemetry.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Operating Implications</p>
-  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <h2>What teams needed to decide early</h2>
   <div class="callout-panel">
-    <p class="callout-title">Observed implication</p>
-    <p>By December, the central question was no longer whether to add more agents but which graph to run under which audit conditions.</p>
+    <p class="callout-title">Observation</p>
+    <p>By December 2025, the practical dividing line was no longer whether a team could add more agents, but whether it could review, version, and evaluate the workflow graph itself.</p>
   </div>
-  <ul class="bullet-list mt-6"><li>Document the placement and permissions of supervisor, specialist, and reviewer roles.</li><li>Build approval chains and rollback paths into the flow itself.</li><li>In operations, prefer reviewability over graph complexity for its own sake.</li></ul>
+  <ul class="bullet-list mt-6"><li>Make supervisor, specialist, and reviewer roles explicit in the graph and preserve their permission differences.</li><li>Use variables and JSON schemas so handoffs between nodes do not depend on hidden natural-language assumptions.</li><li>Model approval chains, rollback paths, and timeout handling as part of the workflow definition.</li><li>Judge observability by whether the full end-to-end flow can be inspected, not only individual agent traces.</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>The provisional conclusion that could already be drawn</h2>
-  <p>By December 2025, multi-agent workflow had moved beyond being a sophisticated implementation example and into something that should be treated as an auditable product surface.</p>
+  <h2>The provisional conclusion available at the time</h2>
+  <p>By December 2025, multi-agent workflow was starting to move from “advanced implementation technique” toward a product surface that had to support review, versioning, and evaluation.</p>
 </section>

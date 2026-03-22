@@ -1,61 +1,76 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>Interoperability is starting to move from roadmap rhetoric to design premise</h2>
-  <p>The June source set suggests agent platforms are starting to assume external connections across systems and vendors rather than acting as closed boxes.</p>
+  <h2>Interoperability was moving from roadmap rhetoric into a current integration premise</h2>
+  <p>Primary sources available by July 1, 2025 show interoperability becoming an up-front design condition rather than a future nice-to-have. Google donated A2A to the Linux Foundation and brought MCP database integrations closer to the IDE. Microsoft Foundry described A2A, MCP, and OpenAPI as part of the managed platform surface. OpenAI added remote MCP support to the Responses API. Agent connectivity was becoming part of the present-tense stack.</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">6</p>
-      <p class="stat-title">Published evidence links</p>
-      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+      <p class="stat-value">10</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">The article is grounded only in papers and official announcements / docs.</p>
     </article><article class="stat-card">
-      <p class="stat-value">43</p>
-      <p class="stat-title">Eligible inventory by month</p>
-      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+      <p class="stat-value">20+</p>
+      <p class="stat-title">Research pool</p>
+      <p class="stat-note">Candidate URLs were limited to primary sources published on or before the snapshot date.</p>
     </article><article class="stat-card">
-      <p class="stat-value">2 layers</p>
-      <p class="stat-title">Research plus official launches</p>
-      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+      <p class="stat-value">3 surfaces</p>
+      <p class="stat-title">What became concrete</p>
+      <p class="stat-note">Agent-to-agent, database-to-agent, and managed-runtime connectivity all advanced together.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>The main signals visible at that point</h2>
+  <h2>The strongest signals visible at the time</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>A2A becomes a current concern rather than a future checkbox</h3>
-      <p>Google donating A2A to the Linux Foundation signals an ecosystem framing for interoperability rather than a one-vendor talking point. It suggests connection contracts may start to stabilize.</p>
+      <h3>A2A moved from vendor launch to ecosystem governance</h3>
+      <p>Google's A2A donation mattered because it shifted interoperability from company messaging to a Linux Foundation project. The protocol, SDKs, and tooling were being positioned as shared infrastructure for agent cards, long-running task lifecycles, and cross-system coordination.</p>
     </article><article class="comparison-card">
-      <h3>MCP-style announcements make data access more concrete</h3>
-      <p>Google Cloud&#39;s MCP integration messaging foregrounds how agents connect to existing databases and analytics systems rather than just how they chat. That makes agents easier to see as a data-and-action layer.</p>
+      <h3>MCP brought data connectivity into daily developer tooling</h3>
+      <p>Google Cloud's MCP database integrations framed agents as part of the IDE loop, not just chat interfaces. Database exploration, schema change, and test updates were all starting to live inside the same workflow.</p>
     </article><article class="comparison-card">
-      <h3>Cross-protocol design also increases operational responsibility</h3>
-      <p>As interoperability improves, responsibility also expands across identity, permissions, and failure handling. The new question is how to manage trust boundaries across each connected system.</p>
+      <h3>Managed platforms also started assuming open connections</h3>
+      <p>Microsoft Foundry GA and developer-essentials posts treated A2A, MCP, and OpenAPI as part of the service surface. OpenAI made a parallel move by adding remote MCP support in the Responses API. Closed runtimes and open connectors were no longer opposing choices.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that already looked practical at that time</h2>
+  <h2>Use cases that already looked practical</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Database-connected analyst assistants</h3>
-      <ul class="bullet-list"><li>Handle data retrieval, summarization, and explanatory drafting in one flow from a natural-language question.</li><li>A shared connection layer such as MCP can reduce the cost of adding or replacing data sources later.</li></ul>
+      <h3>Database-connected developer assistants</h3>
+      <ul class="bullet-list"><li>Developers could use natural language to understand schemas, retrieve data, and coordinate code changes.</li><li>The value was no longer just SQL generation, but coordinated work across the database and the codebase.</li></ul>
     </article><article class="comparison-card">
-      <h3>Research flows that span several tools</h3>
-      <ul class="bullet-list"><li>Draft a first-pass research memo by combining internal search, web lookup, spreadsheets, and notifications.</li><li>The more endpoints a flow touches, the more important the handoff points become.</li></ul>
+      <h3>Case routing and investigation across multiple agents</h3>
+      <ul class="bullet-list"><li>Hiring, support, and internal request flows benefited from explicit handoffs between specialists.</li><li>The more open the connection layer, the easier it became to swap tools or runtimes later.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Specific scenarios described in the source set</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Google Cloud gave a concrete example of database-aware development assistance</h3>
+      <p>In Google's MCP databases post, a new developer named Sara explores tables in plain English, checks open orders, adds a vendors table and vendor ID column, and updates InventoryDAO tests in the same workflow. The assistant is operating across the IDE, the database, and the codebase as one task surface.</p>
+    </article><article class="comparison-card">
+      <h3>A2A used candidate sourcing to show why task lifecycle matters</h3>
+      <p>Google's A2A announcement used a hiring scenario where a client agent coordinates sourcing, interview scheduling, and background-check agents. The point was not simply that one agent can call another, but that capability discovery, status updates, and artifact returns need a protocol.</p>
+    </article><article class="comparison-card">
+      <h3>Microsoft Foundry turned enterprise connector breadth into a product surface</h3>
+      <p>Foundry Agent Service GA and the developer-essentials release described Bing, SharePoint, Azure AI Search, Fabric, Logic Apps, OpenAPI, MCP, and A2A inside one managed environment. Interoperability had become an implementation question about how to connect existing enterprise systems, not just a standards debate.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Operating Implications</p>
-  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <h2>What teams needed to decide early</h2>
   <div class="callout-panel">
-    <p class="callout-title">Observed implication</p>
-    <p>By July, interoperability was becoming a design variable that shapes future change costs rather than a nice-to-have feature.</p>
+    <p class="callout-title">Observation</p>
+    <p>By July 2025, competitive advantage was starting to come less from raw agent cleverness and more from keeping trust boundaries and data contracts intact as connections multiplied.</p>
   </div>
-  <ul class="bullet-list mt-6"><li>Define authentication, permissions, and fallback behavior per protocol boundary.</li><li>Standardize tool schema and session metadata if more endpoints are likely to be added later.</li><li>The broader the interoperability surface, the more explicit ownership must become when failures happen.</li></ul>
+  <ul class="bullet-list mt-6"><li>Assign ownership for agent cards, tool schemas, and artifact formats before integrations sprawl.</li><li>Design database access and workflow triggers around scoped permissions and audit trails from the start.</li><li>Treat long-running tasks across protocol boundaries as explicit product behavior with status, timeout, and fallback rules.</li><li>As interoperability expands, tracing becomes essential for knowing which agent or tool actually failed.</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>The provisional conclusion that could already be drawn</h2>
-  <p>By July 2025, the future of an agent stack was starting to depend not only on how smart it looked, but on how well it could survive a growing connection surface.</p>
+  <h2>The provisional conclusion available at the time</h2>
+  <p>By July 2025, interoperability had become a real architecture condition for production agents, not a distant roadmap promise.</p>
 </section>

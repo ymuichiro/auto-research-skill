@@ -6,7 +6,14 @@
   "category": "AI Agents",
   "summaryJa": "ReAct、Toolformer、AgentBench、WebArena、SWE-bench、OSWorld などの研究と、OpenAI、Anthropic、Google、Microsoft、AWS の公式ドキュメントを通して、企業導入の焦点が単体性能競争から、ツール接続、評価、安全性、監督を備えた運用基盤設計へ移っていることを整理し、ソフトウェア開発、ブラウザ操作、社内ナレッジ活用、FinOps などの具体ユースケースまで落とし込む。",
   "summaryEn": "Using research from ReAct through OSWorld together with official platform documentation from OpenAI, Anthropic, Google, Microsoft, and AWS, this briefing shows how enterprise adoption is moving from model races toward operational architecture with tooling, evaluation, safety, and oversight, and maps that shift into concrete use cases such as software engineering, browser automation, enterprise knowledge workflows, and FinOps.",
-  "tags": ["LLM", "AI Agent", "Benchmark", "Orchestration", "Use Case", "Governance"],
+  "tags": [
+    "LLM",
+    "AI Agent",
+    "Benchmark",
+    "Orchestration",
+    "Use Case",
+    "Governance"
+  ],
   "publishedSources": [
     {
       "label": "ReAct: Synergizing Reasoning and Acting in Language Models",

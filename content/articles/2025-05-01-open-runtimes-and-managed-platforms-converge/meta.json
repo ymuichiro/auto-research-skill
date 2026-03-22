@@ -1,16 +1,17 @@
 {
   "slug": "open-runtimes-and-managed-platforms-converge",
   "date": "2025-05-01",
-  "titleJa": "open runtime と managed platform が、同じ議論の中で交わり始める",
-  "titleEn": "Open runtimes and managed platforms are starting to converge in the same conversation",
-  "summaryJa": "2025年5月時点では、Google の ADK / A2A / Agent Engine、Anthropic の Claude Code、Microsoft の Semantic Kernel Agents GA がそろい、agent stack を open / managed の二者択一で捉えにくくなっていた。",
-  "summaryEn": "By May 2025, Google's ADK, A2A, and Agent Engine messaging, Anthropic's Claude Code, and Microsoft's Semantic Kernel Agents GA made it harder to think about the agent stack as a simple open-versus-managed choice.",
+  "titleJa": "open runtime と managed platform が、同じ設計図の上で接続され始める",
+  "titleEn": "Open runtimes and managed platforms are starting to connect inside the same architecture",
+  "summaryJa": "2025年5月時点では、OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっていた。",
+  "summaryEn": "By May 2025, OpenAI’s agent-building stack, AWS multi-agent collaboration GA plus human confirmation patterns, Google’s multi-system agents and A2A, Anthropic’s Code with Claude announcement, and Microsoft’s Semantic Kernel Agents GA were pushing teams to separate open protocols, hosted execution, and approval design inside one agent architecture.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
     "Roundup",
     "Interoperability",
-    "SDK"
+    "Runtime",
+    "Approval"
   ],
   "publishedSources": [
     {
@@ -26,6 +27,18 @@
       "publishedAt": "2024-12-06"
     },
     {
+      "label": "Microsoft Research: AutoGen v0.4",
+      "url": "https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/",
+      "type": "official",
+      "publishedAt": "2025-01-17"
+    },
+    {
+      "label": "OpenAI: Introducing Operator",
+      "url": "https://openai.com/index/introducing-operator/",
+      "type": "official",
+      "publishedAt": "2025-01-23"
+    },
+    {
       "label": "OpenAI: New tools for building agents",
       "url": "https://openai.com/index/new-tools-for-building-agents/",
       "type": "official",
@@ -33,9 +46,15 @@
     },
     {
       "label": "AWS: Amazon Bedrock announces general availability of multi-agent collaboration",
-      "url": "https://aws.amazon.com/blogs/aws/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/",
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/",
       "type": "official",
       "publishedAt": "2025-03-10"
+    },
+    {
+      "label": "AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents",
+      "url": "https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/",
+      "type": "official",
+      "publishedAt": "2025-04-09"
     },
     {
       "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
@@ -44,14 +63,14 @@
       "publishedAt": "2025-04-09"
     },
     {
-      "label": "Google Developers Blog: A2A, a new era of agent interoperability",
+      "label": "Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)",
       "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
       "type": "official",
       "publishedAt": "2025-04-09"
     },
     {
-      "label": "Anthropic: Claude Code",
-      "url": "https://www.anthropic.com/news/claude-code",
+      "label": "Anthropic: Introducing Code with Claude",
+      "url": "https://www.anthropic.com/news/Introducing-code-with-claude",
       "type": "official",
       "publishedAt": "2025-04-03"
     },

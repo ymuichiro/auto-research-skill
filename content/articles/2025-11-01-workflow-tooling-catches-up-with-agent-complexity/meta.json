@@ -3,14 +3,15 @@
   "date": "2025-11-01",
   "titleJa": "workflow tooling が agent の複雑さに追いつき始める",
   "titleEn": "Workflow tooling is starting to catch up with agent complexity",
-  "summaryJa": "2025年11月時点では、OpenAI AgentKit と Microsoft Agent Framework の公開により、SDK・runtime・agent graph・human checkpoint をまとめて扱うための tooling が見え始めていた。",
-  "summaryEn": "By November 2025, OpenAI AgentKit and Microsoft's Agent Framework were making it easier to talk about SDKs, runtimes, agent graphs, and human checkpoints as one workflow-tooling stack.",
+  "summaryJa": "2025年11月時点では、OpenAI AgentKit、Microsoft Agent Framework、Claude Agent SDK、GPT-5 for developers がそろい、agent graph、connector、chat UI、trace grading、workflow orchestration をまとめて扱う tooling layer が実体を持ち始めていた。",
+  "summaryEn": "By November 2025, OpenAI AgentKit, Microsoft Agent Framework, the Claude Agent SDK, and GPT-5 for developers were making a real tooling layer visible, one that combines agent graphs, connectors, chat UI, trace grading, and workflow orchestration.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
     "Roundup",
     "Workflow",
-    "Runtime"
+    "Runtime",
+    "Evaluation"
   ],
   "publishedSources": [
     {
@@ -26,8 +27,32 @@
       "publishedAt": "2024-11-22"
     },
     {
+      "label": "OpenAI: New tools and features in the Responses API",
+      "url": "https://openai.com/index/new-tools-and-features-in-the-responses-api/",
+      "type": "official",
+      "publishedAt": "2025-05-21"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5 for developers",
+      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
+      "type": "official",
+      "publishedAt": "2025-08-07"
+    },
+    {
+      "label": "Google Cloud: Introducing Looker MCP Server",
+      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server",
+      "type": "official",
+      "publishedAt": "2025-08-09"
+    },
+    {
+      "label": "Google Cloud: Firestore support and custom tools in MCP Toolbox",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox",
+      "type": "official",
+      "publishedAt": "2025-09-17"
+    },
+    {
       "label": "Anthropic: Building agents with the Claude Agent SDK",
-      "url": "https://www.anthropic.com/engineering/claude-agent-sdk",
+      "url": "https://claude.com/blog/building-agents-with-the-claude-agent-sdk",
       "type": "official",
       "publishedAt": "2025-09-29"
     },
@@ -38,16 +63,16 @@
       "publishedAt": "2025-09-24"
     },
     {
-      "label": "OpenAI: Introducing AgentKit",
-      "url": "https://openai.com/index/introducing-agentkit/",
-      "type": "official",
-      "publishedAt": "2025-10-06"
-    },
-    {
       "label": "Microsoft: Introducing Microsoft Agent Framework",
       "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
       "type": "official",
       "publishedAt": "2025-10-01"
+    },
+    {
+      "label": "OpenAI: Introducing AgentKit",
+      "url": "https://openai.com/index/introducing-agentkit/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
     }
   ],
   "draft": false

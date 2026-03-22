@@ -1,61 +1,76 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>Agent SDKs are expanding beyond coding assistance into general workflow components</h2>
-  <p>Using only sources available by late September, SDKs are clearly moving beyond code-generation helpers toward the application-framework layer that includes memory, session state, tool contracts, and environment permissions.</p>
+  <h2>Agent SDKs were expanding beyond coding assistance into a broader application layer</h2>
+  <p>By October 2025, it no longer made sense to treat agent SDKs as thin wrappers for code-writing assistants. Anthropic had renamed the Claude Code SDK as the Claude Agent SDK and explicitly broadened the target to finance, personal assistant, customer support, and deep research agents. Google was using MCP to connect Looker and Firestore into agent workflows. Microsoft was describing shared runtime, open protocols, and control-plane design through Agent Factory and Microsoft Agent Framework.</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">7</p>
-      <p class="stat-title">Published evidence links</p>
-      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+      <p class="stat-value">11</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">Only papers and official sources available by the snapshot date are used.</p>
     </article><article class="stat-card">
-      <p class="stat-value">49</p>
-      <p class="stat-title">Eligible inventory by month</p>
-      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+      <p class="stat-value">20+</p>
+      <p class="stat-title">Research pool</p>
+      <p class="stat-note">Candidate URLs were limited to primary sources published on or before October 1, 2025.</p>
     </article><article class="stat-card">
-      <p class="stat-value">2 layers</p>
-      <p class="stat-title">Research plus official launches</p>
-      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+      <p class="stat-value">4 roles</p>
+      <p class="stat-title">What SDKs now had to cover</p>
+      <p class="stat-note">Computer use, data access, policy, and shared runtime were converging.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>The main signals visible at that point</h2>
+  <h2>The strongest signals visible at the time</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>The Claude Agent SDK broadens the abstraction beyond coding</h3>
-      <p>Anthropic&#39;s Agent SDK presents tool use and workflow control as core pieces of agentic apps rather than as editor add-ons. That makes it easier to carry the same abstraction into operational business software.</p>
+      <h3>Anthropic broadened the SDK from coding into general-purpose agents</h3>
+      <p>The Claude Agent SDK article explicitly extended the harness behind Claude Code into finance, travel and calendar assistance, customer support, and deep research. Bash access, file editing, subagents, and compaction were being framed as primitives for general digital work, not just software development.</p>
     </article><article class="comparison-card">
-      <h3>Data-connection abstractions are also moving toward the application framework</h3>
-      <p>MCP Toolbox updates including Firestore support show agents moving closer to transaction-aware data systems rather than only document retrieval. The way data is connected now sits in the same design discussion as the SDK itself.</p>
+      <h3>Google pulled governed data access into the SDK conversation</h3>
+      <p>Looker MCP Server exposed trusted, semantic-layer-backed data to agents, while Firestore support in MCP Toolbox brought schema work and rule validation into AI-assisted development. The real design question was shifting from model choice toward data plane and permission design.</p>
     </article><article class="comparison-card">
-      <h3>The open web stack conversation strengthens the need for a control plane</h3>
-      <p>Agent Factory argues that as agentic apps multiply, teams need a control plane for shared session, identity, policy, and handoff. An SDK alone is not enough.</p>
+      <h3>Microsoft grouped shared runtime and open stack concerns into one foundation</h3>
+      <p>Agent Factory and Microsoft Agent Framework treated MCP, A2A, OpenAPI, observability, and durability as parts of one platform foundation. The ability to move from local prototypes to hosted runtimes without changing abstractions was becoming a core SDK criterion.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that already looked practical at that time</h2>
+  <h2>Use cases that already looked practical</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Customer-operations coordination</h3>
-      <ul class="bullet-list"><li>Connect support requests, customer context, knowledge sources, and approval flows to prepare the next action.</li><li>Combining SDKs with data connectors makes it easier to move beyond chat into real business workflows.</li></ul>
+      <h3>General-purpose agents for research, finance, and support</h3>
+      <ul class="bullet-list"><li>Anthropic's own source described finance agents, personal assistants, customer support agents, and deep research agents running on the same harness.</li><li>That made it hard to keep thinking of agent SDKs as coding-only tools.</li></ul>
     </article><article class="comparison-card">
-      <h3>Scheduling, travel, and internal-process assistance</h3>
-      <ul class="bullet-list"><li>Automate option gathering, information collection, and draft preparation while keeping final confirmation with a human.</li><li>Fine-grained environment permissions make these general workflows easier to govern.</li></ul>
+      <h3>Bridging governed analytics and application change</h3>
+      <ul class="bullet-list"><li>Looker MCP Server let agents query a governed semantic layer instead of improvising SQL.</li><li>Firestore and MCP Toolbox showed how data cleanup, schema updates, and rule validation could sit inside the same development loop.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Specific scenarios already visible in the source set</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Anthropic explicitly listed personal assistant and finance agents</h3>
+      <p>The Claude Agent SDK article named finance agents that evaluate portfolios, personal assistants that coordinate travel and calendars, customer support agents that escalate ambiguous tickets, and deep research agents that search across document collections. The public source itself showed that “agent SDK = coding” was already too narrow.</p>
+    </article><article class="comparison-card">
+      <h3>Google showed data-connected development end to end</h3>
+      <p>The Firestore article follows a retail-app developer through wishlist cleanup, document updates, and security-rule comparison using natural language. The Looker MCP Server launch describes an agent querying a governed semantic layer instead of writing raw SQL. In both cases, connector design and governance are the value center.</p>
+    </article><article class="comparison-card">
+      <h3>Microsoft connected the SDK story to audit, telemetry, and compliance</h3>
+      <p>The Microsoft Agent Framework post highlighted KPMG audit testing, BMW vehicle telemetry analysis, and compliant support scenarios at Commerzbank. The point was not orchestration in isolation, but orchestration plus observability, approval, and durability.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Operating Implications</p>
-  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <h2>What teams needed to decide early</h2>
   <div class="callout-panel">
-    <p class="callout-title">Observed implication</p>
-    <p>By October, selecting an SDK was tied not just to developer ergonomics but to how a shared control plane would be built around it.</p>
+    <p class="callout-title">Observation</p>
+    <p>By October 2025, SDK selection was becoming less about developer ergonomics alone and more about how computer use, data access, shared runtime, and policy fit together.</p>
   </div>
-  <ul class="bullet-list mt-6"><li>Check whether sessions, memory, and policy can be handled as shared platform concerns rather than per-app code.</li><li>Do not leave data connectors and workflow runtimes as unrelated subsystems.</li><li>Set common identity and approval rules before multiplying agentic apps.</li></ul>
+  <ul class="bullet-list mt-6"><li>Separate computer-oriented agent loops from deterministic workflow segments and decide what should become code or tools.</li><li>If governed data layers are part of the design, permissions and audit need to sit inside the core architecture rather than outside it.</li><li>Check whether telemetry remains consistent across local and hosted execution.</li><li>As abstractions multiply, memory, session, approval, and fallback behavior need a shared control plane.</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>The provisional conclusion that could already be drawn</h2>
-  <p>By October 2025, agent SDKs were moving beyond coding support and becoming components of a broader application layer for running workflows.</p>
+  <h2>The provisional conclusion available at the time</h2>
+  <p>By October 2025, agent SDKs were becoming application-layer infrastructure for computer use and governed data access, not just tools for building coding assistants.</p>
 </section>
