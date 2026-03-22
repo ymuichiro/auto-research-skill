@@ -44,7 +44,7 @@ async function main() {
     tags: ["LLM", "AI Agent"],
     publishedSources: [
       {
-        label: "Add official documentation or paper URL",
+        label: "Add official documentation or paper URL (collect 20+ before publishing)",
         url: "https://example.com",
         type: "official"
       }
