@@ -18,7 +18,7 @@ export const siteConfig = {
   locales: ["ja", "en"],
   siteUrl,
   basePath,
-  themeColor: "#132238",
+  themeColor: "#0d0f14",
   ogImage: "assets/og-default.svg",
   description: {
     ja: "LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理する経営層向けリサーチ配信サイト。",

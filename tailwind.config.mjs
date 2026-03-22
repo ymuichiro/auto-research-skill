@@ -9,22 +9,21 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['"IBM Plex Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ['"Space Grotesk"', "ui-sans-serif", "system-ui", "sans-serif"]
+        sans: ['"Noto Sans JP"', "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ['"Noto Sans JP"', "ui-sans-serif", "system-ui", "sans-serif"],
+        mono: ['"DM Mono"', "ui-monospace", "SFMono-Regular", "monospace"]
       },
       colors: {
-        ink: "#132238",
-        sand: "#f7f1e6",
-        ember: "#d14c2f",
-        brass: "#a66a1c",
-        mist: "#dce8f2"
+        obsidian: "#0d0f14",
+        surface: "#13161f",
+        line: "#1f2433",
+        signal: "#4af0d4",
+        fog: "#c0cce0",
+        paper: "#eef2ff",
+        dim: "#4a5570"
       },
       boxShadow: {
-        panel: "0 18px 45px rgba(19, 34, 56, 0.12)"
-      },
-      backgroundImage: {
-        "hero-grid":
-          "linear-gradient(rgba(19,34,56,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(19,34,56,0.08) 1px, transparent 1px)"
+        panel: "0 24px 60px rgba(5, 8, 12, 0.35)"
       }
     }
   },
@@ -32,19 +31,19 @@ export default {
     logs: false,
     themes: [
       {
-        ardlight: {
-          primary: "#132238",
-          secondary: "#d14c2f",
-          accent: "#a66a1c",
-          neutral: "#1f2937",
-          "base-100": "#f7f1e6",
-          "base-200": "#efe5d5",
-          "base-300": "#e1d4bf",
-          "base-content": "#132238",
-          info: "#2f6fae",
-          success: "#1f7a45",
-          warning: "#b7791f",
-          error: "#c53030"
+        ardeditorial: {
+          primary: "#eef2ff",
+          secondary: "#4af0d4",
+          accent: "#4af0d4",
+          neutral: "#13161f",
+          "base-100": "#0d0f14",
+          "base-200": "#13161f",
+          "base-300": "#1f2433",
+          "base-content": "#c0cce0",
+          info: "#7dd3fc",
+          success: "#4ade80",
+          warning: "#facc15",
+          error: "#fb7185"
         }
       }
     ]
