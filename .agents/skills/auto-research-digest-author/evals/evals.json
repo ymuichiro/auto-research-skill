@@ -1,0 +1,23 @@
+{
+  "skill_name": "auto-research-digest-author",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "最新の AI agent 動向を調査して、このリポジトリ向けに新規記事を書いて。公開根拠は公式ドキュメントと論文だけにして、経営層向けに具体的なユースケースまで入れて。",
+      "expected_output": "新規記事ディレクトリを作成し、20件以上の一次情報を収集したうえで meta.json と日英本文を更新し、pnpm build まで完了している。",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "既存の記事が薄いので、OpenAI、Anthropic、Google、Microsoft、AWS の公式 docs と論文を足して、具体的な使用例やユースケースを増やして。",
+      "expected_output": "既存記事の meta.json と日英本文を増補し、publishedSources を一次情報だけで更新し、記事本文に具体的なシナリオが追加されている。",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "この更新を公開して。記事の公開面には内部向けの配信契約や対象読者の説明を出さないで。",
+      "expected_output": "必要なファイル変更後に build、commit、push、GitHub Actions の完了確認、公開ページ検証まで一貫して行えている。",
+      "files": []
+    }
+  ]
+}
