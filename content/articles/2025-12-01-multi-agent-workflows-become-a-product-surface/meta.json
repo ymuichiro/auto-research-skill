@@ -2,9 +2,9 @@
   "slug": "multi-agent-workflows-become-a-product-surface",
   "date": "2025-12-01",
   "titleJa": "multi-agent workflow そのものが product surface になり始める",
-  "titleEn": "Multi-agent workflow is starting to become a product surface in its own right",
-  "summaryJa": "2025年12月時点では、Foundry Agent Service の multi-agent workflows preview により、visual builder、YAML definition、templates、variables、observability、evaluators を備えた workflow 自体が product surface として見え始めていた。",
-  "summaryEn": "By December 2025, the multi-agent workflows preview in Foundry Agent Service made the workflow itself visible as a product surface, with a visual builder, YAML definitions, templates, variables, observability, and evaluators.",
+  "titleEn": "Multi-agent workflow is appearing as a configurable, observable product surface",
+  "summaryJa": "Foundry Agent Service の multi-agent workflows preview により、visual builder、YAML definition、templates、variables、observability、evaluators を備えた workflow 自体が product surface として見え始めている。",
+  "summaryEn": "The multi-agent workflows preview in Foundry Agent Service makes the workflow itself visible as a product surface, with a visual builder, YAML definitions, templates, variables, observability, and evaluators.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

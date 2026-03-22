@@ -1,61 +1,76 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>Control planes and evaluation discipline are starting to set the pace of agent adoption</h2>
-  <p>Using sources available through January, the differentiator is increasingly not the model upgrade itself but whether the team has a control plane that can evaluate and improve the same workflow continuously.</p>
+  <p>The idea of agents as supervised workers is becoming much clearer. With AgentKit, Agent Framework, Foundry workflows, and Anthropic’s article on agent evals all in view, rollout speed is increasingly shaped by whether teams can align workflow versioning, trace grading, regression checks, and approval policy.</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">8</p>
-      <p class="stat-title">Published evidence links</p>
-      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">The source set is limited to papers and official posts directly tied to control planes and evaluation discipline.</p>
     </article><article class="stat-card">
       <p class="stat-value">52</p>
-      <p class="stat-title">Eligible inventory by month</p>
-      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+      <p class="stat-title">Research pool</p>
+      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
     </article><article class="stat-card">
-      <p class="stat-value">2 layers</p>
-      <p class="stat-title">Research plus official launches</p>
-      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+      <p class="stat-value">4 conditions</p>
+      <p class="stat-title">What set rollout speed</p>
+      <p class="stat-note">Workflow versioning, regression evals, approval policy, and trace review became the critical factors.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>The main signals visible at that point</h2>
+  <h2>The strongest signals</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Evals are shifting from quality checks to an operating discipline</h3>
-      <p>Anthropic&#39;s evaluation guidance makes explicit that real agent use needs regression thinking. Evals become a daily discipline for verifying that changes did not break the workflow, not a one-time scoring exercise.</p>
+      <h3>Evals were becoming shipping gates, not benchmark side notes</h3>
+      <p>Anthropic’s evals article framed agents not as replacements for people but as supervised workers that require datasets and rubrics that improve over time. Choosing a stronger model was no longer enough to satisfy shipping conditions.</p>
     </article><article class="comparison-card">
-      <h3>The control plane determines iteration speed</h3>
-      <p>Teams that keep traces, approvals, policy, and run history together can isolate and fix failures faster. That difference cannot be erased by model quality alone.</p>
+      <h3>Workflow versioning and trace review moved to the center of the control plane</h3>
+      <p>Read together, AgentKit, Agent Framework, and Foundry workflows point toward a standard pattern where graph definitions, run traces, and evaluation outputs are tied together. The control plane was no longer abstract architecture language; it was becoming an operational surface.</p>
     </article><article class="comparison-card">
-      <h3>Agents are being designed more like supervised workers</h3>
-      <p>Across the latest official materials, agents are being framed less as autonomous magic and more as workers with scope, instructions, observability, and approval. That signals a more mature product posture.</p>
+      <h3>Teams that fixed the position of human review could move faster</h3>
+      <p>When approval stays ambiguous, rollout stalls. Teams that explicitly decide which steps remain deterministic and where humans sign off can ship bounded workflows much faster.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that already looked practical at that time</h2>
+  <h2>Use cases that look practical</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Workflow QA and regression testing</h3>
-      <ul class="bullet-list"><li>Fix a set of representative tasks and rerun them after each meaningful workflow change to inspect deltas.</li><li>The larger the tool chain becomes, the more this discipline turns into a rollout prerequisite.</li></ul>
+      <h3>Support and case-operation workflows under continuous improvement</h3>
+      <ul class="bullet-list"><li>Intent classification, evidence retrieval, drafting, and escalation can be managed as a versioned workflow.</li><li>Regression evals make it easier to see whether the workflow is actually improving.</li></ul>
     </article><article class="comparison-card">
-      <h3>Supervised automation for external-facing workflows</h3>
-      <ul class="bullet-list"><li>Automate the first response and information gathering while humans retain the final outbound answer.</li><li>Regression evaluation makes it easier to expand the automation boundary while understanding the impact of each change.</li></ul>
+      <h3>Approval-backed business workflows</h3>
+      <ul class="bullet-list"><li>Financial approvals, document review, and operations change requests fit naturally with a control-plane approach.</li><li>Rollout becomes easier once the human checkpoint is treated as a fixed part of the flow.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Concrete scenarios visible in the evidence set</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Support workflows improve faster once they have versioned eval sets</h3>
+      <p>With dataset-based evals and trace review, teams can distinguish whether gains came from better intent classification, better retrieval, or better escalation thresholds. That is one of the clearest places where Anthropic’s eval framing overlaps with AgentKit and Foundry workflow tooling.</p>
+    </article><article class="comparison-card">
+      <h3>Approval-heavy flows benefit from separating deterministic and agentic steps</h3>
+      <p>In financial approvals or document review, deterministic rule-based steps should stay deterministic while the agent focuses on summarization, comparison, and option generation. That design choice directly affects rollout speed.</p>
+    </article><article class="comparison-card">
+      <h3>Workflow-graph changes need the same caution as model changes</h3>
+      <p>Once workflow definitions are versioned and tied to traces, updates to branch conditions or reviewer nodes become regression risks in their own right. Teams increasingly need to evaluate graph changes, not only model upgrades.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Operating Implications</p>
-  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <h2>What teams needed to decide early</h2>
   <div class="callout-panel">
-    <p class="callout-title">Observed implication</p>
-    <p>By February, the practical issue was not adding more agents but sustaining an evaluation discipline and control plane that can absorb change.</p>
+    <p class="callout-title">Observation</p>
+    <p>Rollout speed depends less on model cleverness than on whether workflows and evals can be managed inside the same release discipline.</p>
   </div>
-  <ul class="bullet-list mt-6"><li>Maintain a regression suite per workflow and run it after each meaningful improvement.</li><li>Retain change history for policy updates and approval-step edits.</li><li>Do not justify adoption by model upgrades alone; judge changes on workflow metrics.</li></ul>
+  <ul class="bullet-list mt-6"><li>Version workflow definitions, datasets, and rubrics together.</li><li>Treat human checkpoints as formal workflow nodes, not as vague exceptions.</li><li>Run regression evals against both model updates and graph updates.</li><li>Make trace review part of the operating cadence so failure classes are updated continuously.</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>The provisional conclusion that could already be drawn</h2>
-  <p>By February 2026, rollout speed was increasingly determined not by the frontier model itself but by whether a usable control plane and evaluation discipline were in place.</p>
+  <h2>Conclusion</h2>
+  <p>The pace of agent adoption is being set less by model novelty than by the ability to align workflow versioning, evaluation discipline, and approval policy in one control plane.</p>
 </section>

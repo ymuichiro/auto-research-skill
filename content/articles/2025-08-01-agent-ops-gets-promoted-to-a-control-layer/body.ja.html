@@ -1,46 +1,61 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>AgentOps は補助機能ではなく control layer として扱われ始める</h2>
-  <p>この月の時点で目立つのは、agent を『動かす』ことより『止める・観測する・やり直す』ことが製品議論の中に入り始めたことだ。</p>
+  <p>agent stack の競争は、『何ができるか』から『どう見え、どう止め、どうやり直せるか』へ移っている。Foundry 系の GA と Developer Essentials、OpenAI の Responses API 更新、Semantic Kernel orchestration、Google の MCP と A2A の発表を通して、trace、review、connector governance、run history が独立した control layer として見え始めている。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">8件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+      <p class="stat-note">AgentOps と control layer の論点に直結する source のみに絞った。</p>
     </article><article class="stat-card">
       <p class="stat-value">43件</p>
-      <p class="stat-title">当月までの調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+      <p class="stat-title">調査母集団</p>
+      <p class="stat-note">公開日までに確認できる一次情報 URL だけを候補にした。</p>
     </article><article class="stat-card">
-      <p class="stat-value">2層</p>
-      <p class="stat-title">研究と公式発表</p>
-      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+      <p class="stat-value">4要件</p>
+      <p class="stat-title">control layer</p>
+      <p class="stat-note">trace、review、permission、recovery が主要条件になった。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>運用観測が purchase criteria に近づく</h3>
-      <p>Foundry 系の GA と Developer Essentials、OpenAI の Responses API 更新、Google の MCP 連携を見ると、team が求めているのは『何が起きたか見えること』である。trace と run history の有無が製品選定に効き始めている。</p>
+      <h3>observability が purchase criteria に近づいた</h3>
+      <p>Foundry 系の発表、Responses API、Semantic Kernel の流れを見ると、team が求めているのは新しい capability の追加だけでなく、trace と run history を見て改善できることだった。可観測性の有無が導入判断に効き始めている。</p>
     </article><article class="comparison-card">
-      <h3>tool governance がモデル性能と別軸で効く</h3>
-      <p>どの tool を使えるか、どの操作は review 必須か、失敗時にどう roll back するかは、モデルの精度が高くても残る論点である。AgentOps はこの制御面をまとめて扱う層として重要度を増している。</p>
+      <h3>connector governance は model quality と別軸の差を作る</h3>
+      <p>MCP や A2A、enterprise connector が増えるほど、どの tool を誰が使え、どの action に review が必要かが大きな論点になる。AgentOps は model の外にある制御面の設計へ寄っている。</p>
     </article><article class="comparison-card">
-      <h3>『運用できる team』が成果差を生みやすい</h3>
-      <p>同じ基盤を使っていても、trace を見て改善できる team は iteration が速い。導入差は model choice より、運用面を回せる体制で開きやすい。</p>
+      <h3>iteration 速度は運用能力で開きやすい</h3>
+      <p>RE-Bench や BrowserGym 系の示唆も含めると、同じ model を使っていても trace を読み改善を回せる team のほうが先へ進む。AgentOps は developer tooling であると同時に management discipline でもある。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>現実味が高いユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>support case operations</h3>
-      <ul class="bullet-list"><li>問い合わせの分類、既知事例の参照、返信ドラフト作成までを自動化する。</li><li>trace が取れていれば、誤分類や誤参照の原因を後から追いやすい。</li></ul>
+      <ul class="bullet-list"><li>問い合わせ分類、既知事例の参照、返信ドラフト作成、escalation 条件判定を行う。</li><li>trace があれば、誤分類や誤参照の原因をあとから追いやすい。</li></ul>
     </article><article class="comparison-card">
       <h3>IT 運用の診断補助</h3>
-      <ul class="bullet-list"><li>監視アラート、runbook、直近の変更情報をまとめて原因候補を整理する。</li><li>run history が残れば、再発時の比較や再現テストに使いやすい。</li></ul>
+      <ul class="bullet-list"><li>アラート、runbook、最近の変更情報をまとめ、原因候補と次アクションを整理する。</li><li>run history と replay が残れば、再発時の比較がしやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>公開根拠から見える具体シナリオ</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>support workflow では『なぜその回答になったか』の説明責任が重要になる</h3>
+      <p>FAQ retrieval と connector action を含む support flow では、答えの quality だけでなく、どの document と tool call に基づいたかが必要になる。trace と run history がないと、誤回答の修正が属人的になるため、AgentOps の価値が大きい。</p>
+    </article><article class="comparison-card">
+      <h3>database-connected assistant は permission と review の control layer が前提になる</h3>
+      <p>Google の MCP integrations や enterprise connector の文脈では、assistant が data source へ近づくほど review gate と permission scope が必要になる。ここで重要なのは、model が賢いかではなく、危険な action を止められるかだ。</p>
+    </article><article class="comparison-card">
+      <h3>A2A や orchestration が増えるほど end-to-end trace が重要になる</h3>
+      <p>複数 agent が分担する flow では、どの node で遅れたか、どの handoff で情報が欠けたかを追えることが改善速度を左右する。control layer の中心は、agent を増やすことではなく、複雑さを読めるようにすることだった。</p>
     </article></div>
 </section>
 
@@ -49,13 +64,13 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>8月時点では、agent を導入する team に必要なのは、prompt のうまさより trace を読み、改善を回せる運用能力だった。</p>
+    <p>agent を導入する team に必要なのは、prompt の妙味より、trace を読み、review を回し、recovery path を持てる運用能力だ。</p>
   </div>
-  <ul class="bullet-list mt-6"><li>trace、session、tool call history を標準で保存する。</li><li>review 画面や承認 UI を agent の外ではなく運用基盤の一部として考える。</li><li>失敗した run の再試行条件と recovery path を定義する。</li></ul>
+  <ul class="bullet-list mt-6"><li>trace、session、tool call history を標準で保存する。</li><li>approval UI と review queue を運用基盤の一部として扱う。</li><li>failure class ごとに retry / rollback / human takeover の条件を決める。</li><li>connector が増えるほど、permission scope の棚卸しを定期運用にする。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2025年8月の時点で、agent platform の差は『何ができるか』より『問題が起きたときにどう見えるか』で測られ始めていた。</p>
+  <h2>結論</h2>
+  <p>agent platform の差は、『何ができるか』より『問題が起きたときにどう観測し、どう止め、どう復帰できるか』で測られている。</p>
 </section>

@@ -20,9 +20,24 @@ export const siteConfig = {
   basePath,
   themeColor: "#0d0f14",
   ogImage: "assets/og-default.svg",
+  defaultRobots: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
   description: {
     ja: "LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理するリサーチ配信サイト。",
     en: "A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction."
+  },
+  seo: {
+    homeTitle: {
+      ja: "LLM・AI・AI Agent の調査レポート",
+      en: "LLM, AI, and AI Agent Research Briefings"
+    },
+    archiveTitle: {
+      ja: "公開レポートアーカイブ",
+      en: "Research Briefing Archive"
+    },
+    archiveDescription: {
+      ja: "公開済みの LLM・AI・AI Agent レポートを日付順に一覧化したアーカイブ。",
+      en: "An archive of published LLM, AI, and AI agent briefings listed in reverse chronological order."
+    }
   },
   heroKicker: {
     ja: "Research Signal",

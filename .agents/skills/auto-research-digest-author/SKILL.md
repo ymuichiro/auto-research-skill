@@ -1,6 +1,6 @@
 ---
 name: auto-research-digest-author
-description: Research, write, and update Auto Research Digest articles about LLM, AI, and AI agents for this repository. Use this whenever the user asks to investigate the latest AI or agent trends, gather official docs or papers, expand an article in content/articles/, create a new bilingual research briefing, publish an infographic-style HTML report for this site, or create retrospective snapshot articles. Always browse for current information, collect at least 20 primary-source URLs before publishing a new or substantially revised article, keep public evidence limited to official docs, official announcements, and papers, and update both Japanese and English article files plus meta.json.
+description: Research, write, and update Auto Research Digest articles about LLM, AI, and AI agents for this repository. Use this whenever the user asks to investigate the latest AI or agent trends, gather official docs or papers, expand an article in content/articles/, create a new bilingual research briefing, publish an infographic-style HTML report for this site, or create retrospective snapshot articles. Always browse for current information, collect at least 20 primary-source URLs before publishing a new or substantially revised article, keep public evidence limited to official docs, official announcements, and papers, update both Japanese and English article files plus meta.json, and preserve the weekly publishing cadence without lowering the evidence bar.
 compatibility: Requires repo write access, shell commands, and web research.
 ---
 
@@ -22,16 +22,28 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 ## Default Workflow
 
 1. Identify whether you are updating an existing article or creating a new one.
-2. For new or time-sensitive topics, browse the web first. Do not rely on memory for "latest" questions.
-3. Start broad to map the topic, then narrow to official documentation and papers for anything that will appear in the public article.
-4. Build a research inventory of at least 20 primary-source URLs before publishing a new article or substantially rewriting an existing one.
-5. For retrospective or backfilled articles, use only sources that were publicly available on or before the article date.
-6. Write or revise all three article files together:
+2. If this is part of the weekly publishing cadence, decide early whether the piece should be:
+   - a focused weekly article on one theme, or
+   - a weekly roundup that bundles 2 to 4 converging signals
+3. For new or time-sensitive topics, browse the web first. Do not rely on memory for "latest" questions.
+4. Start broad to map the topic, then narrow to official documentation and papers for anything that will appear in the public article.
+5. Build a research inventory of at least 20 primary-source URLs before publishing a new article or substantially rewriting an existing one.
+6. For retrospective or backfilled articles, use only sources that were publicly available on or before the article date.
+7. Write or revise all three article files together:
    - `meta.json`
    - `body.ja.html`
    - `body.en.html`
-7. Run `pnpm build` after edits. Use `pnpm validate` if you need a separate validation pass.
-8. If the user wants the change published, commit, push, watch GitHub Actions, and verify the public page.
+8. Run `pnpm build` after edits. Use `pnpm validate` if you need a separate validation pass.
+9. If the user wants the change published, commit, push, watch GitHub Actions, and verify the public page.
+
+## Weekly Publishing Rules
+
+- The default operating cadence is one public article per week.
+- Weekly cadence does not relax the evidence bar. New weekly articles still need a 20+ primary-source inventory.
+- If one weekly topic is too thin to clear the quality bar, broaden it into a weekly roundup rather than publishing a shallow single-theme piece.
+- Weekly roundups should still have a clear thesis, not a loose list of headlines.
+- For weekly articles, treat the article date as the publication-date snapshot and use only primary sources that were public on or before that date.
+- If a week does not have enough verified primary material for publication, prefer delaying or reframing the piece over padding with third-party coverage.
 
 ## Source Rules
 
@@ -48,6 +60,7 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 - Avoid thin articles. Compare and synthesize sources; do not merely list them.
 - Always include concrete use cases or operating scenarios so the article is not purely conceptual.
 - Keep Japanese and English versions aligned in meaning and confidence level.
+- For retrospective or backfilled articles, write as if the piece were published on that article date. Avoid wording that exposes hindsight or backfill status, such as "その時点では", "at the time", or "viewed from".
 - Do not expose internal workflow language such as "配信契約", internal audience notes, or repo-only operating details on public pages.
 - Do not introduce audience-label wording such as "経営層向け", "エグゼクティブ", or "executive" into public pages unless the user explicitly asks for it.
 - For layout and styling, rely on the shared template and shared CSS. Do not add page-specific CSS for ordinary article additions.
@@ -76,6 +89,13 @@ For retrospective monthly series, also make sure each article answers:
 - what was already visible by that month
 - which signals were still early versus already converging
 - what concrete workflows were realistic at that time
+
+For the normal weekly cadence, also make sure each article answers:
+
+- why this specific week changed the story
+- whether the article is a focused theme or a roundup and why
+- which workflows became more realistic that week
+- what remains too early or too weak to state confidently
 
 ## File Contract
 

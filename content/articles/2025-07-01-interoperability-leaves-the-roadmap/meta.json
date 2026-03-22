@@ -3,8 +3,8 @@
   "date": "2025-07-01",
   "titleJa": "相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める",
   "titleEn": "Interoperability is moving from roadmap rhetoric into a real integration premise",
-  "summaryJa": "2025年7月時点では、Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は将来論ではなく current architecture の一部として扱われ始めていた。",
-  "summaryEn": "By July 2025, Google’s A2A donation and MCP integrations, Microsoft Foundry’s A2A / MCP / OpenAPI surfaces, and OpenAI’s remote MCP support in the Responses API were turning agent-to-agent and data connectivity into part of the current architecture rather than a future aspiration.",
+  "summaryJa": "Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は current architecture の一部になっている。",
+  "summaryEn": "Google’s A2A donation and MCP integrations, Microsoft Foundry’s A2A / MCP / OpenAPI surfaces, and OpenAI’s remote MCP support in the Responses API turn agent-to-agent and data connectivity into part of the current architecture.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

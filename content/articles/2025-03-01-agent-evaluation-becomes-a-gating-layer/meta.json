@@ -3,8 +3,8 @@
   "date": "2025-03-01",
   "titleJa": "AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく",
   "titleEn": "Agent evaluation is becoming a gating layer rather than an afterthought",
-  "summaryJa": "2025年3月時点では、研究ベンチマークの増加と各社発表の流れから、prototype agent と production candidate を分ける軸が評価・再現性・監督に移りつつあった。",
-  "summaryEn": "By March 2025, the growing benchmark landscape and official platform messaging made it increasingly clear that evaluation, reproducibility, and oversight would separate prototype agents from production candidates.",
+  "summaryJa": "研究ベンチマークの増加と各社発表の流れにより、prototype agent と production candidate を分ける軸は、派手さよりも評価・再現性・監督へ移っている。",
+  "summaryEn": "The growing benchmark landscape and official platform messaging shift the dividing line between prototype agents and production candidates toward evaluation, reproducibility, and oversight.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

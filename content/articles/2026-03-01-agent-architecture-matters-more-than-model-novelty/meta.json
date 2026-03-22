@@ -3,8 +3,8 @@
   "date": "2026-03-01",
   "titleJa": "agent architecture は model novelty よりも重要な比較軸になっていく",
   "titleEn": "Agent architecture is becoming a more important comparison axis than model novelty",
-  "summaryJa": "2026年3月1日時点では、2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっていることがより明確になっていた。",
-  "summaryEn": "By March 1, 2026, the accumulated 2025 launch cycle plus the benchmark literature had made it much clearer that protocol, SDK, runtime, evals, and approvals together define the real architecture question in agent adoption.",
+  "summaryJa": "2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっている。",
+  "summaryEn": "The accumulated 2025 launch cycle plus the benchmark literature make it much clearer that protocol, SDK, runtime, evals, and approvals together define the real architecture question in agent adoption.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

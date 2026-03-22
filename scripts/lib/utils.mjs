@@ -14,6 +14,11 @@ export async function writeTextFile(filePath, content) {
   await writeFile(filePath, content, "utf8");
 }
 
+export async function writeBufferFile(filePath, content) {
+  await ensureDir(path.dirname(filePath));
+  await writeFile(filePath, content);
+}
+
 export function escapeHtml(value) {
   return value
     .replaceAll("&", "&amp;")

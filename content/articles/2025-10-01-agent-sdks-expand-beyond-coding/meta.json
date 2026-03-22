@@ -2,9 +2,9 @@
   "slug": "agent-sdks-expand-beyond-coding",
   "date": "2025-10-01",
   "titleJa": "agent SDK は coding 補助の外へ広がり、汎用 workflow の部品になり始める",
-  "titleEn": "Agent SDKs are expanding beyond coding assistance into general workflow components",
-  "summaryJa": "2025年10月時点では、Claude Agent SDK、Looker MCP Server、Firestore 対応 MCP Toolbox、Agent Factory、Microsoft Agent Framework により、agent SDK は code helper 専用ではなく、データ接続・権限設計・control plane を含む汎用 application layer として見られ始めていた。",
-  "summaryEn": "By October 2025, the Claude Agent SDK, Looker MCP Server, Firestore-enabled MCP Toolbox, Agent Factory, and Microsoft Agent Framework were turning agent SDKs into a broader application layer that includes data access, permission design, and control-plane concerns rather than just coding assistance.",
+  "titleEn": "Agent SDKs are expanding beyond coding assistance into a broader application layer",
+  "summaryJa": "Claude Agent SDK、Looker MCP Server、Firestore 対応 MCP Toolbox、Agent Factory、Microsoft Agent Framework により、agent SDK は code helper 専用ではなく、データ接続・権限設計・control plane を含む汎用 application layer として見られ始めている。",
+  "summaryEn": "The Claude Agent SDK, Looker MCP Server, Firestore-enabled MCP Toolbox, Agent Factory, and Microsoft Agent Framework turn agent SDKs into a broader application layer that includes data access, permission design, and control-plane concerns.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

@@ -44,12 +44,14 @@ Each article lives in:
    - update an existing article
    - create a new article
    - refresh a public article and redeploy
+   - decide whether the weekly piece is a focused article or a roundup
 2. For unstable topics, browse first.
 3. Use broad discovery to identify themes and likely official sources.
 4. Build a research inventory of 20 or more primary-source URLs before publishing a new article or substantial rewrite.
 5. Narrow public evidence to sources you can verify directly.
 6. If a source cannot be verified on its official page or paper page, exclude it from `publishedSources`.
 7. For retrospective articles, only use sources that were publicly available on or before the article date.
+8. For weekly publication, do not lower the quality bar to hit cadence. If one theme is too thin, widen scope into a weekly roundup of 2 to 4 converging signals.
 
 Good official-source buckets:
 
@@ -82,6 +84,12 @@ For substantial pieces, prefer a structure like:
 6. design, evaluation, and governance implications
 7. key takeaway
 
+For weekly pieces, prefer this decision rule:
+
+- use a focused weekly article when one theme alone has enough verified primary material and concrete workflow implications
+- use a roundup when several smaller signals jointly explain the week better than any single topic
+- do not publish a thin single-topic article just to satisfy cadence
+
 Depth rules:
 
 - compare sources instead of listing them
@@ -90,6 +98,8 @@ Depth rules:
 - keep Japanese and English versions aligned in meaning
 - avoid exposing repo-internal policy wording in public copy
 - for retrospective month-start snapshots, write from the perspective of what was knowable at that time
+- for retrospective or backfilled public articles, keep the narration in publication-day voice rather than hindsight voice
+- for weekly posts, write from the perspective of what was knowable by that publication date
 
 ## 5. Build and verification
 

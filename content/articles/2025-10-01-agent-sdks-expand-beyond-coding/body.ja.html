@@ -1,15 +1,15 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>agent SDK は coding 補助の外へ広がり、汎用 workflow の application layer に寄り始める</h2>
-  <p>2025年10月時点では、agent SDK を「コードを書く assistant のための薄い wrapper」と見るには無理が出てきていた。Anthropic は Claude Code SDK を Claude Agent SDK に改名し、finance agent、personal assistant、customer support、deep research まで射程を広げた。Google は Looker と Firestore を MCP でつなぎ、Microsoft は Agent Factory と Agent Framework で shared runtime、open protocol、control plane をまとめて語り始めた。</p>
+  <p>agent SDK を「コードを書く assistant のための薄い wrapper」と見るには無理が出てきている。Anthropic は Claude Code SDK を Claude Agent SDK に改名し、finance agent、personal assistant、customer support、deep research まで射程を広げた。Google は Looker と Firestore を MCP でつなぎ、Microsoft は Agent Factory と Agent Framework で shared runtime、open protocol、control plane をまとめて語り始めている。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">11件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">その時点で確認できる論文と公式 source だけに絞った。</p>
+      <p class="stat-note">公開日までに確認できる論文と公式 source だけに絞った。</p>
     </article><article class="stat-card">
       <p class="stat-value">20+</p>
       <p class="stat-title">調査母集団</p>
-      <p class="stat-note">snapshot date 以前に公開された一次情報 URL だけを採用候補にした。</p>
+      <p class="stat-note">公開日までに確認できる一次情報 URL だけを採用候補にした。</p>
     </article><article class="stat-card">
       <p class="stat-value">4役割</p>
       <p class="stat-title">SDK の広がり</p>
@@ -19,7 +19,7 @@
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>Anthropic は SDK の射程を coding から general-purpose agent へ広げた</h3>
       <p>Claude Agent SDK の記事では、Claude Code の背後にある harness を finance、travel / calendar、customer support、deep research にも転用できると明示している。bash、file editing、subagents、compaction を備えた computer-oriented loop が、coding 固有ではなく汎用の digital work に使えるという整理だ。</p>
@@ -34,10 +34,10 @@
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>現実味が高いユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>deep research / finance / support をまたぐ general-purpose agent</h3>
-      <ul class="bullet-list"><li>Claude Agent SDK の source は、portfolio analysis、travel scheduling、customer ticket handling、deep research を同じ harness で扱えると説明している。</li><li>この時点で SDK は coding assistant ではなく、computer を使う汎用 worker の基盤として読める。</li></ul>
+      <ul class="bullet-list"><li>Claude Agent SDK の source は、portfolio analysis、travel scheduling、customer ticket handling、deep research を同じ harness で扱えると説明している。</li><li>SDK は coding assistant ではなく、computer を使う汎用 worker の基盤として読める。</li></ul>
     </article><article class="comparison-card">
       <h3>governed analytics と application change の bridge</h3>
       <ul class="bullet-list"><li>Looker MCP Server は governed semantic layer を通じて AI に trusted data を渡す。</li><li>Firestore / MCP Toolbox は data cleanup、schema update、security rule validation を IDE 内から進める道筋を示した。</li></ul>
@@ -64,13 +64,13 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>10月時点では、SDK 選定は開発者体験の比較ではなく、computer use、data access、shared runtime、policy を一体でどう扱うかの判断になり始めていた。</p>
+    <p>SDK 選定は、開発者体験の比較ではなく、computer use、data access、shared runtime、policy を一体でどう扱うかの判断になっている。</p>
   </div>
   <ul class="bullet-list mt-6"><li>computer-oriented agent loop と deterministic workflow の境界を分け、何を code と tool に落とすか決める。</li><li>semantic layer や database connector を入れるなら、権限と監査を SDK の外付けではなく core 設計に入れる。</li><li>local 実行と hosted 実行で telemetry が分断されないかを確認する。</li><li>SDK の抽象が増えるほど、memory、session、approval、fallback を共通 control plane で吸収できるかが重要になる。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2025年10月の時点で、agent SDK は coding assistant を作るための部品ではなく、computer use と governed data access を束ねる application layer へ広がり始めていた。</p>
+  <h2>結論</h2>
+  <p>agent SDK は、coding assistant を作るための部品ではなく、computer use と governed data access を束ねる application layer へ広がり始めている。</p>
 </section>

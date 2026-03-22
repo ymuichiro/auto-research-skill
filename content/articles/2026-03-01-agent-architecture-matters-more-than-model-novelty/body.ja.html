@@ -1,46 +1,61 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>agent architecture は model novelty よりも重要な比較軸になっていく</h2>
-  <p>3月初日時点で振り返ると、agent stack はすでに recognizable な層構造を持ち始めている。model、tooling、protocol、runtime、control plane、approval が別々に比較される段階に入った。</p>
+  <p>積み上がっている一次情報を見ると、agent の比較軸は model の新しさより architecture の厚みへ移っている。protocol、SDK、runtime、workflow surface、evals、approval をどう束ねるかが、coding、analysis、support、approval-heavy workflow のすべてに効く共通論点になっている。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">8件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+      <p class="stat-note">architecture 比較に直結する papers と official launches を掲載。</p>
     </article><article class="stat-card">
       <p class="stat-value">52件</p>
-      <p class="stat-title">当月までの調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+      <p class="stat-title">調査母集団</p>
+      <p class="stat-note">公開日までに確認できる一次情報のみを候補にした。</p>
     </article><article class="stat-card">
-      <p class="stat-value">2層</p>
-      <p class="stat-title">研究と公式発表</p>
-      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+      <p class="stat-value">5層</p>
+      <p class="stat-title">比較される層</p>
+      <p class="stat-note">protocol、SDK、runtime、workflow、eval / approval が主要レイヤーになった。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>architecture の層が見えるようになる</h3>
-      <p>2025年の各発表をつなぐと、agent stack は model ひとつで語れなくなっている。protocol と SDK が接続を担い、runtime と control plane が運用を担うという分担が見えやすい。</p>
+      <h3>protocol と SDK だけでは architecture を語れなくなった</h3>
+      <p>A2A、MCP、Agent SDK、Agent Framework が重要なのは確かだが、それだけでは production architecture にならない。workflow surface、trace、approval、evaluation が揃って初めて導入の比較軸として機能するようになった。</p>
     </article><article class="comparison-card">
-      <h3>bounded autonomy が現実路線として定着する</h3>
-      <p>最も筋のよいユースケースは、いまだに bounded workflow に集中している。違うのは、その bounded workflow がより多くの tool、data source、worker をまたげるようになったことだ。</p>
+      <h3>workflow surface が model 差を吸収する領域を広げた</h3>
+      <p>Foundry workflows や AgentKit のような builder / eval / versioning を持つ面が厚くなると、model difference だけで成果差を説明しにくくなる。実務では architecture quality の寄与が大きくなる。</p>
     </article><article class="comparison-card">
-      <h3>比較すべきものは model より architecture になる</h3>
-      <p>どのベンダーが強いかを考えるときも、問うべきは model だけではない。protocol、developer tooling、approval、evals、interoperability をどう束ねるかが差を作る。</p>
+      <h3>approval と governance は後付けではなく中心設計になった</h3>
+      <p>2025年を通じて見えたのは、approval chain と policy boundary を早く定義した team のほうが narrow workflow を前に進めやすいということだった。governance は innovation brake ではなく delivery enabler に近い。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>architecture 比較が効きやすいユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>multi-system enterprise assistant</h3>
-      <ul class="bullet-list"><li>検索、データ参照、通知、チケット更新、承認依頼をひとつの architecture で束ねる。</li><li>bounded autonomy を保ちながら、対象システムだけ広げる設計が現実的である。</li></ul>
+      <h3>browser / ops workflow</h3>
+      <ul class="bullet-list"><li>複数 step、外部 system、approval が絡むため runtime と review surface の質が重要になる。</li><li>single model の性能差より orchestration quality が効きやすい。</li></ul>
     </article><article class="comparison-card">
-      <h3>開発と調査をつなぐ loop</h3>
-      <ul class="bullet-list"><li>issue の理解、関連調査、修正案、テスト観点、説明文の下書きを連携させる。</li><li>model を替えるより、workflow の観測性と human review を厚くしたほうが成果が安定しやすい。</li></ul>
+      <h3>coding + data + document workflow</h3>
+      <ul class="bullet-list"><li>code change、analysis、document drafting をまたぐ task では protocol と control plane の一貫性が必要になる。</li><li>architecture が弱いと evidence と review が分断しやすい。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>公開根拠から見えた architecture 差の具体像</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>browser-oriented workflow では approval と trace が architecture quality を左右する</h3>
+      <p>browser task は model が多少良くても、途中状態が見えず、irreversible action を止められないと production で使いにくい。ここでは protocol の美しさより runtime と review surface の設計が効く。</p>
+    </article><article class="comparison-card">
+      <h3>coding / analysis workflow では evidence と review の一貫性が重要になる</h3>
+      <p>Agent Framework、AgentKit、GPT-5 for developers の流れを合わせると、code diff、metric access、analysis memo が同じ control plane に載るかどうかで運用品質が変わる。architecture comparison は抽象論ではなく release quality の差になる。</p>
+    </article><article class="comparison-card">
+      <h3>approval-heavy workflow では governance が rollout speed を決める</h3>
+      <p>financial approvals や document review のような flow では、review node、policy boundary、regression eval が整っている architecture のほうが narrow workflow を速く出せる。強い model だけではここを代替できない。</p>
     </article></div>
 </section>
 
@@ -49,13 +64,13 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>3月1日時点で必要なのは、agent を『何ができるか』で語ることではなく、『どの architecture で運用するか』に翻訳することだった。</p>
+    <p>比較軸は、どの model を積むかより、protocol から approval までを一貫した architecture として保てるかに移っている。</p>
   </div>
-  <ul class="bullet-list mt-6"><li>protocol、runtime、control plane を別レイヤーとして設計し、入れ替えやすくする。</li><li>bounded workflow から始め、recovery path がある範囲だけ autonomy を広げる。</li><li>vendor comparison は model と価格だけでなく、evaluation と approval の実装容易性で見る。</li></ul>
+  <ul class="bullet-list mt-6"><li>protocol、SDK、runtime、workflow、eval / approval を別々の比較表にしない。</li><li>workflow architecture を model benchmark と同じくらい重要な選定項目にする。</li><li>review surface と observability を early architecture に組み込む。</li><li>narrow workflow ごとに architecture fit を評価し、万能 platform 期待を避ける。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2026年3月1日の時点で、agent 導入の主論点は『どの model を選ぶか』より『どの architecture を維持できるか』へかなり移っていた。</p>
+  <h2>結論</h2>
+  <p>agent 導入の現実的な比較軸は、model novelty ではなく、protocol・runtime・workflow・approval を一体で扱える architecture の質になっている。</p>
 </section>

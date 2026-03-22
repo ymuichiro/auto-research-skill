@@ -1,61 +1,76 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>AI agents are moving from flashy demos to measurable system design</h2>
-  <p>What was already visible by January 2025 was a shift from answer quality toward task completion in real environments, with official product announcements increasingly treating tool use, computer use, and managed agents as system design choices rather than isolated features.</p>
+  <h2>AI agents are shifting from flashy demos toward measurable system design</h2>
+  <p>The center of gravity is moving away from prompt cleverness and toward tool use, environment interaction, and task completion. ReAct and Toolformer establish the reasoning-and-action foundation, while WebArena, SWE-bench, OSWorld, and BrowserGym ask how far agents can actually complete multi-step tasks in realistic environments. AWS, Google, and Anthropic are also pushing retrieval, tool use, and managed builders into product surfaces.</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">10</p>
-      <p class="stat-title">Published evidence links</p>
-      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">Only papers and official docs / announcements tied directly to the argument are listed.</p>
     </article><article class="stat-card">
       <p class="stat-value">28</p>
-      <p class="stat-title">Eligible inventory by month</p>
-      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+      <p class="stat-title">Research pool</p>
+      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
     </article><article class="stat-card">
-      <p class="stat-value">2 layers</p>
-      <p class="stat-title">Research plus official launches</p>
-      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+      <p class="stat-value">3 shifts</p>
+      <p class="stat-title">What changed</p>
+      <p class="stat-note">Tool use, environment tasks, and managed primitives all became more concrete.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>The main signals visible at that point</h2>
+  <h2>The strongest signals</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Evaluation is moving from polished answers to completed work</h3>
-      <p>After ReAct and Toolformer established the basic pattern, WebArena, SWE-bench, OSWorld, and BrowserGym pushed evaluation toward completion on realistic tasks. By year end, agents were already being framed less as chat extensions and more as work systems.</p>
+      <h3>Benchmarks showed that conversation quality alone was no longer enough</h3>
+      <p>WebArena and BrowserGym evaluated long web tasks, SWE-bench measured issue-to-patch-and-test workflows, and OSWorld expanded the frame to open-ended desktop tasks. Agent capability was starting to be measured by whether a system could complete multi-step work in an environment, not just produce a plausible answer.</p>
     </article><article class="comparison-card">
-      <h3>Official product pages are starting to assume tool access and oversight</h3>
-      <p>AWS Bedrock Agents, Google Vertex AI Agent Builder, and Anthropic&#39;s tool-use and effective-agent guidance all foreground tool calls, control, approvals, and execution boundaries over raw model access. The implementation question is already shifting from an API to an architecture.</p>
+      <h3>Official platforms pushed tool use and retrieval into the product layer</h3>
+      <p>AWS Bedrock Agents, Google Vertex AI Agent Builder, and Anthropic's tool use launch all treated agents as system components connected to knowledge sources and external tools rather than as prompt templates. The practical comparison axis was already drifting toward orchestration.</p>
     </article><article class="comparison-card">
-      <h3>Early deployments cluster around bounded workflows</h3>
-      <p>Even using only sources available by late 2024, the most plausible early deployments are workflows with known tools, explicit completion criteria, and a clean human fallback. The practical path is not a universal AI but a bounded job that can be operationalized.</p>
+      <h3>The design question became “what do we measure?” rather than “what can it do?”</h3>
+      <p>Anthropic's Building effective agents reinforced the same pattern: the safer path was not a universal assistant, but a stack of bounded tasks with clear operating constraints. Early 2025 was already pointing toward measurable workflows instead of capability theater.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that already looked practical at that time</h2>
+  <h2>Use cases that look practical</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Incident triage and patch drafting</h3>
-      <ul class="bullet-list"><li>Read issues, logs, and recent changes to narrow the likely problem area and the next debugging steps.</li><li>Let the agent draft candidate fixes and test ideas, while keeping actual code changes and merges behind human approval.</li></ul>
+      <h3>Research and briefing preparation</h3>
+      <ul class="bullet-list"><li>Agents could gather public materials, cluster themes, and draft comparison tables or first-pass summaries.</li><li>If retrieval and citation rules were separated cleanly, humans could verify the work afterward.</li></ul>
     </article><article class="comparison-card">
-      <h3>Enterprise knowledge lookup with bounded actions</h3>
-      <ul class="bullet-list"><li>Search internal documents and FAQs to assemble a response draft or a recommended next step.</li><li>Keep sending, updating, or submitting actions behind explicit approvals so write permissions remain bounded.</li></ul>
+      <h3>Support assistance with knowledge retrieval</h3>
+      <ul class="bullet-list"><li>Agents could pull FAQs, runbooks, and ticket history before drafting replies.</li><li>Tool use plus escalation rules made it easier to return only uncertain cases to a human.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Concrete scenarios already visible in the source set</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>SWE-bench made issue-to-fix workflows tangible</h3>
+      <p>The benchmark showed that the real value of a coding agent was not suggesting a code snippet, but handling issue understanding, repository navigation, patch creation, and test execution as one task. That maps naturally to bounded production workflows such as bug triage or patch-candidate preparation.</p>
+    </article><article class="comparison-card">
+      <h3>WebArena and BrowserGym pointed to realistic browser work</h3>
+      <p>By evaluating storefront administration, CMS interaction, and GitLab-like task flows, these benchmarks pushed browser automation beyond research theater. The practical entry point for agent adoption looked less like open conversation and more like repetitive work inside existing interfaces.</p>
+    </article><article class="comparison-card">
+      <h3>AWS, Google, and Anthropic reinforced support-oriented starting points</h3>
+      <p>Bedrock Agents, Vertex AI Agent Builder, and Claude tool use all supported the same near-term pattern: assistants grounded in knowledge retrieval and API-backed actions. Support workflows, internal search, and document-based guidance were among the most realistic early deployment targets.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Operating Implications</p>
-  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <h2>What teams needed to decide early</h2>
   <div class="callout-panel">
-    <p class="callout-title">Observed implication</p>
-    <p>At this stage, deciding which part of a workflow can be measured and supervised safely mattered more than picking a model winner.</p>
+    <p class="callout-title">Observation</p>
+    <p>The important question is not how impressive an agent can look, but how clearly a team can define and measure the tasks it should perform.</p>
   </div>
-  <ul class="bullet-list mt-6"><li>Define which tools are allowed and which actions are prohibited before comparing models.</li><li>Pick five to ten representative tasks and measure completion rate together with review burden.</li><li>Place human approvals in front of write actions and external submissions from the start.</li></ul>
+  <ul class="bullet-list mt-6"><li>Start with 5 to 10 representative tasks such as FAQ response, research summarization, or issue triage and turn them into an eval set.</li><li>Keep tool calls and retrieval sources in the trace so humans can review failure causes.</li><li>For browser and desktop work, begin with read-heavy or low-risk workflows before open-ended action loops.</li><li>Even on managed platforms, separate knowledge sources from tool permissions early.</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>The provisional conclusion that could already be drawn</h2>
-  <p>At the start of 2025, the important question was not how impressive a demo looked, but whether the agent could be reduced to a small workflow with explicit completion criteria and ownership boundaries.</p>
+  <h2>Conclusion</h2>
+  <p>The gap between agent systems depends less on flashy demos and more on how well teams can make bounded, tool-connected tasks measurable.</p>
 </section>

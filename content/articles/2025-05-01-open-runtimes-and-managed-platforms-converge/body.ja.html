@@ -1,7 +1,7 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>open runtime と managed platform を分けて組み合わせる設計が現実味を持ち始める</h2>
-  <p>2025年5月時点の一次情報を並べると、agent stack は単一ベンダー製品の比較ではなくなりつつあった。OpenAI は agent building の基本部品を公開し、AWS は multi-agent collaboration と human-in-the-loop を具体機能として見せ、Google は multi-system agents と A2A を同日に打ち出し、Microsoft は Semantic Kernel Agents を GA に進めた。Anthropic の Code with Claude は event announcement ではあるものの、tool を使う developer agent への関心が強まっていたことを補強している。</p>
+  <p>agent stack は、単一ベンダー製品の比較ではなくなりつつある。OpenAI は agent building の基本部品を公開し、AWS は multi-agent collaboration と human-in-the-loop を具体機能として見せ、Google は multi-system agents と A2A を同日に打ち出し、Microsoft は Semantic Kernel Agents を GA に進めている。Anthropic の Code with Claude は event announcement ではあるものの、tool を使う developer agent への関心が強まっていることを補強している。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">11件</p>
       <p class="stat-title">公開根拠</p>
@@ -19,7 +19,7 @@
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>Google は protocol と platform を同時に押し出した</h3>
       <p>Vertex AI の multi-system agents と A2A は、managed platform と open coordination rule をセットで考える流れを前に進めた。agent を自社クラウドの内側だけで完結させず、他システムや他 vendor と接続できる前提を作ろうとしていた点が重要だ。</p>
@@ -34,7 +34,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>現実味が高いユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>ブラウザ操作を伴う調査・申請補助</h3>
       <ul class="bullet-list"><li>Operator のような browser-oriented agent は、情報収集やフォーム準備の自動化を前に進めた。</li><li>ただし submit を完全自動にするより、最終確認を人間に残す構成のほうが当時の一次情報と整合的だった。</li></ul>
@@ -61,13 +61,13 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>5月時点での実務論点は、「どの vendor を選ぶか」よりも、「protocol、hosted execution、approval をどこで分けるか」に移り始めていた。</p>
+    <p>実務論点は、「どの vendor を選ぶか」よりも、「protocol、hosted execution、approval をどこで分けるか」に移っている。</p>
   </div>
   <ul class="bullet-list mt-6"><li>tool schema と message contract は、runtime を差し替えても壊れにくい形で定義する。</li><li>read-only automation と write action を分け、変更系の操作には確認か return of control を入れる。</li><li>single agent で十分な工程と、supervisor + specialist に分ける工程を早い段階で整理する。</li><li>event announcement と GA release を混同せず、platform maturity は source ごとに温度差を付けて読む。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2025年5月の時点で、agent stack は「単一製品の採用判断」ではなく、「open な接続規約と managed な実行基盤、そして承認設計をどう重ねるか」という architecture の問題になり始めていた。</p>
+  <h2>結論</h2>
+  <p>agent stack は、「単一製品の採用判断」ではなく、「open な接続規約と managed な実行基盤、そして承認設計をどう重ねるか」という architecture の問題になっている。</p>
 </section>

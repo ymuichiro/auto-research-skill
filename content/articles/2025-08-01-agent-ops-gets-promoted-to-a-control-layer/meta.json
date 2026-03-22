@@ -2,9 +2,9 @@
   "slug": "agent-ops-gets-promoted-to-a-control-layer",
   "date": "2025-08-01",
   "titleJa": "AgentOps は補助機能ではなく control layer として扱われ始める",
-  "titleEn": "AgentOps is starting to be treated as a control layer rather than a helper feature",
-  "summaryJa": "2025年8月時点では、春から初夏にかけての Foundry・OpenAI・Google の発表を通じて、agent stack の競争が trace、review、observability、tool governance といった control layer に移り始めていた。",
-  "summaryEn": "By August 2025, the spring-to-summer launch pattern across Microsoft, OpenAI, and Google suggested that competition in the agent stack was moving toward traces, reviews, observability, and tool governance as control layers.",
+  "titleEn": "AgentOps is becoming a control layer rather than a helper feature",
+  "summaryJa": "Foundry・OpenAI・Google の発表を通じて、agent stack の競争は trace、review、observability、tool governance といった control layer へ移っている。",
+  "summaryEn": "The spring-to-summer launch pattern across Microsoft, OpenAI, and Google shifts competition in the agent stack toward traces, reviews, observability, and tool governance as control layers.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

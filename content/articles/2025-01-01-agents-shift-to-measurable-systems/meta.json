@@ -3,8 +3,8 @@
   "date": "2025-01-01",
   "titleJa": "AI エージェントは、派手なデモから測定可能なシステム設計へ",
   "titleEn": "AI agents are moving from flashy demos to measurable system design",
-  "summaryJa": "2025年1月時点では、ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の 2024 年公式発表を通じて、関心が prompt 実験からツール接続、環境操作、評価可能なシステム設計へ移っていることが見えていた。",
-  "summaryEn": "As of January 2025, the combination of agent papers from ReAct through BrowserGym and 2024 announcements from Anthropic, AWS, and Google already pointed to a shift away from prompt experiments toward tool-connected, environment-aware, measurable systems.",
+  "summaryJa": "ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の公式発表を合わせて読むと、関心は prompt 実験から、ツール接続、環境操作、評価可能なシステム設計へ移っている。",
+  "summaryEn": "Research from ReAct through BrowserGym, together with official updates from Anthropic, AWS, and Google, shows attention moving away from prompt experiments and toward tool-connected, environment-aware, measurable systems.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

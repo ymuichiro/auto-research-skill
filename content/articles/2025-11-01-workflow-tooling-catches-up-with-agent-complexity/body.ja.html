@@ -1,7 +1,7 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>workflow tooling が agent の複雑さに追いつき、個別工夫を platform surface へ押し上げ始める</h2>
-  <p>2025年11月時点では、agent を本番運用へ寄せるための tooling layer がかなり具体化していた。OpenAI の AgentKit は visual builder、connector registry、chat UI、evals を一つの製品群として並べ、Microsoft Agent Framework は orchestration と enterprise readiness を同じ foundation で語った。Anthropic の Claude Agent SDK も subagents、compaction、tool design を含む長い loop の前提を公開 source で説明している。</p>
+  <p>agent を本番運用へ寄せるための tooling layer は、かなり具体化している。OpenAI の AgentKit は visual builder、connector registry、chat UI、evals を一つの製品群として並べ、Microsoft Agent Framework は orchestration と enterprise readiness を同じ foundation で語っている。Anthropic の Claude Agent SDK も subagents、compaction、tool design を含む長い loop の前提を公開 source で説明している。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">10件</p>
       <p class="stat-title">公開根拠</p>
@@ -19,7 +19,7 @@
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>OpenAI AgentKit は fragmented tooling を束ねる方向を明示した</h3>
       <p>Agent Builder、Connector Registry、ChatKit、dataset / trace grading / prompt optimization を同時に出したことで、agent 開発は prompt + code の工夫ではなく、workflow、UI、connector、evaluation を束ねる product discipline として整理され始めた。</p>
@@ -34,7 +34,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>現実味が高いユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>buyer / support / knowledge 系の agent application</h3>
       <ul class="bullet-list"><li>AgentKit は buyer agent、work assistant、customer support agent、onboarding guide、research agent のような chat-centered workflow を前提にしている。</li><li>workflow builder と chat UI が同時に必要になるのは、この種の app が interaction と orchestration を同時に持つからだ。</li></ul>
@@ -64,13 +64,13 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>11月時点での差は、agent が賢いかどうかより、workflow、connector、chat surface、eval を同じ release discipline で管理できるかに移り始めていた。</p>
+    <p>差は、agent が賢いかどうかより、workflow、connector、chat surface、eval を同じ release discipline で管理できるかに移っている。</p>
   </div>
   <ul class="bullet-list mt-6"><li>workflow definition は versioning と preview run を持てる形で管理する。</li><li>connector registry や permission scope を team ごとの ad hoc 設定にしない。</li><li>chat UI と orchestration を別プロジェクト扱いにすると、運用品質のボトルネックが増える。</li><li>trace grading や dataset-based eval を feature ship の前提条件に入れ、human checkpoint も flow の一部として定義する。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2025年11月の時点で、agent 導入の競争軸は model novelty だけではなく、複雑な workflow を version・observe・evaluate できる tooling layer を持てるかへ移り始めていた。</p>
+  <h2>結論</h2>
+  <p>agent 導入の競争軸は、model novelty だけではなく、複雑な workflow を version・observe・evaluate できる tooling layer を持てるかへ移っている。</p>
 </section>

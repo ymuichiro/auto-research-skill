@@ -3,8 +3,8 @@
   "date": "2026-02-01",
   "titleJa": "control plane と eval discipline が、agent 導入の速度を決め始める",
   "titleEn": "Control planes and evaluation discipline are starting to set the pace of agent adoption",
-  "summaryJa": "2026年2月時点では、Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右し始めていた。",
-  "summaryEn": "By February 2026, especially after Anthropic's evaluation article, the idea of agents as supervised workers had become clearer, and the presence of a control plane plus regression evaluation was starting to determine rollout speed.",
+  "summaryJa": "Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。",
+  "summaryEn": "Especially after Anthropic's evaluation article, the idea of agents as supervised workers becomes clearer, and the presence of a control plane plus regression evaluation starts to determine rollout speed.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

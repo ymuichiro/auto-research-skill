@@ -64,6 +64,71 @@ function jsonLdBlock(payload) {
   return `<script type="application/ld+json">${JSON.stringify(payload)}</script>`;
 }
 
+function localeTag(locale) {
+  return locale === "ja" ? "ja_JP" : "en_US";
+}
+
+function breadcrumbPayload(locale, items) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: absoluteUrl(item.path)
+    })),
+    inLanguage: locale
+  };
+}
+
+function pageSchemas({ locale, title, description, canonicalUrl, article, pageType, breadcrumbs, imageUrl }) {
+  const payloads = [];
+
+  if (pageType === "article" && article) {
+    payloads.push({
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      headline: locale === "ja" ? article.titleJa : article.titleEn,
+      description: locale === "ja" ? article.summaryJa : article.summaryEn,
+      datePublished: article.publishedAtIso,
+      dateModified: article.lastModified,
+      inLanguage: locale,
+      isAccessibleForFree: true,
+      articleSection: article.category,
+      keywords: article.tags.join(", "),
+      mainEntityOfPage: canonicalUrl,
+      publisher: {
+        "@type": "Organization",
+        name: siteConfig.owner,
+        url: siteConfig.siteUrl
+      },
+      author: {
+        "@type": "Organization",
+        name: siteConfig.owner,
+        url: siteConfig.siteUrl
+      },
+      url: canonicalUrl,
+      image: [imageUrl]
+    });
+  } else {
+    payloads.push({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: title,
+      description: metaDescription(description, locale),
+      inLanguage: locale,
+      url: canonicalUrl
+    });
+  }
+
+  if (breadcrumbs?.length) {
+    payloads.push(breadcrumbPayload(locale, breadcrumbs));
+  }
+
+  return payloads.map((payload) => jsonLdBlock(payload)).join("\n    ");
+}
+
 export function renderPage({
   locale,
   relativePath,
@@ -74,43 +139,28 @@ export function renderPage({
   body,
   currentNavPath,
   article,
-  pageType = "website"
+  pageType = "website",
+  breadcrumbs = [],
+  robotsContent = siteConfig.defaultRobots,
+  imagePath = siteConfig.ogImage
 }) {
   const alternateRelativePath = locale === "ja" ? `en/${relativePath}` : relativePath.replace(/^en\//, "");
   const canonicalUrl = absoluteUrl(relativePath);
   const alternateUrl = absoluteUrl(alternateRelativePath);
   const defaultLocaleUrl = absoluteUrl(locale === "ja" ? relativePath : relativePath.replace(/^en\//, ""));
+  const pageImageUrl = absoluteUrl(imagePath);
   const toggle = languageToggle(locale, relativePath);
   const copy = localeCopy[locale];
-  const schema =
-    pageType === "article" && article
-      ? {
-          "@context": "https://schema.org",
-          "@type": "NewsArticle",
-          headline: locale === "ja" ? article.titleJa : article.titleEn,
-          description: locale === "ja" ? article.summaryJa : article.summaryEn,
-          datePublished: article.date,
-          inLanguage: locale,
-          mainEntityOfPage: canonicalUrl,
-          publisher: {
-            "@type": "Organization",
-            name: siteConfig.owner
-          },
-          author: {
-            "@type": "Organization",
-            name: siteConfig.owner
-          },
-          url: canonicalUrl,
-          image: absoluteUrl(siteConfig.ogImage)
-        }
-      : {
-          "@context": "https://schema.org",
-          "@type": "CollectionPage",
-          name: title,
-          description: metaDescription(description, locale),
-          inLanguage: locale,
-          url: canonicalUrl
-        };
+  const schemaBlocks = pageSchemas({
+    locale,
+    title,
+    description,
+    canonicalUrl,
+    article,
+    pageType,
+    breadcrumbs,
+    imageUrl: pageImageUrl
+  });
 
   const navLinks = siteConfig.nav[locale]
     .map((item) => {
@@ -127,18 +177,26 @@ export function renderPage({
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${escapeHtml(pageTitle(title, locale))}</title>
     <meta name="description" content="${escapeHtml(metaDescription(description, locale))}">
+    <meta name="robots" content="${escapeHtml(robotsContent)}">
+    <meta name="author" content="${escapeHtml(siteConfig.owner)}">
     <meta name="theme-color" content="${siteConfig.themeColor}">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="${pageType === "article" ? "article" : "website"}">
+    <meta property="og:locale" content="${localeTag(locale)}">
+    <meta property="og:locale:alternate" content="${localeTag(locale === "ja" ? "en" : "ja")}">
     <meta property="og:site_name" content="${escapeHtml(siteConfig.name)}">
-    <meta property="og:title" content="${escapeHtml(title)}">
+    <meta property="og:title" content="${escapeHtml(pageTitle(title, locale))}">
     <meta property="og:description" content="${escapeHtml(metaDescription(description, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
-    <meta property="og:image" content="${absoluteUrl(siteConfig.ogImage)}">
+    <meta property="og:image" content="${pageImageUrl}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="${escapeHtml(title)}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="${escapeHtml(title)}">
+    <meta name="twitter:title" content="${escapeHtml(pageTitle(title, locale))}">
     <meta name="twitter:description" content="${escapeHtml(metaDescription(description, locale))}">
-    <meta name="twitter:image" content="${absoluteUrl(siteConfig.ogImage)}">
+    <meta name="twitter:image" content="${pageImageUrl}">
+    <meta name="twitter:image:alt" content="${escapeHtml(title)}">
     <link rel="canonical" href="${canonicalUrl}">
     <link rel="alternate" hreflang="${locale}" href="${canonicalUrl}">
     <link rel="alternate" hreflang="${locale === "ja" ? "en" : "ja"}" href="${alternateUrl}">
@@ -146,12 +204,25 @@ export function renderPage({
     <link rel="alternate" type="application/atom+xml" href="${absoluteUrl(locale === "ja" ? "feed.xml" : "en/feed.xml")}" title="${escapeHtml(
       siteConfig.name
     )}">
-    <link rel="icon" href="${assetPath("assets/favicon.svg")}" type="image/svg+xml">
+    <link rel="icon" href="${assetPath("assets/favicon.svg")}" type="image/svg+xml" sizes="any">
+    <link rel="shortcut icon" href="${assetPath("assets/favicon-32.png")}" type="image/png">
+    <link rel="icon" href="${assetPath("assets/favicon-32.png")}" type="image/png" sizes="32x32">
+    <link rel="icon" href="${assetPath("assets/favicon-16.png")}" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="${assetPath("assets/apple-touch-icon.png")}" sizes="180x180">
+    <link rel="manifest" href="${assetPath("site.webmanifest")}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${assetPath("assets/site.css")}">
-    ${jsonLdBlock(schema)}
+    ${pageType === "article" && article
+      ? `<meta property="article:published_time" content="${article.publishedAtIso}">
+    <meta property="article:modified_time" content="${article.lastModified}">
+    <meta property="article:section" content="${escapeHtml(article.category)}">
+    ${article.tags
+      .map((tag) => `<meta property="article:tag" content="${escapeHtml(tag)}">`)
+      .join("\n    ")}`
+      : ""}
+    ${schemaBlocks}
   </head>
   <body>
     <div class="page-shell">
@@ -223,12 +294,13 @@ export function renderIndexPage(locale, articles) {
   return renderPage({
     locale,
     relativePath: locale === "ja" ? "" : "en/",
-    title: siteConfig.name,
+    title: siteConfig.seo.homeTitle[locale],
     description: siteConfig.description[locale],
     pageHeading: siteConfig.taglines[locale],
     pageIntro: copy.latestIntro,
     body,
-    currentNavPath: copy.homePath
+    currentNavPath: copy.homePath,
+    breadcrumbs: [{ name: copy.homeTitle, path: copy.homePath }]
   });
 }
 
@@ -243,13 +315,17 @@ export function renderArchivePage(locale, articles) {
 
   return renderPage({
     locale,
-    relativePath: locale === "ja" ? "archive/index.html" : "en/archive/index.html",
-    title: copy.archiveTitle,
-    description: copy.archiveIntro,
+    relativePath: locale === "ja" ? "archive/" : "en/archive/",
+    title: siteConfig.seo.archiveTitle[locale],
+    description: siteConfig.seo.archiveDescription[locale],
     pageHeading: copy.archiveTitle,
     pageIntro: copy.archiveIntro,
     body,
-    currentNavPath: copy.archivePath
+    currentNavPath: copy.archivePath,
+    breadcrumbs: [
+      { name: copy.homeTitle, path: copy.homePath },
+      { name: copy.archiveTitle, path: copy.archivePath }
+    ]
   });
 }
 
@@ -315,6 +391,12 @@ export function renderArticlePage(article, locale) {
     body,
     currentNavPath: localeCopy[locale].homePath,
     article,
+    imagePath: siteConfig.ogImage,
+    breadcrumbs: [
+      { name: localeCopy[locale].homeTitle, path: localeCopy[locale].homePath },
+      { name: localeCopy[locale].archiveTitle, path: localeCopy[locale].archivePath },
+      { name: title, path: relativePath }
+    ],
     pageType: "article"
   });
 }
@@ -348,6 +430,68 @@ export function renderAtomFeed(locale, articles) {
   <id>${formatXml(absoluteUrl(feedPath))}</id>
   ${entries}
 </feed>`;
+}
+
+export function renderNotFoundPage(locale, articles) {
+  const copy = localeCopy[locale];
+  const cards = articles.slice(0, 3).map((article) => renderArticleCard(article, locale)).join("");
+  const body = `<section class="panel-block">
+    <p class="section-kicker">404</p>
+    <h2 class="panel-title">${locale === "ja" ? "ページが見つかりません" : "Page not found"}</h2>
+    <p class="panel-copy">${locale === "ja"
+      ? "指定された URL のページは見つかりませんでした。公開済みのレポート一覧から目的の記事を探せます。"
+      : "The requested URL could not be found. You can continue from the published briefing archive below."}</p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a class="text-link" href="${localizedPath(locale, "")}">${escapeHtml(copy.homeTitle)}</a>
+      <a class="text-link" href="${localizedPath(locale, copy.archivePath.replace(/^en\//, ""))}">${escapeHtml(copy.archiveTitle)}</a>
+    </div>
+    <div class="mt-8 grid gap-5">${cards}</div>
+  </section>`;
+
+  return renderPage({
+    locale,
+    relativePath: "404.html",
+    title: locale === "ja" ? "ページが見つかりません" : "Page not found",
+    description: locale === "ja" ? "404 エラーのページです。" : "404 error page.",
+    pageHeading: locale === "ja" ? "ページが見つかりません" : "Page not found",
+    pageIntro:
+      locale === "ja"
+        ? "公開済みのレポート一覧から目的の記事を探せます。"
+        : "Continue from the published archive to find the article you wanted.",
+    body,
+    currentNavPath: copy.homePath,
+    breadcrumbs: [
+      { name: copy.homeTitle, path: copy.homePath },
+      { name: "404", path: "404.html" }
+    ],
+    robotsContent: "noindex,follow"
+  });
+}
+
+export function renderSitemapIndex(entries) {
+  const normalizeLastModified = (value) => {
+    if (!value) {
+      return new Date().toISOString();
+    }
+
+    if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+      return `${value}T00:00:00Z`;
+    }
+
+    return value;
+  };
+
+  return `<?xml version="1.0" encoding="utf-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries
+  .map(
+    (entry) => `  <sitemap>
+    <loc>${formatXml(absoluteUrl(entry.path))}</loc>
+    <lastmod>${normalizeLastModified(entry.lastModified)}</lastmod>
+  </sitemap>`
+  )
+  .join("\n")}
+</sitemapindex>`;
 }
 
 export function renderSitemap(entries) {
@@ -420,9 +564,94 @@ export function renderDefaultOgSvg() {
 }
 
 export function renderFaviconSvg() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <rect width="128" height="128" rx="28" fill="#0d0f14"/>
-  <path d="M26 88V40h16l22 27 21-27h17v48H84V66L64 92 44 66v22H26z" fill="#eef2ff"/>
-  <path d="M18 24H110" stroke="#4af0d4" stroke-width="4" stroke-linecap="round"/>
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
+  <title id="title">Auto Research Digest favicon</title>
+  <desc id="desc">AR monogram on a dark grid with a cyan signal slash.</desc>
+  <defs>
+    <linearGradient id="bg" x1="32" y1="22" x2="224" y2="232" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#071018"/>
+      <stop offset="0.55" stop-color="#0a1822"/>
+      <stop offset="1" stop-color="#08111b"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="44%" r="72%">
+      <stop offset="0" stop-color="#0f3342" stop-opacity="0.75"/>
+      <stop offset="0.62" stop-color="#0a1822" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#08111b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="70" y1="70" x2="198" y2="192" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.38" stop-color="#f2f7ff"/>
+      <stop offset="1" stop-color="#cfd7e6"/>
+    </linearGradient>
+    <linearGradient id="slash" x1="84" y1="162" x2="208" y2="110" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#00a9b0"/>
+      <stop offset="0.5" stop-color="#12d9df"/>
+      <stop offset="1" stop-color="#66ffe8"/>
+    </linearGradient>
+    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
+      <path d="M 26 0 L 0 0 0 26" fill="none" stroke="#1a4b61" stroke-width="1.2" opacity="0.85"/>
+    </pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <filter id="slashGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#25f4ee" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
+  <rect width="256" height="256" rx="56" fill="url(#glow)"/>
+  <rect width="256" height="256" rx="56" fill="url(#grid)" opacity="0.92"/>
+  <g fill="#2df7ff" opacity="0.9">
+    <circle cx="48" cy="54" r="2.7"/>
+    <circle cx="78" cy="158" r="2.3"/>
+    <circle cx="124" cy="112" r="1.9"/>
+    <circle cx="186" cy="76" r="2.2"/>
+    <circle cx="208" cy="164" r="2.4"/>
+  </g>
+  <g fill="#2df7ff" opacity="0.45">
+    <circle cx="66" cy="92" r="1.1"/>
+    <circle cx="96" cy="66" r="1"/>
+    <circle cx="164" cy="54" r="1"/>
+    <circle cx="214" cy="104" r="1.1"/>
+    <circle cx="168" cy="188" r="1.2"/>
+  </g>
+  <g filter="url(#shadow)">
+    <path d="M44 188 102 80h24l-58 108Z" fill="url(#metal)"/>
+    <path d="m122 80 22 45-18 8-22-53Z" fill="url(#metal)"/>
+    <path d="M132 188 105 135l21-10 31 63Z" fill="url(#metal)"/>
+    <path d="M138 80h58c24 0 38 13 38 34v11c0 19-10 31-28 35l31 28h-31l-29-28h-19v28h-25Zm25 20v40h31c10 0 15-3 19-8 4-4 6-10 6-16v-2c0-10-5-14-10-16-4-2-9-2-16-2Z" fill="url(#metal)"/>
+  </g>
+  <path d="m82 162 118-49 14 10-118 49Z" fill="url(#slash)" filter="url(#slashGlow)"/>
+  <rect x="0.75" y="0.75" width="254.5" height="254.5" rx="55.25" fill="none" stroke="#08121c" stroke-width="1.5"/>
 </svg>`;
+}
+
+export function renderWebManifest() {
+  const rootPath = siteConfig.basePath ? `${siteConfig.basePath}/` : "/";
+
+  return JSON.stringify(
+    {
+      name: siteConfig.name,
+      short_name: "ARD",
+      icons: [
+        {
+          src: assetPath("assets/favicon-192.png"),
+          sizes: "192x192",
+          type: "image/png"
+        },
+        {
+          src: assetPath("assets/favicon-512.png"),
+          sizes: "512x512",
+          type: "image/png"
+        }
+      ],
+      theme_color: siteConfig.themeColor,
+      background_color: siteConfig.themeColor,
+      display: "standalone",
+      start_url: rootPath,
+      scope: rootPath
+    },
+    null,
+    2
+  );
 }

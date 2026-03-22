@@ -1,46 +1,61 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>managed agent の基本プリミティブが、複数ベンダーで一気に出そろい始める</h2>
-  <p>3月の発表で強まったのは、エージェント構築の論点がモデル API から agent runtime、tooling、evaluation、multi-agent coordination を含む基盤比較へ移る流れである。</p>
+  <p>agent runtime、tooling、multi-agent coordination は、研究用の部品ではなく製品レイヤーの比較対象へ上がり始めている。OpenAI は new tools for building agents を出し、AWS は Bedrock の multi-agent collaboration GA を公開し、Operator も browser task の product surface を見せている。AutoGen と Magentic-One の研究系パターンも、managed product の語彙へ近づいている。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">8件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">本文の主要主張に直結する一次情報だけを掲載。</p>
+      <p class="stat-note">主要主張に直結する papers と official releases のみに絞った。</p>
     </article><article class="stat-card">
       <p class="stat-value">33件</p>
-      <p class="stat-title">当月までの調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された URL だけを候補にした。</p>
+      <p class="stat-title">調査母集団</p>
+      <p class="stat-note">記事日付以前に公開された一次情報 URL のみを候補にした。</p>
     </article><article class="stat-card">
-      <p class="stat-value">2層</p>
-      <p class="stat-title">研究と公式発表</p>
-      <p class="stat-note">論文と公式 announcement / docs の両方から論点を束ねた。</p>
+      <p class="stat-value">3面</p>
+      <p class="stat-title">比較軸</p>
+      <p class="stat-note">runtime、tooling、multi-agent coordination が並行して製品化し始めた。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>OpenAI が agent building を API 群として束ね始める</h3>
-      <p>new tools for building agents は、単一の completions 呼び出しではなく、tool use、responses、evals を含む構成として agent を扱う。これは、開発者体験が『会話生成』から『実行系』へ移ることを意味する。</p>
+      <h3>OpenAI と AWS が managed primitive を前面に出した</h3>
+      <p>OpenAI の agent-building release は tool use と hosted orchestration をひとまとまりの開発体験として見せ、AWS は supervisor 型の multi-agent collaboration を GA に進めた。agent stack の議論は prompt engineering より runtime feature へ寄っている。</p>
     </article><article class="comparison-card">
-      <h3>AWS では multi-agent coordination が正式機能になる</h3>
-      <p>Bedrock の multi-agent collaboration GA は、複数エージェントの協調を概念実証ではなく managed feature として扱い始めた。これにより、単一エージェントか複数エージェントかが設計オプションとして比較しやすくなった。</p>
+      <h3>research pattern と product surface が近づいた</h3>
+      <p>AutoGen や Magentic-One が描いていた planner、specialist、reviewer の役割分離は、managed service 側の routing や orchestration と重なって見えるようになった。multi-agent は diagram ではなく product choice の一部になり始めた。</p>
     </article><article class="comparison-card">
-      <h3>プラットフォーム選定は、そのまま設計選定になる</h3>
-      <p>この時点では、memory、tool execution、approval、evaluation をどこまでネイティブに持つかで、ベンダーごとの差が見え始めた。『どのモデルが強いか』だけでは比較が足りない。</p>
+      <h3>browser task と backend tool task が同じ議論に入った</h3>
+      <p>Operator の browser task と Bedrock / agent tools の API action は見た目こそ違うが、どちらも『agent が外部環境へ作用する』問題として扱える。この月の変化は、UI 操作と tool invocation が同じ設計責務へ寄ったことだ。</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>現実味が高いユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>API 接続型の業務アシスタント</h3>
-      <ul class="bullet-list"><li>社内検索、CRM、チケット、通知 API をまたいで情報を集め、次のアクション案を作る。</li><li>workflow を managed runtime に寄せると、承認点とログを統一しやすい。</li></ul>
+      <h3>調査・比較・ドラフト作成の orchestration</h3>
+      <ul class="bullet-list"><li>planner が論点を分け、specialist が検索や取得を行い、reviewer が体裁と根拠を確認する。</li><li>managed orchestration があれば、長い knowledge workflow を繰り返しやすい。</li></ul>
     </article><article class="comparison-card">
-      <h3>調査と実行を分けた multi-agent ループ</h3>
-      <ul class="bullet-list"><li>調査役、要約役、実行役を分けると、長いタスクの責務分界が明確になる。</li><li>ただし、役割を増やすほど評価軸と停止条件の設計が必要になる。</li></ul>
+      <h3>社内 support と API action の分担</h3>
+      <ul class="bullet-list"><li>問い合わせ内容の理解、社内 knowledge の参照、必要な system action の準備を分ける。</li><li>tool use を安全に制限できるかが production では重要になる。</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>公開根拠から見える具体シナリオ</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>OpenAI は browser と hosted tools を同じ agent stack に置いた</h3>
+      <p>Operator と new tools for building agents を並べると、browser を使う loop と API / retrieval を使う loop が別々の実験ではなく、同じ product family として整えられている。これは、agent の UI-facing work と backend-facing work を同じ platform の上で比較し始めたことを意味する。</p>
+    </article><article class="comparison-card">
+      <h3>AWS の multi-agent collaboration は supervisor pattern を実装選択肢にした</h3>
+      <p>task routing や specialist の分担を managed feature として持てるなら、社内 support、case triage、document processing のような分業型 workflow を diagram ではなく実際の service configuration として扱えるようになる。</p>
+    </article><article class="comparison-card">
+      <h3>AutoGen / Magentic-One は product 側の抽象を読む手がかりになった</h3>
+      <p>research 系の multi-agent pattern を知っておくと、managed platform が何を『primitive』として売り出しているかを読み解きやすい。planner、specialist、reviewer の役割分離は、すでに vendor-neutral な設計語彙になり始めている。</p>
     </article></div>
 </section>
 
@@ -49,13 +64,13 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>4月時点の論点は、モデル性能比較より、どの runtime と orchestration 抽象を採用するかに移り始めていた。</p>
+    <p>どの model を使うかより、agent runtime と tooling をどこまで managed primitive に委ねるかが重要になっている。</p>
   </div>
-  <ul class="bullet-list mt-6"><li>memory、tool execution、approval の責務がどこにあるかを比較項目に入れる。</li><li>single-agent で済む仕事と multi-agent が必要な仕事を分ける。</li><li>managed feature に依存する部分と、自前で制御したい部分を切り分ける。</li></ul>
+  <ul class="bullet-list mt-6"><li>single agent と multi-agent を切り替える基準を task complexity で定義する。</li><li>browser action と backend action の approval 条件を分ける。</li><li>managed feature を使う場合も、trace と fallback を自前で読めるようにする。</li><li>product surface の進化速度が速いので、abstraction layer を薄く持っておく。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2025年4月の時点で、agent 導入は『モデルを呼ぶか』ではなく、『どの execution stack に乗せるか』を問う段階に入り始めていた。</p>
+  <h2>結論</h2>
+  <p>agent の基本プリミティブは研究要素ではなく product surface へ上がり、runtime・tooling・coordination をどう組み合わせるかが新しい比較軸になっている。</p>
 </section>

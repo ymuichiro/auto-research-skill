@@ -1,61 +1,76 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>Browser-oriented agents are moving from research themes into product roadmaps</h2>
-  <p>The late-January launches around Operator and AutoGen v0.4 strengthened the idea of agents as stateful executors interacting with external environments, not just chat interfaces.</p>
+  <p>Browser and computer-use agents no longer look like distant speculation. WebVoyager, VisualWebArena, OSWorld, Magentic-One, and BrowserGym all foreground environment tasks. Anthropic explains computer use in detail, OpenAI launches Operator, and Microsoft Research uses AutoGen v0.4 to frame durable orchestration. The conditions for treating UI-facing agents as implementation candidates are starting to come together.</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">10</p>
-      <p class="stat-title">Published evidence links</p>
-      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">The source set is limited to papers and official posts directly tied to browser and computer-use shifts.</p>
     </article><article class="stat-card">
       <p class="stat-value">31</p>
-      <p class="stat-title">Eligible inventory by month</p>
-      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+      <p class="stat-title">Research pool</p>
+      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
     </article><article class="stat-card">
-      <p class="stat-value">2 layers</p>
-      <p class="stat-title">Research plus official launches</p>
-      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+      <p class="stat-value">3 conditions</p>
+      <p class="stat-title">What now mattered</p>
+      <p class="stat-note">Environment perception, durable orchestration, and human boundaries were all in play.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>The main signals visible at that point</h2>
+  <h2>The strongest signals</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Browser and computer use enter product language</h3>
-      <p>Anthropic&#39;s computer-use work and OpenAI&#39;s Operator pushed real-environment interaction beyond the lab-demo category. Still limited, but portal operations and screen-based tasks are clearly entering the official product conversation.</p>
+      <h3>Browser agents became a first-class benchmark theme</h3>
+      <p>WebVoyager, VisualWebArena, and BrowserGym put multi-step browser tasks at the center of evaluation. That signaled a shift from treating agents as chat products toward thinking about them as operators acting inside real interfaces.</p>
     </article><article class="comparison-card">
-      <h3>Orchestration is moving from notebooks to runtimes</h3>
-      <p>AutoGen v0.4 reframed multi-agent conversation as something closer to a durable runtime than a prompt-chain experiment. The important question becomes who plans, who executes, and where the workflow is allowed to stop.</p>
+      <h3>Anthropic and OpenAI pushed computer use into product discussion</h3>
+      <p>Anthropic's computer-use research described the perception, planning, and action challenges explicitly, while OpenAI's Operator put browser tasks onto a visible product roadmap. Computer use was becoming more than a research curiosity.</p>
     </article><article class="comparison-card">
-      <h3>Evaluation and monitoring start to stand up as a separate layer</h3>
-      <p>Google&#39;s Vertex AI messaging makes evaluation look less like a post-build add-on and more like part of the design surface. Teams are being pushed to separate experimentation from measurement.</p>
+      <h3>Durable orchestration looked like a prerequisite</h3>
+      <p>AutoGen v0.4 and Magentic-One made it harder to imagine browser agents as one-turn systems. Long-running state, planner-executor separation, and recovery from mid-task failure were becoming central implementation concerns.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that already looked practical at that time</h2>
+  <h2>Use cases that look practical</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Portal-crossing operations assistants</h3>
-      <ul class="bullet-list"><li>Traverse several admin portals, gather the needed state, and prepare update candidates or drafts.</li><li>Keeping the final confirm step with a human makes computer-use automation much easier to govern.</li></ul>
+      <h3>Web research and form-preparation assistance</h3>
+      <ul class="bullet-list"><li>Read-heavy browser tasks such as gathering information, comparing options, and preparing forms were natural entry points.</li><li>The safer pattern was to keep a human confirmation step before submission.</li></ul>
     </article><article class="comparison-card">
-      <h3>Codebase investigation assistants</h3>
-      <ul class="bullet-list"><li>Start from an issue or incident and trace relevant files, tests, and prior diffs across the repo.</li><li>These flows benefit from durable execution so intermediate findings and tool calls can be inspected and replayed.</li></ul>
+      <h3>QA support and regression checking</h3>
+      <ul class="bullet-list"><li>Interface walkthroughs, navigation checks, and failure capture all fit computer-use agents reasonably well.</li><li>Because the workflows are brittle, durable orchestration becomes part of the value proposition.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Concrete scenarios already visible in the source set</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>Operator made multi-step browser tasks legible as a product workflow</h3>
+      <p>OpenAI's Operator pulled long browser tasks such as research, option comparison, and form assistance into a product surface. The interesting shift was not the click itself, but the idea that longer browser workflows could be staged and supervised rather than treated as one-shot automation.</p>
+    </article><article class="comparison-card">
+      <h3>Anthropic's computer-use research exposed the real difficulty of GUI work</h3>
+      <p>Anthropic focused on screenshot-based perception, changing UI state, and action precision. That implies the near-term value of browser agents was not full autonomy, but supervised help with information gathering and repeatable procedures.</p>
+    </article><article class="comparison-card">
+      <h3>AutoGen v0.4 and Magentic-One made planner-executor patterns look practical</h3>
+      <p>A planner that decomposes the task, a worker that uses the browser or tools, and a reviewer that verifies the result are becoming easier to picture across both research and product settings. Browser agents already look like an orchestration design problem as much as a model problem.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Operating Implications</p>
-  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <h2>What teams needed to decide early</h2>
   <div class="callout-panel">
-    <p class="callout-title">Observed implication</p>
-    <p>By February, the separation line was starting to move from capability alone toward how much of the execution path could be observed and replayed.</p>
+    <p class="callout-title">Observation</p>
+    <p>The real key to browser agents is not click capability by itself, but durable state handling and a clear human boundary.</p>
   </div>
-  <ul class="bullet-list mt-6"><li>Separate read permissions from write permissions instead of treating them as one class of capability.</li><li>Maintain replayable tasks that exercise browser or terminal interaction end to end.</li><li>Keep tool-call histories and document the fallback steps when a run fails.</li></ul>
+  <ul class="bullet-list mt-6"><li>Separate read-only page navigation from irreversible actions.</li><li>If planner, executor, and reviewer roles are split, the handoff state needs to be persisted.</li><li>Strong benchmark performance still needs to be translated into production assumptions around DOM drift and login state.</li><li>Start with narrow, supervised workflows instead of racing toward full autonomy.</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>The provisional conclusion that could already be drawn</h2>
-  <p>Agents that touch browsers or terminals cannot be judged on model quality alone. Durable orchestration and observability are becoming the real entry requirements.</p>
+  <h2>Conclusion</h2>
+  <p>Browser agents are entering product planning, but only alongside durable orchestration and explicit human oversight.</p>
 </section>

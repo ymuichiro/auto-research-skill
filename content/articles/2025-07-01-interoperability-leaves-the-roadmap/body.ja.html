@@ -1,7 +1,7 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>相互運用性は roadmap 上の理想論ではなく、現在の integration premise に近づき始める</h2>
-  <p>2025年7月時点の一次情報では、相互運用性は「そのうち対応する」機能ではなく、設計初期から入れておくべき条件になり始めていた。Google は A2A を Linux Foundation に寄贈し、MCP Toolbox を通じて database 接続を IDE に近づけた。Microsoft Foundry は A2A、MCP、OpenAPI を managed platform の語彙に入れ、OpenAI も Responses API で remote MCP support を前に出した。</p>
+  <p>相互運用性は、「そのうち対応する」機能ではなく、設計初期から入れておくべき条件になりつつある。Google は A2A を Linux Foundation に寄贈し、MCP Toolbox を通じて database 接続を IDE に近づけた。Microsoft Foundry は A2A、MCP、OpenAPI を managed platform の語彙に入れ、OpenAI も Responses API で remote MCP support を前に出している。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">10件</p>
       <p class="stat-title">公開根拠</p>
@@ -19,7 +19,7 @@
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>この時点で見えていた主要シグナル</h2>
+  <h2>主要シグナル</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>A2A は vendor launch から ecosystem governance の論点へ進んだ</h3>
       <p>Google の A2A donation は、相互運用性を自社広報ではなく Linux Foundation 配下の project として扱い始めた点が大きい。spec、SDK、developer tooling を寄贈することで、agent card、task lifecycle、long-running task を ecosystem 共通課題に引き上げた。</p>
@@ -34,7 +34,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>その時点で現実味が高かったユースケース</h2>
+  <h2>現実味が高いユースケース</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
       <h3>database-connected developer assistant</h3>
       <ul class="bullet-list"><li>開発者が自然言語で schema を把握し、必要な query や model change を agent に委ねる。</li><li>単なる SQL 生成ではなく、DB と codebase をまたいだ変更をまとめて進める形が現実味を帯びていた。</li></ul>
@@ -64,13 +64,13 @@
   <h2>設計・評価・運用で先に決めるべきこと</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
-    <p>7月時点では、賢い agent を作ることより、接続先を増やしても trust boundary と data contract を保てるかが競争力になり始めていた。</p>
+    <p>賢い agent を作ることより、接続先を増やしても trust boundary と data contract を保てるかが競争力になっている。</p>
   </div>
   <ul class="bullet-list mt-6"><li>agent card、tool schema、artifact format の ownership を決め、誰が変更管理するか明確にする。</li><li>database access や workflow trigger を agent に渡すときは、権限範囲と監査ログを最初から分けて設計する。</li><li>protocol 境界を越える long-running task では、status update、timeout、fallback を仕様として持つ。</li><li>interoperability を広げるほど、失敗時にどの agent / tool が原因だったか追える trace が重要になる。</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>この時点で引けた暫定結論</h2>
-  <p>2025年7月の時点で、相互運用性は roadmap の美辞麗句ではなく、agent を production に寄せるなら最初から織り込むべき architecture 条件になり始めていた。</p>
+  <h2>結論</h2>
+  <p>相互運用性は、roadmap の美辞麗句ではなく、agent を production に寄せるなら最初から織り込むべき architecture 条件になっている。</p>
 </section>

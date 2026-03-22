@@ -1,5 +1,6 @@
 import path from "node:path";
 import { mkdir } from "node:fs/promises";
+import sharp from "sharp";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
 import {
   renderArchivePage,
@@ -8,12 +9,45 @@ import {
   renderDefaultOgSvg,
   renderFaviconSvg,
   renderIndexPage,
+  renderNotFoundPage,
   renderRobots,
-  renderSitemap
+  renderSitemap,
+  renderSitemapIndex,
+  renderWebManifest
 } from "./lib/render.mjs";
-import { writeTextFile } from "./lib/utils.mjs";
+import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
+const iconRoot = path.join(outputRoot, "assets");
+
+async function buildFaviconAssets() {
+  const faviconSvg = renderFaviconSvg();
+  const faviconSvgPath = path.join(iconRoot, "favicon.svg");
+
+  await writeTextFile(faviconSvgPath, faviconSvg);
+
+  const svgBuffer = Buffer.from(faviconSvg);
+  const sizes = [
+    { name: "favicon-16.png", size: 16 },
+    { name: "favicon-32.png", size: 32 },
+    { name: "apple-touch-icon.png", size: 180 },
+    { name: "favicon-192.png", size: 192 },
+    { name: "favicon-512.png", size: 512 }
+  ];
+
+  for (const icon of sizes) {
+    const buffer = await sharp(svgBuffer, { density: icon.size >= 180 ? 320 : 256 })
+      .resize(icon.size, icon.size)
+      .png({
+        compressionLevel: 9,
+        palette: icon.size <= 32,
+        quality: 100
+      })
+      .toBuffer();
+
+    await writeBufferFile(path.join(iconRoot, icon.name), buffer);
+  }
+}
 
 async function buildSite() {
   const { articles, errors } = await loadArticles();
@@ -24,7 +58,7 @@ async function buildSite() {
 
   const liveArticles = publishedArticles(articles);
 
-  await mkdir(path.join(outputRoot, "assets"), { recursive: true });
+  await mkdir(iconRoot, { recursive: true });
   await mkdir(path.join(outputRoot, "archive"), { recursive: true });
   await mkdir(path.join(outputRoot, "en", "archive"), { recursive: true });
 
@@ -35,14 +69,20 @@ async function buildSite() {
   await writeTextFile(path.join(outputRoot, "en", "index.html"), renderIndexPage("en", liveArticles));
   await writeTextFile(path.join(outputRoot, "en", "archive", "index.html"), renderArchivePage("en", liveArticles));
   await writeTextFile(path.join(outputRoot, "en", "feed.xml"), renderAtomFeed("en", liveArticles));
+  await writeTextFile(path.join(outputRoot, "404.html"), renderNotFoundPage("ja", liveArticles));
+  await writeTextFile(path.join(outputRoot, "en", "404.html"), renderNotFoundPage("en", liveArticles));
 
   for (const article of liveArticles) {
     await writeTextFile(path.join(outputRoot, article.outputPaths.ja), renderArticlePage(article, "ja"));
     await writeTextFile(path.join(outputRoot, article.outputPaths.en), renderArticlePage(article, "en"));
   }
 
-  const latestUpdate = liveArticles[0]?.date ?? new Date().toISOString().slice(0, 10);
-  const sitemapEntries = [
+  const latestUpdate =
+    liveArticles
+      .map((article) => article.lastModified)
+      .sort((left, right) => right.localeCompare(left))[0] ?? new Date().toISOString();
+
+  const pageSitemapEntries = [
     {
       path: "",
       lastModified: latestUpdate,
@@ -76,33 +116,47 @@ async function buildSite() {
         { hreflang: "ja", path: "archive/" },
         { hreflang: "en", path: "en/archive/" }
       ]
-    },
-    ...liveArticles.flatMap((article) => [
-      {
-        path: article.outputPaths.ja,
-        lastModified: article.date,
-        alternates: [
-          { hreflang: "ja", path: article.outputPaths.ja },
-          { hreflang: "en", path: article.outputPaths.en }
-        ]
-      },
-      {
-        path: article.outputPaths.en,
-        lastModified: article.date,
-        alternates: [
-          { hreflang: "ja", path: article.outputPaths.ja },
-          { hreflang: "en", path: article.outputPaths.en }
-        ]
-      }
-    ])
+    }
   ];
 
-  await writeTextFile(path.join(outputRoot, "sitemap.xml"), renderSitemap(sitemapEntries));
+  const articleSitemapEntries = liveArticles.flatMap((article) => [
+    {
+      path: article.outputPaths.ja,
+      lastModified: article.lastModified,
+      alternates: [
+        { hreflang: "ja", path: article.outputPaths.ja },
+        { hreflang: "en", path: article.outputPaths.en }
+      ]
+    },
+    {
+      path: article.outputPaths.en,
+      lastModified: article.lastModified,
+      alternates: [
+        { hreflang: "ja", path: article.outputPaths.ja },
+        { hreflang: "en", path: article.outputPaths.en }
+      ]
+    }
+  ]);
+
+  const sitemapIndexEntries = [
+    {
+      path: "sitemap-pages.xml",
+      lastModified: latestUpdate
+    },
+    {
+      path: "sitemap-articles.xml",
+      lastModified: latestUpdate
+    }
+  ];
+
+  await writeTextFile(path.join(outputRoot, "sitemap.xml"), renderSitemapIndex(sitemapIndexEntries));
+  await writeTextFile(path.join(outputRoot, "sitemap-pages.xml"), renderSitemap(pageSitemapEntries));
+  await writeTextFile(path.join(outputRoot, "sitemap-articles.xml"), renderSitemap(articleSitemapEntries));
   await writeTextFile(path.join(outputRoot, "robots.txt"), renderRobots());
+  await writeTextFile(path.join(outputRoot, "site.webmanifest"), renderWebManifest());
   await writeTextFile(path.join(outputRoot, ".nojekyll"), "");
-  await writeTextFile(path.join(outputRoot, "404.html"), renderIndexPage("ja", liveArticles));
   await writeTextFile(path.join(outputRoot, "assets", "og-default.svg"), renderDefaultOgSvg());
-  await writeTextFile(path.join(outputRoot, "assets", "favicon.svg"), renderFaviconSvg());
+  await buildFaviconAssets();
 }
 
 buildSite().catch((error) => {

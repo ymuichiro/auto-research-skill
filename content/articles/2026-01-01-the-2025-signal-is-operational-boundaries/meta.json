@@ -1,10 +1,10 @@
 {
   "slug": "the-2025-signal-is-operational-boundaries",
   "date": "2026-01-01",
-  "titleJa": "2025年を振り返ると、最も強いシグナルは operational boundary の明確化だった",
-  "titleEn": "Looking back on 2025, the strongest signal was the rise of explicit operational boundaries",
-  "summaryJa": "2026年1月時点で 2025 年を通して見返すと、agent stack の主戦場は model novelty より、control plane、protocol、evaluation、approval を含む operational boundary に移っていた。",
-  "summaryEn": "Looking back from January 2026, the main battleground of the 2025 agent stack had shifted away from model novelty toward operational boundaries that include control planes, protocols, evaluation, and approvals.",
+  "titleJa": "2025年を通して見えてきたのは、operational boundary の明確化だ",
+  "titleEn": "The strongest signal across 2025 is the rise of explicit operational boundaries",
+  "summaryJa": "2025 年を通して見ると、agent stack の主戦場は model novelty より、control plane、protocol、evaluation、approval を含む operational boundary に移っている。",
+  "summaryEn": "Across 2025, the main battleground of the agent stack shifts away from model novelty and toward operational boundaries that include control planes, protocols, evaluation, and approvals.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

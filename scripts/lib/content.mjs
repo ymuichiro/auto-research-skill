@@ -1,8 +1,11 @@
 import { readdir, readFile } from "node:fs/promises";
+import { execFile } from "node:child_process";
 import path from "node:path";
+import { promisify } from "node:util";
 import { readJson, sortedByDateDesc } from "./utils.mjs";
 
 const contentRoot = path.resolve("content/articles");
+const execFileAsync = promisify(execFile);
 const requiredFields = [
   "slug",
   "date",
@@ -108,6 +111,26 @@ function computeOutputPaths(meta) {
   };
 }
 
+function fallbackArticleDateTime(date) {
+  return `${date}T00:00:00+09:00`;
+}
+
+async function resolveLastModified(articleDir, meta) {
+  const trackedFiles = ["meta.json", "body.ja.html", "body.en.html"].map((fileName) =>
+    path.join(articleDir, fileName)
+  );
+
+  try {
+    const { stdout } = await execFileAsync("git", ["log", "-1", "--format=%cI", "--", ...trackedFiles], {
+      cwd: contentRoot
+    });
+    const value = stdout.trim();
+    return value || fallbackArticleDateTime(meta.date);
+  } catch {
+    return fallbackArticleDateTime(meta.date);
+  }
+}
+
 export async function loadArticles() {
   let articleDirectoryNames = [];
 
@@ -139,11 +162,14 @@ export async function loadArticles() {
     validateBodies(articleDirName, bodies, errors);
 
     const outputPaths = computeOutputPaths(meta);
+    const lastModified = await resolveLastModified(articleDir, meta);
     articles.push({
       ...meta,
       sourceDir: articleDir,
       sourceDirName: articleDirName,
       bodies,
+      publishedAtIso: fallbackArticleDateTime(meta.date),
+      lastModified,
       outputPaths
     });
   }

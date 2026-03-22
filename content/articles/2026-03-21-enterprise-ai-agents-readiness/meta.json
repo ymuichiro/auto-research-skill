@@ -82,22 +82,22 @@
     },
     {
       "label": "OpenAI Agent Builder",
-      "url": "https://platform.openai.com/docs/guides/agent-builder",
+      "url": "https://developers.openai.com/api/docs/guides/agent-builder",
       "type": "official"
     },
     {
       "label": "OpenAI Agents SDK",
-      "url": "https://platform.openai.com/docs/guides/agents-sdk",
+      "url": "https://developers.openai.com/api/docs/guides/agents-sdk",
       "type": "official"
     },
     {
       "label": "OpenAI Agent evals",
-      "url": "https://platform.openai.com/docs/guides/agent-evals",
+      "url": "https://developers.openai.com/api/docs/guides/agent-evals",
       "type": "official"
     },
     {
       "label": "OpenAI Safety in building agents",
-      "url": "https://platform.openai.com/docs/guides/agent-builder-safety",
+      "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety",
       "type": "official"
     },
     {

@@ -1,61 +1,76 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
   <h2>Agent architecture is becoming a more important comparison axis than model novelty</h2>
-  <p>By the first day of March, the agent stack already looks like a recognizable layered system. Model, tooling, protocol, runtime, control plane, and approval are being compared as separate concerns.</p>
+  <p>The accumulated source set makes one thing much clearer: the useful comparison axis in agent adoption is shifting toward architecture depth. Protocols, SDKs, runtimes, workflow surfaces, evals, and approvals are now acting as one shared design problem across coding, analysis, support, and approval-heavy workflows.</p>
   <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
       <p class="stat-value">8</p>
-      <p class="stat-title">Published evidence links</p>
-      <p class="stat-note">Only the primary sources that directly support the article&#39;s claims are shown publicly.</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">Only papers and official launches directly tied to architecture comparison are listed.</p>
     </article><article class="stat-card">
       <p class="stat-value">52</p>
-      <p class="stat-title">Eligible inventory by month</p>
-      <p class="stat-note">Only URLs published on or before the article date are counted.</p>
+      <p class="stat-title">Research pool</p>
+      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
     </article><article class="stat-card">
-      <p class="stat-value">2 layers</p>
-      <p class="stat-title">Research plus official launches</p>
-      <p class="stat-note">The synthesis combines papers with official announcements and documentation.</p>
+      <p class="stat-value">5 layers</p>
+      <p class="stat-title">What was being compared</p>
+      <p class="stat-note">Protocol, SDK, runtime, workflow, and eval / approval had become the main layers.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Stood Out</p>
-  <h2>The main signals visible at that point</h2>
+  <h2>The strongest signals</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>The architecture layers have become visible</h3>
-      <p>Taken together, the 2025 launches make it impossible to describe the agent stack as just a model. Protocols and SDKs handle connection, while runtimes and control planes handle operation.</p>
+      <h3>Protocols and SDKs were no longer enough to describe architecture</h3>
+      <p>A2A, MCP, agent SDKs, and agent frameworks still mattered, but they no longer defined production architecture by themselves. Workflow surfaces, traces, approvals, and evaluations had become necessary parts of the comparison.</p>
     </article><article class="comparison-card">
-      <h3>Bounded autonomy is solidifying as the practical path</h3>
-      <p>The strongest use cases are still concentrated around bounded workflows. What has changed is that those bounded workflows can now span more tools, data sources, and workers.</p>
+      <h3>Workflow surfaces were absorbing more of the practical differentiation</h3>
+      <p>As surfaces such as Foundry workflows and AgentKit added builders, evals, and versioning, model differences alone explained less of the outcome. In practice, architecture quality was taking over more of the performance story.</p>
     </article><article class="comparison-card">
-      <h3>The comparison target is shifting from models to architectures</h3>
-      <p>Even when comparing vendors, the question is no longer only which model is strongest. The differentiator lies in how protocol, developer tooling, approvals, evals, and interoperability fit together.</p>
+      <h3>Approval and governance had moved into the center of design</h3>
+      <p>Across the 2025 cycle, teams that defined approval chains and policy boundaries early tended to ship narrow workflows faster. Governance was becoming less of an innovation brake and more of a delivery enabler.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that already looked practical at that time</h2>
+  <h2>Use cases where architecture comparison mattered most</h2>
   <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>A multi-system enterprise assistant</h3>
-      <ul class="bullet-list"><li>Unify search, data access, notifications, ticket updates, and approval requests in one architecture.</li><li>A practical design keeps autonomy bounded while gradually expanding the number of connected systems.</li></ul>
+      <h3>Browser and operations workflows</h3>
+      <ul class="bullet-list"><li>Because these flows combine multiple steps, external systems, and approvals, runtime quality and review surfaces matter heavily.</li><li>Orchestration quality often matters more than single-model performance.</li></ul>
     </article><article class="comparison-card">
-      <h3>A loop that connects development and research</h3>
-      <ul class="bullet-list"><li>Link issue understanding, supporting research, patch ideas, test coverage, and explanatory drafting into one loop.</li><li>In many cases, improving workflow visibility and human review stabilizes outcomes more than swapping the model.</li></ul>
+      <h3>Coding, data, and document workflows</h3>
+      <ul class="bullet-list"><li>Tasks that span code changes, analysis, and document drafting require consistency across protocols and the control plane.</li><li>Weak architecture tends to split evidence handling from review quality.</li></ul>
+    </article></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Concrete examples of architecture differences visible in the source set</h2>
+  <div class="comparison-grid mt-6"><article class="comparison-card">
+      <h3>In browser-oriented workflows, approval and trace design define quality</h3>
+      <p>Even if the model gets better, browser workflows remain hard to deploy when intermediate state is opaque and irreversible actions cannot be stopped. In this setting, runtime design and review surfaces matter more than elegant protocol language alone.</p>
+    </article><article class="comparison-card">
+      <h3>In coding and analysis workflows, evidence and review need one control plane</h3>
+      <p>Read together, Agent Framework, AgentKit, and GPT-5 for developers suggest that code diffs, metric access, and analysis memos need to live in one operational surface. Architecture comparison becomes a release-quality question rather than an abstract framework debate.</p>
+    </article><article class="comparison-card">
+      <h3>In approval-heavy workflows, governance sets rollout speed</h3>
+      <p>In financial approvals or document review, the architecture that already supports reviewer nodes, policy boundaries, and regression evals can ship bounded workflows faster. A stronger model by itself cannot replace that structure.</p>
     </article></div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Operating Implications</p>
-  <h2>What had to be decided first in design, evaluation, and operations</h2>
+  <h2>What teams needed to decide early</h2>
   <div class="callout-panel">
-    <p class="callout-title">Observed implication</p>
-    <p>By March 1, the needed translation is no longer from capability to possibility but from capability to architecture.</p>
+    <p class="callout-title">Observation</p>
+    <p>The real comparison axis is shifting from which model to use toward whether protocol, runtime, workflow, and approval can be kept coherent inside one architecture.</p>
   </div>
-  <ul class="bullet-list mt-6"><li>Design protocol, runtime, and control plane as separate layers so each can evolve independently.</li><li>Start with bounded workflows and expand autonomy only where recovery paths already exist.</li><li>Compare vendors not just on model and price but on how easily evaluation and approval can be implemented.</li></ul>
+  <ul class="bullet-list mt-6"><li>Do not compare protocol, SDK, runtime, workflow, and eval / approval in isolation.</li><li>Treat workflow architecture as a selection criterion on par with model benchmarks.</li><li>Build review surfaces and observability into the early architecture, not as add-ons.</li><li>Evaluate architecture fit per narrow workflow instead of expecting one universal platform to cover everything equally well.</li></ul>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Key Takeaway</p>
-  <h2>The provisional conclusion that could already be drawn</h2>
-  <p>By March 1, 2026, the main question in agent adoption had moved a long way from which model to pick toward which architecture the organization can actually sustain.</p>
+  <h2>Conclusion</h2>
+  <p>The realistic comparison axis in agent adoption is shifting away from model novelty and toward the quality of the architecture that integrates protocol, runtime, workflow, and approval.</p>
 </section>

@@ -3,8 +3,8 @@
   "date": "2025-02-01",
   "titleJa": "ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる",
   "titleEn": "Browser-oriented agents are moving from research themes into product roadmaps",
-  "summaryJa": "2025年2月時点では、Operator、AutoGen v0.4、Vertex AI の評価まわりの発表を踏まえ、ブラウザ操作や durable orchestration が『近未来の話』ではなく製品計画の中で語られ始めていた。",
-  "summaryEn": "By February 2025, Operator, AutoGen v0.4, and Google's evaluation updates showed browser interaction and durable orchestration moving from speculative research into product planning.",
+  "summaryJa": "Operator、AutoGen v0.4、computer use 系の研究と発表が重なり、ブラウザ操作や durable orchestration は近未来の話ではなく、製品計画の中で扱うテーマになっている。",
+  "summaryEn": "Operator, AutoGen v0.4, and computer-use research make browser interaction and durable orchestration look less like speculation and more like product-planning concerns.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
