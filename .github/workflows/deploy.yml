@@ -53,7 +53,7 @@ jobs:
 
       - name: Publish site to gh-pages
         run: |
-          rsync -a --delete public/ .deploy-branch/
+          rsync -a --delete --exclude=.git public/ .deploy-branch/
           touch .deploy-branch/.nojekyll
           cd .deploy-branch
           git config user.name "github-actions[bot]"
