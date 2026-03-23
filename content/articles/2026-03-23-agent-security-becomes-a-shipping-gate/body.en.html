@@ -1,0 +1,229 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Security gates are becoming part of the comparison axis for AI agents</h2>
+  <p>
+    When you line up OpenAI's March 2026 security posts and Codex Security launch with AWS AgentCore Policy GA,
+    Microsoft Foundry's red teaming and Prompt Shields material, and Anthropic and Google Cloud documentation on
+    evaluation and guardrails, the comparison axis for agents is no longer just intelligence or orchestration quality.
+    The clearest pattern in the public record is that prompt-injection resilience, tool access policy, sandboxing,
+    red teaming, and approval flows are being treated as shipping requirements for real deployments.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">20+</p>
+      <p class="stat-title">Primary sources</p>
+      <p class="stat-note">There is now enough official documentation, official launch material, and paper evidence to support a full weekly briefing on this theme.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">Core security-gate layers</p>
+      <p class="stat-note">Prompt and context boundaries, protected tool use, runtime boundaries, and evaluation plus approval are converging.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5 vendors</p>
+      <p class="stat-title">Major platforms are converging</p>
+      <p class="stat-note">OpenAI, Anthropic, Microsoft, AWS, and Google Cloud increasingly treat security as part of the agent stack rather than an add-on.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 takeaway</p>
+      <p class="stat-title">Security is also a deployment blocker</p>
+      <p class="stat-note">An agent with strong quality but weak control surfaces still struggles to make it into production.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed This Week</p>
+  <h2>This week's public material pushed security from a cautionary note into a product surface</h2>
+  <p>
+    The main change is not simply that vendors keep talking about safety. It is that security is being described through concrete
+    product surfaces. OpenAI launched Codex Security on March 6, 2026 and followed on March 11 with a design-oriented argument
+    that prompt injection should be treated as a social-engineering problem. AWS put AgentCore Policy into general availability on
+    March 3, and Microsoft Foundry is positioning red teaming and Prompt Shields as operational controls around agent behavior.
+    The implication is that security is no longer a side appendix to model alignment. It is becoming a platform feature that helps
+    determine whether an agent can be shipped at all.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI is tying prompt-injection defense to secure code review workflows</h3>
+      <p>Codex Security bundles repository context, threat modeling, validation, and patch proposals. Its prompt-injection writing also moves the discussion away from string matching toward confirmation steps, sandboxing, and link-safety controls.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS is explicitly placing policy outside agent code</h3>
+      <p>AgentCore Policy makes tool access and input validation enforceable outside the agent implementation itself. That reframes guardrails as execution boundaries, not merely prompt conventions.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft is treating adversarial testing as part of the release process</h3>
+      <p>AI Red Teaming Agent and Prompt Shields show a posture where agents are probed before deployment, measured for prohibited actions and unsafe behavior, and governed as an ongoing risk operation.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Pattern</p>
+  <h2>The convergence point is not perfect prevention but controlled blast radius</h2>
+  <p>
+    Across the documentation set, vendors are not promising perfect defense. The common pattern is to constrain impact even when
+    some attacks still get through. OpenAI layers instruction hierarchy, link safety, sandboxing, and confirmation. Anthropic
+    shows permission-based architecture, prompt-leak reduction, and trusted MCP and tool boundaries. AWS and Microsoft place
+    policy, red teaming, and Prompt Shields directly into the execution path. Google Cloud adds access control, safety filters,
+    and agent evaluation. The design language is converging on limiting authority, narrowing exposure, and testing for failure
+    modes before rollout.
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <article class="comparison-card">
+      <h3>1. Instruction and context boundary</h3>
+      <ul class="bullet-list">
+        <li>System instructions, user requests, tool outputs, and third-party content are increasingly treated as different trust levels.</li>
+        <li>Prompt injection is being handled as a trusted versus untrusted context problem, not just a moderation problem.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Tool access boundary</h3>
+      <ul class="bullet-list">
+        <li>Which tools an agent may call, when, and under which conditions is moving into policy and permission layers.</li>
+        <li>The more freedom an agent gets, the harder it becomes to rely on prompt instructions alone for control.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Runtime boundary</h3>
+      <ul class="bullet-list">
+        <li>Sandboxing, session isolation, logged-out modes, and watch modes are spreading as default design choices.</li>
+        <li>The operational question is less about what the agent can do in theory and more about where it stops safely in practice.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Evaluation boundary</h3>
+      <ul class="bullet-list">
+        <li>Task completion is no longer sufficient. Sensitive-data leakage, prohibited actions, and task adherence are increasingly explicit metrics.</li>
+        <li>This looks less like an extra benchmark and more like a deployment gate definition.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>5. Human approval boundary</h3>
+      <ul class="bullet-list">
+        <li>High-risk actions are increasingly documented as human-in-the-loop actions rather than fully autonomous steps.</li>
+        <li>Security is becoming an enabler for narrow production rollouts because it fixes explicit approval points.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Inference</h3>
+      <ul class="bullet-list">
+        <li>The market may be moving from competing on "most capable agent" toward competing on "most governable narrow workflow."</li>
+        <li>This matters most in high-authority workflows such as code, browsers, and enterprise-data operations.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Case Archetypes</p>
+  <h2>Security gates matter most in long, high-authority workflows</h2>
+  <p>
+    The public material makes it easier to see where security-gate quality changes the viability of deployment.
+    The common traits are long task chains, external tools, sensitive data, or irreversible actions.
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Secure code review and vulnerability response</h3>
+      <ul class="bullet-list">
+        <li>Codex Security and cyber-oriented access controls point to a workflow where the real issue is not only finding bugs but reducing noise and keeping patch proposals safe to review.</li>
+        <li>The practical deployment pattern is to let the agent triage, validate, and draft fixes while humans keep merge authority.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Internal-data knowledge workflows</h3>
+      <ul class="bullet-list">
+        <li>MCP, tool use, and access-control material all point to data boundaries as a primary operational question.</li>
+        <li>If prompt leaks or sensitive-data leakage are not explicitly managed, enterprise rollout becomes hard to justify.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Browser and desktop automation</h3>
+      <ul class="bullet-list">
+        <li>Computer-use-style tooling is useful, but it raises the combined risk of indirect prompt injection and irreversible actions.</li>
+        <li>That makes logged-out modes, approval steps, and isolated sessions more central than headline model capability.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Approval-heavy workflows</h3>
+      <ul class="bullet-list">
+        <li>Requests, payments, configuration changes, and outbound communications all benefit from external policy engines and explicit approval points.</li>
+        <li>The viable pattern is often delegated preparation plus human confirmation, not full autonomy.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>The first real deployments look more like constrained delegation than full autonomy</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">DevSec</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Vulnerability triage assistant</h3>
+        <p>
+          The agent reads the codebase, organizes candidate issues with threat-model context, and drafts fixes.
+          Patch application and merge remain with a reviewer. Signal quality and patch safety matter more than raw autonomy.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Portal-crawling preparation workflow</h3>
+        <p>
+          The agent visits multiple internal or external interfaces, gathers information, and prepares proposed updates.
+          Final submission and irreversible actions still require approval. Browser authority needs to stay narrow by design.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Knowledge-backed first response</h3>
+        <p>
+          The agent classifies a request, uses only approved knowledge sources and tools, and drafts an answer.
+          Anything with possible data exposure or policy ambiguity escalates to a human. Leakage and adherence metrics become central.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Finance</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Approval-gated request handling</h3>
+        <p>
+          The agent summarizes requests, collects supporting material, and flags policy violations or missing data.
+          Humans still authorize the final action. In these workflows, rollout speed depends more on policy and auditability than on model novelty.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What teams should decide first in design and rollout</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observation</p>
+    <p>The center of agent security is shifting from "stop every attack" toward "fix authority, blast radius, approval points, and evaluation metrics before rollout."</p>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>Separate system, user, tool-output, and third-party-web trust levels instead of treating all context as equivalent.</li>
+    <li>Manage tool-call authority in policy or permission layers rather than in prompts alone.</li>
+    <li>Include sensitive-data leakage, prohibited actions, and task adherence in evaluation, not only task completion.</li>
+    <li>Model high-risk actions as formal approval nodes instead of informal exceptions.</li>
+    <li>Start browser, desktop, and code-execution workflows inside sandboxes or isolated sessions with narrow scopes.</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>Conclusion</h2>
+  <p>
+    The strongest signal in this week's primary-source material is that the AI agent race is no longer only about capability.
+    It is also becoming a race to standardize security gates as part of the default product stack.
+    The organizations that move first may not be the ones with the smartest agent, but the ones that can define the narrowest workflow they can trust.
+  </p>
+</section>
