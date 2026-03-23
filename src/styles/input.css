@@ -21,6 +21,7 @@
   html {
     scroll-behavior: smooth;
     background: var(--ard-bg);
+    overflow-x: clip;
   }
 
   body {
@@ -28,6 +29,7 @@
     background: var(--ard-bg);
     color: var(--ard-text);
     font-family: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+    overflow-x: clip;
   }
 
   a {
@@ -50,6 +52,7 @@
       linear-gradient(90deg, var(--ard-grid) 1px, transparent 1px);
     background-size: auto, 40px 40px, 40px 40px;
     background-position: top center, top left, top left;
+    overflow-x: clip;
   }
 
   .hero-backdrop {
@@ -135,6 +138,7 @@
 
   .site-main {
     @apply mx-auto flex w-full max-w-[1480px] flex-col gap-16 px-6 pb-24 pt-12 md:px-10 md:pt-16;
+    min-width: 0;
   }
 
   .hero-panel {
@@ -146,6 +150,7 @@
     box-shadow: none;
     border-color: var(--ard-border);
     min-height: 0;
+    min-width: 0;
     padding: 0 0 0.25rem;
   }
 
@@ -167,10 +172,12 @@
     line-height: 2;
     margin-top: 1.5rem;
     max-width: 980px;
+    overflow-wrap: anywhere;
   }
 
   .content-stack {
     @apply mx-auto flex w-full max-w-[1120px] flex-col gap-16;
+    min-width: 0;
   }
 
   .panel-block,
@@ -182,6 +189,8 @@
     padding: 1.5rem;
     position: relative;
     background: rgba(19, 22, 31, 0.94);
+    min-width: 0;
+    max-width: 100%;
   }
 
   .panel-title {
@@ -200,6 +209,7 @@
     line-height: 1.9;
     margin-top: 0.9rem;
     max-width: 62ch;
+    overflow-wrap: anywhere;
   }
 
   .section-kicker {
@@ -214,10 +224,12 @@
 
   .meta-row {
     @apply flex flex-wrap items-center gap-3;
+    min-width: 0;
   }
 
   .meta-tags {
     @apply mt-5 flex flex-wrap gap-2;
+    min-width: 0;
   }
 
   .meta-pill,
@@ -266,6 +278,7 @@
     border-radius: 1.2rem;
     background: rgba(19, 22, 31, 0.96);
     display: block;
+    min-width: 0;
     padding: 1.5rem;
     text-decoration: none;
     transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
@@ -344,11 +357,13 @@
     font-size: 0.83rem;
     line-height: 1.9;
     margin-top: 0.9rem;
+    overflow-wrap: anywhere;
   }
 
   .article-card-foot {
     @apply mt-6 flex items-center justify-between gap-4 border-t pt-4;
     border-color: var(--ard-border);
+    min-width: 0;
   }
 
   .article-card:hover .text-link,
@@ -358,10 +373,20 @@
 
   .article-shell {
     @apply grid gap-8;
+    min-width: 0;
   }
 
   .article-body {
     @apply grid gap-8;
+    min-width: 0;
+  }
+
+  .content-stack > *,
+  .article-shell > *,
+  .article-body > *,
+  .source-row > * {
+    min-width: 0;
+    max-width: 100%;
   }
 
   .report-section h2 {
@@ -378,6 +403,7 @@
     font-size: 0.86rem;
     line-height: 1.95;
     margin-top: 1rem;
+    overflow-wrap: anywhere;
   }
 
   .infographic-grid {
@@ -389,6 +415,9 @@
   .stat-card {
     background: var(--ard-surface);
     min-height: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
     padding: 1.4rem;
     transition: background 0.18s ease;
   }
@@ -412,6 +441,7 @@
     font-weight: 500;
     line-height: 1.45;
     margin-top: 1rem;
+    overflow-wrap: anywhere;
   }
 
   .stat-note {
@@ -419,6 +449,7 @@
     font-size: 0.76rem;
     line-height: 1.8;
     margin-top: 0.65rem;
+    overflow-wrap: anywhere;
   }
 
   .comparison-grid {
@@ -430,6 +461,9 @@
   .comparison-card {
     background: var(--ard-surface);
     min-height: 100%;
+    min-width: 0;
+    max-width: 100%;
+    overflow: hidden;
     padding: 1.5rem;
     transition: background 0.18s ease;
   }
@@ -470,6 +504,8 @@
   .timeline-item {
     @apply grid gap-4 border-t py-6 md:grid-cols-[140px_1fr];
     border-color: var(--ard-border);
+    min-width: 0;
+    max-width: 100%;
   }
 
   .timeline-year {
@@ -530,6 +566,7 @@
     border: 1px solid var(--ard-border);
     border-radius: 1rem;
     background: rgba(19, 22, 31, 0.96);
+    min-width: 0;
     padding: 1.2rem;
     text-decoration: none;
     transition: border-color 0.18s ease, background 0.18s ease;
@@ -600,6 +637,7 @@
   .footer-panel {
     @apply mx-auto flex w-full max-w-[980px] flex-col gap-4 px-6 pb-10 pt-4 md:flex-row md:items-center md:justify-between md:px-10;
     border-top: 1px solid var(--ard-border);
+    min-width: 0;
   }
 
   .footer-brand {
@@ -617,6 +655,14 @@
     letter-spacing: 0.12em;
     line-height: 1.8;
     text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+  img,
+  svg {
+    display: block;
+    height: auto;
+    max-width: 100%;
   }
 }
 
@@ -662,5 +708,101 @@
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .site-header {
+    gap: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .brand-mark {
+    min-width: 0;
+  }
+
+  .brand-copy {
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+  }
+
+  .site-nav {
+    gap: 0;
+    width: calc(100% + 2rem);
+    margin-left: -1rem;
+    margin-right: -1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .nav-link {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+  }
+
+  .lang-switch {
+    padding-left: 0.55rem;
+    padding-right: 0.55rem;
+  }
+
+  .site-main {
+    gap: 3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+  }
+
+  .hero-panel {
+    padding-bottom: 1.75rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2rem, 14vw, 3.2rem);
+    line-height: 1.08;
+    margin-top: 0.75rem;
+  }
+
+  .hero-copy {
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-top: 1rem;
+  }
+
+  .panel-block,
+  .article-meta,
+  .report-section,
+  .article-card,
+  .article-card-featured,
+  .source-row {
+    padding: 1rem;
+  }
+
+  .article-card-title {
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+
+  .article-card-featured .article-card-title {
+    font-size: clamp(1.45rem, 9vw, 2rem);
+  }
+
+  .article-card-copy,
+  .article-card-featured .article-card-copy,
+  .panel-copy,
+  .report-section p {
+    font-size: 0.82rem;
+    line-height: 1.8;
+  }
+
+  .article-card-foot {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .footer-panel {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
