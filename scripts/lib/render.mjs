@@ -441,37 +441,39 @@ export function renderAtomFeed(locale, articles) {
 </feed>`;
 }
 
-export function renderNotFoundPage(locale, articles) {
+export function renderNotFoundPage(locale) {
   const copy = localeCopy[locale];
-  const cards = articles.slice(0, 3).map((article) => renderArticleCard(article, locale)).join("");
   const body = `<section class="panel-block">
     <p class="section-kicker">404</p>
     <h2 class="panel-title">${locale === "ja" ? "ページが見つかりません" : "Page not found"}</h2>
     <p class="panel-copy">${locale === "ja"
-      ? "指定された URL のページは見つかりませんでした。公開済みのレポート一覧から目的の記事を探せます。"
-      : "The requested URL could not be found. You can continue from the published briefing archive below."}</p>
-    <div class="mt-6 flex flex-wrap gap-3">
-      <a class="text-link" href="${localizedPath(locale, "")}">${escapeHtml(copy.homeTitle)}</a>
-      <a class="text-link" href="${localizedPath(locale, copy.archivePath.replace(/^en\//, ""))}">${escapeHtml(copy.archiveTitle)}</a>
+      ? "指定された URL のページは見つかりませんでした。"
+      : "The requested URL could not be found."}</p>
+    <div class="mt-6">
+      <a class="text-link" href="${localizedPath(locale, "")}">${locale === "ja" ? "ホームに戻る" : "Back to home"}</a>
     </div>
-    <div class="mt-8 grid gap-5">${cards}</div>
   </section>`;
+
+  const relativePath = locale === "ja" ? "404.html" : "en/404.html";
 
   return renderPage({
     locale,
-    relativePath: "404.html",
+    relativePath,
     title: locale === "ja" ? "ページが見つかりません" : "Page not found",
-    description: locale === "ja" ? "404 エラーのページです。" : "404 error page.",
+    description:
+      locale === "ja"
+        ? "指定された URL のページは見つかりませんでした。"
+        : "The requested URL could not be found.",
     pageHeading: locale === "ja" ? "ページが見つかりません" : "Page not found",
     pageIntro:
       locale === "ja"
-        ? "公開済みのレポート一覧から目的の記事を探せます。"
-        : "Continue from the published archive to find the article you wanted.",
+        ? "ホームに戻って公開中のページを確認できます。"
+        : "Return home to continue browsing the published site.",
     body,
     currentNavPath: copy.homePath,
     breadcrumbs: [
       { name: copy.homeTitle, path: copy.homePath },
-      { name: "404", path: "404.html" }
+      { name: "404", path: relativePath }
     ],
     robotsContent: "noindex,follow"
   });
