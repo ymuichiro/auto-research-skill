@@ -1,0 +1,226 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>AI agent の比較軸に security gate が入ってきた</h2>
+  <p>
+    2026年3月前半に公開された OpenAI の security 記事と Codex Security の発表、AWS の AgentCore Policy 一般提供、
+    Microsoft Foundry の red teaming / Prompt Shields、Anthropic と Google Cloud の評価・ガードレール関連 docs を並べると、
+    agent の競争軸はもはや「どれだけ賢いか」や「どれだけ workflow を組めるか」だけではない。
+    公開資料から読み取れるのは、prompt injection 耐性、tool access policy、sandboxing、red teaming、approval を製品面にどこまで埋め込めるかが、
+    実運用の shipping 条件として扱われ始めているという点である。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">20+</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">公式 docs、公式 announcement、論文だけで今週の論点を組めるだけの一次情報が揃っている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4層</p>
+      <p class="stat-title">security gate の主要層</p>
+      <p class="stat-note">prompt / context、防御付き tool use、runtime boundary、evaluation / approval が収束している。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5社</p>
+      <p class="stat-title">主要 platform が同じ方向へ寄る</p>
+      <p class="stat-note">OpenAI、Anthropic、Microsoft、AWS、Google Cloud が security を agent の外付け機能ではなく基盤機能として扱っている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1結論</p>
+      <p class="stat-title">security は deployment blocker でもある</p>
+      <p class="stat-note">安全設計が弱い agent は、評価が高くても本番導入まで進みにくい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed This Week</p>
+  <h2>今週の公開情報は、security を「注意事項」から「製品 surface」へ押し上げた</h2>
+  <p>
+    今週の差分として大きいのは、security が抽象論ではなく、具体的な product surface として語られていることだ。
+    OpenAI は 2026年3月6日に Codex Security を research preview として公開し、3月11日には prompt injection を
+    social engineering 問題として捉える設計論を出した。AWS は 3月3日に AgentCore Policy の一般提供を出し、
+    Microsoft Foundry は red teaming と Prompt Shields を通じて adversarial probing と agent guardrails を運用面へ寄せている。
+    ここから読み取れるのは、security が model alignment の補足ではなく、agent platform の差別化要素へ移ったということだ。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI は prompt injection と secure code review を同じ流れで見せ始めた</h3>
+      <p>Codex Security は repository context、threat model、validation、patch proposal を束ねている。加えて prompt injection 記事では、攻撃を単なる文字列パターンではなく social engineering として扱い、confirmation、sandbox、link safety のような製品制御を前面に出している。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS は policy を agent code の外側に置く形を明示した</h3>
+      <p>AgentCore Policy は tool access と input validation を agent code の外側で評価する。これは guardrails を prompt 内の約束事ではなく、強制力を持つ execution boundary として扱う方向である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft は adversarial testing を deployment 前提の工程に寄せた</h3>
+      <p>AI Red Teaming Agent と Prompt Shields は、agent を出荷前に probe し、攻撃成功率や prohibited action を見ながら管理する考え方を明示している。guardrails は UI 上の設定ではなく、継続的な risk operation の一部になっている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Pattern</p>
+  <h2>収束しているのは「防ぐ」ことより「被害半径を制御する」設計</h2>
+  <p>
+    各社の docs を横断すると、完全防御を約束する tone ではない。むしろ共通しているのは、攻撃が一部通る前提でも、
+    被害半径と実行権限を狭める設計である。OpenAI は instruction hierarchy、link safety、sandboxing、user confirmation を重ね、
+    Anthropic は permission-based architecture、prompt leak 対策、trusted MCP / tool 境界を示している。AWS と Microsoft は policy、
+    red teaming、Prompt Shields を agent の execution path に差し込み、Google Cloud は access control、safety filters、
+    agent evaluation で補助線を引いている。
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <article class="comparison-card">
+      <h3>1. Instruction / context boundary</h3>
+      <ul class="bullet-list">
+        <li>system、user、tool output、third-party content の優先順位を分ける発想が中心にある。</li>
+        <li>prompt injection を content moderation だけで止めるのではなく、trusted / untrusted の境界で扱う方向が強い。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Tool access boundary</h3>
+      <ul class="bullet-list">
+        <li>どの tool をいつ呼べるかを policy と permission で切る設計が標準化してきた。</li>
+        <li>agent の自由度を上げるほど、tool call を prompt ではなく policy engine 側で縛る必要が高まる。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Runtime boundary</h3>
+      <ul class="bullet-list">
+        <li>sandbox、session isolation、logged-out mode、watch mode のような runtime 制約が広がっている。</li>
+        <li>重要なのは agent の能力ではなく、失敗時にどこまで限定された環境で止まるかである。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Evaluation boundary</h3>
+      <ul class="bullet-list">
+        <li>task completion だけでなく、sensitive data leakage、prohibited actions、task adherence を測る評価が前面に出ている。</li>
+        <li>これは benchmark の追加ではなく、deployment gate の定義そのものに近い。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>5. Human approval boundary</h3>
+      <ul class="bullet-list">
+        <li>高リスク操作は human-in-the-loop を前提にする設計が docs 側でも明示される。</li>
+        <li>security は自動化を止めるものではなく、承認点を固定して narrow workflow を出すための条件になっている。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>推論</h3>
+      <ul class="bullet-list">
+        <li>市場は「万能 agent を作る」より「安全に narrow workflow を通せる platform」を競い始めている可能性が高い。</li>
+        <li>この差は今後、browser、code、enterprise data といった高権限 workflow ほど大きく出やすい。</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Case Archetypes</p>
+  <h2>security gate が効くのは、高権限で長い workflow ほどはっきりしている</h2>
+  <p>
+    公開資料を重ねると、security gate の有無が導入可否を分けやすい用途はかなり具体的に見える。
+    共通点は、長い手順、外部ツール、機密データ、不可逆操作のいずれかを含むことだ。
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Secure code review と脆弱性対応</h3>
+      <ul class="bullet-list">
+        <li>Codex Security や cyber 向け trusted access が示すのは、agent が code と脆弱性に触れる場合、精度だけでなく false positive と patch safety が重要になるという点だ。</li>
+        <li>向いているのは、finding の優先順位付け、再現確認、修正案作成、レビュー補助までで、マージ判断は人に残す構成である。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 社内データを跨ぐ knowledge workflow</h3>
+      <ul class="bullet-list">
+        <li>MCP、tool use、access control の docs を見ると、検索・要約・起票のような flow でも data boundary が主論点になる。</li>
+        <li>特に prompt leak や sensitive data leakage を抑えられない構成では、社内導入が止まりやすい。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Browser / desktop automation</h3>
+      <ul class="bullet-list">
+        <li>computer use や browser-oriented runtime は便利だが、外部ページからの indirect prompt injection と irreversible action の組み合わせが重い論点になる。</li>
+        <li>そのため logged-out mode、approval、session isolation を持つ narrow task から入りやすい。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Approval-heavy workflow</h3>
+      <ul class="bullet-list">
+        <li>申請、支払い、設定変更、公開送信のようなフローでは、policy engine と approval point を外付けで持てる platform が有利である。</li>
+        <li>agent を完全自動化するより、候補生成と準備を任せ、確定操作だけ人間が承認する構成のほうが現実味が高い。</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>最初の実装像は「全自動」より「制約つき委譲」に寄る</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">DevSec</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">脆弱性トリアージ補助</h3>
+        <p>
+          codebase を読ませ、脆弱性候補を threat model と validation つきで整理し、修正案まで出させる。
+          ただし patch 適用と merge は reviewer 承認に残す。ここでは signal-to-noise と変更安全性が最優先になる。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">社内ポータル巡回の下準備自動化</h3>
+        <p>
+          複数画面を巡回して情報を集め、入力候補や更新案を作る。確定送信や irreversible action は approval を要求する。
+          browser 操作を許しても、実行権限は narrow に保つ前提が必要である。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">社内ナレッジ参照つき一次対応</h3>
+        <p>
+          問い合わせを分類し、許可されたナレッジベースとツールだけを使って回答案を作る。
+          外部送信や機密データ露出の可能性がある場合は escalation する。task adherence と leakage 評価が重要になる。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Finance</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">approval 付き申請処理</h3>
+        <p>
+          申請内容を要約し、必要資料を集め、ルール違反や不足項目を指摘する。承認そのものは人が行う。
+          こうした workflow では、agent の自由度より policy と監査性のほうが rollout 速度を左右する。
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>設計・評価・導入で先に決めるべき論点</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>agent security の中心は「攻撃をゼロにする」ことではなく、「権限、被害半径、承認点、評価指標を先に固定する」ことへ移っている。</p>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>system / user / tool output / web content の優先順位を明示し、untrusted content を同列に扱わない。</li>
+    <li>tool call 権限を prompt や wrapper に埋め込まず、policy や permission layer で管理する。</li>
+    <li>sensitive data leakage、prohibited actions、task adherence を eval に含め、task completion だけで合格にしない。</li>
+    <li>高リスク操作は approval node を正式な workflow 要素として設計し、例外処理にしない。</li>
+    <li>browser、desktop、code execution は sandbox や session isolation つきの narrow workflow から始める。</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>結論</h2>
+  <p>
+    今週の一次情報から見えるのは、AI agent の競争が能力競争だけではなく、security gate をどこまで標準装備として持てるかの競争に入り始めたということだ。
+    早く導入できるのは、最も賢い agent を持つ組織ではなく、最も狭く安全に任せられる workflow を定義できる組織になりやすい。
+  </p>
+</section>
