@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Security gates are becoming part of the core comparison axis for AI agents | Auto Research Digest EN</title>
+    <meta name="description" content="Across primary-source materials published and updated through March 2026 from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, the agent comparison axis is expanding beyond raw quality and orchestration into prompt-injection resilience, tool policy, red teaming, approval flows, and sandboxing. This briefing synthesizes that convergence and maps it into realistic deployment scenarios such as secure code review, internal-data workflows, browser automation, and approval-heavy operations.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="Security gates are becoming part of the core comparison axis for AI agents | Auto Research Digest EN">
+    <meta property="og:description" content="Across primary-source materials published and updated through March 2026 from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, the agent comparison axis is expanding beyond raw quality and orchestration into prompt-injection resilience, tool policy, red teaming, approval flows, and sandboxing. This briefing synthesizes that convergence and maps it into realistic deployment scenarios such as secure code review, internal-data workflows, browser automation, and approval-heavy operations.">
+    <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/en/2026-03-23-agent-security-becomes-a-shipping-gate.html">
+    <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Security gates are becoming part of the core comparison axis for AI agents">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Security gates are becoming part of the core comparison axis for AI agents | Auto Research Digest EN">
+    <meta name="twitter:description" content="Across primary-source materials published and updated through March 2026 from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, the agent comparison axis is expanding beyond raw quality and orchestration into prompt-injection resilience, tool policy, red teaming, approval flows, and sandboxing. This briefing synthesizes that convergence and maps it into realistic deployment scenarios such as secure code review, internal-data workflows, browser automation, and approval-heavy operations.">
+    <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg">
+    <meta name="twitter:image:alt" content="Security gates are becoming part of the core comparison axis for AI agents">
+    <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-23-agent-security-becomes-a-shipping-gate.html">
+    <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-23-agent-security-becomes-a-shipping-gate.html">
+    <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-23-agent-security-becomes-a-shipping-gate.html">
+    <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2026-03-23-agent-security-becomes-a-shipping-gate.html">
+    <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/en/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/auto-research-skill/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/auto-research-skill/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/auto-research-skill/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/auto-research-skill/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/auto-research-skill/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
+    <meta property="article:published_time" content="2026-03-23T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-03-23T09:38:36+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Security">
+    <meta property="article:tag" content="Guardrails">
+    <meta property="article:tag" content="Governance">
+    <meta property="article:tag" content="Prompt Injection">
+    <meta property="article:tag" content="Roundup">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Security gates are becoming part of the core comparison axis for AI agents","description":"Across primary-source materials published and updated through March 2026 from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, the agent comparison axis is expanding beyond raw quality and orchestration into prompt-injection resilience, tool policy, red teaming, approval flows, and sandboxing. This briefing synthesizes that convergence and maps it into realistic deployment scenarios such as secure code review, internal-data workflows, browser automation, and approval-heavy operations.","datePublished":"2026-03-23T00:00:00+09:00","dateModified":"2026-03-23T09:38:36+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Security, Guardrails, Governance, Prompt Injection, Roundup","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-23-agent-security-becomes-a-shipping-gate.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-23-agent-security-becomes-a-shipping-gate.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-default.svg"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ymuichiro.github.io/auto-research-skill/en/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://ymuichiro.github.io/auto-research-skill/en/archive/"},{"@type":"ListItem","position":3,"name":"Security gates are becoming part of the core comparison axis for AI agents","item":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/auto-research-skill/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/auto-research-skill/en/">Home</a><a class="nav-link " href="/auto-research-skill/en/archive/">Archive</a><a class="nav-link " href="/auto-research-skill/en/feed.xml">Feed</a></nav>
+        <a class="lang-switch" href="/auto-research-skill/2026-03-23-agent-security-becomes-a-shipping-gate.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">Security gates are becoming part of the core comparison axis for AI agents</h1>
+          <p class="hero-copy">Across primary-source materials published and updated through March 2026 from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, the agent comparison axis is expanding beyond raw quality and orchestration into prompt-injection resilience, tool policy, red teaming, approval flows, and sandboxing. This briefing synthesizes that convergence and maps it into realistic deployment scenarios such as secure code review, internal-data workflows, browser automation, and approval-heavy operations.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-23">March 23, 2026</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Security</span><span class="meta-chip">Guardrails</span><span class="meta-chip">Governance</span><span class="meta-chip">Prompt Injection</span><span class="meta-chip">Roundup</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Security gates are becoming part of the comparison axis for AI agents</h2>
+  <p>
+    When you line up OpenAI's March 2026 security posts and Codex Security launch with AWS AgentCore Policy GA,
+    Microsoft Foundry's red teaming and Prompt Shields material, and Anthropic and Google Cloud documentation on
+    evaluation and guardrails, the comparison axis for agents is no longer just intelligence or orchestration quality.
+    The clearest pattern in the public record is that prompt-injection resilience, tool access policy, sandboxing,
+    red teaming, and approval flows are being treated as shipping requirements for real deployments.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">20+</p>
+      <p class="stat-title">Primary sources</p>
+      <p class="stat-note">There is now enough official documentation, official launch material, and paper evidence to support a full weekly briefing on this theme.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">Core security-gate layers</p>
+      <p class="stat-note">Prompt and context boundaries, protected tool use, runtime boundaries, and evaluation plus approval are converging.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5 vendors</p>
+      <p class="stat-title">Major platforms are converging</p>
+      <p class="stat-note">OpenAI, Anthropic, Microsoft, AWS, and Google Cloud increasingly treat security as part of the agent stack rather than an add-on.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 takeaway</p>
+      <p class="stat-title">Security is also a deployment blocker</p>
+      <p class="stat-note">An agent with strong quality but weak control surfaces still struggles to make it into production.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed This Week</p>
+  <h2>This week's public material pushed security from a cautionary note into a product surface</h2>
+  <p>
+    The main change is not simply that vendors keep talking about safety. It is that security is being described through concrete
+    product surfaces. OpenAI launched Codex Security on March 6, 2026 and followed on March 11 with a design-oriented argument
+    that prompt injection should be treated as a social-engineering problem. AWS put AgentCore Policy into general availability on
+    March 3, and Microsoft Foundry is positioning red teaming and Prompt Shields as operational controls around agent behavior.
+    The implication is that security is no longer a side appendix to model alignment. It is becoming a platform feature that helps
+    determine whether an agent can be shipped at all.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI is tying prompt-injection defense to secure code review workflows</h3>
+      <p>Codex Security bundles repository context, threat modeling, validation, and patch proposals. Its prompt-injection writing also moves the discussion away from string matching toward confirmation steps, sandboxing, and link-safety controls.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS is explicitly placing policy outside agent code</h3>
+      <p>AgentCore Policy makes tool access and input validation enforceable outside the agent implementation itself. That reframes guardrails as execution boundaries, not merely prompt conventions.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft is treating adversarial testing as part of the release process</h3>
+      <p>AI Red Teaming Agent and Prompt Shields show a posture where agents are probed before deployment, measured for prohibited actions and unsafe behavior, and governed as an ongoing risk operation.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Pattern</p>
+  <h2>The convergence point is not perfect prevention but controlled blast radius</h2>
+  <p>
+    Across the documentation set, vendors are not promising perfect defense. The common pattern is to constrain impact even when
+    some attacks still get through. OpenAI layers instruction hierarchy, link safety, sandboxing, and confirmation. Anthropic
+    shows permission-based architecture, prompt-leak reduction, and trusted MCP and tool boundaries. AWS and Microsoft place
+    policy, red teaming, and Prompt Shields directly into the execution path. Google Cloud adds access control, safety filters,
+    and agent evaluation. The design language is converging on limiting authority, narrowing exposure, and testing for failure
+    modes before rollout.
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+    <article class="comparison-card">
+      <h3>1. Instruction and context boundary</h3>
+      <ul class="bullet-list">
+        <li>System instructions, user requests, tool outputs, and third-party content are increasingly treated as different trust levels.</li>
+        <li>Prompt injection is being handled as a trusted versus untrusted context problem, not just a moderation problem.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Tool access boundary</h3>
+      <ul class="bullet-list">
+        <li>Which tools an agent may call, when, and under which conditions is moving into policy and permission layers.</li>
+        <li>The more freedom an agent gets, the harder it becomes to rely on prompt instructions alone for control.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Runtime boundary</h3>
+      <ul class="bullet-list">
+        <li>Sandboxing, session isolation, logged-out modes, and watch modes are spreading as default design choices.</li>
+        <li>The operational question is less about what the agent can do in theory and more about where it stops safely in practice.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Evaluation boundary</h3>
+      <ul class="bullet-list">
+        <li>Task completion is no longer sufficient. Sensitive-data leakage, prohibited actions, and task adherence are increasingly explicit metrics.</li>
+        <li>This looks less like an extra benchmark and more like a deployment gate definition.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>5. Human approval boundary</h3>
+      <ul class="bullet-list">
+        <li>High-risk actions are increasingly documented as human-in-the-loop actions rather than fully autonomous steps.</li>
+        <li>Security is becoming an enabler for narrow production rollouts because it fixes explicit approval points.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Inference</h3>
+      <ul class="bullet-list">
+        <li>The market may be moving from competing on "most capable agent" toward competing on "most governable narrow workflow."</li>
+        <li>This matters most in high-authority workflows such as code, browsers, and enterprise-data operations.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Case Archetypes</p>
+  <h2>Security gates matter most in long, high-authority workflows</h2>
+  <p>
+    The public material makes it easier to see where security-gate quality changes the viability of deployment.
+    The common traits are long task chains, external tools, sensitive data, or irreversible actions.
+  </p>
+  <div class="mt-6 grid gap-5 md:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Secure code review and vulnerability response</h3>
+      <ul class="bullet-list">
+        <li>Codex Security and cyber-oriented access controls point to a workflow where the real issue is not only finding bugs but reducing noise and keeping patch proposals safe to review.</li>
+        <li>The practical deployment pattern is to let the agent triage, validate, and draft fixes while humans keep merge authority.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Internal-data knowledge workflows</h3>
+      <ul class="bullet-list">
+        <li>MCP, tool use, and access-control material all point to data boundaries as a primary operational question.</li>
+        <li>If prompt leaks or sensitive-data leakage are not explicitly managed, enterprise rollout becomes hard to justify.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Browser and desktop automation</h3>
+      <ul class="bullet-list">
+        <li>Computer-use-style tooling is useful, but it raises the combined risk of indirect prompt injection and irreversible actions.</li>
+        <li>That makes logged-out modes, approval steps, and isolated sessions more central than headline model capability.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Approval-heavy workflows</h3>
+      <ul class="bullet-list">
+        <li>Requests, payments, configuration changes, and outbound communications all benefit from external policy engines and explicit approval points.</li>
+        <li>The viable pattern is often delegated preparation plus human confirmation, not full autonomy.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>The first real deployments look more like constrained delegation than full autonomy</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">DevSec</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Vulnerability triage assistant</h3>
+        <p>
+          The agent reads the codebase, organizes candidate issues with threat-model context, and drafts fixes.
+          Patch application and merge remain with a reviewer. Signal quality and patch safety matter more than raw autonomy.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Portal-crawling preparation workflow</h3>
+        <p>
+          The agent visits multiple internal or external interfaces, gathers information, and prepares proposed updates.
+          Final submission and irreversible actions still require approval. Browser authority needs to stay narrow by design.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Knowledge-backed first response</h3>
+        <p>
+          The agent classifies a request, uses only approved knowledge sources and tools, and drafts an answer.
+          Anything with possible data exposure or policy ambiguity escalates to a human. Leakage and adherence metrics become central.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Finance</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Approval-gated request handling</h3>
+        <p>
+          The agent summarizes requests, collects supporting material, and flags policy violations or missing data.
+          Humans still authorize the final action. In these workflows, rollout speed depends more on policy and auditability than on model novelty.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What teams should decide first in design and rollout</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observation</p>
+    <p>The center of agent security is shifting from "stop every attack" toward "fix authority, blast radius, approval points, and evaluation metrics before rollout."</p>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>Separate system, user, tool-output, and third-party-web trust levels instead of treating all context as equivalent.</li>
+    <li>Manage tool-call authority in policy or permission layers rather than in prompts alone.</li>
+    <li>Include sensitive-data leakage, prohibited actions, and task adherence in evaluation, not only task completion.</li>
+    <li>Model high-risk actions as formal approval nodes instead of informal exceptions.</li>
+    <li>Start browser, desktop, and code-execution workflows inside sandboxes or isolated sessions with narrow scopes.</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>Conclusion</h2>
+  <p>
+    The strongest signal in this week's primary-source material is that the AI agent race is no longer only about capability.
+    It is also becoming a race to standardize security gates as part of the default product stack.
+    The organizations that move first may not be the ones with the smartest agent, but the ones that can define the narrowest workflow they can trust.
+  </p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://openai.com/index/codex-security-now-in-research-preview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 6, 2026</span>
+              </div>
+              <p class="source-title">OpenAI: Codex Security: now in research preview</p>
+              <p class="source-url">https://openai.com/index/codex-security-now-in-research-preview/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/designing-agents-to-resist-prompt-injection/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 11, 2026</span>
+              </div>
+              <p class="source-title">OpenAI: Designing AI agents to resist prompt injection</p>
+              <p class="source-url">https://openai.com/index/designing-agents-to-resist-prompt-injection/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/prompt-injections" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">November 7, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: Understanding prompt injections: a frontier security challenge</p>
+              <p class="source-url">https://openai.com/index/prompt-injections</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/trusted-access-for-cyber/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">February 5, 2026</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing Trusted Access for Cyber</p>
+              <p class="source-url">https://openai.com/index/trusted-access-for-cyber/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/security-on-the-path-to-agi/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 26, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: Security on the path to AGI</p>
+              <p class="source-url">https://openai.com/index/security-on-the-path-to-agi/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/the-instruction-hierarchy/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">April 19, 2024</span>
+              </div>
+              <p class="source-title">OpenAI: The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions</p>
+              <p class="source-url">https://openai.com/index/the-instruction-hierarchy/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">August 4, 2025</span>
+              </div>
+              <p class="source-title">Anthropic: Our framework for developing safe and trustworthy agents</p>
+              <p class="source-url">https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Docs: Tool use with Claude</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/build-with-claude/computer-use" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Docs: Computer use tool</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/build-with-claude/computer-use</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Docs: Using the Evaluation Tool</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Docs: Reduce prompt leak</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/security" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Docs: Claude Code security</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/security</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Docs: MCP connector</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Foundry: AI Red Teaming Agent (preview)</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/run-scans-ai-red-teaming-agent" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Foundry: Run AI Red Teaming Agent locally (preview)</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/run-scans-ai-red-teaming-agent</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter-prompt-shields?view=foundry-classic" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Foundry: Prompt Shields in Microsoft Foundry</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter-prompt-shields?view=foundry-classic</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 3, 2026</span>
+              </div>
+              <p class="source-title">AWS: Policy in Amazon Bedrock AgentCore is now generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Overview - Amazon Bedrock AgentCore</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-prompt-attack.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Detect prompt attacks with Amazon Bedrock Guardrails</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-prompt-attack.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-guardrail.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Implement safeguards for your application by associating a guardrail with your agent</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock/latest/userguide/agents-guardrail.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: How Amazon Bedrock Guardrails works</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/safety-overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Docs: Safety in Vertex AI</p>
+              <p class="source-url">https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/safety-overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Docs: Safety and content filters</p>
+              <p class="source-url">https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/evaluate" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Docs: Evaluate an agent</p>
+              <p class="source-url">https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/evaluate</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/access-control" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Docs: Access control</p>
+              <p class="source-url">https://docs.cloud.google.com/vertex-ai/generative-ai/docs/access-control</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2406.01637" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">June 2, 2024</span>
+              </div>
+              <p class="source-title">arXiv: Teams of LLM Agents can Exploit Zero-Day Vulnerabilities</p>
+              <p class="source-url">https://arxiv.org/abs/2406.01637</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+      </footer>
+    </div>
+  </body>
+</html>
