@@ -1,5 +1,5 @@
 import path from "node:path";
-import { mkdir } from "node:fs/promises";
+import { mkdir, readFile } from "node:fs/promises";
 import sharp from "sharp";
 import pngToIco from "png-to-ico";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
@@ -16,6 +16,7 @@ import {
   renderSitemapIndex,
   renderWebManifest
 } from "./lib/render.mjs";
+import { siteConfig } from "./lib/site-config.mjs";
 import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
@@ -60,6 +61,13 @@ async function buildFaviconAssets() {
   ]);
 
   await writeBufferFile(path.join(iconRoot, "favicon.ico"), icoBuffer);
+}
+
+async function buildSocialCardAsset() {
+  const sourcePath = path.resolve("src/assets/og-twitter-card.png");
+  const targetPath = path.join(outputRoot, siteConfig.ogImage);
+  const imageBuffer = await readFile(sourcePath);
+  await writeBufferFile(targetPath, imageBuffer);
 }
 
 async function buildSite() {
@@ -169,6 +177,7 @@ async function buildSite() {
   await writeTextFile(path.join(outputRoot, "site.webmanifest"), renderWebManifest());
   await writeTextFile(path.join(outputRoot, ".nojekyll"), "");
   await writeTextFile(path.join(outputRoot, "assets", "og-default.svg"), renderDefaultOgSvg());
+  await buildSocialCardAsset();
   await buildFaviconAssets();
 }
 

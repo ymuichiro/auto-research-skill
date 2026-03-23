@@ -203,8 +203,8 @@ export function renderPage({
     <meta property="og:description" content="${escapeHtml(metaDescription(description, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${pageImageUrl}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image:width" content="${siteConfig.ogImageWidth}">
+    <meta property="og:image:height" content="${siteConfig.ogImageHeight}">
     <meta property="og:image:alt" content="${escapeHtml(title)}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${escapeHtml(pageTitle(title, locale))}">

@@ -25,6 +25,7 @@ async function validateBuiltOutput(articles) {
     "robots.txt",
     ".nojekyll",
     "assets/site.css",
+    "assets/og-twitter-card.png",
     "assets/og-default.svg",
     "assets/favicon.svg"
   ];
