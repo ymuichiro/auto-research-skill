@@ -1,0 +1,232 @@
+{
+  "slug": "cowork-signals-the-execution-layer-of-work-ai",
+  "date": "2026-03-25",
+  "titleJa": "Cowork は、職場AIの「実行レイヤー」が製品化され始めたというシグナル",
+  "titleEn": "Cowork signals that the execution layer of workplace AI is becoming a product",
+  "summaryJa": "Anthropic の Cowork と Microsoft の Copilot Cowork を中核に、Google Gemini Enterprise、Slack Agentforce、OpenAI の deep research / ChatGPT agent を重ねると、職場AIの主戦場が chat から outcome-oriented な execution layer へ移り始めていることが見えてくる。公開資料と主要論文をもとに、Cowork とは何か、どの会社がどの形で出しているのか、どのユースケースに向いているのか、そしてなぜ今この方向へ進んでいるのかを整理する。",
+  "summaryEn": "Putting Anthropic's Cowork and Microsoft's Copilot Cowork next to Google Gemini Enterprise, Slack Agentforce, and OpenAI's deep research and ChatGPT agent makes a larger shift visible: workplace AI is moving from chat toward an outcome-oriented execution layer. Using official product material and the benchmark literature, this briefing defines what Cowork is, maps which vendors are shipping what, identifies the workflows these products target, and explains why this direction is emerging now.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Cowork",
+    "Enterprise AI",
+    "Workflow",
+    "Productivity",
+    "Governance"
+  ],
+  "publishedSources": [
+    {
+      "label": "Anthropic: Get started with Cowork",
+      "url": "https://support.claude.com/en/articles/13345190-get-started-with-cowork",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic: Use Cowork on Team and Enterprise plans",
+      "url": "https://support.claude.com/en/articles/13455879-cowork-for-team-and-enterprise-plans",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic: Use Cowork safely",
+      "url": "https://support.claude.com/en/articles/13364135-using-cowork-safely",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic: Use plugins in Cowork",
+      "url": "https://support.claude.com/en/articles/13837440-use-plugins-in-cowork",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic: What is the Claude Enterprise plan?",
+      "url": "https://support.claude.com/en/articles/9797531-what-is-the-claude-enterprise-plan",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic: Use Google Workspace connectors",
+      "url": "https://support.claude.com/en/articles/10166901-use-google-workspace-connectors",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "type": "official",
+      "publishedAt": "2026-01-09"
+    },
+    {
+      "label": "Anthropic: Computer use",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/computer-use",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft: Copilot Cowork: A new way of getting work done",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/",
+      "type": "official",
+      "publishedAt": "2026-03-09"
+    },
+    {
+      "label": "Microsoft: Powering Frontier Transformation with Copilot and agents",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/",
+      "type": "official",
+      "publishedAt": "2026-03-09"
+    },
+    {
+      "label": "Microsoft: Introducing the First Frontier Suite built on Intelligence + Trust",
+      "url": "https://blogs.microsoft.com/blog/2026/03/09/introducing-the-first-frontier-suite-built-on-intelligence-trust/",
+      "type": "official",
+      "publishedAt": "2026-03-09"
+    },
+    {
+      "label": "Microsoft: Secure agentic AI for your Frontier Transformation",
+      "url": "https://www.microsoft.com/en-us/security/blog/2026/03/09/secure-agentic-ai-for-your-frontier-transformation/",
+      "type": "official",
+      "publishedAt": "2026-03-09"
+    },
+    {
+      "label": "Microsoft: Microsoft Ignite 2025: Copilot and agents built to power the Frontier Firm",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/11/18/microsoft-ignite-2025-copilot-and-agents-built-to-power-the-frontier-firm/",
+      "type": "official",
+      "publishedAt": "2025-11-18"
+    },
+    {
+      "label": "Microsoft: Microsoft Copilot for Work",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/copilot/copilot-for-work",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft: Introducing Agent 365 - the control plane for agents",
+      "url": "https://www.microsoft.com/en/microsoft-agent-365",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: What is Google Agentspace?",
+      "url": "https://cloud.google.com/agentspace/docs",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: Gemini Enterprise: Best of Google AI for Business",
+      "url": "https://cloud.google.com/products/agentspace/",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: AI agents are evolving with Google Agentspace",
+      "url": "https://cloud.google.com/transform/ai-agents-evolving-with-google-agentspace",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: Set up assistant actions",
+      "url": "https://cloud.google.com/gemini/enterprise/docs/assistant-actions",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: Use assistant actions",
+      "url": "https://cloud.google.com/gemini/enterprise/docs/assistant-use-actions",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: Connect a third-party data source",
+      "url": "https://cloud.google.com/gemini/enterprise/docs/connect-third-party-data-source",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: Introduction to connectors and data stores",
+      "url": "https://cloud.google.com/gemini/enterprise/docs/introduction-to-connectors-and-data-stores",
+      "type": "official"
+    },
+    {
+      "label": "Slack: Use Agentforce in Slack",
+      "url": "https://slack.com/help/articles/36218786859667-Use-Agentforce-in-Slack",
+      "type": "official"
+    },
+    {
+      "label": "Slack: Set up and manage Agentforce in Slack",
+      "url": "https://slack.com/help/articles/36218109305875-Set-up-and-manage-Agentforce-in-Slack",
+      "type": "official"
+    },
+    {
+      "label": "Slack: Agentforce in Slack: Start Revolutionizing Work Today",
+      "url": "https://slack.com/blog/news/agentforce-in-slack-enterprise-ai-use-cases",
+      "type": "official",
+      "publishedAt": "2025-01-14"
+    },
+    {
+      "label": "Slack: Bring Digital Labor to Every Team with Agentforce and Slack",
+      "url": "https://slack.com/blog/news/digital-labor-for-every-team",
+      "type": "official",
+      "publishedAt": "2025-03-05"
+    },
+    {
+      "label": "Slack: Agentforce: Now powered by Slack Data and Slack Actions",
+      "url": "https://slack.com/blog/news/agentforce-ai-slack-actions-data",
+      "type": "official",
+      "publishedAt": "2025-09-30"
+    },
+    {
+      "label": "Slack: Slack updates and changes",
+      "url": "https://slack.com/help/articles/115004846068-Slack-updates-and-changes.",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing deep research",
+      "url": "https://openai.com/index/introducing-deep-research/",
+      "type": "official",
+      "publishedAt": "2025-02-02"
+    },
+    {
+      "label": "OpenAI: ChatGPT agent",
+      "url": "https://help.openai.com/en/articles/11752874-chatgpt-agent",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: ChatGPT agent - release notes",
+      "url": "https://help.openai.com/en/articles/11794368-chatgpt-agent-release-notes",
+      "type": "official",
+      "publishedAt": "2025-07-17"
+    },
+    {
+      "label": "OpenAI: Introducing Operator",
+      "url": "https://openai.com/index/introducing-operator/",
+      "type": "official",
+      "publishedAt": "2025-01-23"
+    },
+    {
+      "label": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
+      "type": "paper"
+    },
+    {
+      "label": "Toolformer: Language Models Can Teach Themselves to Use Tools",
+      "url": "https://arxiv.org/abs/2302.04761",
+      "type": "paper"
+    },
+    {
+      "label": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
+      "url": "https://arxiv.org/abs/2307.13854",
+      "type": "paper"
+    },
+    {
+      "label": "WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models",
+      "url": "https://arxiv.org/abs/2401.13919",
+      "type": "paper"
+    },
+    {
+      "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "url": "https://arxiv.org/abs/2310.06770",
+      "type": "paper"
+    },
+    {
+      "label": "GAIA: a benchmark for General AI Assistants",
+      "url": "https://arxiv.org/abs/2311.12983",
+      "type": "paper"
+    },
+    {
+      "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+      "url": "https://arxiv.org/abs/2404.07972",
+      "type": "paper"
+    },
+    {
+      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "url": "https://arxiv.org/abs/2406.12045",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}
