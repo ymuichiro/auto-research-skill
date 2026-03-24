@@ -1,0 +1,259 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>agent identity は認証方式の部品ではなく control plane として扱われ始めた</h2>
+  <p>
+    2025年後半から 2026年3月までに公開された Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、
+    MCP、A2A、Auth0、Okta の一次情報を横断すると、AI agent は単なる service account の別名ではなくなりつつある。
+    公開資料から読み取れるのは、agent を first-class principal として発行し、必要に応じて user delegated authorization を重ね、
+    さらに protocol 上の auth metadata と governance を束ねる設計が、新しい比較軸として立ち上がっているという点である。
+    各社の成熟度は同じではないが、認証認可を agent runtime の外側の後付け設定にせず、control plane に寄せる方向はかなり明確だ。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">4方向</p>
+      <p class="stat-title">収束している設計</p>
+      <p class="stat-note">native identity、delegated authority、protocol auth、governance overlay に整理できる。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">3形態</p>
+      <p class="stat-title">principal の持ち方</p>
+      <p class="stat-note">agent 単体、user 委任、agent + user 併記の3パターンが主要である。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">24件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">公式 docs と公式 announcement だけで論点を比較できるだけの一次情報が揃っている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1結論</p>
+      <p class="stat-title">identity が実装責務を変える</p>
+      <p class="stat-note">今後は「どの token を使うか」より「誰の権限として動くか」を先に設計する必要がある。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why This Matters</p>
+  <h2>service account だけでは、agent の責任分界と委任の実態を扱いきれない</h2>
+  <p>
+    従来の app identity や service account でも API 呼び出し自体はできる。しかし agent の運用では、それだけでは粗すぎる。
+    なぜなら、agent は background task として自律的に動く一方で、ある場面では user consent に基づいて外部 SaaS や社内リソースへ触れ、
+    さらに MCP や A2A のように別の system や別の agent へ接続しにいくからだ。ここで必要になるのは、「誰の権限で動いたのか」を
+    resource server と監査系の両方から追えること、そして権限の発行・交換・失効を prompt 内の約束事ではなく identity layer で扱えることだ。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>共有 service account は権限が粗くなりやすい</h3>
+      <p>複数 agent が同じ credential を使うと、least privilege と revoke 単位が崩れやすい。agent ごとに principal を分ける動きは、この問題への反応と読める。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>user delegation だけでは agent 側の責任主体が消える</h3>
+      <p>user token だけを見せる構成では、どの agent が代行したのかが resource server や監査ログから見えにくい。AWS や Google の docs は、agent と user を併記できる形へ寄っている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>protocol 接続では auth requirement の discoverability が必要になる</h3>
+      <p>MCP や A2A のように動的接続が増えるほど、接続先がどの認証方式を要求するのかを metadata で伝える必要がある。これは個別 integration の外側にある設計責務である。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Four Directions</p>
+  <h2>公開情報を並べると、agent identity は4方向へ整理できる</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Native per-agent identity</h3>
+      <ul class="bullet-list">
+        <li>agent 自体に固有 principal を発行し、owner、lifecycle、audit を紐づける方向である。</li>
+        <li>Microsoft Entra Agent ID、AWS AgentCore Identity、Google Agent Identity は、この層を explicit に扱っている。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Delegated user authority and tool access</h3>
+      <ul class="bullet-list">
+        <li>agent が user consent や managed connection を通じて user 権限を借りる方向である。</li>
+        <li>Copilot Studio の action auth、AWS の 3LO と workload access token、Google の delegated OAuth、Auth0 の user-on-behalf パターンがここに入る。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Protocol-layer authorization</h3>
+      <ul class="bullet-list">
+        <li>MCP と A2A は、接続先が必要とする auth requirement を protocol 上で discoverable にする。</li>
+        <li>MCP core auth、client credentials、enterprise-managed authorization、A2A の Agent Card / security scheme が代表例である。</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Governance and lifecycle overlay</h3>
+      <ul class="bullet-list">
+        <li>agent の所有者、公開範囲、認証方式、access review、shadow agent 検出を管理する層である。</li>
+        <li>Microsoft Agent Registry、Google IAM と logging、Okta の discovery / certification は、この方向の整備と見られる。</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Vendor Map</p>
+  <h2>各サービスを vendor 名ではなく「誰の権限で動くか」で並べる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Native per-agent identity</h3>
+      <p><strong>Principal:</strong> agent 単体</p>
+      <p><strong>Grant method:</strong> agent 作成時または配備時に dedicated principal を発行</p>
+      <p><strong>Policy enforcement point:</strong> Entra policy、IAM、AgentCore directory、resource 側 role</p>
+      <p><strong>Representative services:</strong> Microsoft Entra Agent ID、Microsoft Agent 365、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Delegated user authority</h3>
+      <p><strong>Principal:</strong> user、または agent + user</p>
+      <p><strong>Grant method:</strong> OAuth consent、3LO、managed connection、token exchange</p>
+      <p><strong>Policy enforcement point:</strong> scope、connection policy、managed credentials、resource server 側 consent check</p>
+      <p><strong>Representative services:</strong> Copilot Studio action auth、AWS supported auth patterns、Google delegated access、Auth0 AI agent flows</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Protocol-layer authorization</h3>
+      <p><strong>Principal:</strong> agent client、enterprise auth broker、または service identity</p>
+      <p><strong>Grant method:</strong> OAuth metadata discovery、client credentials、enterprise-managed authorization</p>
+      <p><strong>Policy enforcement point:</strong> authorization server と downstream resource server</p>
+      <p><strong>Representative services:</strong> MCP Authorization、MCP OAuth Client Credentials、MCP Enterprise-Managed Authorization、A2A specification、Auth0 for MCP</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Governance overlay</h3>
+      <p><strong>Principal:</strong> owner / sponsor がひもづく登録済み agent</p>
+      <p><strong>Grant method:</strong> registry 登録、access review、secret / connection 管理、shadow agent 検出</p>
+      <p><strong>Policy enforcement point:</strong> registry、directory、audit log、certification workflow</p>
+      <p><strong>Representative services:</strong> Microsoft Entra Agent Registry、Google IAM と logs、Okta の AI agent discovery / certification</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">How Permissions Are Granted</p>
+  <h2>対向サービスは token の種類だけでなく principal の文脈を見て権限を与える</h2>
+  <p>
+    重要なのは、agent が token を持っていること自体ではない。対向サービスは、その token が誰に発行され、どの consent や policy を経てきたのかを見てアクセス可否を決める。
+    ここでは principal、credential source、resource server が検証するもの、権限制御の置き場所の4点で整理できる。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Agent principal only</h3>
+      <ul class="bullet-list">
+        <li>principal: agent 単体</li>
+        <li>token / credential: agent 用に発行された JWT、access token、workload identity</li>
+        <li>resource server: issuer、audience、role、IAM policy を検証する</li>
+        <li>権限制御: role、policy、resource binding で行う</li>
+      </ul>
+      <p>バックグラウンド処理や narrow automation に向くが、user 文脈を必要とする操作にはそのままでは足りない。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. User-delegated principal</h3>
+      <ul class="bullet-list">
+        <li>principal: user</li>
+        <li>token / credential: OAuth consent で得た user-scoped token、managed connection</li>
+        <li>resource server: user の scope、consent、app registration を検証する</li>
+        <li>権限制御: scope、delegated permission、connection policy に置く</li>
+      </ul>
+      <p>support や finance 系の SaaS 連携で自然だが、どの agent が代行したかを別途残さないと監査粒度が粗くなる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Agent + user combined context</h3>
+      <ul class="bullet-list">
+        <li>principal: agent と user の両方</li>
+        <li>token / credential: token exchange、workload access token、delegated flow の監査ログ</li>
+        <li>resource server: user 権限を見つつ、どの workload / agent から来たかも検証する</li>
+        <li>権限制御: scope と policy を二層で持つ</li>
+      </ul>
+      <p>委任を保ちながら accountability を失わないための形であり、各社 docs がこの方向へ寄っているのは実運用上かなり重要である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Central broker and registry</h3>
+      <ul class="bullet-list">
+        <li>principal: enterprise control plane に登録された agent client</li>
+        <li>token / credential: enterprise-managed auth server や managed connection が発行</li>
+        <li>resource server: broker が出した token と advertised metadata を検証する</li>
+        <li>権限制御: registry、authorization server、certification workflow に置く</li>
+      </ul>
+      <p>MCP の enterprise-managed authorization や identity vendor 側の統制機能は、credential sprawl を減らしつつ revocation と監査をまとめる方向と読める。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios and Benefits</p>
+  <h2>identity 設計が効くのは、高権限 workflow を narrow に切り出す場面である</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">M365</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Microsoft 365 / Copilot 系 agent の社内アクセス</h3>
+        <p>
+          Microsoft 365 リソースや Copilot action を使う agent では、agent identity を固有 principal として持ちつつ、
+          必要な action だけ user auth を重ねる構成が現実的である。利点は、background task と user-mediated task を同じ agent で分けて管理できることだ。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">SaaS</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">support / finance 系 SaaS への user 委任アクセス</h3>
+        <p>
+          CRM、ticketing、経費、請求のような system では、agent が user consent に基づいて限定スコープで API を呼ぶ形が向いている。
+          この方式の利点は、既存の権限モデルを保ったまま agent を導入しやすい点と、過剰権限の shared secret を避けやすい点である。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">MCP</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">MCP / A2A で別 system や別 agent へ接続する</h3>
+        <p>
+          動的接続では、接続先がどの auth scheme を要求するかを metadata で配れることが重要になる。
+          利点は、client ごとの個別実装を減らし、enterprise 側で auth server や client credential policy を差し替えやすくなることだ。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Gov</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">shadow agent と credential sprawl を抑える</h3>
+        <p>
+          owner 不明の agent、散在する OAuth grant、長寿命 secret は、agent 数が増えるほど管理不能になりやすい。
+          discovery、registry、access certification を先に置く利点は、agent 導入を増やしても revoke と review の単位を保ちやすいことである。
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="callout-panel">
+    <p class="callout-title">この方式を取るメリット</p>
+    <p>
+      principal を agent / user / broker に分けて管理すると、least privilege、auditability、revocation、delegation の4点を同時に改善しやすい。
+      これは security のためだけでなく、運用チームが agent を増やせる速度そのものに効く。
+    </p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>導入時に先に決めるべき論点は、model より principal 設計に近い</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>公開資料がそろって示しているのは、agent auth の本質が「認証方式の比較」ではなく「権限主体と管理責務の切り分け」にあるということだ。</p>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>agent principal、user principal、connection owner を同一視しない。</li>
+    <li>長寿命 secret を配るより、short-lived token、token exchange、managed connection を優先する。</li>
+    <li>権限チェックは prompt や wrapper に埋めず、IdP、policy、resource server のどこで強制するかを明示する。</li>
+    <li>MCP / A2A の接続は、auth metadata と許可済み client の管理まで含めて設計する。</li>
+    <li>registry、discovery、certification を rollout の最後ではなく最初の control plane として扱う。</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>結論</h2>
+  <p>
+    agent 認証認可の比較軸は、単に OAuth を使うかどうかではなくなっている。公開資料から読み取れる現在地は、
+    agent を first-class principal として持ち、必要に応じて user delegation と protocol auth を重ね、その上に registry と certification を載せる方向である。
+    どの vendor が勝つかはまだ早いが、どの platform が agent を governable な identity として扱えるかは、すでに明確な選定軸になり始めている。
+  </p>
+</section>

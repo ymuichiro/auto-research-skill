@@ -1,0 +1,140 @@
+{
+  "slug": "agent-identity-becomes-an-auth-control-plane",
+  "date": "2026-03-26",
+  "titleJa": "AI agent identity は認証認可の control plane になり始めた",
+  "titleEn": "Agent identity is becoming the control plane for authentication and authorization",
+  "summaryJa": "Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、MCP/A2A、Okta/Auth0 の一次情報を横断すると、agent は単なる service account ではなく、ネイティブ identity、delegated authorization、protocol auth、governance を束ねた control plane として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向性に属するかと、対向サービスがどのように agent に権限を与えるのかを比較する。",
+  "summaryEn": "Across primary sources from Microsoft Entra Agent ID, Amazon Bedrock AgentCore Identity, Google Cloud Agent Identity, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, and explains how downstream systems actually grant permissions to agents.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Identity",
+    "Authentication",
+    "Authorization",
+    "Governance",
+    "OAuth"
+  ],
+  "publishedSources": [
+    {
+      "label": "Microsoft: What is Microsoft Entra Agent ID?",
+      "url": "https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft: What is the Microsoft agent identity platform",
+      "url": "https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/what-is-agent-id-platform",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft: What is the Microsoft Entra Agent Registry?",
+      "url": "https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/what-is-agent-registry",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft: Configure user authentication for actions in Copilot Studio",
+      "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/configure-enduser-authentication",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft: Overview of Microsoft Agent 365",
+      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Amazon Bedrock AgentCore overview",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Features of AgentCore Identity",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/key-features-and-benefits.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Understanding workload identities",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/understanding-agent-identities.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Manage credential providers with AgentCore Identity",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-outbound-credential-provider.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Supported authentication patterns",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/common-use-cases.html",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud Docs: Identities for workloads",
+      "url": "https://docs.cloud.google.com/iam/docs/workload-identities",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud Docs: Use agent identity with Vertex AI Agent Engine",
+      "url": "https://docs.cloud.google.com/agent-builder/agent-engine/agent-identity",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud Docs: Manage access for deployed agents",
+      "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/manage/access",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud Docs: Google Cloud MCP servers overview",
+      "url": "https://docs.cloud.google.com/mcp/overview",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud Docs: Authenticate to Google and Google Cloud MCP servers",
+      "url": "https://docs.cloud.google.com/mcp/authenticate-mcp",
+      "type": "official"
+    },
+    {
+      "label": "Model Context Protocol: Authorization",
+      "url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
+      "type": "official"
+    },
+    {
+      "label": "Model Context Protocol: OAuth Client Credentials",
+      "url": "https://modelcontextprotocol.io/extensions/auth/oauth-client-credentials",
+      "type": "official"
+    },
+    {
+      "label": "Model Context Protocol: Enterprise-Managed Authorization",
+      "url": "https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization",
+      "type": "official"
+    },
+    {
+      "label": "A2A Protocol: Specification overview",
+      "url": "https://a2a-protocol.org/latest/specification/",
+      "type": "official"
+    },
+    {
+      "label": "Auth0: Auth for AI Agents",
+      "url": "https://auth0.com/ai",
+      "type": "official"
+    },
+    {
+      "label": "Auth0: Secure MCP with Auth0",
+      "url": "https://auth0.com/ai/docs/mcp/intro/overview",
+      "type": "official"
+    },
+    {
+      "label": "Auth0: Call your APIs on a user's behalf from MCP",
+      "url": "https://auth0.com/ai/docs/mcp/get-started/call-your-apis-on-users-behalf",
+      "type": "official"
+    },
+    {
+      "label": "Okta: Identify shadow AI agents using OAuth grants",
+      "url": "https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-identify-with-oauth.htm",
+      "type": "official"
+    },
+    {
+      "label": "Okta: Certify AI agents",
+      "url": "https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-access-cert.htm",
+      "type": "official"
+    }
+  ],
+  "draft": false
+}

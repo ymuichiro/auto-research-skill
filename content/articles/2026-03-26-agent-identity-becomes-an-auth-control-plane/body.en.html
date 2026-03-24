@@ -1,0 +1,259 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Agent identity is starting to act as a control plane rather than a credential detail</h2>
+  <p>
+    Across primary sources published through March 2026 from Microsoft Entra Agent ID, Amazon Bedrock AgentCore Identity, Google Cloud Agent Identity,
+    MCP, A2A, Auth0, and Okta, AI agents are no longer being framed as mere variations of service accounts.
+    The public materials point instead toward a stack in which agents get first-class principals, user-delegated authorization is layered on when needed,
+    protocol-level authentication metadata is exposed for inter-system connections, and governance is treated as part of the same control plane.
+    The maturity levels are not identical across vendors, but the direction is clear: authentication and authorization for agents are moving out of hidden runtime configuration and into the platform surface.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">4 directions</p>
+      <p class="stat-title">Converging design patterns</p>
+      <p class="stat-note">The source set groups cleanly into native identity, delegated authority, protocol auth, and governance overlay.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">3 models</p>
+      <p class="stat-title">How principals are carried</p>
+      <p class="stat-note">The dominant patterns are agent-only, user-delegated, and agent-plus-user context.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">24</p>
+      <p class="stat-title">Published sources</p>
+      <p class="stat-note">Official documentation and official announcements alone are enough to map the current stack.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 takeaway</p>
+      <p class="stat-title">Identity changes the operating model</p>
+      <p class="stat-note">The key design question is no longer just which token is used, but whose authority the agent represents.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why This Matters</p>
+  <h2>Service accounts alone are too coarse for real agent delegation and accountability</h2>
+  <p>
+    Traditional app identities and service accounts can still authenticate API calls, but they are too blunt for modern agent workflows.
+    Agents may run as background workloads, act on behalf of users in external SaaS products, and connect dynamically to other systems or other agents through protocols such as MCP and A2A.
+    In that environment, the real requirement is not simply to hold a valid credential. It is to let both the downstream resource server and the audit layer understand whose authority is being exercised,
+    how the permission was delegated, and how it can be revoked without rebuilding the whole integration. That is why the identity layer is becoming part of the control plane.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Shared service accounts tend to make privilege too broad</h3>
+      <p>When multiple agents reuse the same credential, least privilege and revocation boundaries blur quickly. The move toward dedicated agent principals is a direct response to that problem.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>User delegation alone hides the acting agent</h3>
+      <p>If only a user token is visible, the downstream system may lose track of which agent actually performed the action. AWS and Google documentation both point toward models that preserve user context without dropping agent accountability.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Protocol-based connections need discoverable auth requirements</h3>
+      <p>As dynamic connections increase, clients need a standard way to learn which auth scheme a server requires. That is why MCP and A2A put authentication metadata into the protocol surface rather than leaving it as hidden integration code.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Four Directions</p>
+  <h2>The public material groups agent identity into four directions</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Native per-agent identity</h3>
+      <ul class="bullet-list">
+        <li>The platform issues a dedicated principal for the agent itself and ties ownership, lifecycle, and audit to that identity.</li>
+        <li>Microsoft Entra Agent ID, AWS AgentCore Identity, and Google Agent Identity all treat this layer explicitly.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Delegated user authority and tool access</h3>
+      <ul class="bullet-list">
+        <li>The agent borrows user authority through consented connections, managed credentials, or token exchange.</li>
+        <li>Copilot Studio action auth, AWS 3LO and workload access tokens, Google delegated OAuth, and Auth0 user-on-behalf flows sit here.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Protocol-layer authorization</h3>
+      <ul class="bullet-list">
+        <li>MCP and A2A make authentication requirements discoverable at the protocol level for dynamic server-to-agent and agent-to-agent connections.</li>
+        <li>MCP core auth, client credentials, enterprise-managed authorization, and A2A Agent Card security metadata are the clearest examples.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Governance and lifecycle overlay</h3>
+      <ul class="bullet-list">
+        <li>This layer manages owners, publication boundaries, access reviews, secret handling, and shadow-agent discovery.</li>
+        <li>Microsoft Agent Registry, Google IAM plus logging, and Okta discovery and certification features point in this direction.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Vendor Map</p>
+  <h2>The most useful map is not by vendor name, but by whose authority is being exercised</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Native per-agent identity</h3>
+      <p><strong>Principal:</strong> the agent itself</p>
+      <p><strong>Grant method:</strong> a dedicated principal is issued at provisioning or deployment time</p>
+      <p><strong>Policy enforcement point:</strong> Entra policy, IAM, AgentCore directory, or resource-level roles</p>
+      <p><strong>Representative services:</strong> Microsoft Entra Agent ID, Microsoft Agent 365, Amazon Bedrock AgentCore Identity, Google Cloud Agent Identity</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Delegated user authority</h3>
+      <p><strong>Principal:</strong> the user, or a combined agent-plus-user context</p>
+      <p><strong>Grant method:</strong> OAuth consent, 3LO, managed connections, or token exchange</p>
+      <p><strong>Policy enforcement point:</strong> scopes, connection policy, managed credentials, and downstream consent checks</p>
+      <p><strong>Representative services:</strong> Copilot Studio action auth, AWS supported auth patterns, Google delegated access, Auth0 AI agent flows</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Protocol-layer authorization</h3>
+      <p><strong>Principal:</strong> an agent client, an enterprise auth broker, or a service identity</p>
+      <p><strong>Grant method:</strong> OAuth metadata discovery, client credentials, or enterprise-managed authorization</p>
+      <p><strong>Policy enforcement point:</strong> the authorization server plus the downstream resource server</p>
+      <p><strong>Representative services:</strong> MCP Authorization, MCP OAuth Client Credentials, MCP Enterprise-Managed Authorization, the A2A specification, and Auth0 for MCP</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Governance overlay</h3>
+      <p><strong>Principal:</strong> a registered agent with an owner or sponsor</p>
+      <p><strong>Grant method:</strong> registry publication, access review, secret and connection management, shadow-agent discovery</p>
+      <p><strong>Policy enforcement point:</strong> registries, directories, audit logs, and certification workflows</p>
+      <p><strong>Representative services:</strong> Microsoft Entra Agent Registry, Google IAM and logs, and Okta AI agent discovery and certification</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">How Permissions Are Granted</p>
+  <h2>Downstream services grant access based on principal context, not just token possession</h2>
+  <p>
+    The key issue is not merely that an agent has a token. Downstream services decide access by looking at who the token was issued for,
+    which consent or policy path produced it, and which validation rules the resource server applies. Across the source set, four recurring patterns appear.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Agent principal only</h3>
+      <ul class="bullet-list">
+        <li>principal: the agent alone</li>
+        <li>token or credential source: JWTs, access tokens, or workload identities issued to the agent</li>
+        <li>resource server validation: issuer, audience, role, and IAM policy</li>
+        <li>control point: roles, policies, and resource bindings</li>
+      </ul>
+      <p>This pattern fits background jobs and narrow automation, but it is not enough by itself for actions that require user intent.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. User-delegated principal</h3>
+      <ul class="bullet-list">
+        <li>principal: the user</li>
+        <li>token or credential source: OAuth-consented user tokens or managed connections</li>
+        <li>resource server validation: user scopes, consent, and app registration</li>
+        <li>control point: scopes, delegated permissions, and connection policy</li>
+      </ul>
+      <p>This is natural for support and finance SaaS integrations, but it needs extra telemetry if the operator also wants to know which agent acted on the user's behalf.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Agent plus user context</h3>
+      <ul class="bullet-list">
+        <li>principal: both the agent and the user</li>
+        <li>token or credential source: token exchange, workload access tokens, or delegated-flow audit records</li>
+        <li>resource server validation: user permission plus the identity of the calling workload or agent</li>
+        <li>control point: scopes and policy in two layers</li>
+      </ul>
+      <p>This is the most operationally important pattern because it preserves delegation without losing accountability for which agent executed the action.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Central broker and registry</h3>
+      <ul class="bullet-list">
+        <li>principal: an agent client registered in an enterprise control plane</li>
+        <li>token or credential source: an enterprise-managed auth server or managed connection broker</li>
+        <li>resource server validation: broker-issued tokens plus advertised auth metadata</li>
+        <li>control point: registries, authorization servers, and certification workflows</li>
+      </ul>
+      <p>MCP enterprise-managed auth and adjacent identity-vendor offerings point toward this model because it reduces credential sprawl while centralizing revocation and audit.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios and Benefits</p>
+  <h2>Identity design matters most when high-permission workflows are narrowed into controlled operating lanes</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">M365</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Microsoft 365 and Copilot-style internal access</h3>
+        <p>
+          For agents that touch Microsoft 365 resources or Copilot actions, a realistic pattern is to keep a dedicated agent principal while layering user auth only on the actions that need user context.
+          The benefit is that background work and user-mediated work can be managed separately inside the same agent surface.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">SaaS</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">User-delegated access to support and finance SaaS</h3>
+        <p>
+          CRM, ticketing, expense, and billing systems are better served by limited-scope delegated access than by shared secrets.
+          The benefit is that teams can preserve existing permission models while reducing overprivileged credentials.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">MCP</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Connecting to other systems or other agents through MCP and A2A</h3>
+        <p>
+          For dynamic connections, the critical requirement is to expose auth schemes and requirements through protocol metadata.
+          The benefit is that enterprises can swap auth servers, client-credential policy, or approved clients without rewriting every connection by hand.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Gov</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Containing shadow agents and credential sprawl</h3>
+        <p>
+          Unknown OAuth grants, ownerless agents, and scattered long-lived secrets become hard to manage as the agent count rises.
+          Discovery, registry, and access certification help keep revocation and review boundaries intact as deployment expands.
+        </p>
+      </div>
+    </article>
+  </div>
+  <div class="callout-panel">
+    <p class="callout-title">Why this model is useful</p>
+    <p>
+      Separating agent principals, user principals, and broker responsibilities makes it easier to improve least privilege, auditability, revocation, and delegated access at the same time.
+      This is not only a security advantage. It also affects how quickly an operations team can scale agent adoption without losing control.
+    </p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>The design decisions that matter most are closer to principal design than to model selection</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observation</p>
+    <p>The source set increasingly suggests that the core question in agent auth is not which auth method is used, but how authority and operating responsibility are partitioned.</p>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>Do not collapse the agent principal, the user principal, and the connection owner into one identity concept.</li>
+    <li>Prefer short-lived tokens, token exchange, and managed connections over long-lived shared secrets.</li>
+    <li>Make the enforcement point explicit: IdP, policy engine, authorization server, or downstream resource server.</li>
+    <li>Treat MCP and A2A integrations as auth-metadata and client-governance problems, not only transport problems.</li>
+    <li>Make registry, discovery, and certification part of the first rollout design rather than a later cleanup step.</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>Takeaway</h2>
+  <p>
+    The comparison axis in agent authentication and authorization is no longer just whether a platform supports OAuth.
+    The clearer direction in the public sources is to give agents first-class principals, layer user delegation and protocol auth when needed, and place registry and certification on top of that stack.
+    It is still too early to call a winner, but it is already clear that platforms able to treat agents as governable identities have a structural advantage.
+  </p>
+</section>
