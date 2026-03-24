@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"/>
+    <lastmod>2026-03-25T08:03:25+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"/>
+    <lastmod>2026-03-25T08:03:25+09:00</lastmod>
+  </url>
+  <url>
     <loc>https://ymuichiro.github.io/auto-research-skill/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html"/>
