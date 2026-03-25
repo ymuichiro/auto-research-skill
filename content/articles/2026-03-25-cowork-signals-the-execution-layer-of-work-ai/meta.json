@@ -1,9 +1,9 @@
 {
   "slug": "cowork-signals-the-execution-layer-of-work-ai",
   "date": "2026-03-25",
-  "titleJa": "Cowork は、職場AIが long-running agent system へ拡張し始めたというシグナル",
+  "titleJa": "Cowork は、職場AIが長時間動くエージェントの仕組みへ広がり始めたというシグナル",
   "titleEn": "Cowork signals that workplace AI is expanding into long-running agent systems",
-  "summaryJa": "Anthropic の Cowork と Microsoft の Copilot Cowork を起点に、Google Gemini Enterprise、Slack Agentforce、OpenAI の deep research / ChatGPT agent / Codex を並べると、職場AIは execution layer 単体へ移るというより、reasoning・execution・governance を束ねた long-running agent system へ拡張していることが見えてくる。公開資料と主要論文をもとに、各社のレイヤー構成、ユースケース、戦略差、実務上の制約まで整理する。",
+  "summaryJa": "Anthropic の Cowork と Microsoft の Copilot Cowork を起点に、Google Gemini Enterprise、Slack Agentforce、OpenAI の deep research / ChatGPT agent / Codex を並べると、職場AIは単一の実行機能へ移るというより、推論・実行・管理を束ねた、長時間動くエージェントの仕組みへ広がっていることが見えてくる。公開資料と主要論文をもとに、各社の役割分担、ユースケース、戦略差、実務上の制約まで整理する。",
   "summaryEn": "Putting Anthropic's Cowork and Microsoft's Copilot Cowork next to Google Gemini Enterprise, Slack Agentforce, and OpenAI's deep research, ChatGPT agent, and Codex shows a more precise shift: workplace AI is not moving toward a single execution layer, but toward long-running agent systems that combine reasoning, execution, and governance. Using official product material and benchmark literature, this briefing maps the relevant layers, vendor strategy differences, workflow fit, and the operating constraints that come with deployment.",
   "category": "AI Agents",
   "tags": [
