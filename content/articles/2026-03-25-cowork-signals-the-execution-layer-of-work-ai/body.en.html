@@ -1,88 +1,115 @@
 <section class="report-section">
   <p class="section-kicker">Signal Snapshot</p>
-  <h2>Cowork is emerging not as another chat interface, but as an execution layer for knowledge work</h2>
+  <h2>Cowork is a signal that workplace AI is expanding into long-running agent systems</h2>
   <p>
-    In public materials, the explicit <code>Cowork</code> label is still concentrated around Anthropic and Microsoft. But the larger shift is broader than the name itself.
-    When Anthropic Cowork and Microsoft Copilot Cowork are viewed alongside Google Gemini Enterprise, Slack Agentforce, and OpenAI's deep research and ChatGPT agent,
-    a consistent pattern appears: workplace AI is moving from chat-based assistance toward systems that take on multi-step work and carry it through to deliverables.
+    In public materials, the explicit <code>Cowork</code> label is still concentrated around Anthropic and Microsoft.
+    But the larger change is broader than the name itself. When Anthropic Cowork and Microsoft Copilot Cowork are viewed alongside Google Gemini Enterprise,
+    Slack Agentforce, and OpenAI's deep research, ChatGPT agent, and Codex, the better interpretation is not a simple move toward an execution layer.
+    It is an expansion toward long-running agent systems that combine reasoning, execution, and governance.
   </p>
   <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
     <article class="stat-card">
       <p class="stat-value">2 vendors</p>
-      <p class="stat-title">Explicitly branding around Cowork</p>
-      <p class="stat-note">Today the strongest public use of the <code>Cowork</code> label comes from Anthropic and Microsoft, while other vendors package the same direction under different names.</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">5 clusters</p>
-      <p class="stat-title">Converging product families</p>
-      <p class="stat-note">Anthropic, Microsoft, Google, Slack / Salesforce, and OpenAI are each assembling workplace agents around context, action, and oversight.</p>
+      <p class="stat-title">Explicitly using Cowork</p>
+      <p class="stat-note">Anthropic and Microsoft are the clearest public users of the Cowork label, while other vendors are shipping adjacent surfaces under different names.</p>
     </article>
     <article class="stat-card">
       <p class="stat-value">3 layers</p>
-      <p class="stat-title">Context, action, and governance</p>
-      <p class="stat-note">The winning surface is no longer just model quality. It is the combination of connections, execution, approval, and monitoring.</p>
+      <p class="stat-title">Reasoning, execution, governance</p>
+      <p class="stat-note">The real issue is no longer execution alone, but which layer each vendor treats as the system anchor.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5 clusters</p>
+      <p class="stat-title">Converging, but not identical</p>
+      <p class="stat-note">Anthropic, Microsoft, Google, Slack / Salesforce, and OpenAI are moving in a similar direction while competing on clearly different strengths.</p>
     </article>
     <article class="stat-card">
       <p class="stat-value">1 shift</p>
-      <p class="stat-title">Competition is moving from UI to execution</p>
-      <p class="stat-note">The practical gap is increasingly defined by how safely a system can move work forward, not just how well it can answer.</p>
+      <p class="stat-title">From single chat to long-running systems</p>
+      <p class="stat-note">The differentiation point is no longer answer quality alone, but how well long-running tasks, tools, supervision, and permissions are integrated.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Layer Map</p>
+  <h2>The market is not collapsing into one execution layer. It is integrating several layers at once.</h2>
+  <p>
+    Cowork is useful as a product signal, but the implementation picture is layered. Breaking those layers apart makes both product roles and vendor strategy differences easier to read.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Reasoning layer</h3>
+      <p>This layer handles long-running research, synthesis, and inference. OpenAI's deep research is closest to this role. It completes substantial work, but it is not the same as directly updating business systems.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Execution layer</h3>
+      <p>This layer performs concrete system actions such as updates, ticket creation, code editing, command execution, and testing. Copilot Cowork, Slack Agentforce, and OpenAI Codex / Codex app represent this layer most clearly.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Hybrid layer</h3>
+      <p>This layer spans both research and action. ChatGPT agent is a clear example because it combines reasoning, browser use, tool access, and app-connected execution in one surface. Parts of Anthropic Cowork and Google Agentspace also overlap here.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Governance layer</h3>
+      <p>This layer handles identity, permissions, audit, DLP, workspace controls, and safety boundaries. Microsoft Agent 365 and the Frontier Suite foreground it, while Anthropic also makes visible where that layer is still incomplete.</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">What Changed</p>
-  <h2>The naming differs, but the product direction is becoming strikingly similar</h2>
+  <h2>The direction is converging, but each vendor is anchoring on a different layer</h2>
   <p>
-    The important point is not that every vendor is using the same label. It is that, under different names, they are building toward the same product shape:
-    long-running execution, grounded enterprise context, app-native work, and explicit approval and governance layers.
+    The common pattern is clear: long-running tasks, enterprise context, app-connected action, and explicit supervision are moving into product form.
+    But the competitive anchor is not the same for every vendor.
   </p>
   <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
     <article class="comparison-card">
-      <h3>Anthropic Cowork</h3>
+      <h3>Anthropic</h3>
       <ul class="bullet-list">
-        <li>Cowork is positioned as a research preview that brings the agentic architecture of Claude Code into Claude Desktop for knowledge work beyond coding.</li>
-        <li>It can plan, break work into subtasks, run in a VM, coordinate parallel workstreams, and write finished outputs back to the file system.</li>
-        <li>At the same time, Anthropic explicitly notes that Cowork is not captured in audit logs, the Compliance API, or data exports, and should not be used for regulated workloads.</li>
+        <li>Cowork is a research preview that extends the agentic architecture of Claude Code into Claude Desktop, with a strong emphasis on desktop environment access and local execution.</li>
+        <li>It handles planning, subtasks, VMs, parallel workstreams, and direct file updates, while also explicitly disclosing missing audit-log and Compliance API coverage.</li>
+        <li>Anthropic is therefore pushing the architecture outward first, with enterprise governance still visibly bounded.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>Microsoft Copilot Cowork</h3>
+      <h3>Microsoft</h3>
       <ul class="bullet-list">
-        <li>Microsoft frames Copilot Cowork as the execution layer for Microsoft 365 and says it brings the technology behind Claude Cowork into Copilot in close collaboration with Anthropic.</li>
-        <li>Work IQ keeps Copilot grounded in files, meetings, chats, and relationships while work unfolds inside Word, Excel, PowerPoint, Outlook, and Copilot Chat.</li>
-        <li>Microsoft pairs this with Agent 365 and the Frontier Suite, putting identity, registry, audit, DLP, and risk signals into an enterprise control plane.</li>
+        <li>Copilot Cowork places artifact-native execution inside Word, Excel, PowerPoint, Outlook, and Copilot Chat, while Work IQ provides the grounding layer.</li>
+        <li>At the same time, Agent 365 and the Frontier Suite push identity, registry, audit, DLP, and security posture into a unified control plane.</li>
+        <li>Microsoft's real strength is not only execution, but enterprise integration with governance at the center.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>Google Gemini Enterprise</h3>
+      <h3>Google</h3>
       <ul class="bullet-list">
-        <li>Google Agentspace is now folded into Gemini Enterprise, which is described as a secure agentic platform for every employee and every workflow.</li>
-        <li>The docs combine intranet search, AI assistance, agent galleries, assistant actions, and third-party connectors across Jira, Confluence, Microsoft systems, and ServiceNow.</li>
-        <li>The name is different, but the product shape is very similar: grounded search, deployable agents, app-connected action, and centralized governance.</li>
+        <li>Google Agentspace and Gemini Enterprise build outward from search and knowledge access, then extend into action through assistant actions and connectors.</li>
+        <li>The anchor is not maximum autonomy on its own, but how well agents stay grounded in enterprise knowledge and systems.</li>
+        <li>Google is therefore competing more as a knowledge platform than as a pure execution layer vendor.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>Slack / Salesforce Agentforce</h3>
+      <h3>Slack / Salesforce</h3>
       <ul class="bullet-list">
-        <li>Slack places Agentforce inside the flow of work through DMs, channel mentions, and workflow triggers, treating agents as teammates inside collaboration itself.</li>
-        <li>With Slack Actions and Slack Data, Agentforce can create canvases, send messages, search users, and use conversational context to support tasks like incident triage and account planning.</li>
-        <li>The branding is <code>digital labor</code>, not Cowork, but the product thesis is the same: employee-facing autonomous agents embedded in daily work.</li>
+        <li>Agentforce is placed inside DMs, channel mentions, and workflow triggers, making the agent a workflow-native teammate inside collaboration.</li>
+        <li>Slack Actions and Slack Data let the system move directly from conversation to updates, notifications, and coordinated action.</li>
+        <li>The advantage here is not a general runtime alone, but proximity to the actual flow of work.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>OpenAI deep research / ChatGPT agent</h3>
+      <h3>OpenAI</h3>
       <ul class="bullet-list">
-        <li>OpenAI describes deep research as an agent that can independently do work for you, and ChatGPT agent bundles a visual browser, code interpreter, apps, terminal, and scheduled tasks.</li>
-        <li>Tasks can run for 5 to 30 minutes, cross websites and files, fill forms, edit spreadsheets, and use connected third-party sources.</li>
-        <li>OpenAI also makes workspace toggles, website blocking, app controls, and Compliance API scope explicit, which signals that agents are now treated as governance objects.</li>
+        <li>OpenAI does not cover this space with one Cowork-style product. It spans multiple layers through a portfolio.</li>
+        <li>Deep research is closest to a reasoning layer, ChatGPT agent is a hybrid layer, and Codex / Codex app is a developer-specific execution layer for repository exploration, editing, running, and testing code.</li>
+        <li>That makes OpenAI's position more accurately a multi-product agent stack centered on runtime capability rather than a single workplace agent surface.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>Observation</h3>
+      <h3>Strategic difference</h3>
       <ul class="bullet-list">
-        <li>It would be inaccurate to say that every vendor has launched something called Cowork. The more precise statement is that the <code>Cowork</code> label is limited, while the product direction is spreading.</li>
-        <li>The common target is clear: not just answering questions, but moving work toward an artifact, a decision, or an approved action.</li>
+        <li>The convergence is real, but it is a convergence toward long-running agent systems, not toward one uniform execution layer.</li>
+        <li>The practical split is whether the anchor is governance, knowledge grounding, workflow embedding, desktop architecture, or runtime capability.</li>
       </ul>
     </article>
   </div>
@@ -90,51 +117,51 @@
 
 <section class="report-section">
   <p class="section-kicker">Use Cases</p>
-  <h2>The leading use cases are not “general AI,” but workflows with visible outputs and review points</h2>
+  <h2>The workflow fit changes depending on which layer is doing the work</h2>
   <p>
-    The official examples do not point to unlimited autonomy. They point to bounded knowledge work where context, tools, completion criteria, and approval points can be made explicit.
+    Once translated into practice, the target workflows look different across reasoning, execution, and hybrid products. Keeping those layers separate makes rollout design much clearer.
   </p>
   <div class="mt-6 grid gap-5 md:grid-cols-2">
     <article class="comparison-card">
-      <h3>1. Meeting preparation and account briefs</h3>
+      <h3>1. Software development execution</h3>
       <ul class="bullet-list">
-        <li>Google Agentspace surfaces examples like finding an earnings report and preparing talking points, while Slack highlights account briefs and close plans.</li>
-        <li>This is a natural Cowork-style workflow: gather internal and external context, synthesize it, and produce something a team can immediately use.</li>
+        <li>OpenAI Codex / Codex app combines repository exploration, code edits, command execution, test runs, and parallel agent work.</li>
+        <li>This is clearly execution, but it is execution for software development specifically, not for knowledge work in general.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>2. Research, spreadsheets, and presentations</h3>
+      <h3>2. Meeting prep and account briefs</h3>
       <ul class="bullet-list">
-        <li>Microsoft emphasizes artifact-native work inside Word, Excel, and PowerPoint rather than detached one-shot generation.</li>
-        <li>OpenAI similarly combines web research, file analysis, and spreadsheet editing, which makes research-to-deliverable workflows a first-wave fit.</li>
+        <li>Google Agentspace and Slack both foreground briefing-style workflows that gather company context and external material into a usable preparation artifact.</li>
+        <li>These flows depend heavily on retrieval and reasoning, with only selective execution attached.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>3. Email, calendar, and light operational coordination</h3>
+      <h3>3. Research, spreadsheets, and presentations</h3>
       <ul class="bullet-list">
-        <li>Microsoft and OpenAI both show chat-first entry points that can schedule meetings, draft messages, and act across connected tools.</li>
-        <li>This makes execution-oriented administrative work a practical early target for adoption.</li>
+        <li>Copilot Cowork and ChatGPT agent both matter here because they can move from research into direct edits across documents, spreadsheets, and presentation artifacts.</li>
+        <li>This is where hybrid layers become especially valuable because reasoning and execution have to stay connected.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>4. IT and incident triage</h3>
+      <h3>4. Email, calendar, and light coordination</h3>
       <ul class="bullet-list">
-        <li>Slack explicitly describes incident-oriented flows in which an agent uses channel context, creates a ticket, notifies the right person, and assembles a report.</li>
-        <li>These workflows benefit from automation without requiring full autonomy over irreversible actions.</li>
+        <li>Scheduling meetings, drafting messages, and coordinating across connected tools are classic examples of lightweight execution wrapped around a user request.</li>
+        <li>Here the user experience depends less on answer quality and more on whether the task is actually carried through.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>5. Enterprise knowledge plus action</h3>
+      <h3>5. IT and incident triage</h3>
       <ul class="bullet-list">
-        <li>Google connectors, Anthropic plugins, and OpenAI apps are designed not only to retrieve knowledge but also to connect that knowledge to the next action.</li>
-        <li>That shift from “search” to “retrieve, draft, update, and hand off” is central to the Cowork product direction.</li>
+        <li>Slack Agentforce is a natural fit for incident-oriented flows that use conversation context to create tickets, notify the right people, and assemble reports.</li>
+        <li>These are good candidates because early information collection and handoff can be automated without granting full autonomy over high-risk actions.</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>6. Recurring analysis and reporting</h3>
+      <h3>6. Enterprise knowledge plus action</h3>
       <ul class="bullet-list">
-        <li>Deep research, Excel and PowerPoint agents, and Cowork plugins all fit recurring report production, where data collection, synthesis, and draft creation happen on a regular cadence.</li>
-        <li>These workflows work especially well when a human reviews the final output rather than performing every intermediate step.</li>
+        <li>Google connectors, Anthropic plugins, and OpenAI apps are designed to connect grounded knowledge retrieval with the next action rather than leaving retrieval as a standalone step.</li>
+        <li>That makes them fit workflows where search, drafting, updating, and handoff are one continuous request.</li>
       </ul>
     </article>
   </div>
@@ -142,86 +169,107 @@
 
 <section class="report-section">
   <p class="section-kicker">Why Now</p>
-  <h2>This direction follows naturally from how agent research has moved from answering toward completing</h2>
+  <h2>The backdrop is a research shift toward completion and integration, not just better conversation</h2>
   <p>
-    Cowork-like products did not appear out of nowhere. Since ReAct, the research trajectory has steadily moved toward a single question:
-    how can a model complete real work inside an environment? The current product wave looks like that research track fused with enterprise connectors,
-    permissions, evaluations, and audit requirements.
+    Cowork-like products did not appear suddenly. The research trajectory has been moving toward a single operational question:
+    how can models complete real work inside real environments? Enterprise connectors, permission controls, evaluations, and audit requirements are what turned that trajectory into product surfaces.
   </p>
   <div class="timeline">
     <article class="timeline-item">
       <div class="timeline-year">2022</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">ReAct</h3>
-        <p>ReAct helped normalize the idea that reasoning and acting belong together, treating the model as an agent that interacts with the outside world rather than a pure response engine.</p>
+        <p>Reasoning and acting were tied together more explicitly, making environment interaction part of the core agent framing.</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">2023</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">Toolformer / WebArena</h3>
-        <p>Tool use and realistic web tasks moved to the center, raising the importance of tool-enabled task completion over prompt-only fluency.</p>
+        <p>Tool use and realistic web tasks moved to the center, which raised the importance of tool-enabled completion over prompt-only fluency.</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">2024</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">WebVoyager / SWE-bench / GAIA / OSWorld</h3>
-        <p>Benchmarks expanded into browsers, software engineering, computer use, and multi-domain reasoning, making realistic completion the evaluation target.</p>
+        <h3 class="font-display text-xl font-semibold text-primary">WebVoyager / SWE-bench / GAIA / OSWorld / tau-bench</h3>
+        <p>Benchmarks expanded into browsers, code, computer use, and user-agent-tool interaction, pushing the field toward system-level evaluation across layers.</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">2025</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">deep research / Operator / Agentforce / Agentspace</h3>
-        <p>Product releases began to bundle web research, browser action, workflow execution, agent galleries, and connectors, bringing the research concerns directly into public product surfaces.</p>
+        <p>Research, browser action, workflow execution, agent galleries, and connectors began to surface in products, making the integration of reasoning and execution much more concrete.</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">2026</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Cowork / Agent 365 / Frontier Suite</h3>
-        <p>The new step is not just stronger agents, but governed execution layers sold as workplace infrastructure rather than as isolated model features.</p>
+        <h3 class="font-display text-xl font-semibold text-primary">Cowork / Agent 365 / Codex app</h3>
+        <p>The new competition is not just over execution layers in isolation, but over how well vendors can combine reasoning, execution, and governance into one long-running agent system.</p>
       </div>
     </article>
   </div>
   <div class="callout-panel mt-6">
-    <p class="callout-title">What the evidence suggests</p>
-    <p>The center of gravity in AI has been moving from better conversation toward more reliable completion. Cowork is best understood as the product packaging of that completion layer for knowledge workers.</p>
+    <p class="callout-title">What this evidence implies</p>
+    <p>The market is not simply moving from chat to execution. It is expanding toward integrated long-running agent systems that combine multiple layers in one operating model.</p>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Operating Implications</p>
-  <h2>Why vendors are moving this way: the real pressure comes from work execution and governance together</h2>
+  <h2>In practice, teams need to design around the layer mix rather than treating everything as execution</h2>
   <p>
-    Chat is useful for ideation and answer generation, but most real work does not end there. Workflows involve searching, drafting, updating, sending, recording, and handing off.
-    That is why vendors are pushing agents into apps, grounding them in internal data, and surrounding them with approval and monitoring.
+    The direction is converging, but deployment choices are not. Teams still need to decide whether they are buying reasoning support, direct execution, hybrid assistance, or governance depth as the primary system value.
   </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>1. Chat alone does not reliably reach deliverables</h3>
-      <p>Many tasks only finish when a document is updated, a spreadsheet is changed, a meeting is scheduled, a ticket is filed, or a stakeholder is notified. Vendors are therefore prioritizing artifact-native execution.</p>
+      <h3>1. Keep the layers distinct in evaluation</h3>
+      <p>If deep research is treated as the representative execution example, the design questions around system updates and approvals become blurred. Reasoning, execution, and governance should be evaluated separately first.</p>
     </article>
     <article class="comparison-card">
-      <h3>2. Context connectivity has become the real value source</h3>
-      <p>Work IQ, Agentspace connectors, Slack conversational data, OpenAI apps, and Claude connectors all point to the same fact: grounded access to company-specific context now matters more than generalized model knowledge alone.</p>
+      <h3>2. Choose vendors by anchor layer</h3>
+      <p>Microsoft leans on governance, Google on knowledge grounding, Slack on workflow embedding, OpenAI on runtime capability, and Anthropic on desktop expansion. A single comparison table is not enough.</p>
     </article>
     <article class="comparison-card">
-      <h3>3. Long-running execution is now a product requirement</h3>
-      <p>Deep research and Cowork assume tasks that run for minutes or longer. That requires background execution, progress visibility, interruption, and steering rather than single-turn interactions.</p>
+      <h3>3. Treat deep research as an upstream layer</h3>
+      <p>Deep research completes long-running tasks, but it is not the clearest example of direct business-system execution. It is better framed as a reasoning layer that can feed execution.</p>
     </article>
     <article class="comparison-card">
-      <h3>4. Governance is a go-to-market requirement, not an afterthought</h3>
-      <p>Anthropic explicitly calls out missing audit and compliance coverage, while Microsoft sells Agent 365 and E7 as trust layers. The market is therefore competing on control planes as much as on capability.</p>
+      <h3>4. Separate developer execution from general workplace execution</h3>
+      <p>Codex / Codex app is plainly execution, but its domain is software development. The permissions, verification requirements, and failure modes differ materially from broader knowledge-work agents.</p>
     </article>
     <article class="comparison-card">
-      <h3>5. Deployment safety is becoming a comparison axis</h3>
-      <p>In practice, organizations evaluate task completion, tool success, permission boundaries, auditability, retention, and incident response together. Cowork is a response to that combined operating requirement.</p>
+      <h3>5. Governance belongs beside capability</h3>
+      <p>Agent 365, the Frontier Suite, workspace controls, and Anthropic's explicit safety boundaries all show that model capability alone is not enough to support deployment.</p>
     </article>
     <article class="comparison-card">
-      <h3>6. Adoption will start with narrow workflows</h3>
-      <p>The practical starting point is not universal autonomy. It is bounded workflows like meeting prep, weekly reporting, incident summaries, sales briefs, and internal support, where outputs and review points are easy to define.</p>
+      <h3>6. Start from narrow workflows</h3>
+      <p>Meeting prep, incident summaries, code fixes, and sales briefs are useful starting points because outputs and review points are easier to define, which makes the active layer mix easier to observe.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Practical Constraints</p>
+  <h2>Adoption difficulty comes from operating constraints as much as from capability</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Cost</h3>
+      <p>Long-running execution, tool use, browser interaction, and external APIs all raise token and execution cost. Longer reasoning time becomes a direct ROI design issue.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Reliability</h3>
+      <p>In multi-step systems, early mistakes propagate into later steps. Teams therefore need step-level monitoring and retry policy design rather than only final task-completion metrics.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>UX</h3>
+      <p>Long-running agent systems need progress visibility, interruption, correction, branching, and handoff. A chat box alone is often not enough for those interactions.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Operations</h3>
+      <p>Monitoring, human-in-the-loop design, approvals, incident response, retention, and compliance remain distinct implementation problems. Ignoring them is one of the fastest ways to stall deployment.</p>
     </article>
   </div>
 </section>
@@ -230,7 +278,7 @@
   <p class="section-kicker">Key Takeaway</p>
   <h2>Takeaway</h2>
   <p>
-    <code>Cowork</code> is not just another AI buzzword. More precisely, it is a signal that agents are being productized as execution layers that carry knowledge work through to outputs.
-    Only a subset of vendors currently uses the name itself, but the direction is already spreading. The next comparison axis will not be just which model is smartest, but which platform can combine context, action, approval, and governance into a system that organizations can actually deploy.
+    <code>Cowork</code> is not simply the name of a new execution layer. More precisely, it is a signal that workplace AI is expanding into long-running agent systems that integrate reasoning, execution, and governance.
+    The label itself is still limited to a subset of vendors, but the underlying direction is much broader. The next comparison axis will not be only who has the smartest model, but which layer each vendor anchors on and how safely those layers can be combined.
   </p>
 </section>
