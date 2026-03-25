@@ -42,7 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
     <meta property="article:published_time" content="2026-03-24T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-03-25T09:19:36+09:00">
+    <meta property="article:modified_time" content="2026-03-25T10:18:13+09:00">
     <meta property="article:section" content="AI Strategy">
     <meta property="article:tag" content="LLM">
     <meta property="article:tag" content="AI Agent">
@@ -50,7 +50,7 @@
     <meta property="article:tag" content="Product Design">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="UX">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか","description":"OpenAI、Microsoft、Google、Anthropic、Claude Cowork の公式発表と HCI 系の論文を重ねると、生成AIアプリがまずチャットUIに寄る理由は、自然言語が最も安い汎用入力だからである一方、実務化が進むほど状態表示、承認、進捗監督、成果物編集のための画面を周辺に必要とすることが見えてくる。チャットUIが消えるのではなく、対話を起点にした操作基盤へ複合化していく流れを整理する。","datePublished":"2026-03-24T00:00:00+09:00","dateModified":"2026-03-25T09:19:36+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, AI Agent, Chat Interface, Product Design, Workflow, UX","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-03-24-why-ai-products-converge-on-chat-ui.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-03-24-why-ai-products-converge-on-chat-ui.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか","description":"OpenAI、Microsoft、Google、Anthropic、Claude Cowork の公式発表と HCI 系の論文を重ねると、生成AIアプリがまずチャットUIに寄る理由は、自然言語が最も安い汎用入力だからである一方、実務化が進むほど状態表示、承認、進捗監督、成果物編集のための画面を周辺に必要とすることが見えてくる。チャットUIが消えるのではなく、対話を起点にした操作基盤へ複合化していく流れを整理する。","datePublished":"2026-03-24T00:00:00+09:00","dateModified":"2026-03-25T10:18:13+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, AI Agent, Chat Interface, Product Design, Workflow, UX","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-03-24-why-ai-products-converge-on-chat-ui.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-03-24-why-ai-products-converge-on-chat-ui.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://ymuichiro.github.io/auto-research-skill/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://ymuichiro.github.io/auto-research-skill/archive/"},{"@type":"ListItem","position":3,"name":"なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか","item":"https://ymuichiro.github.io/auto-research-skill/2026-03-24-why-ai-products-converge-on-chat-ui.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -85,8 +85,12 @@
   <p>
     OpenAI、Microsoft、Google、Anthropic の公開資料を横に置くと、生成AIアプリがまずチャットUIに収束した理由はかなり説明しやすい。
     自然言語は最も安い汎用入力であり、曖昧な依頼をそのまま受け止められ、プロダクト側も専用画面を先に作り込まずに価値提供を始められるからだ。
-    ただし、同じ公開資料を丁寧に読むと、各社はすでにチャットだけで完結する体験を目指していない。状態表示、成果物編集、承認、進捗監督、権限制御をチャットの外側に足し、
-    会話を入口にした操作基盤を作り始めている。
+    生成AIが何を返すべきか、どこまで実行すべきか、どの情報を参照すべきかが流動的な段階では、入力欄ひとつで始められること自体が強みになる。
+  </p>
+  <p>
+    ただし、同じ公開資料を丁寧に読むと、各社はすでにチャットだけで完結する体験を目指していない。
+    状態表示、成果物編集、承認、進捗監督、権限制御、共有コンテキストをチャットの外側に足し、会話を入口にした操作基盤を作り始めている。
+    言い換えると、チャットUIは敗れるのではなく、仕事を最後まで扱うために周辺画面を吸収し始めている。
   </p>
   <div class="mt-6 grid gap-4 md:grid-cols-4">
     <article class="stat-card">
@@ -115,6 +119,10 @@
 <section class="report-section">
   <p class="section-kicker">なぜチャットか</p>
   <h2>チャットUIが最初に勝ったのは、自然言語が最も安い汎用インターフェースだから</h2>
+  <p>
+    チャットUIが強いのは、単に ChatGPT が有名だったからではない。生成AIアプリでは、やりたいことが最初から固定フォームに落ちないことが多い。
+    相談、下書き、調査、比較、作業依頼、条件変更が一つの流れの中で混ざるため、自然言語で始められること自体が強い設計上の利点になる。
+  </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
       <h3>1. 入力設計のコストが低い</h3>
@@ -124,8 +132,9 @@
       </p>
     </article>
     <article class="comparison-card">
-      <h3>2. 相談と実行を同じ面でつなげやすい</h3>
+      <h3>2. 曖昧な相談と実行依頼を同じ面で扱える</h3>
       <p>
+        生成AIアプリでは、「まず調べて」「違ったら方向を変えて」「必要なら実行して」といった指示の揺れが頻繁に起きる。
         OpenAI は deep research、Operator、ChatGPT agent を通じて、軽い相談からブラウザ操作、レポート生成までを同じチャットの中で連続化している。
         会話と実行依頼が同じ場所にあると、ユーザーは作業の途中で条件変更や追加指示を入れやすい。
       </p>
@@ -135,19 +144,37 @@
       <p>
         高リスク操作の前に確認を差し込む、途中で人に引き継がせる、進行中に中断させる、といった安全制御は会話の流れに乗せやすい。
         Operator、ChatGPT agent、Cowork はいずれも「重要操作前の承認」を明示し、チャットをブレーキの差し込み口として使っている。
+        これは、チャットが単なる入力欄ではなく、監督と責任分界の面でもあることを意味する。
       </p>
     </article>
+    <article class="comparison-card">
+      <h3>4. 学習コストと配布コストが低い</h3>
+      <p>
+        文書作成ソフトや業務システムのような専用画面は、項目設計と学習コストが高い。対してチャットは、ほとんどの利用者が初見でも使える。
+        Microsoft 365 Copilot Chat や Gemini の prompt-first 設計が示しているのは、AI を組織全体に広げるうえで、最初の入口をできるだけ軽くしたいという判断である。
+      </p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">観測点</p>
+    <p>チャットは、あらゆる作業に最適な画面だから勝ったのではない。最も早く配布でき、最も少ない設計で曖昧な依頼を受け止められるから勝った。</p>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">限界</p>
   <h2>ただし、長い作業や状態が多い業務ではチャット単独の限界が露出する</h2>
+  <p>
+    ここから先が重要である。チャットUIは入口としては強いが、作業が長くなり、途中状態が増え、成果物が複雑になるほど、会話だけでは足りなくなる。
+    生成AIアプリの現在の進化は、チャットを捨てることではなく、この不足分をどの画面で補うかの競争として理解した方が正確である。
+  </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
       <h3>状態が流れていく</h3>
       <p>
-        チャットは履歴が線形に流れるため、作業状態、依存関係、途中成果物、保留論点を一覧で持ちづらい。何が決まり、何が保留なのかが埋もれやすい。
+        チャットは履歴が線形に流れるため、作業状態、依存関係、途中成果物、保留論点を一覧で持ちづらい。
+        何が決まり、何が保留なのか、どこからやり直せるのかが埋もれやすい。
+        単発の質疑応答では問題になりにくいが、調査、計画、実行、確認が続く仕事ではこの弱さが目立つ。
       </p>
     </article>
     <article class="comparison-card">
@@ -155,6 +182,7 @@
       <p>
         スライド、文書、スプレッドシート、図、フォーム、自動化設定のような成果物は、会話だけより並べて見られる編集面や確認画面があった方が扱いやすい。
         Anthropic の Artifacts、Google の Canvas、Microsoft の Pages はこの問題に正面から答えている。
+        生成AIが書いた内容を人が手直しし、比較し、承認するには、文字列の往復ではなく、見える成果物の面が必要になる。
       </p>
     </article>
     <article class="comparison-card">
@@ -162,12 +190,60 @@
       <p>
         実作業に近づくほど、「どのフォルダに触れるか」「どの接続先を使うか」「この操作だけ承認するか」が重要になる。
         これは単なる会話履歴では表現が弱く、明示的な操作画面が必要になる。
+        特に企業導入では、監査可能性、アクセス範囲、誰が最終決定を持つかを会話文だけに埋め込むのは危うい。
       </p>
     </article>
     <article class="comparison-card">
-      <h3>監督とやり直しの設計が弱い</h3>
+      <h3>非同期の長時間作業を扱いにくい</h3>
       <p>
-        長い作業は、進捗、分岐、失敗箇所、再開ポイントを見せる画面がないと不安定に見える。結果として、生成AIアプリはチャットの周辺に進行説明、時系列表示、作業履歴、作業画面を足し始める。
+        長い作業は、進捗、分岐、失敗箇所、再開ポイントを見せる画面がないと不安定に見える。
+        結果として、生成AIアプリはチャットの周辺に進行説明、時系列表示、作業履歴、作業画面を足し始める。
+        Cowork や ChatGPT agent で重要なのは、回答を返すことより「作業が今どこまで進んでいるか」を見せる面があることだ。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>共同作業の単位が会話より広い</h3>
+      <p>
+        実務では、一人の質問に一人のAIが答えるだけでは終わらない。資料、チームメモ、承認者、接続先、成果物が共有される。
+        Projects、Pages、Google Home の履歴面が意味を持つのは、AI の出力だけでなく、人とAIが共有する作業状態を残す必要があるからである。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">外に出てくる画面</p>
+  <h2>チャットの周辺で強化されるのは、だいたい同じ4種類の画面である</h2>
+  <p>
+    各社の実装は違っても、外に出てくる画面の種類はかなり似ている。これは偶然ではなく、チャットだけでは足りない領域が似ているからである。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. 成果物の画面</h3>
+      <p>
+        文書、表、コード、図、メモ、設定のような成果物を横に出す面である。
+        Artifacts、Pages、Canvas は、AI の返答を読むだけでなく、人が編集し直し、比較し、完成形へ近づけるための画面として設計されている。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 進行状況の画面</h3>
+      <p>
+        今どこまで進んだか、次に何をするか、どこで止まったかを見せる面である。
+        deep research や Cowork が「回答」だけでなく途中の進行を見せるのは、長時間作業では安心感と修正可能性が重要だからだ。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. 承認と権限の画面</h3>
+      <p>
+        どのデータに触れるか、どの操作を許可するか、どの段階で人が止めるかを示す面である。
+        これが別画面や明示的な設定として出てくるほど、生成AIアプリは業務システムに近づいていると見てよい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 共有コンテキストの画面</h3>
+      <p>
+        関連資料、チームの前提、作業履歴、接続先の状態をまとめる面である。
+        Projects や enterprise knowledge 連携が重要になるのは、AI が賢いことより、どの前提を共有して動くかが品質を左右するからである。
       </p>
     </article>
   </div>
@@ -179,31 +255,35 @@
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
       <h3>OpenAI はチャットを実行と連携機能のハブにした</h3>
-      <p>
-        Apps in ChatGPT は、apps が会話の流れに自然に入ると明示しつつ、操作できる画面をチャット内に埋め込む設計を取った。
-        さらに ChatGPT agent は、会話からエージェント実行へ自然に移り、ブラウザ、端末、外部接続、承認を同じ画面に統合した。
-      </p>
+      <ul class="bullet-list">
+        <li>Apps in ChatGPT は、apps が会話の流れに自然に入ると明示し、チャット内に操作できる画面を埋め込む設計を取った。</li>
+        <li>Operator はブラウザ操作、deep research は長時間の調査、ChatGPT agent はその両方をまとめ、会話から実行へ自然に移る面を作った。</li>
+        <li>System Card まで含めて読むと、OpenAI の論点は「賢く答える」より「長い作業を承認付きで扱う」方向へ広がっている。</li>
+      </ul>
     </article>
     <article class="comparison-card">
       <h3>Microsoft はチャットを日常の入口にしつつ Pages を前面に出した</h3>
-      <p>
-        Microsoft は「Copilot is the UI for AI」と言い切りながら、同時に Pages を継続的に編集できる作業面として押し出している。
-        ここではチャットが入口、Pages が作業を残す画面という役割分担になっている。
-      </p>
+      <ul class="bullet-list">
+        <li>Microsoft は「Copilot is the UI for AI」と言い切りながら、同時に Pages を継続的に編集できる作業面として押し出している。</li>
+        <li>Copilot Chat を組織全体の入口にしつつ、Pages で出力を残し、actions や agents で実行面へ伸ばす構成が見える。</li>
+        <li>ここではチャットが入口、Pages が共同作業の面、Copilot actions が実行面という役割分担になっている。</li>
+      </ul>
     </article>
     <article class="comparison-card">
       <h3>Google は入力欄を残しながら Canvas とアプリ連携を足した</h3>
-      <p>
-        Gemini は Deep Research、connected apps、personalization を入力欄から扱わせつつ、Canvas を共同編集の画面として追加した。
-        さらに Google Home では、自然言語での操作を残しながら履歴と自動化の画面を強化し、会話と操作画面を分離していない。
-      </p>
+      <ul class="bullet-list">
+        <li>Gemini は Deep Research、connected apps、personalization を入力欄から扱わせつつ、Canvas を共同編集の画面として追加した。</li>
+        <li>つまり Google は、自然言語の入口を維持したまま、思考途中のメモと成果物を別面で扱う方向を取っている。</li>
+        <li>Google Home でも、自然言語での操作を残しながら履歴と自動化の画面を強化しており、会話と操作画面を分離していない。</li>
+      </ul>
     </article>
     <article class="comparison-card">
       <h3>Anthropic は Projects、Artifacts、Computer use で協働面を厚くした</h3>
-      <p>
-        Projects は資料と会話履歴を束ね、Artifacts は成果物を横に出す専用画面を持ち、Computer use は画面操作を道具として扱う。
-        同社の agent 設計論も、会話と実行の両方がある作業に価値が出ると整理している。
-      </p>
+      <ul class="bullet-list">
+        <li>Projects は資料と会話履歴を束ね、Artifacts は成果物を横に出す専用画面を持ち、Computer use は画面操作を道具として扱う。</li>
+        <li>同社の「Building effective agents」は、価値が出るのは会話と実行の両方が必要な作業だと整理している。</li>
+        <li>Anthropic の流れは、チャットを消すことではなく、チャットの周辺に実行と成果物の面を厚くすることだと読める。</li>
+      </ul>
     </article>
   </div>
 </section>
@@ -214,34 +294,51 @@
   <p>
     Cowork はこの流れを最も分かりやすく見せている。公開ページは、通常のチャットを捨てるのではなく、Cowork では Claude が自分で作業を進められると説明する。
     つまりチャットを否定しているのではなく、チャットだけでは不足する実行の層を付け足している。
+    通常のチャットでは、一往復ごとに「質問して答える」関係が中心だが、Cowork では「依頼して任せ、途中で監督し、必要なら承認し、成果物を受け取る」関係へ寄っている。
   </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
       <h3>依頼を伝える面は会話のまま</h3>
-      <p>ユーザーは自然言語で完成イメージを渡す。Claude は接続先、ブラウザ、画面操作など最短経路を選ぶ。</p>
+      <p>
+        ユーザーは自然言語で完成イメージを渡す。Claude は接続先、ブラウザ、画面操作など最短経路を選ぶ。
+        ここでは対話が消えるのではなく、仕事の開始点としてより重要になっている。
+      </p>
     </article>
     <article class="comparison-card">
       <h3>進み具合と計画は作業画面に出る</h3>
-      <p>Claude は各段階で何をしているかを見せ、長い作業は見守ることも任せて席を外すこともできる。これは通常のチャットより監督しやすい。</p>
+      <p>
+        Claude は各段階で何をしているかを見せ、長い作業は見守ることも任せて席を外すこともできる。
+        これは通常のチャットより監督しやすく、長時間作業の心理的な不安も下げる。
+      </p>
     </article>
     <article class="comparison-card">
       <h3>承認と権限範囲が明示される</h3>
-      <p>フォルダと接続先へのアクセスは明示的で、重要操作の前には計画を出して承認を待つ。ここで操作基盤としての性格が強くなる。</p>
+      <p>
+        フォルダと接続先へのアクセスは明示的で、重要操作の前には計画を出して承認を待つ。
+        ここで操作基盤としての性格が強くなる。質問応答アプリではなく、権限付きの仕事アプリへ寄り始める部分である。
+      </p>
     </article>
     <article class="comparison-card">
       <h3>プラグインで職種別の使い分けを吸収する</h3>
-      <p>プラグインはスキル、接続先、補助エージェント、コマンドを束ね、経理や法務などの業務フローを対話中心の画面に持ち込む。</p>
+      <p>
+        プラグインはスキル、接続先、補助エージェント、コマンドを束ね、経理や法務などの業務フローを対話中心の画面に持ち込む。
+        これは、単一の万能チャットを目指すより、役割別の仕事面をチャットに重ねる設計である。
+      </p>
     </article>
   </div>
   <div class="callout-panel mt-6">
     <p class="callout-title">観測点</p>
-    <p>チャットUI がなくなるのではない。Cowork 型の進化は、チャットを入口に残したまま、状態表示、承認、成果物、職種別の業務フローを周辺に足す方向にある。</p>
+    <p>チャットUIがなくなるのではない。Cowork 型の進化は、チャットを入口に残したまま、状態表示、承認、成果物、職種別の業務フローを周辺に足す方向にある。</p>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">研究の示唆</p>
   <h2>人とAIの協働を扱う論文も、会話だけでは足りない場面を示し始めている</h2>
+  <p>
+    ここで面白いのは、製品側だけでなく研究側も似た方向を示していることだ。論文は「チャットを捨てよ」とは言っていない。
+    代わりに、状態が多く、途中介入が重要で、成果物が複雑な作業では、会話の外側に見える構造が必要だと示し始めている。
+  </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
       <h3>Low-code LLM は制御しやすさのために画面操作を取り入れた</h3>
@@ -282,28 +379,50 @@
       <div class="timeline-year">調査</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">調査とレポート生成</h3>
-        <p>質問はチャットから始まるが、途中で出典一覧、進捗要約、成果物の下書きが必要になる。deep research や Cowork のレポート作成はこの形に近い。</p>
+        <p>
+          質問はチャットから始まるが、途中で出典一覧、進捗要約、成果物の下書きが必要になる。
+          deep research や Cowork のレポート作成はこの形に近く、利用者は「答え」よりも「調査過程と成果物の質」を見たい。
+        </p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">文書</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">文書・スライド・表計算の共同編集</h3>
-        <p>会話だけでは成果物の構造を把握しにくいので、Canvas、Artifacts、Pages、表計算の編集画面のように、並べて確認できる画面が必要になる。</p>
+        <p>
+          会話だけでは成果物の構造を把握しにくいので、Canvas、Artifacts、Pages、表計算の編集画面のように、並べて確認できる画面が必要になる。
+          この領域では、AI が書くことより、人が途中で直しやすいことの方が重要になる。
+        </p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">運用</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">承認付きの業務自動化</h3>
-        <p>フォルダへのアクセス、接続先の権限、高リスク操作の確認がある作業では、チャットは依頼面として強いが、実行面には承認画面と監査できる状態表示が要る。</p>
+        <p>
+          フォルダへのアクセス、接続先の権限、高リスク操作の確認がある作業では、チャットは依頼面として強いが、実行面には承認画面と監査できる状態表示が要る。
+          ここで求められるのは、回答品質より、止めどころと引き継ぎどころの分かりやすさである。
+        </p>
       </div>
     </article>
     <article class="timeline-item">
-      <div class="timeline-year">家庭</div>
+      <div class="timeline-year">生活</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">自然言語制御付きの既存アプリ</h3>
-        <p>Google Home のように、自然言語での操作を残しながら履歴、時系列表示、自動化設定を強化する形は、会話と操作画面の複合化を最も素直に表している。</p>
+        <p>
+          Google Home のように、自然言語での操作を残しながら履歴、時系列表示、自動化設定を強化する形は、会話と操作画面の複合化を最も素直に表している。
+          生成AIは新しいアプリを作るだけでなく、既存アプリの入口を自然言語化しつつ、裏側の操作面を厚くする形でも広がる。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">チーム</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">チーム前提の共有作業</h3>
+        <p>
+          Projects や enterprise knowledge 連携が必要になるのは、質問と回答の一往復ではなく、資料共有、承認、役割分担、接続先の制御が仕事の単位になるからだ。
+          つまり企業向けAIでは、個人チャットより共有作業面の設計が重要になっていく。
+        </p>
       </div>
     </article>
   </div>
@@ -312,11 +431,16 @@
 <section class="report-section">
   <p class="section-kicker">運用含意</p>
   <h2>設計と運用で先に決めるべき論点</h2>
+  <p>
+    実務で差が付くのは、チャットを残すか消すかではない。何をチャットに残し、何を別画面へ出すかを早い段階で決められるかどうかである。
+  </p>
   <ul class="bullet-list mt-6">
     <li>チャットUIを消すか残すかではなく、チャットが担う役割を「意図入力」と「例外対話」に限定するかどうかを決める。</li>
     <li>長い作業には、進捗、中間状態、確認点を見せる面を別途持つ。</li>
     <li>成果物が文書、スライド、表計算、自動化設定なら、対話画面と並列の編集画面を最初から一体設計する。</li>
     <li>承認、フォルダ権限、接続先の権限、高リスク操作を会話文だけに埋め込まない。</li>
+    <li>対話履歴と作業状態を別物として扱い、どこまでが会話で、どこからがワークフローかを切り分ける。</li>
+    <li>企業導入では、回答の正しさだけでなく、誰が承認し、どの権限で動き、どの状態を保存するかを評価対象に入れる。</li>
     <li>複雑業務では、対話履歴よりも作業状態と成果物の状態が一次の運用単位になる。</li>
   </ul>
 </section>
@@ -326,8 +450,13 @@
   <h2>結論</h2>
   <p>
     生成AIアプリがチャットUIに収束したのは、チャットが最終形だからではなく、自然言語が最も導入しやすい汎用インターフェースだったからである。
-    そして 2026 年 3 月時点で見えている次の段階は、脱チャットではない。会話を入口に残したまま、
-    編集画面、成果物画面、承認、進捗表示、プラグインを重ねることで、チャットUIを実務向けの操作基盤へ変えていく段階に入っている。
+    そして 2026 年 3 月時点で見えている次の段階は、脱チャットではない。会話を入口に残したまま、編集画面、成果物画面、承認、進捗表示、プラグイン、共有コンテキストを重ねることで、
+    チャットUIを実務向けの操作基盤へ変えていく段階に入っている。
+  </p>
+  <p>
+    したがって、この領域を「チャットUIか、操作UIか」という二者択一で捉えるのは粗すぎる。実際に起きているのは、チャットが消えることではなく、
+    チャットが仕事の入口として残り続けながら、その周辺に仕事を完遂するための画面が増えていくことだ。
+    いま見るべきなのは、どの会社がチャットを捨てるかではない。どの会社が、チャットの周辺にどれだけ実務的な作業面を積み上げられるかである。
   </p>
 </section>
 </section>
