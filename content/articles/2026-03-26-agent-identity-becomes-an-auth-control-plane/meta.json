@@ -1,10 +1,10 @@
 {
   "slug": "agent-identity-becomes-an-auth-control-plane",
   "date": "2026-03-26",
-  "titleJa": "AI agent identity は認証認可の control plane になり始めた",
+  "titleJa": "AI エージェントの ID 管理は認証認可の統制基盤になり始めた",
   "titleEn": "Agent identity is becoming the control plane for authentication and authorization",
-  "summaryJa": "Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、MCP/A2A、Okta/Auth0 の一次情報を横断すると、agent は単なる service account ではなく、ネイティブ identity、delegated authorization、protocol auth、governance を束ねた control plane として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向性に属するかと、対向サービスがどのように agent に権限を与えるのかを比較する。",
-  "summaryEn": "Across primary sources from Microsoft Entra Agent ID, Amazon Bedrock AgentCore Identity, Google Cloud Agent Identity, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, and explains how downstream systems actually grant permissions to agents.",
+  "summaryJa": "Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。",
+  "summaryEn": "Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -41,6 +41,21 @@
       "type": "official"
     },
     {
+      "label": "Microsoft Purview: Use Microsoft Purview to manage data security & compliance for AI agents",
+      "url": "https://learn.microsoft.com/en-us/purview/ai-agents",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Purview: Use Microsoft Purview to manage data security & compliance for Microsoft Agent 365",
+      "url": "https://learn.microsoft.com/en-us/purview/ai-agent-365",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Purview: Secure and govern Microsoft 365 Copilot agents",
+      "url": "https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment",
+      "type": "official"
+    },
+    {
       "label": "AWS Docs: Amazon Bedrock AgentCore overview",
       "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
       "type": "official"
@@ -63,6 +78,21 @@
     {
       "label": "AWS Docs: Supported authentication patterns",
       "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/common-use-cases.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Policy in Amazon Bedrock AgentCore",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Implement safeguards for your application by associating a guardrail with your agent",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-guardrail.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Amazon Bedrock policies in AWS Organizations",
+      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_bedrock.html",
       "type": "official"
     },
     {
@@ -91,6 +121,21 @@
       "type": "official"
     },
     {
+      "label": "Google Cloud Docs: AI Protection overview",
+      "url": "https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud Docs: Model Armor overview",
+      "url": "https://docs.cloud.google.com/security-command-center/docs/model-armor-overview",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud Docs: Agent Engine Threat Detection overview",
+      "url": "https://docs.cloud.google.com/security-command-center/docs/agent-engine-threat-detection-overview",
+      "type": "official"
+    },
+    {
       "label": "Model Context Protocol: Authorization",
       "url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
       "type": "official"
@@ -108,11 +153,6 @@
     {
       "label": "A2A Protocol: Specification overview",
       "url": "https://a2a-protocol.org/latest/specification/",
-      "type": "official"
-    },
-    {
-      "label": "Auth0: Auth for AI Agents",
-      "url": "https://auth0.com/ai",
       "type": "official"
     },
     {

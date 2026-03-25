@@ -2,10 +2,10 @@
   <p class="section-kicker">Signal Snapshot</p>
   <h2>Agent identity is starting to act as a control plane rather than a credential detail</h2>
   <p>
-    Across primary sources published through March 2026 from Microsoft Entra Agent ID, Amazon Bedrock AgentCore Identity, Google Cloud Agent Identity,
-    MCP, A2A, Auth0, and Okta, AI agents are no longer being framed as mere variations of service accounts.
+    Across primary sources published through March 2026 from Microsoft Entra Agent ID, Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy,
+    Google Cloud Agent Identity and AI Protection, MCP, A2A, Auth0, and Okta, AI agents are no longer being framed as mere variations of service accounts.
     The public materials point instead toward a stack in which agents get first-class principals, user-delegated authorization is layered on when needed,
-    protocol-level authentication metadata is exposed for inter-system connections, and governance is treated as part of the same control plane.
+    protocol-level authentication metadata is exposed for inter-system connections, and governance, data protection, and policy enforcement are treated as parts of the same control plane.
     The maturity levels are not identical across vendors, but the direction is clear: authentication and authorization for agents are moving out of hidden runtime configuration and into the platform surface.
   </p>
   <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -20,7 +20,7 @@
       <p class="stat-note">The dominant patterns are agent-only, user-delegated, and agent-plus-user context.</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">24</p>
+      <p class="stat-value">32</p>
       <p class="stat-title">Published sources</p>
       <p class="stat-note">Official documentation and official announcements alone are enough to map the current stack.</p>
     </article>
@@ -86,7 +86,7 @@
       <h3>4. Governance and lifecycle overlay</h3>
       <ul class="bullet-list">
         <li>This layer manages owners, publication boundaries, access reviews, secret handling, and shadow-agent discovery.</li>
-        <li>Microsoft Agent Registry, Google IAM plus logging, and Okta discovery and certification features point in this direction.</li>
+        <li>Microsoft Agent Registry and Purview, Google IAM plus AI Protection, and Okta discovery and certification features point in this direction.</li>
       </ul>
     </article>
   </div>
@@ -122,7 +122,7 @@
       <p><strong>Principal:</strong> a registered agent with an owner or sponsor</p>
       <p><strong>Grant method:</strong> registry publication, access review, secret and connection management, shadow-agent discovery</p>
       <p><strong>Policy enforcement point:</strong> registries, directories, audit logs, and certification workflows</p>
-      <p><strong>Representative services:</strong> Microsoft Entra Agent Registry, Google IAM and logs, and Okta AI agent discovery and certification</p>
+      <p><strong>Representative services:</strong> Microsoft Entra Agent Registry and Purview, Google IAM and AI Protection, and Okta AI agent discovery and certification</p>
     </article>
   </div>
 </section>
@@ -174,6 +174,50 @@
         <li>control point: registries, authorization servers, and certification workflows</li>
       </ul>
       <p>MCP enterprise-managed auth and adjacent identity-vendor offerings point toward this model because it reduces credential sprawl while centralizing revocation and audit.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Use Cases</p>
+  <h2>Platform-specific governance layers are already turning agent identity into concrete deployment patterns</h2>
+  <p>
+    Identity alone does not explain how enterprise agent rollouts are actually governed. In practice, platforms are adding adjacent layers for data protection,
+    runtime safety, and policy enforcement. Read together, Microsoft Purview, Google Cloud AI Protection and Model Armor, and AWS Policy plus Guardrails look like equivalent answers to the same design problem:
+    how to place enterprise controls on top of agent identity rather than bolt them on after the fact.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Microsoft: Agent 365 + Entra Agent ID + Purview</h3>
+      <p>On the Microsoft side, Agent 365 and Entra Agent ID define the acting principal, while Purview governs grounding data, interactions, and Microsoft 365 Copilot agents.</p>
+      <ul class="bullet-list">
+        <li>Best-fit use case: Microsoft 365 knowledge workflows across Teams, SharePoint, OneDrive, and internal approvals.</li>
+        <li>Benefit: tenant-level identity, data protection, and compliance controls can be kept in one operating surface.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Google Cloud: Agent Identity + AI Protection + Model Armor</h3>
+      <p>On Google Cloud, Agent Engine identity is paired with IAM, while AI Protection, Model Armor, and Agent Engine Threat Detection add asset visibility and runtime protection.</p>
+      <ul class="bullet-list">
+        <li>Best-fit use case: internal knowledge and support agents backed by Cloud Storage, BigQuery, or Vertex AI RAG workflows.</li>
+        <li>Benefit: access control, AI asset inventory, and prompt-response protection can be reviewed inside one cloud governance surface.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS: AgentCore Identity + Policy + Bedrock Guardrails</h3>
+      <p>On AWS, AgentCore Identity defines the acting workload, Policy controls tool access outside the agent code, and Bedrock Guardrails plus Organizations policies add safety and org-level enforcement.</p>
+      <ul class="bullet-list">
+        <li>Best-fit use case: multi-step back-office or operations agents that cross AWS accounts, internal tools, and approved external services.</li>
+        <li>Benefit: identity, tool policy, and guardrails can be enforced in separate layers without turning every control into application code.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Reading the pattern</h3>
+      <p>The product names differ, but the design pattern is similar. Microsoft Purview, Google Cloud AI Protection and Model Armor, and AWS Policy and Guardrails all answer the same question: what sits on top of agent identity to make deployment governable.</p>
+      <ul class="bullet-list">
+        <li>The main difference is whether the vendor starts from data governance, AI-asset protection, or tool-access control.</li>
+        <li>The shared direction is to put discovery, enforcement, and review alongside authentication instead of after it.</li>
+      </ul>
     </article>
   </div>
 </section>
