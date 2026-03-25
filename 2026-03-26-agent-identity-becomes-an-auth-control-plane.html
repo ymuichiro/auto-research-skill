@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AI agent identity は認証認可の control plane になり始めた | Auto Research Digest</title>
-    <meta name="description" content="Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、MCP/A2A、Okta/Auth0 の一次情報を横断すると、agent は単なる service account ではなく、ネイティブ identity、delegated authorization、protocol auth、governance を束ねた control plane として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向性に属するかと、対向サービスがどのように agent に権限を与えるのかを比較する。">
+    <title>AI エージェントの ID 管理は認証認可の統制基盤になり始めた | Auto Research Digest</title>
+    <meta name="description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AI agent identity は認証認可の control plane になり始めた | Auto Research Digest">
-    <meta property="og:description" content="Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、MCP/A2A、Okta/Auth0 の一次情報を横断すると、agent は単なる service account ではなく、ネイティブ identity、delegated authorization、protocol auth、governance を束ねた control plane として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向性に属するかと、対向サービスがどのように agent に権限を与えるのかを比較する。">
+    <meta property="og:title" content="AI エージェントの ID 管理は認証認可の統制基盤になり始めた | Auto Research Digest">
+    <meta property="og:description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
     <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
     <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png">
     <meta property="og:image:width" content="1536">
     <meta property="og:image:height" content="1024">
-    <meta property="og:image:alt" content="AI agent identity は認証認可の control plane になり始めた">
+    <meta property="og:image:alt" content="AI エージェントの ID 管理は認証認可の統制基盤になり始めた">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI agent identity は認証認可の control plane になり始めた | Auto Research Digest">
-    <meta name="twitter:description" content="Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、MCP/A2A、Okta/Auth0 の一次情報を横断すると、agent は単なる service account ではなく、ネイティブ identity、delegated authorization、protocol auth、governance を束ねた control plane として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向性に属するかと、対向サービスがどのように agent に権限を与えるのかを比較する。">
+    <meta name="twitter:title" content="AI エージェントの ID 管理は認証認可の統制基盤になり始めた | Auto Research Digest">
+    <meta name="twitter:description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
     <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png">
-    <meta name="twitter:image:alt" content="AI agent identity は認証認可の control plane になり始めた">
+    <meta name="twitter:image:alt" content="AI エージェントの ID 管理は認証認可の統制基盤になり始めた">
     <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
     <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
     <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
@@ -42,7 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
     <meta property="article:published_time" content="2026-03-26T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-03-25T08:03:25+09:00">
+    <meta property="article:modified_time" content="2026-03-25T09:30:57+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Identity">
@@ -50,8 +50,8 @@
     <meta property="article:tag" content="Authorization">
     <meta property="article:tag" content="Governance">
     <meta property="article:tag" content="OAuth">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI agent identity は認証認可の control plane になり始めた","description":"Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、MCP/A2A、Okta/Auth0 の一次情報を横断すると、agent は単なる service account ではなく、ネイティブ identity、delegated authorization、protocol auth、governance を束ねた control plane として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向性に属するかと、対向サービスがどのように agent に権限を与えるのかを比較する。","datePublished":"2026-03-26T00:00:00+09:00","dateModified":"2026-03-25T08:03:25+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://ymuichiro.github.io/auto-research-skill/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://ymuichiro.github.io/auto-research-skill/archive/"},{"@type":"ListItem","position":3,"name":"AI agent identity は認証認可の control plane になり始めた","item":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI エージェントの ID 管理は認証認可の統制基盤になり始めた","description":"Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。","datePublished":"2026-03-26T00:00:00+09:00","dateModified":"2026-03-25T09:30:57+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://ymuichiro.github.io/auto-research-skill/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://ymuichiro.github.io/auto-research-skill/archive/"},{"@type":"ListItem","position":3,"name":"AI エージェントの ID 管理は認証認可の統制基盤になり始めた","item":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,8 +67,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AI agent identity は認証認可の control plane になり始めた</h1>
-          <p class="hero-copy">Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、MCP/A2A、Okta/Auth0 の一次情報を横断すると、agent は単なる service account ではなく、ネイティブ identity、delegated authorization、protocol auth、governance を束ねた control plane として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向性に属するかと、対向サービスがどのように agent に権限を与えるのかを比較する。</p>
+          <h1 class="hero-title">AI エージェントの ID 管理は認証認可の統制基盤になり始めた</h1>
+          <p class="hero-copy">Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -80,206 +80,248 @@
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Identity</span><span class="meta-chip">Authentication</span><span class="meta-chip">Authorization</span><span class="meta-chip">Governance</span><span class="meta-chip">OAuth</span></div>
     </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>agent identity は認証方式の部品ではなく control plane として扱われ始めた</h2>
+  <p class="section-kicker">要点</p>
+  <h2>AI エージェントの ID 管理は、認証認可の部品ではなく統制基盤になり始めた</h2>
   <p>
     2025年後半から 2026年3月までに公開された Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、
-    MCP、A2A、Auth0、Okta の一次情報を横断すると、AI agent は単なる service account の別名ではなくなりつつある。
-    公開資料から読み取れるのは、agent を first-class principal として発行し、必要に応じて user delegated authorization を重ね、
-    さらに protocol 上の auth metadata と governance を束ねる設計が、新しい比較軸として立ち上がっているという点である。
-    各社の成熟度は同じではないが、認証認可を agent runtime の外側の後付け設定にせず、control plane に寄せる方向はかなり明確だ。
+    MCP、A2A、Auth0、Okta、さらに Microsoft Purview、Google Cloud AI Protection、AWS の Policy / Guardrails を並べると、
+    AI エージェントは単なるサービス アカウントの言い換えではなくなりつつある。公開資料から読み取れるのは、エージェントを独立した権限主体として発行し、
+    必要に応じてユーザー委任の認可を重ね、その上にプロトコル上の認証メタデータと統制を載せる設計が、新しい比較軸になってきたという点である。
   </p>
   <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
     <article class="stat-card">
       <p class="stat-value">4方向</p>
-      <p class="stat-title">収束している設計</p>
-      <p class="stat-note">native identity、delegated authority、protocol auth、governance overlay に整理できる。</p>
+      <p class="stat-title">整理できる設計</p>
+      <p class="stat-note">エージェント固有の ID、ユーザー委任、プロトコル認証、統制レイヤーの4方向へ分けて見られる。</p>
     </article>
     <article class="stat-card">
       <p class="stat-value">3形態</p>
-      <p class="stat-title">principal の持ち方</p>
-      <p class="stat-note">agent 単体、user 委任、agent + user 併記の3パターンが主要である。</p>
+      <p class="stat-title">権限主体の持ち方</p>
+      <p class="stat-note">エージェント単独、ユーザー委任、エージェントとユーザーの併記が主要な形である。</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">24件</p>
+      <p class="stat-value">32件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">公式 docs と公式 announcement だけで論点を比較できるだけの一次情報が揃っている。</p>
+      <p class="stat-note">公式 docs と公式 announcement だけで、権限設計と統制の比較までできるだけの一次情報が揃っている。</p>
     </article>
     <article class="stat-card">
       <p class="stat-value">1結論</p>
-      <p class="stat-title">identity が実装責務を変える</p>
-      <p class="stat-note">今後は「どの token を使うか」より「誰の権限として動くか」を先に設計する必要がある。</p>
+      <p class="stat-title">ID 管理が実装責務を変える</p>
+      <p class="stat-note">今後は「どのトークンを使うか」より「誰の権限として動くか」を先に設計する必要がある。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Why This Matters</p>
-  <h2>service account だけでは、agent の責任分界と委任の実態を扱いきれない</h2>
+  <p class="section-kicker">なぜ重要か</p>
+  <h2>サービス アカウントだけでは、エージェントの委任と責任分界を支えきれない</h2>
   <p>
-    従来の app identity や service account でも API 呼び出し自体はできる。しかし agent の運用では、それだけでは粗すぎる。
-    なぜなら、agent は background task として自律的に動く一方で、ある場面では user consent に基づいて外部 SaaS や社内リソースへ触れ、
-    さらに MCP や A2A のように別の system や別の agent へ接続しにいくからだ。ここで必要になるのは、「誰の権限で動いたのか」を
-    resource server と監査系の両方から追えること、そして権限の発行・交換・失効を prompt 内の約束事ではなく identity layer で扱えることだ。
+    従来のアプリ ID やサービス アカウントでも API 呼び出しはできる。しかしエージェント運用では、それだけでは粗すぎる。
+    なぜなら、エージェントはバックグラウンド処理として自律的に動く一方で、ある場面では利用者同意に基づいて外部 SaaS や社内データへ触れ、
+    さらに MCP や A2A のように別の system や別の agent に動的接続しにいくからだ。ここで必要になるのは、「誰の権限で動いたのか」を
+    接続先サービスと監査ログの両方から追えること、そして権限の発行・交換・失効を prompt の約束事ではなく認証基盤で扱えることだ。
   </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>共有 service account は権限が粗くなりやすい</h3>
-      <p>複数 agent が同じ credential を使うと、least privilege と revoke 単位が崩れやすい。agent ごとに principal を分ける動きは、この問題への反応と読める。</p>
+      <h3>共有サービス アカウントは権限が粗くなりやすい</h3>
+      <p>複数エージェントが同じ認証情報を使うと、最小権限と失効の単位が崩れやすい。エージェントごとに権限主体を分ける動きは、この問題への反応と読める。</p>
     </article>
     <article class="comparison-card">
-      <h3>user delegation だけでは agent 側の責任主体が消える</h3>
-      <p>user token だけを見せる構成では、どの agent が代行したのかが resource server や監査ログから見えにくい。AWS や Google の docs は、agent と user を併記できる形へ寄っている。</p>
+      <h3>ユーザー委任だけではエージェント側の責任主体が薄れる</h3>
+      <p>ユーザー トークンだけを見せる構成では、どのエージェントが代行したのかが接続先サービスから見えにくい。AWS や Google の docs は、エージェントとユーザーを併記できる形へ寄っている。</p>
     </article>
     <article class="comparison-card">
-      <h3>protocol 接続では auth requirement の discoverability が必要になる</h3>
-      <p>MCP や A2A のように動的接続が増えるほど、接続先がどの認証方式を要求するのかを metadata で伝える必要がある。これは個別 integration の外側にある設計責務である。</p>
+      <h3>動的接続では認証要件を事前に把握できることが重要になる</h3>
+      <p>MCP や A2A のように接続先が増えるほど、相手がどの認証方式を要求するのかをメタデータで伝える必要がある。これは個別 integration の外側にある設計責務である。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Four Directions</p>
-  <h2>公開情報を並べると、agent identity は4方向へ整理できる</h2>
+  <p class="section-kicker">4つの方向</p>
+  <h2>公開情報を並べると、エージェント ID 管理は4方向に整理できる</h2>
   <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
     <article class="comparison-card">
-      <h3>1. Native per-agent identity</h3>
+      <h3>1. エージェント固有の ID</h3>
       <ul class="bullet-list">
-        <li>agent 自体に固有 principal を発行し、owner、lifecycle、audit を紐づける方向である。</li>
-        <li>Microsoft Entra Agent ID、AWS AgentCore Identity、Google Agent Identity は、この層を explicit に扱っている。</li>
+        <li>エージェント自体に固有の権限主体を発行し、所有者、ライフサイクル、監査をひもづける方向である。</li>
+        <li>Microsoft Entra Agent ID、AWS AgentCore Identity、Google Cloud Agent Identity がこの層を明示的に扱っている。</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>2. Delegated user authority and tool access</h3>
+      <h3>2. ユーザー委任とツール接続</h3>
       <ul class="bullet-list">
-        <li>agent が user consent や managed connection を通じて user 権限を借りる方向である。</li>
-        <li>Copilot Studio の action auth、AWS の 3LO と workload access token、Google の delegated OAuth、Auth0 の user-on-behalf パターンがここに入る。</li>
+        <li>エージェントが利用者同意や管理された接続を通じてユーザー権限を借りる方向である。</li>
+        <li>Copilot Studio のアクション認証、AWS の 3LO と workload access token、Google の delegated OAuth、Auth0 の user-on-behalf 型がここに入る。</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>3. Protocol-layer authorization</h3>
+      <h3>3. プロトコルレベルの認証認可</h3>
       <ul class="bullet-list">
-        <li>MCP と A2A は、接続先が必要とする auth requirement を protocol 上で discoverable にする。</li>
-        <li>MCP core auth、client credentials、enterprise-managed authorization、A2A の Agent Card / security scheme が代表例である。</li>
+        <li>MCP と A2A は、接続先が必要とする認証条件をプロトコル上で事前に分かるようにする。</li>
+        <li>MCP の基礎認証、client credentials、enterprise-managed authorization、A2A の Agent Card / security scheme が代表例である。</li>
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>4. Governance and lifecycle overlay</h3>
+      <h3>4. 統制とライフサイクル管理</h3>
       <ul class="bullet-list">
-        <li>agent の所有者、公開範囲、認証方式、access review、shadow agent 検出を管理する層である。</li>
-        <li>Microsoft Agent Registry、Google IAM と logging、Okta の discovery / certification は、この方向の整備と見られる。</li>
+        <li>エージェントの所有者、公開範囲、認証方式、アクセス認定、影のエージェント検出を扱う層である。</li>
+        <li>Microsoft Agent Registry、Google Cloud AI Protection、Microsoft Purview、Okta の discovery / certification は、この方向の整備と見られる。</li>
       </ul>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Vendor Map</p>
-  <h2>各サービスを vendor 名ではなく「誰の権限で動くか」で並べる</h2>
+  <p class="section-kicker">プラットフォーム整理</p>
+  <h2>各サービスを「誰の権限で動くか」で並べる</h2>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>Native per-agent identity</h3>
-      <p><strong>Principal:</strong> agent 単体</p>
-      <p><strong>Grant method:</strong> agent 作成時または配備時に dedicated principal を発行</p>
-      <p><strong>Policy enforcement point:</strong> Entra policy、IAM、AgentCore directory、resource 側 role</p>
-      <p><strong>Representative services:</strong> Microsoft Entra Agent ID、Microsoft Agent 365、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity</p>
+      <h3>エージェント固有の ID</h3>
+      <p><strong>権限主体:</strong> エージェント単体</p>
+      <p><strong>付与方法:</strong> エージェント作成時または配備時に専用 principal を発行</p>
+      <p><strong>強制点:</strong> Entra policy、IAM、AgentCore directory、resource 側 role</p>
+      <p><strong>代表サービス:</strong> Microsoft Entra Agent ID、Microsoft Agent 365、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity</p>
     </article>
     <article class="comparison-card">
-      <h3>Delegated user authority</h3>
-      <p><strong>Principal:</strong> user、または agent + user</p>
-      <p><strong>Grant method:</strong> OAuth consent、3LO、managed connection、token exchange</p>
-      <p><strong>Policy enforcement point:</strong> scope、connection policy、managed credentials、resource server 側 consent check</p>
-      <p><strong>Representative services:</strong> Copilot Studio action auth、AWS supported auth patterns、Google delegated access、Auth0 AI agent flows</p>
+      <h3>ユーザー委任</h3>
+      <p><strong>権限主体:</strong> ユーザー、またはエージェントとユーザーの併記</p>
+      <p><strong>付与方法:</strong> OAuth 同意、3LO、管理された接続、トークン交換</p>
+      <p><strong>強制点:</strong> scope、接続ポリシー、管理された認証情報、接続先サービス側の同意確認</p>
+      <p><strong>代表サービス:</strong> Copilot Studio のアクション認証、AWS supported auth patterns、Google delegated access、Auth0 の AI agent flows</p>
     </article>
     <article class="comparison-card">
-      <h3>Protocol-layer authorization</h3>
-      <p><strong>Principal:</strong> agent client、enterprise auth broker、または service identity</p>
-      <p><strong>Grant method:</strong> OAuth metadata discovery、client credentials、enterprise-managed authorization</p>
-      <p><strong>Policy enforcement point:</strong> authorization server と downstream resource server</p>
-      <p><strong>Representative services:</strong> MCP Authorization、MCP OAuth Client Credentials、MCP Enterprise-Managed Authorization、A2A specification、Auth0 for MCP</p>
+      <h3>プロトコル認証</h3>
+      <p><strong>権限主体:</strong> エージェント client、enterprise の認可ブローカー、または service identity</p>
+      <p><strong>付与方法:</strong> OAuth メタデータ discovery、client credentials、enterprise-managed authorization</p>
+      <p><strong>強制点:</strong> authorization server と対向 resource server</p>
+      <p><strong>代表サービス:</strong> MCP Authorization、MCP OAuth Client Credentials、MCP Enterprise-Managed Authorization、A2A specification、Auth0 for MCP</p>
     </article>
     <article class="comparison-card">
-      <h3>Governance overlay</h3>
-      <p><strong>Principal:</strong> owner / sponsor がひもづく登録済み agent</p>
-      <p><strong>Grant method:</strong> registry 登録、access review、secret / connection 管理、shadow agent 検出</p>
-      <p><strong>Policy enforcement point:</strong> registry、directory、audit log、certification workflow</p>
-      <p><strong>Representative services:</strong> Microsoft Entra Agent Registry、Google IAM と logs、Okta の AI agent discovery / certification</p>
+      <h3>統制レイヤー</h3>
+      <p><strong>権限主体:</strong> owner / sponsor がひもづく登録済みエージェント</p>
+      <p><strong>付与方法:</strong> registry 登録、access review、secret / connection 管理、影のエージェント検出</p>
+      <p><strong>強制点:</strong> registry、directory、audit log、certification workflow</p>
+      <p><strong>代表サービス:</strong> Microsoft Entra Agent Registry、Microsoft Purview、Google Cloud AI Protection、Okta の AI agent discovery / certification</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">How Permissions Are Granted</p>
-  <h2>対向サービスは token の種類だけでなく principal の文脈を見て権限を与える</h2>
+  <p class="section-kicker">権限付与の仕組み</p>
+  <h2>対向サービスは、トークンの有無ではなく権限主体の文脈を見てアクセスを許可する</h2>
   <p>
-    重要なのは、agent が token を持っていること自体ではない。対向サービスは、その token が誰に発行され、どの consent や policy を経てきたのかを見てアクセス可否を決める。
-    ここでは principal、credential source、resource server が検証するもの、権限制御の置き場所の4点で整理できる。
+    重要なのは、エージェントがトークンを持っていること自体ではない。対向サービスは、そのトークンが誰に発行され、どの同意や policy を経てきたのかを見てアクセス可否を決める。
+    ここでは、権限主体、認証情報の出所、対向サービスが検証するもの、制御点の4点で整理できる。
   </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>1. Agent principal only</h3>
+      <h3>1. エージェント単独の権限</h3>
       <ul class="bullet-list">
-        <li>principal: agent 単体</li>
-        <li>token / credential: agent 用に発行された JWT、access token、workload identity</li>
-        <li>resource server: issuer、audience、role、IAM policy を検証する</li>
-        <li>権限制御: role、policy、resource binding で行う</li>
+        <li>権限主体: エージェント単体</li>
+        <li>認証情報: エージェント用に発行された JWT、access token、workload identity</li>
+        <li>対向サービス: issuer、audience、role、IAM policy を検証する</li>
+        <li>制御点: role、policy、resource binding</li>
       </ul>
-      <p>バックグラウンド処理や narrow automation に向くが、user 文脈を必要とする操作にはそのままでは足りない。</p>
+      <p>バックグラウンド処理や範囲を絞った自動化には向くが、利用者文脈を必要とする操作にはそれだけでは足りない。</p>
     </article>
     <article class="comparison-card">
-      <h3>2. User-delegated principal</h3>
+      <h3>2. ユーザー委任の権限</h3>
       <ul class="bullet-list">
-        <li>principal: user</li>
-        <li>token / credential: OAuth consent で得た user-scoped token、managed connection</li>
-        <li>resource server: user の scope、consent、app registration を検証する</li>
-        <li>権限制御: scope、delegated permission、connection policy に置く</li>
+        <li>権限主体: ユーザー</li>
+        <li>認証情報: OAuth 同意で得た user-scoped token、管理された接続</li>
+        <li>対向サービス: ユーザーの scope、consent、app registration を検証する</li>
+        <li>制御点: scope、delegated permission、connection policy</li>
       </ul>
-      <p>support や finance 系の SaaS 連携で自然だが、どの agent が代行したかを別途残さないと監査粒度が粗くなる。</p>
+      <p>support や finance 系の SaaS 連携では自然だが、どのエージェントが代行したかを別途残さないと監査粒度が粗くなる。</p>
     </article>
     <article class="comparison-card">
-      <h3>3. Agent + user combined context</h3>
+      <h3>3. エージェントとユーザーの併記</h3>
       <ul class="bullet-list">
-        <li>principal: agent と user の両方</li>
-        <li>token / credential: token exchange、workload access token、delegated flow の監査ログ</li>
-        <li>resource server: user 権限を見つつ、どの workload / agent から来たかも検証する</li>
-        <li>権限制御: scope と policy を二層で持つ</li>
+        <li>権限主体: エージェントとユーザーの両方</li>
+        <li>認証情報: token exchange、workload access token、委任フローの監査ログ</li>
+        <li>対向サービス: ユーザー権限を見つつ、どの workload / agent から来たかも検証する</li>
+        <li>制御点: scope と policy を二層で持つ</li>
       </ul>
-      <p>委任を保ちながら accountability を失わないための形であり、各社 docs がこの方向へ寄っているのは実運用上かなり重要である。</p>
+      <p>委任を保ちながら説明責任を失わないための形であり、各社 docs がこの方向へ寄っているのは実運用上かなり重要である。</p>
     </article>
     <article class="comparison-card">
-      <h3>4. Central broker and registry</h3>
+      <h3>4. 中央ブローカーと登録台帳</h3>
       <ul class="bullet-list">
-        <li>principal: enterprise control plane に登録された agent client</li>
-        <li>token / credential: enterprise-managed auth server や managed connection が発行</li>
-        <li>resource server: broker が出した token と advertised metadata を検証する</li>
-        <li>権限制御: registry、authorization server、certification workflow に置く</li>
+        <li>権限主体: enterprise の control plane に登録されたエージェント client</li>
+        <li>認証情報: enterprise-managed auth server や managed connection が発行</li>
+        <li>対向サービス: broker が出した token と advertised metadata を検証する</li>
+        <li>制御点: registry、authorization server、certification workflow</li>
       </ul>
-      <p>MCP の enterprise-managed authorization や identity vendor 側の統制機能は、credential sprawl を減らしつつ revocation と監査をまとめる方向と読める。</p>
+      <p>MCP の enterprise-managed authorization や identity vendor 側の統制機能は、認証情報の散在を減らしつつ失効と監査をまとめる方向と読める。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios and Benefits</p>
-  <h2>identity 設計が効くのは、高権限 workflow を narrow に切り出す場面である</h2>
+  <p class="section-kicker">プラットフォーム別の導入像</p>
+  <h2>Microsoft Purview と Google / AWS の同等概念を並べると、ID 管理が実務の統制へつながる</h2>
+  <p>
+    エージェント ID だけでは、企業導入の全体像は説明しきれない。実際の導入では、ID 管理の上に「どのデータに触れてよいか」「どの対話を監査・保護するか」
+    「どのツール呼び出しを止めるか」を載せる必要がある。ここを見ると、Microsoft Purview、Google Cloud、AWS はそれぞれ別の名前で近い役割を製品化し始めている。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Microsoft: Agent 365 + Entra Agent ID + Microsoft Purview</h3>
+      <p>Microsoft 側では、Agent 365 と Entra Agent ID がエージェントの権限主体を持ち、Purview が grounding data、interaction、Microsoft 365 Copilot agents の統制を担う構図が見える。</p>
+      <ul class="bullet-list">
+        <li>向いている用途: Microsoft 365 内の文書検索、要約、社内申請、Teams / SharePoint / OneDrive を横断する業務支援</li>
+        <li>利点: エージェント単位の権限と、データ保護・監査・コンプライアンスを同じ tenant の中でつなげやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Google Cloud: Agent Identity + AI Protection + Model Armor</h3>
+      <p>Google Cloud 側では、Agent Engine の agent identity に IAM を重ね、AI Protection、Model Armor、Agent Engine Threat Detection で資産の見える化と実行時保護を足す構図が見える。</p>
+      <ul class="bullet-list">
+        <li>向いている用途: Cloud Storage や BigQuery を使う社内ナレッジ assistant、文書ベースの問い合わせ対応、RAG 型の業務支援</li>
+        <li>利点: アクセス権、AI 資産 inventory、prompt / response の保護を Google Cloud 側でまとめて見やすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS: AgentCore Identity + Policy + Bedrock Guardrails</h3>
+      <p>AWS 側では、AgentCore Identity が権限主体を持ち、Policy が agent code の外側で tool access を制御し、Bedrock Guardrails と Organizations policy が入出力と組織横断の制約を担う構図が見える。</p>
+      <ul class="bullet-list">
+        <li>向いている用途: 複数 step の業務自動化、社内運用 agent、複数 account や外部 tool をまたぐ承認付きワークフロー</li>
+        <li>利点: 権限、ツール利用、guardrail を別層で強制できるため、agent code 側の自由度を上げても統制を外に残しやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>読み方</h3>
+      <p>名前は違っても、Microsoft Purview、Google Cloud AI Protection / Model Armor、AWS Policy / Guardrails は、「エージェント ID の上に統制をどう載せるか」という同じ設計課題に答えている。</p>
+      <ul class="bullet-list">
+        <li>違いは、データ保護寄りに始めるか、AI 資産保護寄りに始めるか、ツール利用制御寄りに始めるかである。</li>
+        <li>共通点は、認証だけで導入を終わらせず、監査、失効、保護、発見を同じ運用面に置いていることだ。</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">具体例と利点</p>
+  <h2>ID 管理の効果は、高権限の業務を狭く安全に切り出す場面ではっきり出る</h2>
   <div class="timeline">
     <article class="timeline-item">
       <div class="timeline-year">M365</div>
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">Microsoft 365 / Copilot 系 agent の社内アクセス</h3>
         <p>
-          Microsoft 365 リソースや Copilot action を使う agent では、agent identity を固有 principal として持ちつつ、
-          必要な action だけ user auth を重ねる構成が現実的である。利点は、background task と user-mediated task を同じ agent で分けて管理できることだ。
+          Microsoft 365 リソースや Copilot action を使うエージェントでは、agent ID を固有の権限主体として持ちつつ、
+          必要な action だけユーザー認証を重ねる構成が現実的である。利点は、バックグラウンド処理と利用者同意が必要な処理を同じエージェント内で分けて管理できることだ。
         </p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">SaaS</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">support / finance 系 SaaS への user 委任アクセス</h3>
+        <h3 class="font-display text-xl font-semibold text-primary">support / finance 系 SaaS へのユーザー委任アクセス</h3>
         <p>
-          CRM、ticketing、経費、請求のような system では、agent が user consent に基づいて限定スコープで API を呼ぶ形が向いている。
-          この方式の利点は、既存の権限モデルを保ったまま agent を導入しやすい点と、過剰権限の shared secret を避けやすい点である。
+          CRM、ticketing、経費、請求のような system では、エージェントが利用者同意に基づいて限定 scope で API を呼ぶ形が向いている。
+          利点は、既存の権限モデルを保ったまま agent を導入しやすい点と、過剰権限の shared secret を避けやすい点である。
         </p>
       </div>
     </article>
@@ -288,7 +330,7 @@
       <div>
         <h3 class="font-display text-xl font-semibold text-primary">MCP / A2A で別 system や別 agent へ接続する</h3>
         <p>
-          動的接続では、接続先がどの auth scheme を要求するかを metadata で配れることが重要になる。
+          動的接続では、接続先がどの認証方式を要求するかをメタデータで配れることが重要になる。
           利点は、client ごとの個別実装を減らし、enterprise 側で auth server や client credential policy を差し替えやすくなることだ。
         </p>
       </div>
@@ -296,46 +338,46 @@
     <article class="timeline-item">
       <div class="timeline-year">Gov</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">shadow agent と credential sprawl を抑える</h3>
+        <h3 class="font-display text-xl font-semibold text-primary">影のエージェントと認証情報の散在を抑える</h3>
         <p>
-          owner 不明の agent、散在する OAuth grant、長寿命 secret は、agent 数が増えるほど管理不能になりやすい。
-          discovery、registry、access certification を先に置く利点は、agent 導入を増やしても revoke と review の単位を保ちやすいことである。
+          owner 不明のエージェント、散在する OAuth grant、長寿命 secret は、エージェント数が増えるほど管理不能になりやすい。
+          discovery、registry、access certification を先に置く利点は、エージェント導入を増やしても失効とレビューの単位を保ちやすいことである。
         </p>
       </div>
     </article>
   </div>
   <div class="callout-panel">
-    <p class="callout-title">この方式を取るメリット</p>
+    <p class="callout-title">この方式の利点</p>
     <p>
-      principal を agent / user / broker に分けて管理すると、least privilege、auditability、revocation、delegation の4点を同時に改善しやすい。
-      これは security のためだけでなく、運用チームが agent を増やせる速度そのものに効く。
+      権限主体をエージェント / ユーザー / ブローカーに分けて管理すると、最小権限、監査可能性、失効、委任の4点を同時に改善しやすい。
+      これは security のためだけでなく、運用チームがエージェントを増やせる速度そのものに効く。
     </p>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>導入時に先に決めるべき論点は、model より principal 設計に近い</h2>
+  <p class="section-kicker">導入設計</p>
+  <h2>先に決めるべき論点は、モデル選定より権限主体の設計に近い</h2>
   <div class="callout-panel">
     <p class="callout-title">観測点</p>
     <p>公開資料がそろって示しているのは、agent auth の本質が「認証方式の比較」ではなく「権限主体と管理責務の切り分け」にあるということだ。</p>
   </div>
   <ul class="bullet-list mt-6">
-    <li>agent principal、user principal、connection owner を同一視しない。</li>
+    <li>エージェント主体、ユーザー主体、接続 owner を同一視しない。</li>
     <li>長寿命 secret を配るより、short-lived token、token exchange、managed connection を優先する。</li>
     <li>権限チェックは prompt や wrapper に埋めず、IdP、policy、resource server のどこで強制するかを明示する。</li>
     <li>MCP / A2A の接続は、auth metadata と許可済み client の管理まで含めて設計する。</li>
-    <li>registry、discovery、certification を rollout の最後ではなく最初の control plane として扱う。</li>
+    <li>registry、discovery、certification を rollout の最後ではなく最初の統制基盤として扱う。</li>
   </ul>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
+  <p class="section-kicker">結論</p>
+  <h2>認証方式そのものより、ID・委任・統制をどう束ねるかが比較軸になってきた</h2>
   <p>
-    agent 認証認可の比較軸は、単に OAuth を使うかどうかではなくなっている。公開資料から読み取れる現在地は、
-    agent を first-class principal として持ち、必要に応じて user delegation と protocol auth を重ね、その上に registry と certification を載せる方向である。
-    どの vendor が勝つかはまだ早いが、どの platform が agent を governable な identity として扱えるかは、すでに明確な選定軸になり始めている。
+    AI エージェントの認証認可の比較軸は、単に OAuth を使うかどうかではなくなっている。公開資料から読み取れる現在地は、
+    エージェントを独立した権限主体として持ち、必要に応じてユーザー委任とプロトコル認証を重ね、その上に registry、discovery、certification、データ保護を載せる方向である。
+    どの vendor が勝つかはまだ早いが、どの platform がエージェントを governable な identity として扱えるかは、すでに明確な選定軸になり始めている。
   </p>
 </section>
 </section>
@@ -398,6 +440,36 @@
               <p class="source-url">https://learn.microsoft.com/en-us/microsoft-agent-365/overview</p>
             </div>
             <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/purview/ai-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Purview: Use Microsoft Purview to manage data security &amp; compliance for AI agents</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/purview/ai-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/purview/ai-agent-365" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Purview: Use Microsoft Purview to manage data security &amp; compliance for Microsoft Agent 365</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/purview/ai-agent-365</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Purview: Secure and govern Microsoft 365 Copilot agents</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment</p>
+            </div>
+            <span class="source-action">Open</span>
           </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -446,6 +518,36 @@
               </div>
               <p class="source-title">AWS Docs: Supported authentication patterns</p>
               <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/common-use-cases.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Policy in Amazon Bedrock AgentCore</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-guardrail.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Implement safeguards for your application by associating a guardrail with your agent</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock/latest/userguide/agents-guardrail.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_bedrock.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Amazon Bedrock policies in AWS Organizations</p>
+              <p class="source-url">https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_bedrock.html</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://docs.cloud.google.com/iam/docs/workload-identities" target="_blank" rel="noopener noreferrer">
@@ -498,6 +600,36 @@
               <p class="source-url">https://docs.cloud.google.com/mcp/authenticate-mcp</p>
             </div>
             <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Docs: AI Protection overview</p>
+              <p class="source-url">https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/security-command-center/docs/model-armor-overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Docs: Model Armor overview</p>
+              <p class="source-url">https://docs.cloud.google.com/security-command-center/docs/model-armor-overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/security-command-center/docs/agent-engine-threat-detection-overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Docs: Agent Engine Threat Detection overview</p>
+              <p class="source-url">https://docs.cloud.google.com/security-command-center/docs/agent-engine-threat-detection-overview</p>
+            </div>
+            <span class="source-action">Open</span>
           </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -536,16 +668,6 @@
               </div>
               <p class="source-title">A2A Protocol: Specification overview</p>
               <p class="source-url">https://a2a-protocol.org/latest/specification/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://auth0.com/ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Auth0: Auth for AI Agents</p>
-              <p class="source-url">https://auth0.com/ai</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://auth0.com/ai/docs/mcp/intro/overview" target="_blank" rel="noopener noreferrer">
