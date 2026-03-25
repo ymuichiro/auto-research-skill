@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Why generative AI products converge on chat, and why chat will not stay alone | Auto Research Digest EN</title>
+    <meta name="description" content="Taken together, official product announcements from OpenAI, Microsoft, Google, Anthropic, and Claude Cowork, plus HCI papers on human-agent collaboration, show why generative AI products first converged on chat: natural language is the cheapest general-purpose input surface. But as products move into longer-running work, teams need surrounding interfaces for state visibility, approvals, progress tracking, and artifact editing. The result is not the death of chat, but its evolution into a conversation-first control surface.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="Why generative AI products converge on chat, and why chat will not stay alone | Auto Research Digest EN">
+    <meta property="og:description" content="Taken together, official product announcements from OpenAI, Microsoft, Google, Anthropic, and Claude Cowork, plus HCI papers on human-agent collaboration, show why generative AI products first converged on chat: natural language is the cheapest general-purpose input surface. But as products move into longer-running work, teams need surrounding interfaces for state visibility, approvals, progress tracking, and artifact editing. The result is not the death of chat, but its evolution into a conversation-first control surface.">
+    <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/en/2026-03-24-why-ai-products-converge-on-chat-ui.html">
+    <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="Why generative AI products converge on chat, and why chat will not stay alone">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why generative AI products converge on chat, and why chat will not stay alone | Auto Research Digest EN">
+    <meta name="twitter:description" content="Taken together, official product announcements from OpenAI, Microsoft, Google, Anthropic, and Claude Cowork, plus HCI papers on human-agent collaboration, show why generative AI products first converged on chat: natural language is the cheapest general-purpose input surface. But as products move into longer-running work, teams need surrounding interfaces for state visibility, approvals, progress tracking, and artifact editing. The result is not the death of chat, but its evolution into a conversation-first control surface.">
+    <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="Why generative AI products converge on chat, and why chat will not stay alone">
+    <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-24-why-ai-products-converge-on-chat-ui.html">
+    <link rel="alternate" hreflang="en" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-24-why-ai-products-converge-on-chat-ui.html">
+    <link rel="alternate" hreflang="ja" href="https://ymuichiro.github.io/auto-research-skill/2026-03-24-why-ai-products-converge-on-chat-ui.html">
+    <link rel="alternate" hreflang="x-default" href="https://ymuichiro.github.io/auto-research-skill/2026-03-24-why-ai-products-converge-on-chat-ui.html">
+    <link rel="alternate" type="application/atom+xml" href="https://ymuichiro.github.io/auto-research-skill/en/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/auto-research-skill/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/auto-research-skill/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/auto-research-skill/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/auto-research-skill/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/auto-research-skill/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/auto-research-skill/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
+    <meta property="article:published_time" content="2026-03-24T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-03-25T09:19:36+09:00">
+    <meta property="article:section" content="AI Strategy">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Chat Interface">
+    <meta property="article:tag" content="Product Design">
+    <meta property="article:tag" content="Workflow">
+    <meta property="article:tag" content="UX">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Why generative AI products converge on chat, and why chat will not stay alone","description":"Taken together, official product announcements from OpenAI, Microsoft, Google, Anthropic, and Claude Cowork, plus HCI papers on human-agent collaboration, show why generative AI products first converged on chat: natural language is the cheapest general-purpose input surface. But as products move into longer-running work, teams need surrounding interfaces for state visibility, approvals, progress tracking, and artifact editing. The result is not the death of chat, but its evolution into a conversation-first control surface.","datePublished":"2026-03-24T00:00:00+09:00","dateModified":"2026-03-25T09:19:36+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, AI Agent, Chat Interface, Product Design, Workflow, UX","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-24-why-ai-products-converge-on-chat-ui.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-24-why-ai-products-converge-on-chat-ui.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ymuichiro.github.io/auto-research-skill/en/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://ymuichiro.github.io/auto-research-skill/en/archive/"},{"@type":"ListItem","position":3,"name":"Why generative AI products converge on chat, and why chat will not stay alone","item":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-24-why-ai-products-converge-on-chat-ui.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/auto-research-skill/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/auto-research-skill/en/">Home</a><a class="nav-link " href="/auto-research-skill/en/archive/">Archive</a><a class="nav-link " href="/auto-research-skill/en/feed.xml">Feed</a></nav>
+        <a class="lang-switch" href="/auto-research-skill/2026-03-24-why-ai-products-converge-on-chat-ui.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">Why generative AI products converge on chat, and why chat will not stay alone</h1>
+          <p class="hero-copy">Taken together, official product announcements from OpenAI, Microsoft, Google, Anthropic, and Claude Cowork, plus HCI papers on human-agent collaboration, show why generative AI products first converged on chat: natural language is the cheapest general-purpose input surface. But as products move into longer-running work, teams need surrounding interfaces for state visibility, approvals, progress tracking, and artifact editing. The result is not the death of chat, but its evolution into a conversation-first control surface.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-03-24">March 24, 2026</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Chat Interface</span><span class="meta-chip">Product Design</span><span class="meta-chip">Workflow</span><span class="meta-chip">UX</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Generative AI products converge on chat for good reasons, but the winning pattern is already moving beyond chat alone</h2>
+  <p>
+    Read across official product material from OpenAI, Microsoft, Google, and Anthropic and the first part of the story is easy to explain. Chat won early because natural language is the cheapest general-purpose interface:
+    it accepts ambiguous intent, lets teams ship value before inventing a full custom application surface, and keeps follow-up questions in the same place as the answer. But the same source set also shows that the major vendors are no longer designing for a chat-only future.
+    They are adding state views, artifact panes, approvals, progress monitoring, and scoped access around conversation, turning chat into the entry point for a broader control surface.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">22</p>
+      <p class="stat-title">Published sources</p>
+      <p class="stat-note">The article is grounded only in official posts, official docs, and papers.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5+</p>
+      <p class="stat-title">Platform signals</p>
+      <p class="stat-note">Multiple vendors are converging on the same pattern: chat plus surrounding work surfaces.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 parts</p>
+      <p class="stat-title">Composite UI</p>
+      <p class="stat-note">Conversation, state, approvals, and deliverables are being strengthened separately.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 takeaway</p>
+      <p class="stat-title">Chat is not disappearing</p>
+      <p class="stat-note">But it is becoming less sufficient as the only work surface.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why Chat Won</p>
+  <h2>Chat won first because natural language is the lowest-cost universal interface</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. It minimizes input design cost</h3>
+      <p>
+        In generative AI products, users often cannot fully specify what they want in advance. Chat handles underspecified intent naturally, and it lets product teams start with one input box instead of a complete task-specific workflow.
+        OpenAI’s apps launch in ChatGPT made this explicit: apps were designed to fit naturally into conversation rather than replace it.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. It connects advice and action in one place</h3>
+      <p>
+        OpenAI’s path from deep research and Operator to ChatGPT agent shows why chat is attractive. Users can start with a question, shift into action, refine the plan mid-flight, and keep the same context thread alive instead of jumping between products.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. It works well as a safety checkpoint</h3>
+      <p>
+        Confirmation prompts, interruptions, takeovers, and clarifying questions all fit naturally inside a conversational flow. Operator, ChatGPT agent, and Cowork all rely on approval patterns that treat chat as the place where control is exercised, not just where intent is entered.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Where Chat Breaks</p>
+  <h2>But long-running and state-heavy tasks expose the limits of chat-only interaction</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>State disappears into the scroll</h3>
+      <p>
+        Chat is linear. Decisions, pending items, dependencies, and intermediate outputs drift upward and become harder to track. That is manageable for short assistance, but much weaker for extended work.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Deliverable editing needs a separate surface</h3>
+      <p>
+        Slides, documents, spreadsheets, diagrams, forms, and automations are easier to inspect and refine side by side than as chat text. Artifacts, Canvas, and Pages exist because work products need a visible, editable surface.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Approvals and permissions need explicit controls</h3>
+      <p>
+        As soon as an AI product can access folders, connectors, apps, or real-world actions, the questions become granular: which scope, which step, which approval, and which data source? A plain transcript is not a strong enough control plane for that.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Supervision and recovery need better visibility</h3>
+      <p>
+        Longer tasks require progress views, checkpoints, resumability, and clearer failure boundaries. This is why task narration, activity logs, and intermediate task surfaces are appearing around the chat layer.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Convergence</p>
+  <h2>The major product lines already point toward “chat plus surrounding UI”</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI turned chat into a hub for actions and embedded apps</h3>
+      <p>
+        Apps in ChatGPT explicitly frame apps as conversational and interactive at the same time. ChatGPT agent then extends that surface with browsers, terminals, connectors, approvals, and on-screen narration, preserving conversation while widening the action layer.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft kept chat central while promoting Pages as the durable work surface</h3>
+      <p>
+        Microsoft says “Copilot is the UI for AI,” but in the same motion it promotes Pages as a persistent canvas for multiplayer AI collaboration. In practice, this means chat as the entry point and Pages as the place where ephemeral output becomes durable work.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google kept the prompt bar while adding Canvas and app orchestration</h3>
+      <p>
+        Gemini uses a prompt-first surface for Deep Research, connected apps, and personalization, but it also adds Canvas as an interactive collaboration space. Google Home follows the same pattern: natural-language control remains, while Activity and Automations surfaces become richer.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic thickened the collaboration layer with Projects, Artifacts, and computer use</h3>
+      <p>
+        Projects organize shared context, Artifacts move outputs into a dedicated side window, and computer use gives agents a GUI action layer. Anthropic’s own agent design guidance also highlights tasks that combine conversation and action rather than separating them.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Cowork Pattern</p>
+  <h2>Cowork is not anti-chat. It is a clear example of chat becoming a control surface</h2>
+  <p>
+    Cowork makes the transition visible. Its product copy does not reject conversation. Instead, it says that unlike Chat, Cowork lets Claude complete work on its own. That is an important distinction. The product is not replacing natural-language interaction.
+    It is surrounding natural-language intent with scoped file access, work execution, approvals, plugins, and deliverables.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>The request surface is still conversational</h3>
+      <p>You describe an outcome in natural language, and Claude selects a path through connectors, web research, local files, or apps.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The task surface exposes execution</h3>
+      <p>Cowork shows plans, loops users in before significant actions, and supports longer-running work that can be watched or left unattended.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The control surface is explicit</h3>
+      <p>Folder scope, connector scope, and approvals are all made visible. This turns chat into governance and supervision, not just prompting.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The role-specific layer moves into plugins</h3>
+      <p>Plugins bundle skills, connectors, and sub-agents so the same conversation-first surface can behave differently for finance, legal, operations, and other teams.</p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">Observation</p>
+    <p>The Cowork pattern does not point to the disappearance of chat. It shows chat being retained as the entry point while state, approvals, deliverables, and specialist workflows move into adjacent surfaces.</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Research Signals</p>
+  <h2>HCI papers are also pointing toward a need for more than conversation alone</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Low-code LLM introduced GUI structure for controllability</h3>
+      <p>
+        Low-code LLM treats complex prompting as unstable and uses visual programming interactions to produce more controllable and stable responses. The implication is not that language stops mattering, but that users need editable structure around it.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>IDA rethought UI automation around human-centric interaction</h3>
+      <p>
+        IDA combines guided demonstration and a semantic programming model for business users. That matters because once AI starts acting in enterprise interfaces, showing and shaping intent can matter more than writing better prompts.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Cocoa improved steerability over a strong chat baseline</h3>
+      <p>
+        Cocoa proposes interactive plans for co-planning and co-execution, and reports better steerability without giving up ease of use. The core signal is that complex tasks benefit from a shared plan surface, not just a message stream.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>The Keyhole Effect frames chat-only analysis as cognitively narrow</h3>
+      <p>
+        For multi-step analytical work, chat can become a narrow viewport that hides too much state. That is especially relevant for data analysis and other high-state-density tasks where users need to inspect, compare, and arrange information spatially.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>The realistic workflow is conversation first, then a different surface to stabilize the work</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Research and reporting</h3>
+        <p>A question starts in chat, but the user soon needs a source list, progress summaries, and a structured output artifact. Deep research and Cowork both point in this direction.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Docs</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Documents, slides, and spreadsheets</h3>
+        <p>Conversation is a useful starting point, but the work stabilizes in a canvas, artifact pane, page, or spreadsheet surface where the deliverable can actually be reviewed and refined.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Approval-bound business automation</h3>
+        <p>Once folders, connectors, and high-stakes actions are in play, the conversational layer remains useful for intent and exception handling, but the execution layer needs visible scopes and approval checkpoints.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Home</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Existing apps enhanced by natural-language control</h3>
+        <p>Google Home shows a straightforward version of the composite pattern: language stays in the interface, while activity history, timelines, and automation builders carry more of the operational load.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What teams should decide early</h2>
+  <ul class="bullet-list mt-6">
+    <li>Do not frame the decision as chat versus no chat. Decide instead what chat is responsible for: intent capture, clarification, and exception handling.</li>
+    <li>For longer tasks, create a separate surface for progress, intermediate state, and checkpoints.</li>
+    <li>If the output is a document, slide, sheet, diagram, or automation, plan for side-by-side editing from the start.</li>
+    <li>Do not leave approvals, folder scope, connector scope, and high-stakes actions buried inside plain transcript text.</li>
+    <li>In complex workflows, task state and deliverable state become more important operational units than the chat transcript itself.</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>Conclusion</h2>
+  <p>
+    Generative AI products converged on chat not because chat is the final form, but because natural language was the easiest general-purpose interface to adopt. The next stage visible by March 24, 2026 is not post-chat design.
+    It is the emergence of conversation-first systems that layer canvases, artifacts, approvals, progress views, and plugins around the chat surface. The future product pattern is not the death of ChatUI. It is the conversion of ChatUI into a practical control surface for real work.
+  </p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">January 23, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing Operator</p>
+              <p class="source-url">https://openai.com/index/introducing-operator/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-deep-research/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">February 2, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing deep research</p>
+              <p class="source-url">https://openai.com/index/introducing-deep-research/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-chatgpt-agent/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">July 17, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing ChatGPT agent</p>
+              <p class="source-url">https://openai.com/index/introducing-chatgpt-agent/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cdn.openai.com/pdf/6bcccca6-3b64-43cb-a66e-4647073142d7/chatgpt_agent_system_card_launch.pdf" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">July 17, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: ChatGPT Agent System Card</p>
+              <p class="source-url">https://cdn.openai.com/pdf/6bcccca6-3b64-43cb-a66e-4647073142d7/chatgpt_agent_system_card_launch.pdf</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-apps-in-chatgpt/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">October 6, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing apps in ChatGPT and the new Apps SDK</p>
+              <p class="source-url">https://openai.com/index/introducing-apps-in-chatgpt/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.microsoft.com/en-us/microsoft-365/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">September 16, 2024</span>
+              </div>
+              <p class="source-title">Microsoft: Microsoft 365 Copilot Wave 2</p>
+              <p class="source-url">https://www.microsoft.com/en-us/microsoft-365/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">January 15, 2025</span>
+              </div>
+              <p class="source-title">Microsoft: Copilot for all</p>
+              <p class="source-url">https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.microsoft.com/en-us/microsoft-365/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">November 19, 2024</span>
+              </div>
+              <p class="source-title">Microsoft: Introducing Microsoft Copilot actions, new agents, and tools to empower IT</p>
+              <p class="source-url">https://www.microsoft.com/en-us/microsoft-365/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.google/products-and-platforms/products/gemini/new-gemini-app-features-march-2025/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 13, 2025</span>
+              </div>
+              <p class="source-title">Google: New Gemini app features, available to try at no cost</p>
+              <p class="source-url">https://blog.google/products-and-platforms/products/gemini/new-gemini-app-features-march-2025/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 18, 2025</span>
+              </div>
+              <p class="source-title">Google: New ways to collaborate and get creative with Gemini</p>
+              <p class="source-url">https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.google/products-and-platforms/devices/google-nest/google-home-app-gemini-redesign/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">October 1, 2025</span>
+              </div>
+              <p class="source-title">Google: A new Google Home app, redesigned for Gemini</p>
+              <p class="source-url">https://blog.google/products-and-platforms/devices/google-nest/google-home-app-gemini-redesign/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/news/projects" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">June 25, 2024</span>
+              </div>
+              <p class="source-title">Anthropic: Collaborate with Claude on Projects</p>
+              <p class="source-url">https://www.anthropic.com/news/projects</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://claude.com/blog/artifacts" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">August 27, 2024</span>
+              </div>
+              <p class="source-title">Anthropic: Artifacts are now generally available</p>
+              <p class="source-url">https://claude.com/blog/artifacts</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">December 19, 2024</span>
+              </div>
+              <p class="source-title">Anthropic: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic: Computer use tool</p>
+              <p class="source-url">https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://claude.com/product/cowork" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 23, 2026</span>
+              </div>
+              <p class="source-title">Claude: Cowork</p>
+              <p class="source-url">https://claude.com/product/cowork</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://claude.com/blog/cowork-plugins" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">January 30, 2026</span>
+              </div>
+              <p class="source-title">Claude: Customize Cowork with plugins</p>
+              <p class="source-url">https://claude.com/blog/cowork-plugins</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://claude.com/blog/cowork-plugins-across-enterprise" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">February 24, 2026</span>
+              </div>
+              <p class="source-title">Claude: Cowork and plugins for teams across the enterprise</p>
+              <p class="source-url">https://claude.com/blog/cowork-plugins-across-enterprise</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2304.08103" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">April 17, 2023</span>
+              </div>
+              <p class="source-title">Low-code LLM: Graphical User Interface over Large Language Models</p>
+              <p class="source-url">https://arxiv.org/abs/2304.08103</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2407.15673" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">July 22, 2024</span>
+              </div>
+              <p class="source-title">IDA: Breaking Barriers in No-code UI Automation Through Large Language Models and Human-Centric Design</p>
+              <p class="source-url">https://arxiv.org/abs/2407.15673</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.10999" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">December 14, 2024</span>
+              </div>
+              <p class="source-title">Cocoa: Co-Planning and Co-Execution with AI Agents</p>
+              <p class="source-url">https://arxiv.org/abs/2412.10999</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2602.00947" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">February 1, 2026</span>
+              </div>
+              <p class="source-title">The Keyhole Effect: Why Chat Interfaces Fail at Data Analysis</p>
+              <p class="source-url">https://arxiv.org/abs/2602.00947</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+      </footer>
+    </div>
+  </body>
+</html>
