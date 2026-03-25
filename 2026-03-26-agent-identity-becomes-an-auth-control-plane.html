@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AI エージェントの ID 管理は認証認可の統制基盤になり始めた | Auto Research Digest</title>
-    <meta name="description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
+    <meta name="description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="AI エージェントの ID 管理は認証認可の統制基盤になり始めた | Auto Research Digest">
-    <meta property="og:description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
+    <meta property="og:description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
     <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
     <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png">
     <meta property="og:image:width" content="1536">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="AI エージェントの ID 管理は認証認可の統制基盤になり始めた">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI エージェントの ID 管理は認証認可の統制基盤になり始めた | Auto Research Digest">
-    <meta name="twitter:description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
+    <meta name="twitter:description" content="Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。">
     <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png">
     <meta name="twitter:image:alt" content="AI エージェントの ID 管理は認証認可の統制基盤になり始めた">
     <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
@@ -42,7 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
     <meta property="article:published_time" content="2026-03-26T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-03-25T09:30:57+09:00">
+    <meta property="article:modified_time" content="2026-03-25T09:38:34+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Identity">
@@ -50,7 +50,7 @@
     <meta property="article:tag" content="Authorization">
     <meta property="article:tag" content="Governance">
     <meta property="article:tag" content="OAuth">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI エージェントの ID 管理は認証認可の統制基盤になり始めた","description":"Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。","datePublished":"2026-03-26T00:00:00+09:00","dateModified":"2026-03-25T09:30:57+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI エージェントの ID 管理は認証認可の統制基盤になり始めた","description":"Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。","datePublished":"2026-03-26T00:00:00+09:00","dateModified":"2026-03-25T09:38:34+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://ymuichiro.github.io/auto-research-skill/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://ymuichiro.github.io/auto-research-skill/archive/"},{"@type":"ListItem","position":3,"name":"AI エージェントの ID 管理は認証認可の統制基盤になり始めた","item":"https://ymuichiro.github.io/auto-research-skill/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -68,7 +68,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">AI エージェントの ID 管理は認証認可の統制基盤になり始めた</h1>
-          <p class="hero-copy">Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。</p>
+          <p class="hero-copy">Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -84,7 +84,7 @@
   <h2>AI エージェントの ID 管理は、認証認可の部品ではなく統制基盤になり始めた</h2>
   <p>
     2025年後半から 2026年3月までに公開された Microsoft Entra Agent ID、Amazon Bedrock AgentCore Identity、Google Cloud Agent Identity、
-    MCP、A2A、Auth0、Okta、さらに Microsoft Purview、Google Cloud AI Protection、AWS の Policy / Guardrails を並べると、
+    MCP、A2A、Auth0、Okta、さらに Microsoft Purview、Google Cloud AI Protection、AWS の Policy / Guardrails、NVIDIA NeMo Guardrails を並べると、
     AI エージェントは単なるサービス アカウントの言い換えではなくなりつつある。公開資料から読み取れるのは、エージェントを独立した権限主体として発行し、
     必要に応じてユーザー委任の認可を重ね、その上にプロトコル上の認証メタデータと統制を載せる設計が、新しい比較軸になってきたという点である。
   </p>
@@ -100,7 +100,7 @@
       <p class="stat-note">エージェント単独、ユーザー委任、エージェントとユーザーの併記が主要な形である。</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">32件</p>
+      <p class="stat-value">36件</p>
       <p class="stat-title">公開根拠</p>
       <p class="stat-note">公式 docs と公式 announcement だけで、権限設計と統制の比較までできるだけの一次情報が揃っている。</p>
     </article>
@@ -165,8 +165,8 @@
     <article class="comparison-card">
       <h3>4. 統制とライフサイクル管理</h3>
       <ul class="bullet-list">
-        <li>エージェントの所有者、公開範囲、認証方式、アクセス認定、影のエージェント検出を扱う層である。</li>
-        <li>Microsoft Agent Registry、Google Cloud AI Protection、Microsoft Purview、Okta の discovery / certification は、この方向の整備と見られる。</li>
+        <li>エージェントの所有者、公開範囲、認証方式、アクセス認定、影のエージェント検出、実行時の安全制御を扱う層である。</li>
+        <li>Microsoft Agent Registry、Google Cloud AI Protection、Microsoft Purview、Okta の discovery / certification に加え、NVIDIA NeMo Guardrails は実行時ガードレールの面でこの方向に近い。</li>
       </ul>
     </article>
   </div>
@@ -200,9 +200,9 @@
     <article class="comparison-card">
       <h3>統制レイヤー</h3>
       <p><strong>権限主体:</strong> owner / sponsor がひもづく登録済みエージェント</p>
-      <p><strong>付与方法:</strong> registry 登録、access review、secret / connection 管理、影のエージェント検出</p>
-      <p><strong>強制点:</strong> registry、directory、audit log、certification workflow</p>
-      <p><strong>代表サービス:</strong> Microsoft Entra Agent Registry、Microsoft Purview、Google Cloud AI Protection、Okta の AI agent discovery / certification</p>
+      <p><strong>付与方法:</strong> registry 登録、access review、secret / connection 管理、影のエージェント検出、runtime guardrail の適用</p>
+      <p><strong>強制点:</strong> registry、directory、audit log、certification workflow、guardrail runtime</p>
+      <p><strong>代表サービス:</strong> Microsoft Entra Agent Registry、Microsoft Purview、Google Cloud AI Protection、Okta の AI agent discovery / certification、NVIDIA NeMo Guardrails</p>
     </article>
   </div>
 </section>
@@ -253,17 +253,17 @@
         <li>対向サービス: broker が出した token と advertised metadata を検証する</li>
         <li>制御点: registry、authorization server、certification workflow</li>
       </ul>
-      <p>MCP の enterprise-managed authorization や identity vendor 側の統制機能は、認証情報の散在を減らしつつ失効と監査をまとめる方向と読める。</p>
+      <p>MCP の enterprise-managed authorization や identity vendor 側の統制機能は、認証情報の散在を減らしつつ失効と監査をまとめる方向と読める。NVIDIA NeMo Guardrails は broker そのものではないが、tool call と外部 system 連携の直前直後を検査する実行時制御点として、この層に隣接している。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">プラットフォーム別の導入像</p>
-  <h2>Microsoft Purview と Google / AWS の同等概念を並べると、ID 管理が実務の統制へつながる</h2>
+  <h2>Microsoft Purview、Google / AWS、NVIDIA の統制レイヤーを並べると、ID 管理が実務の統制へつながる</h2>
   <p>
     エージェント ID だけでは、企業導入の全体像は説明しきれない。実際の導入では、ID 管理の上に「どのデータに触れてよいか」「どの対話を監査・保護するか」
-    「どのツール呼び出しを止めるか」を載せる必要がある。ここを見ると、Microsoft Purview、Google Cloud、AWS はそれぞれ別の名前で近い役割を製品化し始めている。
+    「どのツール呼び出しを止めるか」を載せる必要がある。ここを見ると、Microsoft Purview、Google Cloud、AWS、NVIDIA はそれぞれ別の名前で近い役割を製品化し始めている。
   </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
@@ -291,10 +291,19 @@
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>読み方</h3>
-      <p>名前は違っても、Microsoft Purview、Google Cloud AI Protection / Model Armor、AWS Policy / Guardrails は、「エージェント ID の上に統制をどう載せるか」という同じ設計課題に答えている。</p>
+      <h3>NVIDIA: NeMo Guardrails + AI safety recipe</h3>
+      <p>NVIDIA 側では、NeMo Guardrails が input / retrieval / dialog / execution / output の各 rail を持ち、特に agentic security と execution rails で tool call と外部 system 連携を検査・遮断する。AI safety recipe は、build / deploy / run の各段階で評価と方針適用を回す運用像を示している。</p>
       <ul class="bullet-list">
-        <li>違いは、データ保護寄りに始めるか、AI 資産保護寄りに始めるか、ツール利用制御寄りに始めるかである。</li>
+        <li>向いている用途: open model を使う agent や、LangGraph などで外部 tool を多用する agent に実行時ガードレールを追加したいケース</li>
+        <li>利点: agent 固有 ID の発行基盤がなくても、prompt injection、危険な tool 引数、off-policy な出力への防御線を外付けしやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>読み方</h3>
+      <p>名前は違っても、Microsoft Purview、Google Cloud AI Protection / Model Armor、AWS Policy / Guardrails、NVIDIA NeMo Guardrails は、「エージェント ID の上に統制をどう載せるか」という同じ設計課題に答えている。</p>
+      <ul class="bullet-list">
+        <li>違いは、データ保護寄りに始めるか、AI 資産保護寄りに始めるか、ツール利用制御寄りに始めるか、実行時ガードレール寄りに始めるかである。</li>
+        <li>NVIDIA は Entra Agent ID や AgentCore Identity のような agent 固有 ID 発行面より、tool 利用時の安全制御と policy enforcement の面で比較に入る。</li>
         <li>共通点は、認証だけで導入を終わらせず、監査、失効、保護、発見を同じ運用面に置いていることだ。</li>
       </ul>
     </article>
@@ -376,7 +385,7 @@
   <h2>認証方式そのものより、ID・委任・統制をどう束ねるかが比較軸になってきた</h2>
   <p>
     AI エージェントの認証認可の比較軸は、単に OAuth を使うかどうかではなくなっている。公開資料から読み取れる現在地は、
-    エージェントを独立した権限主体として持ち、必要に応じてユーザー委任とプロトコル認証を重ね、その上に registry、discovery、certification、データ保護を載せる方向である。
+    エージェントを独立した権限主体として持ち、必要に応じてユーザー委任とプロトコル認証を重ね、その上に registry、discovery、certification、データ保護、runtime guardrail を載せる方向である。
     どの vendor が勝つかはまだ早いが、どの platform がエージェントを governable な identity として扱えるかは、すでに明確な選定軸になり始めている。
   </p>
 </section>
@@ -628,6 +637,46 @@
               </div>
               <p class="source-title">Google Cloud Docs: Agent Engine Threat Detection overview</p>
               <p class="source-url">https://docs.cloud.google.com/security-command-center/docs/agent-engine-threat-detection-overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.nvidia.com/nemo/guardrails/latest/about/overview.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">NVIDIA Docs: Overview of NVIDIA NeMo Guardrails Library</p>
+              <p class="source-url">https://docs.nvidia.com/nemo/guardrails/latest/about/overview.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.nvidia.com/nemo/guardrails/latest/about/rail-types.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">NVIDIA Docs: Guardrail Types in NVIDIA NeMo Guardrails</p>
+              <p class="source-url">https://docs.nvidia.com/nemo/guardrails/latest/about/rail-types.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.nvidia.com/nemo/guardrails/latest/configure-rails/guardrail-catalog/agentic-security.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">NVIDIA Docs: Agentic Security in NVIDIA NeMo Guardrails</p>
+              <p class="source-url">https://docs.nvidia.com/nemo/guardrails/latest/configure-rails/guardrail-catalog/agentic-security.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developer.nvidia.com/blog/safeguard-agentic-ai-systems-with-the-nvidia-safety-recipe/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">NVIDIA Technical Blog: Safeguard Agentic AI Systems with the NVIDIA Safety Recipe</p>
+              <p class="source-url">https://developer.nvidia.com/blog/safeguard-agentic-ai-systems-with-the-nvidia-safety-recipe/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization" target="_blank" rel="noopener noreferrer">

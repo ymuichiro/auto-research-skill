@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Agent identity is becoming the control plane for authentication and authorization | Auto Research Digest EN</title>
-    <meta name="description" content="Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.">
+    <meta name="description" content="Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, NVIDIA NeMo Guardrails and the NVIDIA safety recipe, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="Agent identity is becoming the control plane for authentication and authorization | Auto Research Digest EN">
-    <meta property="og:description" content="Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.">
+    <meta property="og:description" content="Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, NVIDIA NeMo Guardrails and the NVIDIA safety recipe, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.">
     <meta property="og:url" content="https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
     <meta property="og:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png">
     <meta property="og:image:width" content="1536">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="Agent identity is becoming the control plane for authentication and authorization">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Agent identity is becoming the control plane for authentication and authorization | Auto Research Digest EN">
-    <meta name="twitter:description" content="Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.">
+    <meta name="twitter:description" content="Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, NVIDIA NeMo Guardrails and the NVIDIA safety recipe, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.">
     <meta name="twitter:image" content="https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png">
     <meta name="twitter:image:alt" content="Agent identity is becoming the control plane for authentication and authorization">
     <link rel="canonical" href="https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
@@ -42,7 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/auto-research-skill/assets/site.css">
     <meta property="article:published_time" content="2026-03-26T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-03-25T09:30:57+09:00">
+    <meta property="article:modified_time" content="2026-03-25T09:38:34+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Identity">
@@ -50,7 +50,7 @@
     <meta property="article:tag" content="Authorization">
     <meta property="article:tag" content="Governance">
     <meta property="article:tag" content="OAuth">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent identity is becoming the control plane for authentication and authorization","description":"Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.","datePublished":"2026-03-26T00:00:00+09:00","dateModified":"2026-03-25T09:30:57+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent identity is becoming the control plane for authentication and authorization","description":"Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, NVIDIA NeMo Guardrails and the NVIDIA safety recipe, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.","datePublished":"2026-03-26T00:00:00+09:00","dateModified":"2026-03-25T09:38:34+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://ymuichiro.github.io/auto-research-skill/"},"url":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","image":["https://ymuichiro.github.io/auto-research-skill/assets/og-twitter-card.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://ymuichiro.github.io/auto-research-skill/en/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://ymuichiro.github.io/auto-research-skill/en/archive/"},{"@type":"ListItem","position":3,"name":"Agent identity is becoming the control plane for authentication and authorization","item":"https://ymuichiro.github.io/auto-research-skill/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
@@ -68,7 +68,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">Agent identity is becoming the control plane for authentication and authorization</h1>
-          <p class="hero-copy">Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.</p>
+          <p class="hero-copy">Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, NVIDIA NeMo Guardrails and the NVIDIA safety recipe, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -84,7 +84,7 @@
   <h2>Agent identity is starting to act as a control plane rather than a credential detail</h2>
   <p>
     Across primary sources published through March 2026 from Microsoft Entra Agent ID, Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy,
-    Google Cloud Agent Identity and AI Protection, MCP, A2A, Auth0, and Okta, AI agents are no longer being framed as mere variations of service accounts.
+    Google Cloud Agent Identity and AI Protection, NVIDIA NeMo Guardrails, MCP, A2A, Auth0, and Okta, AI agents are no longer being framed as mere variations of service accounts.
     The public materials point instead toward a stack in which agents get first-class principals, user-delegated authorization is layered on when needed,
     protocol-level authentication metadata is exposed for inter-system connections, and governance, data protection, and policy enforcement are treated as parts of the same control plane.
     The maturity levels are not identical across vendors, but the direction is clear: authentication and authorization for agents are moving out of hidden runtime configuration and into the platform surface.
@@ -101,7 +101,7 @@
       <p class="stat-note">The dominant patterns are agent-only, user-delegated, and agent-plus-user context.</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">32</p>
+      <p class="stat-value">36</p>
       <p class="stat-title">Published sources</p>
       <p class="stat-note">Official documentation and official announcements alone are enough to map the current stack.</p>
     </article>
@@ -166,8 +166,8 @@
     <article class="comparison-card">
       <h3>4. Governance and lifecycle overlay</h3>
       <ul class="bullet-list">
-        <li>This layer manages owners, publication boundaries, access reviews, secret handling, and shadow-agent discovery.</li>
-        <li>Microsoft Agent Registry and Purview, Google IAM plus AI Protection, and Okta discovery and certification features point in this direction.</li>
+        <li>This layer manages owners, publication boundaries, access reviews, secret handling, shadow-agent discovery, and runtime safety controls.</li>
+        <li>Microsoft Agent Registry and Purview, Google IAM plus AI Protection, Okta discovery and certification, and NVIDIA NeMo Guardrails point in this direction, though NVIDIA is more runtime-safety-centric than registry-centric.</li>
       </ul>
     </article>
   </div>
@@ -201,9 +201,9 @@
     <article class="comparison-card">
       <h3>Governance overlay</h3>
       <p><strong>Principal:</strong> a registered agent with an owner or sponsor</p>
-      <p><strong>Grant method:</strong> registry publication, access review, secret and connection management, shadow-agent discovery</p>
-      <p><strong>Policy enforcement point:</strong> registries, directories, audit logs, and certification workflows</p>
-      <p><strong>Representative services:</strong> Microsoft Entra Agent Registry and Purview, Google IAM and AI Protection, and Okta AI agent discovery and certification</p>
+      <p><strong>Grant method:</strong> registry publication, access review, secret and connection management, shadow-agent discovery, and runtime guardrail attachment</p>
+      <p><strong>Policy enforcement point:</strong> registries, directories, audit logs, certification workflows, and guardrail runtimes</p>
+      <p><strong>Representative services:</strong> Microsoft Entra Agent Registry and Purview, Google IAM and AI Protection, Okta AI agent discovery and certification, and NVIDIA NeMo Guardrails</p>
     </article>
   </div>
 </section>
@@ -254,17 +254,17 @@
         <li>resource server validation: broker-issued tokens plus advertised auth metadata</li>
         <li>control point: registries, authorization servers, and certification workflows</li>
       </ul>
-      <p>MCP enterprise-managed auth and adjacent identity-vendor offerings point toward this model because it reduces credential sprawl while centralizing revocation and audit.</p>
+      <p>MCP enterprise-managed auth and adjacent identity-vendor offerings point toward this model because it reduces credential sprawl while centralizing revocation and audit. NVIDIA NeMo Guardrails is not a broker, but it sits next to this layer by validating tool calls and external-system interactions at runtime.</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Platform Use Cases</p>
-  <h2>Platform-specific governance layers are already turning agent identity into concrete deployment patterns</h2>
+  <h2>Platform-specific governance and runtime-safety layers are already turning agent identity into concrete deployment patterns</h2>
   <p>
     Identity alone does not explain how enterprise agent rollouts are actually governed. In practice, platforms are adding adjacent layers for data protection,
-    runtime safety, and policy enforcement. Read together, Microsoft Purview, Google Cloud AI Protection and Model Armor, and AWS Policy plus Guardrails look like equivalent answers to the same design problem:
+    runtime safety, and policy enforcement. Read together, Microsoft Purview, Google Cloud AI Protection and Model Armor, AWS Policy plus Guardrails, and NVIDIA NeMo Guardrails look like equivalent answers to the same design problem:
     how to place enterprise controls on top of agent identity rather than bolt them on after the fact.
   </p>
   <div class="comparison-grid mt-6">
@@ -293,10 +293,19 @@
       </ul>
     </article>
     <article class="comparison-card">
-      <h3>Reading the pattern</h3>
-      <p>The product names differ, but the design pattern is similar. Microsoft Purview, Google Cloud AI Protection and Model Armor, and AWS Policy and Guardrails all answer the same question: what sits on top of agent identity to make deployment governable.</p>
+      <h3>NVIDIA: NeMo Guardrails + safety recipe</h3>
+      <p>On NVIDIA, NeMo Guardrails provides input, retrieval, dialog, execution, and output rails, with agentic-security features focused on tool calls and interactions with external systems. The NVIDIA safety recipe adds a build-deploy-run operating model for evaluation and policy enforcement.</p>
       <ul class="bullet-list">
-        <li>The main difference is whether the vendor starts from data governance, AI-asset protection, or tool-access control.</li>
+        <li>Best-fit use case: open-model or framework-based agents that need runtime guardrails for prompt injection, unsafe tool arguments, and off-policy outputs.</li>
+        <li>Benefit: teams can add an explicit safety and control layer even when native per-agent identity issuance lives somewhere else.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Reading the pattern</h3>
+      <p>The product names differ, but the design pattern is similar. Microsoft Purview, Google Cloud AI Protection and Model Armor, AWS Policy and Guardrails, and NVIDIA NeMo Guardrails all answer the same question: what sits on top of agent identity to make deployment governable.</p>
+      <ul class="bullet-list">
+        <li>The main difference is whether the vendor starts from data governance, AI-asset protection, tool-access control, or runtime guardrails.</li>
+        <li>NVIDIA is not a direct equivalent to Entra Agent ID, AgentCore Identity, or Google Agent Identity on native identity issuance; it is the clearest runtime-safety and tool-validation layer in this comparison.</li>
         <li>The shared direction is to put discovery, enforcement, and review alongside authentication instead of after it.</li>
       </ul>
     </article>
@@ -379,6 +388,7 @@
   <p>
     The comparison axis in agent authentication and authorization is no longer just whether a platform supports OAuth.
     The clearer direction in the public sources is to give agents first-class principals, layer user delegation and protocol auth when needed, and place registry and certification on top of that stack.
+    That stack is also gaining explicit runtime-guardrail layers, especially for tool use and external-system interaction.
     It is still too early to call a winner, but it is already clear that platforms able to treat agents as governable identities have a structural advantage.
   </p>
 </section>
@@ -630,6 +640,46 @@
               </div>
               <p class="source-title">Google Cloud Docs: Agent Engine Threat Detection overview</p>
               <p class="source-url">https://docs.cloud.google.com/security-command-center/docs/agent-engine-threat-detection-overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.nvidia.com/nemo/guardrails/latest/about/overview.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">NVIDIA Docs: Overview of NVIDIA NeMo Guardrails Library</p>
+              <p class="source-url">https://docs.nvidia.com/nemo/guardrails/latest/about/overview.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.nvidia.com/nemo/guardrails/latest/about/rail-types.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">NVIDIA Docs: Guardrail Types in NVIDIA NeMo Guardrails</p>
+              <p class="source-url">https://docs.nvidia.com/nemo/guardrails/latest/about/rail-types.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.nvidia.com/nemo/guardrails/latest/configure-rails/guardrail-catalog/agentic-security.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">NVIDIA Docs: Agentic Security in NVIDIA NeMo Guardrails</p>
+              <p class="source-url">https://docs.nvidia.com/nemo/guardrails/latest/configure-rails/guardrail-catalog/agentic-security.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developer.nvidia.com/blog/safeguard-agentic-ai-systems-with-the-nvidia-safety-recipe/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">NVIDIA Technical Blog: Safeguard Agentic AI Systems with the NVIDIA Safety Recipe</p>
+              <p class="source-url">https://developer.nvidia.com/blog/safeguard-agentic-ai-systems-with-the-nvidia-safety-recipe/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization" target="_blank" rel="noopener noreferrer">
