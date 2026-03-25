@@ -1,0 +1,237 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Generative AI products converge on chat for good reasons, but the winning pattern is already moving beyond chat alone</h2>
+  <p>
+    Read across official product material from OpenAI, Microsoft, Google, and Anthropic and the first part of the story is easy to explain. Chat won early because natural language is the cheapest general-purpose interface:
+    it accepts ambiguous intent, lets teams ship value before inventing a full custom application surface, and keeps follow-up questions in the same place as the answer. But the same source set also shows that the major vendors are no longer designing for a chat-only future.
+    They are adding state views, artifact panes, approvals, progress monitoring, and scoped access around conversation, turning chat into the entry point for a broader control surface.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">22</p>
+      <p class="stat-title">Published sources</p>
+      <p class="stat-note">The article is grounded only in official posts, official docs, and papers.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5+</p>
+      <p class="stat-title">Platform signals</p>
+      <p class="stat-note">Multiple vendors are converging on the same pattern: chat plus surrounding work surfaces.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 parts</p>
+      <p class="stat-title">Composite UI</p>
+      <p class="stat-note">Conversation, state, approvals, and deliverables are being strengthened separately.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 takeaway</p>
+      <p class="stat-title">Chat is not disappearing</p>
+      <p class="stat-note">But it is becoming less sufficient as the only work surface.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why Chat Won</p>
+  <h2>Chat won first because natural language is the lowest-cost universal interface</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. It minimizes input design cost</h3>
+      <p>
+        In generative AI products, users often cannot fully specify what they want in advance. Chat handles underspecified intent naturally, and it lets product teams start with one input box instead of a complete task-specific workflow.
+        OpenAI’s apps launch in ChatGPT made this explicit: apps were designed to fit naturally into conversation rather than replace it.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. It connects advice and action in one place</h3>
+      <p>
+        OpenAI’s path from deep research and Operator to ChatGPT agent shows why chat is attractive. Users can start with a question, shift into action, refine the plan mid-flight, and keep the same context thread alive instead of jumping between products.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. It works well as a safety checkpoint</h3>
+      <p>
+        Confirmation prompts, interruptions, takeovers, and clarifying questions all fit naturally inside a conversational flow. Operator, ChatGPT agent, and Cowork all rely on approval patterns that treat chat as the place where control is exercised, not just where intent is entered.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Where Chat Breaks</p>
+  <h2>But long-running and state-heavy tasks expose the limits of chat-only interaction</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>State disappears into the scroll</h3>
+      <p>
+        Chat is linear. Decisions, pending items, dependencies, and intermediate outputs drift upward and become harder to track. That is manageable for short assistance, but much weaker for extended work.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Deliverable editing needs a separate surface</h3>
+      <p>
+        Slides, documents, spreadsheets, diagrams, forms, and automations are easier to inspect and refine side by side than as chat text. Artifacts, Canvas, and Pages exist because work products need a visible, editable surface.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Approvals and permissions need explicit controls</h3>
+      <p>
+        As soon as an AI product can access folders, connectors, apps, or real-world actions, the questions become granular: which scope, which step, which approval, and which data source? A plain transcript is not a strong enough control plane for that.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Supervision and recovery need better visibility</h3>
+      <p>
+        Longer tasks require progress views, checkpoints, resumability, and clearer failure boundaries. This is why task narration, activity logs, and intermediate task surfaces are appearing around the chat layer.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Convergence</p>
+  <h2>The major product lines already point toward “chat plus surrounding UI”</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI turned chat into a hub for actions and embedded apps</h3>
+      <p>
+        Apps in ChatGPT explicitly frame apps as conversational and interactive at the same time. ChatGPT agent then extends that surface with browsers, terminals, connectors, approvals, and on-screen narration, preserving conversation while widening the action layer.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft kept chat central while promoting Pages as the durable work surface</h3>
+      <p>
+        Microsoft says “Copilot is the UI for AI,” but in the same motion it promotes Pages as a persistent canvas for multiplayer AI collaboration. In practice, this means chat as the entry point and Pages as the place where ephemeral output becomes durable work.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google kept the prompt bar while adding Canvas and app orchestration</h3>
+      <p>
+        Gemini uses a prompt-first surface for Deep Research, connected apps, and personalization, but it also adds Canvas as an interactive collaboration space. Google Home follows the same pattern: natural-language control remains, while Activity and Automations surfaces become richer.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic thickened the collaboration layer with Projects, Artifacts, and computer use</h3>
+      <p>
+        Projects organize shared context, Artifacts move outputs into a dedicated side window, and computer use gives agents a GUI action layer. Anthropic’s own agent design guidance also highlights tasks that combine conversation and action rather than separating them.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Cowork Pattern</p>
+  <h2>Cowork is not anti-chat. It is a clear example of chat becoming a control surface</h2>
+  <p>
+    Cowork makes the transition visible. Its product copy does not reject conversation. Instead, it says that unlike Chat, Cowork lets Claude complete work on its own. That is an important distinction. The product is not replacing natural-language interaction.
+    It is surrounding natural-language intent with scoped file access, work execution, approvals, plugins, and deliverables.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>The request surface is still conversational</h3>
+      <p>You describe an outcome in natural language, and Claude selects a path through connectors, web research, local files, or apps.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The task surface exposes execution</h3>
+      <p>Cowork shows plans, loops users in before significant actions, and supports longer-running work that can be watched or left unattended.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The control surface is explicit</h3>
+      <p>Folder scope, connector scope, and approvals are all made visible. This turns chat into governance and supervision, not just prompting.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The role-specific layer moves into plugins</h3>
+      <p>Plugins bundle skills, connectors, and sub-agents so the same conversation-first surface can behave differently for finance, legal, operations, and other teams.</p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">Observation</p>
+    <p>The Cowork pattern does not point to the disappearance of chat. It shows chat being retained as the entry point while state, approvals, deliverables, and specialist workflows move into adjacent surfaces.</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Research Signals</p>
+  <h2>HCI papers are also pointing toward a need for more than conversation alone</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Low-code LLM introduced GUI structure for controllability</h3>
+      <p>
+        Low-code LLM treats complex prompting as unstable and uses visual programming interactions to produce more controllable and stable responses. The implication is not that language stops mattering, but that users need editable structure around it.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>IDA rethought UI automation around human-centric interaction</h3>
+      <p>
+        IDA combines guided demonstration and a semantic programming model for business users. That matters because once AI starts acting in enterprise interfaces, showing and shaping intent can matter more than writing better prompts.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Cocoa improved steerability over a strong chat baseline</h3>
+      <p>
+        Cocoa proposes interactive plans for co-planning and co-execution, and reports better steerability without giving up ease of use. The core signal is that complex tasks benefit from a shared plan surface, not just a message stream.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>The Keyhole Effect frames chat-only analysis as cognitively narrow</h3>
+      <p>
+        For multi-step analytical work, chat can become a narrow viewport that hides too much state. That is especially relevant for data analysis and other high-state-density tasks where users need to inspect, compare, and arrange information spatially.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>The realistic workflow is conversation first, then a different surface to stabilize the work</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Research and reporting</h3>
+        <p>A question starts in chat, but the user soon needs a source list, progress summaries, and a structured output artifact. Deep research and Cowork both point in this direction.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Docs</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Documents, slides, and spreadsheets</h3>
+        <p>Conversation is a useful starting point, but the work stabilizes in a canvas, artifact pane, page, or spreadsheet surface where the deliverable can actually be reviewed and refined.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Approval-bound business automation</h3>
+        <p>Once folders, connectors, and high-stakes actions are in play, the conversational layer remains useful for intent and exception handling, but the execution layer needs visible scopes and approval checkpoints.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Home</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Existing apps enhanced by natural-language control</h3>
+        <p>Google Home shows a straightforward version of the composite pattern: language stays in the interface, while activity history, timelines, and automation builders carry more of the operational load.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>What teams should decide early</h2>
+  <ul class="bullet-list mt-6">
+    <li>Do not frame the decision as chat versus no chat. Decide instead what chat is responsible for: intent capture, clarification, and exception handling.</li>
+    <li>For longer tasks, create a separate surface for progress, intermediate state, and checkpoints.</li>
+    <li>If the output is a document, slide, sheet, diagram, or automation, plan for side-by-side editing from the start.</li>
+    <li>Do not leave approvals, folder scope, connector scope, and high-stakes actions buried inside plain transcript text.</li>
+    <li>In complex workflows, task state and deliverable state become more important operational units than the chat transcript itself.</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>Conclusion</h2>
+  <p>
+    Generative AI products converged on chat not because chat is the final form, but because natural language was the easiest general-purpose interface to adopt. The next stage visible by March 24, 2026 is not post-chat design.
+    It is the emergence of conversation-first systems that layer canvases, artifacts, approvals, progress views, and plugins around the chat surface. The future product pattern is not the death of ChatUI. It is the conversion of ChatUI into a practical control surface for real work.
+  </p>
+</section>

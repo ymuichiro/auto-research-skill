@@ -1,0 +1,151 @@
+{
+  "slug": "why-ai-products-converge-on-chat-ui",
+  "date": "2026-03-24",
+  "titleJa": "なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか",
+  "titleEn": "Why generative AI products converge on chat, and why chat will not stay alone",
+  "summaryJa": "OpenAI、Microsoft、Google、Anthropic、Claude Cowork の公式発表と HCI 系の論文を重ねると、生成AIアプリがまずチャットUIに寄る理由は、自然言語が最も安い汎用入力だからである一方、実務化が進むほど状態表示、承認、進捗監督、成果物編集のための画面を周辺に必要とすることが見えてくる。チャットUIが消えるのではなく、対話を起点にした操作基盤へ複合化していく流れを整理する。",
+  "summaryEn": "Taken together, official product announcements from OpenAI, Microsoft, Google, Anthropic, and Claude Cowork, plus HCI papers on human-agent collaboration, show why generative AI products first converged on chat: natural language is the cheapest general-purpose input surface. But as products move into longer-running work, teams need surrounding interfaces for state visibility, approvals, progress tracking, and artifact editing. The result is not the death of chat, but its evolution into a conversation-first control surface.",
+  "category": "AI Strategy",
+  "tags": [
+    "LLM",
+    "AI Agent",
+    "Chat Interface",
+    "Product Design",
+    "Workflow",
+    "UX"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI: Introducing Operator",
+      "url": "https://openai.com/index/introducing-operator/",
+      "type": "official",
+      "publishedAt": "2025-01-23"
+    },
+    {
+      "label": "OpenAI: Introducing deep research",
+      "url": "https://openai.com/index/introducing-deep-research/",
+      "type": "official",
+      "publishedAt": "2025-02-02"
+    },
+    {
+      "label": "OpenAI: Introducing ChatGPT agent",
+      "url": "https://openai.com/index/introducing-chatgpt-agent/",
+      "type": "official",
+      "publishedAt": "2025-07-17"
+    },
+    {
+      "label": "OpenAI: ChatGPT Agent System Card",
+      "url": "https://cdn.openai.com/pdf/6bcccca6-3b64-43cb-a66e-4647073142d7/chatgpt_agent_system_card_launch.pdf",
+      "type": "official",
+      "publishedAt": "2025-07-17"
+    },
+    {
+      "label": "OpenAI: Introducing apps in ChatGPT and the new Apps SDK",
+      "url": "https://openai.com/index/introducing-apps-in-chatgpt/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "Microsoft: Microsoft 365 Copilot Wave 2",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/",
+      "type": "official",
+      "publishedAt": "2024-09-16"
+    },
+    {
+      "label": "Microsoft: Copilot for all",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
+      "type": "official",
+      "publishedAt": "2025-01-15"
+    },
+    {
+      "label": "Microsoft: Introducing Microsoft Copilot actions, new agents, and tools to empower IT",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/",
+      "type": "official",
+      "publishedAt": "2024-11-19"
+    },
+    {
+      "label": "Google: New Gemini app features, available to try at no cost",
+      "url": "https://blog.google/products-and-platforms/products/gemini/new-gemini-app-features-march-2025/",
+      "type": "official",
+      "publishedAt": "2025-03-13"
+    },
+    {
+      "label": "Google: New ways to collaborate and get creative with Gemini",
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/",
+      "type": "official",
+      "publishedAt": "2025-03-18"
+    },
+    {
+      "label": "Google: A new Google Home app, redesigned for Gemini",
+      "url": "https://blog.google/products-and-platforms/devices/google-nest/google-home-app-gemini-redesign/",
+      "type": "official",
+      "publishedAt": "2025-10-01"
+    },
+    {
+      "label": "Anthropic: Collaborate with Claude on Projects",
+      "url": "https://www.anthropic.com/news/projects",
+      "type": "official",
+      "publishedAt": "2024-06-25"
+    },
+    {
+      "label": "Anthropic: Artifacts are now generally available",
+      "url": "https://claude.com/blog/artifacts",
+      "type": "official",
+      "publishedAt": "2024-08-27"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
+    },
+    {
+      "label": "Anthropic: Computer use tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool",
+      "type": "official"
+    },
+    {
+      "label": "Claude: Cowork",
+      "url": "https://claude.com/product/cowork",
+      "type": "official",
+      "publishedAt": "2026-03-23"
+    },
+    {
+      "label": "Claude: Customize Cowork with plugins",
+      "url": "https://claude.com/blog/cowork-plugins",
+      "type": "official",
+      "publishedAt": "2026-01-30"
+    },
+    {
+      "label": "Claude: Cowork and plugins for teams across the enterprise",
+      "url": "https://claude.com/blog/cowork-plugins-across-enterprise",
+      "type": "official",
+      "publishedAt": "2026-02-24"
+    },
+    {
+      "label": "Low-code LLM: Graphical User Interface over Large Language Models",
+      "url": "https://arxiv.org/abs/2304.08103",
+      "type": "paper",
+      "publishedAt": "2023-04-17"
+    },
+    {
+      "label": "IDA: Breaking Barriers in No-code UI Automation Through Large Language Models and Human-Centric Design",
+      "url": "https://arxiv.org/abs/2407.15673",
+      "type": "paper",
+      "publishedAt": "2024-07-22"
+    },
+    {
+      "label": "Cocoa: Co-Planning and Co-Execution with AI Agents",
+      "url": "https://arxiv.org/abs/2412.10999",
+      "type": "paper",
+      "publishedAt": "2024-12-14"
+    },
+    {
+      "label": "The Keyhole Effect: Why Chat Interfaces Fail at Data Analysis",
+      "url": "https://arxiv.org/abs/2602.00947",
+      "type": "paper",
+      "publishedAt": "2026-02-01"
+    }
+  ],
+  "draft": false
+}

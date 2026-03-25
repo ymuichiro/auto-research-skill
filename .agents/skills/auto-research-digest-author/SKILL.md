@@ -60,6 +60,9 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 - Avoid thin articles. Compare and synthesize sources; do not merely list them.
 - Always include concrete use cases or operating scenarios so the article is not purely conceptual.
 - Keep Japanese and English versions aligned in meaning and confidence level.
+- In Japanese copy, prefer natural Japanese for general concepts and workflow terms. Keep English only when it is the product name, paper title, protocol name, API name, or another identifier that would become less clear if translated.
+- Before finalizing Japanese copy, do one cleanup pass specifically for language mixing. Replace avoidable English nouns and adjective phrases such as workflow, control surface, progress, deliverable, or chat-only when clear Japanese equivalents exist.
+- If an English technical term is important and likely familiar in the source material, either translate it into Japanese or use a brief first-use pairing such as `日本語（English term）`, then stay consistent.
 - For retrospective or backfilled articles, write as if the piece were published on that article date. Avoid wording that exposes hindsight or backfill status, such as "その時点では", "at the time", or "viewed from".
 - Do not expose internal workflow language such as "配信契約", internal audience notes, or repo-only operating details on public pages.
 - Do not introduce audience-label wording such as "経営層向け", "エグゼクティブ", or "executive" into public pages unless the user explicitly asks for it.
