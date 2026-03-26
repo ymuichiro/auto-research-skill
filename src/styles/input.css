@@ -370,6 +370,11 @@
     color: var(--ard-signal);
   }
 
+  .section-tail-link {
+    @apply mt-8 flex justify-center border-t pt-5;
+    border-color: var(--ard-border);
+  }
+
   .article-shell {
     @apply grid gap-8;
     min-width: 0;
@@ -624,6 +629,107 @@
     color: var(--ard-signal);
   }
 
+  .search-hint,
+  .search-count {
+    color: var(--ard-dim);
+    font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    line-height: 1.8;
+    text-transform: uppercase;
+  }
+
+  .search-hint {
+    margin-top: 0.9rem;
+  }
+
+  .archive-panel-head {
+    @apply flex flex-col gap-6 md:flex-row md:items-end md:justify-between;
+  }
+
+  .archive-page-meta {
+    display: grid;
+    gap: 0.35rem;
+    justify-items: flex-start;
+  }
+
+  .archive-page-meta .search-hint,
+  .archive-page-meta .search-count {
+    margin-top: 0;
+  }
+
+  .pagination-nav {
+    @apply mt-8 flex flex-col gap-4 border-t pt-5 md:flex-row md:items-center md:justify-between;
+    border-color: var(--ard-border);
+  }
+
+  .pagination-pages {
+    @apply flex flex-wrap gap-2;
+  }
+
+  .pagination-gap {
+    color: var(--ard-dim);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    min-width: 2rem;
+    font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+  }
+
+  .pagination-link {
+    border: 1px solid var(--ard-border);
+    border-radius: 999px;
+    color: var(--ard-dim);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    min-width: 2.5rem;
+    padding: 0 0.9rem;
+    text-decoration: none;
+    font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.62rem;
+    line-height: 1;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+  }
+
+  .pagination-pages .pagination-link {
+    height: 2.5rem;
+    width: 2.5rem;
+    min-width: 2.5rem;
+    padding: 0;
+    letter-spacing: 0;
+  }
+
+  .pagination-link:hover,
+  .pagination-link:focus-visible {
+    border-color: rgba(74, 240, 212, 0.4);
+    color: var(--ard-signal);
+    outline: none;
+  }
+
+  .pagination-link.is-current {
+    border-color: rgba(74, 240, 212, 0.42);
+    background: rgba(74, 240, 212, 0.08);
+    color: var(--ard-text-strong);
+  }
+
+  .pagination-link.is-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .pagination-edge {
+    width: auto;
+    min-width: 6.25rem;
+    padding: 0 1.1rem;
+  }
+
   .empty-state {
     border: 1px dashed var(--ard-border-strong);
     border-radius: 1rem;
@@ -707,6 +813,14 @@
   .timeline-item {
     grid-template-columns: 1fr;
     gap: 0.9rem;
+  }
+  .pagination-nav {
+    align-items: stretch;
+  }
+
+  .pagination-edge {
+    min-width: 0;
+    width: 100%;
   }
 }
 

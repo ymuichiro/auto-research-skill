@@ -16,6 +16,10 @@ export const siteConfig = {
   owner: "Auto Research Digest Editorial Desk",
   defaultLocale: "ja",
   locales: ["ja", "en"],
+  pagination: {
+    homeArticleLimit: 6,
+    archivePageSize: 24
+  },
   siteUrl,
   basePath,
   themeColor: "#0d0f14",

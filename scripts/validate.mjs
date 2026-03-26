@@ -1,8 +1,25 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
+import { siteConfig } from "./lib/site-config.mjs";
 
 const outputRoot = path.resolve("public");
+
+function archivePagePaths(articles) {
+  const totalPages = Math.max(1, Math.ceil(articles.length / siteConfig.pagination.archivePageSize));
+  const paths = [];
+
+  for (let pageNumber = 1; pageNumber <= totalPages; pageNumber += 1) {
+    if (pageNumber === 1) {
+      paths.push("archive/index.html", "en/archive/index.html");
+      continue;
+    }
+
+    paths.push(`archive/page/${pageNumber}/index.html`, `en/archive/page/${pageNumber}/index.html`);
+  }
+
+  return paths;
+}
 
 async function fileExists(filePath) {
   try {
@@ -16,9 +33,7 @@ async function fileExists(filePath) {
 async function validateBuiltOutput(articles) {
   const requiredPages = [
     "index.html",
-    "archive/index.html",
     "en/index.html",
-    "en/archive/index.html",
     "feed.xml",
     "en/feed.xml",
     "sitemap.xml",
@@ -28,7 +43,7 @@ async function validateBuiltOutput(articles) {
     "assets/og-twitter-card.png",
     "assets/og-default.svg",
     "assets/favicon.svg"
-  ];
+  ].concat(archivePagePaths(articles));
 
   const missing = [];
 

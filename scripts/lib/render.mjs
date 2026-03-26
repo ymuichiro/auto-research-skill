@@ -7,6 +7,11 @@ const localeCopy = {
     archiveTitle: "アーカイブ",
     latestTitle: "最新レポート",
     archiveIntro: "公開済みレポートを日付順に一覧化しています。",
+    archivePageStatus: "ページ",
+    archiveRangeLabel: "表示範囲",
+    paginationPrevious: "前へ",
+    paginationNext: "次へ",
+    paginationPage: "ページ",
     latestIntro:
       "主要な発表、論文、実装の動きを横断しながら、AI の実務トレンドを簡潔に追います。",
     sourceHeading: "公開根拠",
@@ -24,6 +29,11 @@ const localeCopy = {
     archiveTitle: "Archive",
     latestTitle: "Latest Briefings",
     archiveIntro: "Published briefings listed in reverse chronological order.",
+    archivePageStatus: "Page",
+    archiveRangeLabel: "Showing",
+    paginationPrevious: "Previous",
+    paginationNext: "Next",
+    paginationPage: "Page",
     latestIntro:
       "Tracking major launches, papers, and implementation signals to follow practical AI direction.",
     sourceHeading: "Published evidence",
@@ -297,6 +307,9 @@ export function renderIndexPage(locale, articles) {
         <a class="text-link" href="${localizedPath(locale, copy.archivePath.replace(/^en\//, ""))}">${escapeHtml(copy.allReports)}</a>
       </div>
       <div class="mt-6 grid gap-5">${cards || '<div class="empty-state">No published reports yet.</div>'}</div>
+      <div class="section-tail-link">
+        <a class="text-link" href="${localizedPath(locale, copy.archivePath.replace(/^en\//, ""))}">${escapeHtml(copy.allReports)}</a>
+      </div>
     </section>`;
 
   return renderPage({
@@ -313,19 +326,112 @@ export function renderIndexPage(locale, articles) {
   });
 }
 
-export function renderArchivePage(locale, articles) {
+function archivePageHref(locale, pageNumber) {
+  if (pageNumber <= 1) {
+    return localizedPath(locale, "archive/");
+  }
+
+  return localizedPath(locale, `archive/page/${pageNumber}/`);
+}
+
+function archivePageTitle(locale, pageNumber) {
+  const baseTitle = siteConfig.seo.archiveTitle[locale];
+
+  if (pageNumber <= 1) {
+    return baseTitle;
+  }
+
+  return locale === "ja" ? `${baseTitle} ${pageNumber}ページ` : `${baseTitle} Page ${pageNumber}`;
+}
+
+function archiveRangeText(locale, startIndex, endIndex, totalArticles) {
   const copy = localeCopy[locale];
+
+  if (totalArticles === 0) {
+    return locale === "ja" ? `${copy.archiveRangeLabel}: 0 / 0` : `${copy.archiveRangeLabel} 0 of 0`;
+  }
+
+  if (locale === "ja") {
+    return `${copy.archiveRangeLabel}: ${startIndex}-${endIndex} / ${totalArticles}`;
+  }
+
+  return `${copy.archiveRangeLabel} ${startIndex}-${endIndex} of ${totalArticles}`;
+}
+
+function renderArchivePagination(locale, currentPage, totalPages) {
+  if (totalPages <= 1) {
+    return "";
+  }
+
+  const copy = localeCopy[locale];
+  const pageLinks = [];
+  const pagesToRender = new Set([1, totalPages, currentPage - 1, currentPage, currentPage + 1]);
+  let previousRenderedPage = 0;
+
+  for (const page of [...pagesToRender].filter((page) => page >= 1 && page <= totalPages).sort((left, right) => left - right)) {
+    if (previousRenderedPage !== 0 && page - previousRenderedPage > 1) {
+      pageLinks.push('<span class="pagination-gap" aria-hidden="true">...</span>');
+    }
+
+    const isCurrent = page === currentPage;
+    pageLinks.push(
+      `<a class="pagination-link ${isCurrent ? "is-current" : ""}" href="${archivePageHref(locale, page)}" ${
+        isCurrent ? 'aria-current="page"' : ""
+      }>${page}</a>`
+    );
+    previousRenderedPage = page;
+  }
+
+  const previousLink =
+    currentPage > 1
+      ? `<a class="pagination-link pagination-edge" href="${archivePageHref(locale, currentPage - 1)}">${escapeHtml(copy.paginationPrevious)}</a>`
+      : `<span class="pagination-link pagination-edge is-disabled" aria-disabled="true">${escapeHtml(copy.paginationPrevious)}</span>`;
+  const nextLink =
+    currentPage < totalPages
+      ? `<a class="pagination-link pagination-edge" href="${archivePageHref(locale, currentPage + 1)}">${escapeHtml(copy.paginationNext)}</a>`
+      : `<span class="pagination-link pagination-edge is-disabled" aria-disabled="true">${escapeHtml(copy.paginationNext)}</span>`;
+
+  return `<nav class="pagination-nav" aria-label="${escapeHtml(copy.archiveTitle)} ${escapeHtml(copy.paginationPage)}">
+    ${previousLink}
+    <div class="pagination-pages">${pageLinks.join("")}</div>
+    ${nextLink}
+  </nav>`;
+}
+
+export function renderArchivePage(locale, articles, pagination = {}) {
+  const copy = localeCopy[locale];
+  const currentPage = pagination.currentPage ?? 1;
+  const totalPages = pagination.totalPages ?? 1;
+  const totalArticles = pagination.totalArticles ?? articles.length;
+  const rangeStart = articles.length > 0 ? (pagination.startIndex ?? 0) + 1 : 0;
+  const rangeEnd = articles.length > 0 ? (pagination.startIndex ?? 0) + articles.length : 0;
   const body = `<section class="panel-block">
-    <p class="section-kicker">${escapeHtml(copy.archiveTitle)}</p>
-    <h2 class="panel-title">${escapeHtml(copy.archiveTitle)}</h2>
-    <p class="panel-copy">${escapeHtml(copy.archiveIntro)}</p>
+    <div class="archive-panel-head">
+      <div>
+        <p class="section-kicker">${escapeHtml(copy.archiveTitle)}</p>
+        <h2 class="panel-title">${escapeHtml(copy.archiveTitle)}</h2>
+        <p class="panel-copy">${escapeHtml(copy.archiveIntro)}</p>
+      </div>
+      <div class="archive-page-meta">
+        <p class="search-count">${escapeHtml(copy.archivePageStatus)} ${currentPage} / ${totalPages}</p>
+        <p class="search-hint">${escapeHtml(archiveRangeText(locale, rangeStart, rangeEnd, totalArticles))}</p>
+      </div>
+    </div>
     <div class="mt-8 grid gap-5">${articles.map((article) => renderArticleCard(article, locale)).join("")}</div>
+    ${renderArchivePagination(locale, currentPage, totalPages)}
   </section>`;
 
   return renderPage({
     locale,
-    relativePath: locale === "ja" ? "archive/" : "en/archive/",
-    title: siteConfig.seo.archiveTitle[locale],
+    relativePath:
+      currentPage <= 1
+        ? locale === "ja"
+          ? "archive/"
+          : "en/archive/"
+        : locale === "ja"
+          ? `archive/page/${currentPage}/`
+          : `en/archive/page/${currentPage}/`,
+    title: archivePageTitle(locale, currentPage),
     description: siteConfig.seo.archiveDescription[locale],
     pageHeading: copy.archiveTitle,
     pageIntro: copy.archiveIntro,
@@ -333,7 +439,15 @@ export function renderArchivePage(locale, articles) {
     currentNavPath: copy.archivePath,
     breadcrumbs: [
       { name: copy.homeTitle, path: copy.homePath },
-      { name: copy.archiveTitle, path: copy.archivePath }
+      { name: copy.archiveTitle, path: copy.archivePath },
+      ...(currentPage > 1
+        ? [
+            {
+              name: locale === "ja" ? `${currentPage}ページ` : `Page ${currentPage}`,
+              path: locale === "ja" ? `archive/page/${currentPage}/` : `en/archive/page/${currentPage}/`
+            }
+          ]
+        : [])
     ]
   });
 }

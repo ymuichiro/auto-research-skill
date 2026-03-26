@@ -22,6 +22,28 @@ import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 const outputRoot = path.resolve("public");
 const iconRoot = path.join(outputRoot, "assets");
 
+function paginateArticles(articles, pageSize) {
+  const pages = [];
+
+  for (let startIndex = 0; startIndex < articles.length; startIndex += pageSize) {
+    pages.push({
+      currentPage: pages.length + 1,
+      startIndex,
+      articles: articles.slice(startIndex, startIndex + pageSize)
+    });
+  }
+
+  return pages.length > 0 ? pages : [{ currentPage: 1, startIndex: 0, articles: [] }];
+}
+
+function archivePageRelativePath(locale, pageNumber) {
+  if (pageNumber <= 1) {
+    return locale === "ja" ? "archive/" : "en/archive/";
+  }
+
+  return locale === "ja" ? `archive/page/${pageNumber}/` : `en/archive/page/${pageNumber}/`;
+}
+
 async function buildFaviconAssets() {
   const faviconSvg = renderFaviconSvg();
   const faviconSvgPath = path.join(iconRoot, "favicon.svg");
@@ -78,20 +100,35 @@ async function buildSite() {
   }
 
   const liveArticles = publishedArticles(articles);
+  const homeArticles = liveArticles.slice(0, siteConfig.pagination.homeArticleLimit);
+  const archivePages = paginateArticles(liveArticles, siteConfig.pagination.archivePageSize);
+  const archivePagination = {
+    totalArticles: liveArticles.length,
+    totalPages: archivePages.length
+  };
 
   await mkdir(iconRoot, { recursive: true });
-  await mkdir(path.join(outputRoot, "archive"), { recursive: true });
-  await mkdir(path.join(outputRoot, "en", "archive"), { recursive: true });
 
-  await writeTextFile(path.join(outputRoot, "index.html"), renderIndexPage("ja", liveArticles));
-  await writeTextFile(path.join(outputRoot, "archive", "index.html"), renderArchivePage("ja", liveArticles));
+  await writeTextFile(path.join(outputRoot, "index.html"), renderIndexPage("ja", homeArticles));
   await writeTextFile(path.join(outputRoot, "feed.xml"), renderAtomFeed("ja", liveArticles));
 
-  await writeTextFile(path.join(outputRoot, "en", "index.html"), renderIndexPage("en", liveArticles));
-  await writeTextFile(path.join(outputRoot, "en", "archive", "index.html"), renderArchivePage("en", liveArticles));
+  await writeTextFile(path.join(outputRoot, "en", "index.html"), renderIndexPage("en", homeArticles));
   await writeTextFile(path.join(outputRoot, "en", "feed.xml"), renderAtomFeed("en", liveArticles));
   await writeTextFile(path.join(outputRoot, "404.html"), renderNotFoundPage("ja", liveArticles));
   await writeTextFile(path.join(outputRoot, "en", "404.html"), renderNotFoundPage("en", liveArticles));
+
+  for (const locale of siteConfig.locales) {
+    for (const page of archivePages) {
+      await writeTextFile(
+        path.join(outputRoot, archivePageRelativePath(locale, page.currentPage), "index.html"),
+        renderArchivePage(locale, page.articles, {
+          ...archivePagination,
+          currentPage: page.currentPage,
+          startIndex: page.startIndex
+        })
+      );
+    }
+  }
 
   for (const article of liveArticles) {
     await writeTextFile(path.join(outputRoot, article.outputPaths.ja), renderArticlePage(article, "ja"));
@@ -114,14 +151,6 @@ async function buildSite() {
       ]
     },
     {
-      path: "archive/",
-      lastModified: latestUpdate,
-      alternates: [
-        { hreflang: "ja", path: "archive/" },
-        { hreflang: "en", path: "en/archive/" }
-      ]
-    },
-    {
       path: "en/",
       lastModified: latestUpdate,
       alternates: [
@@ -129,16 +158,27 @@ async function buildSite() {
         { hreflang: "en", path: "en/" },
         { hreflang: "x-default", path: "" }
       ]
-    },
-    {
-      path: "en/archive/",
-      lastModified: latestUpdate,
-      alternates: [
-        { hreflang: "ja", path: "archive/" },
-        { hreflang: "en", path: "en/archive/" }
-      ]
     }
   ];
+
+  for (const page of archivePages) {
+    pageSitemapEntries.push({
+      path: archivePageRelativePath("ja", page.currentPage),
+      lastModified: latestUpdate,
+      alternates: [
+        { hreflang: "ja", path: archivePageRelativePath("ja", page.currentPage) },
+        { hreflang: "en", path: archivePageRelativePath("en", page.currentPage) }
+      ]
+    });
+    pageSitemapEntries.push({
+      path: archivePageRelativePath("en", page.currentPage),
+      lastModified: latestUpdate,
+      alternates: [
+        { hreflang: "ja", path: archivePageRelativePath("ja", page.currentPage) },
+        { hreflang: "en", path: archivePageRelativePath("en", page.currentPage) }
+      ]
+    });
+  }
 
   const articleSitemapEntries = liveArticles.flatMap((article) => [
     {
