@@ -1,0 +1,199 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>MCP, A2A, and AG-UI are starting to split the agent connection stack into three layers</h2>
+  <p>
+    Reading the MCP, A2A, and AG-UI specifications next to public materials from OpenAI, Anthropic, Google, Microsoft, and AWS through late March 2026 makes one pattern visible:
+    the connection surface for AI agents is no longer appearing as one monolithic product surface. MCP is increasingly used for tool and data access, A2A for agent-to-agent delegation,
+    and AG-UI for human-facing progress, interruption, and approval flows. What changed this week is not merely that more protocol names appeared. The separation is now visible in runtime products,
+    frameworks, apps, and enterprise documentation.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">3 layers</p>
+      <p class="stat-title">Split responsibilities</p>
+      <p class="stat-note">Tool access, agent delegation, and human supervision are starting to sit on different protocol surfaces.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5 families</p>
+      <p class="stat-title">Implementation surfaces</p>
+      <p class="stat-note">OpenAI, Anthropic, Google, Microsoft, and AWS each expose different parts of the stack.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">27</p>
+      <p class="stat-title">Published sources</p>
+      <p class="stat-note">Specifications, official docs, and official announcements are enough to compare the emerging stack.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 implication</p>
+      <p class="stat-title">No need to trap everything in one product</p>
+      <p class="stat-note">Access, delegation, and oversight can now be designed as separate concerns.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why This Week</p>
+  <h2>By late March 2026, the idea that one framework should own everything is starting to break down</h2>
+  <p>
+    Earlier agent tooling often bundled tool access, sub-agent coordination, and user-facing interaction inside one product surface.
+    But the public material visible by late March 2026 shows at least three responsibilities splitting apart. MCP now covers tool and server access together with discoverable authentication requirements.
+    A2A defines agent cards, tasks, asynchronous execution, and status updates. AG-UI defines event streams, state synchronization, and human-in-the-loop interaction on the front-end side.
+    AWS has added stateful MCP and AG-UI support to AgentCore Runtime, Google has documented MCP and A2A in parallel, Microsoft has published A2A and AG-UI integrations in Agent Framework,
+    and OpenAI plus Anthropic have pulled MCP into product-facing surfaces. The story this week is therefore not that protocols exist, but that the division of labor is becoming visible in implementation.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>MCP handles tool access and discoverable auth requirements</h3>
+      <p>The direction is to describe tools, resources, and auth expectations through a protocol rather than through one-off integration code.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>A2A handles delegation to specialist agents</h3>
+      <p>Agent cards, tasks, messages, and async completion make it easier to move orchestrator-specialist coordination outside a single closed product.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AG-UI handles state visibility and approval paths</h3>
+      <p>Long-running agents need progress, artifacts, interrupts, and approvals. AG-UI starts to frame those as UI contracts rather than as improvised chat behavior.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Three Layers</p>
+  <h2>Each protocol is filling a different gap</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. MCP: the agent-to-tool and agent-to-data layer</h3>
+      <ul class="bullet-list">
+        <li>What it standardizes: tools, resources, prompts, transport, and auth requirements</li>
+        <li>Best-fit use case: enterprise documents, SaaS systems, data warehouses, and internal APIs</li>
+        <li>Operational benefit: teams can swap back-end systems without rewriting the agent around each integration</li>
+        <li>What remains uneven: support still varies by platform, especially around stateful behavior and auth</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. A2A: the orchestrator-to-specialist layer</h3>
+      <ul class="bullet-list">
+        <li>What it standardizes: agent discovery, skill declaration, task transfer, progress, and completion</li>
+        <li>Best-fit use case: splitting work across legal, procurement, support, finance, or domain specialists</li>
+        <li>Operational benefit: one agent no longer has to own every capability directly</li>
+        <li>What remains uneven: production deployments still need separate answers for auth, evaluation, and tracing</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. AG-UI: the agent-to-user layer</h3>
+      <ul class="bullet-list">
+        <li>What it standardizes: event streams, state sync, artifact display, user interruption, and approvals</li>
+        <li>Best-fit use case: long-running work, review-heavy automation, artifact editing, and approval-heavy processes</li>
+        <li>Operational benefit: teams can expose state that would otherwise stay hidden behind a chat transcript</li>
+        <li>What remains uneven: the ecosystem is still thinner and younger than MCP</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Read together</h3>
+      <p>The important point is that these protocols are not simply rivals. MCP alone does not express specialist delegation well. A2A alone does not define human oversight UX. AG-UI alone does not solve secure tool access.</p>
+      <p>For enterprise deployments, separating connection, delegation, and supervision may be more practical than trying to collapse them into one surface.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Vendor Convergence</p>
+  <h2>Vendors are strongest in different layers, but the public structure is becoming similar</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI and Anthropic are pushing MCP toward the product surface</h3>
+      <p>OpenAI apps plus developer mode, and Anthropic's MCP connector plus Claude Code MCP, move tool access out of hidden framework plumbing and into user- and developer-facing surfaces.</p>
+      <p>At this layer, discovery and permissions begin to shape the app experience itself.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google is documenting MCP and A2A side by side</h3>
+      <p>Google Cloud documents enterprise authentication for MCP servers, while Google ADK places MCP tooling and A2A support in the same development surface.</p>
+      <p>The signal is that system access and specialist delegation should be designed together, but not treated as the same thing.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft is making A2A and AG-UI first-class Agent Framework integrations</h3>
+      <p>Microsoft publishes dedicated A2A and AG-UI integrations next to the broader Agent Framework overview.</p>
+      <p>That makes multi-agent coordination and human-in-the-loop UX look less like sample code and more like expected framework-level connection surfaces.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS is absorbing protocols at the runtime layer</h3>
+      <p>AWS has added stateful MCP and AG-UI support to AgentCore Runtime and positions the runtime as a host for different agent frameworks.</p>
+      <p>In that view, protocols are not only app-level abstractions. They are becoming deployment contracts for long-running agents.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>What changed</h3>
+      <p>No vendor has fully standardized the whole stack, but several now expose the stack as separate surfaces for tool access, agent delegation, and user interaction.</p>
+      <p>That widens the comparison axis from raw model quality to how much of the connection stack each platform opens.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Once the three layers are present, approval-heavy long-running work becomes more realistic</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">An internal research agent calling specialists</h3>
+        <p>
+          A lead agent uses MCP to access documents, data, and internal APIs, then delegates tasks to legal or procurement specialists over A2A.
+          The user watches progress, evidence, and pending actions through AG-UI and approves only high-risk external actions.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Support workflows that cross billing and policy checks</h3>
+        <p>
+          A front-line agent structures the request, delegates billing and policy checks through A2A, and lets each specialist touch only the required systems through MCP.
+          Refund approval or policy exceptions can then be held for human review through AG-UI.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Code and operations work with write approvals</h3>
+        <p>
+          An execution agent touches build, log, ticket, and repository systems over MCP, splits work across analysis and verification agents through A2A,
+          and stops before writes, deploys, or permission changes so the human reviewer can inspect the diff and reasoning in AG-UI.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Is Still Early</p>
+  <h2>Having protocols does not mean interoperability is solved</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Auth and policy still need local design</h3>
+      <p>Even when MCP or A2A expose security metadata, enterprises still need their own answers for least privilege, revocation, audit, and approval thresholds.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Cross-layer tracing and evaluation remain hard</h3>
+      <p>When tool calls, agent handoffs, and user approvals sit in different layers, evaluation and audit need correlation IDs and shared trace design.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AG-UI is younger than MCP</h3>
+      <p>AG-UI looks promising as a human-supervision surface, but its ecosystem is still thinner. In the short term it is more realistic to expect mixed deployments with vendor-specific UI.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Trying to force one protocol to solve everything is the wrong frame</h3>
+      <p>The visible direction is not a single winner that absorbs the whole stack. It is a layered split of responsibilities. Teams will make fewer mistakes if they decide first which problem each protocol is supposed to solve.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Takeaway</p>
+  <h2>The comparison axis for AI agents is expanding from model quality to how the connection stack is opened</h2>
+  <p>
+    The public evidence this week does not justify claiming that agents are suddenly fully interoperable. It does justify a narrower and more useful conclusion:
+    connection, delegation, and supervision are becoming separate design layers. For enterprise adoption, the key question is starting to shift from only which model to use,
+    toward which layers should be opened through protocols and which should remain constrained by local policy and product choices.
+  </p>
+</section>
