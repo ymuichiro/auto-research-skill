@@ -1,0 +1,155 @@
+{
+  "slug": "open-agent-protocol-stack",
+  "date": "2026-03-28",
+  "titleJa": "MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた",
+  "titleEn": "MCP, A2A, and AG-UI are separating the connection stack for AI agents",
+  "summaryJa": "2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが抽象的な構想ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。",
+  "summaryEn": "Across primary sources published through late March 2026 by OpenAI, Anthropic, Google, Microsoft, AWS, MCP, A2A, and AG-UI, the connection surface for AI agents is starting to split into three layers rather than one monolithic product surface: MCP for tool and data access, A2A for agent-to-agent delegation, and AG-UI for human-facing state, progress, and approvals. What changed this week is that this is no longer just a protocol discussion. The pattern is now visible in runtime products, frameworks, and platform documentation.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "MCP",
+    "A2A",
+    "AG-UI",
+    "Interoperability",
+    "Protocol"
+  ],
+  "publishedSources": [
+    {
+      "label": "Model Context Protocol: Introduction",
+      "url": "https://modelcontextprotocol.io/docs/getting-started/intro",
+      "type": "official"
+    },
+    {
+      "label": "Model Context Protocol: Base specification",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic",
+      "type": "official"
+    },
+    {
+      "label": "Model Context Protocol: Authorization",
+      "url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
+      "type": "official"
+    },
+    {
+      "label": "Model Context Protocol: OAuth Client Credentials",
+      "url": "https://modelcontextprotocol.io/extensions/auth/oauth-client-credentials",
+      "type": "official"
+    },
+    {
+      "label": "A2A Protocol: Specification",
+      "url": "https://a2a-protocol.org/latest/specification/",
+      "type": "official"
+    },
+    {
+      "label": "AG-UI: Introduction",
+      "url": "https://docs.ag-ui.com/introduction",
+      "type": "official"
+    },
+    {
+      "label": "AG-UI: Architecture",
+      "url": "https://docs.ag-ui.com/concepts/architecture",
+      "type": "official"
+    },
+    {
+      "label": "AG-UI: Events",
+      "url": "https://docs.ag-ui.com/concepts/events",
+      "type": "official"
+    },
+    {
+      "label": "AG-UI: State",
+      "url": "https://docs.ag-ui.com/concepts/state",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing apps in ChatGPT and the new Apps SDK",
+      "url": "https://openai.com/index/introducing-apps-in-chatgpt/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API docs: Developer mode",
+      "url": "https://developers.openai.com/api/docs/guides/developer-mode",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: MCP connector",
+      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Claude Code MCP",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/mcp",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud docs: Google Cloud MCP overview",
+      "url": "https://docs.cloud.google.com/mcp/overview",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud docs: Authenticate to Google and Google Cloud MCP servers",
+      "url": "https://docs.cloud.google.com/mcp/authenticate-mcp",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Technical overview",
+      "url": "https://google.github.io/adk-docs/get-started/about/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: A2A support",
+      "url": "https://google.github.io/adk-docs/a2a/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: MCP tools",
+      "url": "https://google.github.io/adk-docs/tools-custom/mcp-tools/",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Agent Framework: Overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Agent Framework: A2A integration",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/a2a",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Agent Framework: AG-UI integration",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/",
+      "type": "official"
+    },
+    {
+      "label": "Windows AI Foundry: Model Context Protocol overview",
+      "url": "https://learn.microsoft.com/en-us/windows/ai/mcp/overview",
+      "type": "official"
+    },
+    {
+      "label": "AWS What's New: Amazon Bedrock AgentCore Runtime now supports stateful MCP",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-stateful-mcp/",
+      "type": "official"
+    },
+    {
+      "label": "AWS What's New: Amazon Bedrock AgentCore Runtime now supports AG-UI protocol",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/",
+      "type": "official"
+    },
+    {
+      "label": "AWS docs: Amazon Bedrock AgentCore overview",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS docs: Deploy AG-UI servers in AgentCore Runtime",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-agui.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS docs: Amazon Bedrock AgentCore MCP Server",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/mcp-getting-started.html",
+      "type": "official"
+    }
+  ],
+  "draft": false
+}
