@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://ymuichiro.github.io/auto-research-skill/sitemap-pages.xml</loc>
+    <loc>https://research.notelligent.app/sitemap-pages.xml</loc>
     <lastmod>2026-03-25T10:18:13+09:00</lastmod>
   </sitemap>
   <sitemap>
-    <loc>https://ymuichiro.github.io/auto-research-skill/sitemap-articles.xml</loc>
+    <loc>https://research.notelligent.app/sitemap-articles.xml</loc>
     <lastmod>2026-03-25T10:18:13+09:00</lastmod>
   </sitemap>
 </sitemapindex>

@@ -3,12 +3,12 @@
   "short_name": "ARD",
   "icons": [
     {
-      "src": "/auto-research-skill/assets/favicon-192.png",
+      "src": "/assets/favicon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/auto-research-skill/assets/favicon-512.png",
+      "src": "/assets/favicon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
@@ -16,6 +16,6 @@
   "theme_color": "#0d0f14",
   "background_color": "#0d0f14",
   "display": "standalone",
-  "start_url": "/auto-research-skill/",
-  "scope": "/auto-research-skill/"
+  "start_url": "/",
+  "scope": "/"
 }
