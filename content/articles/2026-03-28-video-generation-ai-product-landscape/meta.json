@@ -1,0 +1,182 @@
+{
+  "slug": "video-generation-ai-product-landscape",
+  "date": "2026-03-28",
+  "titleJa": "動画生成AIはどこまで実用品になったのか、主要5製品の最新状況と技術の流れを整理する",
+  "titleEn": "How practical video generation AI has become: the latest product status and technology shifts across five major platforms",
+  "summaryJa": "OpenAI、Google、Adobe、Runway、Luma の公式資料と動画生成の主要論文を重ねると、動画生成AIは「何でもできる魔法の1本」ではなく、音声付きの短尺、商用安全性、参照画像による一貫性、編集連携、低コスト試作といった軸で製品が分化してきたことが見えてくる。本稿は主要5製品の最新リリース状況を整理しつつ、diffusion、時間的一貫性、参照制御、world model 的な発想がなぜ使いやすさを押し上げたのかを非技術者向けに平易に説明し、用途別の向き不向きと導入時の注意点をまとめる。",
+  "summaryEn": "Taken together, official material from OpenAI, Google, Adobe, Runway, and Luma plus the leading video-generation papers show that the market is no longer converging on one magical tool. It is splitting by job to be done: short clips with sound, commercially safer production workflows, reference-driven consistency, editor integration, and low-cost rapid iteration. This article maps the latest status of five major products, explains in plain language why diffusion, temporal consistency, reference controls, and world-model style thinking improved usability, and summarizes which tools fit which workflows and where the remaining operational limits still sit.",
+  "category": "AI Strategy",
+  "tags": [
+    "Generative AI",
+    "Video Generation",
+    "Creative Tools",
+    "Diffusion",
+    "World Model",
+    "AI Product"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI: Sora 2",
+      "url": "https://openai.com/sora/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Launching Sora responsibly",
+      "url": "https://openai.com/index/launching-sora-responsibly/",
+      "type": "official",
+      "publishedAt": "2025-09-30"
+    },
+    {
+      "label": "OpenAI: Video generation models as world simulators",
+      "url": "https://openai.com/research/video-generation-models-as-world-simulators/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Help Center: Sora app and Sora 2 - Supported Countries",
+      "url": "https://help.openai.com/en/articles/12461230-sora-app-supported-countries",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Help Center: Sora 1 Sunset - FAQ",
+      "url": "https://help.openai.com/en/articles/20001071-sora-1-sunset-faq",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Sora 2 System Card",
+      "url": "https://cdn.openai.com/pdf/50d5973c-c4ff-4c2d-986f-c72b5d0ff069/sora_2_system_card.pdf",
+      "type": "official"
+    },
+    {
+      "label": "Google DeepMind: Veo",
+      "url": "https://deepmind.google/models/veo/",
+      "type": "official"
+    },
+    {
+      "label": "Google DeepMind: Veo 3 Tech Report",
+      "url": "https://storage.googleapis.com/deepmind-media/veo/Veo-3-Tech-Report.pdf",
+      "type": "official"
+    },
+    {
+      "label": "Google: Introducing Flow, Google's AI filmmaking tool designed for Veo",
+      "url": "https://blog.google/innovation-and-ai/products/google-flow-veo-ai-filmmaking-tool/",
+      "type": "official",
+      "publishedAt": "2025-05-20"
+    },
+    {
+      "label": "Google One Help: Get Google AI Ultra benefits",
+      "url": "https://support.google.com/googleone/answer/16286513?hl=en",
+      "type": "official"
+    },
+    {
+      "label": "Google: Veo 3.1 Ingredients to Video",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-ingredients-to-video/",
+      "type": "official"
+    },
+    {
+      "label": "Adobe: Adobe Expands Generative AI Offerings Delivering New Firefly App with Industry's First Commercially Safe Video Model",
+      "url": "https://news.adobe.com/news/2025/02/firefly-web-app-commercially-safe",
+      "type": "official",
+      "publishedAt": "2025-02-12"
+    },
+    {
+      "label": "Adobe Blog: New at MAX London",
+      "url": "https://blog.adobe.com/en/publish/2025/04/24/new-max-london-more-powerful-creative-cloud-new-firefly-ai-tools-more-support-creative-careers",
+      "type": "official",
+      "publishedAt": "2025-04-24"
+    },
+    {
+      "label": "Adobe: Adobe Firefly Revolutionizes Creative Ideation with New Mobile App, Multimedia Moodboarding and Expanded AI Models",
+      "url": "https://news.adobe.com/news/2025/06/adobe-firefly-revolutionizes-creative-ideation-new-mobile-app",
+      "type": "official",
+      "publishedAt": "2025-06-17"
+    },
+    {
+      "label": "Adobe Firefly: AI Video Generator",
+      "url": "https://www.adobe.com/products/firefly/features/ai-video-generator.html",
+      "type": "official"
+    },
+    {
+      "label": "Runway Research: Introducing Runway Gen-4",
+      "url": "https://runwayml.com/research/introducing-runway-gen-4",
+      "type": "official",
+      "publishedAt": "2025-03-31"
+    },
+    {
+      "label": "Runway Research: Introducing General World Models",
+      "url": "https://runwayml.com/research/introducing-general-world-models",
+      "type": "official",
+      "publishedAt": "2023-12-11"
+    },
+    {
+      "label": "Runway Academy: Gen-4",
+      "url": "https://academy.runwayml.com/courses/gen-4",
+      "type": "official"
+    },
+    {
+      "label": "Runway Academy: Gen-45",
+      "url": "https://academy.runwayml.com/courses/gen-45",
+      "type": "official"
+    },
+    {
+      "label": "Runway Academy: Gen-4 References",
+      "url": "https://academy.runwayml.com/tutorial/gen-4-references",
+      "type": "official"
+    },
+    {
+      "label": "Luma: Ray2 Release - Next-Generation AI Video Model",
+      "url": "https://lumalabs.ai/changelog/introducing-ray2",
+      "type": "official"
+    },
+    {
+      "label": "Luma: Introducing Camera Motion Concepts",
+      "url": "https://lumalabs.ai/news/camera-motion-concepts",
+      "type": "official",
+      "publishedAt": "2025-03-31"
+    },
+    {
+      "label": "Luma: Introducing Camera Angle Concepts",
+      "url": "https://lumalabs.ai/news/camera-angle-concepts",
+      "type": "official",
+      "publishedAt": "2025-04-18"
+    },
+    {
+      "label": "Luma: Luma AI launches Ray3",
+      "url": "https://lumalabs.ai/news/ray3",
+      "type": "official",
+      "publishedAt": "2025-09-18"
+    },
+    {
+      "label": "Luma: Ray3.14 is here",
+      "url": "https://lumalabs.ai/news/ray3_14",
+      "type": "official",
+      "publishedAt": "2026-01-26"
+    },
+    {
+      "label": "Lumiere: A Space-Time Diffusion Model for Video Generation",
+      "url": "https://arxiv.org/abs/2401.12945",
+      "type": "paper",
+      "publishedAt": "2024-01-23"
+    },
+    {
+      "label": "VideoPoet: A Large Language Model for Zero-Shot Video Generation",
+      "url": "https://arxiv.org/abs/2312.14125",
+      "type": "paper"
+    },
+    {
+      "label": "Movie Gen: A Cast of Media Foundation Models",
+      "url": "https://arxiv.org/abs/2410.13720",
+      "type": "paper"
+    },
+    {
+      "label": "HunyuanVideo: A Systematic Framework For Large Video Generation Models",
+      "url": "https://arxiv.org/abs/2412.03998",
+      "type": "paper"
+    },
+    {
+      "label": "Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets",
+      "url": "https://arxiv.org/abs/2311.15127",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}
