@@ -1,0 +1,173 @@
+# Safety overrides for Auto Research Digest publishing.
+# Source: https://developers.openai.com/codex/rules
+
+prefix_rule(
+    pattern = ["rm", "-rf"],
+    decision = "forbidden",
+    justification = "Recursive deletion is outside the weekly publishing workflow.",
+    match = [
+        "rm -rf public",
+        "rm -rf .deploy-branch",
+    ],
+    not_match = [
+        "rm public/index.html",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "reset"],
+    decision = "forbidden",
+    justification = "Do not discard or rewrite worktree state during editorial publishing.",
+    match = [
+        "git reset --hard HEAD",
+        "git reset --soft HEAD~1",
+    ],
+    not_match = [
+        "git status -sb",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "clean"],
+    decision = "forbidden",
+    justification = "Do not remove untracked files during editorial publishing.",
+    match = [
+        "git clean -fd",
+        "git clean -nfd",
+    ],
+    not_match = [
+        "git add public/",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "checkout", "--"],
+    decision = "forbidden",
+    justification = "Do not revert tracked files; edit forward instead.",
+    match = [
+        "git checkout -- README.md",
+    ],
+    not_match = [
+        "git checkout -b codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "commit", "--amend"],
+    decision = "forbidden",
+    justification = "Do not rewrite published commit history unless the user explicitly asks for it.",
+    match = [
+        "git commit --amend -m \"rewrite\"",
+    ],
+    not_match = [
+        "git commit -m \"add rules\"",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "--force"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-push is outside the weekly publishing workflow.",
+    match = [
+        "git push --force origin codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "-f"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-push is outside the weekly publishing workflow.",
+    match = [
+        "git push -f origin codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "--force-with-lease"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-with-lease is outside the weekly publishing workflow.",
+    match = [
+        "git push --force-with-lease origin codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "-u", "origin", "--force"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-push is outside the weekly publishing workflow.",
+    match = [
+        "git push -u origin --force codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "-u", "origin", "-f"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-push is outside the weekly publishing workflow.",
+    match = [
+        "git push -u origin -f codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "-u", "origin", "--force-with-lease"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-with-lease is outside the weekly publishing workflow.",
+    match = [
+        "git push -u origin --force-with-lease codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "origin", "--force"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-push is outside the weekly publishing workflow.",
+    match = [
+        "git push origin --force codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "origin", "-f"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-push is outside the weekly publishing workflow.",
+    match = [
+        "git push origin -f codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "origin", "--force-with-lease"],
+    decision = "forbidden",
+    justification = "Use a normal push to origin; force-with-lease is outside the weekly publishing workflow.",
+    match = [
+        "git push origin --force-with-lease codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+)

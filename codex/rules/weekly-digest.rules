@@ -1,0 +1,261 @@
+# Auto Research Digest weekly publishing workflow.
+# Source: https://developers.openai.com/codex/rules
+
+prefix_rule(
+    pattern = ["pnpm", "install", "--frozen-lockfile"],
+    decision = "allow",
+    justification = "Install pinned dependencies before build and validation when the environment is fresh.",
+    match = [
+        "pnpm install --frozen-lockfile",
+    ],
+    not_match = [
+        "pnpm install",
+        "pnpm install --no-frozen-lockfile",
+    ],
+)
+
+prefix_rule(
+    pattern = ["pnpm", "new:article"],
+    decision = "allow",
+    justification = "Scaffold a dated article directory for the weekly briefing.",
+    match = [
+        "pnpm new:article --date 2026-03-28 --slug weekly-roundup",
+    ],
+    not_match = [
+        "pnpm build",
+    ],
+)
+
+prefix_rule(
+    pattern = ["pnpm", "build"],
+    decision = "allow",
+    justification = "Build the site and run validation before publication.",
+    match = [
+        "pnpm build",
+    ],
+    not_match = [
+        "pnpm validate",
+    ],
+)
+
+prefix_rule(
+    pattern = ["pnpm", "validate"],
+    decision = "allow",
+    justification = "Run content and output validation before commit and publish.",
+    match = [
+        "pnpm validate",
+    ],
+    not_match = [
+        "pnpm build",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "status"],
+    decision = "allow",
+    justification = "Inspect the worktree before staging or publishing.",
+    match = [
+        "git status --short --branch",
+        "git status -sb",
+    ],
+    not_match = [
+        "git diff --stat",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "diff"],
+    decision = "allow",
+    justification = "Review staged and unstaged changes before commit.",
+    match = [
+        "git diff --stat",
+        "git diff --cached",
+    ],
+    not_match = [
+        "git add codex/rules/weekly-digest.rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "switch", "-c"],
+    decision = "allow",
+    justification = "Create a dedicated codex branch for the weekly change set.",
+    match = [
+        "git switch -c codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git switch main",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "checkout", "-b"],
+    decision = "allow",
+    justification = "Fallback branch creation command for environments that still use checkout.",
+    match = [
+        "git checkout -b codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git checkout -- content/articles",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "add"],
+    decision = "allow",
+    justification = "Stage the intended article, rule, and site output changes for the PR.",
+    match = [
+        "git add codex/rules/weekly-digest.rules codex/rules/safety.rules",
+        "git add content/articles/2026-03-28-weekly-roundup public/",
+    ],
+    not_match = [
+        "git commit -m \"add weekly rules\"",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "commit", "-m"],
+    decision = "allow",
+    justification = "Create a normal commit for the reviewed weekly changes.",
+    match = [
+        "git commit -m \"add codex rules for weekly publishing\"",
+    ],
+    not_match = [
+        "git commit --amend -m \"rewrite history\"",
+    ],
+)
+
+prefix_rule(
+    pattern = ["git", "push", "-u", "origin"],
+    decision = "allow",
+    justification = "Push the current branch to origin with upstream tracking for PR creation.",
+    match = [
+        "git push -u origin codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "git push origin codex/add-weekly-codex-rules",
+        "git push --force origin codex/add-weekly-codex-rules",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "auth", "status"],
+    decision = "allow",
+    justification = "Check GitHub CLI authentication before publishing or inspecting Actions.",
+    match = [
+        "gh auth status",
+    ],
+    not_match = [
+        "gh auth login",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "repo", "view"],
+    decision = "allow",
+    justification = "Read repository metadata needed for PR creation.",
+    match = [
+        "gh repo view --json nameWithOwner,defaultBranchRef",
+    ],
+    not_match = [
+        "gh pr view 1",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", "view"],
+    decision = "allow",
+    justification = "Inspect the draft PR after creation.",
+    match = [
+        "gh pr view 12 --json title,url,state",
+    ],
+    not_match = [
+        "gh pr create --draft --title \"[codex] add rules\"",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "pr", "create", "--draft"],
+    decision = "allow",
+    justification = "Open the change as a draft PR when connector-based PR creation is unavailable.",
+    match = [
+        "gh pr create --draft --title \"[codex] add rules\" --body-file /tmp/pr.md --base main --head codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "gh pr create --title \"ready\"",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "run", "list"],
+    decision = "allow",
+    justification = "List recent GitHub Actions runs to verify validation and deploy status.",
+    match = [
+        "gh run list -R ymuichiro/auto-research-skill -L 5",
+    ],
+    not_match = [
+        "gh run watch -R ymuichiro/auto-research-skill 123456789 --exit-status",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "run", "view"],
+    decision = "allow",
+    justification = "Inspect failed workflow details when publication does not complete.",
+    match = [
+        "gh run view -R ymuichiro/auto-research-skill 123456789 --log-failed",
+    ],
+    not_match = [
+        "gh run list -R ymuichiro/auto-research-skill -L 5",
+    ],
+)
+
+prefix_rule(
+    pattern = ["gh", "run", "watch"],
+    decision = "allow",
+    justification = "Watch the relevant GitHub Actions run until it completes.",
+    match = [
+        "gh run watch -R ymuichiro/auto-research-skill 123456789 --exit-status",
+    ],
+    not_match = [
+        "gh run view -R ymuichiro/auto-research-skill 123456789 --log-failed",
+    ],
+)
+
+prefix_rule(
+    pattern = ["curl", "-I"],
+    decision = "allow",
+    justification = "Check the deployed site headers after GitHub Pages publication.",
+    match = [
+        "curl -I https://research.notelligent.app/",
+        "curl -I https://research.notelligent.app/en/",
+    ],
+    not_match = [
+        "curl -fsSL https://research.notelligent.app/",
+    ],
+)
+
+prefix_rule(
+    pattern = ["curl", "-fsSL"],
+    decision = "allow",
+    justification = "Fetch the deployed page body to confirm the new article is live.",
+    match = [
+        "curl -fsSL https://research.notelligent.app/",
+        "curl -fsSL https://research.notelligent.app/2026-03-28-weekly-roundup.html",
+    ],
+    not_match = [
+        "curl -I https://research.notelligent.app/",
+    ],
+)
+
+prefix_rule(
+    pattern = ["codex", "execpolicy", "check"],
+    decision = "allow",
+    justification = "Validate rule behavior locally before relying on the rules in future runs.",
+    match = [
+        "codex execpolicy check --pretty --rules codex/rules/weekly-digest.rules -- git push -u origin codex/add-weekly-codex-rules",
+    ],
+    not_match = [
+        "codex --version",
+    ],
+)

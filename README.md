@@ -26,6 +26,8 @@
 
 - `content/articles/`
   記事ソース。各記事は `meta.json`、`body.ja.html`、`body.en.html` を持つ
+- `codex/rules/`
+  Codex が週次記事作成と公開確認で使うコマンド許可ルール
 - `guidelines/`
   情報収集、表現、デザインの運用ルール
 - `scripts/`
@@ -59,6 +61,15 @@ pnpm build
 pnpm validate
 pnpm dev
 ```
+
+## Codex ルール
+
+- `codex/rules/weekly-digest.rules`
+  週次記事の作成、検証、ブランチ作成、push、Actions 確認、公開確認で使うコマンド prefix を許可する
+- `codex/rules/safety.rules`
+  `rm -rf`、`git reset`、`git clean`、`git commit --amend`、force push など週次運用で不要な破壊的操作を禁止する
+- ルール追加・更新後は Codex を再起動する
+- 動作確認には `codex execpolicy check --pretty --rules codex/rules/weekly-digest.rules --rules codex/rules/safety.rules -- <command>` を使う
 
 ## 執筆時に先に読むもの
 
