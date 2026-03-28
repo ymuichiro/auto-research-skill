@@ -21,6 +21,12 @@ const localeCopy = {
     sourceCount: "根拠数",
     tagHeading: "Tags",
     languageSwitch: "English",
+    shareSectionLabel: "記事を共有",
+    shareOnXLabel: "X で共有",
+    nativeShareLabel: "共有メニューを開く",
+    copyShareLabel: "記事タイトルとリンクをコピー",
+    copySuccessLabel: "コピーしました",
+    copyErrorLabel: "コピーに失敗しました",
     homePath: "",
     archivePath: "archive/"
   },
@@ -44,6 +50,12 @@ const localeCopy = {
     sourceCount: "Sources",
     tagHeading: "Tags",
     languageSwitch: "日本語",
+    shareSectionLabel: "Share article",
+    shareOnXLabel: "Share on X",
+    nativeShareLabel: "Open share menu",
+    copyShareLabel: "Copy article title and link",
+    copySuccessLabel: "Copied",
+    copyErrorLabel: "Copy failed",
     homePath: "en/",
     archivePath: "en/archive/"
   }
@@ -86,6 +98,14 @@ function renderSharedHeadAssets() {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${assetPath("assets/site.css")}">`;
+}
+
+function renderSharedPageScript(pageType) {
+  if (pageType !== "article") {
+    return "";
+  }
+
+  return `    <script src="${assetPath("assets/article-share.js")}" defer></script>`;
 }
 
 function localeTag(locale) {
@@ -229,6 +249,7 @@ export function renderPage({
       siteConfig.name
     )}">
 ${renderSharedHeadAssets()}
+${renderSharedPageScript(pageType)}
     ${pageType === "article" && article
       ? `<meta property="article:published_time" content="${article.publishedAtIso}">
     <meta property="article:modified_time" content="${article.lastModified}">
@@ -452,6 +473,74 @@ export function renderArchivePage(locale, articles, pagination = {}) {
   });
 }
 
+function renderShareIconX() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg>`;
+}
+
+function renderShareIconNative() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg>`;
+}
+
+function renderShareIconCopy() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg>`;
+}
+
+function renderShareIconCheck() {
+  return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg>`;
+}
+
+function renderArticleShare(article, locale, relativePath) {
+  const copy = localeCopy[locale];
+  const title = locale === "ja" ? article.titleJa : article.titleEn;
+  const shareUrl = absoluteUrl(relativePath);
+  const xIntentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(shareUrl)}`;
+
+  return `<section class="article-share" aria-label="${escapeHtml(copy.shareSectionLabel)}">
+    <a class="share-button" href="${xIntentUrl}" target="_blank" rel="noopener noreferrer" aria-label="${escapeHtml(copy.shareOnXLabel)}">
+      <span class="share-button-icon">${renderShareIconX()}</span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="${escapeHtml(copy.nativeShareLabel)}"
+      data-native-share
+      data-share-title="${escapeHtml(title)}"
+      data-share-text="${escapeHtml(title)}"
+      data-share-url="${escapeHtml(shareUrl)}"
+      hidden
+    >
+      <span class="share-button-icon">${renderShareIconNative()}</span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="${escapeHtml(copy.copyShareLabel)}"
+      data-copy-share
+      data-state="idle"
+      data-share-title="${escapeHtml(title)}"
+      data-share-url="${escapeHtml(shareUrl)}"
+      data-copy-label-default="${escapeHtml(copy.copyShareLabel)}"
+      data-copy-label-success="${escapeHtml(copy.copySuccessLabel)}"
+      data-copy-status-success="${escapeHtml(copy.copySuccessLabel)}"
+      data-copy-status-error="${escapeHtml(copy.copyErrorLabel)}"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy">${renderShareIconCopy()}</span>
+        <span class="share-button-icon share-button-icon-success">${renderShareIconCheck()}</span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>`;
+}
+
 function renderSources(article, locale) {
   const copy = localeCopy[locale];
 
@@ -500,6 +589,7 @@ export function renderArticlePage(article, locale) {
         .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
         .join("")}</div>
     </section>
+    ${renderArticleShare(article, locale, relativePath)}
     <section class="article-body">${locale === "ja" ? article.bodies.ja : article.bodies.en}</section>
     ${renderSources(article, locale)}
   </article>`;

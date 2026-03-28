@@ -92,6 +92,13 @@ async function buildSocialCardAsset() {
   await writeBufferFile(targetPath, imageBuffer);
 }
 
+async function buildArticleShareScript() {
+  const sourcePath = path.resolve("src/assets/article-share.js");
+  const targetPath = path.join(outputRoot, "assets", "article-share.js");
+  const scriptText = await readFile(sourcePath, "utf8");
+  await writeTextFile(targetPath, scriptText);
+}
+
 async function buildSite() {
   const { articles, errors } = await loadArticles();
 
@@ -221,6 +228,7 @@ async function buildSite() {
   await writeTextFile(path.join(outputRoot, ".nojekyll"), "");
   await writeTextFile(path.join(outputRoot, "assets", "og-default.svg"), renderDefaultOgSvg());
   await buildSocialCardAsset();
+  await buildArticleShareScript();
   await buildFaviconAssets();
 }
 

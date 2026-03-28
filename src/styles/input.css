@@ -380,6 +380,91 @@
     min-width: 0;
   }
 
+  .article-share {
+    @apply flex flex-wrap items-center justify-end gap-3;
+    min-width: 0;
+  }
+
+  .share-button {
+    align-items: center;
+    appearance: none;
+    background: rgba(19, 22, 31, 0.96);
+    border: 1px solid var(--ard-border);
+    border-radius: 999px;
+    color: var(--ard-text-strong);
+    cursor: pointer;
+    display: inline-flex;
+    flex: 0 0 auto;
+    height: 3rem;
+    justify-content: center;
+    padding: 0;
+    position: relative;
+    text-decoration: none;
+    transition:
+      border-color 0.18s ease,
+      background 0.18s ease,
+      color 0.18s ease,
+      transform 0.18s ease;
+    width: 3rem;
+  }
+
+  .share-button:hover,
+  .share-button:focus-visible {
+    background: rgba(24, 28, 40, 0.98);
+    border-color: rgba(74, 240, 212, 0.28);
+    color: var(--ard-signal);
+    outline: none;
+    transform: translateY(-1px);
+  }
+
+  .share-button:focus-visible {
+    box-shadow:
+      0 0 0 1px rgba(74, 240, 212, 0.55),
+      0 0 0 4px rgba(74, 240, 212, 0.08);
+  }
+
+  .share-button-icon,
+  .share-button-icon-stack {
+    display: inline-grid;
+    height: 1.15rem;
+    place-items: center;
+    width: 1.15rem;
+  }
+
+  .share-button-icon-stack > * {
+    grid-area: 1 / 1;
+  }
+
+  .share-button-icon svg,
+  .share-button-icon-stack svg {
+    display: block;
+    fill: currentColor;
+    height: 100%;
+    width: 100%;
+  }
+
+  .share-button-icon-copy,
+  .share-button-icon-success {
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s ease;
+  }
+
+  .share-button-icon-success {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  .share-button[data-state="success"] .share-button-icon-copy {
+    opacity: 0;
+    transform: scale(0.72);
+  }
+
+  .share-button[data-state="success"] .share-button-icon-success {
+    opacity: 1;
+    transform: scale(1);
+  }
+
   .article-body {
     @apply grid gap-8;
     min-width: 0;

@@ -2,6 +2,7 @@ import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
 import { absoluteUrl, siteConfig } from "./lib/site-config.mjs";
+import { escapeHtml } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
 
@@ -53,6 +54,7 @@ async function validateBuiltOutput(articles) {
     "site.webmanifest",
     ".nojekyll",
     "assets/site.css",
+    "assets/article-share.js",
     "assets/og-twitter-card.png",
     "assets/og-default.svg",
     "assets/favicon.svg"
@@ -114,6 +116,12 @@ async function validateBuiltOutput(articles) {
   if (sampleArticle) {
     const jaHtml = await readBuiltFile(sampleArticle.outputPaths.ja);
     const enHtml = await readBuiltFile(sampleArticle.outputPaths.en);
+    const jaTitle = sampleArticle.titleJa;
+    const enTitle = sampleArticle.titleEn;
+    const jaUrl = absoluteUrl(sampleArticle.outputPaths.ja);
+    const enUrl = absoluteUrl(sampleArticle.outputPaths.en);
+    const jaXIntent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(jaTitle)}&url=${encodeURIComponent(jaUrl)}`;
+    const enXIntent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(enTitle)}&url=${encodeURIComponent(enUrl)}`;
 
     for (const [markup, canonicalUrl, label] of [
       [jaHtml, absoluteUrl(sampleArticle.outputPaths.ja), "Japanese article"],
@@ -125,7 +133,18 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, 'hreflang="en"', `${label} is missing the en hreflang link.`);
       assertContains(markup, siteConfig.siteUrl, `${label} is not using the configured site URL.`);
       assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
+      assertContains(markup, 'class="article-share"', `${label} is missing the article share block.`);
+      assertContains(markup, 'data-native-share', `${label} is missing the native share trigger.`);
+      assertContains(markup, 'data-copy-share', `${label} is missing the copy share trigger.`);
+      assertContains(markup, 'assets/article-share.js', `${label} is missing the article share script.`);
     }
+
+    assertContains(jaHtml, `href="${jaXIntent}"`, "Japanese article is missing the expected X share URL.");
+    assertContains(enHtml, `href="${enXIntent}"`, "English article is missing the expected X share URL.");
+    assertContains(jaHtml, `data-share-url="${jaUrl}"`, "Japanese article share block is missing the expected URL.");
+    assertContains(enHtml, `data-share-url="${enUrl}"`, "English article share block is missing the expected URL.");
+    assertContains(jaHtml, `data-share-title="${escapeHtml(jaTitle)}"`, "Japanese article share block is missing the expected title.");
+    assertContains(enHtml, `data-share-title="${escapeHtml(enTitle)}"`, "English article share block is missing the expected title.");
 
     assertContains(
       articleSitemap,
