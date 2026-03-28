@@ -1,15 +1,12 @@
-const repository = process.env.GITHUB_REPOSITORY ?? "ymuichiro/auto-research-skill";
-const [defaultOwner, defaultRepo] = repository.split("/");
-
 function normalizeSiteUrl(rawUrl) {
   const url = new URL(rawUrl);
   return url.toString().endsWith("/") ? url.toString() : `${url.toString()}/`;
 }
 
-const siteUrl = normalizeSiteUrl(
-  process.env.SITE_URL ?? `https://${defaultOwner}.github.io/${defaultRepo}/`
-);
-const basePath = new URL(siteUrl).pathname.replace(/\/$/, "");
+const siteUrl = normalizeSiteUrl(process.env.SITE_URL ?? "https://research.notelligent.app/");
+const siteOrigin = new URL(siteUrl);
+const basePath = siteOrigin.pathname.replace(/\/$/, "");
+const cname = siteOrigin.hostname.endsWith(".github.io") ? null : siteOrigin.hostname;
 
 export const siteConfig = {
   name: "Auto Research Digest",
@@ -22,6 +19,7 @@ export const siteConfig = {
   },
   siteUrl,
   basePath,
+  cname,
   themeColor: "#0d0f14",
   ogImage: "assets/og-twitter-card.png",
   ogImageWidth: 1536,

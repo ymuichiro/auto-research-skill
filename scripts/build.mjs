@@ -215,6 +215,9 @@ async function buildSite() {
   await writeTextFile(path.join(outputRoot, "sitemap-articles.xml"), renderSitemap(articleSitemapEntries));
   await writeTextFile(path.join(outputRoot, "robots.txt"), renderRobots());
   await writeTextFile(path.join(outputRoot, "site.webmanifest"), renderWebManifest());
+  if (siteConfig.cname) {
+    await writeTextFile(path.join(outputRoot, "CNAME"), `${siteConfig.cname}\n`);
+  }
   await writeTextFile(path.join(outputRoot, ".nojekyll"), "");
   await writeTextFile(path.join(outputRoot, "assets", "og-default.svg"), renderDefaultOgSvg());
   await buildSocialCardAsset();

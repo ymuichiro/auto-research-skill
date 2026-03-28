@@ -4,12 +4,13 @@
 
 公開サイト:
 
-- [https://ymuichiro.github.io/auto-research-skill/](https://ymuichiro.github.io/auto-research-skill/)
+- [https://research.notelligent.app/](https://research.notelligent.app/)
+- 移行前 URL: [https://ymuichiro.github.io/auto-research-skill/](https://ymuichiro.github.io/auto-research-skill/)
 
 ## 目的
 
 - 公式ドキュメント、公式 announcement / release、論文を根拠に、中立的な記事を継続公開する
-- 記事を日本語 / 英語の両方で生成し、GitHub Pages で配信する
+- 記事を日本語 / 英語の両方で生成し、GitHub Pages + custom domain で配信する
 - shared template と shared CSS を使い、記事追加時にページ個別のデザイン調整を不要にする
 
 ## 運用方針
@@ -71,7 +72,22 @@ pnpm dev
 1. 一次情報を収集し、公開根拠を確定する
 2. `meta.json`、`body.ja.html`、`body.en.html` を更新する
 3. `pnpm build` と `pnpm validate` を通す
-4. GitHub に push し、Actions で GitHub Pages へ反映する
+4. GitHub に push し、Actions で `gh-pages` を更新して [https://research.notelligent.app/](https://research.notelligent.app/) へ反映する
+
+## Custom Domain Cutover
+
+1. 前日までに `research.notelligent.app` の DNS TTL を短縮する
+2. GitHub Pages の custom domain を `research.notelligent.app` に設定する
+3. DNS に `research.notelligent.app CNAME ymuichiro.github.io` を反映する
+4. `main` へ反映して deploy を流し、`gh-pages` 上の `CNAME` と SEO 系生成物を新ドメインに揃える
+5. GitHub Pages の証明書発行後に `Enforce HTTPS` を有効化する
+6. `https://research.notelligent.app/`、`/en/`、代表記事、`/feed.xml`、`/sitemap.xml`、`/robots.txt`、`/site.webmanifest` を確認する
+
+ロールバック:
+
+1. GitHub Pages の custom domain を外す
+2. DNS の `research` CNAME を削除する
+3. `SITE_URL` を旧 URL に戻した版を再 deploy する
 
 ## 補足
 
