@@ -1,0 +1,713 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How practical video generation AI has become: the latest product status and technology shifts across five major platforms | Auto Research Digest EN</title>
+    <meta name="description" content="Taken together, official material from OpenAI, Google, Adobe, Runway, and Luma plus the leading video-generation papers show that the market is no longer converging on one magical tool. It is splitting by job to be done: short clips with sound, commercially safer production workflows, reference-driven consistency, editor integration, and low-cost rapid iteration. This article maps the latest status of five major products, explains in plain language why diffusion, temporal consistency, reference controls, and world-model style thinking improved usability, and summarizes which tools fit which workflows and where the remaining operational limits still sit.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="How practical video generation AI has become: the latest product status and technology shifts across five major platforms | Auto Research Digest EN">
+    <meta property="og:description" content="Taken together, official material from OpenAI, Google, Adobe, Runway, and Luma plus the leading video-generation papers show that the market is no longer converging on one magical tool. It is splitting by job to be done: short clips with sound, commercially safer production workflows, reference-driven consistency, editor integration, and low-cost rapid iteration. This article maps the latest status of five major products, explains in plain language why diffusion, temporal consistency, reference controls, and world-model style thinking improved usability, and summarizes which tools fit which workflows and where the remaining operational limits still sit.">
+    <meta property="og:url" content="https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="How practical video generation AI has become: the latest product status and technology shifts across five major platforms">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How practical video generation AI has become: the latest product status and technology shifts across five major platforms | Auto Research Digest EN">
+    <meta name="twitter:description" content="Taken together, official material from OpenAI, Google, Adobe, Runway, and Luma plus the leading video-generation papers show that the market is no longer converging on one magical tool. It is splitting by job to be done: short clips with sound, commercially safer production workflows, reference-driven consistency, editor integration, and low-cost rapid iteration. This article maps the latest status of five major products, explains in plain language why diffusion, temporal consistency, reference controls, and world-model style thinking improved usability, and summarizes which tools fit which workflows and where the remaining operational limits still sit.">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="How practical video generation AI has become: the latest product status and technology shifts across five major platforms">
+    <link rel="canonical" href="https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html">
+    <link rel="alternate" type="application/atom+xml" href="https://research.notelligent.app/en/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <meta property="article:published_time" content="2026-03-28T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-03-28T18:20:44+09:00">
+    <meta property="article:section" content="AI Strategy">
+    <meta property="article:tag" content="Generative AI">
+    <meta property="article:tag" content="Video Generation">
+    <meta property="article:tag" content="Creative Tools">
+    <meta property="article:tag" content="Diffusion">
+    <meta property="article:tag" content="World Model">
+    <meta property="article:tag" content="AI Product">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"How practical video generation AI has become: the latest product status and technology shifts across five major platforms","description":"Taken together, official material from OpenAI, Google, Adobe, Runway, and Luma plus the leading video-generation papers show that the market is no longer converging on one magical tool. It is splitting by job to be done: short clips with sound, commercially safer production workflows, reference-driven consistency, editor integration, and low-cost rapid iteration. This article maps the latest status of five major products, explains in plain language why diffusion, temporal consistency, reference controls, and world-model style thinking improved usability, and summarizes which tools fit which workflows and where the remaining operational limits still sit.","datePublished":"2026-03-28T00:00:00+09:00","dateModified":"2026-03-28T18:20:44+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"Generative AI, Video Generation, Creative Tools, Diffusion, World Model, AI Product","mainEntityOfPage":"https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://research.notelligent.app/en/archive/"},{"@type":"ListItem","position":3,"name":"How practical video generation AI has become: the latest product status and technology shifts across five major platforms","item":"https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/archive/">Archive</a><a class="nav-link " href="/en/feed.xml">Feed</a></nav>
+        <a class="lang-switch" href="/2026-03-28-video-generation-ai-product-landscape.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">How practical video generation AI has become: the latest product status and technology shifts across five major platforms</h1>
+          <p class="hero-copy">Taken together, official material from OpenAI, Google, Adobe, Runway, and Luma plus the leading video-generation papers show that the market is no longer converging on one magical tool. It is splitting by job to be done: short clips with sound, commercially safer production workflows, reference-driven consistency, editor integration, and low-cost rapid iteration. This article maps the latest status of five major products, explains in plain language why diffusion, temporal consistency, reference controls, and world-model style thinking improved usability, and summarizes which tools fit which workflows and where the remaining operational limits still sit.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-03-28">March 28, 2026</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Video Generation</span><span class="meta-chip">Creative Tools</span><span class="meta-chip">Diffusion</span><span class="meta-chip">World Model</span><span class="meta-chip">AI Product</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Video generation AI is no longer a hunt for one winner. It is becoming a market of tools for different stages of production</h2>
+  <p>
+    Read across official material from OpenAI, Google, Adobe, Runway, and Luma and a clear pattern appears. Video generation is no longer best understood as a single race for the prettiest output.
+    The products are splitting by job to be done: short clips with sound, commercially safer production workflows, reference-driven consistency, editor integration, and low-cost rapid iteration.
+  </p>
+  <p>
+    The underlying shift is not only better visual quality. It is also better temporal consistency, stronger reference controls, camera direction, audio integration, and tighter connections to editing workflows.
+    In practice, the big change is not merely that video can be generated. It is that teams can increasingly choose a tool based on which part of the workflow they need to accelerate.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">5</p>
+      <p class="stat-title">Major products</p>
+      <p class="stat-note">The comparison stays focused on OpenAI, Google, Adobe, Runway, and Luma.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">30</p>
+      <p class="stat-title">Published sources</p>
+      <p class="stat-note">The article is grounded only in official announcements, official docs, help pages, and papers.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4</p>
+      <p class="stat-title">Technical shifts</p>
+      <p class="stat-note">Diffusion, consistency controls, reference-driven editing, and audio moved the tools closer to usable workflows.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1</p>
+      <p class="stat-title">Practical takeaway</p>
+      <p class="stat-note">Pick by workflow bottleneck, not by trying to crown one universal winner.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>From 2025 into early 2026, the category moved from impressive demos toward more distinct product roles</h2>
+  <p>
+    The easiest way to see the change is to follow the release sequence. In 2025, the market advanced on several fronts at once:
+    consistency, control, audio, commercial safety, and editing workflow integration.
+  </p>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Early 2025</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Luma Ray2 pushed fast iteration and controlled video generation forward</h3>
+        <p>
+          Ray2 strengthened Dream Machine's core video capability and became the base for later camera concepts and modify-style controls.
+          Its practical contribution was not just output quality, but making rapid experimentation easier to afford and repeat.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2025-03</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Runway Gen-4 made consistency and shot-level workflow central</h3>
+        <p>
+          Gen-4 emphasized subject, object, and style consistency plus world understanding.
+          That shifted the conversation from isolated impressive clips toward whether teams could manage multiple shots with shared visual logic.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2025-04</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Adobe moved Firefly Video closer to general availability through the Creative Cloud stack</h3>
+        <p>
+          After the February public beta announcement, Adobe used the April Firefly expansion to frame video generation inside a broader production workflow.
+          The core value proposition was not spectacle alone, but commercially safer use and integration with existing creative tools.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2025-05</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Google paired Veo 3 with Flow and showed a filmmaking-oriented surface</h3>
+        <p>
+          Google presented Veo 3 alongside Flow, making the product look less like a raw model and more like a filmmaking tool.
+          Native audio, camera-aware workflows, and later Ingredients to Video all reinforced that orientation.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Late 2025</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">OpenAI positioned Sora 2 around sound, Characters, and shared creation</h3>
+        <p>
+          OpenAI presented Sora 2 with hyperreal motion and sound, Characters, and Remix features rather than as a bare model endpoint.
+          But the app layer should be treated as fluid. For planning purposes, it is safer to read Sora through its model, web, and future API surfaces than through the standalone app alone.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2025-12</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Runway Gen-4.5 thickened the premium workflow layer</h3>
+        <p>
+          By adding Gen-4.5 and pairing it with references and Academy material, Runway reinforced that practical value now comes from repeatable workflow, not just isolated model performance.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2026-01</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Luma Ray3.14 raised throughput with native 1080p, speed gains, and lower cost</h3>
+        <p>
+          Ray3 added reasoning-driven generation, character reference, and HDR options, while Ray3.14 stressed 1080p output, faster generation, and lower cost.
+          That matters because production teams often care more about how many useful attempts they can run than about one perfect sample.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Five Products</p>
+  <h2>The real product difference is not what can be generated in theory, but which workflow gets shortened in practice</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI / Sora 2</h3>
+      <ul class="bullet-list">
+        <li>Status: Sora 2 is presented across web and app surfaces, with Characters and built-in sound highlighted in the product story.</li>
+        <li>Strength: It is strong for attention-grabbing concept clips, character remixing, and audio-rich scene ideation.</li>
+        <li>Best fit: Early concept visualization, short impression clips, character-driven experiments, and sound-inclusive mockups.</li>
+        <li>Watch-outs: The standalone app direction is fluid, and OpenAI is already rationalizing older Sora surfaces. Teams should evaluate Sora more as a model, web surface, and future API capability than as a stable destination app.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Google / Veo 3 + Flow</h3>
+      <ul class="bullet-list">
+        <li>Status: Veo is framed as the model layer, while Flow is positioned as the filmmaking surface, with access tied to Google AI subscription tiers and credits.</li>
+        <li>Strength: Native audio, ingredients-based prompting, and a clearer filmmaking control surface make it easier to think in scenes and shots.</li>
+        <li>Best fit: Storyboards, previs, shot design, and short narrative experiments with multiple controlled elements.</li>
+        <li>Watch-outs: Availability depends on plan, region, and credit limits. Teams need to verify current access before committing to workflow design.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Adobe / Firefly</h3>
+      <ul class="bullet-list">
+        <li>Status: Firefly Video moved from public beta into broader product rollout, with Generate Video and Creative Cloud integration increasingly central.</li>
+        <li>Strength: Commercial positioning, Content Credentials, and direct ties to Premiere Pro and the wider Adobe stack make it easier to operationalize.</li>
+        <li>Best fit: Brand-sensitive work, enterprise review workflows, and teams that want AI inside an existing editing environment.</li>
+        <li>Watch-outs: Firefly is not primarily a model-scoreboard product. Its advantage appears strongest when paired with Adobe's surrounding editing and approval surfaces.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Runway / Gen-4 and Gen-4.5</h3>
+      <ul class="bullet-list">
+        <li>Status: Gen-4 anchors the line, while Gen-4.5 and References extend it into a fuller operational workflow supported by Academy material.</li>
+        <li>Strength: Consistent characters, locations, references, and prompt adherence make it useful for multi-shot work rather than isolated spectacle.</li>
+        <li>Best fit: Ads, VFX-adjacent workflows, previs, and projects that need reference-driven consistency across several shots.</li>
+        <li>Watch-outs: Runway works best as a workflow tool, not as a one-click final-answer machine. Teams need some shot and asset discipline to get the most from it.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Luma / Ray2, Ray3, Ray3.14</h3>
+      <ul class="bullet-list">
+        <li>Status: Luma has iterated quickly from Ray2 through camera concepts to Ray3 and Ray3.14, making Dream Machine a fast-moving surface.</li>
+        <li>Strength: Draft mode, modify workflows, character reference, HDR, and speed and cost improvements support rapid experimentation.</li>
+        <li>Best fit: Short social clips, B-roll, fast concept iteration, side-by-side direction testing, and video-to-video refinement.</li>
+        <li>Watch-outs: The pace of change is high, so the practical best choice can move quickly. Resolution, credits, and editing handoff matter as much as model branding.</li>
+      </ul>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">How To Read The Market</p>
+    <p>These five products are not trying to win in the same way. The clearest difference is which stage of production each one is designed to compress.</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why It Improved</p>
+  <h2>The recent step forward is not only about prettier output. It is also about fewer failures and easier correction</h2>
+  <p>
+    You do not need the mathematical details to understand the shift. For non-technical readers, the key question is simpler:
+    why do current tools look more usable than earlier video generators did?
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Diffusion works well for rough-to-refined generation</h3>
+      <p>
+        The dominant approach no longer tries to paint the whole video perfectly in one jump. It starts from noise and progressively refines the result.
+        That makes iteration easier because the system can shape broad structure first and then move toward detail and motion.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Temporal consistency has become a primary design goal</h3>
+      <p>
+        Older systems could sometimes make attractive single frames but failed as clips continued. Characters drifted, scenes bent, and motion coherence broke.
+        Papers such as Lumiere, Stable Video Diffusion, and HunyuanVideo point to the same shift now visible in product lines: stronger treatment of time, not just appearance.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Reference images, keyframes, and camera controls added handles</h3>
+      <p>
+        Real work rarely wants unconstrained imagination alone. Teams need to preserve a product image, a character look, a first and last frame, or a camera move.
+        Runway References, Luma camera concepts, and Google's Ingredients to Video all add these practical handles.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Audio integration and world-model thinking widened the unit of generation</h3>
+      <p>
+        Sora 2 and Veo 3 are now discussed in terms of sound and dialogue, not silent visuals alone.
+        And when OpenAI and Runway use language like world models, they are pointing toward systems that represent motion, interaction, and physical behavior rather than stitching together isolated images.
+      </p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">Technical Reading</p>
+    <p>The practical advance is less about generating one miraculous clip and more about generating clips that can be constrained, revised, and reused without collapsing as quickly.</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>The most realistic uses today are not full replacement of production, but acceleration of pre-production and short-form work</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Storyboards and previs</h3>
+      <p>
+        When a team needs to align on framing, movement, and tone in a meeting, Flow and Runway are especially useful.
+        The value is not final delivery. It is faster alignment on what the team is trying to make.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Ads and short social clips</h3>
+      <p>
+        A few seconds of high-impact motion often matters more than long-form coherence.
+        Products like Luma and Sora fit well here, but only if teams also watch cost per iteration and the speed of revision.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Product explainers and B-roll</h3>
+      <p>
+        Filling gaps in an edit, creating style variants, or generating supporting motion around existing footage can be more realistic than full greenfield generation.
+        That is where Adobe and Luma can fit naturally into real workflows.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Localization draft assets</h3>
+      <p>
+        Many teams do not need one perfect video. They need multiple first drafts for different regions, channels, or product messages.
+        Video generation AI is increasingly strong at producing those initial alternatives quickly.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Questions</p>
+  <h2>Before adoption, the key questions are rights, provenance, cost, failure boundaries, and editability more than pure visual quality</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Rights and commercial use</h3>
+      <p>
+        Adobe's emphasis on commercial safety highlights the first operational barrier.
+        The more public the output, the more teams need confidence in rights posture and explainability, not only aesthetics.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Consent and provenance</h3>
+      <p>
+        Sora 2 Characters and Adobe's Content Credentials both point to the same future norm:
+        likeness handling and provenance marking are becoming core product requirements rather than optional extras.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Cost and waiting time</h3>
+      <p>
+        Video generation remains much heavier than image generation, and costs can rise quickly with duration and resolution.
+        In practice, teams often care more about how many useful attempts they can afford than about top-line quality claims.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Long-form breakage</h3>
+      <p>
+        The most stable use today remains short shots. As clips get longer, identity, background logic, narrative continuity, and audio coherence are harder to preserve.
+        This is why most deployments begin as shot-level assistance rather than feature-length replacement.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Ease of editing and handoff</h3>
+      <p>
+        Most of the work starts after generation: trimming, replacing, reviewing, approving, and reusing.
+        That is why editor integration and reference control often matter more than headline demo quality.
+      </p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>Decide first which stage of the workflow you want to shorten, not which model seems most impressive in the abstract.</li>
+    <li>If commercial use matters, design rights review, provenance handling, and approval steps before scaling output volume.</li>
+    <li>Starting with short shots, B-roll, and concept stages is usually safer than aiming immediately at long-form replacement.</li>
+    <li>Evaluate products through their editing and workflow connections, not only through model branding.</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Takeaway</p>
+  <h2>Video generation AI is becoming more practical as a tool for reducing friction inside production workflows, not as a full replacement for the entire production stack</h2>
+  <p>
+    Across the five major product lines, the key question is no longer who wins outright.
+    The better question is whether a team cares most about ideation, storyboards, short-form output, B-roll, commercial safety, or revision speed.
+  </p>
+  <p>
+    Based on what can be verified today, video generation AI works best when introduced as a way to reduce time and rework at specific stages of production.
+    In that sense, the real recent progress is not only that the videos look better, but that the tools are increasingly easier to place inside actual creative workflows.
+  </p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://openai.com/sora/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Sora 2</p>
+              <p class="source-url">https://openai.com/sora/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/launching-sora-responsibly/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">September 30, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: Launching Sora responsibly</p>
+              <p class="source-url">https://openai.com/index/launching-sora-responsibly/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/research/video-generation-models-as-world-simulators/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Video generation models as world simulators</p>
+              <p class="source-url">https://openai.com/research/video-generation-models-as-world-simulators/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/12461230-sora-app-supported-countries" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Sora app and Sora 2 - Supported Countries</p>
+              <p class="source-url">https://help.openai.com/en/articles/12461230-sora-app-supported-countries</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/20001071-sora-1-sunset-faq" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Sora 1 Sunset - FAQ</p>
+              <p class="source-url">https://help.openai.com/en/articles/20001071-sora-1-sunset-faq</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cdn.openai.com/pdf/50d5973c-c4ff-4c2d-986f-c72b5d0ff069/sora_2_system_card.pdf" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Sora 2 System Card</p>
+              <p class="source-url">https://cdn.openai.com/pdf/50d5973c-c4ff-4c2d-986f-c72b5d0ff069/sora_2_system_card.pdf</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://deepmind.google/models/veo/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google DeepMind: Veo</p>
+              <p class="source-url">https://deepmind.google/models/veo/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://storage.googleapis.com/deepmind-media/veo/Veo-3-Tech-Report.pdf" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google DeepMind: Veo 3 Tech Report</p>
+              <p class="source-url">https://storage.googleapis.com/deepmind-media/veo/Veo-3-Tech-Report.pdf</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.google/innovation-and-ai/products/google-flow-veo-ai-filmmaking-tool/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">May 20, 2025</span>
+              </div>
+              <p class="source-title">Google: Introducing Flow, Google&#39;s AI filmmaking tool designed for Veo</p>
+              <p class="source-url">https://blog.google/innovation-and-ai/products/google-flow-veo-ai-filmmaking-tool/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://support.google.com/googleone/answer/16286513?hl=en" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google One Help: Get Google AI Ultra benefits</p>
+              <p class="source-url">https://support.google.com/googleone/answer/16286513?hl=en</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.google/innovation-and-ai/technology/ai/veo-3-1-ingredients-to-video/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google: Veo 3.1 Ingredients to Video</p>
+              <p class="source-url">https://blog.google/innovation-and-ai/technology/ai/veo-3-1-ingredients-to-video/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://news.adobe.com/news/2025/02/firefly-web-app-commercially-safe" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">February 12, 2025</span>
+              </div>
+              <p class="source-title">Adobe: Adobe Expands Generative AI Offerings Delivering New Firefly App with Industry&#39;s First Commercially Safe Video Model</p>
+              <p class="source-url">https://news.adobe.com/news/2025/02/firefly-web-app-commercially-safe</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.adobe.com/en/publish/2025/04/24/new-max-london-more-powerful-creative-cloud-new-firefly-ai-tools-more-support-creative-careers" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">April 24, 2025</span>
+              </div>
+              <p class="source-title">Adobe Blog: New at MAX London</p>
+              <p class="source-url">https://blog.adobe.com/en/publish/2025/04/24/new-max-london-more-powerful-creative-cloud-new-firefly-ai-tools-more-support-creative-careers</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://news.adobe.com/news/2025/06/adobe-firefly-revolutionizes-creative-ideation-new-mobile-app" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">June 17, 2025</span>
+              </div>
+              <p class="source-title">Adobe: Adobe Firefly Revolutionizes Creative Ideation with New Mobile App, Multimedia Moodboarding and Expanded AI Models</p>
+              <p class="source-url">https://news.adobe.com/news/2025/06/adobe-firefly-revolutionizes-creative-ideation-new-mobile-app</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.adobe.com/products/firefly/features/ai-video-generator.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly: AI Video Generator</p>
+              <p class="source-url">https://www.adobe.com/products/firefly/features/ai-video-generator.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://runwayml.com/research/introducing-runway-gen-4" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 31, 2025</span>
+              </div>
+              <p class="source-title">Runway Research: Introducing Runway Gen-4</p>
+              <p class="source-url">https://runwayml.com/research/introducing-runway-gen-4</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://runwayml.com/research/introducing-general-world-models" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">December 11, 2023</span>
+              </div>
+              <p class="source-title">Runway Research: Introducing General World Models</p>
+              <p class="source-url">https://runwayml.com/research/introducing-general-world-models</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://academy.runwayml.com/courses/gen-4" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Runway Academy: Gen-4</p>
+              <p class="source-url">https://academy.runwayml.com/courses/gen-4</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://academy.runwayml.com/courses/gen-45" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Runway Academy: Gen-45</p>
+              <p class="source-url">https://academy.runwayml.com/courses/gen-45</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://academy.runwayml.com/tutorial/gen-4-references" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Runway Academy: Gen-4 References</p>
+              <p class="source-url">https://academy.runwayml.com/tutorial/gen-4-references</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://lumalabs.ai/changelog/introducing-ray2" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Luma: Ray2 Release - Next-Generation AI Video Model</p>
+              <p class="source-url">https://lumalabs.ai/changelog/introducing-ray2</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://lumalabs.ai/news/camera-motion-concepts" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 31, 2025</span>
+              </div>
+              <p class="source-title">Luma: Introducing Camera Motion Concepts</p>
+              <p class="source-url">https://lumalabs.ai/news/camera-motion-concepts</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://lumalabs.ai/news/camera-angle-concepts" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">April 18, 2025</span>
+              </div>
+              <p class="source-title">Luma: Introducing Camera Angle Concepts</p>
+              <p class="source-url">https://lumalabs.ai/news/camera-angle-concepts</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://lumalabs.ai/news/ray3" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">September 18, 2025</span>
+              </div>
+              <p class="source-title">Luma: Luma AI launches Ray3</p>
+              <p class="source-url">https://lumalabs.ai/news/ray3</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://lumalabs.ai/news/ray3_14" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">January 26, 2026</span>
+              </div>
+              <p class="source-title">Luma: Ray3.14 is here</p>
+              <p class="source-url">https://lumalabs.ai/news/ray3_14</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2401.12945" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">January 23, 2024</span>
+              </div>
+              <p class="source-title">Lumiere: A Space-Time Diffusion Model for Video Generation</p>
+              <p class="source-url">https://arxiv.org/abs/2401.12945</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2312.14125" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">VideoPoet: A Large Language Model for Zero-Shot Video Generation</p>
+              <p class="source-url">https://arxiv.org/abs/2312.14125</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2410.13720" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">Movie Gen: A Cast of Media Foundation Models</p>
+              <p class="source-url">https://arxiv.org/abs/2410.13720</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.03998" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">HunyuanVideo: A Systematic Framework For Large Video Generation Models</p>
+              <p class="source-url">https://arxiv.org/abs/2412.03998</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2311.15127" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">Stable Video Diffusion: Scaling Latent Video Diffusion Models to Large Datasets</p>
+              <p class="source-url">https://arxiv.org/abs/2311.15127</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+      </footer>
+    </div>
+  </body>
+</html>
