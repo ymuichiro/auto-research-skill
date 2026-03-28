@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた | Auto Research Digest</title>
+    <meta name="description" content="2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが概念論ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた | Auto Research Digest">
+    <meta property="og:description" content="2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが概念論ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。">
+    <meta property="og:url" content="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた | Auto Research Digest">
+    <meta name="twitter:description" content="2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが概念論ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた">
+    <link rel="canonical" href="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html">
+    <link rel="alternate" type="application/atom+xml" href="https://research.notelligent.app/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <meta property="article:published_time" content="2026-03-28T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-03-28T18:26:56+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="MCP">
+    <meta property="article:tag" content="A2A">
+    <meta property="article:tag" content="AG-UI">
+    <meta property="article:tag" content="Interoperability">
+    <meta property="article:tag" content="Protocol">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた","description":"2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが概念論ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。","datePublished":"2026-03-28T00:00:00+09:00","dateModified":"2026-03-28T18:26:56+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, MCP, A2A, AG-UI, Interoperability, Protocol","mainEntityOfPage":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://research.notelligent.app/archive/"},{"@type":"ListItem","position":3,"name":"MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた","item":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html"}],"inLanguage":"ja"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/archive/">アーカイブ</a><a class="nav-link " href="/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/en/2026-03-28-open-agent-protocol-stack.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた</h1>
+          <p class="hero-copy">2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが概念論ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-28">2026年3月28日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span><span class="meta-chip">AG-UI</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Protocol</span></div>
+    </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>MCP、A2A、AG-UI が AI エージェントの接続層を三層に分け始めた</h2>
+  <p>
+    2026年3月末までに公開された MCP、A2A、AG-UI の仕様と、OpenAI、Anthropic、Google、Microsoft、AWS の docs と announcement を並べると、
+    AI エージェントの接続面は 1 つの巨大な製品面ではなく、別々の責務へ分かれ始めていることが見えてくる。
+    MCP はツールとデータ接続、A2A はエージェント間委任、AG-UI は人間向けの進捗表示、割り込み、承認導線を主に担う。
+    今週の変化は、これが抽象的な構想ではなく、ランタイム、フレームワーク、アプリ、企業向け docs の実装面として見え始めた点にある。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">3層</p>
+      <p class="stat-title">接続責務の分離</p>
+      <p class="stat-note">ツール接続、エージェント間委任、人間向け操作面が別の protocol に分かれ始めている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5系統</p>
+      <p class="stat-title">主要な実装面</p>
+      <p class="stat-note">OpenAI、Anthropic、Google、Microsoft、AWS がそれぞれ別の層で公開面を出している。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">27件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">仕様、公式 docs、公式 announcement だけで層の分離と成熟度の差まで比較できる。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1含意</p>
+      <p class="stat-title">全部を一製品に閉じ込めなくてよい</p>
+      <p class="stat-note">アクセス、委任、監督を別々に設計し直せることが、実務上の最大の変化である。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">なぜ今週か</p>
+  <h2>2026年3月末の公開情報で、「1つのフレームワークが全部を持つ」構図が崩れ始めた</h2>
+  <p>
+    これまでのエージェント用ツール群は、ツール接続、下位エージェント連携、利用者向け画面を同じ製品の中に抱え込むことが多かった。
+    しかし 2026年3月の公開情報では、少なくとも3つの責務が分離して見え始める。MCP 側では認証方式を含むツール接続が protocol 化され、
+    A2A 側では agent card、task、非同期処理、進捗更新が明示され、AG-UI 側では event stream、state 同期、人の確認を前提にした操作がフロントエンド契約として出てきた。
+    さらに AWS は AgentCore Runtime に stateful MCP と AG-UI を追加し、Google は MCP と A2A を docs で整理し、Microsoft は Agent Framework で
+    A2A と AG-UI 連携を公開し、OpenAI と Anthropic は MCP を製品面側に持ち込んでいる。つまり今週の主論点は、「protocol の名前が増えた」ことではなく、
+    役割分担が各社の実装面で確認できるようになったことだ。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>MCP はツール接続と認証条件の事前把握を担う</h3>
+      <p>どのサーバーに何のツールや resource があり、どの認証方式が必要かを、個別連携ではなく protocol で扱う方向である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>A2A は専門 agent への委任を担う</h3>
+      <p>Agent card、task、message、非同期完了の扱いが明文化されることで、orchestrator と専門 agent の分業を製品外へ開きやすくなる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AG-UI は状態表示と承認導線を担う</h3>
+      <p>長時間動く agent に必要な progress、artifact、interrupt、approval を、単なる chat log ではなく UI 契約として持てるようになる。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">三層で読む</p>
+  <h2>各 protocol は別々の欠落を埋めている</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. MCP: ツール接続とデータ接続の層</h3>
+      <ul class="bullet-list">
+        <li>何を標準化するか: ツール、resource、prompt、認証条件、通信方式</li>
+        <li>向いている場面: 社内文書、SaaS、data warehouse、社内 API への接続</li>
+        <li>実務上の利点: 接続先を差し替えても、エージェント側のツール呼び出し設計を大きく崩さずに済む</li>
+        <li>まだ弱い点: 実装ごとの差が大きく、stateful 対応や認証の扱いはプラットフォームごとに成熟度が違う</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. A2A: orchestrator と専門 agent の層</h3>
+      <ul class="bullet-list">
+        <li>何を標準化するか: agent 発見、skill 宣言、task 受け渡し、進捗と完了通知</li>
+        <li>向いている場面: 調査 agent から法務、購買、support、finance 向け専門 agent へ仕事を振る構成</li>
+        <li>実務上の利点: 1つのエージェントが全機能を抱えず、責務ごとに分解しやすい</li>
+        <li>まだ弱い点: 実運用では skill 記述、認証、評価、追跡連携を別途そろえる必要がある</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. AG-UI: agent-to-user の層</h3>
+      <ul class="bullet-list">
+        <li>何を標準化するか: event stream、state 同期、artifact 表示、利用者割り込み、承認</li>
+        <li>向いている場面: 長時間処理、レビュー付き自動化、成果物編集、approval-heavy な業務</li>
+        <li>実務上の利点: chat だけでは見えない状態を UI 側で受け取り、利用者の監督を入れやすい</li>
+        <li>まだ弱い点: MCP より新しく、実装層の厚みはまだ薄い</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>まとめると</h3>
+      <p>重要なのは、3つの protocol が競合しているわけではない点である。MCP だけでは専門 agent への委任を表しにくく、A2A だけでは人間向けの監督 UI を表しにくい。AG-UI だけでは安全なツール接続を表せない。</p>
+      <p>つまり、接続、委任、監督は別々に設計した方が、企業導入ではむしろ扱いやすくなる。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">各社の収束</p>
+  <h2>ベンダーごとに強い層は違うが、公開面の分け方は似てきた</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI と Anthropic は MCP を製品面側へ持ち込む</h3>
+      <p>OpenAI の apps と developer mode、Anthropic の MCP connector と Claude Code は、ツール接続をフレームワーク内部の話ではなく利用者や開発者が扱う画面に押し出している。</p>
+      <p>この層では、接続先 discovery と権限制御が app 体験の一部になり始めている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google は MCP と A2A を同時に docs 化している</h3>
+      <p>Google Cloud は企業向け MCP サーバー認証を整理し、Google ADK は MCP ツールと A2A を並べて扱っている。</p>
+      <p>読み取れるのは、社内 system 接続と専門 agent 連携を同じ開発面で分けて考える方向である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft は Agent Framework で A2A と AG-UI を前面に出す</h3>
+      <p>Microsoft は Agent Framework overview に加え、A2A と AG-UI integration を個別の docs として出している。</p>
+      <p>これは multi-agent と人の確認を、単なる sample ではなくフレームワークの接続面として扱う姿勢と読める。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS はランタイム側で protocol を受け止める</h3>
+      <p>AWS は AgentCore Runtime に stateful MCP と AG-UI support を追加し、任意のエージェント用フレームワークを受け止める立場を明確にした。</p>
+      <p>ここでは protocol は app の表現だけでなく、長時間実行 agent の配備契約としても使われ始めている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>何が変わったか</h3>
+      <p>各社が 1つの protocol を全面採用したわけではない。しかし、接続面を「ツール接続」「agent 間委任」「人間向け操作」の別々の面として出し始めた点では方向がそろっている。</p>
+      <p>この収束は、製品間の比較軸を model quality だけでなく「どの層をどこまで開いているか」に広げる。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">具体シナリオ</p>
+  <h2>三層がそろうと、approval を伴う長時間業務が現実的になる</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">社内調査 agent が専門 agent を呼び分ける</h3>
+        <p>
+          起点となる agent は MCP で文書、data、社内 API に接続し、法務や購買の専門 agent には A2A で task を委任する。
+          利用者は AG-UI で進捗、根拠、未完了タスクを見ながら、外部送信や high-risk な操作だけ承認する。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">support と請求確認をまたぐ問い合わせ対応</h3>
+        <p>
+          受付 agent は利用者の依頼を整理し、billing specialist や policy specialist に A2A で依頼を振る。
+          それぞれの agent は必要な system だけ MCP で参照し、返答前の確認や返金承認は AG-UI で人間が止められる。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">コードや運用の変更を伴う作業</h3>
+        <p>
+          実行 agent が build、log、ticket、repo に MCP で触れ、分析 agent や検証 agent に A2A で作業を分ける一方、
+          write、deploy、権限変更の前では AG-UI で差分、理由、影響範囲を見せて承認を取る構成が自然になる。
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">まだ早い点</p>
+  <h2>protocol がそろっても、そのまま相互運用が完成するわけではない</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>認証と policy は protocol の外でも設計が必要</h3>
+      <p>MCP に認証 metadata があり、A2A に security の記述があっても、最小権限、失効、監査、承認基準は企業ごとに設計する必要がある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>追跡と評価の横断はまだ難しい</h3>
+      <p>ツール呼び出し、agent 間 handoff、利用者承認が別層に分かれるほど、評価と監査には correlation ID と共通の追跡設計が必要になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AG-UI は MCP より若い</h3>
+      <p>AG-UI は人間向けの操作面として有望だが、実装の厚みと利用基盤はまだ薄い。短期的にはベンダー独自 UI と混在する前提で見る方が現実的である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>1つの protocol で全部を済ませようとしない方がよい</h3>
+      <p>今見えているのは、勝者 1 本を決める競争より、層ごとに責務を分ける方向である。導入時は「どの protocol が何を解くのか」を先に切り分ける方が失敗しにくい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>AI エージェントの比較軸は、モデル性能だけでなく接続層の開き方へ広がる</h2>
+  <p>
+    今週の公開情報から読み取れるのは、agent が finally interoperable になったという結論ではない。むしろ、接続、委任、監督を別々の層として扱う設計が
+    現実味を帯びてきたという点である。企業導入の論点としては、「どの model を使うか」と同じくらい、「どの層を protocol で開き、どの層を自社 policy で閉じるか」を
+    先に決めることが重要になりつつある。
+  </p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://modelcontextprotocol.io/docs/getting-started/intro" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Model Context Protocol: Introduction</p>
+              <p class="source-url">https://modelcontextprotocol.io/docs/getting-started/intro</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-06-18/basic" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Model Context Protocol: Base specification</p>
+              <p class="source-url">https://modelcontextprotocol.io/specification/2025-06-18/basic</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Model Context Protocol: Authorization</p>
+              <p class="source-url">https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://modelcontextprotocol.io/extensions/auth/oauth-client-credentials" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Model Context Protocol: OAuth Client Credentials</p>
+              <p class="source-url">https://modelcontextprotocol.io/extensions/auth/oauth-client-credentials</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://a2a-protocol.org/latest/specification/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">A2A Protocol: Specification</p>
+              <p class="source-url">https://a2a-protocol.org/latest/specification/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.ag-ui.com/introduction" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AG-UI: Introduction</p>
+              <p class="source-url">https://docs.ag-ui.com/introduction</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.ag-ui.com/concepts/architecture" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AG-UI: Architecture</p>
+              <p class="source-url">https://docs.ag-ui.com/concepts/architecture</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.ag-ui.com/concepts/events" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AG-UI: Events</p>
+              <p class="source-url">https://docs.ag-ui.com/concepts/events</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.ag-ui.com/concepts/state" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AG-UI: State</p>
+              <p class="source-url">https://docs.ag-ui.com/concepts/state</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-apps-in-chatgpt/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Introducing apps in ChatGPT and the new Apps SDK</p>
+              <p class="source-url">https://openai.com/index/introducing-apps-in-chatgpt/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.openai.com/api/docs/guides/developer-mode" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: Developer mode</p>
+              <p class="source-url">https://developers.openai.com/api/docs/guides/developer-mode</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: MCP connector</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/mcp" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Claude Code MCP</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/mcp</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/mcp/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud docs: Google Cloud MCP overview</p>
+              <p class="source-url">https://docs.cloud.google.com/mcp/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/mcp/authenticate-mcp" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud docs: Authenticate to Google and Google Cloud MCP servers</p>
+              <p class="source-url">https://docs.cloud.google.com/mcp/authenticate-mcp</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://google.github.io/adk-docs/get-started/about/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Technical overview</p>
+              <p class="source-url">https://google.github.io/adk-docs/get-started/about/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://google.github.io/adk-docs/a2a/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: A2A support</p>
+              <p class="source-url">https://google.github.io/adk-docs/a2a/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://google.github.io/adk-docs/tools-custom/mcp-tools/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: MCP tools</p>
+              <p class="source-url">https://google.github.io/adk-docs/tools-custom/mcp-tools/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/overview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Agent Framework: Overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/overview/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/integrations/a2a" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Agent Framework: A2A integration</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/integrations/a2a</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Agent Framework: AG-UI integration</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/integrations/ag-ui/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/windows/ai/mcp/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Windows AI Foundry: Model Context Protocol overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/windows/ai/mcp/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-stateful-mcp/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS What&#39;s New: Amazon Bedrock AgentCore Runtime now supports stateful MCP</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-stateful-mcp/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS What&#39;s New: Amazon Bedrock AgentCore Runtime now supports AG-UI protocol</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS docs: Amazon Bedrock AgentCore overview</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-agui.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS docs: Deploy AG-UI servers in AgentCore Runtime</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/runtime-agui.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/mcp-getting-started.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS docs: Amazon Bedrock AgentCore MCP Server</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/mcp-getting-started.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">AI とエージェントの重要シグナルを、一次情報から読み解く。</p>
+      </footer>
+    </div>
+  </body>
+</html>
