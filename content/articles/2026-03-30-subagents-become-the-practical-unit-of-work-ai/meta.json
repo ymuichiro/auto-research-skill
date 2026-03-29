@@ -1,0 +1,156 @@
+{
+  "slug": "subagents-become-the-practical-unit-of-work-ai",
+  "date": "2026-03-30",
+  "titleJa": "subagents は、実務向けAIの現実的な実装単位になり始めた",
+  "titleEn": "Subagents are becoming the practical implementation unit for real-world AI work",
+  "summaryJa": "2026年3月17日に OpenAI が GPT-5.4 mini と nano を subagents 向けとして打ち出したことを起点に、OpenAI Codex、Anthropic Claude Code、Google ADK、Microsoft Agent Framework、Amazon Bedrock の一次情報を重ねると、実務向けAIは 1 つの巨大なエージェントへ機能を積み上げる構図から、役割を絞った下位エージェントを束ねる構図へ寄り始めていることが見えてくる。重要なのはエージェントの数そのものではなく、どの判断を強いモデルに残し、どの作業を安価で速い専門ユニットへ分け、どこで状態管理と承認を入れるかが公開資料の水準で具体化してきた点である。",
+  "summaryEn": "Starting with OpenAI's March 17, 2026 positioning of GPT-5.4 mini and nano for subagents, and reading that next to public material from OpenAI Codex, Anthropic Claude Code, Google ADK, Microsoft Agent Framework, and Amazon Bedrock, a more precise pattern appears: practical AI work is moving away from one giant agent that owns everything and toward teams of narrower specialist agents. The important shift is not the raw number of agents. It is that public docs now make a concrete architecture visible: which judgment stays with the strongest model, which tasks move to cheaper and faster specialist units, and where state management plus approval boundaries need to sit.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Subagents",
+    "Multi-Agent",
+    "Workflow",
+    "Orchestration",
+    "LLM"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI: Introducing GPT-5.4 mini and nano",
+      "url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
+      "type": "official",
+      "publishedAt": "2026-03-17"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5.4",
+      "url": "https://openai.com/index/introducing-gpt-5-4/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API docs: GPT-5.4 mini",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API docs: GPT-5.4 nano",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.4-nano",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Codex docs: Subagents",
+      "url": "https://developers.openai.com/codex/concepts/subagents",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing Codex",
+      "url": "https://openai.com/index/introducing-codex/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Codex",
+      "url": "https://openai.com/codex/",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Claude Code overview",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Sub agents",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/sub-agents",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Claude Code common workflows",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/common-workflows",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/engineering/how-we-built-our-multi-agent-research-system",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Multi-agent systems",
+      "url": "https://google.github.io/adk-docs/agents/multi-agents/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Workflow agents",
+      "url": "https://google.github.io/adk-docs/agents/workflow-agents/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Sessions",
+      "url": "https://google.github.io/adk-docs/sessions/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Memory",
+      "url": "https://google.github.io/adk-docs/sessions/memory/",
+      "type": "official"
+    },
+    {
+      "label": "Gemini API docs: Available models",
+      "url": "https://ai.google.dev/gemini-api/docs/models",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Agent Framework: Overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Agent Framework Workflows: Using workflows as agents",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/as-agents",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Agent Framework Workflows: Request and response",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/request-and-response",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Bedrock: Use multi-agent collaboration with Amazon Bedrock Agents",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Bedrock: Set up multi-agent collaboration",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/create-multi-agent-collaboration.html",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Bedrock AgentCore: What is AgentCore?",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+      "type": "official"
+    },
+    {
+      "label": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+      "url": "https://arxiv.org/abs/2308.08155",
+      "type": "paper"
+    },
+    {
+      "label": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+      "url": "https://arxiv.org/abs/2308.00352",
+      "type": "paper"
+    },
+    {
+      "label": "CAMEL: Communicative Agents for Mind Exploration of Large Scale Language Model Society",
+      "url": "https://arxiv.org/abs/2303.17760",
+      "type": "paper"
+    },
+    {
+      "label": "Mixture-of-Agents Enhances Large Language Model Capabilities",
+      "url": "https://arxiv.org/abs/2406.04692",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}
