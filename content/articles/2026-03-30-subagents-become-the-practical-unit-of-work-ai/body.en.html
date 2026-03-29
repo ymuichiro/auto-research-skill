@@ -1,0 +1,191 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Subagents are becoming the practical implementation unit for real-world AI work</h2>
+  <p>
+    OpenAI's March 17, 2026 launch of GPT-5.4 mini and GPT-5.4 nano for subagent use, read next to public material from OpenAI Codex, Anthropic Claude Code,
+    Google ADK, Microsoft Agent Framework, and Amazon Bedrock, makes a more specific architecture visible. Instead of packing planning, research, verification, execution,
+    and approval handling into one giant agent, vendors are increasingly exposing narrower specialist agents as the more practical unit of work. That makes speed, cost,
+    state management, and approval boundaries easier to design. The important change this week is that this is no longer just a framework pattern. It is now visible in model positioning,
+    product surfaces, and workflow documentation.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">5 vendors</p>
+      <p class="stat-title">Converging direction</p>
+      <p class="stat-note">OpenAI, Anthropic, Google, Microsoft, and AWS all expose specialist subagent structure in docs or product surfaces.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">27</p>
+      <p class="stat-title">Published sources</p>
+      <p class="stat-note">Official docs, official announcements, and papers are enough to compare both the benefits and the limits of this pattern.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">3 gains</p>
+      <p class="stat-title">Why teams are doing this</p>
+      <p class="stat-note">Clearer division of labor, cheaper execution, and cleaner separation of state plus approvals.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 warning</p>
+      <p class="stat-title">More agents is not the goal</p>
+      <p class="stat-note">Simple tasks often run better through one agent. The real design question is where to split responsibility.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why This Week</p>
+  <h2>Late March 2026 made subagent design explicit at both the model and workflow layers</h2>
+  <p>
+    Multi-agent research and framework patterns existed earlier, but they often looked like internal implementation detail or experimental design. The public posture changed in late March 2026.
+    OpenAI explicitly framed GPT-5.4 mini and GPT-5.4 nano for subagents, and Codex documents subagents as a dedicated concept. Anthropic documents sub-agents and parallel coding workflows in Claude Code.
+    Google ADK defines workflow agents as components that orchestrate sub-agents through sequential, loop, and parallel control. Microsoft shows how a workflow can be wrapped as an agent with sessions and streaming.
+    AWS documents supervisor and collaborator roles for Amazon Bedrock multi-agent collaboration. The story this week is therefore not merely that multi-agent systems exist. It is that subagents are starting to look like
+    a standard public design unit for real work.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI made smaller models part of the subagent story</h3>
+      <p>The public framing now says that not every task should be handled by the most expensive model. Faster and cheaper models can be assigned to bounded specialist work.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google separates orchestration from LLM improvisation</h3>
+      <p>ADK workflow agents define deterministic control over sub-agents instead of leaving execution order entirely to one reasoning loop.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft and AWS move long work into workflow state</h3>
+      <p>Sessions, request-response handling, supervisor roles, and collaborator roles all point toward architectures that assume pausing, resuming, and handing work across components.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Shift</p>
+  <h2>The pattern is moving from one giant agent toward a coordinator plus specialist units</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Stronger models stay close to planning and final judgment</h3>
+      <ul class="bullet-list">
+        <li>Planning, synthesis, ambiguous judgment, and final review remain good fits for the strongest model tier</li>
+        <li>Teams no longer need to spend the most expensive reasoning on every intermediate step</li>
+        <li>This concentrates high-cost inference where it produces the most leverage</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Subagents handle narrow repetitive work</h3>
+      <ul class="bullet-list">
+        <li>Retrieval, summarization, verification, classification, transformation, testing, and diff review are easier to isolate</li>
+        <li>Narrower tools and narrower context reduce blast radius when a step fails</li>
+        <li>Teams can mix smaller models with deterministic workflow control where appropriate</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. State moves out of the prompt</h3>
+      <ul class="bullet-list">
+        <li>Google ADK sessions and memory, Microsoft workflow sessions, and AWS supervisor structures all point toward runtime-managed state</li>
+        <li>Long jobs need intermediate results, pending responses, and resume points outside one chat transcript</li>
+        <li>This is difficult to manage cleanly if everything lives inside one large prompt loop</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Approval boundaries can be placed at task boundaries</h3>
+      <p>Once work is split into subagents, teams can decide which steps stay fully automated and which steps require human confirmation. Request-response patterns and workflow-as-agent designs make those approval boundaries easier to express as product contracts.</p>
+      <p>In practice, it is often easier to constrain a specialized agent up front than to retrofit controls onto one general-purpose agent that already touches everything.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Vendor Convergence</p>
+  <h2>Vendors agree on the broad direction, but differ on what they make rigid versus flexible</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI ties model tiers to subagent roles</h3>
+      <p>By pairing smaller GPT-5.4 variants with Codex subagents, OpenAI links model selection to orchestration design rather than treating them as separate decisions.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic emphasizes role specialization and delegated parallel work</h3>
+      <p>Claude Code sub-agents and Anthropic's engineering notes point toward multiple specialist Claudes running in parallel while a lead agent integrates the results.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google invests heavily in deterministic workflow control</h3>
+      <p>ADK separates multi-agent composition from workflow control and explicitly names sequential, loop, and parallel patterns. The signal is that execution flow should not depend entirely on one model's improvisation.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft turns workflows into reusable agents</h3>
+      <p>Wrapping a complex workflow as one agent preserves API compatibility while still allowing internal decomposition, sessions, and streaming updates for long-running work.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS fixes the hierarchy around supervisor and collaborators</h3>
+      <p>Amazon Bedrock's multi-agent collaboration assumes a supervisor that decomposes work and collaborator agents with clearer domain boundaries. Reducing role overlap is part of the documented operating guidance.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Subagent design is most useful when teams need long work to repeat with stable quality</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Split a research pipeline into planner, retriever, and fact checker</h3>
+        <p>
+          A coordinator agent sets the research plan, subagents gather primary sources, check evidence consistency, and review expression, and the strongest model returns only for final synthesis.
+          That avoids paying for one giant reasoning pass across every intermediate task.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Divide customer operations into intake, billing, and policy specialists</h3>
+        <p>
+          An intake agent structures the request, delegates billing and policy checks to specialists, and pauses only when a refund, exception, or external action requires human approval.
+          This can be both safer than full automation and faster than purely manual handling.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Engineering</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Split coding work into analysis, patching, verification, and approval</h3>
+        <p>
+          One agent proposes root causes, another prepares code changes, another runs validation, and the human reviewer keeps the final approval. Limiting write access to a smaller set of agents reduces both blast radius and audit scope.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Is Still Early</p>
+  <h2>Subagent architecture is powerful, but too much splitting can make systems worse</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Context handoff can leak information</h3>
+      <p>The more agents participate, the more clearly teams have to define what each one knows. Weak handoffs create duplicated work and inconsistent conclusions.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Evaluation and tracing get harder</h3>
+      <p>When failures happen, teams need to separate model choice, workflow control, tool execution, and handoff quality. That usually requires correlation IDs and event-level tracing.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Simple tasks may still fit one agent better</h3>
+      <p>Short summaries, one-off drafting, and lightweight requests can become slower and more brittle when they are split into multiple agents.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Responsibility boundaries matter more than agent count</h3>
+      <p>The good pattern is not "as many agents as possible." It is a set of specialist units with clear tools, inputs, termination conditions, and approval boundaries.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Takeaway</p>
+  <h2>The comparison axis for AI is widening from raw model quality to how work can be split</h2>
+  <p>
+    The public material this week does not justify claiming that multi-agent design is universally superior. It does support a narrower and more useful conclusion:
+    for practical AI work, it is becoming realistic to keep the strongest model focused on judgment and synthesis, move repetitive work to cheaper and faster subagents,
+    and manage state plus approvals at the workflow layer. That means enterprise teams increasingly need to ask not only which model is best, but also which tasks deserve their own implementation unit and where responsibility should stop.
+  </p>
+</section>
