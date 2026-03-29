@@ -1,0 +1,194 @@
+<section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>subagents（下位エージェント）は、実務向けAIの現実的な実装単位になり始めた</h2>
+  <p>
+    2026年3月17日に OpenAI が GPT-5.4 mini と GPT-5.4 nano を subagents 向けとして公開し、同時期の OpenAI Codex、Anthropic Claude Code、
+    Google ADK、Microsoft Agent Framework、Amazon Bedrock の公開資料を並べると、実務向けAIの構図が少し変わって見える。
+    1つの巨大なエージェントへ計画、調査、検証、実行、承認待ちまで全部を詰め込むより、役割を絞った下位エージェントを束ねた方が、
+    速度、コスト、状態管理、承認境界を現実的に設計しやすいという方向である。今週の変化は、これが単なるフレームワークの作法ではなく、
+    モデルの位置づけ、製品面、ワークフロー文書まで含めた公開設計として見え始めた点にある。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">5系統</p>
+      <p class="stat-title">主要ベンダーの収束</p>
+      <p class="stat-note">OpenAI、Anthropic、Google、Microsoft、AWS が、専門化した下位エージェントの扱いを公式文書と製品面で前面化している。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">27件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">公式文書、公式発表、論文だけで、下位エージェント設計の利点と制約を比較できる。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">3つ</p>
+      <p class="stat-title">主な効用</p>
+      <p class="stat-note">役割分担、安価な実行、状態と承認の分離が、公開情報の水準で具体化している。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1注意</p>
+      <p class="stat-title">エージェントを増やせばよいわけではない</p>
+      <p class="stat-note">単純な仕事は単一エージェントの方が速い。重要なのは責務の切り方である。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">なぜ今週か</p>
+  <h2>2026年3月後半に、下位エージェント設計がモデルとワークフローの両面で明示され始めた</h2>
+  <p>
+    これまでも multi-agent 研究やフレームワーク実装は存在したが、公開面では「高度な実験」か「内部実装」に近く見えることが多かった。
+    しかし 2026年3月後半の公開情報では、OpenAI が GPT-5.4 mini と GPT-5.4 nano を subagents 向けとして位置づけ、
+    Codex 文書でも subagents を専用概念として整理している。Anthropic は Claude Code で sub-agents と共通ワークフローを明文化し、
+    Google ADK は sub-agents を制御する workflow agents を sequential、loop、parallel に分けている。
+    Microsoft は workflow を agent として包み直し、セッションとストリーミングを持つ構成を公開し、AWS は supervisor と collaborator による
+    multi-agent collaboration を Bedrock 文書で前面に出している。つまり今週の主論点は、「multi-agent がある」ことではなく、
+    下位エージェントが公開資料上の標準的な設計単位へ近づいたことだ。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI は小型モデルを下位エージェントの実行単位として前面化した</h3>
+      <p>より強いモデルが全部を実行する前提ではなく、安価で速いモデルを限定タスクへ割り当てる構図が製品の打ち出し方に現れている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google はオーケストレーションを LLM から切り離している</h3>
+      <p>ADK の workflow agents は、sub-agents の実行順序や並列化を決定的に制御する層として定義されている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft と AWS は状態と外部応答をワークフロー側へ寄せる</h3>
+      <p>セッション、ストリーミング、request and response、supervisor / collaborator という形で、長い仕事を途中停止と再開込みで扱う方向が見える。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">設計の変化</p>
+  <h2>「1つの巨大なエージェント」から「調整役と専門ユニットの組み合わせ」へ</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. 強いモデルは調整、判断、最終責任に寄る</h3>
+      <ul class="bullet-list">
+        <li>計画立案、成果物の統合、曖昧な判断、最終レビューは強いモデル側へ残しやすい</li>
+        <li>大きな文脈を毎回すべての作業に投げ込まずに済む</li>
+        <li>高価な推論を、本当に必要な判断へ集中させやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 下位エージェントは限定タスクに切る</h3>
+      <ul class="bullet-list">
+        <li>検索、要約、検証、分類、変換、テスト、差分確認のような反復作業を分離しやすい</li>
+        <li>各エージェントが持つツールと文脈を狭くできるため、誤作動時の影響範囲を絞りやすい</li>
+        <li>速いモデルや決定的なワークフローを混ぜやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. 状態管理はプロンプトの外へ出る</h3>
+      <ul class="bullet-list">
+        <li>Google ADK の sessions / memory、Microsoft の workflow session、AWS の supervisor 構成は、途中状態を実行基盤で持つ方向を示す</li>
+        <li>長い仕事は、途中結果、保留中の応答、再開点をワークフローと状態管理の側に持った方が扱いやすい</li>
+        <li>これはチャット履歴だけでは吸収しにくい要求である</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 承認境界をタスク単位で置ける</h3>
+      <p>下位エージェントへ仕事を切ると、どこまで自動化し、どこで人間が止めるかを工程ごとに分けやすい。request and response や workflow-as-agent の考え方は、この承認境界を製品契約として扱いやすくする。</p>
+      <p>実務では「どのエージェントが何をしてよいか」を先に固定する方が、1つの万能エージェントを後から縛るより管理しやすい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">各社の見え方</p>
+  <h2>同じ multi-agent でも、何を固定し、何を柔らかく残すかは各社で違う</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI はモデル階層と subagents を結び付ける</h3>
+      <p>GPT-5.4 mini と nano を下位エージェント向けとして出し、Codex 側でも subagents を独立した作業単位として扱うことで、モデル選択とオーケストレーション設計を一体化している。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic は専門役割と並列委任を強調する</h3>
+      <p>Claude Code の sub-agents とエンジニアリング記事は、専門役割を割り当て、複数の Claude を並列に動かしながら、主エージェントが統合する構図を示している。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google は決定的なワークフロー制御を厚くする</h3>
+      <p>ADK は multi-agent と workflow agents を切り分け、sequential、loop、parallel という制御面を明示している。ここでは「どう流すか」を LLM の即興判断から切り離す方向が強い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft は workflow をエージェントとして再利用する</h3>
+      <p>複雑な workflow 全体をエージェントとして包み直せるため、下位の分解と上位の API 互換性を両立しやすい。セッションとストリーミングを持てる点も、実務向けの長い処理に向く。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS は supervisor / collaborator で役割分担を固定する</h3>
+      <p>Bedrock の multi-agent collaboration は、supervisor が分解し、collaborator が専門領域を担当する階層構造を前提にしている。役割の重複を減らすこと自体が公開文書上の注意点になっている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">具体シナリオ</p>
+  <h2>下位エージェント設計が効くのは、長い仕事を同じ品質で繰り返したい場面である</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">調査パイプラインを planner、retriever、fact checker に分ける</h3>
+        <p>
+          調整役のエージェントが論点を立て、下位エージェントが一次情報の収集、根拠の整合確認、表現チェックを担当する。
+          最終的な統合だけを強いモデルへ戻せば、毎回すべての資料を 1 回の巨大推論で処理しなくて済む。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">問い合わせ対応を intake、billing、policy に分ける</h3>
+        <p>
+          受付エージェントは依頼を構造化し、billing と policy の専門エージェントへ仕事を振る。返金、例外対応、外部送信の前だけ人間が止める構成にすると、
+          完全自動化より安全で、単純な手作業より速い運用が作りやすい。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Engineering</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">コード作業を分析、修正、検証、承認に分ける</h3>
+        <p>
+          解析エージェントが原因候補を出し、修正エージェントが差分を作り、検証エージェントがビルドやテストを確認し、最後の承認は人間が担う。
+          書き込み権限を持つエージェントを絞ることで、失敗時の影響範囲と監査対象を小さくできる。
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">まだ早い点</p>
+  <h2>下位エージェント設計は強いが、分割し過ぎると逆に不安定になる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>文脈の受け渡しで情報がこぼれる</h3>
+      <p>エージェントを分けるほど、誰が何を知っているかを明示しなければならない。引き継ぎが曖昧だと、同じ調査のやり直しや結論の不整合が増える。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>評価と tracing が難しくなる</h3>
+      <p>失敗が起きたとき、モデル選択、ワークフロー制御、ツール呼び出し、引き継ぎのどこが原因かを追うために、相関 ID とイベント追跡が必要になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>単純な仕事は単一エージェントの方がよい</h3>
+      <p>短い要約、単発の文章生成、軽い問い合わせのような仕事は、下位エージェントへ分ける方がむしろ遅く、複雑になることがある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>エージェント数ではなく責務の切り方が重要である</h3>
+      <p>良い構成は「とにかくたくさんのエージェント」ではない。役割、ツール、入力、終了条件、承認境界を明確にして、重複しない専門単位を作ることである。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>AI の比較軸は、どれだけ賢いかだけでなく、どの単位で仕事を分けられるかへ広がる</h2>
+  <p>
+    今週の公開情報から読み取れるのは、「multi-agent が万能である」という話ではない。むしろ、実務向けAIを安定して動かすには、
+    強いモデルを判断と統合へ残し、反復作業を安価で速い下位エージェントへ分け、状態管理と承認をワークフロー側へ出す設計が現実的になってきたという点である。
+    企業導入の論点としては、どのモデルが最も賢いかだけでなく、どの作業をどの単位へ分割し、どこで責任と承認を止めるかが、同じくらい重要になり始めている。
+  </p>
+</section>
