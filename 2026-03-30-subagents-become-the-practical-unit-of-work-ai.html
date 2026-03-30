@@ -1,0 +1,613 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>subagents は、実務向けAIの現実的な実装単位になり始めた | Auto Research Digest</title>
+    <meta name="description" content="2026年3月17日に OpenAI が GPT-5.4 mini と nano を subagents 向けとして打ち出したことを起点に、OpenAI Codex、Anthropic Claude Code、Google ADK、Microsoft Agent Framework、Amazon Bedrock の一次情報を重ねると、実務向けAIは 1 つの巨大なエージェントへ機能を積み上げる構図から、役割を絞った下位エージェントを束ねる構図へ寄り始めていることが見えてくる。重要なのはエージェントの数そのものではなく、どの判断を強いモデルに残し、どの作業を安価で速い専門ユニットへ分け、どこで状態管理と承認を入れるかが公開資料の水準で具体化してきた点である。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="subagents は、実務向けAIの現実的な実装単位になり始めた | Auto Research Digest">
+    <meta property="og:description" content="2026年3月17日に OpenAI が GPT-5.4 mini と nano を subagents 向けとして打ち出したことを起点に、OpenAI Codex、Anthropic Claude Code、Google ADK、Microsoft Agent Framework、Amazon Bedrock の一次情報を重ねると、実務向けAIは 1 つの巨大なエージェントへ機能を積み上げる構図から、役割を絞った下位エージェントを束ねる構図へ寄り始めていることが見えてくる。重要なのはエージェントの数そのものではなく、どの判断を強いモデルに残し、どの作業を安価で速い専門ユニットへ分け、どこで状態管理と承認を入れるかが公開資料の水準で具体化してきた点である。">
+    <meta property="og:url" content="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="subagents は、実務向けAIの現実的な実装単位になり始めた">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="subagents は、実務向けAIの現実的な実装単位になり始めた | Auto Research Digest">
+    <meta name="twitter:description" content="2026年3月17日に OpenAI が GPT-5.4 mini と nano を subagents 向けとして打ち出したことを起点に、OpenAI Codex、Anthropic Claude Code、Google ADK、Microsoft Agent Framework、Amazon Bedrock の一次情報を重ねると、実務向けAIは 1 つの巨大なエージェントへ機能を積み上げる構図から、役割を絞った下位エージェントを束ねる構図へ寄り始めていることが見えてくる。重要なのはエージェントの数そのものではなく、どの判断を強いモデルに残し、どの作業を安価で速い専門ユニットへ分け、どこで状態管理と承認を入れるかが公開資料の水準で具体化してきた点である。">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="subagents は、実務向けAIの現実的な実装単位になり始めた">
+    <link rel="canonical" href="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
+    <link rel="alternate" type="application/atom+xml" href="https://research.notelligent.app/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-03-30T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-03-30T07:06:25+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Subagents">
+    <meta property="article:tag" content="Multi-Agent">
+    <meta property="article:tag" content="Workflow">
+    <meta property="article:tag" content="Orchestration">
+    <meta property="article:tag" content="LLM">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"subagents は、実務向けAIの現実的な実装単位になり始めた","description":"2026年3月17日に OpenAI が GPT-5.4 mini と nano を subagents 向けとして打ち出したことを起点に、OpenAI Codex、Anthropic Claude Code、Google ADK、Microsoft Agent Framework、Amazon Bedrock の一次情報を重ねると、実務向けAIは 1 つの巨大なエージェントへ機能を積み上げる構図から、役割を絞った下位エージェントを束ねる構図へ寄り始めていることが見えてくる。重要なのはエージェントの数そのものではなく、どの判断を強いモデルに残し、どの作業を安価で速い専門ユニットへ分け、どこで状態管理と承認を入れるかが公開資料の水準で具体化してきた点である。","datePublished":"2026-03-30T00:00:00+09:00","dateModified":"2026-03-30T07:06:25+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Subagents, Multi-Agent, Workflow, Orchestration, LLM","mainEntityOfPage":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://research.notelligent.app/archive/"},{"@type":"ListItem","position":3,"name":"subagents は、実務向けAIの現実的な実装単位になり始めた","item":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"}],"inLanguage":"ja"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/archive/">アーカイブ</a><a class="nav-link " href="/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">subagents は、実務向けAIの現実的な実装単位になり始めた</h1>
+          <p class="hero-copy">2026年3月17日に OpenAI が GPT-5.4 mini と nano を subagents 向けとして打ち出したことを起点に、OpenAI Codex、Anthropic Claude Code、Google ADK、Microsoft Agent Framework、Amazon Bedrock の一次情報を重ねると、実務向けAIは 1 つの巨大なエージェントへ機能を積み上げる構図から、役割を絞った下位エージェントを束ねる構図へ寄り始めていることが見えてくる。重要なのはエージェントの数そのものではなく、どの判断を強いモデルに残し、どの作業を安価で速い専門ユニットへ分け、どこで状態管理と承認を入れるかが公開資料の水準で具体化してきた点である。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-30">2026年3月30日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
+    </section>
+    <section class="article-share" aria-label="記事を共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=subagents%20%E3%81%AF%E3%80%81%E5%AE%9F%E5%8B%99%E5%90%91%E3%81%91AI%E3%81%AE%E7%8F%BE%E5%AE%9F%E7%9A%84%E3%81%AA%E5%AE%9F%E8%A3%85%E5%8D%98%E4%BD%8D%E3%81%AB%E3%81%AA%E3%82%8A%E5%A7%8B%E3%82%81%E3%81%9F&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="共有メニューを開く"
+      data-native-share
+      data-share-title="subagents は、実務向けAIの現実的な実装単位になり始めた"
+      data-share-text="subagents は、実務向けAIの現実的な実装単位になり始めた"
+      data-share-url="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="記事タイトルとリンクをコピー"
+      data-copy-share
+      data-state="idle"
+      data-share-title="subagents は、実務向けAIの現実的な実装単位になり始めた"
+      data-share-url="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"
+      data-copy-label-default="記事タイトルとリンクをコピー"
+      data-copy-label-success="コピーしました"
+      data-copy-status-success="コピーしました"
+      data-copy-status-error="コピーに失敗しました"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>subagents（下位エージェント）は、実務向けAIの現実的な実装単位になり始めた</h2>
+  <p>
+    2026年3月17日に OpenAI が GPT-5.4 mini と GPT-5.4 nano を subagents 向けとして公開し、同時期の OpenAI Codex、Anthropic Claude Code、
+    Google ADK、Microsoft Agent Framework、Amazon Bedrock の公開資料を並べると、実務向けAIの構図が少し変わって見える。
+    1つの巨大なエージェントへ計画、調査、検証、実行、承認待ちまで全部を詰め込むより、役割を絞った下位エージェントを束ねた方が、
+    速度、コスト、状態管理、承認境界を現実的に設計しやすいという方向である。今週の変化は、これが単なるフレームワークの作法ではなく、
+    モデルの位置づけ、製品面、ワークフロー文書まで含めた公開設計として見え始めた点にある。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">5系統</p>
+      <p class="stat-title">主要ベンダーの収束</p>
+      <p class="stat-note">OpenAI、Anthropic、Google、Microsoft、AWS が、専門化した下位エージェントの扱いを公式文書と製品面で前面化している。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">27件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">公式文書、公式発表、論文だけで、下位エージェント設計の利点と制約を比較できる。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">3つ</p>
+      <p class="stat-title">主な効用</p>
+      <p class="stat-note">役割分担、安価な実行、状態と承認の分離が、公開情報の水準で具体化している。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1注意</p>
+      <p class="stat-title">エージェントを増やせばよいわけではない</p>
+      <p class="stat-note">単純な仕事は単一エージェントの方が速い。重要なのは責務の切り方である。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">なぜ今週か</p>
+  <h2>2026年3月後半に、下位エージェント設計がモデルとワークフローの両面で明示され始めた</h2>
+  <p>
+    これまでも multi-agent 研究やフレームワーク実装は存在したが、公開面では「高度な実験」か「内部実装」に近く見えることが多かった。
+    しかし 2026年3月後半の公開情報では、OpenAI が GPT-5.4 mini と GPT-5.4 nano を subagents 向けとして位置づけ、
+    Codex 文書でも subagents を専用概念として整理している。Anthropic は Claude Code で sub-agents と共通ワークフローを明文化し、
+    Google ADK は sub-agents を制御する workflow agents を sequential、loop、parallel に分けている。
+    Microsoft は workflow を agent として包み直し、セッションとストリーミングを持つ構成を公開し、AWS は supervisor と collaborator による
+    multi-agent collaboration を Bedrock 文書で前面に出している。つまり今週の主論点は、「multi-agent がある」ことではなく、
+    下位エージェントが公開資料上の標準的な設計単位へ近づいたことだ。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI は小型モデルを下位エージェントの実行単位として前面化した</h3>
+      <p>より強いモデルが全部を実行する前提ではなく、安価で速いモデルを限定タスクへ割り当てる構図が製品の打ち出し方に現れている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google はオーケストレーションを LLM から切り離している</h3>
+      <p>ADK の workflow agents は、sub-agents の実行順序や並列化を決定的に制御する層として定義されている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft と AWS は状態と外部応答をワークフロー側へ寄せる</h3>
+      <p>セッション、ストリーミング、request and response、supervisor / collaborator という形で、長い仕事を途中停止と再開込みで扱う方向が見える。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">設計の変化</p>
+  <h2>「1つの巨大なエージェント」から「調整役と専門ユニットの組み合わせ」へ</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. 強いモデルは調整、判断、最終責任に寄る</h3>
+      <ul class="bullet-list">
+        <li>計画立案、成果物の統合、曖昧な判断、最終レビューは強いモデル側へ残しやすい</li>
+        <li>大きな文脈を毎回すべての作業に投げ込まずに済む</li>
+        <li>高価な推論を、本当に必要な判断へ集中させやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 下位エージェントは限定タスクに切る</h3>
+      <ul class="bullet-list">
+        <li>検索、要約、検証、分類、変換、テスト、差分確認のような反復作業を分離しやすい</li>
+        <li>各エージェントが持つツールと文脈を狭くできるため、誤作動時の影響範囲を絞りやすい</li>
+        <li>速いモデルや決定的なワークフローを混ぜやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. 状態管理はプロンプトの外へ出る</h3>
+      <ul class="bullet-list">
+        <li>Google ADK の sessions / memory、Microsoft の workflow session、AWS の supervisor 構成は、途中状態を実行基盤で持つ方向を示す</li>
+        <li>長い仕事は、途中結果、保留中の応答、再開点をワークフローと状態管理の側に持った方が扱いやすい</li>
+        <li>これはチャット履歴だけでは吸収しにくい要求である</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 承認境界をタスク単位で置ける</h3>
+      <p>下位エージェントへ仕事を切ると、どこまで自動化し、どこで人間が止めるかを工程ごとに分けやすい。request and response や workflow-as-agent の考え方は、この承認境界を製品契約として扱いやすくする。</p>
+      <p>実務では「どのエージェントが何をしてよいか」を先に固定する方が、1つの万能エージェントを後から縛るより管理しやすい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">各社の見え方</p>
+  <h2>同じ multi-agent でも、何を固定し、何を柔らかく残すかは各社で違う</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI はモデル階層と subagents を結び付ける</h3>
+      <p>GPT-5.4 mini と nano を下位エージェント向けとして出し、Codex 側でも subagents を独立した作業単位として扱うことで、モデル選択とオーケストレーション設計を一体化している。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic は専門役割と並列委任を強調する</h3>
+      <p>Claude Code の sub-agents とエンジニアリング記事は、専門役割を割り当て、複数の Claude を並列に動かしながら、主エージェントが統合する構図を示している。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google は決定的なワークフロー制御を厚くする</h3>
+      <p>ADK は multi-agent と workflow agents を切り分け、sequential、loop、parallel という制御面を明示している。ここでは「どう流すか」を LLM の即興判断から切り離す方向が強い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft は workflow をエージェントとして再利用する</h3>
+      <p>複雑な workflow 全体をエージェントとして包み直せるため、下位の分解と上位の API 互換性を両立しやすい。セッションとストリーミングを持てる点も、実務向けの長い処理に向く。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS は supervisor / collaborator で役割分担を固定する</h3>
+      <p>Bedrock の multi-agent collaboration は、supervisor が分解し、collaborator が専門領域を担当する階層構造を前提にしている。役割の重複を減らすこと自体が公開文書上の注意点になっている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">具体シナリオ</p>
+  <h2>下位エージェント設計が効くのは、長い仕事を同じ品質で繰り返したい場面である</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">調査パイプラインを planner、retriever、fact checker に分ける</h3>
+        <p>
+          調整役のエージェントが論点を立て、下位エージェントが一次情報の収集、根拠の整合確認、表現チェックを担当する。
+          最終的な統合だけを強いモデルへ戻せば、毎回すべての資料を 1 回の巨大推論で処理しなくて済む。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">問い合わせ対応を intake、billing、policy に分ける</h3>
+        <p>
+          受付エージェントは依頼を構造化し、billing と policy の専門エージェントへ仕事を振る。返金、例外対応、外部送信の前だけ人間が止める構成にすると、
+          完全自動化より安全で、単純な手作業より速い運用が作りやすい。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Engineering</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">コード作業を分析、修正、検証、承認に分ける</h3>
+        <p>
+          解析エージェントが原因候補を出し、修正エージェントが差分を作り、検証エージェントがビルドやテストを確認し、最後の承認は人間が担う。
+          書き込み権限を持つエージェントを絞ることで、失敗時の影響範囲と監査対象を小さくできる。
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">まだ早い点</p>
+  <h2>下位エージェント設計は強いが、分割し過ぎると逆に不安定になる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>文脈の受け渡しで情報がこぼれる</h3>
+      <p>エージェントを分けるほど、誰が何を知っているかを明示しなければならない。引き継ぎが曖昧だと、同じ調査のやり直しや結論の不整合が増える。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>評価と tracing が難しくなる</h3>
+      <p>失敗が起きたとき、モデル選択、ワークフロー制御、ツール呼び出し、引き継ぎのどこが原因かを追うために、相関 ID とイベント追跡が必要になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>単純な仕事は単一エージェントの方がよい</h3>
+      <p>短い要約、単発の文章生成、軽い問い合わせのような仕事は、下位エージェントへ分ける方がむしろ遅く、複雑になることがある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>エージェント数ではなく責務の切り方が重要である</h3>
+      <p>良い構成は「とにかくたくさんのエージェント」ではない。役割、ツール、入力、終了条件、承認境界を明確にして、重複しない専門単位を作ることである。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>AI の比較軸は、どれだけ賢いかだけでなく、どの単位で仕事を分けられるかへ広がる</h2>
+  <p>
+    今週の公開情報から読み取れるのは、「multi-agent が万能である」という話ではない。むしろ、実務向けAIを安定して動かすには、
+    強いモデルを判断と統合へ残し、反復作業を安価で速い下位エージェントへ分け、状態管理と承認をワークフロー側へ出す設計が現実的になってきたという点である。
+    企業導入の論点としては、どのモデルが最も賢いかだけでなく、どの作業をどの単位へ分割し、どこで責任と承認を止めるかが、同じくらい重要になり始めている。
+  </p>
+</section>
+</section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月17日</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing GPT-5.4 mini and nano</p>
+              <p class="source-url">https://openai.com/index/introducing-gpt-5-4-mini-and-nano/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-5-4/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Introducing GPT-5.4</p>
+              <p class="source-url">https://openai.com/index/introducing-gpt-5-4/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.openai.com/api/docs/models/gpt-5.4-mini" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: GPT-5.4 mini</p>
+              <p class="source-url">https://developers.openai.com/api/docs/models/gpt-5.4-mini</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.openai.com/api/docs/models/gpt-5.4-nano" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: GPT-5.4 nano</p>
+              <p class="source-url">https://developers.openai.com/api/docs/models/gpt-5.4-nano</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.openai.com/codex/concepts/subagents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Codex docs: Subagents</p>
+              <p class="source-url">https://developers.openai.com/codex/concepts/subagents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-codex/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Introducing Codex</p>
+              <p class="source-url">https://openai.com/index/introducing-codex/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/codex/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Codex</p>
+              <p class="source-url">https://openai.com/codex/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Claude Code overview</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/sub-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Sub agents</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/sub-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/common-workflows" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Claude Code common workflows</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/common-workflows</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/how-we-built-our-multi-agent-research-system" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: How we built our multi-agent research system</p>
+              <p class="source-url">https://www.anthropic.com/engineering/how-we-built-our-multi-agent-research-system</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://google.github.io/adk-docs/agents/multi-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Multi-agent systems</p>
+              <p class="source-url">https://google.github.io/adk-docs/agents/multi-agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://google.github.io/adk-docs/agents/workflow-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Workflow agents</p>
+              <p class="source-url">https://google.github.io/adk-docs/agents/workflow-agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://google.github.io/adk-docs/sessions/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Sessions</p>
+              <p class="source-url">https://google.github.io/adk-docs/sessions/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://google.github.io/adk-docs/sessions/memory/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Memory</p>
+              <p class="source-url">https://google.github.io/adk-docs/sessions/memory/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://ai.google.dev/gemini-api/docs/models" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini API docs: Available models</p>
+              <p class="source-url">https://ai.google.dev/gemini-api/docs/models</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/overview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Agent Framework: Overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/overview/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/as-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Agent Framework Workflows: Using workflows as agents</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/as-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/request-and-response" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Agent Framework Workflows: Request and response</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/user-guide/workflows/request-and-response</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Amazon Bedrock: Use multi-agent collaboration with Amazon Bedrock Agents</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock/latest/userguide/agents-multi-agent-collaboration.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/create-multi-agent-collaboration.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Amazon Bedrock: Set up multi-agent collaboration</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock/latest/userguide/create-multi-agent-collaboration.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Amazon Bedrock AgentCore: What is AgentCore?</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2308.08155" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation</p>
+              <p class="source-url">https://arxiv.org/abs/2308.08155</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2308.00352" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework</p>
+              <p class="source-url">https://arxiv.org/abs/2308.00352</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2303.17760" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">CAMEL: Communicative Agents for Mind Exploration of Large Scale Language Model Society</p>
+              <p class="source-url">https://arxiv.org/abs/2303.17760</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2406.04692" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">Mixture-of-Agents Enhances Large Language Model Capabilities</p>
+              <p class="source-url">https://arxiv.org/abs/2406.04692</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">AI とエージェントの重要シグナルを、一次情報から読み解く。</p>
+      </footer>
+    </div>
+  </body>
+</html>
