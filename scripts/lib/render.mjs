@@ -308,16 +308,18 @@ function renderArticleCard(article, locale, { featured = false, eyebrow = "", he
   const href = localizedPath(locale, path.replace(/^en\//, ""));
 
   return `<a class="article-card ${featured ? "article-card-featured" : ""}" href="${href}" aria-label="${escapeHtml(title)}">
-    ${eyebrow ? `<p class="section-kicker">${escapeHtml(eyebrow)}</p>` : ""}
-    <div class="meta-row justify-between">
-      <span class="meta-pill is-accent">${escapeHtml(article.category)}</span>
-      <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+    <div class="article-card-main">
+      ${eyebrow ? `<p class="section-kicker">${escapeHtml(eyebrow)}</p>` : ""}
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">${escapeHtml(article.category)}</span>
+        <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+      </div>
+      <${headingTag} class="article-card-title">${escapeHtml(title)}</${headingTag}>
+      <p class="article-card-copy">${escapeHtml(summary)}</p>
+      <div class="meta-tags">${article.tags
+        .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
+        .join("")}</div>
     </div>
-    <${headingTag} class="article-card-title">${escapeHtml(title)}</${headingTag}>
-    <p class="article-card-copy">${escapeHtml(summary)}</p>
-    <div class="meta-tags">${article.tags
-      .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
-      .join("")}</div>
     <div class="article-card-foot">
       <span class="mono-note">${copy.sourceCount}: ${article.publishedSources.length}</span>
       <span class="text-link">${escapeHtml(copy.readReport)}</span>
