@@ -138,8 +138,8 @@ async function buildSite() {
   }
 
   for (const article of liveArticles) {
-    await writeTextFile(path.join(outputRoot, article.outputPaths.ja), renderArticlePage(article, "ja"));
-    await writeTextFile(path.join(outputRoot, article.outputPaths.en), renderArticlePage(article, "en"));
+    await writeTextFile(path.join(outputRoot, article.outputPaths.ja), renderArticlePage(article, "ja", liveArticles));
+    await writeTextFile(path.join(outputRoot, article.outputPaths.en), renderArticlePage(article, "en", liveArticles));
   }
 
   const latestUpdate =

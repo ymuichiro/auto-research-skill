@@ -19,6 +19,11 @@ const localeCopy = {
     allReports: "すべてのレポートを見る",
     readReport: "レポートを開く",
     sourceCount: "根拠数",
+    relatedHeading: "関連記事",
+    relatedIntro: "前後の公開記事と、テーマの近い記事を自動表示しています。",
+    newerArticle: "より新しい記事",
+    olderArticle: "ひとつ古い記事",
+    relatedArticle: "テーマが近い記事",
     tagHeading: "Tags",
     languageSwitch: "English",
     shareSectionLabel: "記事を共有",
@@ -48,6 +53,11 @@ const localeCopy = {
     allReports: "Browse the archive",
     readReport: "Open briefing",
     sourceCount: "Sources",
+    relatedHeading: "Continue reading",
+    relatedIntro: "Automatically showing the adjacent briefings plus one thematically related article.",
+    newerArticle: "Newer briefing",
+    olderArticle: "Older briefing",
+    relatedArticle: "Related briefing",
     tagHeading: "Tags",
     languageSwitch: "日本語",
     shareSectionLabel: "Share article",
@@ -290,7 +300,7 @@ ${renderSharedPageScript(pageType)}
 </html>`;
 }
 
-function renderArticleCard(article, locale, { featured = false } = {}) {
+function renderArticleCard(article, locale, { featured = false, eyebrow = "", headingTag = "h2" } = {}) {
   const title = locale === "ja" ? article.titleJa : article.titleEn;
   const summary = locale === "ja" ? article.summaryJa : article.summaryEn;
   const path = locale === "ja" ? article.outputPaths.ja : article.outputPaths.en;
@@ -298,11 +308,12 @@ function renderArticleCard(article, locale, { featured = false } = {}) {
   const href = localizedPath(locale, path.replace(/^en\//, ""));
 
   return `<a class="article-card ${featured ? "article-card-featured" : ""}" href="${href}" aria-label="${escapeHtml(title)}">
+    ${eyebrow ? `<p class="section-kicker">${escapeHtml(eyebrow)}</p>` : ""}
     <div class="meta-row justify-between">
       <span class="meta-pill is-accent">${escapeHtml(article.category)}</span>
       <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
     </div>
-    <h2 class="article-card-title">${escapeHtml(title)}</h2>
+    <${headingTag} class="article-card-title">${escapeHtml(title)}</${headingTag}>
     <p class="article-card-copy">${escapeHtml(summary)}</p>
     <div class="meta-tags">${article.tags
       .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
@@ -312,6 +323,96 @@ function renderArticleCard(article, locale, { featured = false } = {}) {
       <span class="text-link">${escapeHtml(copy.readReport)}</span>
     </div>
   </a>`;
+}
+
+function sharedTagCount(left, right) {
+  const rightTags = new Set(right.tags);
+  return left.tags.reduce((count, tag) => count + (rightTags.has(tag) ? 1 : 0), 0);
+}
+
+function relationshipScore(currentArticle, candidateArticle) {
+  const categoryScore = currentArticle.category === candidateArticle.category ? 8 : 0;
+  const tagScore = sharedTagCount(currentArticle, candidateArticle) * 4;
+  const dayDistance =
+    Math.abs(Date.parse(`${currentArticle.date}T00:00:00Z`) - Date.parse(`${candidateArticle.date}T00:00:00Z`)) /
+    86400000;
+  const freshnessScore = Math.max(0, 45 - dayDistance) / 15;
+
+  return categoryScore + tagScore + freshnessScore;
+}
+
+function relatedArticleLabel(locale, relation) {
+  const copy = localeCopy[locale];
+
+  if (relation === "newer") {
+    return copy.newerArticle;
+  }
+
+  if (relation === "older") {
+    return copy.olderArticle;
+  }
+
+  return copy.relatedArticle;
+}
+
+function selectRelatedArticles(articles, currentArticle) {
+  const currentIndex = articles.findIndex((article) => article.sourceDirName === currentArticle.sourceDirName);
+
+  if (currentIndex === -1) {
+    return [];
+  }
+
+  const selected = [];
+
+  if (currentIndex > 0) {
+    selected.push({ article: articles[currentIndex - 1], relation: "newer" });
+  }
+
+  if (currentIndex < articles.length - 1) {
+    selected.push({ article: articles[currentIndex + 1], relation: "older" });
+  }
+
+  const selectedIds = new Set([currentArticle.sourceDirName, ...selected.map(({ article }) => article.sourceDirName)]);
+  const supplemental = articles
+    .filter((article) => !selectedIds.has(article.sourceDirName))
+    .map((article) => ({
+      article,
+      relation: "related",
+      score: relationshipScore(currentArticle, article)
+    }))
+    .sort((left, right) => right.score - left.score || right.article.date.localeCompare(left.article.date))
+    .slice(0, Math.max(0, 3 - selected.length))
+    .map(({ article, relation }) => ({ article, relation }));
+
+  return [...selected, ...supplemental];
+}
+
+function renderRelatedArticles(article, locale, articles) {
+  const relatedArticles = selectRelatedArticles(articles, article);
+
+  if (relatedArticles.length === 0) {
+    return "";
+  }
+
+  const copy = localeCopy[locale];
+
+  return `<section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">${escapeHtml(copy.relatedHeading)}</p>
+      <h2 class="panel-title">${escapeHtml(copy.relatedHeading)}</h2>
+      <p class="panel-copy">${escapeHtml(copy.relatedIntro)}</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      ${relatedArticles
+        .map(({ article: relatedArticle, relation }) =>
+          renderArticleCard(relatedArticle, locale, {
+            eyebrow: relatedArticleLabel(locale, relation),
+            headingTag: "h3"
+          })
+        )
+        .join("")}
+    </div>
+  </section>`;
 }
 
 export function renderIndexPage(locale, articles) {
@@ -575,7 +676,7 @@ function renderSources(article, locale) {
   </section>`;
 }
 
-export function renderArticlePage(article, locale) {
+export function renderArticlePage(article, locale, articles = []) {
   const title = locale === "ja" ? article.titleJa : article.titleEn;
   const summary = locale === "ja" ? article.summaryJa : article.summaryEn;
   const relativePath = locale === "ja" ? article.outputPaths.ja : article.outputPaths.en;
@@ -591,6 +692,7 @@ export function renderArticlePage(article, locale) {
     </section>
     ${renderArticleShare(article, locale, relativePath)}
     <section class="article-body">${locale === "ja" ? article.bodies.ja : article.bodies.en}</section>
+    ${renderRelatedArticles(article, locale, articles)}
     ${renderSources(article, locale)}
   </article>`;
 

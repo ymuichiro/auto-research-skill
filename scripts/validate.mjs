@@ -134,6 +134,7 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, siteConfig.siteUrl, `${label} is not using the configured site URL.`);
       assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
       assertContains(markup, 'class="article-share"', `${label} is missing the article share block.`);
+      assertContains(markup, 'class="panel-block related-articles"', `${label} is missing the related articles block.`);
       assertContains(markup, 'data-native-share', `${label} is missing the native share trigger.`);
       assertContains(markup, 'data-copy-share', `${label} is missing the copy share trigger.`);
       assertContains(markup, 'assets/article-share.js', `${label} is missing the article share script.`);
