@@ -1,0 +1,207 @@
+<section class="report-section">
+  <p class="section-kicker">Key Signal</p>
+  <h2>Voice AI agents are moving from natural-sounding demos toward operational systems</h2>
+  <p>
+    Reading the primary-source material available by April 6, 2026 from OpenAI, Google, Microsoft, and AWS makes a more specific shift visible.
+    The important change is not only that synthetic voices sound better. Voice AI is now being exposed as an operational stack with explicit choices around
+    speech-to-speech versus chained architectures, WebRTC and SIP transport, session continuity, interruption handling, tool calling, telephony, human escalation,
+    and automated testing. Especially after the Amazon Connect updates shipped between February and March 2026, voice AI looks less like a polished interface
+    demo and more like a production system that has to be evaluated, monitored, and rolled out safely.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">25</p>
+      <p class="stat-title">Primary sources</p>
+      <p class="stat-note">Official docs and official announcements alone are now enough to compare real deployment choices for voice agents.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 stacks</p>
+      <p class="stat-title">Visible convergence</p>
+      <p class="stat-note">OpenAI, Google, Microsoft, and AWS are all presenting low-latency voice plus runtime operations together rather than as separate layers.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">3 layers</p>
+      <p class="stat-title">New comparison axis</p>
+      <p class="stat-note">Voice quality is only one layer now. Session control, tool access, and handoff design are becoming product differentiators too.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 warning</p>
+      <p class="stat-title">A pleasant voice is not enough</p>
+      <p class="stat-note">In real operations, auditability, identity checks, and rollback paths matter as much as conversational fluency.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why This Week</p>
+  <h2>The story changed when the operating pieces became visible together, not just when the voices improved</h2>
+  <p>
+    OpenAI now presents voice-agent design through separate guides for speech-to-speech versus chained architectures, the Realtime API, WebRTC, SIP, prompting,
+    and transcription. Google's Live API documentation exposes native audio, Voice Activity Detection, tool use, session resumption, and proactive audio as concrete
+    product behavior. Microsoft's Voice Live API packages model choice, broad locale coverage, telephony integration, function calling, and voice infrastructure into
+    one voice interface. AWS pushes the clearest operational signal: on February 2, 2026 it introduced APIs to test and simulate voice interactions in Amazon Connect,
+    then on March 17 and March 18, 2026 it expanded generative voices, regions, and agentic speech-to-speech availability. The key weekly conclusion is therefore not
+    "voice got more natural." It is that the public material now exposes what it takes to run voice AI safely in production.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI makes the architecture split explicit</h3>
+      <p>OpenAI separates the low-latency speech-to-speech path from the more controllable chained path, making design tradeoffs visible early in the build process.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google treats continuation and interruption as first-class problems</h3>
+      <p>The Live API docs go beyond audio generation into VAD, session resumption, proactive audio, and tool use, which makes the runtime model much clearer.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft thickens the speech infrastructure layer</h3>
+      <p>Voice Live offers one speech-to-speech entry point while still exposing model choice, locales, custom voices, avatars, and telephony integration.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS ties the stack directly to contact-center operations</h3>
+      <p>Amazon Connect combines AI agent self-service, human escalation, simulation APIs, and voice expansion, which makes deployment concerns impossible to ignore.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Shift</p>
+  <h2>The real branching point in voice AI is not how human it sounds, but how much of the workflow you can control</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Speech-to-speech wins on low latency and conversational flow</h3>
+      <ul class="bullet-list">
+        <li>OpenAI speech-to-speech and Google's native audio models can preserve tone, timing, and interaction flow more naturally than a chained pipeline</li>
+        <li>Amazon Nova Sonic also emphasizes adapting output speech to the acoustic context of the input</li>
+        <li>This makes the approach well suited to support lines, guided assistance, tutoring, and other highly interactive scenarios</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Chained architectures still matter when transcripts and controls matter most</h3>
+      <ul class="bullet-list">
+        <li>OpenAI keeps the chained path for cases that need stronger control, reliable function calling, and predictable structured workflows</li>
+        <li>Identity checks, compliance scripts, policy explanation, and other auditable flows often still benefit from explicit text stages</li>
+        <li>For these cases, the design center is not only naturalness, but where transcripts become authoritative and where humans review them</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Session management is becoming a quality layer of its own</h3>
+      <ul class="bullet-list">
+        <li>Google documents session lifetime, context compression, and session resumption for longer conversations</li>
+        <li>OpenAI exposes distinct Realtime session behavior across WebRTC and SIP, and Microsoft documents session updates and event flows in detail</li>
+        <li>In long or interrupted calls, session design can matter more than raw model capability</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Voice agents now assume tool calling and handoff</h3>
+      <ul class="bullet-list">
+        <li>OpenAI, Google, and Microsoft all expose function or tool calling as a normal part of voice interaction rather than an advanced add-on</li>
+        <li>AWS frames agentic self-service around autonomous resolution first, with seamless escalation to human agents when needed</li>
+        <li>That makes voice AI look less like a talking bot and more like a worker connected to enterprise systems and workflows</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Concrete Scenarios</p>
+  <h2>Voice AI agents become realistic where natural conversation and structured work have to coexist</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Contact Center</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Resolve order status, booking changes, and refund intake inside the call</h3>
+        <p>
+          A voice agent can collect the request, call order or reservation tools, and escalate only when the case becomes ambiguous or risky.
+          Amazon Connect's self-service and simulation APIs make this look more like a testable operations flow than a one-off demo.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Field Ops</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Handle scheduling and troubleshooting in progressive voice steps</h3>
+        <p>
+          The system listens, repeats back addresses or product IDs for confirmation, calls scheduling or diagnostics tools, and escalates when necessary.
+          Alphanumeric confirmation, interruption handling, and recovery from mishearing become core quality requirements.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Public Service</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Design multilingual front-door assistance with locale and voice depth in mind</h3>
+        <p>
+          Microsoft's broader locale and voice infrastructure, combined with low-latency conversational stacks from OpenAI and Google, makes first-line public-service
+          and civic voice interfaces more practical. But identity and policy-sensitive steps still need explicit business controls.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Learning</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Tutoring and coaching benefit from natural interruption and emotional pacing</h3>
+        <p>
+          Google's affective dialog features and OpenAI's speech-to-speech design fit learning scenarios where timing and tone matter.
+          But evaluation criteria, progress tracking, and correction rules still need to be designed outside the conversation loop itself.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Implications</p>
+  <h2>Production success depends less on model choice alone than on interruption rules, testing, and handoff design</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Interruption and end-of-turn behavior need explicit design</h3>
+      <p>Google's VAD controls, Microsoft's advanced end-of-turn detection, and OpenAI's server and semantic VAD options all point to the same truth: conversation timing is a product decision, not background plumbing.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Telephony and low-latency transport are now product choices</h3>
+      <p>OpenAI separates WebRTC and SIP, Microsoft points to Azure Communication Services integration, and AWS ties voice AI directly into Connect. Where the audio runs changes the entire operating model.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Tool calling needs safe stopping points</h3>
+      <p>Once a voice agent can check orders, change bookings, or issue refunds, spoken confirmation is not enough by itself. Important actions need repeat-back, confirmation, or human approval boundaries.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Automated testing is becoming part of the voice stack</h3>
+      <p>The clearest signal comes from Amazon Connect's simulation APIs: voice agents need regression testing when prompts, voices, tools, or routing logic change. It is not enough to ask whether the audio sounds natural.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Is Still Early</p>
+  <h2>Voice agents have advanced, but speech-to-speech is not automatically the right answer for every workflow</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Identity and critical disclosures are still hard</h3>
+      <p>Numbers, addresses, and policy terms are easier to mishear than text inputs. High-risk steps still benefit from repeat-back, textual confirmation, or human review.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Long conversations still hit session constraints</h3>
+      <p>Google explicitly documents session duration and resumption, which is a reminder that voice sessions are not infinite. Long-running support or advisory conversations still need continuity design.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Noise, accents, and line quality remain operational risks</h3>
+      <p>All vendors now surface noise reduction or robustness features, but real deployments still face harsh conditions that demos often hide: background speech, overlap, accent variation, and inconsistent phone lines.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Some workflows should still optimize for auditability first</h3>
+      <p>In regulated or high-value interactions, the smoother speech-to-speech path may be less important than a chained design that keeps transcripts and processing steps explicit. The best design still depends on the job.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Takeaway</p>
+  <h2>The voice-AI question is expanding from “How human does it sound?” to “How safely can it run work?”</h2>
+  <p>
+    The public material available this week does not show that voice AI suddenly became universal. It shows something more useful: the major stacks now make it possible
+    to evaluate voice agents as operational systems with session control, interruption handling, tool access, telephony, human escalation, and test discipline. For teams
+    considering deployment, the central question is no longer only which model sounds most natural. It is also where to keep transcripts, where to stop the workflow, and
+    where a human must take over.
+  </p>
+</section>
