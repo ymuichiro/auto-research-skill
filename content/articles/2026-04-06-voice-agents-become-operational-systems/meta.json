@@ -1,0 +1,155 @@
+{
+  "slug": "voice-agents-become-operational-systems",
+  "date": "2026-04-06",
+  "titleJa": "音声AIエージェントは、デモ機能から運用システムへ移り始めた",
+  "titleEn": "Voice AI agents are shifting from demo features to operational systems",
+  "summaryJa": "2026年4月6日時点の OpenAI、Google、Microsoft、AWS の一次情報を重ねると、音声AIエージェントの競争軸は声の自然さだけではなく、speech-to-speech（音声から音声の直結型）と chained（音声認識→推論→音声合成の分割型）の設計選択、セッション管理、割り込み処理、ツール呼び出し、電話接続、人間へのエスカレーション、テスト自動化まで含む運用システムへ広がっていることが見えてくる。特に 2026年2月から3月の Amazon Connect の更新により、音声AI は単なるデモ画面ではなく、評価しながら本番運用する対象として整理しやすくなった。",
+  "summaryEn": "Reading the primary-source material available by April 6, 2026 from OpenAI, Google, Microsoft, and AWS shows that voice AI agents are no longer differentiating only on how natural they sound. The real comparison axis now includes the choice between speech-to-speech and chained architectures, session management, interruption handling, tool calling, telephony, human escalation, and testing. The Amazon Connect updates shipped between February and March 2026 make that shift especially concrete: voice AI now looks less like a polished demo surface and more like an operational system that has to be evaluated, monitored, and deployed safely.",
+  "category": "AI Agents",
+  "tags": [
+    "Voice AI",
+    "Realtime",
+    "Speech-to-Speech",
+    "Contact Center",
+    "AI Agent",
+    "Generative AI"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI API: Voice agents",
+      "url": "https://platform.openai.com/docs/guides/voice-agents",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API: Realtime API",
+      "url": "https://platform.openai.com/docs/guides/realtime",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API: Realtime API with WebRTC",
+      "url": "https://platform.openai.com/docs/guides/realtime-webrtc",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API: Realtime API with SIP",
+      "url": "https://platform.openai.com/docs/guides/realtime-sip",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API: Using realtime models",
+      "url": "https://platform.openai.com/docs/guides/realtime-models-prompting",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API: Realtime transcription",
+      "url": "https://platform.openai.com/docs/guides/realtime-transcription",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing gpt-realtime and Realtime API updates for production voice agents",
+      "url": "https://openai.com/index/introducing-gpt-realtime",
+      "type": "official",
+      "publishedAt": "2025-08-28"
+    },
+    {
+      "label": "OpenAI: Introducing next-generation audio models in the API",
+      "url": "https://openai.com/index/introducing-our-next-generation-audio-models/",
+      "type": "official",
+      "publishedAt": "2025-03-20"
+    },
+    {
+      "label": "Gemini API: Get started with Live API",
+      "url": "https://ai.google.dev/gemini-api/docs/live",
+      "type": "official"
+    },
+    {
+      "label": "Gemini API: Live API capabilities guide",
+      "url": "https://ai.google.dev/gemini-api/docs/live-guide",
+      "type": "official"
+    },
+    {
+      "label": "Gemini API: Tool use with Live API",
+      "url": "https://ai.google.dev/gemini-api/docs/live-tools",
+      "type": "official"
+    },
+    {
+      "label": "Gemini API: Session management with Live API",
+      "url": "https://ai.google.dev/gemini-api/docs/live-session",
+      "type": "official"
+    },
+    {
+      "label": "Gemini API: Gemini models",
+      "url": "https://ai.google.dev/gemini-api/docs/models/gemini",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Voice Live API for real-time voice agents",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Voice Live API reference",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-api-reference",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Quickstart: Create a voice live real-time voice agent",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-quickstart",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Quickstart: Use function calling in a Voice Live session",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/how-to-voice-live-function-calling",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Voice Live FAQ",
+      "url": "https://learn.microsoft.com/en-us/azure/ai-services/speech-service/voice-live-faq",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Connect: Use Amazon Connect AI agent self-service",
+      "url": "https://docs.aws.amazon.com/connect/latest/adminguide/ai-agent-self-service.html",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Connect: Use Connect AI agents for real-time assistance",
+      "url": "https://docs.aws.amazon.com/connect/latest/adminguide/connect-ai-agent.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS What's New: Amazon Connect now provides APIs to test and simulate voice interactions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-connect-provides-apis-test-simulate-voice-interactions/",
+      "type": "official",
+      "publishedAt": "2026-02-02"
+    },
+    {
+      "label": "AWS What's New: Amazon Connect adds new generative text-to-speech voices and expands to new regions",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-adds-generative-text-to-speech-voices/",
+      "type": "official",
+      "publishedAt": "2026-03-17"
+    },
+    {
+      "label": "AWS What's New: Amazon Connect expands agentic speech-to-speech voice experiences to the London region and adds voices",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-london-europe-region/",
+      "type": "official",
+      "publishedAt": "2026-03-18"
+    },
+    {
+      "label": "Amazon Nova User Guide: Speech",
+      "url": "https://docs.aws.amazon.com/nova/latest/userguide/speech.html",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Nova model card: Nova Sonic overview",
+      "url": "https://docs.aws.amazon.com/ai/responsible-ai/nova-sonic/overview.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS What's New: Announcing Amazon Nova Sonic, a new speech-to-speech model that brings real-time voice conversations to Amazon Bedrock",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2025/04/amazon-nova-sonic-speech-to-speech-conversations-bedrock/",
+      "type": "official"
+    }
+  ],
+  "draft": false
+}
