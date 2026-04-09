@@ -1,0 +1,190 @@
+{
+  "slug": "agent-memory-shifts-to-layered-systems",
+  "date": "2026-04-08",
+  "titleJa": "AIエージェントの記憶は、ベクトル検索から層別システムへ移っている",
+  "titleEn": "AI agent memory is shifting from vector retrieval to a layered systems design",
+  "summaryJa": "2026年4月時点の OpenAI、Anthropic、Google ADK、LangGraph、Letta、Mem0、Microsoft Azure、AWS Bedrock / AgentCore の公式 docs と、MemGPT、CoALA、LoCoMo、LongMemEval、A-MEM、MemoryOS、Reflective Memory Management、MemInsight などの論文を重ねると、AIエージェントの記憶は単一のベクトル検索機構ではなく、短期のセッション状態、長期の永続記憶、共有記憶、圧縮と反射のバックグラウンド処理から成る層別システムへ移っていることが見えてくる。同時に、現在の課題は recall 不足より write path、shared memory の競合、古い記憶の陳腐化にあり、各社は型分離、scope 分離、非同期要約、graph memory、file-backed memory、reflective update でそれを解こうとしている。最も普及しているのは、会話ごとの状態と永続ストアを分離し、必要な情報だけを再注入する構成であり、今後は retrieval quality だけでなく write policy と forgetting policy が競争軸になる可能性が高い。",
+  "summaryEn": "Across official documentation current as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore, plus papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern emerges: agent memory is no longer a single vector retrieval feature. It is becoming a layered system made up of short-term session state, long-term persistent memory, shared memory, and background consolidation or reflection. At the same time, the main problems are shifting away from pure recall failure and toward the write path, shared-memory contention, and stale memory. Vendors are responding with type separation, scope separation, asynchronous summarization, graph memory, file-backed memory, and reflective updates. The most widely adopted implementation pattern remains the split between per-conversation state and persistent stores with selective reinjection, but the next frontier is likely to be governed by write policy and forgetting policy as much as by retrieval quality.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Memory",
+    "Long-Term Memory",
+    "Multi-Agent",
+    "RAG",
+    "Workflow"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI: Memory and new controls for ChatGPT",
+      "url": "https://openai.com/index/memory-and-new-controls-for-chatgpt/",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Claude Code memory",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/memory",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Context windows",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Prompt caching",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Sessions",
+      "url": "https://adk.dev/sessions/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: State",
+      "url": "https://adk.dev/sessions/state/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Memory",
+      "url": "https://adk.dev/sessions/memory/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Context caching",
+      "url": "https://adk.dev/context/caching/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Context compaction",
+      "url": "https://adk.dev/context/compaction/",
+      "type": "official"
+    },
+    {
+      "label": "LangGraph: Add and manage memory",
+      "url": "https://docs.langchain.com/oss/python/langgraph/add-memory",
+      "type": "official"
+    },
+    {
+      "label": "LangGraph: Persistence",
+      "url": "https://docs.langchain.com/oss/python/langgraph/persistence",
+      "type": "official"
+    },
+    {
+      "label": "Deep Agents: Memory",
+      "url": "https://docs.langchain.com/oss/python/deepagents/memory",
+      "type": "official"
+    },
+    {
+      "label": "Letta docs: Stateful agents",
+      "url": "https://docs.letta.com/guides/core-concepts/stateful-agents/",
+      "type": "official"
+    },
+    {
+      "label": "Letta docs: Agent memory",
+      "url": "https://docs.letta.com/guides/agents/memory",
+      "type": "official"
+    },
+    {
+      "label": "Letta docs: Memory blocks",
+      "url": "https://docs.letta.com/guides/core-concepts/memory/memory-blocks/",
+      "type": "official"
+    },
+    {
+      "label": "Letta docs: Shared memory",
+      "url": "https://docs.letta.com/guides/core-concepts/memory/shared-memory/",
+      "type": "official"
+    },
+    {
+      "label": "Letta Code: Memory",
+      "url": "https://docs.letta.com/letta-code/memory/",
+      "type": "official"
+    },
+    {
+      "label": "Mem0 Platform overview",
+      "url": "https://docs.mem0.ai/platform/overview",
+      "type": "official"
+    },
+    {
+      "label": "Mem0: Memory types",
+      "url": "https://docs.mem0.ai/core-concepts/memory-types",
+      "type": "official"
+    },
+    {
+      "label": "Mem0: Graph memory",
+      "url": "https://docs.mem0.ai/platform/features/graph-memory",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Azure AI Foundry: How to use memory",
+      "url": "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/memory-usage",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Bedrock: Retain conversational context across multiple sessions using memory",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-memory.html",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Bedrock: Enable agent memory",
+      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-enable-memory.html",
+      "type": "official"
+    },
+    {
+      "label": "Amazon Bedrock AgentCore: Memory",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html",
+      "type": "official"
+    },
+    {
+      "label": "MemGPT: Towards LLMs as Operating Systems",
+      "url": "https://arxiv.org/abs/2310.08560",
+      "type": "paper"
+    },
+    {
+      "label": "Generative Agents: Interactive Simulacra of Human Behavior",
+      "url": "https://arxiv.org/abs/2304.03442",
+      "type": "paper"
+    },
+    {
+      "label": "MemoryBank: Enhancing Large Language Models with Long-Term Memory",
+      "url": "https://arxiv.org/abs/2305.10250",
+      "type": "paper"
+    },
+    {
+      "label": "CoALA: Cognitive Architectures for Language Agents",
+      "url": "https://arxiv.org/abs/2309.02427",
+      "type": "paper"
+    },
+    {
+      "label": "LoCoMo: Evaluating Very Long-Term Conversational Memory of LLM Agents",
+      "url": "https://aclanthology.org/2024.acl-long.747.pdf",
+      "type": "paper"
+    },
+    {
+      "label": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory",
+      "url": "https://arxiv.org/abs/2410.10813",
+      "type": "paper"
+    },
+    {
+      "label": "A-MEM: Agentic Memory for LLM Agents",
+      "url": "https://arxiv.org/abs/2502.12110",
+      "type": "paper"
+    },
+    {
+      "label": "Memory OS of AI Agent",
+      "url": "https://aclanthology.org/2025.acl-long.491.pdf",
+      "type": "paper"
+    },
+    {
+      "label": "In Prospect and Retrospect: Reflective Memory Management for Long-Horizon Personalized Open-Ended Learning",
+      "url": "https://aclanthology.org/2025.acl-long.413.pdf",
+      "type": "paper"
+    },
+    {
+      "label": "MemInsight: Autonomous Memory-Augmentation for Long-Horizon Agent Tasks",
+      "url": "https://aclanthology.org/2025.emnlp-main.1683.pdf",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}

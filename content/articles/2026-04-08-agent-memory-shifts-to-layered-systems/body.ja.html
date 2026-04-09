@@ -1,0 +1,516 @@
+<section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>AIエージェントの記憶は、単なるベクトル検索から層別システムへ移っている</h2>
+  <p>
+    2026年4月時点の OpenAI、Anthropic、Google ADK、LangGraph、Letta、Mem0、Microsoft Azure、AWS Bedrock / AgentCore の公開 docs と、
+    MemGPT、CoALA、LoCoMo、LongMemEval、A-MEM、MemoryOS、Reflective Memory Management、MemInsight などの論文を並べると、
+    現在の AI エージェントの記憶は「長い会話をそのまま詰め込む」か「ベクトル検索を付ける」だけの話ではなくなっている。
+    実装の中心は、短期の作業状態、長期の永続記憶、共有記憶、圧縮と反射のバックグラウンド処理を分けて扱う設計へ移っている。
+    現時点で最も普及しているのは、セッションごとの状態と永続ストアを分離し、必要な情報だけを再注入する構成であり、最前線はそこへ graph memory、
+    ファイルベース記憶、非同期な要約更新を重ねる方向にある。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">8系統</p>
+      <p class="stat-title">主要実装面の収束</p>
+      <p class="stat-note">OpenAI、Anthropic、Google、LangChain、Letta、Mem0、Microsoft、AWS が、それぞれ別の形で記憶の層を docs 化している。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">34件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">公式 docs と論文だけで、短期、長期、共有、圧縮の実装差まで比較できる。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4層</p>
+      <p class="stat-title">現在の基本構成</p>
+      <p class="stat-note">作業記憶、永続記憶、共有記憶、圧縮更新層が分かれ始めている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1結論</p>
+      <p class="stat-title">最も採用されているのは層別メモリ構成である</p>
+      <p class="stat-note">「純粋なベクトル検索だけ」が主流なのではなく、状態と記憶を分ける構成が広く採られている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">何が変わったか</p>
+  <h2>2026年春の公開情報では、記憶がモデルの能力ではなくシステム設計として扱われている</h2>
+  <p>
+    この変化を最もよく示しているのは、主要フレームワークが記憶を 1 つの箱として説明しなくなった点である。Google ADK は session、
+    state、memory、context caching、compaction を分け、LangGraph は persistence と memory を別の実装面として整理し、
+    Deep Agents は agent-scoped、user-scoped、organization-level memory と background consolidation を明示している。
+    Letta は memory blocks、shared memory、archival memory を階層化し、Letta Code では MemFS という編集可能なファイルベース記憶まで出した。
+    AWS Bedrock は session ごとの会話を要約して memoryId に紐づけ、Azure AI Foundry は memory stores を agent object の一部として管理する。
+    Anthropic Claude Code は CLAUDE.md と auto memory を併用し、OpenAI の ChatGPT Memory は saved memories と chat history を分けている。
+    観測される傾向は明確で、記憶はもはや「履歴を長くする機能」ではなく、「どこに書き、何を残し、いつ取り出すか」を管理するシステム層になっている。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>短期記憶はセッション状態として外出しされる</h3>
+      <p>長い会話全文を毎回再投入するのではなく、thread、session、checkpoint、state を実行基盤側に保持し、必要時だけモデルへ戻す設計が増えている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>長期記憶は永続ストアへ切り出される</h3>
+      <p>ユーザー嗜好、反復タスクの学習、過去セッションの要約、重要な facts は、会話履歴ではなく検索可能な外部ストアへ置くのが標準化しつつある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>共有記憶は個人記憶と別の scope で扱われる</h3>
+      <p>project、team、organization で共有するルールやナレッジは、個人メモリと同じ場所へ混ぜず、namespace や memory block 単位で分離する実装が増えている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>圧縮と更新は非同期処理へ寄る</h3>
+      <p>会話終了後に要約を作る、古い履歴を compact する、反射エージェントが記憶を書き換える、といった処理が hot path の外へ出始めている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">実装地図</p>
+  <h2>現在の記憶実装は、少なくとも 4 層に分けて考えると整理しやすい</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. 作業記憶（working memory）: その場の作業状態</h3>
+      <ul class="bullet-list">
+        <li>thread、session、checkpoint、tool 呼び出し結果、直近の観察を保持する層である</li>
+        <li>最も速く、最も安いが、寿命は短い</li>
+        <li>Google ADK の session state、LangGraph の persistence、Azure の thread / run object がこの層に近い</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 永続記憶（persistent memory）: 長期の個別記憶</h3>
+      <ul class="bullet-list">
+        <li>ユーザーの嗜好、繰り返し現れる制約、よく使う手順、過去の重要事実を残す層である</li>
+        <li>vector retrieval、profile store、key-value、document collection が主な実装になる</li>
+        <li>Mem0 の user / agent / session memory、Letta の archival memory、AWS の session summary retention が該当する</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. 共有記憶（shared memory）: project や組織の共有記憶</h3>
+      <ul class="bullet-list">
+        <li>複数のエージェントや複数ユーザーで共有する規約、用語集、進行中案件の状態を置く層である</li>
+        <li>個人の嗜好と混ぜると retrieval が不安定になるため、scope 分離が重要になる</li>
+        <li>Deep Agents の organization-level memory、Letta の shared memory、Mem0 の org scope がここに近い</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 圧縮更新層（consolidation layer）: 圧縮、反射、忘却の制御</h3>
+      <ul class="bullet-list">
+        <li>すべてをそのまま残すのではなく、何を要約し、何を削除し、何を昇格させるかを決める層である</li>
+        <li>コストと精度の両方に効くため、現在の最前線ではこの層の有無が差になりやすい</li>
+        <li>AWS の memory summarization、Microsoft の compaction、Deep Agents の background consolidation が代表例である</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">なぜ重要か</p>
+  <h2>今回の変化が大きいのは、記憶が「保存機能」から「判断の前提」へ変わっているからだ</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>精度の差が、モデル単体より記憶設計で開く場面が増えた</h3>
+      <p>同じモデルでも、誰の依頼か、過去に何を承認したか、どの制約がまだ有効かを正しく持てるかで結果が変わる。長期業務ほど、この差は大きい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>長い文脈を丸ごと送る方式は、速度とコストで限界がある</h3>
+      <p>ADK の context compaction や AWS の session summarization が示すように、公開 docs の時点で各社は「全部を毎回送る」方針を捨て始めている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>記憶の書き換えルールが、そのままガバナンスになる</h3>
+      <p>何を自動保存し、何を read-only にし、誰が shared memory を更新できるかは、単なる実装詳細ではなく、監査と事故防止の境界になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>すごい点は「思い出せる」ことではなく「思い出し方を制御できる」ことだ</h3>
+      <p>現在の先進実装は、記憶の量ではなく、scope、優先度、更新時点、圧縮規則を制御できるところに価値がある。ここが旧来の RAG との違いである。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">読み出し経路</p>
+  <h2>良い記憶実装は、保存先より「どう読み出すか」の方が重要である</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Step 1</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">まず scope を絞る</h3>
+        <p>最初に user、agent、project、organization のどの層を見るかを決める。Deep Agents や Mem0 が scope を強調するのは、ここで混線すると retrieval 精度が一気に落ちるからである。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Step 2</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">次に必要な型だけを取る</h3>
+        <p>嗜好、事実、過去の手順、共有ルールのどれが必要かを分ける。CoALA が episodic、semantic、procedural を分けるのも、検索対象の型を混ぜないためである。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Step 3</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">再注入は最小限にする</h3>
+        <p>LangGraph や Deep Agents の docs が示す通り、最初から全部を prompt に載せるのではなく、必要時だけ読み込む方が文脈汚染を減らしやすい。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Step 4</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">直前の state と統合してから判断する</h3>
+        <p>強い実装は、永続記憶だけを返さない。現在の task 状態、未完了の tool 実行、承認待ちフラグと合わせて判断に使う。つまり retrieval 単体ではなく state join が必要になる。</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    実務上の示唆としては、vector DB を先に作るより、`どの scope を先に絞るか` と `どの型の記憶を取るか` を先に設計した方が精度が上がりやすい。
+    記憶の失敗は、保存件数不足より、不要な記憶を混ぜてしまうことから起きる場合が多い。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">書き込み経路</p>
+  <h2>最前線の実装は、「何を保存するか」より「いつ保存するか」を分けている</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>会話中に書く</h3>
+      <p>その場で確定した user preference や project rule は、会話中に更新した方が次の手順へすぐ効く。Deep Agents の writable memory や Letta の block 更新はこの型に向く。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>会話後に要約して書く</h3>
+      <p>AWS Bedrock は session 終了後に非同期で memory summarization を走らせる。これは hot path を汚さず、長い会話を圧縮して残す実務向けの設計である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>一定イベント数で compact する</h3>
+      <p>ADK の context compaction は sliding window で古い event を要約し、一定の overlap を残す。長い multi-step task で token 増加を抑えるには、この方式が効きやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>別 agent に整理させる</h3>
+      <p>Deep Agents の background consolidation や Letta の sleeptime 的な整理役は、主 agent とは別に記憶を再構成する。ここが現在の frontier で、記憶更新そのものが agent policy になっている。</p>
+    </article>
+  </div>
+  <p class="mt-6">
+    重要なのは、すべてを即時書き込みにしないことだ。即時更新は便利だがノイズも増える。逆に全部を後処理へ回すと、次の行動に必要な制約が間に合わない。
+    強い実装は、即時保存する項目、会話後に要約する項目、完全に捨てる項目を分けている。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Graph Memory</p>
+  <h2>ナレッジグラフ型の記憶が注目されるのは、関係と更新履歴を扱いやすいからだ</h2>
+  <p>
+    graph memory が注目される理由は、単に「高機能そう」だからではない。ベクトル検索は意味の近さに強いが、誰が誰の承認者か、
+    どの制約がどの案件にぶら下がるか、古い事実と新しい事実のどちらを優先すべきか、といった関係性には弱い。Mem0 が graph memory を前面に出し、
+    A-MEM、MemoryOS、MemInsight などが記憶再編成や relation-aware retrieval を重視するのは、この弱点を埋めたいからである。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>向いている場面</h3>
+      <p>複数人物、複数案件、期限、依存関係、承認経路が絡む業務で強い。support、sales、research、procurement の横断タスクでは差が出やすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>強み</h3>
+      <p>entity と relation を明示できるため、「近い文書」より「正しい接続先」を取りにいける。更新された事実を部分的に差し替えやすいのも利点である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>弱み</h3>
+      <p>抽出、正規化、重複排除、schema の維持が必要になる。単純なベクトル検索より立ち上がりコストは高い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>実務での入れ方</h3>
+      <p>最初から全面 graph 化するより、人物関係、案件状態、approval chain のように関係が明確な部分だけ graph に切り出す方が現実的である。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">実装レシピ</p>
+  <h2>今すぐ作れる実装例は、単一の万能 memory より役割別の組み合わせになる</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Assistant</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">個人 assistant: profile memory + session summary</h3>
+        <p>
+          user の嗜好、定例予定、禁止事項は profile store に持ち、会話中の状態は session に置く。会話終了後に「次回も必要な事項だけ」を要約昇格させる。
+          これは OpenAI の saved memory / chat history 分離や AWS の session summary retention に近い考え方である。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Coding</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">coding agent: repo memory + file memory + checkpoints</h3>
+        <p>
+          repo 規約や review 方針は CLAUDE.md や memory file として read-only に持ち、進行中タスクの state は checkpoint に持つ。
+          恒久的な学びだけを file-backed memory に昇格させると、diff と監査がしやすい。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">support workflow: customer memory + policy memory + approval graph</h3>
+        <p>
+          顧客属性や過去対応は user memory、返金規定や法務条件は shared policy memory、例外承認の経路は graph memory に分ける。
+          こうすると personalization と compliance を同じ検索結果に混ぜずに済む。
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">research agent: source cache + evidence memory + contradiction log</h3>
+        <p>
+          一次資料本文は cache、確定した主張は evidence memory、食い違いは contradiction log に分けると、後から「何を見てそう判断したか」を追いやすい。
+          長い調査では、これが単純な vector retrieval より効くことが多い。
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">運用の壁</p>
+  <h2>記憶実装が崩れるのは、検索精度より更新競合と陳腐化の管理に失敗したときである</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>複数 agent が同じ shared memory を全面書き換えする</h3>
+      <p>Letta docs が示す通り、append と targeted replace は比較的安全だが、複数 agent が同時に full rewrite を走らせると last-writer-wins になりやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>古い記憶が新しい事実を上書きする</h3>
+      <p>長期 memory は量が増えるほど、更新済み facts の扱いが難しくなる。timestamp、source、expiry を持たない memory は、時間がたつほど危険になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>shared memory と personal memory を混ぜる</h3>
+      <p>ユーザー固有の嗜好と組織ルールを同じ namespace に入れると、retrieval は簡単でも判断が壊れやすい。scope 分離は performance だけでなく correctness の問題でもある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>memory write を評価していない</h3>
+      <p>多くのチームは retrieval を評価しても、「何が書き込まれたか」を評価していない。だが本当の事故は read path より write path から起きやすい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">未解決課題</p>
+  <h2>現在の記憶実装の弱点は、思い出せないことより、何を残し何を忘れるかが未成熟なことにある</h2>
+  <p>
+    調査を通じて見えてきたのは、現在の memory 実装が「有無」の段階を超えた一方で、「更新方針」の段階ではまだ揺れていることである。
+    LoCoMo や LongMemEval が示すように、長期対話、更新済み facts、複数セッションをまたぐ質問では、long-context model や assistant でも性能が落ちる。
+    これは retrieval の件数だけでは解けず、何を書き込み、何を昇格させ、何を失効させるかの policy が必要になることを意味する。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>write path が read path より未成熟である</h3>
+      <p>多くの実装は検索の仕組みを持つが、保存判断はまだ粗い。だからノイズを保存しすぎるか、逆に必要な記憶を落とすかの両極端になりやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>古い記憶と新しい事実の衝突が解けていない</h3>
+      <p>timestamp、source、expiry を持たない記憶は、後から見たときにもっともらしいが古い答えを返しやすい。これは単純な vector retrieval の構造的な弱点である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>shared memory の更新競合が起きやすい</h3>
+      <p>複数 agent が同じ block や store を全面的に書き換えると、重複、消失、last-writer-wins が起きる。Letta が full rewrite を anti-pattern として警告する理由はここにある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>scope 混在が correctness を壊す</h3>
+      <p>個人嗜好、組織ルール、案件状態を同じ namespace に入れると、検索自体は成功しても判断の前提が崩れる。scope 分離は performance ではなく correctness の条件である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>memory evaluation がまだ弱い</h3>
+      <p>多くの現場は retrieval quality を見ても、「何が書き込まれたか」「その記憶が後で害を出したか」を十分に測っていない。実務では read より write の事故が大きい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">各社の対処</p>
+  <h2>ベンダーごとの差は、memory の有無ではなく、どの課題をどの層で解こうとしているかにある</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI と Anthropic は記憶の型を分ける</h3>
+      <p>OpenAI は saved memories と chat history を分け、Anthropic は CLAUDE.md と auto memory を分ける。これは「何を恒久記憶にするか」を会話履歴から切り離すアプローチである。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google ADK と AWS は圧縮をシステム機能として扱う</h3>
+      <p>ADK の context compaction は sliding window と overlap を持つ compaction を提供し、AWS Bedrock はセッション終了後に非同期 summarization を走らせる。これは token と遅延の課題への直接的な答えである。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>LangGraph / Deep Agents は scope と権限を前面化する</h3>
+      <p>agent-scoped、user-scoped、organization-level memory、read-only と writable の分離、background consolidation といった整理は、共有更新や誤保存の問題に対する実務的な解法になっている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Letta は shared memory の競合を block 単位で制御しようとする</h3>
+      <p>memory_insert、memory_replace、memory_rethink を分け、重い書き換えには owner を立てる設計は、multi-agent の競合更新を抑える方向としてかなり具体的である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Mem0 と最近の論文群は graph と reflective update へ寄る</h3>
+      <p>Mem0 の graph memory、A-MEM、MemoryOS、Reflective Memory Management、MemInsight は、記憶を静的に保存するのではなく、再編成し、関係を保持し、更新方針を持つものとして扱っている。</p>
+    </article>
+  </div>
+  <p class="mt-6">
+    この比較から読み取れるのは、各社が同じ 1 つの答えへ向かっているわけではないことだ。だが共通点はある。型分離、scope 分離、圧縮、非同期更新、共有更新の制御は、
+    どの stack でも重要論点になり始めている。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">ユースケース</p>
+  <h2>memory が本当に必要になるのは、継続性、handoff、compliance が要求される仕事である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>個人 assistant では継続性のために必要になる</h3>
+      <p>好み、予定、禁止事項、前回までの合意を毎回聞き直さずに済むことが価値になる。ここで重要なのは、単なる recall より user profile の更新精度である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>coding agent では再探索コストを減らすために必要になる</h3>
+      <p>repo 規約、過去の修正方針、危険な変更パターン、未完了の作業状態を持てると、毎回同じ探索をやり直さずに済む。file-backed memory が強いのはこのためである。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>support や ops では継続性と compliance の両立に必要になる</h3>
+      <p>顧客文脈、ポリシー、承認経路をまたぐため、個人記憶、共有ポリシー、graph 的な関係記憶を分けて持つ価値が大きい。ここは memory の投資対効果が高い領域である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>multi-agent では handoff のために必要になる</h3>
+      <p>誰が何を見て、何を終え、何が未確定かを共有しないと、subagent や specialist への分業が壊れる。multi-agent memory は personalization より coordination のために重要である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>research では数日単位の知的作業を維持するために必要になる</h3>
+      <p>一次資料、確定根拠、反証、未解決点を分けて保持しないと、長い調査は途中で崩れる。research memory は RAG というより、evidence system に近い。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">今後の方向性</p>
+  <h2>これからの競争軸は、remember できるかではなく、memory をどこまで制御できるかへ移る</h2>
+  <p>
+    記憶実装は今後さらに layered になる可能性が高い。短期 state、長期 profile、shared memory、graph relation、file-backed memory、background consolidation が
+    用途ごとに組み合わされ、1 つの universal store に回収される方向ではなくなるとみる方が自然である。加えて、差別化は retrieval quality 単体から、
+    write policy、forgetting policy、memory audit へ移るだろう。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>vector retrieval は残るが、単独では主役でなくなる</h3>
+      <p>今後も長期記憶の基盤として使われるが、structured profile、graph relation、file memory と組み合わせる形が主流になる可能性が高い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>forgetting と consolidation が重要機能になる</h3>
+      <p>何を残すかより、何を落とすかを制御できる方が、長期運用では効く。圧縮と失効の仕組みは、今後の memory system の本体になりやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>memory は personalization 機能から control plane へ広がる</h3>
+      <p>個人向けの便利機能にとどまらず、workflow の state、approval、handoff、policy enforcement を支える基盤に広がると考えられる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>評価対象は read から write へ広がる</h3>
+      <p>今後の benchmark や運用監視は、「どれだけ正しく思い出したか」だけでなく、「何を書き込んだか」「その記憶が後で妥当だったか」を見る方向へ進むはずである。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">方式比較</p>
+  <h2>普及している方式と、精度面で注目される方式は少し違う</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Context-only と prompt 埋め込み</h3>
+      <p>CLAUDE.md、system prompt、memory blocks のように、重要情報を常時 in-context で持つ方式は依然として広く使われる。記述が正しければ精度は高いが、容量が限られ、更新コストも高い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Vector retrieval は最も普及した長期記憶の基盤である</h3>
+      <p>LangGraph、Mem0、Letta、Azure、ADK 系の構成では、必要時だけ検索して再注入する方式が最も一般的である。実装しやすく token 効率も良いが、時間順序、矛盾、関係性の扱いは弱い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Structured profile と scoped state は運用しやすい</h3>
+      <p>ユーザー嗜好や project 設定を JSON や state object として持つ方式は、検索よりも更新規則を明示しやすく、誤検索も減らしやすい。現在の実務導入ではこの方式の比重が高い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Graph memory は精度改善の注目株である</h3>
+      <p>entity や relation を明示する graph memory は、誰と誰がどう関係するか、制約がどこにぶら下がるかを追いやすい。Mem0 や最近の論文群が力を入れているが、構築と更新の複雑さは増す。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>File-backed memory は coding agent で強い</h3>
+      <p>Letta Code の MemFS や Claude Code の project memory のように、記憶を人間が読めるファイルとして残す方式は、監査しやすく差分も取りやすい。embedding の近さより編集性が重要な場面で有利である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>共有記憶は強力だが、最も壊れやすい</h3>
+      <p>複数エージェントが同じ記憶へ書くと、競合、重複、古い記憶の残留が起きやすい。read-only と writable の分離、owner の明確化、監査ログがないと精度が落ちやすい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">研究の示唆</p>
+  <h2>論文側は、単純な RAG だけでは長期記憶の品質が足りないことを示している</h2>
+  <p>
+    論文の流れを見ると、Generative Agents と MemoryBank は、出来事を要約し反射して長期記憶へ昇格させる発想を早くから示した。
+    MemGPT は context window の外へ記憶を逃がす OS 的な扱いを整理し、CoALA は working、episodic、semantic、procedural の分離を
+    アーキテクチャとして位置付けた。LoCoMo と LongMemEval は、長期対話記憶を評価すると commercial assistant や long-context model でも性能低下が大きいことを可視化し、
+    「単にコンテキストを長くするだけでは足りない」ことを示した。さらに 2025 年以降の A-MEM、MemoryOS、Reflective Memory Management、MemInsight は、
+    graph 化、反射的な更新、memory scheduler、agentic write policy を入れた方が flat な retrieval-only baseline より良い傾向を報告している。
+    ただし、ベンチマーク、基盤モデル、write policy が各論文で違うため、数値の横比較は慎重に見る必要がある。
+  </p>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">2023</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">要約と反射で記憶を作る発想が広がる</h3>
+        <p>Generative Agents、MemoryBank、MemGPT は、会話ログをそのまま保持するより、意味のある単位へ圧縮し、外部記憶として管理する方向を打ち出した。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2024</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">評価ベンチマークが、長期記憶の弱さを可視化する</h3>
+        <p>LoCoMo と LongMemEval は、時間経過、複数セッション、人物関係、更新された事実をまたぐ質問で性能が崩れやすいことを示した。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2025-2026</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">記憶の更新戦略そのものが研究対象になる</h3>
+        <p>A-MEM、MemoryOS、Reflective Memory Management、MemInsight は、何を書き、どう整理し、いつ取り出すかを agent policy として設計する方向へ進めている。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">採用指針</p>
+  <h2>現時点で最も効率的なのは、用途ごとに scope を分けた層別メモリ構成である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>個人向け assistant</h3>
+      <p>session state と user profile memory を分け、会話終了後に重要事項だけを要約昇格させる構成が最も扱いやすい。すべてを保存し続ける方式は token コストと誤回想が増えやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>coding agent</h3>
+      <p>project memory はファイルか repo 内ルールとして明示し、作業状態は checkpoint で持ち、長期学習は検索可能な log へ分けるのが安全である。人間が diff を追えることが重要になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>multi-agent workflow</h3>
+      <p>各 agent の working memory は分離し、shared memory は原則 read-mostly にする方が安定する。共有部分を自由書き込みにすると、後からどの agent が誤記したか追いにくい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>高精度が必要な業務</h3>
+      <p>vector retrieval だけに頼らず、structured profile、graph relation、approval 前の deterministic check を組み合わせる方が精度を上げやすい。特に更新済み facts と期限付き制約では差が出やすい。</p>
+    </article>
+  </div>
+  <p class="mt-6">
+    このため、公開資料を横断したうえでの実務的な結論は、「最も採用されている」のは vector DB 単体ではなく、
+    <code>session state + persistent store + selective retrieval + asynchronous consolidation</code> の組み合わせだ、ということになる。
+    そこへ shared memory を足す場合は scope と権限の分離を先に決め、graph memory や file-backed memory は精度要件が高い領域から段階的に入れるのが現実的である。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>AIエージェントの記憶は、モデルのコンテキスト長競争ではなく、状態と知識の管理競争へ移っている</h2>
+  <p>
+    現時点で確認できる範囲では、AI エージェントの記憶実装は 1 つの決定版へ収束しているわけではない。だが、主要実装の共通点はかなりはっきりしている。
+    短期の作業状態は session や checkpoint で管理し、長期の知識は外部ストアへ分け、共有記憶は別 scope で持ち、圧縮と更新は非同期に行う。この層別メモリ構成が、
+    コスト、速度、精度、ガバナンスのバランスが最も良い構成として広く採用されている。現在の最前線は、その基礎の上で graph memory、file-backed memory、
+    reflective update をどう運用可能な形にするかへ移っている。
+  </p>
+</section>
