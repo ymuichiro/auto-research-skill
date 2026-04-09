@@ -1,0 +1,1053 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI agent memory is shifting from vector retrieval to a layered systems design | Auto Research Digest EN</title>
+    <meta name="description" content="Across official documentation current as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore, plus papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern emerges: agent memory is no longer a single vector retrieval feature. It is becoming a layered system made up of short-term session state, long-term persistent memory, shared memory, and background consolidation or reflection. At the same time, the main problems are shifting away from pure recall failure and toward the write path, shared-memory contention, and stale memory. Vendors are responding with type separation, scope separation, asynchronous summarization, graph memory, file-backed memory, and reflective updates. The most widely adopted implementation pattern remains the split between per-conversation state and persistent stores with selective reinjection, but the next frontier is likely to be governed by write policy and forgetting policy as much as by retrieval quality.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="AI agent memory is shifting from vector retrieval to a layered systems design | Auto Research Digest EN">
+    <meta property="og:description" content="Across official documentation current as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore, plus papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern emerges: agent memory is no longer a single vector retrieval feature. It is becoming a layered system made up of short-term session state, long-term persistent memory, shared memory, and background consolidation or reflection. At the same time, the main problems are shifting away from pure recall failure and toward the write path, shared-memory contention, and stale memory. Vendors are responding with type separation, scope separation, asynchronous summarization, graph memory, file-backed memory, and reflective updates. The most widely adopted implementation pattern remains the split between per-conversation state and persistent stores with selective reinjection, but the next frontier is likely to be governed by write policy and forgetting policy as much as by retrieval quality.">
+    <meta property="og:url" content="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="AI agent memory is shifting from vector retrieval to a layered systems design">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI agent memory is shifting from vector retrieval to a layered systems design | Auto Research Digest EN">
+    <meta name="twitter:description" content="Across official documentation current as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore, plus papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern emerges: agent memory is no longer a single vector retrieval feature. It is becoming a layered system made up of short-term session state, long-term persistent memory, shared memory, and background consolidation or reflection. At the same time, the main problems are shifting away from pure recall failure and toward the write path, shared-memory contention, and stale memory. Vendors are responding with type separation, scope separation, asynchronous summarization, graph memory, file-backed memory, and reflective updates. The most widely adopted implementation pattern remains the split between per-conversation state and persistent stores with selective reinjection, but the next frontier is likely to be governed by write policy and forgetting policy as much as by retrieval quality.">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="AI agent memory is shifting from vector retrieval to a layered systems design">
+    <link rel="canonical" href="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html">
+    <link rel="alternate" type="application/atom+xml" href="https://research.notelligent.app/en/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-04-08T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-04-09T11:03:26+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Memory">
+    <meta property="article:tag" content="Long-Term Memory">
+    <meta property="article:tag" content="Multi-Agent">
+    <meta property="article:tag" content="RAG">
+    <meta property="article:tag" content="Workflow">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI agent memory is shifting from vector retrieval to a layered systems design","description":"Across official documentation current as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore, plus papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern emerges: agent memory is no longer a single vector retrieval feature. It is becoming a layered system made up of short-term session state, long-term persistent memory, shared memory, and background consolidation or reflection. At the same time, the main problems are shifting away from pure recall failure and toward the write path, shared-memory contention, and stale memory. Vendors are responding with type separation, scope separation, asynchronous summarization, graph memory, file-backed memory, and reflective updates. The most widely adopted implementation pattern remains the split between per-conversation state and persistent stores with selective reinjection, but the next frontier is likely to be governed by write policy and forgetting policy as much as by retrieval quality.","datePublished":"2026-04-08T00:00:00+09:00","dateModified":"2026-04-09T11:03:26+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Memory, Long-Term Memory, Multi-Agent, RAG, Workflow","mainEntityOfPage":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://research.notelligent.app/en/archive/"},{"@type":"ListItem","position":3,"name":"AI agent memory is shifting from vector retrieval to a layered systems design","item":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/archive/">Archive</a><a class="nav-link " href="/en/feed.xml">Feed</a></nav>
+        <a class="lang-switch" href="/2026-04-08-agent-memory-shifts-to-layered-systems.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">AI agent memory is shifting from vector retrieval to a layered systems design</h1>
+          <p class="hero-copy">Across official documentation current as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore, plus papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern emerges: agent memory is no longer a single vector retrieval feature. It is becoming a layered system made up of short-term session state, long-term persistent memory, shared memory, and background consolidation or reflection. At the same time, the main problems are shifting away from pure recall failure and toward the write path, shared-memory contention, and stale memory. Vendors are responding with type separation, scope separation, asynchronous summarization, graph memory, file-backed memory, and reflective updates. The most widely adopted implementation pattern remains the split between per-conversation state and persistent stores with selective reinjection, but the next frontier is likely to be governed by write policy and forgetting policy as much as by retrieval quality.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-08">April 8, 2026</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
+    </section>
+    <section class="article-share" aria-label="Share article">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%20agent%20memory%20is%20shifting%20from%20vector%20retrieval%20to%20a%20layered%20systems%20design&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-04-08-agent-memory-shifts-to-layered-systems.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Open share menu"
+      data-native-share
+      data-share-title="AI agent memory is shifting from vector retrieval to a layered systems design"
+      data-share-text="AI agent memory is shifting from vector retrieval to a layered systems design"
+      data-share-url="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Copy article title and link"
+      data-copy-share
+      data-state="idle"
+      data-share-title="AI agent memory is shifting from vector retrieval to a layered systems design"
+      data-share-url="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"
+      data-copy-label-default="Copy article title and link"
+      data-copy-label-success="Copied"
+      data-copy-status-success="Copied"
+      data-copy-status-error="Copy failed"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Key Point</p>
+  <h2>AI agent memory is shifting from simple vector retrieval to a layered systems design</h2>
+  <p>
+    Reading current public documentation as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore alongside
+    papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern appears.
+    Agent memory is no longer just about keeping a longer chat history or attaching a vector database. The practical implementation center has moved toward a layered design that
+    separates short-term working state, long-term persistent memory, shared memory, and background consolidation or reflection. The most adopted pattern today is to separate
+    per-session state from persistent stores and re-inject only what matters. The frontier is adding graph memory, file-backed memory, and asynchronous memory updates on top of that base.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">8 stacks</p>
+      <p class="stat-title">Converging implementation surfaces</p>
+      <p class="stat-note">OpenAI, Anthropic, Google, LangChain, Letta, Mem0, Microsoft, and AWS now document memory as an explicit systems layer.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">34 sources</p>
+      <p class="stat-title">Public evidence base</p>
+      <p class="stat-note">Official docs and papers alone are now enough to compare short-term, long-term, shared, and consolidation designs.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">Emerging default shape</p>
+      <p class="stat-note">Working memory, persistent memory, shared memory, and consolidation are increasingly separated.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 conclusion</p>
+      <p class="stat-title">Layered memory is the mainstream design</p>
+      <p class="stat-note">The common pattern is not a pure vector database. It is a system that separates state from memory.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>By spring 2026, memory is being treated as a systems problem rather than a model feature</h2>
+  <p>
+    The clearest signal is that major frameworks no longer explain memory as one box. Google ADK separates sessions, state, memory, context caching, and compaction.
+    LangGraph documents persistence and memory as distinct implementation surfaces, while Deep Agents adds agent-scoped, user-scoped, and organization-level memory plus background consolidation.
+    Letta separates memory blocks, shared memory, and archival memory, and Letta Code adds MemFS as an editable file-backed memory layer. AWS Bedrock summarizes ended sessions into a retained memory
+    keyed by <code>memoryId</code>, and Azure AI Foundry exposes memory stores as part of the agent object. Anthropic Claude Code combines CLAUDE.md with auto memory, while OpenAI's ChatGPT Memory
+    separates saved memories from chat history. The pattern is clear: memory is no longer just a longer context window. It is a system layer that decides where to write, what to keep, and when to retrieve.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Short-term memory is moving into session state</h3>
+      <p>Instead of replaying the full transcript every turn, more systems keep thread, session, checkpoint, and tool state outside the prompt and restore only what is needed.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Long-term memory is moving into persistent stores</h3>
+      <p>User preferences, recurring constraints, learned procedures, and prior session summaries are increasingly stored in retrievable external memory rather than raw chat history.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Shared memory is becoming a separate scope</h3>
+      <p>Project, team, and organization knowledge is increasingly separated from personal memory by namespace, scope, or memory block so retrieval stays stable.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Compression and updates are moving off the hot path</h3>
+      <p>Post-session summarization, context compaction, and reflection agents are increasingly handled asynchronously so token cost and latency do not grow linearly with history.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Implementation Map</p>
+  <h2>Current memory systems are easiest to understand as at least four layers</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>1. Working memory: active execution state</h3>
+      <ul class="bullet-list">
+        <li>This layer holds thread state, checkpoints, tool outputs, and the most recent observations needed for the current task.</li>
+        <li>It is the fastest and cheapest layer, but also the shortest-lived.</li>
+        <li>Google ADK session state, LangGraph persistence, and Azure thread or run state all fit here.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Persistent memory: long-term individual memory</h3>
+      <ul class="bullet-list">
+        <li>This layer stores user preferences, recurring constraints, reusable procedures, and important facts from prior work.</li>
+        <li>Vector retrieval, profile stores, key-value records, and document collections are the most common implementations.</li>
+        <li>Mem0 user / agent / session memory, Letta archival memory, and AWS session summary retention all fit this layer.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Shared memory: project or organizational memory</h3>
+      <ul class="bullet-list">
+        <li>This layer stores rules, glossaries, and ongoing project state shared across agents or users.</li>
+        <li>It needs to stay separate from personal memory or retrieval becomes noisy and inconsistent.</li>
+        <li>Deep Agents organization-level memory, Letta shared memory, and Mem0 org scope are examples.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Consolidation layer: compression, reflection, forgetting</h3>
+      <ul class="bullet-list">
+        <li>This layer decides what to summarize, what to delete, what to promote, and what to rewrite.</li>
+        <li>It matters for both cost and accuracy, which is why it is becoming a major differentiator in frontier systems.</li>
+        <li>AWS memory summarization, Microsoft compaction, and Deep Agents background consolidation are representative examples.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why It Matters</p>
+  <h2>This shift matters because memory is becoming a decision substrate, not a storage feature</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Accuracy now diverges at the memory layer, not only at the model layer</h3>
+      <p>Two agents using the same model can still behave very differently depending on whether they remember who the user is, what was approved last week, and which constraints are still active.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Sending everything every turn does not scale</h3>
+      <p>ADK context compaction and AWS session summarization both make the same point in public docs: practical systems are already moving away from replaying full histories on every invocation.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Memory write rules are becoming governance rules</h3>
+      <p>What gets saved automatically, what stays read-only, and who can update shared memory are no longer minor implementation details. They define audit and failure boundaries.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The impressive part is not recall alone, but controlled recall</h3>
+      <p>The frontier value is not having more stored text. It is being able to control scope, priority, update timing, and compression rules. That is the real break from older retrieval-only designs.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Read Path</p>
+  <h2>Strong memory systems are defined more by how they retrieve than by where they store</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Step 1</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Scope first</h3>
+        <p>The system first narrows the search to user, agent, project, or organization scope. Deep Agents and Mem0 emphasize scope because retrieval quality drops quickly when scopes are mixed.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Step 2</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Then filter by memory type</h3>
+        <p>Preferences, facts, prior procedures, and shared policies should not be fetched the same way. CoALA's split between episodic, semantic, and procedural memory is useful here.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Step 3</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Inject only what is needed</h3>
+        <p>LangGraph and Deep Agents both point toward selective loading instead of eagerly placing all memory into the prompt. This reduces context pollution and token waste.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Step 4</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Join retrieved memory with live state</h3>
+        <p>Persistent memory alone is not enough. Good systems combine it with the current task state, unfinished tool calls, and approval flags before acting. Retrieval needs a state join.</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    The practical implication is that teams often get better results by designing <code>scope filtering</code> and <code>memory type selection</code> before they optimize embeddings.
+    Many failures come less from too little memory than from fetching the wrong memory.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Write Path</p>
+  <h2>Frontier systems separate not only what to store, but when to store it</h2>
+  <div class="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-2">
+    <article class="comparison-card">
+      <h3>Write during the interaction</h3>
+      <p>Confirmed user preferences and durable project rules are often worth updating immediately. This is where writable memory blocks and file-backed memory are useful.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Summarize after the interaction</h3>
+      <p>AWS Bedrock summarizes sessions asynchronously after they end. That is a practical way to retain long interactions without slowing down the active path.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Compact after a threshold</h3>
+      <p>ADK context compaction uses a sliding window and overlap size to summarize older workflow events. This is especially useful in long multi-step tasks where context growth otherwise becomes expensive.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Delegate restructuring to a separate agent</h3>
+      <p>Deep Agents background consolidation and Letta-style sleeptime patterns show a newer approach: let another agent reorganize memory between active runs. This is where memory starts to look like agent policy.</p>
+    </article>
+  </div>
+  <p class="mt-6">
+    The key is not to make every memory write immediate. Immediate writes are responsive but noisy. Delayed writes are cleaner but can miss constraints needed for the next step.
+    Strong systems explicitly separate immediate writes, post-session summaries, and disposable observations.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Graph Memory</p>
+  <h2>Knowledge-graph style memory is attracting attention because it handles relations and change better</h2>
+  <p>
+    Graph memory matters because semantic similarity is only part of the problem. Vector retrieval is good at finding related text, but weaker at representing who reports to whom,
+    which approvals apply to which workflow, and which fact supersedes an older one. That is why Mem0 highlights graph memory and why newer work such as A-MEM, MemoryOS, and MemInsight
+    puts more emphasis on restructuring and relation-aware recall.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Where it helps</h3>
+      <p>It is strongest when people, projects, deadlines, dependencies, and approval paths all matter at once. Support, sales, procurement, and research workflows are common examples.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Why it can be better</h3>
+      <p>It can retrieve the right connection rather than the closest paragraph. It also makes partial updates easier when one fact changes but the broader structure remains valid.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Why it is harder</h3>
+      <p>It needs entity extraction, normalization, deduplication, and some form of schema discipline. The setup cost is higher than a flat vector store.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>How to adopt it safely</h3>
+      <p>Do not graph everything first. Start with areas where relations are explicit, such as approval chains, customer-account links, or project dependency state.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Blueprints</p>
+  <h2>The best near-term implementations combine multiple memory roles instead of one universal store</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">Assistant</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Personal assistant: profile memory plus session summaries</h3>
+        <p>
+          Keep user preferences, recurring habits, and standing constraints in a profile store. Keep live state in the session. After the interaction, promote only what will matter next time.
+          This is close to the public split visible in OpenAI's saved memories versus chat history and AWS session summary retention.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Coding</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Coding agent: repo memory, file memory, and checkpoints</h3>
+        <p>
+          Keep coding rules and review norms in repo-local memory files, hold active task state in checkpoints, and promote only durable learnings into file-backed memory.
+          This makes diffs and audits easier while keeping the live prompt lean.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Support</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Support workflow: customer memory, policy memory, and approval graph</h3>
+        <p>
+          Customer history belongs in user memory, refund or legal rules belong in shared policy memory, and exception approval paths fit naturally into graph memory.
+          That keeps personalization and compliance from colliding in one retrieval result.
+        </p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">Research</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Research agent: source cache, evidence memory, and contradiction log</h3>
+        <p>
+          Raw documents belong in a cache, validated claims belong in evidence memory, and disagreements belong in a contradiction log. For long investigations, that often works better than one flat retrieval layer.
+        </p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operational Risks</p>
+  <h2>Memory systems usually break first on update conflicts and staleness, not on retrieval recall alone</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Multiple agents rewrite the same shared memory</h3>
+      <p>As Letta's docs imply, append and targeted replace are relatively safe, but simultaneous full rewrites push systems toward last-writer-wins behavior.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Old memory overrides newer facts</h3>
+      <p>The more long-term memory grows, the more important timestamps, source tracking, and expiry become. Without them, durable memory can become confidently wrong memory.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Shared and personal memory are mixed together</h3>
+      <p>Once user-specific preferences and organizational rules live in one namespace, correctness suffers even if retrieval looks convenient. Scope separation is a correctness requirement, not just a performance trick.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>No one evaluates the write path</h3>
+      <p>Many teams test retrieval quality but not what the system actually writes into memory. In practice, some of the most serious failures originate in bad writes rather than bad reads.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Unresolved Problems</p>
+  <h2>The core weakness today is not failure to remember, but immature policies for what to keep and what to forget</h2>
+  <p>
+    The most important pattern in the research is that memory has moved past the binary question of whether it exists. The harder question is now how it is updated.
+    LoCoMo and LongMemEval both suggest that long-term interaction, updated facts, and multi-session reasoning remain unstable even for strong assistants and long-context models.
+    That means memory quality cannot be solved by retrieval volume alone. Systems need explicit policies for what gets written, promoted, expired, and rewritten.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>The write path is less mature than the read path</h3>
+      <p>Many systems can retrieve memory, but fewer can decide reliably what deserves to be written. That leads either to noisy memory or to brittle under-memory.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Old memory and new facts still collide</h3>
+      <p>Without timestamps, source tracking, and expiry, long-term memory often returns answers that sound right but are no longer current. This is a structural weakness of flat retrieval.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Shared memory creates update conflicts</h3>
+      <p>When multiple agents rewrite the same shared block or store, duplication, loss, and last-writer-wins behavior become likely. Letta's warnings around heavy rewrites point directly at this issue.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Mixed scopes damage correctness</h3>
+      <p>Once personal preferences, organizational policies, and project state live in one namespace, the system may retrieve something relevant but still use the wrong premise.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Memory evaluation is still thin</h3>
+      <p>Most teams test retrieval quality more than memory write quality. In practice, some of the largest failures come from bad writes that persist and spread.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Vendor Responses</p>
+  <h2>What differs across vendors is not whether memory exists, but which part of the problem each stack tries to solve</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI and Anthropic separate memory types</h3>
+      <p>OpenAI separates saved memories from chat history, while Anthropic separates CLAUDE.md from auto memory. Both moves reduce the pressure to treat raw conversation as the only memory substrate.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google ADK and AWS turn compression into a system feature</h3>
+      <p>ADK exposes context compaction with thresholds and overlap, while AWS Bedrock runs asynchronous summarization after sessions end. Both are direct responses to cost and latency pressure.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>LangGraph and Deep Agents emphasize scope and permissions</h3>
+      <p>Agent-scoped, user-scoped, and organization-level memory, plus read-only versus writable memory and background consolidation, are practical responses to shared-state and write-quality problems.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Letta controls shared-memory contention at the block level</h3>
+      <p>Its split between insert, replace, and rethink operations, together with the idea of a memory owner, is a concrete answer to concurrent edits in multi-agent systems.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Mem0 and newer papers lean toward graph and reflective updates</h3>
+      <p>Mem0's graph memory and papers such as A-MEM, MemoryOS, Reflective Memory Management, and MemInsight all treat memory as something to restructure and govern, not just to retrieve.</p>
+    </article>
+  </div>
+  <p class="mt-6">
+    The common thread is clear even if the product shapes differ. Type separation, scope separation, compression, asynchronous updates, and control over shared writes are all becoming first-class design concerns.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>Memory becomes essential when work depends on continuity, handoff, or compliance rather than on one-shot generation</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Personal assistants need continuity</h3>
+      <p>The value is not generic recall. It is not having to renegotiate preferences, standing constraints, or recurring habits every time.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Coding agents need lower rediscovery cost</h3>
+      <p>Repo rules, prior fixes, danger zones, and unfinished work all benefit from durable memory. This is why file-backed memory is so attractive in coding workflows.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Support and ops need continuity plus compliance</h3>
+      <p>Customer context, policy memory, and approval routes all have to coexist without being confused with each other. That is where layered memory has clear economic value.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Multi-agent systems need reliable handoff</h3>
+      <p>Subagents and specialists need to know what has been done, what remains uncertain, and which constraints are active. Here memory matters more for coordination than for personalization.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Research agents need multi-day evidence continuity</h3>
+      <p>Primary sources, validated claims, contradictions, and open questions all need to persist in different forms. In that setting, memory behaves more like an evidence system than a chat feature.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Direction</p>
+  <h2>The next competition is shifting from whether agents can remember to how well teams can control memory</h2>
+  <p>
+    The likely direction is further layering rather than convergence on one universal memory store. Short-term state, long-term profiles, shared memory, graph relations, file-backed memory,
+    and background consolidation are more likely to be combined by use case than collapsed into one mechanism. The center of differentiation will probably move from retrieval quality alone
+    toward write policy, forgetting policy, and memory auditability.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Vector retrieval will remain, but not as the whole story</h3>
+      <p>It will likely stay as a major long-term memory substrate, but increasingly alongside structured profiles, graph memory, and file-based memory.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Forgetting and consolidation will become core features</h3>
+      <p>In durable systems, the ability to drop or compress the right memories matters as much as the ability to keep them.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Memory will expand from personalization into control-plane infrastructure</h3>
+      <p>Memory is likely to support workflow state, approvals, handoffs, and policy enforcement, not just user convenience.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Evaluation will expand from read quality to write quality</h3>
+      <p>Future benchmarks and production monitoring will likely focus more on what gets written, whether it ages well, and whether it should have been retained at all.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Method Comparison</p>
+  <h2>The most common approach and the most attention-grabbing approach are not exactly the same</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Context-only and prompt-pinned memory</h3>
+      <p>CLAUDE.md, system prompts, and pinned memory blocks are still widely used. When curated well they can be highly accurate, but capacity is scarce and updates are expensive.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Vector retrieval is the most widespread long-term memory base</h3>
+      <p>Across LangGraph, Mem0, Letta, Azure, and ADK-style setups, retrieving only what matters remains the most common pattern. It is practical and token-efficient, but weaker on chronology, conflict resolution, and relations.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Structured profiles and scoped state are operationally strong</h3>
+      <p>Keeping preferences and project settings as explicit records or state objects makes updates easier to govern and often reduces false retrieval. This is one reason it shows up so often in production-oriented docs.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Graph memory is the rising accuracy bet</h3>
+      <p>Graph memory makes entities and relations explicit, which helps with who-knows-what, dependency chains, and changing constraints. Mem0 and several recent papers push in this direction, though the implementation cost is higher.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>File-backed memory is strong for coding agents</h3>
+      <p>Letta Code's MemFS and Claude Code's project memory show why editable file-based memory matters. In coding workflows, auditability and diffability can matter more than embedding similarity.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Shared memory is powerful but fragile</h3>
+      <p>Once multiple agents write to the same memory, drift, duplication, and stale knowledge become more likely. Read-only versus writable separation and audit traces become important quickly.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Research Signal</p>
+  <h2>The paper trail suggests flat RAG alone is not enough for durable memory quality</h2>
+  <p>
+    The research path is fairly consistent. Generative Agents and MemoryBank showed early that long-term memory works better when events are summarized and reflected on before being stored.
+    MemGPT formalized the idea of moving memory outside the context window, while CoALA framed working, episodic, semantic, and procedural memory as an architecture. LoCoMo and LongMemEval then made the weakness of long-horizon memory visible:
+    even commercial assistants and long-context models degrade noticeably when questions depend on time, updated facts, or multiple sessions. Newer work such as A-MEM, MemoryOS, Reflective Memory Management, and MemInsight increasingly treats
+    memory writing, restructuring, and scheduling as agent policies rather than as passive retrieval. That is the important shift. Memory quality is becoming a systems behavior, not just a retrieval feature. Cross-paper numeric comparisons still need caution,
+    because the benchmarks, base models, and write policies differ.
+  </p>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">2023</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Summarization and reflection become core memory ideas</h3>
+        <p>Generative Agents, MemoryBank, and MemGPT all point away from replaying raw history and toward compressing and managing memory outside the main prompt.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2024</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Benchmarks expose long-term memory weakness</h3>
+        <p>LoCoMo and LongMemEval show that time, multi-session interaction, and updated facts remain hard even for strong models and assistants.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">2025-2026</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Memory update strategy becomes a first-class research target</h3>
+        <p>A-MEM, MemoryOS, Reflective Memory Management, and MemInsight all move toward explicit policies for what gets written, how it gets reorganized, and when it should be recalled.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Adoption Guidance</p>
+  <h2>The most efficient design today is layered memory with clear scope boundaries</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Personal assistants</h3>
+      <p>Separate session state from user profile memory, then promote only important items after the interaction ends. Keeping everything forever increases both token cost and false recall.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Coding agents</h3>
+      <p>Keep project memory in files or repo-local rules, use checkpoints for active state, and keep long-term learnings in searchable logs. Human-readable diffs matter here.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Multi-agent workflows</h3>
+      <p>Keep each agent's working memory separate and treat shared memory as mostly read-only unless there is strong coordination logic. Free-form shared writes are hard to audit and hard to trust.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>High-accuracy workflows</h3>
+      <p>Do not rely on vector retrieval alone. Combine structured profiles, graph relations, and deterministic checks before approval or external action, especially when facts can change over time.</p>
+    </article>
+  </div>
+  <p class="mt-6">
+    Taking the public evidence together, the most adopted implementation pattern is not a standalone vector database. It is a combination of
+    <code>session state + persistent store + selective retrieval + asynchronous consolidation</code>. If shared memory is added, scope and write permissions need to be designed first.
+    Graph memory and file-backed memory are best introduced where accuracy or auditability requirements are already high.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Takeaway</p>
+  <h2>Agent memory is becoming a competition in state and knowledge management, not just in context length</h2>
+  <p>
+    There is no single universal winner yet, but the common design direction is already visible. Short-term execution state is managed in sessions and checkpoints, long-term knowledge is moved into external stores,
+    shared memory is separated by scope, and compression plus updates are handled asynchronously. That layered memory design currently offers the best balance of cost, speed, accuracy, and governance.
+    The frontier question is no longer whether to add memory. It is how to make graph memory, file-backed memory, and reflective memory updates operationally reliable on top of the layered base.
+  </p>
+</section>
+</section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-04-06-voice-agents-become-operational-systems.html" aria-label="Voice AI agents are shifting from demo features to operational systems">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-06">April 6, 2026</time>
+      </div>
+      <h3 class="article-card-title">Voice AI agents are shifting from demo features to operational systems</h3>
+      <p class="article-card-copy">Reading the primary-source material available by April 6, 2026 from OpenAI, Google, Microsoft, and AWS shows that voice AI agents are no longer differentiating only on how natural they sound. The real comparison axis now includes the choice between speech-to-speech and chained architectures, session management, interruption handling, tool calling, telephony, human escalation, and testing. The Amazon Connect updates shipped between February and March 2026 make that shift especially concrete: voice AI now looks less like a polished demo surface and more like an operational system that has to be evaluated, monitored, and deployed safely.</p>
+      <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 26</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="Subagents are becoming the practical implementation unit for real-world AI work">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-30">March 30, 2026</time>
+      </div>
+      <h3 class="article-card-title">Subagents are becoming the practical implementation unit for real-world AI work</h3>
+      <p class="article-card-copy">Starting with OpenAI&#39;s March 17, 2026 positioning of GPT-5.4 mini and nano for subagents, and reading that next to public material from OpenAI Codex, Anthropic Claude Code, Google ADK, Microsoft Agent Framework, and Amazon Bedrock, a more precise pattern appears: practical AI work is moving away from one giant agent that owns everything and toward teams of narrower specialist agents. The important shift is not the raw number of agents. It is that public docs now make a concrete architecture visible: which judgment stays with the strongest model, which tasks move to cheaper and faster specialist units, and where state management plus approval boundaries need to sit.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 27</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html" aria-label="Multi-agent workflow is appearing as a configurable, observable product surface">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-12-01">December 1, 2025</time>
+      </div>
+      <h3 class="article-card-title">Multi-agent workflow is appearing as a configurable, observable product surface</h3>
+      <p class="article-card-copy">The multi-agent workflows preview in Foundry Agent Service makes the workflow itself visible as a product surface, with a visual builder, YAML definitions, templates, variables, observability, and evaluators.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 9</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://openai.com/index/memory-and-new-controls-for-chatgpt/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Memory and new controls for ChatGPT</p>
+              <p class="source-url">https://openai.com/index/memory-and-new-controls-for-chatgpt/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/memory" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Claude Code memory</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/memory</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/build-with-claude/context-windows" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Context windows</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/build-with-claude/context-windows</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Prompt caching</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://adk.dev/sessions/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Sessions</p>
+              <p class="source-url">https://adk.dev/sessions/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://adk.dev/sessions/state/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: State</p>
+              <p class="source-url">https://adk.dev/sessions/state/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://adk.dev/sessions/memory/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Memory</p>
+              <p class="source-url">https://adk.dev/sessions/memory/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://adk.dev/context/caching/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Context caching</p>
+              <p class="source-url">https://adk.dev/context/caching/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://adk.dev/context/compaction/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Context compaction</p>
+              <p class="source-url">https://adk.dev/context/compaction/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.langchain.com/oss/python/langgraph/add-memory" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">LangGraph: Add and manage memory</p>
+              <p class="source-url">https://docs.langchain.com/oss/python/langgraph/add-memory</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.langchain.com/oss/python/langgraph/persistence" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">LangGraph: Persistence</p>
+              <p class="source-url">https://docs.langchain.com/oss/python/langgraph/persistence</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.langchain.com/oss/python/deepagents/memory" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Deep Agents: Memory</p>
+              <p class="source-url">https://docs.langchain.com/oss/python/deepagents/memory</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.letta.com/guides/core-concepts/stateful-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Letta docs: Stateful agents</p>
+              <p class="source-url">https://docs.letta.com/guides/core-concepts/stateful-agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.letta.com/guides/agents/memory" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Letta docs: Agent memory</p>
+              <p class="source-url">https://docs.letta.com/guides/agents/memory</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.letta.com/guides/core-concepts/memory/memory-blocks/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Letta docs: Memory blocks</p>
+              <p class="source-url">https://docs.letta.com/guides/core-concepts/memory/memory-blocks/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.letta.com/guides/core-concepts/memory/shared-memory/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Letta docs: Shared memory</p>
+              <p class="source-url">https://docs.letta.com/guides/core-concepts/memory/shared-memory/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.letta.com/letta-code/memory/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Letta Code: Memory</p>
+              <p class="source-url">https://docs.letta.com/letta-code/memory/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.mem0.ai/platform/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Mem0 Platform overview</p>
+              <p class="source-url">https://docs.mem0.ai/platform/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.mem0.ai/core-concepts/memory-types" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Mem0: Memory types</p>
+              <p class="source-url">https://docs.mem0.ai/core-concepts/memory-types</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.mem0.ai/platform/features/graph-memory" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Mem0: Graph memory</p>
+              <p class="source-url">https://docs.mem0.ai/platform/features/graph-memory</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/memory-usage" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Azure AI Foundry: How to use memory</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/memory-usage</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-memory.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Amazon Bedrock: Retain conversational context across multiple sessions using memory</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock/latest/userguide/agents-memory.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-enable-memory.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Amazon Bedrock: Enable agent memory</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock/latest/userguide/agents-enable-memory.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Amazon Bedrock AgentCore: Memory</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/memory.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.08560" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">MemGPT: Towards LLMs as Operating Systems</p>
+              <p class="source-url">https://arxiv.org/abs/2310.08560</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2304.03442" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">Generative Agents: Interactive Simulacra of Human Behavior</p>
+              <p class="source-url">https://arxiv.org/abs/2304.03442</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2305.10250" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">MemoryBank: Enhancing Large Language Models with Long-Term Memory</p>
+              <p class="source-url">https://arxiv.org/abs/2305.10250</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2309.02427" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">CoALA: Cognitive Architectures for Language Agents</p>
+              <p class="source-url">https://arxiv.org/abs/2309.02427</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aclanthology.org/2024.acl-long.747.pdf" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">LoCoMo: Evaluating Very Long-Term Conversational Memory of LLM Agents</p>
+              <p class="source-url">https://aclanthology.org/2024.acl-long.747.pdf</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2410.10813" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory</p>
+              <p class="source-url">https://arxiv.org/abs/2410.10813</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2502.12110" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">A-MEM: Agentic Memory for LLM Agents</p>
+              <p class="source-url">https://arxiv.org/abs/2502.12110</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aclanthology.org/2025.acl-long.491.pdf" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">Memory OS of AI Agent</p>
+              <p class="source-url">https://aclanthology.org/2025.acl-long.491.pdf</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aclanthology.org/2025.acl-long.413.pdf" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">In Prospect and Retrospect: Reflective Memory Management for Long-Horizon Personalized Open-Ended Learning</p>
+              <p class="source-url">https://aclanthology.org/2025.acl-long.413.pdf</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aclanthology.org/2025.emnlp-main.1683.pdf" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">MemInsight: Autonomous Memory-Augmentation for Long-Horizon Agent Tasks</p>
+              <p class="source-url">https://aclanthology.org/2025.emnlp-main.1683.pdf</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -339,7 +339,22 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="subagents は、実務向けAIの現実的な実装単位になり始めた">
+      <a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントの記憶は、ベクトル検索から層別システムへ移っている">
+    <div class="article-card-main">
+      <p class="section-kicker">より新しい記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-08">2026年4月8日</time>
+      </div>
+      <h3 class="article-card-title">AIエージェントの記憶は、ベクトル検索から層別システムへ移っている</h3>
+      <p class="article-card-copy">2026年4月時点の OpenAI、Anthropic、Google ADK、LangGraph、Letta、Mem0、Microsoft Azure、AWS Bedrock / AgentCore の公式 docs と、MemGPT、CoALA、LoCoMo、LongMemEval、A-MEM、MemoryOS、Reflective Memory Management、MemInsight などの論文を重ねると、AIエージェントの記憶は単一のベクトル検索機構ではなく、短期のセッション状態、長期の永続記憶、共有記憶、圧縮と反射のバックグラウンド処理から成る層別システムへ移っていることが見えてくる。同時に、現在の課題は recall 不足より write path、shared memory の競合、古い記憶の陳腐化にあり、各社は型分離、scope 分離、非同期要約、graph memory、file-backed memory、reflective update でそれを解こうとしている。最も普及しているのは、会話ごとの状態と永続ストアを分離し、必要な情報だけを再注入する構成であり、今後は retrieval quality だけでなく write policy と forgetting policy が競争軸になる可能性が高い。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 34</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="subagents は、実務向けAIの現実的な実装単位になり始めた">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
@@ -367,21 +382,6 @@
     </div>
     <div class="article-card-foot">
       <span class="mono-note">根拠数: 27</span>
-      <span class="text-link">レポートを開く</span>
-    </div>
-  </a><a class="article-card " href="/2026-03-26-agent-identity-becomes-an-auth-control-plane.html" aria-label="AI エージェントの ID 管理は認証認可の統制基盤になり始めた">
-    <div class="article-card-main">
-      <p class="section-kicker">テーマが近い記事</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-26">2026年3月26日</time>
-      </div>
-      <h3 class="article-card-title">AI エージェントの ID 管理は認証認可の統制基盤になり始めた</h3>
-      <p class="article-card-copy">Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Identity</span><span class="meta-chip">Authentication</span><span class="meta-chip">Authorization</span><span class="meta-chip">Governance</span><span class="meta-chip">OAuth</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">根拠数: 36</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
