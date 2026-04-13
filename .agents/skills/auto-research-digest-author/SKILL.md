@@ -69,6 +69,22 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 - For layout and styling, rely on the shared template and shared CSS. Do not add page-specific CSS for ordinary article additions.
 - New article content should inherit the shared design system automatically. Only add new shared semantic blocks when the existing classes are not enough.
 
+## Title Rules
+
+- Do not let article titles converge on one repeated ending pattern across consecutive weeks.
+- Before finalizing a title, check the latest 2 to 4 published articles and avoid reusing the same Japanese ending pattern or the same English framing if it already appeared repeatedly.
+- In particular, avoid chaining too many titles that end with forms such as `〜し始めた`, `〜へ移り始めた`, `is shifting`, `are shifting`, `is becoming`, or `are becoming`.
+- When the core idea is similar, vary the title structure on purpose. Alternate between patterns such as:
+  - `Xの主戦場はYにある`
+  - `Xを比較する軸はYになった`
+  - `なぜ今週XはYとして読むべきか`
+  - `Xを支える条件はYである`
+  - `X now competes as Y`
+  - `The real comparison axis for X is now Y`
+  - `Why X should now be read as Y`
+- Favor titles that state the changed comparison axis, operating constraint, or decision surface, rather than relying on vague momentum wording.
+- If a draft title feels too close in cadence or ending to the previous few articles, rewrite it even if the wording is technically correct.
+
 ## Minimum Article Depth
 
 Unless the user explicitly asks for a shorter format, aim to cover:
