@@ -1,0 +1,809 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coding AI agents now compete as supervised runtime systems, not helper UIs | Auto Research Digest EN</title>
+    <meta name="description" content="Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="Coding AI agents now compete as supervised runtime systems, not helper UIs | Auto Research Digest EN">
+    <meta property="og:description" content="Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.">
+    <meta property="og:url" content="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="Coding AI agents now compete as supervised runtime systems, not helper UIs">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Coding AI agents now compete as supervised runtime systems, not helper UIs | Auto Research Digest EN">
+    <meta name="twitter:description" content="Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="Coding AI agents now compete as supervised runtime systems, not helper UIs">
+    <link rel="canonical" href="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
+    <link rel="alternate" type="application/atom+xml" href="https://research.notelligent.app/en/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-04-13T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-04-13T09:43:40+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Coding Agent">
+    <meta property="article:tag" content="Software Engineering">
+    <meta property="article:tag" content="Runtime">
+    <meta property="article:tag" content="Workflow">
+    <meta property="article:tag" content="DevOps">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Coding AI agents now compete as supervised runtime systems, not helper UIs","description":"Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.","datePublished":"2026-04-13T00:00:00+09:00","dateModified":"2026-04-13T09:43:40+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Coding Agent, Software Engineering, Runtime, Workflow, DevOps","mainEntityOfPage":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Archive","item":"https://research.notelligent.app/en/archive/"},{"@type":"ListItem","position":3,"name":"Coding AI agents now compete as supervised runtime systems, not helper UIs","item":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/archive/">Archive</a><a class="nav-link " href="/en/feed.xml">Feed</a></nav>
+        <a class="lang-switch" href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">Coding AI agents now compete as supervised runtime systems, not helper UIs</h1>
+          <p class="hero-copy">Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-13">April 13, 2026</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
+    </section>
+    <section class="article-share" aria-label="Share article">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Coding%20AI%20agents%20now%20compete%20as%20supervised%20runtime%20systems%2C%20not%20helper%20UIs&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-04-13-coding-agents-become-supervised-runtime-systems.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Open share menu"
+      data-native-share
+      data-share-title="Coding AI agents now compete as supervised runtime systems, not helper UIs"
+      data-share-text="Coding AI agents now compete as supervised runtime systems, not helper UIs"
+      data-share-url="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Copy article title and link"
+      data-copy-share
+      data-state="idle"
+      data-share-title="Coding AI agents now compete as supervised runtime systems, not helper UIs"
+      data-share-url="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"
+      data-copy-label-default="Copy article title and link"
+      data-copy-label-success="Copied"
+      data-copy-status-success="Copied"
+      data-copy-status-error="Copy failed"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Coding AI agents now compete as supervised runtime systems, not helper UIs</h2>
+  <p>
+    Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent and CLI, Google Jules, and AWS DevOps Agent,
+    together with papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench, makes the comparison axis much clearer. The center of gravity is no longer whether an agent behaves
+    like a chat companion beside the editor or can produce a good code snippet. The real question is whether it can surface a plan, work inside an isolated branch, VM, or runner,
+    respect permission boundaries, produce reviewable logs and diffs, and pause or resume long-running work. In other words, coding agents increasingly look less like helper UIs
+    and more like supervised runtime systems.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">5 product lines</p>
+      <p class="stat-title">Converging surfaces</p>
+      <p class="stat-note">OpenAI, Anthropic, GitHub, Google, and AWS are all exposing planning, execution, and supervision surfaces in public docs.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">39</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">Announcements, docs, and papers are now enough to compare runtime contracts rather than only model positioning.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5 layers</p>
+      <p class="stat-title">Current comparison axis</p>
+      <p class="stat-note">Planning, isolated environments, permissions, logs and diffs, plus skills or subagents are becoming shared product layers.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 shift</p>
+      <p class="stat-title">The battleground is moving to runtime design</p>
+      <p class="stat-note">The important question is shifting from model cleverness toward which product contract can be supervised safely by humans.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why This Week</p>
+  <h2>The week of April 13, 2026 makes branch-based long-running coding work look much more concrete</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">03-24</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Anthropic put long-running harness design in the foreground</h3>
+        <p>The harness-design article made it explicit that coding-agent quality depends not only on prompts or models, but on repository setup, task injection, retries, and validation.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-25</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Auto mode framed autonomy as a permissions problem</h3>
+        <p>Anthropic treated higher autonomy as something mediated by classifiers and permission policy, not as raw model magic. That makes autonomy a governance design choice.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-31</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS DevOps Agent GA widened the pattern into operations work</h3>
+        <p>AWS publicly positioned a long-running worker that spans repositories, telemetry, runbooks, and CI/CD, showing that the same runtime pattern now reaches beyond pure code authoring.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-01</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">GitHub expanded cloud agent from PR help to research, planning, and coding</h3>
+        <p>Copilot cloud agent was no longer framed only as a convenience inside review flows. It became a branch-owning execution surface for research, planning, and implementation.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-03 to 04-10</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Verified commits, mobile access, and faster validation strengthened the supervision layer</h3>
+        <p>GitHub's updates made it easier to track work, trust artifacts, and shorten the review loop, reinforcing that supervision quality is now a core part of the product story.</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    Set against OpenAI's Codex app plus GPT-5.2 and 5.3-Codex, and Jules' plan-review and environment docs, the weekly thesis becomes straightforward: coding agents are being packaged
+    as systems that can plan, work asynchronously in isolated environments, return reviewable artifacts, and accept human redirection while still in flight.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Runtime Contract</p>
+  <h2>The useful comparison is no longer the model name alone, but the shared contract of a supervised runtime</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Plan before execution</h3>
+      <p>Jules plan review, GitHub's research-plan-code flow, and Codex task framing all point in the same direction: the agent should expose its intended path before it starts changing files.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Execute inside a branch, VM, or runner</h3>
+      <p>Cloud agents, Codex app tasks, Jules environments, and GitHub Actions integration all move execution outside the editor into environments that can be reproduced, constrained, and rerun.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Keep permissions and policy separate from the prompt</h3>
+      <p>Anthropic's auto mode, Claude Code security guidance, and GitHub's verified-commit and organization-control work all show that autonomy is inseparable from explicit policy design.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Treat logs and diffs as review artifacts</h3>
+      <p>Once work becomes long-running, the final patch alone is not enough. Teams need to see what the agent looked at, what it ran, and why it landed on the final diff.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>5. Express specialization through skills and subagents</h3>
+      <p>GitHub custom agents and skills, Anthropic subagents, and Copilot CLI /fleet all show that role specialization is becoming part of runtime design rather than just prompt decoration.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Comparison</p>
+  <h2>The main differences now come from which layer each platform productizes most strongly</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI Codex: separate fast interaction from long-running execution</h3>
+      <p>GPT-5.2 and 5.3-Codex strengthen the model layer, while the Codex app turns cloud execution into a separate product surface. Spark-style rapid iteration and background work are being treated as different operating modes.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic Claude Code: make permissions, hooks, and harnesses impossible to ignore</h3>
+      <p>Claude Code's docs and engineering posts keep returning to security, hooks, GitHub Actions, auto mode, and managed-agent structure. The platform makes execution design almost as visible as raw model capability.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>GitHub Copilot cloud agent: make branch-and-publish workflows native</h3>
+      <p>GitHub is turning coding agents into GitHub-native branch workers with research, planning, verified commits, validation, mobile tracking, and custom agents or skills in one surrounding surface.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google Jules: make plan review and short-lived VMs explicit</h3>
+      <p>Jules separates getting started, plan review, code review, and environment setup into clear public docs. The product feels closer to an asynchronous teammate in a short-lived VM than to a simple chat-based coding assistant.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS DevOps Agent: extend the same pattern beyond code authoring</h3>
+      <p>AWS positions DevOps Agent across repositories, telemetry, runbooks, and delivery tooling, which suggests that the coding-agent runtime pattern is already stretching into broader software operations.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>The workflows becoming more realistic are not tiny edits, but reviewable long-running tasks</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Issue investigation through patch proposal</h3>
+      <ul class="bullet-list">
+        <li>The agent reads the issue and repository, then surfaces a repair plan first</li>
+        <li>A human adjusts the direction once, and the agent continues with code changes plus validation on its own branch</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>CI failure triage and repair candidates</h3>
+      <ul class="bullet-list">
+        <li>Log collection, reproduction, dependency tracing, and a minimal fix candidate can now sit inside one supervised session</li>
+        <li>Verified commits and session logs make it easier for reviewers to inspect how the result was produced</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Larger refactors and migrations with specialization</h3>
+      <ul class="bullet-list">
+        <li>Custom agents and subagents make it easier to split research, implementation, validation, and documentation updates</li>
+        <li>Per-repository environment setup improves reproducibility for longer-running code-change work</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>DevOps and SRE remediation with investigation attached</h3>
+      <ul class="bullet-list">
+        <li>Work that spans telemetry, runbooks, CI/CD, and code changes fits a supervised runtime better than a simple chat loop</li>
+        <li>AWS DevOps Agent suggests that this is no longer an edge case outside coding-agent design, but part of its expanding core</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation And Governance</p>
+  <h2>The operational focus is moving from model scoreboards to harness and policy coherence</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observation</p>
+    <p>Coding-agent quality depends not only on the model, but on environment setup, time budget, permissions, and the validation loop wrapped around execution.</p>
+  </div>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Benchmark deltas are not enough by themselves</h3>
+      <p>Reading SWE-bench, MLE-bench, RE-Bench, and Anthropic's infrastructure-noise writeup together makes one thing clear: small score gaps are difficult to interpret without matched harness conditions.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Permission design becomes part of product quality</h3>
+      <p>Auto mode, verified commits, and organization controls are not just security add-ons. They are part of the core runtime contract that determines whether rollout is realistic.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Session logs and review artifacts become mandatory</h3>
+      <p>As work becomes more asynchronous and branch-based, teams need to inspect not just the final diff but also the plan, the intermediate tool use, and the validation outputs.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Not every task deserves a cloud agent</h3>
+      <p>Very small single-file edits can still be faster with tight local pairing. Background agents fit best when the workflow spans repo-wide research, validation, and publish-ready artifacts.</p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>Put plan approval in front of write-heavy tasks</li>
+    <li>Version environment setup and tool constraints per repository</li>
+    <li>Keep branch, session log, and validation outputs inside one review loop</li>
+    <li>Prefer fixed-harness evaluation on your own repositories and CI over leaderboard reading alone</li>
+    <li>Start with minimum-privilege access to networks, secrets, and production systems</li>
+  </ul>
+  <p class="mt-6">
+    What still looks early is fully autonomous production deployment and broad write access across multiple repositories. But for narrow workflows with plan review, isolated execution,
+    diff inspection, and resumable sessions, the public material now supports a much more concrete adoption path than even a few months ago.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>Conclusion</h2>
+  <p>
+    The main selection question for coding agents is starting to change from "which model writes the best code" to "which runtime contract lets humans safely supervise branch-based work."
+    The signal this week is that this is no longer an isolated product quirk. OpenAI, Anthropic, GitHub, Google, and AWS are all making that supervised-runtime shape visible in public surfaces.
+  </p>
+</section>
+</section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AI agent memory is shifting from vector retrieval to a layered systems design">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-08">April 8, 2026</time>
+      </div>
+      <h3 class="article-card-title">AI agent memory is shifting from vector retrieval to a layered systems design</h3>
+      <p class="article-card-copy">Across official documentation current as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore, plus papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern emerges: agent memory is no longer a single vector retrieval feature. It is becoming a layered system made up of short-term session state, long-term persistent memory, shared memory, and background consolidation or reflection. At the same time, the main problems are shifting away from pure recall failure and toward the write path, shared-memory contention, and stale memory. Vendors are responding with type separation, scope separation, asynchronous summarization, graph memory, file-backed memory, and reflective updates. The most widely adopted implementation pattern remains the split between per-conversation state and persistent stores with selective reinjection, but the next frontier is likely to be governed by write policy and forgetting policy as much as by retrieval quality.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 34</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="Workflow tooling is catching up with agent complexity">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-11-01">November 1, 2025</time>
+      </div>
+      <h3 class="article-card-title">Workflow tooling is catching up with agent complexity</h3>
+      <p class="article-card-copy">OpenAI AgentKit, Microsoft Agent Framework, the Claude Agent SDK, and GPT-5 for developers make a real tooling layer visible, one that combines agent graphs, connectors, chat UI, trace grading, and workflow orchestration.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 10</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="Subagents are becoming the practical implementation unit for real-world AI work">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-30">March 30, 2026</time>
+      </div>
+      <h3 class="article-card-title">Subagents are becoming the practical implementation unit for real-world AI work</h3>
+      <p class="article-card-copy">Starting with OpenAI&#39;s March 17, 2026 positioning of GPT-5.4 mini and nano for subagents, and reading that next to public material from OpenAI Codex, Anthropic Claude Code, Google ADK, Microsoft Agent Framework, and Amazon Bedrock, a more precise pattern appears: practical AI work is moving away from one giant agent that owns everything and toward teams of narrower specialist agents. The important shift is not the raw number of agents. It is that public docs now make a concrete architecture visible: which judgment stays with the strongest model, which tasks move to cheaper and faster specialist units, and where state management plus approval boundaries need to sit.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 27</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://openai.com/index/introducing-gpt-5-2-codex/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Introducing GPT-5.2-Codex</p>
+              <p class="source-url">https://openai.com/index/introducing-gpt-5-2-codex/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-5-3-codex" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Introducing GPT-5.3-Codex</p>
+              <p class="source-url">https://openai.com/index/introducing-gpt-5-3-codex</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-5-3-codex-spark/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Introducing GPT-5.3-Codex-Spark</p>
+              <p class="source-url">https://openai.com/index/introducing-gpt-5-3-codex-spark/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-the-codex-app/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Introducing the Codex app</p>
+              <p class="source-url">https://openai.com/index/introducing-the-codex-app/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.openai.com/api/docs/models/gpt-5.2-codex" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: GPT-5.2-Codex</p>
+              <p class="source-url">https://developers.openai.com/api/docs/models/gpt-5.2-codex</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.openai.com/api/docs/models/gpt-5.3-codex" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: GPT-5.3-Codex</p>
+              <p class="source-url">https://developers.openai.com/api/docs/models/gpt-5.3-codex</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/11369540-codex-in-chatgpt-faq" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Using Codex with your ChatGPT plan</p>
+              <p class="source-url">https://help.openai.com/en/articles/11369540-codex-in-chatgpt-faq</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Claude Code overview</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/security" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Security</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/security</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/hooks" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Hooks</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/hooks</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/sub-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Subagents</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/sub-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/github-actions" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Claude Code GitHub Actions</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/github-actions</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/harness-design-long-running-apps" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Harness design for long-running application development</p>
+              <p class="source-url">https://www.anthropic.com/engineering/harness-design-long-running-apps</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/claude-code-auto-mode" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Claude Code auto mode</p>
+              <p class="source-url">https://www.anthropic.com/engineering/claude-code-auto-mode</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/infrastructure-noise" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Quantifying infrastructure noise in agentic coding evals</p>
+              <p class="source-url">https://www.anthropic.com/engineering/infrastructure-noise</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/managed-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands</p>
+              <p class="source-url">https://www.anthropic.com/engineering/managed-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Docs: About GitHub Copilot cloud agent</p>
+              <p class="source-url">https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Docs: Customizing the development environment for GitHub Copilot cloud agent</p>
+              <p class="source-url">https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Docs: Creating custom agents for Copilot cloud agent</p>
+              <p class="source-url">https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.github.com/en/copilot/concepts/agents/about-agent-skills" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Docs: About agent skills</p>
+              <p class="source-url">https://docs.github.com/en/copilot/concepts/agents/about-agent-skills</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.github.com/en/copilot/concepts/agents/copilot-cli/autopilot" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Docs: Allowing GitHub Copilot CLI to work autonomously</p>
+              <p class="source-url">https://docs.github.com/en/copilot/concepts/agents/copilot-cli/autopilot</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Blog: Research, plan, and code with Copilot cloud agent</p>
+              <p class="source-url">https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.blog/changelog/2026-04-03-copilot-cloud-agent-now-makes-verified-commits/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Blog: Copilot cloud agent now makes verified commits</p>
+              <p class="source-url">https://github.blog/changelog/2026-04-03-copilot-cloud-agent-now-makes-verified-commits/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.blog/changelog/2026-04-08-use-copilot-cloud-agent-from-github-mobile/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Blog: Use Copilot cloud agent from GitHub Mobile</p>
+              <p class="source-url">https://github.blog/changelog/2026-04-08-use-copilot-cloud-agent-from-github-mobile/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Blog: Copilot cloud agent&#39;s validation tools are now 20% faster</p>
+              <p class="source-url">https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.blog/ai-and-ml/github-copilot/run-multiple-agents-at-once-with-fleet-in-copilot-cli/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">GitHub Blog: Run multiple agents at once with /fleet in Copilot CLI</p>
+              <p class="source-url">https://github.blog/ai-and-ml/github-copilot/run-multiple-agents-at-once-with-fleet-in-copilot-cli/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google: Jules now available</p>
+              <p class="source-url">https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://jules.google/docs" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Jules docs: Getting started</p>
+              <p class="source-url">https://jules.google/docs</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://jules.google/docs/review-plan/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Jules docs: Reviewing plans and giving feedback</p>
+              <p class="source-url">https://jules.google/docs/review-plan/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://jules.google/docs/code/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Jules docs: Reviewing code changes</p>
+              <p class="source-url">https://jules.google/docs/code/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://jules.google/docs/environment" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Jules docs: Environment setup</p>
+              <p class="source-url">https://jules.google/docs/environment</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://jules.google/docs/integrations/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Jules docs: Integrations</p>
+              <p class="source-url">https://jules.google/docs/integrations/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://jules.google/docs/usage-limits" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Jules docs: Limits and plans</p>
+              <p class="source-url">https://jules.google/docs/usage-limits</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS What&#39;s New: AWS DevOps Agent is now generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: About AWS DevOps Agent</p>
+              <p class="source-url">https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
+              <p class="source-url">https://arxiv.org/abs/2310.06770</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
+              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2410.07095" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering</p>
+              <p class="source-url">https://arxiv.org/abs/2410.07095</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
+              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+      </footer>
+    </div>
+  </body>
+</html>

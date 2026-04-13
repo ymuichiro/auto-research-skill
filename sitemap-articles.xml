@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"/>
+    <lastmod>2026-04-13T09:43:40+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"/>
+    <lastmod>2026-04-13T09:43:40+09:00</lastmod>
+  </url>
+  <url>
     <loc>https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"/>
