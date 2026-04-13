@@ -1,0 +1,215 @@
+<section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>コーディングAIエージェントは、補助UIから監督付き実行基盤へ移り始めた</h2>
+  <p>
+    2026年4月13日までの OpenAI Codex、Anthropic Claude Code、GitHub Copilot cloud agent / CLI、Google Jules、AWS DevOps Agent の公開資料と、
+    SWE-bench、OSWorld、MLE-bench、RE-Bench の論文を重ねると、コーディングAIエージェントの比較軸はかなりはっきり変わっている。
+    もはや中心は、IDE の横でコード断片を返す補助役かどうかではない。計画を先に出せるか、ブランチや VM やランナーの中で隔離実行できるか、
+    権限境界をどう切るか、途中経過や差分を人が追えるか、長時間タスクを一時停止や再開できるかが主論点になっている。言い換えると、
+    コーディングエージェントは補助UIではなく、監督付き実行基盤（supervised runtime）として比べた方が実態に近くなってきた。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">5系統</p>
+      <p class="stat-title">主要製品面の収束</p>
+      <p class="stat-note">OpenAI、Anthropic、GitHub、Google、AWS が、計画、実行、監督の面をそれぞれ公開ドキュメントに載せ始めた。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">39件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">公開発表、公開ドキュメント、論文だけで、実行契約まで比較できるだけの厚みがある。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5面</p>
+      <p class="stat-title">現在の比較軸</p>
+      <p class="stat-note">計画、隔離実行環境、権限制御、ログと差分、skills / subagents が共通面になった。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1変化</p>
+      <p class="stat-title">主戦場は実行設計へ移った</p>
+      <p class="stat-note">「どのモデルが一番賢いか」より、「どの実行契約で安全に監督できるか」が重くなっている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">今週の変化</p>
+  <h2>2026年4月第2週は、コーディングエージェントをブランチ上の長時間実行系として扱う前提が一段強まった</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">03-24</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Anthropic は長時間実行の評価ハーネスを前面に出した</h3>
+        <p>Harness design の公開で、エージェントの品質は指示文だけでなく、リポジトリ準備、タスク投入、再試行、検証まで含む実行器の設計次第で変わることが明示された。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-25</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">auto mode は自律性を permission 設計の問題として示した</h3>
+        <p>Anthropic は、より自律的に動く設定であっても classifier と権限境界が前提であることを公開し、自律性をモデルの魔法ではなく権限制御設計として扱った。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-31</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS DevOps Agent の GA は、同じ発想が運用まで広がることを示した</h3>
+        <p>リポジトリだけでなく telemetry、runbook、CI/CD、運用ツールへまたがる長時間実行 worker を AWS 自身が製品面に押し出し始めた。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-01</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">GitHub は cloud agent を「調査、計画、実装」まで広げた</h3>
+        <p>Copilot cloud agent は PR の中だけでなく、ブランチを持って調査し、計画し、コードを書く実行面として説明されるようになった。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-03 to 04-10</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">verified commits、mobile、faster validation が監督面を補強した</h3>
+        <p>GitHub は commit 署名、モバイルからの追跡、検証の高速化を順に追加し、コーディングエージェントの価値が「書ける」ことより「監督しやすい」ことにあると示した。</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    この流れに、OpenAI の Codex app と GPT-5.2 / 5.3-Codex、Google Jules の plan review と environment docs を重ねると、週の主論点はかなり明確になる。
+    コーディングエージェントは「チャットの中で相談する相手」だけではなく、計画を出し、隔離環境で作業し、差分を返し、人が途中で方向修正できる実行系へ揃い始めている。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">実行契約</p>
+  <h2>いま比べるべきなのはモデル名ではなく、監督付き実行基盤の共通設計である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. 計画を先に出す</h3>
+      <p>Jules の plan review、GitHub の research-plan-code、OpenAI Codex の task framing が示すのは、いきなり patch を書かせるのではなく、まず作業計画を外に出す流れである。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. ブランチ / VM / ランナーで隔離実行する</h3>
+      <p>cloud agent、Codex app、Jules、GitHub Actions 連携は、実行の場を editor の外に持ち出し、環境を再現しやすい形で固定する方向にある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. permission と policy を別レイヤーで持つ</h3>
+      <p>Anthropic の auto mode、Claude Code security、GitHub の verified commits や organization controls は、自律実行が policy なしには成立しないことを公開面で示している。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. セッションログと diff を review artifact にする</h3>
+      <p>途中の判断、使った tools、検証結果、最終差分を人が追えなければ、長時間実行は本番運用に載せにくい。session log と validation は、もはや任意の付加機能ではない。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>5. specialization は skills と subagents で表現する</h3>
+      <p>GitHub の custom agents / skills、Anthropic の subagents、Copilot CLI の /fleet は、役割分担が model prompt ではなく実行基盤の構成として見え始めたことを意味する。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">実装比較</p>
+  <h2>主要製品の違いは、どの面を強く製品化しているかにある</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI Codex: 高速対話と長時間実行を分ける</h3>
+      <p>GPT-5.2 / 5.3-Codex は coding 向けのモデル面を強めつつ、Codex app では cloud 上の作業実行を別の製品面にした。Spark のような高速反復と、バックグラウンドで進む作業を分けて扱う構図が見える。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic Claude Code: permission、hooks、harness を強く意識させる</h3>
+      <p>Claude Code は overview や security だけでなく、hooks、GitHub Actions、auto mode、managed agents の発信を通じて、brain と hands をどう分けるかを実装論として押し出している。性能差より実行設計の差が見えやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>GitHub Copilot cloud agent: branch と publish の流れを native 化する</h3>
+      <p>GitHub は research、plan、verified commits、validation、mobile 追跡をつなぎ、コーディングエージェントを GitHub-native なブランチ worker として固めつつある。custom agents と skills も、その流れの中に入ってきた。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google Jules: 計画レビューと短命 VM を明示する</h3>
+      <p>Jules は getting started、review plan、code review、environment setup を明確に分け、実行前レビューと short-lived VM を前提にした。publish 前に方向を人が修正しやすい点が特徴である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS DevOps Agent: coding の外へ広げる</h3>
+      <p>AWS は DevOps Agent をリポジトリ作業だけの助手としてではなく、運用調査、修復、runbook 実行、CI/CD までまたぐ worker として位置づけた。これは coding agent の design pattern が software operations 全体へ伸びることを示している。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">ユースケース</p>
+  <h2>今週のシグナルで現実味が増した業務フローは、短い補完ではなくレビュー可能な長時間作業である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>issue 調査から patch 提案まで</h3>
+      <ul class="bullet-list">
+        <li>エージェントがリポジトリと issue を読み、まず修正計画を出す</li>
+        <li>人が方針だけ直し、ブランチ上で修正と検証を回させる</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>CI failure triage と修復候補の下書き</h3>
+      <ul class="bullet-list">
+        <li>ログ収集、再現、依存関係の洗い出し、最小修正案の提示までを 1 セッションで扱う</li>
+        <li>verified commit や session log があると、reviewer が途中判断を追いやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>大きめの refactor や migration の分業</h3>
+      <ul class="bullet-list">
+        <li>custom agents や subagents で、調査、実装、検証、文書更新を分担しやすい</li>
+        <li>環境設定を repo ごとに固定できると、再現性が大きく上がる</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>DevOps / SRE の調査付き修復</h3>
+      <ul class="bullet-list">
+        <li>telemetry、runbook、CI/CD、コード変更候補をまたぐ作業は、chat より supervised runtime に向く</li>
+        <li>AWS DevOps Agent は、この種の業務フローが coding agent の外縁ではなく中心へ入り始めたことを示す</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">評価と運用</p>
+  <h2>評価と運用の焦点は、モデルの点数より harness と policy の整合へ移る</h2>
+  <div class="callout-panel">
+    <p class="callout-title">観測点</p>
+    <p>コーディングエージェントの品質は、モデルの能力だけでなく、environment、time budget、permissions、validation loop をどう組むかで大きく変わる。</p>
+  </div>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>benchmark の点差だけでは足りない</h3>
+      <p>SWE-bench、MLE-bench、RE-Bench と Anthropic の infrastructure-noise の発信を重ねると、同じモデルでも harness 差で見え方が変わる。小さな score 差より、どの実行条件かを先に読む必要がある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>permission 設計が製品品質そのものになる</h3>
+      <p>auto mode、verified commits、organization controls は、risk を下げる外付け機能ではなく実行契約の中核である。ここが弱いと、賢いモデルでも rollout は止まりやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>session log とレビュー成果物は必須化する</h3>
+      <p>長時間実行が前提になるほど、diff だけでは足りない。どの計画で始め、途中で何を見て、なぜその patch になったかを後から追えることが必要になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>全タスクを cloud agent 化する必要はない</h3>
+      <p>小さな 1-file fix や超短時間の反復は local pair が速い場合も多い。background worker に向くのは、リポジトリ全体を見て調査し、検証や publish まで一続きで進める作業である。</p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>plan approval を write-heavy task の前段に置く</li>
+    <li>リポジトリごとに environment 設定と tool 制約を version 管理する</li>
+    <li>ブランチ、session log、validation 結果を 1 つの review loop にまとめる</li>
+    <li>benchmark 表より、自社リポジトリと自社 CI を使った固定ハーネスの評価を優先する</li>
+    <li>network、secrets、production system へのアクセスは最初から最小権限に絞る</li>
+  </ul>
+  <p class="mt-6">
+    現時点でまだ早いのは、production deploy までを全面的に無人化することと、広い書き込み権限を複数リポジトリにまたがって与えることだ。
+    しかし、計画レビュー、隔離実行、差分確認、再開可能な session が揃う絞られた業務フローなら、今週の公開情報だけでもかなり現実的な導入像が見える。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>結論</h2>
+  <p>
+    コーディングエージェントを選ぶときの問いは、「どのモデルが一番コードを書けるか」から、「どの実行契約なら人が安全に監督しながらブランチ作業を任せられるか」へ移り始めた。
+    今週のシグナルは、その変化が一時的なデモではなく、OpenAI、Anthropic、GitHub、Google、AWS の製品面に揃って現れ始めたことを示している。
+  </p>
+</section>
