@@ -1,0 +1,215 @@
+{
+  "slug": "coding-agents-become-supervised-runtime-systems",
+  "date": "2026-04-13",
+  "titleJa": "コーディングAIエージェントの主戦場は、補助UIではなく監督付き実行基盤にある",
+  "titleEn": "Coding AI agents now compete as supervised runtime systems, not helper UIs",
+  "summaryJa": "2026年4月13日までの OpenAI Codex、Anthropic Claude Code、GitHub Copilot cloud agent / CLI、Google Jules、AWS DevOps Agent の公開資料と、SWE-bench、OSWorld、MLE-bench、RE-Bench の論文を重ねると、コーディングAIエージェントの比較軸は単なるコード補完や対話支援ではなく、計画レビュー、隔離実行環境、権限制御、セッションログ、custom agents / skills、長時間作業の再開可能性まで含む監督付き実行基盤へ移っていることが見えてくる。特に 2026年3月末から4月前半にかけて、GitHub の cloud agent 拡張、Anthropic の評価ハーネス、auto mode、infrastructure noise の公開、Jules の公開資料の整備、AWS DevOps Agent の GA が重なり、ソフトウェア開発運用における論点は「どのモデルが最も賢いか」から「どの実行契約で人間が安全に監督できるか」へ寄り始めた。",
+  "summaryEn": "Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Coding Agent",
+    "Software Engineering",
+    "Runtime",
+    "Workflow",
+    "DevOps"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI: Introducing GPT-5.2-Codex",
+      "url": "https://openai.com/index/introducing-gpt-5-2-codex/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5.3-Codex",
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5.3-Codex-Spark",
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex-spark/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing the Codex app",
+      "url": "https://openai.com/index/introducing-the-codex-app/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API docs: GPT-5.2-Codex",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.2-codex",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API docs: GPT-5.3-Codex",
+      "url": "https://developers.openai.com/api/docs/models/gpt-5.3-codex",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Help Center: Using Codex with your ChatGPT plan",
+      "url": "https://help.openai.com/en/articles/11369540-codex-in-chatgpt-faq",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Claude Code overview",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/overview",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Security",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/security",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Hooks",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/hooks",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Subagents",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/sub-agents",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Claude Code GitHub Actions",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/github-actions",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Harness design for long-running application development",
+      "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Claude Code auto mode",
+      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Quantifying infrastructure noise in agentic coding evals",
+      "url": "https://www.anthropic.com/engineering/infrastructure-noise",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands",
+      "url": "https://www.anthropic.com/engineering/managed-agents",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Docs: About GitHub Copilot cloud agent",
+      "url": "https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Docs: Customizing the development environment for GitHub Copilot cloud agent",
+      "url": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/customize-the-agent-environment",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Docs: Creating custom agents for Copilot cloud agent",
+      "url": "https://docs.github.com/en/copilot/how-tos/use-copilot-agents/cloud-agent/create-custom-agents",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Docs: About agent skills",
+      "url": "https://docs.github.com/en/copilot/concepts/agents/about-agent-skills",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Docs: Allowing GitHub Copilot CLI to work autonomously",
+      "url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/autopilot",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Blog: Research, plan, and code with Copilot cloud agent",
+      "url": "https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Blog: Copilot cloud agent now makes verified commits",
+      "url": "https://github.blog/changelog/2026-04-03-copilot-cloud-agent-now-makes-verified-commits/",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Blog: Use Copilot cloud agent from GitHub Mobile",
+      "url": "https://github.blog/changelog/2026-04-08-use-copilot-cloud-agent-from-github-mobile/",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Blog: Copilot cloud agent's validation tools are now 20% faster",
+      "url": "https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster",
+      "type": "official"
+    },
+    {
+      "label": "GitHub Blog: Run multiple agents at once with /fleet in Copilot CLI",
+      "url": "https://github.blog/ai-and-ml/github-copilot/run-multiple-agents-at-once-with-fleet-in-copilot-cli/",
+      "type": "official"
+    },
+    {
+      "label": "Google: Jules now available",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/",
+      "type": "official"
+    },
+    {
+      "label": "Jules docs: Getting started",
+      "url": "https://jules.google/docs",
+      "type": "official"
+    },
+    {
+      "label": "Jules docs: Reviewing plans and giving feedback",
+      "url": "https://jules.google/docs/review-plan/",
+      "type": "official"
+    },
+    {
+      "label": "Jules docs: Reviewing code changes",
+      "url": "https://jules.google/docs/code/",
+      "type": "official"
+    },
+    {
+      "label": "Jules docs: Environment setup",
+      "url": "https://jules.google/docs/environment",
+      "type": "official"
+    },
+    {
+      "label": "Jules docs: Integrations",
+      "url": "https://jules.google/docs/integrations/",
+      "type": "official"
+    },
+    {
+      "label": "Jules docs: Limits and plans",
+      "url": "https://jules.google/docs/usage-limits",
+      "type": "official"
+    },
+    {
+      "label": "AWS What's New: AWS DevOps Agent is now generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: About AWS DevOps Agent",
+      "url": "https://docs.aws.amazon.com/devopsagent/latest/userguide/about-aws-devops-agent.html",
+      "type": "official"
+    },
+    {
+      "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "url": "https://arxiv.org/abs/2310.06770",
+      "type": "paper"
+    },
+    {
+      "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+      "url": "https://arxiv.org/abs/2404.07972",
+      "type": "paper"
+    },
+    {
+      "label": "MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering",
+      "url": "https://arxiv.org/abs/2410.07095",
+      "type": "paper"
+    },
+    {
+      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
+      "url": "https://arxiv.org/abs/2411.15114",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}

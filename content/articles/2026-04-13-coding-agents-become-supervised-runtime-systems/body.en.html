@@ -1,0 +1,215 @@
+<section class="report-section">
+  <p class="section-kicker">Signal Snapshot</p>
+  <h2>Coding AI agents now compete as supervised runtime systems, not helper UIs</h2>
+  <p>
+    Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent and CLI, Google Jules, and AWS DevOps Agent,
+    together with papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench, makes the comparison axis much clearer. The center of gravity is no longer whether an agent behaves
+    like a chat companion beside the editor or can produce a good code snippet. The real question is whether it can surface a plan, work inside an isolated branch, VM, or runner,
+    respect permission boundaries, produce reviewable logs and diffs, and pause or resume long-running work. In other words, coding agents increasingly look less like helper UIs
+    and more like supervised runtime systems.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">5 product lines</p>
+      <p class="stat-title">Converging surfaces</p>
+      <p class="stat-note">OpenAI, Anthropic, GitHub, Google, and AWS are all exposing planning, execution, and supervision surfaces in public docs.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">39</p>
+      <p class="stat-title">Published evidence</p>
+      <p class="stat-note">Announcements, docs, and papers are now enough to compare runtime contracts rather than only model positioning.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5 layers</p>
+      <p class="stat-title">Current comparison axis</p>
+      <p class="stat-note">Planning, isolated environments, permissions, logs and diffs, plus skills or subagents are becoming shared product layers.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 shift</p>
+      <p class="stat-title">The battleground is moving to runtime design</p>
+      <p class="stat-note">The important question is shifting from model cleverness toward which product contract can be supervised safely by humans.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why This Week</p>
+  <h2>The week of April 13, 2026 makes branch-based long-running coding work look much more concrete</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">03-24</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Anthropic put long-running harness design in the foreground</h3>
+        <p>The harness-design article made it explicit that coding-agent quality depends not only on prompts or models, but on repository setup, task injection, retries, and validation.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-25</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Auto mode framed autonomy as a permissions problem</h3>
+        <p>Anthropic treated higher autonomy as something mediated by classifiers and permission policy, not as raw model magic. That makes autonomy a governance design choice.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-31</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS DevOps Agent GA widened the pattern into operations work</h3>
+        <p>AWS publicly positioned a long-running worker that spans repositories, telemetry, runbooks, and CI/CD, showing that the same runtime pattern now reaches beyond pure code authoring.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-01</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">GitHub expanded cloud agent from PR help to research, planning, and coding</h3>
+        <p>Copilot cloud agent was no longer framed only as a convenience inside review flows. It became a branch-owning execution surface for research, planning, and implementation.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-03 to 04-10</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Verified commits, mobile access, and faster validation strengthened the supervision layer</h3>
+        <p>GitHub's updates made it easier to track work, trust artifacts, and shorten the review loop, reinforcing that supervision quality is now a core part of the product story.</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    Set against OpenAI's Codex app plus GPT-5.2 and 5.3-Codex, and Jules' plan-review and environment docs, the weekly thesis becomes straightforward: coding agents are being packaged
+    as systems that can plan, work asynchronously in isolated environments, return reviewable artifacts, and accept human redirection while still in flight.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Runtime Contract</p>
+  <h2>The useful comparison is no longer the model name alone, but the shared contract of a supervised runtime</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Plan before execution</h3>
+      <p>Jules plan review, GitHub's research-plan-code flow, and Codex task framing all point in the same direction: the agent should expose its intended path before it starts changing files.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Execute inside a branch, VM, or runner</h3>
+      <p>Cloud agents, Codex app tasks, Jules environments, and GitHub Actions integration all move execution outside the editor into environments that can be reproduced, constrained, and rerun.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Keep permissions and policy separate from the prompt</h3>
+      <p>Anthropic's auto mode, Claude Code security guidance, and GitHub's verified-commit and organization-control work all show that autonomy is inseparable from explicit policy design.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Treat logs and diffs as review artifacts</h3>
+      <p>Once work becomes long-running, the final patch alone is not enough. Teams need to see what the agent looked at, what it ran, and why it landed on the final diff.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>5. Express specialization through skills and subagents</h3>
+      <p>GitHub custom agents and skills, Anthropic subagents, and Copilot CLI /fleet all show that role specialization is becoming part of runtime design rather than just prompt decoration.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Platform Comparison</p>
+  <h2>The main differences now come from which layer each platform productizes most strongly</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI Codex: separate fast interaction from long-running execution</h3>
+      <p>GPT-5.2 and 5.3-Codex strengthen the model layer, while the Codex app turns cloud execution into a separate product surface. Spark-style rapid iteration and background work are being treated as different operating modes.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic Claude Code: make permissions, hooks, and harnesses impossible to ignore</h3>
+      <p>Claude Code's docs and engineering posts keep returning to security, hooks, GitHub Actions, auto mode, and managed-agent structure. The platform makes execution design almost as visible as raw model capability.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>GitHub Copilot cloud agent: make branch-and-publish workflows native</h3>
+      <p>GitHub is turning coding agents into GitHub-native branch workers with research, planning, verified commits, validation, mobile tracking, and custom agents or skills in one surrounding surface.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google Jules: make plan review and short-lived VMs explicit</h3>
+      <p>Jules separates getting started, plan review, code review, and environment setup into clear public docs. The product feels closer to an asynchronous teammate in a short-lived VM than to a simple chat-based coding assistant.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS DevOps Agent: extend the same pattern beyond code authoring</h3>
+      <p>AWS positions DevOps Agent across repositories, telemetry, runbooks, and delivery tooling, which suggests that the coding-agent runtime pattern is already stretching into broader software operations.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Use Cases</p>
+  <h2>The workflows becoming more realistic are not tiny edits, but reviewable long-running tasks</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Issue investigation through patch proposal</h3>
+      <ul class="bullet-list">
+        <li>The agent reads the issue and repository, then surfaces a repair plan first</li>
+        <li>A human adjusts the direction once, and the agent continues with code changes plus validation on its own branch</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>CI failure triage and repair candidates</h3>
+      <ul class="bullet-list">
+        <li>Log collection, reproduction, dependency tracing, and a minimal fix candidate can now sit inside one supervised session</li>
+        <li>Verified commits and session logs make it easier for reviewers to inspect how the result was produced</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Larger refactors and migrations with specialization</h3>
+      <ul class="bullet-list">
+        <li>Custom agents and subagents make it easier to split research, implementation, validation, and documentation updates</li>
+        <li>Per-repository environment setup improves reproducibility for longer-running code-change work</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>DevOps and SRE remediation with investigation attached</h3>
+      <ul class="bullet-list">
+        <li>Work that spans telemetry, runbooks, CI/CD, and code changes fits a supervised runtime better than a simple chat loop</li>
+        <li>AWS DevOps Agent suggests that this is no longer an edge case outside coding-agent design, but part of its expanding core</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation And Governance</p>
+  <h2>The operational focus is moving from model scoreboards to harness and policy coherence</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Observation</p>
+    <p>Coding-agent quality depends not only on the model, but on environment setup, time budget, permissions, and the validation loop wrapped around execution.</p>
+  </div>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Benchmark deltas are not enough by themselves</h3>
+      <p>Reading SWE-bench, MLE-bench, RE-Bench, and Anthropic's infrastructure-noise writeup together makes one thing clear: small score gaps are difficult to interpret without matched harness conditions.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Permission design becomes part of product quality</h3>
+      <p>Auto mode, verified commits, and organization controls are not just security add-ons. They are part of the core runtime contract that determines whether rollout is realistic.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Session logs and review artifacts become mandatory</h3>
+      <p>As work becomes more asynchronous and branch-based, teams need to inspect not just the final diff but also the plan, the intermediate tool use, and the validation outputs.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Not every task deserves a cloud agent</h3>
+      <p>Very small single-file edits can still be faster with tight local pairing. Background agents fit best when the workflow spans repo-wide research, validation, and publish-ready artifacts.</p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>Put plan approval in front of write-heavy tasks</li>
+    <li>Version environment setup and tool constraints per repository</li>
+    <li>Keep branch, session log, and validation outputs inside one review loop</li>
+    <li>Prefer fixed-harness evaluation on your own repositories and CI over leaderboard reading alone</li>
+    <li>Start with minimum-privilege access to networks, secrets, and production systems</li>
+  </ul>
+  <p class="mt-6">
+    What still looks early is fully autonomous production deployment and broad write access across multiple repositories. But for narrow workflows with plan review, isolated execution,
+    diff inspection, and resumable sessions, the public material now supports a much more concrete adoption path than even a few months ago.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Key Takeaway</p>
+  <h2>Conclusion</h2>
+  <p>
+    The main selection question for coding agents is starting to change from "which model writes the best code" to "which runtime contract lets humans safely supervise branch-based work."
+    The signal this week is that this is no longer an isolated product quirk. OpenAI, Anthropic, GitHub, Google, and AWS are all making that supervised-runtime shape visible in public surfaces.
+  </p>
+</section>
