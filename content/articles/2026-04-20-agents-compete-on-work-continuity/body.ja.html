@@ -1,0 +1,359 @@
+<section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった</h2>
+  <p>
+    2026年4月20日までの OpenAI、Anthropic、Google、AWS の公開資料を重ねると、AIエージェントを評価する問いが少し変わっている。
+    以前は、いま目の前の依頼にどれだけ上手く答えられるか、どこまで長い手順を一気にやり切れるかが主論点になりやすかった。
+    しかし今は、それだけでは足りない。途中で止まっても再開できるか、別の日に戻っても同じ文脈を維持できるか、途中成果物を引き継げるか、
+    必要な時だけ外部ツールや実行環境を呼び出せるか、そして運用中の品質を観測できるかが、公開面の比較軸として前に出てきた。
+    言い換えると、AIエージェントは単発の応答器ではなく、仕事を持ち越す仕組みとして比べた方が実態に近くなってきた。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">24件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">OpenAI、Anthropic、Google、AWS の公式ドキュメントと公式告知だけで、今週の主論点を比較できる厚みがある。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4層</p>
+      <p class="stat-title">継続性の比較軸</p>
+      <p class="stat-note">プロジェクト / セッション、実行環境、成果物、観測の4層で見ると整理しやすい。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4社</p>
+      <p class="stat-title">見え方の違い</p>
+      <p class="stat-note">OpenAI は利用面、Anthropic は設計面、Google は状態管理、AWS は運用面を強く見せている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1変化</p>
+      <p class="stat-title">主問が変わった</p>
+      <p class="stat-note">「うまく答えるか」より、「人が離れている間も仕事を持ち続けられるか」が重要になっている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">今週の決め手</p>
+  <h2>2026年4月第3週は、継続タスクを引き受ける前提が利用面と基盤面の両方で揃った</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">03-24</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Anthropic は、セッションをまたぐ引き継ぎを実装論として公開した</h3>
+        <p>Harness design の公開で、長時間作業を続けるには、構造化された成果物で前の状態を次のセッションへ渡す必要があることが前面化した。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-31</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS は本番トラフィックを継続評価する面を GA にした</h3>
+        <p>AgentCore Evaluations の GA は、agent の品質を開発時の demo ではなく、本番運用の継続監視として扱い始めたことを示す。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-15</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">OpenAI は Agents SDK に model-native harness と sandbox を入れた</h3>
+        <p>ファイル、コマンド、長時間タスクを制御された sandbox 上で扱い、保存状態やスナップショットから再開できる構図が、SDK の公開面に出てきた。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-16</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">OpenAI は Codex を継続作業の面まで広げた</h3>
+        <p>Codex は将来の作業を自分で予約し、記憶機能を持ち、Projects や接続先ツールから文脈を引き継いで、数日から数週単位の仕事を続ける方向を打ち出した。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-17</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Google は Sessions を、pause と resume を前提にした中核面として更新した</h3>
+        <p>Vertex AI Agent Engine Sessions は、会話履歴ではなく進捗とセッション横断の継続性を担う対象として整理されている。</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    この週の決定的な点は、同じ方向が「インフラの裏話」ではなく、ユーザー向けの利用面と開発者向けの基盤面の両方で見えるようになったことにある。
+    OpenAI は Projects、Tasks、Apps、Codex、Agents SDK をつなぎ、Anthropic は Managed Agents と Agent SDK で継続セッションと再開を押し出し、
+    Google はセッション / 状態 / 成果物を分け、AWS は非同期実行基盤と観測を揃えた。AIエージェントは、単発で賢く答えるものから、
+    文脈、状態、成果物、評価を抱えた継続タスク系として見た方が理解しやすくなっている。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">4つの層</p>
+  <h2>仕事を持ち越す仕組みは、少なくとも4層に分けて見ると整理しやすい</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. プロジェクト / セッション層</h3>
+      <p>
+        まず必要なのは、仕事の単位を会話より少し太く持つ器である。ChatGPT の Projects は長く続く作業を一か所にまとめ、
+        繰り返し使う業務フローを再利用できる場として説明される。Google の Sessions も同様に、継続中の対話の履歴と進捗を保持する。
+        ここが弱いと、毎回やり直す agent しか作れない。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 実行継続層</h3>
+      <p>
+        次に必要なのは、文脈だけでなく実行そのものを持ち越す層である。OpenAI の SandboxAgent は start, stop, resume を前提にし、
+        Anthropic の Managed Agents はセッションログを harness や sandbox の外へ出して、container が落ちても再開できる構成を取る。
+        AWS AgentCore Runtime も非同期 agent と厳密なセッション分離を中核に置く。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. 成果物継続層</h3>
+      <p>
+        長い仕事では、最終返答より途中成果物の方が重要になる。Google ADK の Artifacts は大きいデータや生成ファイルをセッション状態と分離して保持し、
+        Anthropic も引き継ぎ用の成果物やファイルベースの受け渡しを使ってセッション間の引き継ぎを扱う。ここがないと、agent は途中で作ったものを安全に渡せない。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 運用継続層</h3>
+      <p>
+        持ち越せるだけでは足りず、運用し続けられる必要がある。AWS は Observability と Evaluations を通じてセッション数、レイテンシ、エラー率、
+        本番トラフィックの継続評価を可視化する。つまり「仕事を続ける agent」には、結果だけでなく過程を観測する面が必要になってきた。
+      </p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">観測点</p>
+    <p>この4層を見ると、AIエージェントの継続性は記憶機能だけの話ではない。プロジェクト、セッション、sandbox、成果物、観測が一緒に揃って初めて、数日単位の仕事を任せられる。</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">各社の見え方</p>
+  <h2>同じ方向を向いていても、何を前面に出すかは各社でかなり違う</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI は、継続仕事の利用面を一気につないだ</h3>
+      <p>
+        Projects は週次調査のような定例タスクを再利用する器になり、Tasks は user が席を外していても動く予定実行を持ち、
+        Apps はデータ source を search するだけでなく更新操作まで扱う。そこへ Codex が background computer use、継続作業、
+        記憶機能、自動実行を足したことで、「会話の外でも仕事を続ける」面が一つの流れとして見えるようになった。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic は、継続仕事の設計原則をはっきり言語化した</h3>
+      <p>
+        Managed Agents はセッションを追記型ログとして扱い、推論部、実行部、sandbox を分ける。Claude Agent SDK もセッション再開を明示し、
+        code execution tool は pause_turn と container reuse を持つ。Anthropic の強みは、長い仕事を続けるために何をモデル文脈の外へ出すべきかを、
+        実装原則としてかなりはっきり書いている点にある。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google は、継続状態の契約を細かく分けた</h3>
+      <p>
+        Vertex AI Agent Engine Sessions は event、state、memory を分け、ADK は state を作業メモ、artifacts を大きな生成物の持ち場として分離する。
+        さらに session TTL や session listing まで公開面に出しているので、継続仕事を「いつ消すか」「どこまで残すか」まで含めて設計しやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS は、継続仕事の本番運用面を強く押し出した</h3>
+      <p>
+        AgentCore Runtime は async agent と session isolation を中核に置き、Observability は実行経路と運用指標を可視化し、
+        Evaluations は本番トラフィックを継続的に採点する。つまり AWS は「持ち越せるか」に加えて、「本番で見守り続けられるか」を比較軸に入れている。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">切り分け</p>
+  <h2>継続性は自律性そのものではない。重要なのは、何を残し、何を人に戻せるかである</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>定期実行は、無人化とは違う</h3>
+      <p>
+        Tasks や automations が増えたことで、agent は user が離れている間も仕事を進められるようになった。
+        ただしこれは、全判断を無人化できるという意味ではない。実際に価値が出るのは、定期的に起動し、
+        必要なところだけ人に戻して、次の作業へ引き継げる時である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>記憶は正しさの代わりではない</h3>
+      <p>
+        Codex の memory や Google の cross-session memory は継続性を強くするが、古い判断も持ち越す。
+        継続仕事で重要なのは remember できることより、どの文脈を再利用し、どの文脈を捨てるかを設計できることだ。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>resume は recoverability の問題でもある</h3>
+      <p>
+        OpenAI の snapshotting and rehydration や Anthropic の durable session log が示すのは、継続仕事の本質が会話保持ではなく復旧可能性にもあることだ。
+        container が落ちても、前の続きへ戻れるなら長い作業は実務に載せやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>継続性は auditability とセットで効く</h3>
+      <p>
+        AWS Observability が trace、latency、error rate、session count を前面に出すのは偶然ではない。
+        長く動く agent ほど、「何をしたか」を後から追えなければ、安心して任せられない。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">業務フロー</p>
+  <h2>この比較軸が効くのは、同じ仕事を何度もやる場面か、1回で終わらない場面である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>週次の調査・報告</h3>
+      <ul class="bullet-list">
+        <li>project に過去のメモ、ソース、指示を残しておく</li>
+        <li>task や automation で定期実行し、前回の続きを踏まえて次の下書きを作る</li>
+        <li>Apps で Slack、Drive、Notion から最新文脈を引く</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>数日がかりの実装や検証</h3>
+      <ul class="bullet-list">
+        <li>sandbox や container を再開できると、途中のファイル状態を保ったまま続けやすい</li>
+        <li>成果物やセッションログが残ると、人が途中で review しやすい</li>
+        <li>同じ task を毎回最初から説明し直す必要が減る</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>SaaS をまたぐ定型フォローアップ</h3>
+      <ul class="bullet-list">
+        <li>Apps や tools で必要な時だけ外部 service に触る</li>
+        <li>定期実行と記憶機能があると、未処理項目の follow-up を日次で続けやすい</li>
+        <li>ただし更新操作は confirmation と権限境界が前提になる</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>監査が必要な内部業務</h3>
+      <ul class="bullet-list">
+        <li>セッション数、レイテンシ、error、trace を見られると、運用責任を持ちやすい</li>
+        <li>継続評価があると、表面的な成功率ではなく drift を追いやすい</li>
+        <li>resume できることと audit できることは、同じくらい重要になる</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">採用判断</p>
+  <h2>どの製品が良いかは、どの継続性の失敗が最も痛いかで変わる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>知識仕事中心なら、project と app 連携が先に効く</h3>
+      <p>
+        調査、企画、文書レビュー、フォローアップのような仕事では、まず必要なのは durable compute より、Projects、Apps、memory、定期実行である。
+        どこに途中メモを残し、どの外部情報を次回に引くかが品質差になりやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>開発作業なら、sandbox と artifact の層が重要になる</h3>
+      <p>
+        数日がかりの実装、検証、移行では、session だけでは足りない。途中ファイル、生成物、検証結果を次回に残せるかが重要になる。
+        この点では、resumable sandbox や container reuse を前面に出す製品が有利である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>業務システム横断なら、identity と approval が先にボトルネックになる</h3>
+      <p>
+        Slack、Gmail、Notion、社内 SaaS をまたぐ follow-up は魅力的だが、実務の詰まりどころは memory ではなく write action の統制である。
+        どの更新を自動で許可し、どこで確認を入れるかを決めないと継続性は逆に危うくなる。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>内部運用なら、観測面の弱さが最初の限界になる</h3>
+      <p>
+        ops や高信頼系の仕事では、agent が続けられること自体より、失敗をどう見つけるかが重要になる。
+        traces、error breakdown、session count、token usage まで揃って初めて、継続仕事を本番に載せやすくなる。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">評価設計</p>
+  <h2>継続仕事の agent を測るなら、正答率だけでなく「再開」と「引き継ぎ」の品質を見なければならない</h2>
+  <div class="callout-panel">
+    <p class="callout-title">評価の重心</p>
+    <p>継続タスクでは、単一 run の成功率より、途中停止、再開、文脈の劣化、artifact handoff、人的介入負荷まで含めた評価が必要になる。</p>
+  </div>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. resume 成功率</h3>
+      <p>停止後にどれだけ自然に前の続きへ戻れるか。container 交換、session 再取得、artifact 再読込を挟んでも品質が落ちにくいかを見る。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. stale context 事故率</h3>
+      <p>古い state や memory を引き継いだ結果、もう不要な前提で作業を続けてしまう頻度を測る。継続仕事ではこの失敗が目立ちやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. artifact handoff 品質</h3>
+      <p>途中成果物が次の run や次の人間 reviewer にとって読めるか、再利用できるか、version を追えるかを見る。長い仕事ほど最終返答より重要になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 介入コスト</h3>
+      <p>人がどれだけ頻繁に止め、説明し直し、方向修正しなければならないかを見る。継続性の良い agent ほど、介入の粒度を粗くできる。</p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>短い benchmark だけでなく、数日単位の固定シナリオで測る</li>
+    <li>session resume 前後の diff と trace を保存する</li>
+    <li>memory や state の更新失敗を、通常の task failure と分けて記録する</li>
+    <li>artifact を受け取る人間 reviewer の手戻り時間も測る</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">組織への示唆</p>
+  <h2>導入の論点はモデル選定だけではなく、誰がどの層を持つかという責任分担に移る</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>プロダクト側は、仕事の単位を先に定義する</h3>
+      <p>conversation 単位で見るのか、project 単位で見るのか、週次の recurring task 単位で見るのかで、必要な continuity layer は変わる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>基盤側は、state と compute を分離して持つ</h3>
+      <p>Managed Agents や Agents SDK が示すように、context storage と execution environment を分けた方が durability と recovery は設計しやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>運用側は、trace と review loop を標準装備にする</h3>
+      <p>継続タスクの agent は、単発 chatbot より incident response に近い。監視、失敗分類、再実行の流れを先に標準化した方がよい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>現場側は、全部を自動化せず「持ち越しやすい仕事」から始める</h3>
+      <p>調査継続、PR follow-up、未処理コメント整理、定例レポート下書きのように、途中状態が価値を持つ仕事から入る方が継続性の利点が見えやすい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">まだ早い点</p>
+  <h2>継続タスクの面は前進したが、定期実行や記憶機能だけで信頼できるわけではない</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>schedule だけでは品質は上がらない</h3>
+      <p>定期実行は便利だが、成功条件と見直し手順がなければ、agent は古い前提のまま同じ作業を繰り返すだけになりやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>持ち越す文脈が古くなる</h3>
+      <p>project memory や session state は便利だが、古い判断や誤った前提まで残す。継続性は思い出し精度だけでなく、何を捨てるかの設計に依存する。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>外部 action は identity と approval が前提である</h3>
+      <p>Apps や browser 操作が広がるほど、更新操作、OAuth、workspace control、audit trail の設計が重要になる。継続仕事は、権限の話を避けて通れない。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>observability は success definition の代わりではない</h3>
+      <p>trace や metric が見えても、「何をもって成功とするか」が弱ければ改善できない。継続仕事の agent ほど、運用指標と task 完了条件を先に固定する必要がある。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>AIエージェントの次の比較軸は、能力の瞬間最大値ではなく、仕事をどこまで持ち続けられるかにある</h2>
+  <p>
+    今週の公開情報が示したのは、AIエージェントが賢い返答を返す段階から、仕事の器、実行環境、成果物、評価をまたいで継続タスクを抱える段階へ進みつつあることだ。
+    OpenAI はそれを Projects、Tasks、Apps、Codex、Agents SDK で利用面まで押し広げ、Anthropic は継続セッションと再開を設計原則として示し、
+    Google は state と artifacts の契約を整理し、AWS は observability と継続評価を本番運用の中へ入れた。
+    これからの比較軸は、「一度うまく答えるか」より、「人が席を外したあとも、どの契約で仕事を持ち続けられるか」になっていく可能性が高い。
+  </p>
+</section>

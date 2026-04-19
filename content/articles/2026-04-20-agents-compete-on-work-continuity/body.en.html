@@ -1,0 +1,355 @@
+<section class="report-section">
+  <p class="section-kicker">Snapshot</p>
+  <h2>The real comparison axis for AI agents is now whether they can carry work forward</h2>
+  <p>
+    Reading the official material available by April 20, 2026 from OpenAI, Anthropic, Google, and AWS shows a subtle but important shift in how AI agents should be evaluated.
+    The main question is no longer only how well the model answers the task in front of it right now, or how long it can keep going in a single pass.
+    What matters more is whether the system can carry work across time: resume after pauses or failures, preserve useful context, keep intermediate outputs, reconnect tools only when needed,
+    and expose enough operational visibility for humans to judge quality while the agent is still working. In other words, AI agents are starting to look less like one-shot responders and more like systems for carrying work over time.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">24</p>
+      <p class="stat-title">Primary sources</p>
+      <p class="stat-note">Official docs and official announcements from OpenAI, Anthropic, Google, and AWS are enough to compare this week’s shift without relying on third-party coverage.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">Continuity stack</p>
+      <p class="stat-note">Project or session continuity, execution continuity, artifact continuity, and operational continuity now form a practical comparison frame.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 vendors</p>
+      <p class="stat-title">Different emphases</p>
+      <p class="stat-note">OpenAI highlights user-facing surfaces, Anthropic explains the architecture, Google defines the state contract, and AWS emphasizes production operation.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 question</p>
+      <p class="stat-title">The frame changed</p>
+      <p class="stat-note">The key question is shifting from “can it answer well once?” to “can it keep owning the work while the user is away?”</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>In the third week of April 2026, the assumption that agents should own ongoing work became visible on both the product and infrastructure sides</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">03-24</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Anthropic turned cross-session handoffs into an explicit design topic</h3>
+        <p>Its harness-design writeup made structured artifacts and session-to-session handoff part of the public implementation story for long-running work.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-31</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS framed agent quality as something that must be measured continuously in production</h3>
+        <p>AgentCore Evaluations going GA moved the discussion from isolated demos toward ongoing scoring of live traffic and repeatable test workflows.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-15</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">OpenAI made resumable sandboxes and model-native harnesses first-class SDK surfaces</h3>
+        <p>The updated Agents SDK publicly exposed a more explicit contract for long-horizon work across files, commands, and controlled execution environments.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-16</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">OpenAI expanded Codex into ongoing and repeatable work</h3>
+        <p>Codex now schedules future work, wakes up to continue long-running tasks, uses memory, and draws context from projects and connected tools.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-17</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Google kept pause-and-resume sessions at the center of its public agent story</h3>
+        <p>Vertex AI Agent Engine Sessions continues to present progress persistence and cross-session continuity as core functionality, not optional add-ons.</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    What makes this week notable is that the same direction is now visible both to end users and to developers. OpenAI links Projects, Tasks, Apps, Codex, and the Agents SDK into a coherent continuity story.
+    Anthropic makes durable sessions and resumable harnesses explicit. Google separates sessions, state, and artifacts. AWS brings async runtime, observability, and continuous evaluation into the same frame.
+    AI agents are becoming easier to understand as systems for carrying work over time, not just systems for producing an answer in a single sitting.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Four Layers</p>
+  <h2>Work continuity becomes easier to analyze when it is split into four layers</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Project and session continuity</h3>
+      <p>
+        The first requirement is a durable unit of work that is wider than a single chat turn. ChatGPT Projects are described as workspaces for long-running efforts and repeatable workflows.
+        Vertex AI Agent Engine Sessions play a similar role, keeping the history and progress of an ongoing interaction. Without this layer, the agent has to restart from scratch each time.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Execution continuity</h3>
+      <p>
+        The next layer is the ability to carry execution forward, not just remember text. OpenAI’s SandboxAgent model supports start, stop, and resume patterns.
+        Anthropic’s Managed Agents architecture moves the session log outside the harness and sandbox so work can continue even when a container fails.
+        AWS AgentCore Runtime similarly treats asynchronous agents and true session isolation as core infrastructure.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Artifact continuity</h3>
+      <p>
+        Long-running work depends on files and intermediate outputs, not only on final responses. Google ADK separates Artifacts from session state so larger generated outputs can be persisted, versioned, and shared.
+        Anthropic also makes handoff artifacts and file-based communication part of the story for multi-session work. Without an artifact layer, agents struggle to hand off unfinished work safely.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Operational continuity</h3>
+      <p>
+        Carrying work forward also means being able to observe and judge it while it is still operating. AWS AgentCore Observability and Evaluations make session count, latency, errors, traces, and continuous scoring of production traffic visible.
+        That means “ongoing work” is no longer only a prompt-engineering issue. It is also an operational design issue.
+      </p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">Observation</p>
+    <p>This frame shows why work continuity is bigger than memory alone. A durable agent needs the project or session, the execution environment, the artifacts, and the operational feedback loop together.</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Vendor View</p>
+  <h2>The direction is similar across vendors, but each one emphasizes a different surface</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI ties together the user-facing continuity surfaces</h3>
+      <p>
+        Projects hold recurring work context. Tasks schedule work even when the user is offline. Apps add search, sync, and action surfaces across external tools.
+        Codex now adds background computer use, ongoing and repeatable work, memory, and automations. OpenAI’s distinctive move is that the continuity story is no longer only in developer APIs. It is visible in end-user products too.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic makes the architectural principles explicit</h3>
+      <p>
+        Managed Agents defines the session as an append-only log, separates the brain from the hands, and treats the sandbox as an interchangeable execution surface.
+        The Claude Agent SDK also exposes session resume directly, while the code execution tool makes pause-and-continue and isolated containers concrete. Anthropic’s strength is the clarity of its design language around long-running work.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google separates the state contract cleanly</h3>
+      <p>
+        Vertex AI Agent Engine Sessions separates events, state, and memory, while ADK treats state as the session scratchpad and artifacts as the proper home for larger outputs.
+        Session TTL and listing also appear in the public docs, which makes lifecycle control part of the documented contract for ongoing work.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS emphasizes production operation and governance</h3>
+      <p>
+        AgentCore Runtime centers asynchronous agents and session isolation, Observability exposes the operational path of each run, and Evaluations scores agents continuously against live and test traffic.
+        AWS’s strongest message is that a durable agent is not only one that can continue working, but one that can be operated, measured, and governed while it continues working.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Separation</p>
+  <h2>Continuity is not the same thing as autonomy. The real question is what gets preserved, and what can still be returned to a human</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Scheduling is not full automation</h3>
+      <p>
+        Tasks and automations make it possible for an agent to keep moving while the user is away.
+        But that does not mean every judgment should be delegated. The real value comes when the agent can restart on a schedule,
+        move the work forward, and return the right decision points to a human at the right moment.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Memory is not a substitute for correctness</h3>
+      <p>
+        Codex memory and Google’s cross-session memory strengthen continuity, but they also preserve old assumptions.
+        The important capability is not only that the system can remember, but that it can decide what to reuse and what to discard.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Resume is also a recoverability problem</h3>
+      <p>
+        OpenAI’s snapshotting and rehydration plus Anthropic’s durable session log show that continuity is not only about holding conversation context.
+        It is also about whether the system can recover from container loss, session interruption, or partial failure without restarting the whole task.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Continuity matters most when it is paired with auditability</h3>
+      <p>
+        AWS puts traces, latency, error rates, and session count at the center for a reason.
+        The longer an agent works, the more important it becomes to reconstruct what happened after the fact.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Workflows</p>
+  <h2>This comparison axis matters most when the same work repeats, or when the work does not finish in one sitting</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Weekly research and reporting</h3>
+      <ul class="bullet-list">
+        <li>Keep prior notes, files, and instructions inside a project.</li>
+        <li>Use tasks or automations to run on a schedule and pick up from prior context.</li>
+        <li>Pull fresh context from Slack, Drive, Notion, or other connected apps only when needed.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Multi-day implementation or validation work</h3>
+      <ul class="bullet-list">
+        <li>Resume a sandbox or container with its working state intact.</li>
+        <li>Keep artifacts and session logs available for review in the middle of the run.</li>
+        <li>Avoid re-explaining the full task from scratch every time work pauses.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Recurring SaaS follow-up work</h3>
+      <ul class="bullet-list">
+        <li>Use apps or tools only when external context or write actions are needed.</li>
+        <li>Combine schedules, memory, and external data to keep follow-up loops alive.</li>
+        <li>Treat confirmations and permission boundaries as part of the workflow, not as optional extras.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Internal operations with audit requirements</h3>
+      <ul class="bullet-list">
+        <li>Session count, latency, traces, and errors make it easier to take operating responsibility.</li>
+        <li>Continuous evaluation helps surface drift, not just headline success rates.</li>
+        <li>The ability to resume work and the ability to audit it are becoming equally important.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Adoption</p>
+  <h2>The right product depends on which continuity failure hurts you most</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>For knowledge work, project surfaces and app connectivity matter first</h3>
+      <p>
+        In research, planning, document review, and follow-up work, durable compute is often less important than projects, apps, memory, and scheduled tasks.
+        Quality depends on where prior context is stored and how the next run reconnects to fresh information.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>For development work, sandboxes and artifacts matter more</h3>
+      <p>
+        Multi-day implementation, validation, and migration work requires more than session history. It needs persistent files, reproducible outputs, and resumable execution environments.
+        In this segment, resumable sandboxes and reusable containers become a larger differentiator.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>For cross-SaaS workflows, identity and approval become the bottleneck</h3>
+      <p>
+        Slack, Gmail, Notion, and internal SaaS follow-up work looks attractive on paper, but the real constraint is often not memory. It is write-path governance.
+        Teams need to decide which actions can be automated and where confirmation gates must remain.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>For internal operations, weak observability becomes the first limit</h3>
+      <p>
+        In ops and high-trust internal workflows, the problem is often not whether the agent can keep going. It is whether failures can be found quickly enough.
+        Traces, error breakdowns, session counts, and token usage become part of product selection.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation</p>
+  <h2>If the agent is meant to carry work over time, then evaluation has to measure resumption and handoff quality, not just answer quality</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Shift in Measurement</p>
+    <p>For ongoing work, a single-run success rate is not enough. Teams need to measure interruptions, resumptions, context decay, artifact handoff quality, and the amount of human intervention required.</p>
+  </div>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Resume success rate</h3>
+      <p>How often the agent can return naturally to the prior task after a stop, container replacement, or session reload without meaningful quality loss.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Stale-context incident rate</h3>
+      <p>How often the system continues working from outdated state, memory, or assumptions. This becomes a visible failure mode once work spans multiple days.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Artifact handoff quality</h3>
+      <p>Whether intermediate files, generated outputs, and checkpoints remain readable, reusable, and reviewable by either the next run or the next human reviewer.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Intervention cost</h3>
+      <p>How often humans need to stop the run, restate context, or redirect the work. Better continuity should reduce the granularity of human supervision.</p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>Measure on fixed multi-day scenarios, not only on short benchmark tasks.</li>
+    <li>Store traces and diffs before and after session resume points.</li>
+    <li>Track memory or state update failures separately from ordinary task failures.</li>
+    <li>Measure the human reviewer’s rework time on artifacts and resumed runs.</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Org Impact</p>
+  <h2>The adoption question is moving beyond model choice and toward operational ownership of each continuity layer</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Product teams need to define the unit of work first</h3>
+      <p>Whether the system is organized around a conversation, a project, or a recurring weekly task changes which continuity surfaces are actually required.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Platform teams should separate state from compute</h3>
+      <p>Managed Agents and the Agents SDK both point toward the same design lesson: durability and recovery become easier when context storage and execution environments are not tightly coupled.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Operations teams should standardize traces and review loops early</h3>
+      <p>An ongoing agent starts to resemble an operational workload more than a chatbot. Monitoring, failure classification, and rerun procedures should be standardized accordingly.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Business teams should start with work that benefits from being carried forward</h3>
+      <p>Recurring research, PR follow-up, unresolved comment tracking, and report drafting are better entry points than trying to automate every high-risk workflow at once.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Still Early</p>
+  <h2>The continuity stack has moved forward, but schedules and memory alone do not make a reliable agent</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Scheduling alone does not improve quality</h3>
+      <p>A recurring trigger is useful, but without a clear success definition and review loop, the agent can simply repeat stale work more efficiently.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Persistent context can also preserve bad assumptions</h3>
+      <p>Project memory and session state are powerful, but they can carry old judgments forward too. Work continuity depends as much on forgetting and pruning as on remembering.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>External actions still require identity and approval design</h3>
+      <p>As apps and browser actions spread, write permissions, OAuth scopes, workspace controls, and audit trails become part of the continuity contract. Ongoing work cannot ignore access design.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Observability is not a substitute for a good success definition</h3>
+      <p>Seeing traces and metrics is useful, but it does not tell you what “good” means. The longer the work horizon becomes, the more important it is to define task completion and failure boundaries in advance.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Conclusion</p>
+  <h2>The next comparison axis for AI agents is not peak one-shot capability, but how far they can keep holding the work</h2>
+  <p>
+    The public material this week makes a broader shift easier to see. AI agents are moving from the stage where the main question is whether they can produce an impressive answer,
+    toward the stage where the main question is whether they can hold work across projects, sessions, sandboxes, artifacts, and evaluation loops.
+    OpenAI pushes that story into user-facing surfaces such as Projects, Tasks, Apps, Codex, and the Agents SDK. Anthropic makes durable sessions and resumable harnesses a design principle.
+    Google clarifies the contract around sessions, state, and artifacts. AWS brings observability and continuous evaluation into the heart of production operation.
+    The practical comparison axis is therefore widening from “can it answer well once?” to “under what contract can it keep carrying the job after the user steps away?”
+  </p>
+</section>
