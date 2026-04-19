@@ -154,6 +154,42 @@
 </section>
 
 <section class="report-section">
+  <p class="section-kicker">Separation</p>
+  <h2>Continuity is not the same thing as autonomy. The real question is what gets preserved, and what can still be returned to a human</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Scheduling is not full automation</h3>
+      <p>
+        Tasks and automations make it possible for an agent to keep moving while the user is away.
+        But that does not mean every judgment should be delegated. The real value comes when the agent can restart on a schedule,
+        move the work forward, and return the right decision points to a human at the right moment.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Memory is not a substitute for correctness</h3>
+      <p>
+        Codex memory and Google’s cross-session memory strengthen continuity, but they also preserve old assumptions.
+        The important capability is not only that the system can remember, but that it can decide what to reuse and what to discard.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Resume is also a recoverability problem</h3>
+      <p>
+        OpenAI’s snapshotting and rehydration plus Anthropic’s durable session log show that continuity is not only about holding conversation context.
+        It is also about whether the system can recover from container loss, session interruption, or partial failure without restarting the whole task.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Continuity matters most when it is paired with auditability</h3>
+      <p>
+        AWS puts traces, latency, error rates, and session count at the center for a reason.
+        The longer an agent works, the more important it becomes to reconstruct what happened after the fact.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
   <p class="section-kicker">Workflows</p>
   <h2>This comparison axis matters most when the same work repeats, or when the work does not finish in one sitting</h2>
   <div class="comparison-grid mt-6">
@@ -188,6 +224,97 @@
         <li>Continuous evaluation helps surface drift, not just headline success rates.</li>
         <li>The ability to resume work and the ability to audit it are becoming equally important.</li>
       </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Adoption</p>
+  <h2>The right product depends on which continuity failure hurts you most</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>For knowledge work, project surfaces and app connectivity matter first</h3>
+      <p>
+        In research, planning, document review, and follow-up work, durable compute is often less important than projects, apps, memory, and scheduled tasks.
+        Quality depends on where prior context is stored and how the next run reconnects to fresh information.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>For development work, sandboxes and artifacts matter more</h3>
+      <p>
+        Multi-day implementation, validation, and migration work requires more than session history. It needs persistent files, reproducible outputs, and resumable execution environments.
+        In this segment, resumable sandboxes and reusable containers become a larger differentiator.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>For cross-SaaS workflows, identity and approval become the bottleneck</h3>
+      <p>
+        Slack, Gmail, Notion, and internal SaaS follow-up work looks attractive on paper, but the real constraint is often not memory. It is write-path governance.
+        Teams need to decide which actions can be automated and where confirmation gates must remain.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>For internal operations, weak observability becomes the first limit</h3>
+      <p>
+        In ops and high-trust internal workflows, the problem is often not whether the agent can keep going. It is whether failures can be found quickly enough.
+        Traces, error breakdowns, session counts, and token usage become part of product selection.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation</p>
+  <h2>If the agent is meant to carry work over time, then evaluation has to measure resumption and handoff quality, not just answer quality</h2>
+  <div class="callout-panel">
+    <p class="callout-title">Shift in Measurement</p>
+    <p>For ongoing work, a single-run success rate is not enough. Teams need to measure interruptions, resumptions, context decay, artifact handoff quality, and the amount of human intervention required.</p>
+  </div>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Resume success rate</h3>
+      <p>How often the agent can return naturally to the prior task after a stop, container replacement, or session reload without meaningful quality loss.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Stale-context incident rate</h3>
+      <p>How often the system continues working from outdated state, memory, or assumptions. This becomes a visible failure mode once work spans multiple days.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Artifact handoff quality</h3>
+      <p>Whether intermediate files, generated outputs, and checkpoints remain readable, reusable, and reviewable by either the next run or the next human reviewer.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Intervention cost</h3>
+      <p>How often humans need to stop the run, restate context, or redirect the work. Better continuity should reduce the granularity of human supervision.</p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>Measure on fixed multi-day scenarios, not only on short benchmark tasks.</li>
+    <li>Store traces and diffs before and after session resume points.</li>
+    <li>Track memory or state update failures separately from ordinary task failures.</li>
+    <li>Measure the human reviewer’s rework time on artifacts and resumed runs.</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Org Impact</p>
+  <h2>The adoption question is moving beyond model choice and toward operational ownership of each continuity layer</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Product teams need to define the unit of work first</h3>
+      <p>Whether the system is organized around a conversation, a project, or a recurring weekly task changes which continuity surfaces are actually required.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Platform teams should separate state from compute</h3>
+      <p>Managed Agents and the Agents SDK both point toward the same design lesson: durability and recovery become easier when context storage and execution environments are not tightly coupled.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Operations teams should standardize traces and review loops early</h3>
+      <p>An ongoing agent starts to resemble an operational workload more than a chatbot. Monitoring, failure classification, and rerun procedures should be standardized accordingly.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Business teams should start with work that benefits from being carried forward</h3>
+      <p>Recurring research, PR follow-up, unresolved comment tracking, and report drafting are better entry points than trying to automate every high-risk workflow at once.</p>
     </article>
   </div>
 </section>

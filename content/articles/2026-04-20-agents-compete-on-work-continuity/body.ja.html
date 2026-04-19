@@ -159,6 +159,42 @@
 </section>
 
 <section class="report-section">
+  <p class="section-kicker">切り分け</p>
+  <h2>継続性は自律性そのものではない。重要なのは、何を残し、何を人に戻せるかである</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>定期実行は、無人化とは違う</h3>
+      <p>
+        Tasks や automations が増えたことで、agent は user が離れている間も仕事を進められるようになった。
+        ただしこれは、全判断を無人化できるという意味ではない。実際に価値が出るのは、定期的に起動し、
+        必要なところだけ人に戻して、次の作業へ引き継げる時である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>記憶は正しさの代わりではない</h3>
+      <p>
+        Codex の memory や Google の cross-session memory は継続性を強くするが、古い判断も持ち越す。
+        継続仕事で重要なのは remember できることより、どの文脈を再利用し、どの文脈を捨てるかを設計できることだ。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>resume は recoverability の問題でもある</h3>
+      <p>
+        OpenAI の snapshotting and rehydration や Anthropic の durable session log が示すのは、継続仕事の本質が会話保持ではなく復旧可能性にもあることだ。
+        container が落ちても、前の続きへ戻れるなら長い作業は実務に載せやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>継続性は auditability とセットで効く</h3>
+      <p>
+        AWS Observability が trace、latency、error rate、session count を前面に出すのは偶然ではない。
+        長く動く agent ほど、「何をしたか」を後から追えなければ、安心して任せられない。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
   <p class="section-kicker">業務フロー</p>
   <h2>この比較軸が効くのは、同じ仕事を何度もやる場面か、1回で終わらない場面である</h2>
   <div class="comparison-grid mt-6">
@@ -193,6 +229,97 @@
         <li>継続評価があると、表面的な成功率ではなく drift を追いやすい</li>
         <li>resume できることと audit できることは、同じくらい重要になる</li>
       </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">採用判断</p>
+  <h2>どの製品が良いかは、どの継続性の失敗が最も痛いかで変わる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>知識仕事中心なら、project と app 連携が先に効く</h3>
+      <p>
+        調査、企画、文書レビュー、フォローアップのような仕事では、まず必要なのは durable compute より、Projects、Apps、memory、定期実行である。
+        どこに途中メモを残し、どの外部情報を次回に引くかが品質差になりやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>開発作業なら、sandbox と artifact の層が重要になる</h3>
+      <p>
+        数日がかりの実装、検証、移行では、session だけでは足りない。途中ファイル、生成物、検証結果を次回に残せるかが重要になる。
+        この点では、resumable sandbox や container reuse を前面に出す製品が有利である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>業務システム横断なら、identity と approval が先にボトルネックになる</h3>
+      <p>
+        Slack、Gmail、Notion、社内 SaaS をまたぐ follow-up は魅力的だが、実務の詰まりどころは memory ではなく write action の統制である。
+        どの更新を自動で許可し、どこで確認を入れるかを決めないと継続性は逆に危うくなる。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>内部運用なら、観測面の弱さが最初の限界になる</h3>
+      <p>
+        ops や高信頼系の仕事では、agent が続けられること自体より、失敗をどう見つけるかが重要になる。
+        traces、error breakdown、session count、token usage まで揃って初めて、継続仕事を本番に載せやすくなる。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">評価設計</p>
+  <h2>継続仕事の agent を測るなら、正答率だけでなく「再開」と「引き継ぎ」の品質を見なければならない</h2>
+  <div class="callout-panel">
+    <p class="callout-title">評価の重心</p>
+    <p>継続タスクでは、単一 run の成功率より、途中停止、再開、文脈の劣化、artifact handoff、人的介入負荷まで含めた評価が必要になる。</p>
+  </div>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. resume 成功率</h3>
+      <p>停止後にどれだけ自然に前の続きへ戻れるか。container 交換、session 再取得、artifact 再読込を挟んでも品質が落ちにくいかを見る。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. stale context 事故率</h3>
+      <p>古い state や memory を引き継いだ結果、もう不要な前提で作業を続けてしまう頻度を測る。継続仕事ではこの失敗が目立ちやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. artifact handoff 品質</h3>
+      <p>途中成果物が次の run や次の人間 reviewer にとって読めるか、再利用できるか、version を追えるかを見る。長い仕事ほど最終返答より重要になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 介入コスト</h3>
+      <p>人がどれだけ頻繁に止め、説明し直し、方向修正しなければならないかを見る。継続性の良い agent ほど、介入の粒度を粗くできる。</p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>短い benchmark だけでなく、数日単位の固定シナリオで測る</li>
+    <li>session resume 前後の diff と trace を保存する</li>
+    <li>memory や state の更新失敗を、通常の task failure と分けて記録する</li>
+    <li>artifact を受け取る人間 reviewer の手戻り時間も測る</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">組織への示唆</p>
+  <h2>導入の論点はモデル選定だけではなく、誰がどの層を持つかという責任分担に移る</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>プロダクト側は、仕事の単位を先に定義する</h3>
+      <p>conversation 単位で見るのか、project 単位で見るのか、週次の recurring task 単位で見るのかで、必要な continuity layer は変わる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>基盤側は、state と compute を分離して持つ</h3>
+      <p>Managed Agents や Agents SDK が示すように、context storage と execution environment を分けた方が durability と recovery は設計しやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>運用側は、trace と review loop を標準装備にする</h3>
+      <p>継続タスクの agent は、単発 chatbot より incident response に近い。監視、失敗分類、再実行の流れを先に標準化した方がよい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>現場側は、全部を自動化せず「持ち越しやすい仕事」から始める</h3>
+      <p>調査継続、PR follow-up、未処理コメント整理、定例レポート下書きのように、途中状態が価値を持つ仕事から入る方が継続性の利点が見えやすい。</p>
     </article>
   </div>
 </section>
