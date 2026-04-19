@@ -1,0 +1,140 @@
+{
+  "slug": "agents-compete-on-work-continuity",
+  "date": "2026-04-20",
+  "titleJa": "AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった",
+  "titleEn": "The real comparison axis for AI agents is now whether they can carry work forward",
+  "summaryJa": "2026年4月20日までの OpenAI Codex / Agents SDK / Projects / Tasks / Apps、Anthropic Managed Agents / Agent SDK、Google Vertex AI Agent Engine Sessions / ADK、AWS AgentCore Runtime / Evaluations / Observability の一次情報を重ねると、AIエージェントの比較軸は単発の応答品質ではなく、継続タスクをまたいで文脈・状態・成果物を引き継ぎ、必要な時だけ実行環境を呼び出し、運用中の品質まで観測できるかへ移っていることが見えてくる。特に 2026年4月15日から4月17日にかけて、OpenAI が Agents SDK の sandbox と実行基盤を更新し、Codex に継続作業、自動実行、記憶機能を広げ、Google が Sessions を更新し、Anthropic と AWS の公開資料が同じ方向を補強したことで、AIエージェントを「一度うまく答えるもの」ではなく「仕事を持ち越す仕組み」として比べる視点が一段はっきりした。",
+  "summaryEn": "Reading the primary-source material available by April 20, 2026 across OpenAI Codex, the Agents SDK, Projects, Tasks, and Apps, Anthropic Managed Agents and the Claude Agent SDK, Google Vertex AI Agent Engine Sessions and ADK, and AWS AgentCore Runtime, Evaluations, and Observability shows a clearer comparison axis for AI agents. The central question is no longer just whether an agent can answer well in the moment. It is whether the system can carry work across time: preserve context, resume execution, persist artifacts, reconnect tools only when needed, and expose enough observability to judge quality in production. The April 15 to April 17 cluster is especially important because OpenAI advanced both the developer-facing and user-facing sides of that stack at once, while Google, Anthropic, and AWS made the same pattern legible in their own public docs.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Automation",
+    "Sessions",
+    "Observability",
+    "Workflow",
+    "Background Work"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI: Codex for (almost) everything",
+      "url": "https://openai.com/index/codex-for-almost-everything/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: The next evolution of the Agents SDK",
+      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing the Codex app",
+      "url": "https://openai.com/index/introducing-the-codex-app/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Help Center: Using Codex with your ChatGPT plan",
+      "url": "https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Help Center: Projects in ChatGPT",
+      "url": "https://help.openai.com/en/articles/10169521-projects-in-chatgpt",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Help Center: Tasks in ChatGPT",
+      "url": "https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Help Center: Apps in ChatGPT",
+      "url": "https://help.openai.com/en/articles/11487775-apps-in-chatgpt",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Agents SDK: Intro",
+      "url": "https://openai.github.io/openai-agents-python/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Agents SDK: Sandbox concepts",
+      "url": "https://openai.github.io/openai-agents-python/sandbox/guide/",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands",
+      "url": "https://www.anthropic.com/engineering/managed-agents",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Harness design for long-running application development",
+      "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+      "type": "official"
+    },
+    {
+      "label": "Claude Agent SDK overview",
+      "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic docs: Claude Code security",
+      "url": "https://docs.anthropic.com/en/docs/claude-code/security",
+      "type": "official"
+    },
+    {
+      "label": "Claude API docs: Code execution tool",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: Vertex AI Agent Engine Sessions overview",
+      "url": "https://docs.cloud.google.com/agent-builder/agent-engine/sessions/overview",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud: Manage sessions with Agent Development Kit",
+      "url": "https://docs.cloud.google.com/agent-builder/agent-engine/sessions/manage-sessions-adk",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: State",
+      "url": "https://adk.dev/sessions/state/",
+      "type": "official"
+    },
+    {
+      "label": "Google ADK: Artifacts",
+      "url": "https://adk.dev/artifacts/",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Amazon Bedrock AgentCore overview",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Observe your agent applications on Amazon Bedrock AgentCore Observability",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS What's New: Amazon Bedrock AgentCore Evaluations is now generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Get started with AgentCore Observability",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Add observability to your Amazon Bedrock AgentCore resources",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Get started with Amazon Bedrock AgentCore",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html",
+      "type": "official"
+    }
+  ],
+  "draft": false
+}
