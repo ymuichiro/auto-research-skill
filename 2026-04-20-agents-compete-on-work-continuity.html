@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった | Auto Research Digest</title>
+    <meta name="description" content="2026年4月20日までの OpenAI Codex / Agents SDK / Projects / Tasks / Apps、Anthropic Managed Agents / Agent SDK、Google Vertex AI Agent Engine Sessions / ADK、AWS AgentCore Runtime / Evaluations / Observability の一次情報を重ねると、AIエージェントの比較軸は単発の応答品質ではなく、継続タスクをまたいで文脈・状態・成果物を引き継ぎ、必要な時だけ実行環境を呼び出し、運用中の品質まで観測できるかへ移っていることが見えてくる。特に 2026年4月15日から4月17日にかけて、OpenAI が Agents SDK の sandbox と実行基盤を更新し、Codex に継続作業、自動実行、記憶機能を広げ、Google が Sessions を更新し、Anthropic と AWS の公開資料が同じ方向を補強したことで、AIエージェントを「一度うまく答えるもの」ではなく「仕事を持ち越す仕組み」として比べる視点が一段はっきりした。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった | Auto Research Digest">
+    <meta property="og:description" content="2026年4月20日までの OpenAI Codex / Agents SDK / Projects / Tasks / Apps、Anthropic Managed Agents / Agent SDK、Google Vertex AI Agent Engine Sessions / ADK、AWS AgentCore Runtime / Evaluations / Observability の一次情報を重ねると、AIエージェントの比較軸は単発の応答品質ではなく、継続タスクをまたいで文脈・状態・成果物を引き継ぎ、必要な時だけ実行環境を呼び出し、運用中の品質まで観測できるかへ移っていることが見えてくる。特に 2026年4月15日から4月17日にかけて、OpenAI が Agents SDK の sandbox と実行基盤を更新し、Codex に継続作業、自動実行、記憶機能を広げ、Google が Sessions を更新し、Anthropic と AWS の公開資料が同じ方向を補強したことで、AIエージェントを「一度うまく答えるもの」ではなく「仕事を持ち越す仕組み」として比べる視点が一段はっきりした。">
+    <meta property="og:url" content="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった | Auto Research Digest">
+    <meta name="twitter:description" content="2026年4月20日までの OpenAI Codex / Agents SDK / Projects / Tasks / Apps、Anthropic Managed Agents / Agent SDK、Google Vertex AI Agent Engine Sessions / ADK、AWS AgentCore Runtime / Evaluations / Observability の一次情報を重ねると、AIエージェントの比較軸は単発の応答品質ではなく、継続タスクをまたいで文脈・状態・成果物を引き継ぎ、必要な時だけ実行環境を呼び出し、運用中の品質まで観測できるかへ移っていることが見えてくる。特に 2026年4月15日から4月17日にかけて、OpenAI が Agents SDK の sandbox と実行基盤を更新し、Codex に継続作業、自動実行、記憶機能を広げ、Google が Sessions を更新し、Anthropic と AWS の公開資料が同じ方向を補強したことで、AIエージェントを「一度うまく答えるもの」ではなく「仕事を持ち越す仕組み」として比べる視点が一段はっきりした。">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった">
+    <link rel="canonical" href="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html">
+    <link rel="alternate" type="application/atom+xml" href="https://research.notelligent.app/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-04-20T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-04-20T08:14:33+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="Sessions">
+    <meta property="article:tag" content="Observability">
+    <meta property="article:tag" content="Workflow">
+    <meta property="article:tag" content="Background Work">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった","description":"2026年4月20日までの OpenAI Codex / Agents SDK / Projects / Tasks / Apps、Anthropic Managed Agents / Agent SDK、Google Vertex AI Agent Engine Sessions / ADK、AWS AgentCore Runtime / Evaluations / Observability の一次情報を重ねると、AIエージェントの比較軸は単発の応答品質ではなく、継続タスクをまたいで文脈・状態・成果物を引き継ぎ、必要な時だけ実行環境を呼び出し、運用中の品質まで観測できるかへ移っていることが見えてくる。特に 2026年4月15日から4月17日にかけて、OpenAI が Agents SDK の sandbox と実行基盤を更新し、Codex に継続作業、自動実行、記憶機能を広げ、Google が Sessions を更新し、Anthropic と AWS の公開資料が同じ方向を補強したことで、AIエージェントを「一度うまく答えるもの」ではなく「仕事を持ち越す仕組み」として比べる視点が一段はっきりした。","datePublished":"2026-04-20T00:00:00+09:00","dateModified":"2026-04-20T08:14:33+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Automation, Sessions, Observability, Workflow, Background Work","mainEntityOfPage":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://research.notelligent.app/archive/"},{"@type":"ListItem","position":3,"name":"AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった","item":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html"}],"inLanguage":"ja"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/archive/">アーカイブ</a><a class="nav-link " href="/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/en/2026-04-20-agents-compete-on-work-continuity.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった</h1>
+          <p class="hero-copy">2026年4月20日までの OpenAI Codex / Agents SDK / Projects / Tasks / Apps、Anthropic Managed Agents / Agent SDK、Google Vertex AI Agent Engine Sessions / ADK、AWS AgentCore Runtime / Evaluations / Observability の一次情報を重ねると、AIエージェントの比較軸は単発の応答品質ではなく、継続タスクをまたいで文脈・状態・成果物を引き継ぎ、必要な時だけ実行環境を呼び出し、運用中の品質まで観測できるかへ移っていることが見えてくる。特に 2026年4月15日から4月17日にかけて、OpenAI が Agents SDK の sandbox と実行基盤を更新し、Codex に継続作業、自動実行、記憶機能を広げ、Google が Sessions を更新し、Anthropic と AWS の公開資料が同じ方向を補強したことで、AIエージェントを「一度うまく答えるもの」ではなく「仕事を持ち越す仕組み」として比べる視点が一段はっきりした。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-20">2026年4月20日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Automation</span><span class="meta-chip">Sessions</span><span class="meta-chip">Observability</span><span class="meta-chip">Workflow</span><span class="meta-chip">Background Work</span></div>
+    </section>
+    <section class="article-share" aria-label="記事を共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%82%92%E6%AF%94%E3%81%B9%E3%82%8B%E8%BB%B8%E3%81%AF%E3%80%81%E3%80%8C%E4%B8%80%E5%BA%A6%E3%81%86%E3%81%BE%E3%81%8F%E7%AD%94%E3%81%88%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E3%80%8C%E4%BB%95%E4%BA%8B%E3%82%92%E6%8C%81%E3%81%A1%E8%B6%8A%E3%81%9B%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-04-20-agents-compete-on-work-continuity.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="共有メニューを開く"
+      data-native-share
+      data-share-title="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった"
+      data-share-text="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった"
+      data-share-url="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="記事タイトルとリンクをコピー"
+      data-copy-share
+      data-state="idle"
+      data-share-title="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった"
+      data-share-url="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html"
+      data-copy-label-default="記事タイトルとリンクをコピー"
+      data-copy-label-success="コピーしました"
+      data-copy-status-success="コピーしました"
+      data-copy-status-error="コピーに失敗しました"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった</h2>
+  <p>
+    2026年4月20日までの OpenAI、Anthropic、Google、AWS の公開資料を重ねると、AIエージェントを評価する問いが少し変わっている。
+    以前は、いま目の前の依頼にどれだけ上手く答えられるか、どこまで長い手順を一気にやり切れるかが主論点になりやすかった。
+    しかし今は、それだけでは足りない。途中で止まっても再開できるか、別の日に戻っても同じ文脈を維持できるか、途中成果物を引き継げるか、
+    必要な時だけ外部ツールや実行環境を呼び出せるか、そして運用中の品質を観測できるかが、公開面の比較軸として前に出てきた。
+    言い換えると、AIエージェントは単発の応答器ではなく、仕事を持ち越す仕組みとして比べた方が実態に近くなってきた。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">24件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">OpenAI、Anthropic、Google、AWS の公式ドキュメントと公式告知だけで、今週の主論点を比較できる厚みがある。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4層</p>
+      <p class="stat-title">継続性の比較軸</p>
+      <p class="stat-note">プロジェクト / セッション、実行環境、成果物、観測の4層で見ると整理しやすい。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4社</p>
+      <p class="stat-title">見え方の違い</p>
+      <p class="stat-note">OpenAI は利用面、Anthropic は設計面、Google は状態管理、AWS は運用面を強く見せている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1変化</p>
+      <p class="stat-title">主問が変わった</p>
+      <p class="stat-note">「うまく答えるか」より、「人が離れている間も仕事を持ち続けられるか」が重要になっている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">今週の決め手</p>
+  <h2>2026年4月第3週は、継続タスクを引き受ける前提が利用面と基盤面の両方で揃った</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">03-24</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Anthropic は、セッションをまたぐ引き継ぎを実装論として公開した</h3>
+        <p>Harness design の公開で、長時間作業を続けるには、構造化された成果物で前の状態を次のセッションへ渡す必要があることが前面化した。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03-31</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS は本番トラフィックを継続評価する面を GA にした</h3>
+        <p>AgentCore Evaluations の GA は、agent の品質を開発時の demo ではなく、本番運用の継続監視として扱い始めたことを示す。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-15</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">OpenAI は Agents SDK に model-native harness と sandbox を入れた</h3>
+        <p>ファイル、コマンド、長時間タスクを制御された sandbox 上で扱い、保存状態やスナップショットから再開できる構図が、SDK の公開面に出てきた。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-16</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">OpenAI は Codex を継続作業の面まで広げた</h3>
+        <p>Codex は将来の作業を自分で予約し、記憶機能を持ち、Projects や接続先ツールから文脈を引き継いで、数日から数週単位の仕事を続ける方向を打ち出した。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-17</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Google は Sessions を、pause と resume を前提にした中核面として更新した</h3>
+        <p>Vertex AI Agent Engine Sessions は、会話履歴ではなく進捗とセッション横断の継続性を担う対象として整理されている。</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    この週の決定的な点は、同じ方向が「インフラの裏話」ではなく、ユーザー向けの利用面と開発者向けの基盤面の両方で見えるようになったことにある。
+    OpenAI は Projects、Tasks、Apps、Codex、Agents SDK をつなぎ、Anthropic は Managed Agents と Agent SDK で継続セッションと再開を押し出し、
+    Google はセッション / 状態 / 成果物を分け、AWS は非同期実行基盤と観測を揃えた。AIエージェントは、単発で賢く答えるものから、
+    文脈、状態、成果物、評価を抱えた継続タスク系として見た方が理解しやすくなっている。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">4つの層</p>
+  <h2>仕事を持ち越す仕組みは、少なくとも4層に分けて見ると整理しやすい</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. プロジェクト / セッション層</h3>
+      <p>
+        まず必要なのは、仕事の単位を会話より少し太く持つ器である。ChatGPT の Projects は長く続く作業を一か所にまとめ、
+        繰り返し使う業務フローを再利用できる場として説明される。Google の Sessions も同様に、継続中の対話の履歴と進捗を保持する。
+        ここが弱いと、毎回やり直す agent しか作れない。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 実行継続層</h3>
+      <p>
+        次に必要なのは、文脈だけでなく実行そのものを持ち越す層である。OpenAI の SandboxAgent は start, stop, resume を前提にし、
+        Anthropic の Managed Agents はセッションログを harness や sandbox の外へ出して、container が落ちても再開できる構成を取る。
+        AWS AgentCore Runtime も非同期 agent と厳密なセッション分離を中核に置く。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. 成果物継続層</h3>
+      <p>
+        長い仕事では、最終返答より途中成果物の方が重要になる。Google ADK の Artifacts は大きいデータや生成ファイルをセッション状態と分離して保持し、
+        Anthropic も引き継ぎ用の成果物やファイルベースの受け渡しを使ってセッション間の引き継ぎを扱う。ここがないと、agent は途中で作ったものを安全に渡せない。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 運用継続層</h3>
+      <p>
+        持ち越せるだけでは足りず、運用し続けられる必要がある。AWS は Observability と Evaluations を通じてセッション数、レイテンシ、エラー率、
+        本番トラフィックの継続評価を可視化する。つまり「仕事を続ける agent」には、結果だけでなく過程を観測する面が必要になってきた。
+      </p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">観測点</p>
+    <p>この4層を見ると、AIエージェントの継続性は記憶機能だけの話ではない。プロジェクト、セッション、sandbox、成果物、観測が一緒に揃って初めて、数日単位の仕事を任せられる。</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">各社の見え方</p>
+  <h2>同じ方向を向いていても、何を前面に出すかは各社でかなり違う</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI は、継続仕事の利用面を一気につないだ</h3>
+      <p>
+        Projects は週次調査のような定例タスクを再利用する器になり、Tasks は user が席を外していても動く予定実行を持ち、
+        Apps はデータ source を search するだけでなく更新操作まで扱う。そこへ Codex が background computer use、継続作業、
+        記憶機能、自動実行を足したことで、「会話の外でも仕事を続ける」面が一つの流れとして見えるようになった。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic は、継続仕事の設計原則をはっきり言語化した</h3>
+      <p>
+        Managed Agents はセッションを追記型ログとして扱い、推論部、実行部、sandbox を分ける。Claude Agent SDK もセッション再開を明示し、
+        code execution tool は pause_turn と container reuse を持つ。Anthropic の強みは、長い仕事を続けるために何をモデル文脈の外へ出すべきかを、
+        実装原則としてかなりはっきり書いている点にある。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google は、継続状態の契約を細かく分けた</h3>
+      <p>
+        Vertex AI Agent Engine Sessions は event、state、memory を分け、ADK は state を作業メモ、artifacts を大きな生成物の持ち場として分離する。
+        さらに session TTL や session listing まで公開面に出しているので、継続仕事を「いつ消すか」「どこまで残すか」まで含めて設計しやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS は、継続仕事の本番運用面を強く押し出した</h3>
+      <p>
+        AgentCore Runtime は async agent と session isolation を中核に置き、Observability は実行経路と運用指標を可視化し、
+        Evaluations は本番トラフィックを継続的に採点する。つまり AWS は「持ち越せるか」に加えて、「本番で見守り続けられるか」を比較軸に入れている。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">切り分け</p>
+  <h2>継続性は自律性そのものではない。重要なのは、何を残し、何を人に戻せるかである</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>定期実行は、無人化とは違う</h3>
+      <p>
+        Tasks や automations が増えたことで、agent は user が離れている間も仕事を進められるようになった。
+        ただしこれは、全判断を無人化できるという意味ではない。実際に価値が出るのは、定期的に起動し、
+        必要なところだけ人に戻して、次の作業へ引き継げる時である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>記憶は正しさの代わりではない</h3>
+      <p>
+        Codex の memory や Google の cross-session memory は継続性を強くするが、古い判断も持ち越す。
+        継続仕事で重要なのは remember できることより、どの文脈を再利用し、どの文脈を捨てるかを設計できることだ。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>resume は recoverability の問題でもある</h3>
+      <p>
+        OpenAI の snapshotting and rehydration や Anthropic の durable session log が示すのは、継続仕事の本質が会話保持ではなく復旧可能性にもあることだ。
+        container が落ちても、前の続きへ戻れるなら長い作業は実務に載せやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>継続性は auditability とセットで効く</h3>
+      <p>
+        AWS Observability が trace、latency、error rate、session count を前面に出すのは偶然ではない。
+        長く動く agent ほど、「何をしたか」を後から追えなければ、安心して任せられない。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">業務フロー</p>
+  <h2>この比較軸が効くのは、同じ仕事を何度もやる場面か、1回で終わらない場面である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>週次の調査・報告</h3>
+      <ul class="bullet-list">
+        <li>project に過去のメモ、ソース、指示を残しておく</li>
+        <li>task や automation で定期実行し、前回の続きを踏まえて次の下書きを作る</li>
+        <li>Apps で Slack、Drive、Notion から最新文脈を引く</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>数日がかりの実装や検証</h3>
+      <ul class="bullet-list">
+        <li>sandbox や container を再開できると、途中のファイル状態を保ったまま続けやすい</li>
+        <li>成果物やセッションログが残ると、人が途中で review しやすい</li>
+        <li>同じ task を毎回最初から説明し直す必要が減る</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>SaaS をまたぐ定型フォローアップ</h3>
+      <ul class="bullet-list">
+        <li>Apps や tools で必要な時だけ外部 service に触る</li>
+        <li>定期実行と記憶機能があると、未処理項目の follow-up を日次で続けやすい</li>
+        <li>ただし更新操作は confirmation と権限境界が前提になる</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>監査が必要な内部業務</h3>
+      <ul class="bullet-list">
+        <li>セッション数、レイテンシ、error、trace を見られると、運用責任を持ちやすい</li>
+        <li>継続評価があると、表面的な成功率ではなく drift を追いやすい</li>
+        <li>resume できることと audit できることは、同じくらい重要になる</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">採用判断</p>
+  <h2>どの製品が良いかは、どの継続性の失敗が最も痛いかで変わる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>知識仕事中心なら、project と app 連携が先に効く</h3>
+      <p>
+        調査、企画、文書レビュー、フォローアップのような仕事では、まず必要なのは durable compute より、Projects、Apps、memory、定期実行である。
+        どこに途中メモを残し、どの外部情報を次回に引くかが品質差になりやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>開発作業なら、sandbox と artifact の層が重要になる</h3>
+      <p>
+        数日がかりの実装、検証、移行では、session だけでは足りない。途中ファイル、生成物、検証結果を次回に残せるかが重要になる。
+        この点では、resumable sandbox や container reuse を前面に出す製品が有利である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>業務システム横断なら、identity と approval が先にボトルネックになる</h3>
+      <p>
+        Slack、Gmail、Notion、社内 SaaS をまたぐ follow-up は魅力的だが、実務の詰まりどころは memory ではなく write action の統制である。
+        どの更新を自動で許可し、どこで確認を入れるかを決めないと継続性は逆に危うくなる。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>内部運用なら、観測面の弱さが最初の限界になる</h3>
+      <p>
+        ops や高信頼系の仕事では、agent が続けられること自体より、失敗をどう見つけるかが重要になる。
+        traces、error breakdown、session count、token usage まで揃って初めて、継続仕事を本番に載せやすくなる。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">評価設計</p>
+  <h2>継続仕事の agent を測るなら、正答率だけでなく「再開」と「引き継ぎ」の品質を見なければならない</h2>
+  <div class="callout-panel">
+    <p class="callout-title">評価の重心</p>
+    <p>継続タスクでは、単一 run の成功率より、途中停止、再開、文脈の劣化、artifact handoff、人的介入負荷まで含めた評価が必要になる。</p>
+  </div>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. resume 成功率</h3>
+      <p>停止後にどれだけ自然に前の続きへ戻れるか。container 交換、session 再取得、artifact 再読込を挟んでも品質が落ちにくいかを見る。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. stale context 事故率</h3>
+      <p>古い state や memory を引き継いだ結果、もう不要な前提で作業を続けてしまう頻度を測る。継続仕事ではこの失敗が目立ちやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. artifact handoff 品質</h3>
+      <p>途中成果物が次の run や次の人間 reviewer にとって読めるか、再利用できるか、version を追えるかを見る。長い仕事ほど最終返答より重要になる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 介入コスト</h3>
+      <p>人がどれだけ頻繁に止め、説明し直し、方向修正しなければならないかを見る。継続性の良い agent ほど、介入の粒度を粗くできる。</p>
+    </article>
+  </div>
+  <ul class="bullet-list mt-6">
+    <li>短い benchmark だけでなく、数日単位の固定シナリオで測る</li>
+    <li>session resume 前後の diff と trace を保存する</li>
+    <li>memory や state の更新失敗を、通常の task failure と分けて記録する</li>
+    <li>artifact を受け取る人間 reviewer の手戻り時間も測る</li>
+  </ul>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">組織への示唆</p>
+  <h2>導入の論点はモデル選定だけではなく、誰がどの層を持つかという責任分担に移る</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>プロダクト側は、仕事の単位を先に定義する</h3>
+      <p>conversation 単位で見るのか、project 単位で見るのか、週次の recurring task 単位で見るのかで、必要な continuity layer は変わる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>基盤側は、state と compute を分離して持つ</h3>
+      <p>Managed Agents や Agents SDK が示すように、context storage と execution environment を分けた方が durability と recovery は設計しやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>運用側は、trace と review loop を標準装備にする</h3>
+      <p>継続タスクの agent は、単発 chatbot より incident response に近い。監視、失敗分類、再実行の流れを先に標準化した方がよい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>現場側は、全部を自動化せず「持ち越しやすい仕事」から始める</h3>
+      <p>調査継続、PR follow-up、未処理コメント整理、定例レポート下書きのように、途中状態が価値を持つ仕事から入る方が継続性の利点が見えやすい。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">まだ早い点</p>
+  <h2>継続タスクの面は前進したが、定期実行や記憶機能だけで信頼できるわけではない</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>schedule だけでは品質は上がらない</h3>
+      <p>定期実行は便利だが、成功条件と見直し手順がなければ、agent は古い前提のまま同じ作業を繰り返すだけになりやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>持ち越す文脈が古くなる</h3>
+      <p>project memory や session state は便利だが、古い判断や誤った前提まで残す。継続性は思い出し精度だけでなく、何を捨てるかの設計に依存する。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>外部 action は identity と approval が前提である</h3>
+      <p>Apps や browser 操作が広がるほど、更新操作、OAuth、workspace control、audit trail の設計が重要になる。継続仕事は、権限の話を避けて通れない。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>observability は success definition の代わりではない</h3>
+      <p>trace や metric が見えても、「何をもって成功とするか」が弱ければ改善できない。継続仕事の agent ほど、運用指標と task 完了条件を先に固定する必要がある。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>AIエージェントの次の比較軸は、能力の瞬間最大値ではなく、仕事をどこまで持ち続けられるかにある</h2>
+  <p>
+    今週の公開情報が示したのは、AIエージェントが賢い返答を返す段階から、仕事の器、実行環境、成果物、評価をまたいで継続タスクを抱える段階へ進みつつあることだ。
+    OpenAI はそれを Projects、Tasks、Apps、Codex、Agents SDK で利用面まで押し広げ、Anthropic は継続セッションと再開を設計原則として示し、
+    Google は state と artifacts の契約を整理し、AWS は observability と継続評価を本番運用の中へ入れた。
+    これからの比較軸は、「一度うまく答えるか」より、「人が席を外したあとも、どの契約で仕事を持ち続けられるか」になっていく可能性が高い。
+  </p>
+</section>
+</section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">関連記事</p>
+      <h2 class="panel-title">関連記事</h2>
+      <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIエージェントの主戦場は、補助UIではなく監督付き実行基盤にある">
+    <div class="article-card-main">
+      <p class="section-kicker">ひとつ古い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-13">2026年4月13日</time>
+      </div>
+      <h3 class="article-card-title">コーディングAIエージェントの主戦場は、補助UIではなく監督付き実行基盤にある</h3>
+      <p class="article-card-copy">2026年4月13日までの OpenAI Codex、Anthropic Claude Code、GitHub Copilot cloud agent / CLI、Google Jules、AWS DevOps Agent の公開資料と、SWE-bench、OSWorld、MLE-bench、RE-Bench の論文を重ねると、コーディングAIエージェントの比較軸は単なるコード補完や対話支援ではなく、計画レビュー、隔離実行環境、権限制御、セッションログ、custom agents / skills、長時間作業の再開可能性まで含む監督付き実行基盤へ移っていることが見えてくる。特に 2026年3月末から4月前半にかけて、GitHub の cloud agent 拡張、Anthropic の評価ハーネス、auto mode、infrastructure noise の公開、Jules の公開資料の整備、AWS DevOps Agent の GA が重なり、ソフトウェア開発運用における論点は「どのモデルが最も賢いか」から「どの実行契約で人間が安全に監督できるか」へ寄り始めた。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 39</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントの記憶は、ベクトル検索から層別システムへ移っている">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-08">2026年4月8日</time>
+      </div>
+      <h3 class="article-card-title">AIエージェントの記憶は、ベクトル検索から層別システムへ移っている</h3>
+      <p class="article-card-copy">2026年4月時点の OpenAI、Anthropic、Google ADK、LangGraph、Letta、Mem0、Microsoft Azure、AWS Bedrock / AgentCore の公式 docs と、MemGPT、CoALA、LoCoMo、LongMemEval、A-MEM、MemoryOS、Reflective Memory Management、MemInsight などの論文を重ねると、AIエージェントの記憶は単一のベクトル検索機構ではなく、短期のセッション状態、長期の永続記憶、共有記憶、圧縮と反射のバックグラウンド処理から成る層別システムへ移っていることが見えてくる。同時に、現在の課題は recall 不足より write path、shared memory の競合、古い記憶の陳腐化にあり、各社は型分離、scope 分離、非同期要約、graph memory、file-backed memory、reflective update でそれを解こうとしている。最も普及しているのは、会話ごとの状態と永続ストアを分離し、必要な情報だけを再注入する構成であり、今後は retrieval quality だけでなく write policy と forgetting policy が競争軸になる可能性が高い。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 34</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="subagents は、実務向けAIの現実的な実装単位になり始めた">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-30">2026年3月30日</time>
+      </div>
+      <h3 class="article-card-title">subagents は、実務向けAIの現実的な実装単位になり始めた</h3>
+      <p class="article-card-copy">2026年3月17日に OpenAI が GPT-5.4 mini と nano を subagents 向けとして打ち出したことを起点に、OpenAI Codex、Anthropic Claude Code、Google ADK、Microsoft Agent Framework、Amazon Bedrock の一次情報を重ねると、実務向けAIは 1 つの巨大なエージェントへ機能を積み上げる構図から、役割を絞った下位エージェントを束ねる構図へ寄り始めていることが見えてくる。重要なのはエージェントの数そのものではなく、どの判断を強いモデルに残し、どの作業を安価で速い専門ユニットへ分け、どこで状態管理と承認を入れるかが公開資料の水準で具体化してきた点である。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 27</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://openai.com/index/codex-for-almost-everything/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Codex for (almost) everything</p>
+              <p class="source-url">https://openai.com/index/codex-for-almost-everything/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/the-next-evolution-of-the-agents-sdk/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: The next evolution of the Agents SDK</p>
+              <p class="source-url">https://openai.com/index/the-next-evolution-of-the-agents-sdk/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-the-codex-app/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI: Introducing the Codex app</p>
+              <p class="source-url">https://openai.com/index/introducing-the-codex-app/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Using Codex with your ChatGPT plan</p>
+              <p class="source-url">https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/10169521-projects-in-chatgpt" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Projects in ChatGPT</p>
+              <p class="source-url">https://help.openai.com/en/articles/10169521-projects-in-chatgpt</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Tasks in ChatGPT</p>
+              <p class="source-url">https://help.openai.com/en/articles/10291617-scheduled-tasks-in-chatgpt</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/11487775-apps-in-chatgpt" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Apps in ChatGPT</p>
+              <p class="source-url">https://help.openai.com/en/articles/11487775-apps-in-chatgpt</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Intro</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/sandbox/guide/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Sandbox concepts</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/sandbox/guide/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/managed-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands</p>
+              <p class="source-url">https://www.anthropic.com/engineering/managed-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/harness-design-long-running-apps" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Harness design for long-running application development</p>
+              <p class="source-url">https://www.anthropic.com/engineering/harness-design-long-running-apps</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Claude Agent SDK overview</p>
+              <p class="source-url">https://code.claude.com/docs/en/agent-sdk/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/claude-code/security" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Claude Code security</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/claude-code/security</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Claude API docs: Code execution tool</p>
+              <p class="source-url">https://platform.claude.com/docs/en/agents-and-tools/tool-use/code-execution-tool</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/agent-builder/agent-engine/sessions/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Vertex AI Agent Engine Sessions overview</p>
+              <p class="source-url">https://docs.cloud.google.com/agent-builder/agent-engine/sessions/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/agent-builder/agent-engine/sessions/manage-sessions-adk" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Manage sessions with Agent Development Kit</p>
+              <p class="source-url">https://docs.cloud.google.com/agent-builder/agent-engine/sessions/manage-sessions-adk</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://adk.dev/sessions/state/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: State</p>
+              <p class="source-url">https://adk.dev/sessions/state/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://adk.dev/artifacts/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google ADK: Artifacts</p>
+              <p class="source-url">https://adk.dev/artifacts/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Amazon Bedrock AgentCore overview</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Observe your agent applications on Amazon Bedrock AgentCore Observability</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS What&#39;s New: Amazon Bedrock AgentCore Evaluations is now generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Get started with AgentCore Observability</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Add observability to your Amazon Bedrock AgentCore resources</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-configure.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Get started with Amazon Bedrock AgentCore</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/agentcore-get-started-cli.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">AI とエージェントの重要シグナルを、一次情報から読み解く。</p>
+      </footer>
+    </div>
+  </body>
+</html>
