@@ -1,0 +1,756 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる | Auto Research Digest</title>
+    <meta name="description" content="2026年4月27日までの OpenAI Apps、Anthropic Integrations / directory、Microsoft Agent Store / Agent 365、Google Cloud Marketplace / Gemini Enterprise、AWS Marketplace の一次情報を重ねると、AIエージェントの導入判断はモデル比較だけでは足りなくなっていることが見えてくる。アプリディレクトリ、ストア、マーケットプレイス、レジストリは単なる販路ではなく、発見、承認、権限制御、接続規約のメタデータ、価格、配備経路を束ねる管理面になりつつあり、今週はその収束を読む週次総括として整理するのが最も自然である。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる | Auto Research Digest">
+    <meta property="og:description" content="2026年4月27日までの OpenAI Apps、Anthropic Integrations / directory、Microsoft Agent Store / Agent 365、Google Cloud Marketplace / Gemini Enterprise、AWS Marketplace の一次情報を重ねると、AIエージェントの導入判断はモデル比較だけでは足りなくなっていることが見えてくる。アプリディレクトリ、ストア、マーケットプレイス、レジストリは単なる販路ではなく、発見、承認、権限制御、接続規約のメタデータ、価格、配備経路を束ねる管理面になりつつあり、今週はその収束を読む週次総括として整理するのが最も自然である。">
+    <meta property="og:url" content="https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる | Auto Research Digest">
+    <meta name="twitter:description" content="2026年4月27日までの OpenAI Apps、Anthropic Integrations / directory、Microsoft Agent Store / Agent 365、Google Cloud Marketplace / Gemini Enterprise、AWS Marketplace の一次情報を重ねると、AIエージェントの導入判断はモデル比較だけでは足りなくなっていることが見えてくる。アプリディレクトリ、ストア、マーケットプレイス、レジストリは単なる販路ではなく、発見、承認、権限制御、接続規約のメタデータ、価格、配備経路を束ねる管理面になりつつあり、今週はその収束を読む週次総括として整理するのが最も自然である。">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる">
+    <link rel="canonical" href="https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html">
+    <link rel="alternate" type="application/atom+xml" href="https://research.notelligent.app/feed.xml" title="Auto Research Digest">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-04-27T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-04-27T06:48:31+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Apps">
+    <meta property="article:tag" content="Marketplace">
+    <meta property="article:tag" content="Governance">
+    <meta property="article:tag" content="MCP">
+    <meta property="article:tag" content="A2A">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる","description":"2026年4月27日までの OpenAI Apps、Anthropic Integrations / directory、Microsoft Agent Store / Agent 365、Google Cloud Marketplace / Gemini Enterprise、AWS Marketplace の一次情報を重ねると、AIエージェントの導入判断はモデル比較だけでは足りなくなっていることが見えてくる。アプリディレクトリ、ストア、マーケットプレイス、レジストリは単なる販路ではなく、発見、承認、権限制御、接続規約のメタデータ、価格、配備経路を束ねる管理面になりつつあり、今週はその収束を読む週次総括として整理するのが最も自然である。","datePublished":"2026-04-27T00:00:00+09:00","dateModified":"2026-04-27T06:48:31+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Apps, Marketplace, Governance, MCP, A2A","mainEntityOfPage":"https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"アーカイブ","item":"https://research.notelligent.app/archive/"},{"@type":"ListItem","position":3,"name":"AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる","item":"https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html"}],"inLanguage":"ja"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/archive/">アーカイブ</a><a class="nav-link " href="/feed.xml">フィード</a></nav>
+        <a class="lang-switch" href="/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる</h1>
+          <p class="hero-copy">2026年4月27日までの OpenAI Apps、Anthropic Integrations / directory、Microsoft Agent Store / Agent 365、Google Cloud Marketplace / Gemini Enterprise、AWS Marketplace の一次情報を重ねると、AIエージェントの導入判断はモデル比較だけでは足りなくなっていることが見えてくる。アプリディレクトリ、ストア、マーケットプレイス、レジストリは単なる販路ではなく、発見、承認、権限制御、接続規約のメタデータ、価格、配備経路を束ねる管理面になりつつあり、今週はその収束を読む週次総括として整理するのが最も自然である。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-27">2026年4月27日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Apps</span><span class="meta-chip">Marketplace</span><span class="meta-chip">Governance</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span></div>
+    </section>
+    <section class="article-share" aria-label="記事を共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E5%B0%8E%E5%85%A5%E5%88%A4%E6%96%AD%E3%81%AF%E3%80%81%E3%83%A2%E3%83%87%E3%83%AB%E6%AF%94%E8%BC%83%E3%82%88%E3%82%8A%E3%80%8C%E3%81%A9%E3%81%93%E3%81%A7%E8%A6%8B%E3%81%A4%E3%81%8B%E3%82%8A%E3%80%81%E8%AA%B0%E3%81%8C%E8%A8%B1%E5%8F%AF%E3%81%99%E3%82%8B%E3%81%8B%E3%80%8D%E3%81%A7%E6%B1%BA%E3%81%BE%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-04-27-agent-discovery-and-approval-shape-adoption.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="共有メニューを開く"
+      data-native-share
+      data-share-title="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる"
+      data-share-text="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる"
+      data-share-url="https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="記事タイトルとリンクをコピー"
+      data-copy-share
+      data-state="idle"
+      data-share-title="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる"
+      data-share-url="https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html"
+      data-copy-label-default="記事タイトルとリンクをコピー"
+      data-copy-label-success="コピーしました"
+      data-copy-status-success="コピーしました"
+      data-copy-status-error="コピーに失敗しました"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる</h2>
+  <p>
+    2026年4月27日までの OpenAI、Anthropic、Microsoft、Google Cloud、AWS の公開資料を重ねると、AIエージェントの採用判断は少し別の場所へ移っている。
+    以前は、どのモデルが最も賢いか、どの実行基盤が長く動けるか、どの接続規約が広くつながるかが主論点になりやすかった。
+    しかし今は、それだけでは導入まで届かない。エージェントがどこで見つかるのか、誰が有効化できるのか、どの操作を許可するのか、
+    どのメタデータで比較するのか、どの管理された配備先へ入れられるのかが、公開面の比較軸として前に出てきた。
+    今週の論点は単独 launch ではなく、アプリディレクトリ、ストア、マーケットプレイス、レジストリが主要ベンダーでそろい、エージェントを「実行するもの」だけでなく
+    「並べて選び、承認し、配るもの」として比べやすくなったことである。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">25件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">OpenAI、Anthropic、Microsoft、Google Cloud、AWS の公式ドキュメントと公式告知だけで、今週の主論点を比較できる厚みがある。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5系統</p>
+      <p class="stat-title">比較対象</p>
+      <p class="stat-note">利用者向けアプリ、workspace 管理、enterprise レジストリ、cloud marketplace、調達支援エージェントの面が並んできた。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4面</p>
+      <p class="stat-title">導入の比較軸</p>
+      <p class="stat-note">発見、承認、メタデータ、配備の4面で見ると、各社の違いが整理しやすい。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1変化</p>
+      <p class="stat-title">主問が変わった</p>
+      <p class="stat-note">「何が一番賢いか」より、「何が見つかり、許可され、実務に乗るか」が重要になっている。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">積み上がり</p>
+  <h2>2026年4月第4週の見え方は、ここ1年弱で積み上がった配布面と統制面の上にある</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">05-01</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Anthropic は Integrations を Claude の主機能へ押し上げた</h3>
+        <p>remote MCP を通じてアプリとデータソースを Claude に接続し、調査と更新操作を同じ画面で扱う方向を明文化した。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">07-14</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Anthropic はコネクタディレクトリを公開し、接続先の発見を一段前面化した</h3>
+        <p>「接続できる」という技術説明だけでなく、「どれをつなぐか」を選ぶ入口そのものが利用面になった。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">07-16</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS は AI agents and tools を Marketplace のカテゴリとして独立させた</h3>
+        <p>MCP や A2A 対応、配備方式、価格をカタログ上で比較する流れがはっきりした。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">10-14</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Google Cloud は Marketplace と Gemini Enterprise をエージェント配布の組で見せ始めた</h3>
+        <p>パートナー製エージェントを Marketplace で見つけ、Gemini Enterprise へ登録し、A2A Agent Card で接続する流れが公開面に出てきた。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-03</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Microsoft は Agent Store を中央ハブとして公開した</h3>
+        <p>エージェントを見つける場だけでなく、Capabilities、Data &amp; tools、Security &amp; compliance、Certification を審査する管理面まで並べた。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-27</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">OpenAI は connectors を apps へ統合し、ディレクトリと操作制御を明示した</h3>
+        <p>ChatGPT Apps は search、deep research、sync、write actions を統一し、custom app の公開導線まで一つの利用面にまとめている。</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    この週が重要なのは、これらがもう別々の話に見えない点にある。OpenAI は利用者向け製品側で apps と管理制御を整え、
+    Anthropic は Claude の通常利用面に integrations と directory を入れ、Microsoft は承認フローとレジストリを前面に出し、
+    Google Cloud と AWS はパートナー配布と調達面を具体化した。AIエージェントは、作る技術だけでなく、
+    どの面で受け入れられるかまで含めて比較される段階へ入っている。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">4つの面</p>
+  <h2>今のエージェント導入は、少なくとも発見、承認、メタデータ、配備の4面で見ると整理しやすい</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. 発見面</h3>
+      <p>
+        まず必要なのは、エージェントを探す面である。OpenAI は ChatGPT app directory、Anthropic は Claude directory、
+        Microsoft は Agent Store、Google Cloud と AWS は Marketplace を前に出す。ここでは会話そのものより、
+        検索、カテゴリ、注目一覧、パートナー一覧の方が導入を左右し始める。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 承認面</h3>
+      <p>
+        見つかるだけでは足りず、誰が有効化するかが必要になる。OpenAI は workspace 管理者に app enablement や action control、
+        parameter constraint、domain restriction を持たせる。Anthropic も owner が organization connector を有効化する。
+        Microsoft は request、publish、approve の流れを正面から製品化している。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. メタデータ面</h3>
+      <p>
+        何を比較するかも変わっている。今は単なる説明文より、Capabilities、write action、Certification、pricing model、
+        deployment option、protocol support、Agent Card のようなメタデータが重要になる。Google Cloud が A2A Agent Card を listing の核に置き、
+        AWS が MCP / A2A や pricing / deployment filter を前面に出すのは、その典型である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. 配備面</h3>
+      <p>
+        最後に必要なのは、カタログから実際の仕事場へ入る面である。OpenAI は ChatGPT conversation と custom apps、
+        Anthropic は Claude / Claude Desktop、Microsoft は Microsoft 365 Copilot、Google Cloud は Gemini Enterprise、
+        AWS は AgentCore Runtime や Gateway までを配備経路にしている。ここが弱いとカタログはあっても使われない。
+      </p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">観測点</p>
+    <p>ここまで来ると、エージェントは prompt bundle や API endpoint ではなく、カタログのメタデータと管理ポリシーを持つ配備対象として扱った方が理解しやすい。</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">各社の見せ方</p>
+  <h2>同じ方向を向いていても、何を前面に出すかはかなり違う</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI は、利用者向けのアプリ面を一気に統合した</h3>
+      <p>
+        Apps in ChatGPT は search、deep research、sync、write actions、custom app を一つの語彙へまとめた。
+        Apps SDK も approved app を ChatGPT app store と Codex distribution へつなげ、developer mode は read / write を含む MCP client として働く。
+        OpenAI の特徴は、配布面が利用者向け製品の中にそのまま見えていることだ。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic は、MCP-backed integration を Claude の通常操作へ近づけた</h3>
+      <p>
+        Claude can now connect to your world は integrations を調査と実務操作の両方へ広げ、directory は one-click の接続面を用意した。
+        help center では pre-built connector と custom connector の追加手順、owner による organization enablement が明示されている。
+        Anthropic の強みは、接続規約の話を UI と接続手順へ落とし切っている点にある。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft は、エージェントをレジストリと承認フローで管理する色が強い</h3>
+      <p>
+        Agent Store は Microsoft、partner、自社製 agent を同じカタログで扱い、Admin Center 側で Capabilities、Data &amp; tools、
+        Security &amp; compliance、Certification、Activity を review できる。Agent 365 はその上で agent ID、registry、access control、
+        visualization、security をまとめる。つまり Microsoft は、エージェントを app というより managed asset として見せている。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google Cloud は、パートナー配布と enterprise deployment を A2A でつないだ</h3>
+      <p>
+        Cloud Marketplace 側では AI agent が出品対象になり、A2A Agent Card が存在条件になる。Gemini Enterprise 側では
+        Google-made agent、partner-made agent、自社製 agent をまとめて発見し統制できると説明される。
+        Google Cloud の特徴は、marketplace listing と enterprise runtime を protocol metadata でつなぐ構図が明確な点である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS は、調達と deployment option を agent product の一部として前面化した</h3>
+      <p>
+        AWS Marketplace の AI agents and tools は、semantic search、category browsing、deployment option、pricing model、
+        compliance filter、MCP 対応を見る購入者向けの面になっている。さらに agent mode が search、comparison、evaluation の specialized agents で
+        software procurement を助ける。AWS の主眼は、agent を買って比べて配備するまでの friction を減らすことにある。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">切り分け</p>
+  <h2>見つかることと、任せてよいことは別問題である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>directory 掲載は、信頼の代わりではない</h3>
+      <p>
+        listing があると導入候補にはなりやすいが、それだけで安全とは言えない。実務で必要なのは、どのデータを読むのか、
+        どの操作を書けるのか、どの接続先ドメインへつながるのか、どの認定や証明があるのかを別に見ることだ。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>MCP / A2A 対応は、統制の代わりではない</h3>
+      <p>
+        protocol support は portability と discoverability を強くするが、「誰が approve するか」「どこで revoke するか」は別レイヤーである。
+        OpenAI の action control、Anthropic の owner enablement、Microsoft の publish / approve、Google の marketplace review が必要になるのはそのためだ。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>承認フローは、後付けの admin 機能ではない</h3>
+      <p>
+        今の product 差は、agent の賢さだけでなく受け入れの速さにもある。申請、review、publish、block、parameter constraint が
+        product surface としてあると、agent の展開速度と事故率の両方が変わる。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>調達できることと、運用できることも別である</h3>
+      <p>
+        Marketplace が procurement friction を下げても、継続運用時の observability や write action の統制が弱ければ本番運用は難しい。
+        つまり discovery surface の次に見るべきは、運用責任を引き受けられる control surface があるかどうかである。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">業務フロー</p>
+  <h2>この比較軸が効くのは、エージェントを個人の試用ではなく組織の配備対象として扱う場面である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>workspace 内の調査・文書作業</h3>
+      <ul class="bullet-list">
+        <li>admin が write action のある app を制限しつつ、検索系 app だけ先に enable する</li>
+        <li>user は directory から必要な app を connect し、会話の中で使い分ける</li>
+        <li>導入差は model quality より app availability と action policy に出やすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>営業や顧客対応の既製エージェント導入</h3>
+      <ul class="bullet-list">
+        <li>Microsoft の template agent や Agent Store のように、業務 agent を catalog から選ぶ流れが出てきた</li>
+        <li>重要なのは prompt より、誰に deploy するか、どの data と tool を触るか、handoff をどう見るかである</li>
+        <li>approval chain が弱いと rollout は止まりやすい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>パートナー製エージェントの比較と調達</h3>
+      <ul class="bullet-list">
+        <li>Google Cloud や AWS では、agent を catalog で比較し、pricing、deployment option、protocol support を見ながら選べる</li>
+        <li>buyer は use case だけでなく、container か API か、どこへ登録できるか、どの compliance に乗るかを先に見られる</li>
+        <li>この時点で procurement は technical design と分離しにくい</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>自社製エージェントの社内展開</h3>
+      <ul class="bullet-list">
+        <li>Apps SDK、custom connector、Agents SDK、A2A Agent Card のような surface があると、自社 agent も catalog に載せやすい</li>
+        <li>重要なのは build speed より、publish ルール、review、更新手順、disable のしやすさである</li>
+        <li>internal rollout でも distribution surface がある方が、shadow agent を減らしやすい</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">採用判断</p>
+  <h2>どの製品が合うかは、どこに friction があるかで変わる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>見つけやすさが足りない組織では、directory と store が先に効く</h3>
+      <p>
+        まず必要なのが「何が使えるのか分からない」を解くことなら、app directory、Agent Store、partner marketplace の整備度が大きい。
+        ここでは model の微差より、catalog の分かりやすさが adoption を左右する。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>承認待ちが痛い組織では、admin control が比較軸になる</h3>
+      <p>
+        apps や connectors を一つずつ人手で審査すると展開が遅い。RBAC、action control、parameter constraint、publish workflow、
+        domain restriction が product に組み込まれているかが重要になる。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>partner ecosystem を重視する組織では、marketplace metadata の厚みが効く</h3>
+      <p>
+        pricing、deployment option、protocol support、certification、partner validation が揃っていると、buy versus build の判断が速くなる。
+        ここでは Google Cloud と AWS の見せ方が比較しやすい。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>移植性を重視する組織では、protocol だけでなく admission policy も見るべきである</h3>
+      <p>
+        MCP や A2A は移植性を高めるが、実務ではそれだけで足りない。誰が listing を作るか、誰が publish するか、どこで block できるかまで見ないと、
+        「つながるが運用できない」状態に陥りやすい。
+      </p>
+    </article>
+  </div>
+  <p class="mt-6">
+    いまの agent 競争を base model の比較だけで読むと、導入で起きる本当の詰まりどころを見落としやすい。公開面を見る限り、
+    次の比較軸は「何が賢いか」だけでなく、「何が見つかり、誰に許可され、どの仕事場へ入れるか」である。
+  </p>
+</section>
+</section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">関連記事</p>
+      <h2 class="panel-title">関連記事</h2>
+      <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/2026-04-20-agents-compete-on-work-continuity.html" aria-label="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった">
+    <div class="article-card-main">
+      <p class="section-kicker">ひとつ古い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-20">2026年4月20日</time>
+      </div>
+      <h3 class="article-card-title">AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった</h3>
+      <p class="article-card-copy">2026年4月20日までの OpenAI Codex / Agents SDK / Projects / Tasks / Apps、Anthropic Managed Agents / Agent SDK、Google Vertex AI Agent Engine Sessions / ADK、AWS AgentCore Runtime / Evaluations / Observability の一次情報を重ねると、AIエージェントの比較軸は単発の応答品質ではなく、継続タスクをまたいで文脈・状態・成果物を引き継ぎ、必要な時だけ実行環境を呼び出し、運用中の品質まで観測できるかへ移っていることが見えてくる。特に 2026年4月15日から4月17日にかけて、OpenAI が Agents SDK の sandbox と実行基盤を更新し、Codex に継続作業、自動実行、記憶機能を広げ、Google が Sessions を更新し、Anthropic と AWS の公開資料が同じ方向を補強したことで、AIエージェントを「一度うまく答えるもの」ではなく「仕事を持ち越す仕組み」として比べる視点が一段はっきりした。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Automation</span><span class="meta-chip">Sessions</span><span class="meta-chip">Observability</span><span class="meta-chip">Workflow</span><span class="meta-chip">Background Work</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 24</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-28-open-agent-protocol-stack.html" aria-label="MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-28">2026年3月28日</time>
+      </div>
+      <h3 class="article-card-title">MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた</h3>
+      <p class="article-card-copy">2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが概念論ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span><span class="meta-chip">AG-UI</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Protocol</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 27</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-26-agent-identity-becomes-an-auth-control-plane.html" aria-label="AI エージェントの ID 管理は認証認可の統制基盤になり始めた">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-26">2026年3月26日</time>
+      </div>
+      <h3 class="article-card-title">AI エージェントの ID 管理は認証認可の統制基盤になり始めた</h3>
+      <p class="article-card-copy">Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Identity</span><span class="meta-chip">Authentication</span><span class="meta-chip">Authorization</span><span class="meta-chip">Governance</span><span class="meta-chip">OAuth</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 36</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://help.openai.com/en/articles/12503483-apps-in-chatgpt-and-the-apps-sdk" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Apps in ChatGPT</p>
+              <p class="source-url">https://help.openai.com/en/articles/12503483-apps-in-chatgpt-and-the-apps-sdk</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.openai.com/apps-sdk/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Developers: Apps SDK</p>
+              <p class="source-url">https://developers.openai.com/apps-sdk/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/developer-mode" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: ChatGPT developer mode</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/developer-mode</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/tools-remote-mcp?lang=python" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: Connectors and MCP servers</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/tools-remote-mcp?lang=python</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/news/integrations" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic: Claude can now connect to your world</p>
+              <p class="source-url">https://www.anthropic.com/news/integrations</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/news/connectors-directory" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic: Discover tools that work with Claude</p>
+              <p class="source-url">https://www.anthropic.com/news/connectors-directory</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://support.anthropic.com/en/articles/10168395-setting-up-claude-integrations/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Help Center: Setting up Claude integrations</p>
+              <p class="source-url">https://support.anthropic.com/en/articles/10168395-setting-up-claude-integrations/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://support.anthropic.com/en/articles/11176164-pre-built-connectors-using-remote-mcp" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Help Center: Pre-built Web Connectors Using Remote MCP</p>
+              <p class="source-url">https://support.anthropic.com/en/articles/11176164-pre-built-connectors-using-remote-mcp</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://support.anthropic.com/en/articles/11175166-about-custom-integrations-using-remote-mcp" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Help Center: Getting Started with Custom Connectors Using Remote MCP</p>
+              <p class="source-url">https://support.anthropic.com/en/articles/11175166-about-custom-integrations-using-remote-mcp</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-agent-store" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Agent Store in Microsoft 365 Copilot</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-agent-store</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-agent-365/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Microsoft Agent 365 overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-agent-365/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-agent-365/use" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Use and collaborate with agents in Agent 365</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-agent-365/use</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Agents hub</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/bring-agents-to-copilot" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Bring your agents into Microsoft 365 Copilot</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/bring-agents-to-copilot</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/building-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Microsoft 365 Agents SDK overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-365/agents-sdk/building-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/marketplace/docs/partners/ai-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Marketplace Partners: Offer AI agents through Google Cloud Marketplace</p>
+              <p class="source-url">https://cloud.google.com/marketplace/docs/partners/ai-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/marketplace/docs/partners/ai-agents/pricing-models" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Marketplace Partners: Pricing models for AI agents</p>
+              <p class="source-url">https://cloud.google.com/marketplace/docs/partners/ai-agents/pricing-models</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/gemini-enterprise/agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: AI Agents for Gemini Enterprise</p>
+              <p class="source-url">https://cloud.google.com/gemini-enterprise/agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/marketplace" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Google Cloud Marketplace</p>
+              <p class="source-url">https://cloud.google.com/marketplace</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/topics/partners/google-cloud-ai-agent-marketplace" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Blog: Scaling AI agents with Google Cloud Marketplace and Gemini Enterprise</p>
+              <p class="source-url">https://cloud.google.com/blog/topics/partners/google-cloud-ai-agent-marketplace</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-marketplace-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Docs: Add and manage A2A agents from Google Cloud Marketplace</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini/enterprise/docs/register-and-manage-marketplace-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2025/07/ai-agents-tools-aws-marketplace/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS What&#39;s New: Introducing AI agents and tools in AWS Marketplace</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2025/07/ai-agents-tools-aws-marketplace/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-ai-agents-products.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Marketplace Buyer Guide: AI agent products</p>
+              <p class="source-url">https://docs.aws.amazon.com/marketplace/latest/buyerguide/buyer-ai-agents-products.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/ai-agent-discovery.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Marketplace Buyer Guide: Discovering AI agents and tools</p>
+              <p class="source-url">https://docs.aws.amazon.com/marketplace/latest/buyerguide/ai-agent-discovery.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/marketplace/latest/buyerguide/agent-mode.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Marketplace Buyer Guide: Agent mode</p>
+              <p class="source-url">https://docs.aws.amazon.com/marketplace/latest/buyerguide/agent-mode.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2025/10/aws-marketplace-pricing-ai-agents-tools/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS What&#39;s New: AWS Marketplace now offers pricing model flexibility and simplified deployment for AI agents and tools</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2025/10/aws-marketplace-pricing-ai-agents-tools/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <p class="footer-brand">AR / Auto Research Digest</p>
+        <p class="footer-copy">AI とエージェントの重要シグナルを、一次情報から読み解く。</p>
+      </footer>
+    </div>
+  </body>
+</html>
