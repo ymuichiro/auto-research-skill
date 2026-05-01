@@ -4,9 +4,7 @@ import sharp from "sharp";
 import pngToIco from "png-to-ico";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
 import {
-  renderArchivePage,
   renderArticlePage,
-  renderAtomFeed,
   renderDefaultOgSvg,
   renderFaviconSvg,
   renderIndexPage,
@@ -16,7 +14,7 @@ import {
   renderSitemapIndex,
   renderWebManifest
 } from "./lib/render.mjs";
-import { siteConfig } from "./lib/site-config.mjs";
+import { listingRelativePath, siteConfig } from "./lib/site-config.mjs";
 import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
@@ -34,14 +32,6 @@ function paginateArticles(articles, pageSize) {
   }
 
   return pages.length > 0 ? pages : [{ currentPage: 1, startIndex: 0, articles: [] }];
-}
-
-function archivePageRelativePath(locale, pageNumber) {
-  if (pageNumber <= 1) {
-    return locale === "ja" ? "archive/" : "en/archive/";
-  }
-
-  return locale === "ja" ? `archive/page/${pageNumber}/` : `en/archive/page/${pageNumber}/`;
 }
 
 async function buildFaviconAssets() {
@@ -107,29 +97,23 @@ async function buildSite() {
   }
 
   const liveArticles = publishedArticles(articles);
-  const homeArticles = liveArticles.slice(0, siteConfig.pagination.homeArticleLimit);
-  const archivePages = paginateArticles(liveArticles, siteConfig.pagination.archivePageSize);
-  const archivePagination = {
+  const listingPages = paginateArticles(liveArticles, siteConfig.pagination.articleListPageSize);
+  const listingPagination = {
     totalArticles: liveArticles.length,
-    totalPages: archivePages.length
+    totalPages: listingPages.length
   };
 
   await mkdir(iconRoot, { recursive: true });
 
-  await writeTextFile(path.join(outputRoot, "index.html"), renderIndexPage("ja", homeArticles));
-  await writeTextFile(path.join(outputRoot, "feed.xml"), renderAtomFeed("ja", liveArticles));
-
-  await writeTextFile(path.join(outputRoot, "en", "index.html"), renderIndexPage("en", homeArticles));
-  await writeTextFile(path.join(outputRoot, "en", "feed.xml"), renderAtomFeed("en", liveArticles));
   await writeTextFile(path.join(outputRoot, "404.html"), renderNotFoundPage("ja", liveArticles));
   await writeTextFile(path.join(outputRoot, "en", "404.html"), renderNotFoundPage("en", liveArticles));
 
   for (const locale of siteConfig.locales) {
-    for (const page of archivePages) {
+    for (const page of listingPages) {
       await writeTextFile(
-        path.join(outputRoot, archivePageRelativePath(locale, page.currentPage), "index.html"),
-        renderArchivePage(locale, page.articles, {
-          ...archivePagination,
+        path.join(outputRoot, listingRelativePath(locale, page.currentPage), "index.html"),
+        renderIndexPage(locale, page.articles, {
+          ...listingPagination,
           currentPage: page.currentPage,
           startIndex: page.startIndex
         })
@@ -149,40 +133,40 @@ async function buildSite() {
 
   const pageSitemapEntries = [
     {
-      path: "",
+      path: listingRelativePath("ja"),
       lastModified: latestUpdate,
       alternates: [
-        { hreflang: "ja", path: "" },
-        { hreflang: "en", path: "en/" },
-        { hreflang: "x-default", path: "" }
+        { hreflang: "ja", path: listingRelativePath("ja") },
+        { hreflang: "en", path: listingRelativePath("en") },
+        { hreflang: "x-default", path: listingRelativePath("ja") }
       ]
     },
     {
-      path: "en/",
+      path: listingRelativePath("en"),
       lastModified: latestUpdate,
       alternates: [
-        { hreflang: "ja", path: "" },
-        { hreflang: "en", path: "en/" },
-        { hreflang: "x-default", path: "" }
+        { hreflang: "ja", path: listingRelativePath("ja") },
+        { hreflang: "en", path: listingRelativePath("en") },
+        { hreflang: "x-default", path: listingRelativePath("ja") }
       ]
     }
   ];
 
-  for (const page of archivePages) {
+  for (const page of listingPages.filter(({ currentPage }) => currentPage > 1)) {
     pageSitemapEntries.push({
-      path: archivePageRelativePath("ja", page.currentPage),
+      path: listingRelativePath("ja", page.currentPage),
       lastModified: latestUpdate,
       alternates: [
-        { hreflang: "ja", path: archivePageRelativePath("ja", page.currentPage) },
-        { hreflang: "en", path: archivePageRelativePath("en", page.currentPage) }
+        { hreflang: "ja", path: listingRelativePath("ja", page.currentPage) },
+        { hreflang: "en", path: listingRelativePath("en", page.currentPage) }
       ]
     });
     pageSitemapEntries.push({
-      path: archivePageRelativePath("en", page.currentPage),
+      path: listingRelativePath("en", page.currentPage),
       lastModified: latestUpdate,
       alternates: [
-        { hreflang: "ja", path: archivePageRelativePath("ja", page.currentPage) },
-        { hreflang: "en", path: archivePageRelativePath("en", page.currentPage) }
+        { hreflang: "ja", path: listingRelativePath("ja", page.currentPage) },
+        { hreflang: "en", path: listingRelativePath("en", page.currentPage) }
       ]
     });
   }

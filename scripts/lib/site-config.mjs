@@ -14,8 +14,7 @@ export const siteConfig = {
   defaultLocale: "ja",
   locales: ["ja", "en"],
   pagination: {
-    homeArticleLimit: 6,
-    archivePageSize: 24
+    articleListPageSize: 24
   },
   siteUrl,
   basePath,
@@ -33,14 +32,6 @@ export const siteConfig = {
     homeTitle: {
       ja: "LLM・AI・AI Agent の調査レポート",
       en: "LLM, AI, and AI Agent Research Briefings"
-    },
-    archiveTitle: {
-      ja: "公開レポートアーカイブ",
-      en: "Research Briefing Archive"
-    },
-    archiveDescription: {
-      ja: "公開済みの LLM・AI・AI Agent レポートを日付順に一覧化したアーカイブ。",
-      en: "An archive of published LLM, AI, and AI agent briefings listed in reverse chronological order."
     }
   },
   heroKicker: {
@@ -52,16 +43,8 @@ export const siteConfig = {
     en: "Reading the key signals in AI and agents through primary-source reporting."
   },
   nav: {
-    ja: [
-      { label: "トップ", path: "" },
-      { label: "アーカイブ", path: "archive/" },
-      { label: "フィード", path: "feed.xml" }
-    ],
-    en: [
-      { label: "Home", path: "en/" },
-      { label: "Archive", path: "en/archive/" },
-      { label: "Feed", path: "en/feed.xml" }
-    ]
+    ja: [{ label: "トップ", path: "" }],
+    en: [{ label: "Home", path: "en/" }]
   }
 };
 
@@ -73,6 +56,14 @@ export function localizedPath(locale, relativePath = "") {
   const normalized = relativePath.replace(/^\/+/, "");
   const localePrefix = locale === "ja" ? "" : "en/";
   return `${siteConfig.basePath}/${localePrefix}${normalized}`.replace(/\/{2,}/g, "/");
+}
+
+export function listingRelativePath(locale, pageNumber = 1) {
+  if (pageNumber <= 1) {
+    return locale === "ja" ? "" : "en/";
+  }
+
+  return locale === "ja" ? `page/${pageNumber}/` : `en/page/${pageNumber}/`;
 }
 
 export function absoluteUrl(relativePath = "") {

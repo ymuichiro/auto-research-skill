@@ -1,22 +1,20 @@
-import { absoluteUrl, assetPath, localizedPath, siteConfig } from "./site-config.mjs";
-import { escapeHtml, formatDisplayDate, formatXml, stripHtml } from "./utils.mjs";
+import { absoluteUrl, assetPath, listingRelativePath, localizedPath, siteConfig } from "./site-config.mjs";
+import { escapeHtml, formatDisplayDate, formatXml } from "./utils.mjs";
 
 const localeCopy = {
   ja: {
     homeTitle: "トップ",
-    archiveTitle: "アーカイブ",
-    latestTitle: "最新レポート",
-    archiveIntro: "公開済みレポートを日付順に一覧化しています。",
-    archivePageStatus: "ページ",
-    archiveRangeLabel: "表示範囲",
+    listingTitle: "公開レポート",
+    listingIntro: "公開済みレポートを新しい順に一覧化しています。",
+    pageStatus: "ページ",
+    rangeLabel: "表示範囲",
     paginationPrevious: "前へ",
     paginationNext: "次へ",
     paginationPage: "ページ",
-    latestIntro:
+    heroIntro:
       "主要な発表、論文、実装の動きを横断しながら、AI の実務トレンドを簡潔に追います。",
     sourceHeading: "公開根拠",
     sourceNote: "公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。",
-    allReports: "すべてのレポートを見る",
     readReport: "レポートを開く",
     sourceCount: "根拠数",
     relatedHeading: "関連記事",
@@ -32,25 +30,23 @@ const localeCopy = {
     copyShareLabel: "記事タイトルとリンクをコピー",
     copySuccessLabel: "コピーしました",
     copyErrorLabel: "コピーに失敗しました",
+    emptyState: "公開済みレポートはまだありません。",
     homePath: "",
-    archivePath: "archive/"
   },
   en: {
     homeTitle: "Home",
-    archiveTitle: "Archive",
-    latestTitle: "Latest Briefings",
-    archiveIntro: "Published briefings listed in reverse chronological order.",
-    archivePageStatus: "Page",
-    archiveRangeLabel: "Showing",
+    listingTitle: "Published Briefings",
+    listingIntro: "Published briefings listed in reverse chronological order.",
+    pageStatus: "Page",
+    rangeLabel: "Showing",
     paginationPrevious: "Previous",
     paginationNext: "Next",
     paginationPage: "Page",
-    latestIntro:
+    heroIntro:
       "Tracking major launches, papers, and implementation signals to follow practical AI direction.",
     sourceHeading: "Published evidence",
     sourceNote:
       "Public pages list only evidence that can be verified as official documentation or papers.",
-    allReports: "Browse the archive",
     readReport: "Open briefing",
     sourceCount: "Sources",
     relatedHeading: "Continue reading",
@@ -66,8 +62,8 @@ const localeCopy = {
     copyShareLabel: "Copy article title and link",
     copySuccessLabel: "Copied",
     copyErrorLabel: "Copy failed",
-    homePath: "en/",
-    archivePath: "en/archive/"
+    emptyState: "No published briefings yet.",
+    homePath: "en/"
   }
 };
 
@@ -255,9 +251,6 @@ export function renderPage({
     <link rel="alternate" hreflang="${locale}" href="${canonicalUrl}">
     <link rel="alternate" hreflang="${locale === "ja" ? "en" : "ja"}" href="${alternateUrl}">
     <link rel="alternate" hreflang="x-default" href="${defaultLocaleUrl}">
-    <link rel="alternate" type="application/atom+xml" href="${absoluteUrl(locale === "ja" ? "feed.xml" : "en/feed.xml")}" title="${escapeHtml(
-      siteConfig.name
-    )}">
 ${renderSharedHeadAssets()}
 ${renderSharedPageScript(pageType)}
     ${pageType === "article" && article
@@ -417,49 +410,12 @@ function renderRelatedArticles(article, locale, articles) {
   </section>`;
 }
 
-export function renderIndexPage(locale, articles) {
-  const copy = localeCopy[locale];
-  const cards = articles
-    .map((article, index) => renderArticleCard(article, locale, { featured: index === 0 }))
-    .join("");
-  const body = `<section class="panel-block">
-      <div class="flex items-center justify-between gap-4">
-        <div>
-          <p class="section-kicker">${escapeHtml(copy.latestTitle)}</p>
-          <h2 class="panel-title">${escapeHtml(copy.latestTitle)}</h2>
-        </div>
-        <a class="text-link" href="${localizedPath(locale, copy.archivePath.replace(/^en\//, ""))}">${escapeHtml(copy.allReports)}</a>
-      </div>
-      <div class="mt-6 grid gap-5">${cards || '<div class="empty-state">No published reports yet.</div>'}</div>
-      <div class="section-tail-link">
-        <a class="text-link" href="${localizedPath(locale, copy.archivePath.replace(/^en\//, ""))}">${escapeHtml(copy.allReports)}</a>
-      </div>
-    </section>`;
-
-  return renderPage({
-    locale,
-    relativePath: locale === "ja" ? "" : "en/",
-    title: siteConfig.seo.homeTitle[locale],
-    description: siteConfig.description[locale],
-    pageHeading: siteConfig.taglines[locale],
-    pageIntro: copy.latestIntro,
-    body,
-    pageType: "home",
-    currentNavPath: copy.homePath,
-    breadcrumbs: [{ name: copy.homeTitle, path: copy.homePath }]
-  });
+function listingPageHref(locale, pageNumber) {
+  return localizedPath(locale, pageNumber <= 1 ? "" : `page/${pageNumber}/`);
 }
 
-function archivePageHref(locale, pageNumber) {
-  if (pageNumber <= 1) {
-    return localizedPath(locale, "archive/");
-  }
-
-  return localizedPath(locale, `archive/page/${pageNumber}/`);
-}
-
-function archivePageTitle(locale, pageNumber) {
-  const baseTitle = siteConfig.seo.archiveTitle[locale];
+function listingPageTitle(locale, pageNumber) {
+  const baseTitle = siteConfig.seo.homeTitle[locale];
 
   if (pageNumber <= 1) {
     return baseTitle;
@@ -468,21 +424,21 @@ function archivePageTitle(locale, pageNumber) {
   return locale === "ja" ? `${baseTitle} ${pageNumber}ページ` : `${baseTitle} Page ${pageNumber}`;
 }
 
-function archiveRangeText(locale, startIndex, endIndex, totalArticles) {
+function listingRangeText(locale, startIndex, endIndex, totalArticles) {
   const copy = localeCopy[locale];
 
   if (totalArticles === 0) {
-    return locale === "ja" ? `${copy.archiveRangeLabel}: 0 / 0` : `${copy.archiveRangeLabel} 0 of 0`;
+    return locale === "ja" ? `${copy.rangeLabel}: 0 / 0` : `${copy.rangeLabel} 0 of 0`;
   }
 
   if (locale === "ja") {
-    return `${copy.archiveRangeLabel}: ${startIndex}-${endIndex} / ${totalArticles}`;
+    return `${copy.rangeLabel}: ${startIndex}-${endIndex} / ${totalArticles}`;
   }
 
-  return `${copy.archiveRangeLabel} ${startIndex}-${endIndex} of ${totalArticles}`;
+  return `${copy.rangeLabel} ${startIndex}-${endIndex} of ${totalArticles}`;
 }
 
-function renderArchivePagination(locale, currentPage, totalPages) {
+function renderPagination(locale, currentPage, totalPages) {
   if (totalPages <= 1) {
     return "";
   }
@@ -499,7 +455,7 @@ function renderArchivePagination(locale, currentPage, totalPages) {
 
     const isCurrent = page === currentPage;
     pageLinks.push(
-      `<a class="pagination-link ${isCurrent ? "is-current" : ""}" href="${archivePageHref(locale, page)}" ${
+      `<a class="pagination-link ${isCurrent ? "is-current" : ""}" href="${listingPageHref(locale, page)}" ${
         isCurrent ? 'aria-current="page"' : ""
       }>${page}</a>`
     );
@@ -508,71 +464,71 @@ function renderArchivePagination(locale, currentPage, totalPages) {
 
   const previousLink =
     currentPage > 1
-      ? `<a class="pagination-link pagination-edge" href="${archivePageHref(locale, currentPage - 1)}">${escapeHtml(copy.paginationPrevious)}</a>`
+      ? `<a class="pagination-link pagination-edge" href="${listingPageHref(locale, currentPage - 1)}">${escapeHtml(copy.paginationPrevious)}</a>`
       : `<span class="pagination-link pagination-edge is-disabled" aria-disabled="true">${escapeHtml(copy.paginationPrevious)}</span>`;
   const nextLink =
     currentPage < totalPages
-      ? `<a class="pagination-link pagination-edge" href="${archivePageHref(locale, currentPage + 1)}">${escapeHtml(copy.paginationNext)}</a>`
+      ? `<a class="pagination-link pagination-edge" href="${listingPageHref(locale, currentPage + 1)}">${escapeHtml(copy.paginationNext)}</a>`
       : `<span class="pagination-link pagination-edge is-disabled" aria-disabled="true">${escapeHtml(copy.paginationNext)}</span>`;
 
-  return `<nav class="pagination-nav" aria-label="${escapeHtml(copy.archiveTitle)} ${escapeHtml(copy.paginationPage)}">
+  return `<nav class="pagination-nav" aria-label="${escapeHtml(copy.listingTitle)} ${escapeHtml(copy.paginationPage)}">
     ${previousLink}
     <div class="pagination-pages">${pageLinks.join("")}</div>
     ${nextLink}
   </nav>`;
 }
 
-export function renderArchivePage(locale, articles, pagination = {}) {
+export function renderIndexPage(locale, articles, pagination = {}) {
   const copy = localeCopy[locale];
   const currentPage = pagination.currentPage ?? 1;
   const totalPages = pagination.totalPages ?? 1;
   const totalArticles = pagination.totalArticles ?? articles.length;
   const rangeStart = articles.length > 0 ? (pagination.startIndex ?? 0) + 1 : 0;
   const rangeEnd = articles.length > 0 ? (pagination.startIndex ?? 0) + articles.length : 0;
+  const cards = articles
+    .map((article, index) =>
+      renderArticleCard(article, locale, {
+        featured: currentPage === 1 && index === 0
+      })
+    )
+    .join("");
   const body = `<section class="panel-block">
-    <div class="archive-panel-head">
+    <div class="listing-panel-head">
       <div>
-        <p class="section-kicker">${escapeHtml(copy.archiveTitle)}</p>
-        <h2 class="panel-title">${escapeHtml(copy.archiveTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.archiveIntro)}</p>
+        <p class="section-kicker">${escapeHtml(copy.listingTitle)}</p>
+        <h2 class="panel-title">${escapeHtml(copy.listingTitle)}</h2>
+        <p class="panel-copy">${escapeHtml(copy.listingIntro)}</p>
       </div>
-      <div class="archive-page-meta">
-        <p class="search-count">${escapeHtml(copy.archivePageStatus)} ${currentPage} / ${totalPages}</p>
-        <p class="search-hint">${escapeHtml(archiveRangeText(locale, rangeStart, rangeEnd, totalArticles))}</p>
+      <div class="listing-page-meta">
+        <p class="search-count">${escapeHtml(copy.pageStatus)} ${currentPage} / ${totalPages}</p>
+        <p class="search-hint">${escapeHtml(listingRangeText(locale, rangeStart, rangeEnd, totalArticles))}</p>
       </div>
     </div>
-    <div class="mt-8 grid gap-5">${articles.map((article) => renderArticleCard(article, locale)).join("")}</div>
-    ${renderArchivePagination(locale, currentPage, totalPages)}
+    <div class="mt-8 grid gap-5">${cards || `<div class="empty-state">${escapeHtml(copy.emptyState)}</div>`}</div>
+    ${renderPagination(locale, currentPage, totalPages)}
   </section>`;
 
   return renderPage({
     locale,
-    relativePath:
-      currentPage <= 1
-        ? locale === "ja"
-          ? "archive/"
-          : "en/archive/"
-        : locale === "ja"
-          ? `archive/page/${currentPage}/`
-          : `en/archive/page/${currentPage}/`,
-    title: archivePageTitle(locale, currentPage),
-    description: siteConfig.seo.archiveDescription[locale],
-    pageHeading: copy.archiveTitle,
-    pageIntro: copy.archiveIntro,
+    relativePath: listingRelativePath(locale, currentPage),
+    title: listingPageTitle(locale, currentPage),
+    description: currentPage <= 1 ? siteConfig.description[locale] : copy.listingIntro,
+    pageHeading: siteConfig.taglines[locale],
+    pageIntro: copy.heroIntro,
     body,
-    currentNavPath: copy.archivePath,
+    currentNavPath: copy.homePath,
     breadcrumbs: [
       { name: copy.homeTitle, path: copy.homePath },
-      { name: copy.archiveTitle, path: copy.archivePath },
       ...(currentPage > 1
         ? [
             {
               name: locale === "ja" ? `${currentPage}ページ` : `Page ${currentPage}`,
-              path: locale === "ja" ? `archive/page/${currentPage}/` : `en/archive/page/${currentPage}/`
+              path: listingRelativePath(locale, currentPage)
             }
           ]
         : [])
-    ]
+    ],
+    pageType: "home"
   });
 }
 
@@ -711,42 +667,10 @@ export function renderArticlePage(article, locale, articles = []) {
     imagePath: siteConfig.ogImage,
     breadcrumbs: [
       { name: localeCopy[locale].homeTitle, path: localeCopy[locale].homePath },
-      { name: localeCopy[locale].archiveTitle, path: localeCopy[locale].archivePath },
       { name: title, path: relativePath }
     ],
     pageType: "article"
   });
-}
-
-export function renderAtomFeed(locale, articles) {
-  const feedPath = locale === "ja" ? "feed.xml" : "en/feed.xml";
-  const updated = articles[0]?.date ?? new Date().toISOString().slice(0, 10);
-  const entries = articles
-    .map((article) => {
-      const title = locale === "ja" ? article.titleJa : article.titleEn;
-      const summary = locale === "ja" ? article.summaryJa : article.summaryEn;
-      const relativePath = locale === "ja" ? article.outputPaths.ja : article.outputPaths.en;
-      return `<entry>
-  <title>${formatXml(title)}</title>
-  <link href="${formatXml(absoluteUrl(relativePath))}"/>
-  <id>${formatXml(absoluteUrl(relativePath))}</id>
-  <updated>${article.date}T00:00:00Z</updated>
-  <summary>${formatXml(summary)}</summary>
-  <content type="html">${formatXml(stripHtml(locale === "ja" ? article.bodies.ja : article.bodies.en))}</content>
-</entry>`;
-    })
-    .join("\n");
-
-  return `<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>${formatXml(siteConfig.name)}${locale === "en" ? " EN" : ""}</title>
-  <subtitle>${formatXml(siteConfig.description[locale])}</subtitle>
-  <link href="${formatXml(absoluteUrl(feedPath))}" rel="self"/>
-  <link href="${formatXml(absoluteUrl(locale === "ja" ? "" : "en/"))}"/>
-  <updated>${updated}T00:00:00Z</updated>
-  <id>${formatXml(absoluteUrl(feedPath))}</id>
-  ${entries}
-</feed>`;
 }
 
 export function renderNotFoundPage(locale) {
