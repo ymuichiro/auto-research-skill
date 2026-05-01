@@ -92,7 +92,7 @@ pnpm dev
 3. DNS に `research.notelligent.app CNAME ymuichiro.github.io` を反映する
 4. `main` へ反映して deploy を流し、`gh-pages` 上の `CNAME` と SEO 系生成物を新ドメインに揃える
 5. GitHub Pages の証明書発行後に `Enforce HTTPS` を有効化する
-6. `https://research.notelligent.app/`、`/en/`、代表記事、`/feed.xml`、`/sitemap.xml`、`/robots.txt`、`/site.webmanifest` を確認する
+6. `https://research.notelligent.app/`、`/en/`、`/page/2/`（生成される場合）、代表記事、`/sitemap.xml`、`/robots.txt`、`/site.webmanifest` を確認する
 
 ロールバック:
 

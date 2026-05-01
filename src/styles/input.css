@@ -360,10 +360,15 @@
 
   .article-card-copy {
     color: var(--ard-text);
+    display: -webkit-box;
     font-size: 0.83rem;
     line-height: 1.9;
     margin-top: 0.9rem;
+    overflow: hidden;
     overflow-wrap: anywhere;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
   }
 
   .article-card-foot {
@@ -735,18 +740,18 @@
     margin-top: 0.9rem;
   }
 
-  .archive-panel-head {
+  .listing-panel-head {
     @apply flex flex-col gap-6 md:flex-row md:items-end md:justify-between;
   }
 
-  .archive-page-meta {
+  .listing-page-meta {
     display: grid;
     gap: 0.35rem;
     justify-items: flex-start;
   }
 
-  .archive-page-meta .search-hint,
-  .archive-page-meta .search-count {
+  .listing-page-meta .search-hint,
+  .listing-page-meta .search-count {
     margin-top: 0;
   }
 
