@@ -5,6 +5,8 @@ import { absoluteUrl, localizedPath, siteConfig } from "./lib/site-config.mjs";
 import { escapeHtml } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
+const adsenseScriptSnippet =
+  'src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4835092005162323" crossorigin="anonymous"';
 
 function listingPagePaths(articles) {
   const totalPages = Math.max(1, Math.ceil(articles.length / siteConfig.pagination.articleListPageSize));
@@ -120,6 +122,7 @@ async function validateBuiltOutput(articles) {
     assertContains(markup, `property="og:url" content="${canonicalUrl}"`, `${label} is missing the expected og:url.`);
     assertContains(markup, siteConfig.siteUrl, `${label} is not using the configured site URL.`);
     assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
+    assertContains(markup, adsenseScriptSnippet, `${label} is missing the AdSense loader.`);
     assertNotContains(markup, 'type="application/atom+xml"', `${label} should not advertise a removed feed.`);
   }
 
@@ -139,6 +142,7 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, `rel="canonical" href="${canonicalUrl}"`, `${label} is missing the expected canonical URL.`);
       assertContains(markup, `property="og:url" content="${canonicalUrl}"`, `${label} is missing the expected og:url.`);
       assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
+      assertContains(markup, adsenseScriptSnippet, `${label} is missing the AdSense loader.`);
     }
   }
 
@@ -164,6 +168,7 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, 'hreflang="en"', `${label} is missing the en hreflang link.`);
       assertContains(markup, siteConfig.siteUrl, `${label} is not using the configured site URL.`);
       assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
+      assertContains(markup, adsenseScriptSnippet, `${label} is missing the AdSense loader.`);
       assertContains(markup, 'class="article-share"', `${label} is missing the article share block.`);
       assertContains(markup, 'class="panel-block related-articles"', `${label} is missing the related articles block.`);
       assertContains(markup, 'data-native-share', `${label} is missing the native share trigger.`);

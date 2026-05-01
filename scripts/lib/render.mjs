@@ -102,6 +102,7 @@ function renderSharedHeadAssets() {
     <link rel="manifest" href="${assetPath("site.webmanifest")}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4835092005162323" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${assetPath("assets/site.css")}">`;
 }
