@@ -29,7 +29,6 @@
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/">
     <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/">
-    <link rel="alternate" type="application/atom+xml" href="https://research.notelligent.app/feed.xml" title="Auto Research Digest">
     <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
@@ -54,7 +53,7 @@
           <span class="brand-badge">AR /</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/archive/">アーカイブ</a><a class="nav-link " href="/feed.xml">フィード</a></nav>
+        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a></nav>
         <a class="lang-switch" href="/en/">English</a>
       </header>
       <main class="site-main">
@@ -65,14 +64,18 @@
         </section>
         <div class="content-stack">
           <section class="panel-block">
-      <div class="flex items-center justify-between gap-4">
-        <div>
-          <p class="section-kicker">最新レポート</p>
-          <h2 class="panel-title">最新レポート</h2>
-        </div>
-        <a class="text-link" href="/archive/">すべてのレポートを見る</a>
+    <div class="listing-panel-head">
+      <div>
+        <p class="section-kicker">公開レポート</p>
+        <h2 class="panel-title">公開レポート</h2>
+        <p class="panel-copy">公開済みレポートを新しい順に一覧化しています。</p>
       </div>
-      <div class="mt-6 grid gap-5"><a class="article-card article-card-featured" href="/2026-04-27-agent-discovery-and-approval-shape-adoption.html" aria-label="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる">
+      <div class="listing-page-meta">
+        <p class="search-count">ページ 1 / 2</p>
+        <p class="search-hint">表示範囲: 1-24 / 28</p>
+      </div>
+    </div>
+    <div class="mt-8 grid gap-5"><a class="article-card article-card-featured" href="/2026-04-27-agent-discovery-and-approval-shape-adoption.html" aria-label="AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる">
     <div class="article-card-main">
       
       <div class="meta-row justify-between">
@@ -162,11 +165,283 @@
       <span class="mono-note">根拠数: 27</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a></div>
-      <div class="section-tail-link">
-        <a class="text-link" href="/archive/">すべてのレポートを見る</a>
+  </a><a class="article-card " href="/2026-03-28-open-agent-protocol-stack.html" aria-label="MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-28">2026年3月28日</time>
       </div>
-    </section>
+      <h2 class="article-card-title">MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた</h2>
+      <p class="article-card-copy">2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが概念論ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span><span class="meta-chip">AG-UI</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Protocol</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 27</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-28-video-generation-ai-product-landscape.html" aria-label="動画生成AIはどこまで実用品になったのか、主要5製品の最新状況と技術の流れを整理する">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-03-28">2026年3月28日</time>
+      </div>
+      <h2 class="article-card-title">動画生成AIはどこまで実用品になったのか、主要5製品の最新状況と技術の流れを整理する</h2>
+      <p class="article-card-copy">OpenAI、Google、Adobe、Runway、Luma の公式資料と動画生成の主要論文を重ねると、動画生成AIは「何でもできる魔法の1本」ではなく、音声付きの短尺、商用安全性、参照画像による一貫性、編集連携、低コスト試作といった軸で製品が分化してきたことが見えてくる。本稿は主要5製品の最新リリース状況を整理しつつ、diffusion、時間的一貫性、参照制御、world model 的な発想がなぜ使いやすさを押し上げたのかを非技術者向けに平易に説明し、用途別の向き不向きと導入時の注意点をまとめる。</p>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Video Generation</span><span class="meta-chip">Creative Tools</span><span class="meta-chip">Diffusion</span><span class="meta-chip">World Model</span><span class="meta-chip">AI Product</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 30</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-26-agent-identity-becomes-an-auth-control-plane.html" aria-label="AI エージェントの ID 管理は認証認可の統制基盤になり始めた">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-26">2026年3月26日</time>
+      </div>
+      <h2 class="article-card-title">AI エージェントの ID 管理は認証認可の統制基盤になり始めた</h2>
+      <p class="article-card-copy">Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Identity</span><span class="meta-chip">Authentication</span><span class="meta-chip">Authorization</span><span class="meta-chip">Governance</span><span class="meta-chip">OAuth</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 36</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Cowork は、職場AIが長時間動くエージェントの仕組みへ広がり始めたというシグナル">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-25">2026年3月25日</time>
+      </div>
+      <h2 class="article-card-title">Cowork は、職場AIが長時間動くエージェントの仕組みへ広がり始めたというシグナル</h2>
+      <p class="article-card-copy">Anthropic の Cowork と Microsoft の Copilot Cowork を起点に、Google Gemini Enterprise、Slack Agentforce、OpenAI の deep research / ChatGPT agent / Codex を並べると、職場AIは単一の実行機能へ移るというより、推論・実行・管理を束ねた、長時間動くエージェントの仕組みへ広がっていることが見えてくる。公開資料と主要論文をもとに、各社の役割分担、ユースケース、戦略差、実務上の制約まで整理する。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Cowork</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">Workflow</span><span class="meta-chip">Productivity</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 43</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-24-why-ai-products-converge-on-chat-ui.html" aria-label="なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-03-24">2026年3月24日</time>
+      </div>
+      <h2 class="article-card-title">なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか</h2>
+      <p class="article-card-copy">OpenAI、Microsoft、Google、Anthropic、Claude Cowork の公式発表と HCI 系の論文を重ねると、生成AIアプリがまずチャットUIに寄る理由は、自然言語が最も安い汎用入力だからである一方、実務化が進むほど状態表示、承認、進捗監督、成果物編集のための画面を周辺に必要とすることが見えてくる。チャットUIが消えるのではなく、対話を起点にした操作基盤へ複合化していく流れを整理する。</p>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Chat Interface</span><span class="meta-chip">Product Design</span><span class="meta-chip">Workflow</span><span class="meta-chip">UX</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 22</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-23-agent-security-becomes-a-shipping-gate.html" aria-label="AI agent の競争軸に security gate が入り始めた">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-23">2026年3月23日</time>
+      </div>
+      <h2 class="article-card-title">AI agent の競争軸に security gate が入り始めた</h2>
+      <p class="article-card-copy">2026年3月前半の OpenAI、Anthropic、Microsoft、AWS、Google Cloud の一次情報を横断すると、agent の競争軸は精度や orchestration だけではなく、prompt injection 耐性、tool policy、red teaming、approval、sandboxing をどこまで製品面に組み込めるかへ広がっている。公開資料から読み取れる収束点を整理し、secure code review、社内データ活用、ブラウザ操作、approval-heavy workflow の現実的な導入シナリオまで落とし込む。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Security</span><span class="meta-chip">Guardrails</span><span class="meta-chip">Governance</span><span class="meta-chip">Prompt Injection</span><span class="meta-chip">Roundup</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 26</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="AI エージェント導入の焦点は、単体性能競争から運用基盤設計へ">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-21">2026年3月21日</time>
+      </div>
+      <h2 class="article-card-title">AI エージェント導入の焦点は、単体性能競争から運用基盤設計へ</h2>
+      <p class="article-card-copy">ReAct、Toolformer、AgentBench、WebArena、SWE-bench、OSWorld などの研究と、OpenAI、Anthropic、Google、Microsoft、AWS の公式ドキュメントを通して、企業導入の焦点が単体性能競争から、ツール接続、評価、安全性、監督を備えた運用基盤設計へ移っていることを整理し、ソフトウェア開発、ブラウザ操作、社内ナレッジ活用、FinOps などの具体ユースケースまで落とし込む。</p>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Use Case</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 33</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-01-agent-architecture-matters-more-than-model-novelty.html" aria-label="agent architecture は model novelty よりも重要な比較軸になっていく">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-01">2026年3月1日</time>
+      </div>
+      <h2 class="article-card-title">agent architecture は model novelty よりも重要な比較軸になっていく</h2>
+      <p class="article-card-copy">2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Architecture</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 8</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-02-01-control-planes-and-evals-set-the-pace.html" aria-label="control plane と eval discipline が、agent 導入の速度を決め始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-02-01">2026年2月1日</time>
+      </div>
+      <h2 class="article-card-title">control plane と eval discipline が、agent 導入の速度を決め始める</h2>
+      <p class="article-card-copy">Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Control Plane</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 8</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-01-01-the-2025-signal-is-operational-boundaries.html" aria-label="2025年を通して見えてきたのは、operational boundary の明確化だ">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-01-01">2026年1月1日</time>
+      </div>
+      <h2 class="article-card-title">2025年を通して見えてきたのは、operational boundary の明確化だ</h2>
+      <p class="article-card-copy">2025 年を通して見ると、agent stack の主戦場は model novelty より、control plane、protocol、evaluation、approval を含む operational boundary に移っている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Operations</span><span class="meta-chip">Strategy</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 8</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2025-12-01-multi-agent-workflows-become-a-product-surface.html" aria-label="multi-agent workflow そのものが product surface になり始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-12-01">2025年12月1日</time>
+      </div>
+      <h2 class="article-card-title">multi-agent workflow そのものが product surface になり始める</h2>
+      <p class="article-card-copy">Foundry Agent Service の multi-agent workflows preview により、visual builder、YAML definition、templates、variables、observability、evaluators を備えた workflow 自体が product surface として見え始めている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 9</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="workflow tooling が agent の複雑さに追いつき始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-11-01">2025年11月1日</time>
+      </div>
+      <h2 class="article-card-title">workflow tooling が agent の複雑さに追いつき始める</h2>
+      <p class="article-card-copy">OpenAI AgentKit、Microsoft Agent Framework、Claude Agent SDK、GPT-5 for developers がそろい、agent graph、connector、chat UI、trace grading、workflow orchestration をまとめて扱う tooling layer が実体を持ち始めている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 10</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2025-10-01-agent-sdks-expand-beyond-coding.html" aria-label="agent SDK は coding 補助の外へ広がり、汎用 workflow の部品になり始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-10-01">2025年10月1日</time>
+      </div>
+      <h2 class="article-card-title">agent SDK は coding 補助の外へ広がり、汎用 workflow の部品になり始める</h2>
+      <p class="article-card-copy">Claude Agent SDK、Looker MCP Server、Firestore 対応 MCP Toolbox、Agent Factory、Microsoft Agent Framework により、agent SDK は code helper 専用ではなく、データ接続・権限設計・control plane を含む汎用 application layer として見られ始めている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">SDK</span><span class="meta-chip">MCP</span><span class="meta-chip">Workflow</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 11</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2025-09-01-coding-and-research-agents-broaden-the-scope.html" aria-label="coding と research をまたぐ agent が、より広い業務へ踏み出し始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-09-01">2025年9月1日</time>
+      </div>
+      <h2 class="article-card-title">coding と research をまたぐ agent が、より広い業務へ踏み出し始める</h2>
+      <p class="article-card-copy">GPT-5 for developers と Looker MCP Server の発表により、coding agent と data-connected analyst の境界が薄れ、コード・データ・文書を横断する assistant の像が濃くなっている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Data Access</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 7</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="AgentOps は補助機能ではなく control layer として扱われ始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-08-01">2025年8月1日</time>
+      </div>
+      <h2 class="article-card-title">AgentOps は補助機能ではなく control layer として扱われ始める</h2>
+      <p class="article-card-copy">Foundry・OpenAI・Google の発表を通じて、agent stack の競争は trace、review、observability、tool governance といった control layer へ移っている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 8</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2025-07-01-interoperability-leaves-the-roadmap.html" aria-label="相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-07-01">2025年7月1日</time>
+      </div>
+      <h2 class="article-card-title">相互運用性は roadmap 上の理想論ではなく、接続設計の前提になり始める</h2>
+      <p class="article-card-copy">Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は current architecture の一部になっている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span><span class="meta-chip">Interoperability</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 10</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2025-06-01-multi-agent-design-turns-into-an-operating-model.html" aria-label="multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-06-01">2025年6月1日</time>
+      </div>
+      <h2 class="article-card-title">multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める</h2>
+      <p class="article-card-copy">Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 8</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2025-05-01-open-runtimes-and-managed-platforms-converge.html" aria-label="open runtime と managed platform が、同じ設計図の上で接続され始める">
+    <div class="article-card-main">
+      
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-05-01">2025年5月1日</time>
+      </div>
+      <h2 class="article-card-title">open runtime と managed platform が、同じ設計図の上で接続され始める</h2>
+      <p class="article-card-copy">OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっている。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Runtime</span><span class="meta-chip">Approval</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 11</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a></div>
+    <nav class="pagination-nav" aria-label="公開レポート ページ">
+    <span class="pagination-link pagination-edge is-disabled" aria-disabled="true">前へ</span>
+    <div class="pagination-pages"><a class="pagination-link is-current" href="/" aria-current="page">1</a><a class="pagination-link " href="/page/2/" >2</a></div>
+    <a class="pagination-link pagination-edge" href="/page/2/">次へ</a>
+  </nav>
+  </section>
         </div>
       </main>
       <footer class="footer-panel">
