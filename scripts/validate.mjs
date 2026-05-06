@@ -4,7 +4,9 @@ import { loadArticles, publishedArticles } from "./lib/content.mjs";
 import {
   absoluteUrl,
   localizedPath,
+  sitemapHtmlRelativePath,
   siteConfig,
+  timelineRelativePath,
   topicHubRelativePath,
   topicIndexRelativePath,
   trustPageOrder,
@@ -52,6 +54,15 @@ function topicBuiltPaths(topicHubs) {
   ].map((page) => `${page}index.html`);
 }
 
+function discoveryBuiltPaths() {
+  return [
+    sitemapHtmlRelativePath("ja"),
+    sitemapHtmlRelativePath("en"),
+    `${timelineRelativePath("ja")}index.html`,
+    `${timelineRelativePath("en")}index.html`
+  ];
+}
+
 function assertContains(markup, expected, message) {
   if (!markup.includes(expected)) {
     throw new Error(message);
@@ -62,6 +73,27 @@ function assertNotContains(markup, unexpected, message) {
   if (markup.includes(unexpected)) {
     throw new Error(message);
   }
+}
+
+function assertCondition(condition, message) {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+function countOccurrences(markup, needle) {
+  let count = 0;
+  let offset = 0;
+
+  while (offset !== -1) {
+    offset = markup.indexOf(needle, offset);
+    if (offset !== -1) {
+      count += 1;
+      offset += needle.length;
+    }
+  }
+
+  return count;
 }
 
 function expectedPageTitle(title, locale) {
@@ -189,6 +221,7 @@ async function validateBuiltOutput(articles) {
   ]
     .concat(siteConfig.cname ? ["CNAME"] : [])
     .concat(listingPagePaths(articles))
+    .concat(discoveryBuiltPaths())
     .concat(topicBuiltPaths(topicHubs))
     .concat(trustPageBuiltPaths());
   const unexpectedPages = ["feed.xml", "en/feed.xml", "archive/index.html", "en/archive/index.html"];
@@ -236,6 +269,10 @@ async function validateBuiltOutput(articles) {
   const enAboutHtml = await readBuiltFile(`en/${trustPagePaths.about}`);
   const jaTopicsHtml = await readBuiltFile(`${topicIndexRelativePath("ja")}index.html`);
   const enTopicsHtml = await readBuiltFile(`${topicIndexRelativePath("en")}index.html`);
+  const jaSitemapHtml = await readBuiltFile(sitemapHtmlRelativePath("ja"));
+  const enSitemapHtml = await readBuiltFile(sitemapHtmlRelativePath("en"));
+  const jaTimelineHtml = await readBuiltFile(`${timelineRelativePath("ja")}index.html`);
+  const enTimelineHtml = await readBuiltFile(`${timelineRelativePath("en")}index.html`);
   const rootPath = siteConfig.basePath ? `${siteConfig.basePath}/` : "/";
   const totalPages = Math.max(1, Math.ceil(articles.length / siteConfig.pagination.articleListPageSize));
 
@@ -267,7 +304,11 @@ async function validateBuiltOutput(articles) {
     [jaAboutHtml, trustPagePaths.about, absoluteUrl(trustPagePaths.about), "Japanese about page"],
     [enAboutHtml, `en/${trustPagePaths.about}`, absoluteUrl(`en/${trustPagePaths.about}`), "English about page"],
     [jaTopicsHtml, topicIndexRelativePath("ja"), absoluteUrl(topicIndexRelativePath("ja")), "Japanese topics index"],
-    [enTopicsHtml, topicIndexRelativePath("en"), absoluteUrl(topicIndexRelativePath("en")), "English topics index"]
+    [enTopicsHtml, topicIndexRelativePath("en"), absoluteUrl(topicIndexRelativePath("en")), "English topics index"],
+    [jaSitemapHtml, sitemapHtmlRelativePath("ja"), absoluteUrl(sitemapHtmlRelativePath("ja")), "Japanese sitemap page"],
+    [enSitemapHtml, sitemapHtmlRelativePath("en"), absoluteUrl(sitemapHtmlRelativePath("en")), "English sitemap page"],
+    [jaTimelineHtml, timelineRelativePath("ja"), absoluteUrl(timelineRelativePath("ja")), "Japanese timeline page"],
+    [enTimelineHtml, timelineRelativePath("en"), absoluteUrl(timelineRelativePath("en")), "English timeline page"]
   ]) {
     assertContains(markup, `rel="canonical" href="${canonicalUrl}"`, `${label} is missing the expected canonical URL.`);
     assertContains(markup, `property="og:url" content="${canonicalUrl}"`, `${label} is missing the expected og:url.`);
@@ -284,8 +325,20 @@ async function validateBuiltOutput(articles) {
     [jaAboutHtml, "ja", "Japanese about page"],
     [enAboutHtml, "en", "English about page"],
     [jaTopicsHtml, "ja", "Japanese topics index"],
-    [enTopicsHtml, "en", "English topics index"]
+    [enTopicsHtml, "en", "English topics index"],
+    [jaSitemapHtml, "ja", "Japanese sitemap page"],
+    [enSitemapHtml, "en", "English sitemap page"],
+    [jaTimelineHtml, "ja", "Japanese timeline page"],
+    [enTimelineHtml, "en", "English timeline page"]
   ]) {
+    for (const link of siteConfig.nav[locale]) {
+      assertContains(
+        markup,
+        `href="${localizedPath(locale, link.path.replace(/^en\//, ""))}"`,
+        `${label} is missing nav link ${link.path}.`
+      );
+    }
+
     for (const link of siteConfig.footerNav[locale]) {
       assertContains(markup, `href="${localizedPath(locale, link.path)}"`, `${label} is missing footer link ${link.path}.`);
     }
@@ -299,6 +352,11 @@ async function validateBuiltOutput(articles) {
       markup,
       `href="${localizedPath(locale, "topics/")}"`,
       `${label} is missing a visible route into the topics section.`
+    );
+    assertContains(
+      markup,
+      `href="${localizedPath(locale, "timeline/")}"`,
+      `${label} is missing a visible route into the timeline section.`
     );
   }
 
@@ -544,6 +602,16 @@ async function validateBuiltOutput(articles) {
       absoluteUrl(sampleArticle.outputPaths.en),
       "Article sitemap is missing the English article URL for the configured site."
     );
+    assertContains(
+      jaTimelineHtml,
+      `href="${localizedPath("ja", sampleArticle.outputPaths.ja)}"`,
+      "Japanese timeline page is missing a published article link."
+    );
+    assertContains(
+      enTimelineHtml,
+      `href="${localizedPath("en", sampleArticle.outputPaths.en.replace(/^en\//, ""))}"`,
+      "English timeline page is missing a published article link."
+    );
   }
 
   assertContains(robotsTxt, `Sitemap: ${absoluteUrl("sitemap.xml")}`, "robots.txt is missing the configured sitemap URL.");
@@ -555,6 +623,10 @@ async function validateBuiltOutput(articles) {
   );
   assertContains(pageSitemap, absoluteUrl(""), "Page sitemap is missing the configured Japanese home URL.");
   assertContains(pageSitemap, absoluteUrl("en/"), "Page sitemap is missing the configured English home URL.");
+  assertContains(pageSitemap, absoluteUrl(sitemapHtmlRelativePath("ja")), "Page sitemap is missing the Japanese HTML sitemap URL.");
+  assertContains(pageSitemap, absoluteUrl(sitemapHtmlRelativePath("en")), "Page sitemap is missing the English HTML sitemap URL.");
+  assertContains(pageSitemap, absoluteUrl(timelineRelativePath("ja")), "Page sitemap is missing the Japanese timeline URL.");
+  assertContains(pageSitemap, absoluteUrl(timelineRelativePath("en")), "Page sitemap is missing the English timeline URL.");
   assertContains(pageSitemap, absoluteUrl(topicIndexRelativePath("ja")), "Page sitemap is missing the Japanese topics index URL.");
   assertContains(pageSitemap, absoluteUrl(topicIndexRelativePath("en")), "Page sitemap is missing the English topics index URL.");
   assertContains(
@@ -566,6 +638,26 @@ async function validateBuiltOutput(articles) {
     pageSitemap,
     `hreflang="en" href="${absoluteUrl(topicIndexRelativePath("en"))}"`,
     "Page sitemap is missing the English hreflang alternate for the topics index."
+  );
+  assertContains(
+    pageSitemap,
+    `hreflang="ja" href="${absoluteUrl(sitemapHtmlRelativePath("ja"))}"`,
+    "Page sitemap is missing the Japanese hreflang alternate for the HTML sitemap."
+  );
+  assertContains(
+    pageSitemap,
+    `hreflang="en" href="${absoluteUrl(sitemapHtmlRelativePath("en"))}"`,
+    "Page sitemap is missing the English hreflang alternate for the HTML sitemap."
+  );
+  assertContains(
+    pageSitemap,
+    `hreflang="ja" href="${absoluteUrl(timelineRelativePath("ja"))}"`,
+    "Page sitemap is missing the Japanese hreflang alternate for the timeline."
+  );
+  assertContains(
+    pageSitemap,
+    `hreflang="en" href="${absoluteUrl(timelineRelativePath("en"))}"`,
+    "Page sitemap is missing the English hreflang alternate for the timeline."
   );
   assertNotContains(pageSitemap, absoluteUrl("archive/"), "Page sitemap should not contain the removed archive URL.");
   assertNotContains(pageSitemap, absoluteUrl("en/archive/"), "Page sitemap should not contain the removed English archive URL.");
@@ -587,6 +679,57 @@ async function validateBuiltOutput(articles) {
       pageSitemap,
       absoluteUrl(topicHubRelativePath("en", hub.slug)),
       `Page sitemap is missing en/topics/${hub.slug}/.`
+    );
+  }
+  const jaTimelineDiscoveryCount = countOccurrences(jaTimelineHtml, 'class="discovery-entry"');
+  const enTimelineDiscoveryCount = countOccurrences(enTimelineHtml, 'class="discovery-entry"');
+  const jaSitemapDiscoveryCount = countOccurrences(jaSitemapHtml, 'class="discovery-entry"');
+  const enSitemapDiscoveryCount = countOccurrences(enSitemapHtml, 'class="discovery-entry"');
+
+  assertContains(jaSitemapHtml, 'class="sitemap-month-jump"', "Japanese HTML sitemap is missing month anchors.");
+  assertContains(enSitemapHtml, 'class="sitemap-month-jump"', "English HTML sitemap is missing month anchors.");
+  assertContains(jaSitemapHtml, 'class="sitemap-article-links"', "Japanese HTML sitemap is missing the compact article link list.");
+  assertContains(enSitemapHtml, 'class="sitemap-article-links"', "English HTML sitemap is missing the compact article link list.");
+  assertCondition(
+    jaTimelineDiscoveryCount === articles.length,
+    `Japanese timeline should render ${articles.length} discovery entries, found ${jaTimelineDiscoveryCount}.`
+  );
+  assertCondition(
+    enTimelineDiscoveryCount === articles.length,
+    `English timeline should render ${articles.length} discovery entries, found ${enTimelineDiscoveryCount}.`
+  );
+  assertCondition(jaSitemapDiscoveryCount === 0, "Japanese HTML sitemap should not reuse discovery-entry cards.");
+  assertCondition(enSitemapDiscoveryCount === 0, "English HTML sitemap should not reuse discovery-entry cards.");
+  if (articles.length > 0) {
+    assertCondition(
+      jaSitemapDiscoveryCount !== jaTimelineDiscoveryCount,
+      "Japanese HTML sitemap and timeline should not expose the same discovery-entry count."
+    );
+    assertCondition(
+      enSitemapDiscoveryCount !== enTimelineDiscoveryCount,
+      "English HTML sitemap and timeline should not expose the same discovery-entry count."
+    );
+  }
+  for (const article of articles) {
+    assertContains(
+      jaTimelineHtml,
+      `href="${localizedPath("ja", article.outputPaths.ja)}"`,
+      `Japanese timeline page is missing ${article.outputPaths.ja}.`
+    );
+    assertContains(
+      enTimelineHtml,
+      `href="${localizedPath("en", article.outputPaths.en.replace(/^en\//, ""))}"`,
+      `English timeline page is missing ${article.outputPaths.en}.`
+    );
+    assertContains(
+      jaSitemapHtml,
+      `href="${localizedPath("ja", article.outputPaths.ja)}"`,
+      `Japanese HTML sitemap is missing ${article.outputPaths.ja}.`
+    );
+    assertContains(
+      enSitemapHtml,
+      `href="${localizedPath("en", article.outputPaths.en.replace(/^en\//, ""))}"`,
+      `English HTML sitemap is missing ${article.outputPaths.en}.`
     );
   }
   assertContains(webManifest, `"start_url": "${rootPath}"`, "Web manifest start_url does not match the configured base path.");

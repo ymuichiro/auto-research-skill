@@ -960,6 +960,198 @@
     padding: 0 1.1rem;
   }
 
+  .discovery-stat-grid {
+    margin-top: 2rem;
+  }
+
+  .discovery-link-card .article-card-copy {
+    -webkit-line-clamp: 4;
+  }
+
+  .discovery-link-card .article-card-foot .mono-note {
+    max-width: 70%;
+    overflow-wrap: anywhere;
+  }
+
+  .sitemap-month-anchor-panel {
+    overflow: hidden;
+  }
+
+  .sitemap-month-jump {
+    @apply mt-8 flex flex-wrap gap-3;
+  }
+
+  .sitemap-month-chip {
+    border: 1px solid var(--ard-border-strong);
+    border-radius: 999px;
+    color: var(--ard-dim);
+    display: inline-flex;
+    font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    padding: 0.55rem 0.85rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+  }
+
+  .sitemap-month-chip:hover,
+  .sitemap-month-chip:focus-visible {
+    background: rgba(74, 240, 212, 0.08);
+    border-color: rgba(74, 240, 212, 0.38);
+    color: var(--ard-text-strong);
+    outline: none;
+  }
+
+  .sitemap-directory-group {
+    overflow: hidden;
+  }
+
+  .sitemap-month-grid {
+    @apply mt-8 grid gap-5 xl:grid-cols-2;
+  }
+
+  .sitemap-month-card {
+    border: 1px solid var(--ard-border);
+    border-radius: 1.1rem;
+    background: rgba(16, 19, 27, 0.92);
+    padding: 1.2rem;
+    scroll-margin-top: 6rem;
+  }
+
+  .sitemap-month-head {
+    @apply flex flex-wrap items-start justify-between gap-3;
+  }
+
+  .sitemap-month-title {
+    color: var(--ard-text-strong);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: 0.65rem;
+  }
+
+  .sitemap-article-links {
+    @apply mt-5 grid gap-3;
+  }
+
+  .sitemap-article-link-item {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sitemap-article-link {
+    border-bottom: 1px solid var(--ard-border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    min-width: 0;
+    padding-bottom: 0.95rem;
+    text-decoration: none;
+    transition: border-color 0.18s ease, color 0.18s ease;
+  }
+
+  .sitemap-article-link:hover,
+  .sitemap-article-link:focus-visible {
+    border-color: rgba(74, 240, 212, 0.36);
+    color: var(--ard-text-strong);
+    outline: none;
+  }
+
+  .sitemap-article-link-item:last-child .sitemap-article-link {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .sitemap-article-link-title {
+    color: var(--ard-text-strong);
+    font-size: 0.94rem;
+    font-weight: 500;
+    line-height: 1.6;
+    overflow-wrap: anywhere;
+  }
+
+  .sitemap-article-link-meta {
+    @apply flex flex-wrap items-center gap-2;
+    color: var(--ard-dim);
+    font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .sitemap-article-link-meta .meta-pill {
+    padding: 0.28rem 0.52rem;
+  }
+
+  .chronology-group {
+    overflow: hidden;
+  }
+
+  .chronology-timeline {
+    margin-top: 1.5rem;
+  }
+
+  .chronology-item:first-child {
+    border-top: 0;
+    padding-top: 0.25rem;
+  }
+
+  .chronology-meta {
+    @apply mt-4 flex flex-wrap gap-3;
+  }
+
+  .chronology-entry-list {
+    @apply mt-6 grid gap-4;
+  }
+
+  .discovery-entry {
+    border: 1px solid var(--ard-border);
+    border-radius: 1rem;
+    background: rgba(16, 19, 27, 0.92);
+    padding: 1.15rem;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+  }
+
+  .discovery-entry:hover {
+    background: rgba(24, 28, 40, 0.98);
+    border-color: rgba(74, 240, 212, 0.22);
+    transform: translateY(-1px);
+  }
+
+  .discovery-entry-title {
+    color: var(--ard-text-strong);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-top: 0.9rem;
+  }
+
+  .discovery-entry-link {
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .discovery-entry-link:hover,
+  .discovery-entry-link:focus-visible {
+    color: var(--ard-signal);
+    outline: none;
+  }
+
+  .discovery-entry-copy {
+    color: var(--ard-text);
+    font-size: 0.84rem;
+    line-height: 1.9;
+    margin-top: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+
+  .discovery-entry-foot {
+    @apply mt-5 flex flex-wrap items-center justify-between gap-3 border-t pt-4;
+    border-color: var(--ard-border);
+  }
+
   .empty-state {
     border: 1px dashed var(--ard-border-strong);
     border-radius: 1rem;

@@ -3,7 +3,9 @@ import {
   assetPath,
   listingRelativePath,
   localizedPath,
+  sitemapHtmlRelativePath,
   siteConfig,
+  timelineRelativePath,
   topicHubRelativePath,
   topicIndexRelativePath
 } from "./site-config.mjs";
@@ -16,10 +18,10 @@ const localeCopy = {
     homeTitle: "トップ",
     listingTitle: "公開レポート",
     listingIntro: "公開済みレポートを新しい順に一覧化しています。",
-    featuredBriefingKicker: "Featured briefing",
+    featuredBriefingKicker: "注目ブリーフィング",
     featuredBriefingTitle: "最新公開のブリーフィング",
     featuredBriefingIntro: "まずは最新公開レポートの要点と導線を、短く整理した編集枠から確認できます。",
-    briefingSummaryKicker: "Briefing summary",
+    briefingSummaryKicker: "ブリーフィング概要",
     briefingSummaryTitle: "このレポートで先に確認できること",
     pageStatus: "ページ",
     rangeLabel: "表示範囲",
@@ -37,7 +39,7 @@ const localeCopy = {
     newerArticle: "より新しい記事",
     olderArticle: "ひとつ古い記事",
     relatedArticle: "テーマが近い記事",
-    tagHeading: "Tags",
+    tagHeading: "タグ",
     languageSwitch: "English",
     shareSectionLabel: "記事を共有",
     shareOnXLabel: "X で共有",
@@ -48,13 +50,13 @@ const localeCopy = {
     emptyState: "公開済みレポートはまだありません。",
     homePath: "",
     footerNavLabel: "フッターナビゲーション",
-    openExternal: "Open",
-    topicsTitle: "Topics",
+    openExternal: "開く",
+    topicsTitle: "トピック",
     topicsIntro: "公開済みレポートを主要テーマごとにまとめています。新着だけでなく、カテゴリ単位で論点の流れをたどれます。",
     topicsPreviewIntro: "主要カテゴリから、公開済みレポートの流れをまとめてたどれます。",
-    topicsKicker: "Topic navigation",
+    topicsKicker: "トピック案内",
     topicsOpenHub: "テーマハブを開く",
-    topicsOpenIndex: "Topics 一覧へ",
+    topicsOpenIndex: "トピック一覧へ",
     topicsRepresentativeArticle: "代表記事",
     topicsLatestLabel: "最新更新",
     topicsCountLabel: "記事数",
@@ -63,9 +65,36 @@ const localeCopy = {
     topicsHubFeatureTitle: "このテーマの最新ブリーフィング",
     topicsHubFeatureIntro: "このテーマで直近に公開したレポートの要点を、読む前に短く確認できます。",
     topicsHubListTitle: "このテーマの公開レポート",
-    topicsHubListIntro: "同じ category に属する公開済みレポートを新しい順に一覧しています。",
+    topicsHubListIntro: "同じテーマに属する公開済みレポートを新しい順に一覧しています。",
     topicsBacklinkTitle: "テーマ別に戻る",
-    topicsBacklinkIntro: "このレポートが属するテーマハブから、同じ category の公開記事をまとめて追えます。"
+    topicsBacklinkIntro: "このレポートが属するテーマハブから、同じテーマの公開記事をまとめて追えます。",
+    sitemapTitle: "サイトマップ",
+    sitemapIntro: "主要固定ページ、トピックハブ、公開レポートへの導線をまとめた構造索引ページです。",
+    sitemapPagesTitle: "主要ページ",
+    sitemapPagesIntro: "トップ、タイムライン、トピック、公開ポリシー関連ページをまとめて確認できます。",
+    sitemapTopicsTitle: "トピックハブ",
+    sitemapTopicsIntro: "主要カテゴリごとに、同じテーマの公開レポートを連続して追えます。",
+    sitemapArticlesTitle: "公開レポートの月別リンク一覧",
+    sitemapArticlesIntro: "全公開レポートを月別アンカー付きのコンパクトなリンク一覧で掲載しています。詳しい編集年表はタイムラインで確認できます。",
+    sitemapOpenPage: "ページを開く",
+    sitemapBrowseTimeline: "タイムラインを見る",
+    timelineTitle: "タイムライン",
+    timelineIntro: "公開済みレポートを月ごとの編集年表として整理し、更新密度とテーマ推移を詳しく追えるページです。",
+    timelineSummaryTitle: "公開の流れ",
+    timelineSummaryIntro: "各月の公開本数と主なテーマを、記事の導線と合わせて追える編集タイムラインです。",
+    timelineBrowseSitemap: "サイトマップを見る",
+    timelineStatArticles: "公開レポート",
+    timelineStatMonths: "公開月",
+    timelineStatTopics: "テーマ数",
+    timelineStatLatest: "最新更新",
+    timelineMonthCount: "公開本数",
+    timelineMonthThemes: "主なテーマ",
+    discoverySitePageLabel: "サイトページ",
+    sitemapMonthAnchorsTitle: "月別アンカー",
+    sitemapMonthAnchorsIntro: "公開月から目的の一覧へすぐに移動できます。",
+    sitemapCompactMonthTitle: "月別リンク",
+    sitemapCompactMonthCount: "記事",
+    sitemapCompactBrowseTimeline: "詳細な年表はタイムラインへ"
   },
   en: {
     homeTitle: "Home",
@@ -121,7 +150,34 @@ const localeCopy = {
     topicsHubListTitle: "Published briefings in this topic",
     topicsHubListIntro: "Published briefings in the same category, listed in reverse chronological order.",
     topicsBacklinkTitle: "Back to topic",
-    topicsBacklinkIntro: "Return to the topic hub to continue with other published briefings in the same category."
+    topicsBacklinkIntro: "Return to the topic hub to continue with other published briefings in the same category.",
+    sitemapTitle: "Sitemap",
+    sitemapIntro: "An index page tying together the main site pages, topic hubs, and every published briefing.",
+    sitemapPagesTitle: "Main pages",
+    sitemapPagesIntro: "Browse the home, Timeline, Topics, and the public policy pages from one place.",
+    sitemapTopicsTitle: "Topic hubs",
+    sitemapTopicsIntro: "Follow the published briefings as continuous topic streams by category.",
+    sitemapArticlesTitle: "Full article index",
+    sitemapArticlesIntro: "Every published briefing, organized by year and month with title, teaser, topic, and date kept visible.",
+    sitemapOpenPage: "Open page",
+    sitemapBrowseTimeline: "View timeline",
+    timelineTitle: "Timeline",
+    timelineIntro: "A discovery page that arranges published briefings month by month so readers can follow density and topic shifts.",
+    timelineSummaryTitle: "Publishing flow",
+    timelineSummaryIntro: "An editorial timeline combining each month's output and main themes with direct links into the briefings.",
+    timelineBrowseSitemap: "View sitemap",
+    timelineStatArticles: "Briefings",
+    timelineStatMonths: "Active months",
+    timelineStatTopics: "Topics",
+    timelineStatLatest: "Latest update",
+    timelineMonthCount: "Briefings",
+    timelineMonthThemes: "Main topics",
+    discoverySitePageLabel: "Site page",
+    sitemapMonthAnchorsTitle: "Month anchors",
+    sitemapMonthAnchorsIntro: "Jump straight to the month you want to browse.",
+    sitemapCompactMonthTitle: "Monthly links",
+    sitemapCompactMonthCount: "Briefings",
+    sitemapCompactBrowseTimeline: "Use the timeline for the full editorial chronology"
   }
 };
 
@@ -627,6 +683,422 @@ function renderTopicsOverview(locale, topicHubs) {
   </section>`;
 }
 
+function buildTopicHubMap(topicHubs) {
+  return new Map(topicHubs.map((hub) => [hub.category, hub]));
+}
+
+function formatMonthLabel(monthKey, locale) {
+  const date = new Date(`${monthKey}-01T00:00:00Z`);
+  return new Intl.DateTimeFormat(locale === "ja" ? "ja-JP" : "en-US", {
+    year: "numeric",
+    month: "long",
+    timeZone: "UTC"
+  }).format(date);
+}
+
+function joinInlineList(items, locale) {
+  if (items.length <= 1) {
+    return items[0] ?? "";
+  }
+
+  if (locale === "ja") {
+    return items.length === 2 ? `${items[0]} と ${items[1]}` : `${items.slice(0, -1).join("、")}、${items.at(-1)}`;
+  }
+
+  return items.length === 2 ? `${items[0]} and ${items[1]}` : `${items.slice(0, -1).join(", ")}, and ${items.at(-1)}`;
+}
+
+function groupArticlesByMonth(articles) {
+  const monthMap = new Map();
+
+  for (const article of articles) {
+    const monthKey = article.date.slice(0, 7);
+    const group = monthMap.get(monthKey) ?? {
+      monthKey,
+      year: article.date.slice(0, 4),
+      articles: [],
+      categoryCounts: new Map(),
+      tagCounts: new Map()
+    };
+
+    group.articles.push(article);
+    group.categoryCounts.set(article.category, (group.categoryCounts.get(article.category) ?? 0) + 1);
+
+    for (const tag of article.tags) {
+      group.tagCounts.set(tag, (group.tagCounts.get(tag) ?? 0) + 1);
+    }
+
+    monthMap.set(monthKey, group);
+  }
+
+  return [...monthMap.values()]
+    .sort((left, right) => right.monthKey.localeCompare(left.monthKey))
+    .map((group) => ({
+      ...group,
+      articleCount: group.articles.length,
+      categories: [...group.categoryCounts.entries()]
+        .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+        .map(([category, count]) => ({ category, count })),
+      tags: [...group.tagCounts.entries()]
+        .sort((left, right) => right[1] - left[1] || left[0].localeCompare(right[0]))
+        .map(([tag]) => tag)
+        .slice(0, 4)
+    }));
+}
+
+function groupMonthsByYear(monthGroups) {
+  const yearMap = new Map();
+
+  for (const group of monthGroups) {
+    const months = yearMap.get(group.year) ?? [];
+    months.push(group);
+    yearMap.set(group.year, months);
+  }
+
+  return [...yearMap.entries()]
+    .sort((left, right) => right[0].localeCompare(left[0]))
+    .map(([year, months]) => ({ year, months }));
+}
+
+function summarizeMonthGroup(group, locale) {
+  const leadingCategories = group.categories.slice(0, 2).map(({ category }) => category);
+  const leadingTags = group.tags.slice(0, 3);
+
+  if (locale === "ja") {
+    const categorySentence = leadingCategories.length ? `主なテーマは ${joinInlineList(leadingCategories, locale)}。` : "";
+    const tagSentence = leadingTags.length ? `目立つタグは ${joinInlineList(leadingTags, locale)}。` : "";
+    return `この月は ${group.articleCount} 本公開しました。${categorySentence}${tagSentence}`.trim();
+  }
+
+  const categorySentence = leadingCategories.length ? `The month centered on ${joinInlineList(leadingCategories, locale)}.` : "";
+  const tagSentence = leadingTags.length ? `Notable tags: ${joinInlineList(leadingTags, locale)}.` : "";
+  return `${group.articleCount} published briefings. ${categorySentence} ${tagSentence}`.trim();
+}
+
+function renderDiscoveryLinkCard(entry, locale) {
+  const updatedAt = entry.updatedAt ? formatDisplayDate(entry.updatedAt, locale) : "";
+
+  return `<article class="article-card discovery-link-card">
+    <div class="article-card-main">
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">${escapeHtml(entry.kindLabel)}</span>
+        ${updatedAt ? `<span class="mono-note">${escapeHtml(updatedAt)}</span>` : ""}
+      </div>
+      <h3 class="article-card-title">${escapeHtml(entry.title)}</h3>
+      <p class="article-card-copy discovery-link-copy">${escapeHtml(entry.description)}</p>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">${escapeHtml(entry.href.replace(siteConfig.basePath || "", ""))}</span>
+      <a class="text-link" href="${entry.href}">${escapeHtml(entry.ctaLabel)}</a>
+    </div>
+  </article>`;
+}
+
+function renderDiscoveryArticleRow(article, locale, topicHubMap) {
+  const copy = localeCopy[locale];
+  const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
+  const title = locale === "ja" ? article.titleJa : article.titleEn;
+  const href = localizedArticleHref(article, locale);
+  const topicHub = topicHubMap.get(article.category);
+  const topicHref = topicHub ? topicHubHref(locale, topicHub) : "";
+
+  return `<article class="discovery-entry">
+    <div class="meta-row justify-between">
+      ${renderTopicPill(locale, article.category, topicHref)}
+      <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+    </div>
+    <h3 class="discovery-entry-title">
+      <a class="discovery-entry-link" href="${href}">${escapeHtml(title)}</a>
+    </h3>
+    <p class="discovery-entry-copy">${escapeHtml(seo.teaser)}</p>
+    <div class="discovery-entry-foot">
+      <span class="mono-note">${escapeHtml(copy.sourceCount)}: ${article.publishedSources.length}</span>
+      <a class="text-link" href="${href}">${escapeHtml(copy.readReport)}</a>
+    </div>
+  </article>`;
+}
+
+function renderSitemapArticleLink(article, locale, topicHubMap) {
+  const title = locale === "ja" ? article.titleJa : article.titleEn;
+  const href = localizedArticleHref(article, locale);
+  const topicLabel = topicHubMap.has(article.category)
+    ? `<span class="meta-pill is-accent">${escapeHtml(article.category)}</span>`
+    : "";
+
+  return `<li class="sitemap-article-link-item">
+    <a class="sitemap-article-link" href="${href}">
+      <span class="sitemap-article-link-title">${escapeHtml(title)}</span>
+      <span class="sitemap-article-link-meta">
+        <time datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+        ${topicLabel ? `<span aria-hidden="true">•</span>${topicLabel}` : ""}
+      </span>
+    </a>
+  </li>`;
+}
+
+function renderChronologySections(locale, monthGroups, topicHubMap) {
+  const copy = localeCopy[locale];
+
+  if (!monthGroups.length) {
+    return `<section class="panel-block">
+      <div class="empty-state">${escapeHtml(copy.emptyState)}</div>
+    </section>`;
+  }
+
+  return groupMonthsByYear(monthGroups)
+    .map(({ year, months }) => {
+      const articleCount = months.reduce((sum, month) => sum + month.articleCount, 0);
+
+      return `<section class="panel-block chronology-group">
+        <div class="listing-panel-head">
+          <div>
+            <p class="section-kicker">${escapeHtml(year)}</p>
+            <h2 class="panel-title">${escapeHtml(year)}</h2>
+            <p class="panel-copy">${escapeHtml(
+              locale === "ja"
+                ? `${months.length} か月分・${articleCount} 本の公開をまとめています。`
+                : `Grouping ${months.length} publishing months and ${articleCount} briefings in this year.`
+            )}</p>
+          </div>
+          <div class="listing-page-meta">
+            <p class="search-count">${articleCount} ${escapeHtml(copy.timelineStatArticles)}</p>
+            <p class="search-hint">${months.length} ${escapeHtml(copy.timelineStatMonths)}</p>
+          </div>
+        </div>
+        <div class="timeline chronology-timeline">
+          ${months
+            .map((group) => {
+              const leadingCategories = group.categories.slice(0, 2).map(({ category }) => category);
+
+              return `<div class="timeline-item chronology-item">
+                <div class="timeline-year">${escapeHtml(formatMonthLabel(group.monthKey, locale))}</div>
+                <div>
+                  <h3>${escapeHtml(
+                    locale === "ja" ? `${group.articleCount} 本の公開` : `${group.articleCount} published briefings`
+                  )}</h3>
+                  <p>${escapeHtml(summarizeMonthGroup(group, locale))}</p>
+                  <div class="chronology-meta">
+                    <span class="mono-note">${escapeHtml(copy.timelineMonthCount)}: ${group.articleCount}</span>
+                    ${
+                      leadingCategories.length
+                        ? `<span class="mono-note">${escapeHtml(copy.timelineMonthThemes)}: ${escapeHtml(
+                            joinInlineList(leadingCategories, locale)
+                          )}</span>`
+                        : ""
+                    }
+                  </div>
+                  <div class="chronology-entry-list">
+                    ${group.articles.map((article) => renderDiscoveryArticleRow(article, locale, topicHubMap)).join("")}
+                  </div>
+                </div>
+              </div>`;
+            })
+            .join("")}
+        </div>
+      </section>`;
+    })
+    .join("");
+}
+
+function renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHref = "") {
+  const copy = localeCopy[locale];
+  const latestArticle = articles[0] ?? null;
+  const latestValue = latestArticle ? formatMonthLabel(latestArticle.date.slice(0, 7), locale) : "—";
+  const stats = [
+    {
+      value: String(articles.length),
+      title: copy.timelineStatArticles,
+      note:
+        locale === "ja"
+          ? "公開中の全レポート件数です。"
+          : "The total number of live briefings currently on the site."
+    },
+    {
+      value: String(monthGroups.length),
+      title: copy.timelineStatMonths,
+      note:
+        locale === "ja"
+          ? "公開がある月だけを数えています。"
+          : "Counting only months with published briefings."
+    },
+    {
+      value: String(topicHubs.length),
+      title: copy.timelineStatTopics,
+      note:
+        locale === "ja"
+          ? "トピックハブとして追える主要テーマ数です。"
+          : "The number of major themes available as topic hubs."
+    },
+    {
+      value: latestValue,
+      title: copy.timelineStatLatest,
+      note:
+        latestArticle
+          ? locale === "ja"
+            ? `${latestArticle.titleJa} を含む最新公開月です。`
+            : `The latest published month, including ${latestArticle.titleEn}.`
+          : locale === "ja"
+            ? "まだ公開レポートはありません。"
+            : "No published briefings yet."
+    }
+  ];
+
+  return `<section class="panel-block">
+    <div class="listing-panel-head">
+      <div>
+        <p class="section-kicker">${escapeHtml(copy.timelineTitle)}</p>
+        <h2 class="panel-title">${escapeHtml(copy.timelineSummaryTitle)}</h2>
+        <p class="panel-copy">${escapeHtml(copy.timelineSummaryIntro)}</p>
+      </div>
+      ${sitemapHref
+        ? `<div class="listing-page-meta">
+        <a class="text-link" href="${sitemapHref}">${escapeHtml(copy.timelineBrowseSitemap)}</a>
+      </div>`
+        : ""}
+    </div>
+    <div class="infographic-grid discovery-stat-grid">
+      ${stats
+        .map(
+          (stat) => `<article class="stat-card">
+            <p class="stat-value">${escapeHtml(stat.value)}</p>
+            <h3 class="stat-title">${escapeHtml(stat.title)}</h3>
+            <p class="stat-note">${escapeHtml(stat.note)}</p>
+          </article>`
+        )
+        .join("")}
+    </div>
+  </section>`;
+}
+
+function monthAnchorId(monthKey) {
+  return `month-${monthKey}`;
+}
+
+function renderSitemapMonthAnchors(locale, monthGroups) {
+  const copy = localeCopy[locale];
+
+  if (!monthGroups.length) {
+    return "";
+  }
+
+  return `<section class="panel-block sitemap-month-anchor-panel">
+    <div>
+      <p class="section-kicker">${escapeHtml(copy.sitemapTitle)}</p>
+      <h2 class="panel-title">${escapeHtml(copy.sitemapMonthAnchorsTitle)}</h2>
+      <p class="panel-copy">${escapeHtml(copy.sitemapMonthAnchorsIntro)}</p>
+    </div>
+    <nav class="sitemap-month-jump" aria-label="${escapeHtml(copy.sitemapMonthAnchorsTitle)}">
+      ${monthGroups
+        .map(
+          (group) =>
+            `<a class="sitemap-month-chip" href="#${monthAnchorId(group.monthKey)}">${escapeHtml(
+              formatMonthLabel(group.monthKey, locale)
+            )}</a>`
+        )
+        .join("")}
+    </nav>
+  </section>`;
+}
+
+function renderSitemapArticleDirectory(locale, monthGroups, topicHubMap, timelineHref) {
+  const copy = localeCopy[locale];
+
+  if (!monthGroups.length) {
+    return `<section class="panel-block">
+      <div class="empty-state">${escapeHtml(copy.emptyState)}</div>
+    </section>`;
+  }
+
+  return groupMonthsByYear(monthGroups)
+    .map(({ year, months }) => {
+      const articleCount = months.reduce((sum, month) => sum + month.articleCount, 0);
+
+      return `<section class="panel-block sitemap-directory-group">
+        <div class="listing-panel-head">
+          <div>
+            <p class="section-kicker">${escapeHtml(year)}</p>
+            <h2 class="panel-title">${escapeHtml(year)}</h2>
+            <p class="panel-copy">${escapeHtml(
+              locale === "ja"
+                ? `${months.length} か月分・${articleCount} 本の公開リンクをまとめています。`
+                : `A compact index of ${articleCount} briefing links across ${months.length} publishing months.`
+            )}</p>
+          </div>
+          <div class="listing-page-meta">
+            <a class="text-link" href="${timelineHref}">${escapeHtml(copy.sitemapCompactBrowseTimeline)}</a>
+          </div>
+        </div>
+        <div class="sitemap-month-grid">
+          ${months
+            .map(
+              (group) => `<section class="sitemap-month-card" id="${monthAnchorId(group.monthKey)}">
+                <div class="sitemap-month-head">
+                  <div>
+                    <p class="section-kicker">${escapeHtml(copy.sitemapCompactMonthTitle)}</p>
+                    <h3 class="sitemap-month-title">${escapeHtml(formatMonthLabel(group.monthKey, locale))}</h3>
+                  </div>
+                  <span class="mono-note">${group.articleCount} ${escapeHtml(copy.sitemapCompactMonthCount)}</span>
+                </div>
+                <ul class="sitemap-article-links">
+                  ${group.articles.map((article) => renderSitemapArticleLink(article, locale, topicHubMap)).join("")}
+                </ul>
+              </section>`
+            )
+            .join("")}
+        </div>
+      </section>`;
+    })
+    .join("");
+}
+
+function buildSitemapPageEntries(locale, trustPages, latestUpdate) {
+  const copy = localeCopy[locale];
+  const normalizedLatestUpdate = latestUpdate?.slice(0, 10) ?? new Date().toISOString().slice(0, 10);
+
+  return [
+    {
+      kindLabel: copy.discoverySitePageLabel,
+      title: siteConfig.seo.homeTitle[locale],
+      description: siteConfig.description[locale],
+      href: localizedPath(locale, ""),
+      ctaLabel: copy.sitemapOpenPage,
+      updatedAt: normalizedLatestUpdate
+    },
+    {
+      kindLabel: copy.discoverySitePageLabel,
+      title: copy.timelineTitle,
+      description: copy.timelineIntro,
+      href: localizedPath(locale, timelineRelativePath(locale).replace(/^en\//, "")),
+      ctaLabel: copy.sitemapBrowseTimeline,
+      updatedAt: normalizedLatestUpdate
+    },
+    {
+      kindLabel: copy.discoverySitePageLabel,
+      title: copy.topicsTitle,
+      description: copy.topicsIntro,
+      href: localizedPath(locale, topicIndexRelativePath(locale).replace(/^en\//, "")),
+      ctaLabel: copy.sitemapOpenPage,
+      updatedAt: normalizedLatestUpdate
+    },
+    {
+      kindLabel: copy.discoverySitePageLabel,
+      title: copy.sitemapTitle,
+      description: copy.sitemapIntro,
+      href: localizedPath(locale, sitemapHtmlRelativePath(locale).replace(/^en\//, "")),
+      ctaLabel: copy.sitemapOpenPage,
+      updatedAt: normalizedLatestUpdate
+    },
+    ...trustPages.map((page) => ({
+      kindLabel: copy.discoverySitePageLabel,
+      title: page.title,
+      description: page.description,
+      href: localizedPath(locale, page.relativePath.replace(/^en\//, "")),
+      ctaLabel: copy.sitemapOpenPage,
+      updatedAt: page.lastModified.slice(0, 10)
+    }))
+  ];
+}
+
 function sharedTagCount(left, right) {
   const rightTags = new Set(right.tags);
   return left.tags.reduce((count, tag) => count + (rightTags.has(tag) ? 1 : 0), 0);
@@ -952,6 +1424,100 @@ export function renderTopicHubPage(locale, hub) {
   });
 }
 
+export function renderHtmlSitemapPage(locale, articles, { topicHubs = [], trustPages = [], latestUpdate } = {}) {
+  const copy = localeCopy[locale];
+  const monthGroups = groupArticlesByMonth(articles);
+  const topicHubMap = buildTopicHubMap(topicHubs);
+  const pageEntries = buildSitemapPageEntries(locale, trustPages, latestUpdate);
+  const timelineHref = localizedPath(locale, timelineRelativePath(locale).replace(/^en\//, ""));
+  const body = `<section class="panel-block">
+    <div class="listing-panel-head">
+      <div>
+        <p class="section-kicker">${escapeHtml(copy.sitemapTitle)}</p>
+        <h2 class="panel-title">${escapeHtml(copy.sitemapPagesTitle)}</h2>
+        <p class="panel-copy">${escapeHtml(copy.sitemapPagesIntro)}</p>
+      </div>
+      <div class="listing-page-meta">
+        <a class="text-link" href="${timelineHref}">${escapeHtml(copy.sitemapBrowseTimeline)}</a>
+      </div>
+    </div>
+    <div class="mt-8 grid gap-5 xl:grid-cols-2">
+      ${pageEntries.map((entry) => renderDiscoveryLinkCard(entry, locale)).join("")}
+    </div>
+  </section>
+  ${
+    topicHubs.length
+      ? `<section class="panel-block">
+    <div>
+      <p class="section-kicker">${escapeHtml(copy.topicsKicker)}</p>
+      <h2 class="panel-title">${escapeHtml(copy.sitemapTopicsTitle)}</h2>
+      <p class="panel-copy">${escapeHtml(copy.sitemapTopicsIntro)}</p>
+    </div>
+    <div class="mt-8 grid gap-5 xl:grid-cols-2">
+      ${topicHubs.map((hub) => renderTopicCard(hub, locale)).join("")}
+    </div>
+  </section>`
+      : ""
+  }
+  <section class="panel-block">
+    <div class="listing-panel-head">
+      <div>
+        <p class="section-kicker">${escapeHtml(copy.listingTitle)}</p>
+        <h2 class="panel-title">${escapeHtml(copy.sitemapArticlesTitle)}</h2>
+        <p class="panel-copy">${escapeHtml(copy.sitemapArticlesIntro)}</p>
+      </div>
+      <div class="listing-page-meta">
+        <a class="text-link" href="${timelineHref}">${escapeHtml(copy.sitemapBrowseTimeline)}</a>
+      </div>
+    </div>
+  </section>
+  ${renderSitemapMonthAnchors(locale, monthGroups)}
+  ${renderSitemapArticleDirectory(locale, monthGroups, topicHubMap, timelineHref)}`;
+
+  return renderPage({
+    locale,
+    relativePath: sitemapHtmlRelativePath(locale),
+    title: copy.sitemapTitle,
+    description: copy.sitemapIntro,
+    pageHeading: copy.sitemapTitle,
+    pageIntro: copy.sitemapIntro,
+    body,
+    currentNavPath: sitemapHtmlRelativePath(locale),
+    breadcrumbs: [
+      { name: copy.homeTitle, path: copy.homePath },
+      { name: copy.sitemapTitle, path: sitemapHtmlRelativePath(locale) }
+    ],
+    pageType: "page",
+    schemaType: "CollectionPage"
+  });
+}
+
+export function renderTimelinePage(locale, articles, topicHubs = []) {
+  const copy = localeCopy[locale];
+  const monthGroups = groupArticlesByMonth(articles);
+  const topicHubMap = buildTopicHubMap(topicHubs);
+  const sitemapHref = localizedPath(locale, sitemapHtmlRelativePath(locale).replace(/^en\//, ""));
+  const body = `${renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHref)}
+  ${renderChronologySections(locale, monthGroups, topicHubMap)}`;
+
+  return renderPage({
+    locale,
+    relativePath: timelineRelativePath(locale),
+    title: copy.timelineTitle,
+    description: copy.timelineIntro,
+    pageHeading: copy.timelineTitle,
+    pageIntro: copy.timelineIntro,
+    body,
+    currentNavPath: locale === "ja" ? "timeline/" : "en/timeline/",
+    breadcrumbs: [
+      { name: copy.homeTitle, path: copy.homePath },
+      { name: copy.timelineTitle, path: timelineRelativePath(locale) }
+    ],
+    pageType: "page",
+    schemaType: "CollectionPage"
+  });
+}
+
 function renderShareIconX() {
   return `<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
@@ -1046,7 +1612,7 @@ function renderSources(article, locale) {
               <p class="source-title">${escapeHtml(source.label)}</p>
               <p class="source-url">${escapeHtml(source.url)}</p>
             </div>
-            <span class="source-action">Open</span>
+            <span class="source-action">${escapeHtml(copy.openExternal)}</span>
           </a>`;
         })
         .join("")}
