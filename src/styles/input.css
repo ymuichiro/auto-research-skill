@@ -960,6 +960,86 @@
     padding: 0 1.1rem;
   }
 
+  .discovery-stat-grid {
+    margin-top: 2rem;
+  }
+
+  .discovery-link-card .article-card-copy {
+    -webkit-line-clamp: 4;
+  }
+
+  .discovery-link-card .article-card-foot .mono-note {
+    max-width: 70%;
+    overflow-wrap: anywhere;
+  }
+
+  .chronology-group {
+    overflow: hidden;
+  }
+
+  .chronology-timeline {
+    margin-top: 1.5rem;
+  }
+
+  .chronology-item:first-child {
+    border-top: 0;
+    padding-top: 0.25rem;
+  }
+
+  .chronology-meta {
+    @apply mt-4 flex flex-wrap gap-3;
+  }
+
+  .chronology-entry-list {
+    @apply mt-6 grid gap-4;
+  }
+
+  .discovery-entry {
+    border: 1px solid var(--ard-border);
+    border-radius: 1rem;
+    background: rgba(16, 19, 27, 0.92);
+    padding: 1.15rem;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
+  }
+
+  .discovery-entry:hover {
+    background: rgba(24, 28, 40, 0.98);
+    border-color: rgba(74, 240, 212, 0.22);
+    transform: translateY(-1px);
+  }
+
+  .discovery-entry-title {
+    color: var(--ard-text-strong);
+    font-size: 1.05rem;
+    font-weight: 500;
+    line-height: 1.45;
+    margin-top: 0.9rem;
+  }
+
+  .discovery-entry-link {
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  .discovery-entry-link:hover,
+  .discovery-entry-link:focus-visible {
+    color: var(--ard-signal);
+    outline: none;
+  }
+
+  .discovery-entry-copy {
+    color: var(--ard-text);
+    font-size: 0.84rem;
+    line-height: 1.9;
+    margin-top: 0.8rem;
+    overflow-wrap: anywhere;
+  }
+
+  .discovery-entry-foot {
+    @apply mt-5 flex flex-wrap items-center justify-between gap-3 border-t pt-4;
+    border-color: var(--ard-border);
+  }
+
   .empty-state {
     border: 1px dashed var(--ard-border-strong);
     border-radius: 1rem;

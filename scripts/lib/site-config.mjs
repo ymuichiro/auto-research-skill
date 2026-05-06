@@ -65,16 +65,19 @@ export const siteConfig = {
   nav: {
     ja: [
       { label: "トップ", path: "" },
-      { label: "Topics", path: "topics/" }
+      { label: "Topics", path: "topics/" },
+      { label: "Timeline", path: "timeline/" }
     ],
     en: [
       { label: "Home", path: "en/" },
-      { label: "Topics", path: "en/topics/" }
+      { label: "Topics", path: "en/topics/" },
+      { label: "Timeline", path: "en/timeline/" }
     ]
   },
   footerNav: {
     ja: [
       { label: "Topics", path: "topics/" },
+      { label: "Sitemap", path: "sitemap.html" },
       { label: "About", path: trustPagePaths.about },
       { label: "調査・編集方針", path: trustPagePaths.editorialPolicy },
       { label: "Contact", path: trustPagePaths.contact },
@@ -85,6 +88,7 @@ export const siteConfig = {
     ],
     en: [
       { label: "Topics", path: "topics/" },
+      { label: "Sitemap", path: "sitemap.html" },
       { label: "About", path: trustPagePaths.about },
       { label: "Editorial Policy", path: trustPagePaths.editorialPolicy },
       { label: "Contact", path: trustPagePaths.contact },
@@ -120,6 +124,14 @@ export function topicIndexRelativePath(locale) {
 
 export function topicHubRelativePath(locale, slug) {
   return locale === "ja" ? `topics/${slug}/` : `en/topics/${slug}/`;
+}
+
+export function timelineRelativePath(locale) {
+  return locale === "ja" ? "timeline/" : "en/timeline/";
+}
+
+export function sitemapHtmlRelativePath(locale) {
+  return locale === "ja" ? "sitemap.html" : "en/sitemap.html";
 }
 
 export function absoluteUrl(relativePath = "") {
