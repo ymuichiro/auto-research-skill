@@ -12,6 +12,7 @@ import {
 } from "./lib/site-config.mjs";
 import { snippetLengthLimit, snippetTextLength } from "./lib/seo-snippets.mjs";
 import { buildTopicHubs } from "./lib/topic-hubs.mjs";
+import { renderIndexPage } from "./lib/render.mjs";
 import { escapeHtml } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
@@ -94,6 +95,69 @@ function collectSnippetErrors(articles) {
   }
 
   return errors;
+}
+
+function validateSingleArticleHomepageRender() {
+  const singleArticle = {
+    category: "AI Agents",
+    date: "2026-05-01",
+    outputPaths: {
+      ja: "articles/single-homepage-boundary/index.html",
+      en: "en/articles/single-homepage-boundary/index.html"
+    },
+    publishedSources: [
+      {
+        label: "Example source",
+        description: "Synthetic validation source",
+        url: "https://example.com/source"
+      }
+    ],
+    seo: {
+      ja: {
+        teaser: "単一記事ホームの境界ケースを検証するための合成ティーザーです。"
+      },
+      en: {
+        teaser: "A synthetic teaser for validating the single-article homepage boundary."
+      }
+    },
+    tags: ["validation", "homepage"],
+    titleJa: "単一記事ホームの検証",
+    titleEn: "Single-article homepage validation"
+  };
+  const pagination = { currentPage: 1, totalPages: 1, totalArticles: 1, topicHubs: [] };
+  const jaMarkup = renderIndexPage("ja", [singleArticle], pagination);
+  const enMarkup = renderIndexPage("en", [singleArticle], pagination);
+
+  assertContains(
+    jaMarkup,
+    'class="panel-block editorial-briefing home-featured-briefing"',
+    "Japanese single-article homepage should still render the featured briefing."
+  );
+  assertContains(
+    enMarkup,
+    'class="panel-block editorial-briefing home-featured-briefing"',
+    "English single-article homepage should still render the featured briefing."
+  );
+  assertNotContains(
+    jaMarkup,
+    "公開済みレポートはまだありません。",
+    "Japanese single-article homepage should not render a false empty-state message."
+  );
+  assertNotContains(
+    enMarkup,
+    "No published briefings yet.",
+    "English single-article homepage should not render a false empty-state message."
+  );
+  assertNotContains(
+    jaMarkup,
+    "表示範囲: 0-0 / 1",
+    "Japanese single-article homepage should not render a 0-0 listing range."
+  );
+  assertNotContains(
+    enMarkup,
+    "Showing 0-0 of 1",
+    "English single-article homepage should not render a 0-0 listing range."
+  );
 }
 
 async function validateBuiltOutput(articles) {
@@ -526,6 +590,8 @@ async function validate() {
   if (errors.length > 0 || snippetErrors.length > 0) {
     throw new Error(`Content validation failed:\n- ${errors.concat(snippetErrors).join("\n- ")}`);
   }
+
+  validateSingleArticleHomepageRender();
 
   if (await fileExists(outputRoot)) {
     await validateBuiltOutput(publishedArticles(articles));

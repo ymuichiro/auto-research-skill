@@ -798,6 +798,7 @@ export function renderIndexPage(locale, articles, pagination = {}) {
   const rangeStart = listingArticles.length > 0 ? listingOffset + 1 : 0;
   const rangeEnd = listingArticles.length > 0 ? listingOffset + listingArticles.length : 0;
   const cards = listingArticles.map((article) => renderArticleCard(article, locale)).join("");
+  const showListingSection = !featuredArticle || listingArticles.length > 0;
   const body = `${featuredArticle
     ? renderEditorialBriefing(featuredArticle, locale, {
         kicker: copy.featuredBriefingKicker,
@@ -810,7 +811,8 @@ export function renderIndexPage(locale, articles, pagination = {}) {
           ? { href: topicHubHref(locale, featuredTopicHub), label: copy.topicsOpenHub }
           : null
       })
-    : ""}${currentPage <= 1 ? renderTopicsOverview(locale, topicHubs) : ""}<section class="panel-block">
+    : ""}${currentPage <= 1 ? renderTopicsOverview(locale, topicHubs) : ""}${showListingSection
+    ? `<section class="panel-block">
     <div class="listing-panel-head">
       <div>
         <p class="section-kicker">${escapeHtml(copy.listingTitle)}</p>
@@ -824,7 +826,8 @@ export function renderIndexPage(locale, articles, pagination = {}) {
     </div>
     <div class="mt-8 grid gap-5">${cards || `<div class="empty-state">${escapeHtml(copy.emptyState)}</div>`}</div>
     ${renderPagination(locale, currentPage, totalPages)}
-  </section>`;
+  </section>`
+    : ""}`;
 
   return renderPage({
     locale,
