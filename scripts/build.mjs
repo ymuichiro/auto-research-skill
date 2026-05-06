@@ -12,9 +12,14 @@ import {
   renderRobots,
   renderSitemap,
   renderSitemapIndex,
+  renderTopicHubPage,
+  renderTopicsIndexPage,
+  renderTrustPage,
   renderWebManifest
 } from "./lib/render.mjs";
-import { listingRelativePath, siteConfig } from "./lib/site-config.mjs";
+import { listingRelativePath, siteConfig, topicHubRelativePath, topicIndexRelativePath } from "./lib/site-config.mjs";
+import { buildTopicHubs } from "./lib/topic-hubs.mjs";
+import { trustPagesForLocale } from "./lib/trust-pages.mjs";
 import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
@@ -97,6 +102,8 @@ async function buildSite() {
   }
 
   const liveArticles = publishedArticles(articles);
+  const topicHubs = buildTopicHubs(liveArticles);
+  const trustPages = siteConfig.locales.flatMap((locale) => trustPagesForLocale(locale));
   const listingPages = paginateArticles(liveArticles, siteConfig.pagination.articleListPageSize);
   const listingPagination = {
     totalArticles: liveArticles.length,
@@ -108,6 +115,11 @@ async function buildSite() {
   await writeTextFile(path.join(outputRoot, "404.html"), renderNotFoundPage("ja", liveArticles));
   await writeTextFile(path.join(outputRoot, "en", "404.html"), renderNotFoundPage("en", liveArticles));
 
+  for (const page of trustPages) {
+    const locale = page.relativePath.startsWith("en/") ? "en" : "ja";
+    await writeTextFile(path.join(outputRoot, page.relativePath), renderTrustPage(page, locale));
+  }
+
   for (const locale of siteConfig.locales) {
     for (const page of listingPages) {
       await writeTextFile(
@@ -115,8 +127,20 @@ async function buildSite() {
         renderIndexPage(locale, page.articles, {
           ...listingPagination,
           currentPage: page.currentPage,
-          startIndex: page.startIndex
+          startIndex: page.startIndex,
+          topicHubs
         })
+      );
+    }
+  }
+
+  for (const locale of siteConfig.locales) {
+    await writeTextFile(path.join(outputRoot, topicIndexRelativePath(locale), "index.html"), renderTopicsIndexPage(locale, topicHubs));
+
+    for (const hub of topicHubs) {
+      await writeTextFile(
+        path.join(outputRoot, topicHubRelativePath(locale, hub.slug), "index.html"),
+        renderTopicHubPage(locale, hub)
       );
     }
   }
@@ -127,9 +151,9 @@ async function buildSite() {
   }
 
   const latestUpdate =
-    liveArticles
-      .map((article) => article.lastModified)
-      .sort((left, right) => right.localeCompare(left))[0] ?? new Date().toISOString();
+    [...liveArticles.map((article) => article.lastModified), ...trustPages.map((page) => page.lastModified)].sort((left, right) =>
+      right.localeCompare(left)
+    )[0] ?? new Date().toISOString();
 
   const pageSitemapEntries = [
     {
@@ -167,6 +191,70 @@ async function buildSite() {
       alternates: [
         { hreflang: "ja", path: listingRelativePath("ja", page.currentPage) },
         { hreflang: "en", path: listingRelativePath("en", page.currentPage) }
+      ]
+    });
+  }
+
+  for (const pageId of new Set(trustPages.map((page) => page.id))) {
+    const jaPage = trustPages.find((page) => page.id === pageId && !page.relativePath.startsWith("en/"));
+    const enPage = trustPages.find((page) => page.id === pageId && page.relativePath.startsWith("en/"));
+
+    pageSitemapEntries.push({
+      path: jaPage.relativePath,
+      lastModified: jaPage.lastModified,
+      alternates: [
+        { hreflang: "ja", path: jaPage.relativePath },
+        { hreflang: "en", path: enPage.relativePath },
+        { hreflang: "x-default", path: jaPage.relativePath }
+      ]
+    });
+    pageSitemapEntries.push({
+      path: enPage.relativePath,
+      lastModified: enPage.lastModified,
+      alternates: [
+        { hreflang: "ja", path: jaPage.relativePath },
+        { hreflang: "en", path: enPage.relativePath },
+        { hreflang: "x-default", path: jaPage.relativePath }
+      ]
+    });
+  }
+
+  pageSitemapEntries.push({
+    path: topicIndexRelativePath("ja"),
+    lastModified: latestUpdate,
+    alternates: [
+      { hreflang: "ja", path: topicIndexRelativePath("ja") },
+      { hreflang: "en", path: topicIndexRelativePath("en") },
+      { hreflang: "x-default", path: topicIndexRelativePath("ja") }
+    ]
+  });
+  pageSitemapEntries.push({
+    path: topicIndexRelativePath("en"),
+    lastModified: latestUpdate,
+    alternates: [
+      { hreflang: "ja", path: topicIndexRelativePath("ja") },
+      { hreflang: "en", path: topicIndexRelativePath("en") },
+      { hreflang: "x-default", path: topicIndexRelativePath("ja") }
+    ]
+  });
+
+  for (const hub of topicHubs) {
+    pageSitemapEntries.push({
+      path: topicHubRelativePath("ja", hub.slug),
+      lastModified: hub.latestModified,
+      alternates: [
+        { hreflang: "ja", path: topicHubRelativePath("ja", hub.slug) },
+        { hreflang: "en", path: topicHubRelativePath("en", hub.slug) },
+        { hreflang: "x-default", path: topicHubRelativePath("ja", hub.slug) }
+      ]
+    });
+    pageSitemapEntries.push({
+      path: topicHubRelativePath("en", hub.slug),
+      lastModified: hub.latestModified,
+      alternates: [
+        { hreflang: "ja", path: topicHubRelativePath("ja", hub.slug) },
+        { hreflang: "en", path: topicHubRelativePath("en", hub.slug) },
+        { hreflang: "x-default", path: topicHubRelativePath("ja", hub.slug) }
       ]
     });
   }

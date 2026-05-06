@@ -382,6 +382,22 @@
     color: var(--ard-signal);
   }
 
+  .topic-card {
+    min-height: 100%;
+  }
+
+  .topic-card .article-card-copy {
+    -webkit-line-clamp: 3;
+  }
+
+  .topic-card-stats {
+    @apply mt-5 flex flex-wrap gap-3;
+  }
+
+  .topic-card-foot {
+    @apply flex flex-col items-start gap-3 md:flex-row md:items-center md:justify-between;
+  }
+
   .section-tail-link {
     @apply mt-8 flex justify-center border-t pt-5;
     border-color: var(--ard-border);
@@ -395,6 +411,19 @@
   .article-share {
     @apply flex flex-wrap items-center justify-end gap-3;
     min-width: 0;
+  }
+
+  .article-topic-link {
+    text-decoration: none;
+    transition: border-color 0.18s ease, color 0.18s ease, background 0.18s ease;
+  }
+
+  .article-topic-link:hover,
+  .article-topic-link:focus-visible {
+    background: rgba(74, 240, 212, 0.08);
+    border-color: rgba(74, 240, 212, 0.42);
+    color: var(--ard-text-strong);
+    outline: none;
   }
 
   .share-button {
@@ -726,6 +755,11 @@
     color: var(--ard-signal);
   }
 
+  .topic-backlink-actions {
+    @apply mt-6 flex flex-wrap items-center gap-3 border-t pt-5;
+    border-color: var(--ard-border);
+  }
+
   .search-hint,
   .search-count {
     color: var(--ard-dim);
@@ -842,12 +876,25 @@
     min-width: 0;
   }
 
+  .footer-meta {
+    display: grid;
+    gap: 0.35rem;
+    min-width: 0;
+  }
+
   .footer-brand {
     color: var(--ard-dim);
+    text-decoration: none;
     font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
     font-size: 0.66rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
+  }
+
+  .footer-brand:hover,
+  .footer-brand:focus-visible {
+    color: var(--ard-text-strong);
+    outline: none;
   }
 
   .footer-copy {
@@ -858,6 +905,29 @@
     line-height: 1.8;
     text-transform: uppercase;
     overflow-wrap: anywhere;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    justify-content: flex-end;
+  }
+
+  .footer-link {
+    color: var(--ard-dim);
+    font-family: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.18s ease;
+  }
+
+  .footer-link:hover,
+  .footer-link:focus-visible {
+    color: var(--ard-signal);
+    outline: none;
   }
 
   img,
@@ -918,6 +988,10 @@
   .pagination-edge {
     min-width: 0;
     width: 100%;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
   }
 }
 

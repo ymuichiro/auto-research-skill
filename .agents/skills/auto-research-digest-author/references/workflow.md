@@ -31,6 +31,14 @@ Each article lives in:
 - `publishedSources`
 - `draft`
 
+Optional metadata for the public generator:
+
+- `seoTitleJa` / `seoTitleEn` for shorter `<title>` and social titles when the editorial title is too long
+- `seoDescriptionJa` / `seoDescriptionEn` for search and social description copy
+- `teaserJa` / `teaserEn` for article cards and listing surfaces
+
+Keep `titleJa` / `titleEn` as the article H1 and `summaryJa` / `summaryEn` as the editorial deck. Use the optional SEO fields only when a shorter public snippet is materially better.
+
 `publishedSources` rules:
 
 - show only official documentation, vendor-published announcement / release / launch / product update pages, or papers

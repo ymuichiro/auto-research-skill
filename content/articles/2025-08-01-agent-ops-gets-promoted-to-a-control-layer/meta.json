@@ -5,6 +5,10 @@
   "titleEn": "AgentOps is becoming a control layer rather than a helper feature",
   "summaryJa": "Foundry・OpenAI・Google の発表を通じて、agent stack の競争は trace、review、observability、tool governance といった control layer へ移っている。",
   "summaryEn": "The spring-to-summer launch pattern across Microsoft, OpenAI, and Google shifts competition in the agent stack toward traces, reviews, observability, and tool governance as control layers.",
+  "seoDescriptionJa": "Foundry、OpenAI、Google の発表をもとに、AgentOps が補助機能ではなく control layer として立ち上がる流れを整理する。",
+  "seoDescriptionEn": "Based on releases from Microsoft, OpenAI, and Google, this article shows how AgentOps is becoming a control layer rather than a helper feature.",
+  "teaserJa": "trace、review、observability、tool governance が control layer になる動きを整理する。",
+  "teaserEn": "Read how traces, reviews, observability, and tool governance are becoming the control layer for agents.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

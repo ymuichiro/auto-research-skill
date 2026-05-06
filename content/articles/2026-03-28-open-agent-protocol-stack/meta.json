@@ -5,6 +5,10 @@
   "titleEn": "MCP, A2A, and AG-UI are separating the connection stack for AI agents",
   "summaryJa": "2026年3月末までの OpenAI、Anthropic、Google、Microsoft、AWS、MCP、A2A、AG-UI の一次情報を並べると、AI エージェントの接続面は 1 つの巨大な製品面ではなく、MCP によるツールとデータ接続、A2A によるエージェント間委任、AG-UI による人間向けの状態表示と承認導線へ分かれ始めていることが見えてくる。今週の変化は、これが概念論ではなく、各社のランタイム、フレームワーク、プラットフォーム docs に実装面として現れ始めた点にある。",
   "summaryEn": "Across primary sources published through late March 2026 by OpenAI, Anthropic, Google, Microsoft, AWS, MCP, A2A, and AG-UI, the connection surface for AI agents is starting to split into three layers rather than one monolithic product surface: MCP for tool and data access, A2A for agent-to-agent delegation, and AG-UI for human-facing state, progress, and approvals. What changed this week is that this is no longer just a protocol discussion. The pattern is now visible in runtime products, frameworks, and platform documentation.",
+  "seoDescriptionJa": "OpenAI、Anthropic、Google、Microsoft、AWS と各プロトコル仕様から、MCP・A2A・AG-UI が接続層を分ける流れを整理する。",
+  "seoDescriptionEn": "Using protocol specifications and vendor docs, this briefing explains how MCP, A2A, and AG-UI are separating tool access, delegation, and human approval layers.",
+  "teaserJa": "ツール接続、エージェント間委任、人間向け承認UIが別レイヤーになり始めた構図を短く読む。",
+  "teaserEn": "A concise map of how agent connectivity is splitting into tool access, agent delegation, and human-facing approval layers.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

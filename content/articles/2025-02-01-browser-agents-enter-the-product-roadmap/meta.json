@@ -5,6 +5,10 @@
   "titleEn": "Browser-oriented agents are moving from research themes into product roadmaps",
   "summaryJa": "Operator、AutoGen v0.4、computer use 系の研究と発表が重なり、ブラウザ操作や durable orchestration は近未来の話ではなく、製品計画の中で扱うテーマになっている。",
   "summaryEn": "Operator, AutoGen v0.4, and computer-use research make browser interaction and durable orchestration look less like speculation and more like product-planning concerns.",
+  "seoDescriptionJa": "Operator、AutoGen v0.4、computer use 系の流れから、ブラウザ操作エージェントが研究テーマから製品ロードマップへ移る背景を整理する。",
+  "seoDescriptionEn": "Using Operator, AutoGen v0.4, and computer-use research as anchors, this article shows why browser agents are entering product roadmaps.",
+  "teaserJa": "Operator や AutoGen v0.4 を起点に、ブラウザ操作と durable orchestration が製品計画へ入る流れを整理する。",
+  "teaserEn": "See how Operator, AutoGen v0.4, and computer-use research push browser agents into real product roadmaps.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

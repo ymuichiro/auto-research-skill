@@ -5,6 +5,10 @@
   "titleEn": "Voice AI agents are shifting from demo features to operational systems",
   "summaryJa": "2026年4月6日時点の OpenAI、Google、Microsoft、AWS の一次情報を重ねると、音声AIエージェントの競争軸は声の自然さだけではなく、speech-to-speech（音声から音声の直結型）と chained（音声認識→推論→音声合成の分割型）の設計選択、セッション管理、割り込み処理、ツール呼び出し、電話接続、人間へのエスカレーション、テスト自動化まで含む運用システムへ広がっていることが見えてくる。特に 2026年2月から3月の Amazon Connect の更新により、音声AI は単なるデモ画面ではなく、評価しながら本番運用する対象として整理しやすくなった。",
   "summaryEn": "Reading the primary-source material available by April 6, 2026 from OpenAI, Google, Microsoft, and AWS shows that voice AI agents are no longer differentiating only on how natural they sound. The real comparison axis now includes the choice between speech-to-speech and chained architectures, session management, interruption handling, tool calling, telephony, human escalation, and testing. The Amazon Connect updates shipped between February and March 2026 make that shift especially concrete: voice AI now looks less like a polished demo surface and more like an operational system that has to be evaluated, monitored, and deployed safely.",
+  "seoDescriptionJa": "OpenAI、Google、Microsoft、AWS の公開資料から、音声AIエージェントがデモ機能から運用システムへ広がる流れを整理する。",
+  "seoDescriptionEn": "From public material by OpenAI, Google, Microsoft, and AWS, this article outlines how voice agents are moving from demo features into operational systems.",
+  "teaserJa": "speech-to-speech と chained 設計、割り込み、電話接続、テスト自動化まで含む比較軸をまとめる。",
+  "teaserEn": "A quick guide to the new voice-agent stack: architecture choice, interruptions, telephony, escalation, and testing.",
   "category": "AI Agents",
   "tags": [
     "Voice AI",

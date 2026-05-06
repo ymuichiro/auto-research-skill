@@ -5,6 +5,10 @@
   "titleEn": "Agent architecture is becoming a more important comparison axis than model novelty",
   "summaryJa": "2025年を通して積み上がった公式発表と研究ベンチマークから、protocol、SDK、runtime、evals、approval を束ねた architecture が agent 導入の主論点になっている。",
   "summaryEn": "The accumulated 2025 launch cycle plus the benchmark literature make it much clearer that protocol, SDK, runtime, evals, and approvals together define the real architecture question in agent adoption.",
+  "seoDescriptionJa": "2025年に積み上がった発表と研究をもとに、agent architecture が model novelty より重要な比較軸になる流れを整理する。",
+  "seoDescriptionEn": "Drawing on the 2025 launch cycle and benchmark research, this article explains why agent architecture matters more than model novelty.",
+  "teaserJa": "protocol、SDK、runtime、evals、approval を束ねた architecture が比較軸になる流れをまとめる。",
+  "teaserEn": "A short read on why protocol, SDK, runtime, evals, and approvals now define the agent architecture question.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

@@ -5,6 +5,10 @@
   "titleEn": "Agent identity is becoming the control plane for authentication and authorization",
   "summaryJa": "Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。",
   "summaryEn": "Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, NVIDIA NeMo Guardrails and the NVIDIA safety recipe, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.",
+  "seoDescriptionJa": "Microsoft、Amazon、Google、Okta/Auth0 などの一次情報から、agent identity が認証認可の統制基盤になる流れを読む。",
+  "seoDescriptionEn": "Across primary sources from Microsoft, Amazon, Google, Okta, and Auth0, this article explains why agent identity is becoming an auth control plane.",
+  "teaserJa": "固有ID、ユーザー委任、プロトコル認証、統制を束ねる agent identity の新しい役割を整理する。",
+  "teaserEn": "A short read on agent identity as the layer that joins native IDs, delegation, protocol trust, and governance.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

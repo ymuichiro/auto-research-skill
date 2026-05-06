@@ -5,6 +5,10 @@
   "titleEn": "The strongest signal across 2025 is the rise of explicit operational boundaries",
   "summaryJa": "2025 年を通して見ると、agent stack の主戦場は model novelty より、control plane、protocol、evaluation、approval を含む operational boundary に移っている。",
   "summaryEn": "Across 2025, the main battleground of the agent stack shifts away from model novelty and toward operational boundaries that include control planes, protocols, evaluation, and approvals.",
+  "seoDescriptionJa": "2025年の主要な発表を通じて、agent stack の論点が model novelty から control plane、protocol、evaluation、approval へ移る流れを整理する。",
+  "seoDescriptionEn": "Reviewing the 2025 signal, this article explains how the agent stack shifted from model novelty toward control planes, protocols, evaluation, and approvals.",
+  "teaserJa": "2025年を通じて、agent stack の主戦場が operational boundary へ移った流れを振り返る。",
+  "teaserEn": "A recap of how 2025 shifted the agent stack toward explicit operational boundaries.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
