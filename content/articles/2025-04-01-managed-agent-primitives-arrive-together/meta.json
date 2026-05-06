@@ -5,6 +5,10 @@
   "titleEn": "Managed agent primitives are arriving across multiple vendors at once",
   "summaryJa": "OpenAI の new tools for building agents と AWS の multi-agent collaboration GA により、agent runtime、tooling、multi-agent coordination は製品レイヤーの比較対象になっている。",
   "summaryEn": "OpenAI's new agent-building tools and AWS's multi-agent collaboration GA put runtimes, tooling, and multi-agent coordination onto the product-comparison layer.",
+  "seoDescriptionJa": "OpenAI と AWS の発表を軸に、managed agent の基本プリミティブが複数ベンダーで出そろい始めた動きを整理する。",
+  "seoDescriptionEn": "Anchored in OpenAI and AWS announcements, this article maps how core managed-agent primitives are arriving across vendors.",
+  "teaserJa": "runtime、tooling、multi-agent coordination が製品比較の項目になる転換点をまとめる。",
+  "teaserEn": "Read the shift as runtimes, tooling, and multi-agent coordination become part of product comparison.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

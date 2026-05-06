@@ -5,6 +5,10 @@
   "titleEn": "Subagents are becoming the practical implementation unit for real-world AI work",
   "summaryJa": "2026年3月17日に OpenAI が GPT-5.4 mini と nano を subagents 向けとして打ち出したことを起点に、OpenAI Codex、Anthropic Claude Code、Google ADK、Microsoft Agent Framework、Amazon Bedrock の一次情報を重ねると、実務向けAIは 1 つの巨大なエージェントへ機能を積み上げる構図から、役割を絞った下位エージェントを束ねる構図へ寄り始めていることが見えてくる。重要なのはエージェントの数そのものではなく、どの判断を強いモデルに残し、どの作業を安価で速い専門ユニットへ分け、どこで状態管理と承認を入れるかが公開資料の水準で具体化してきた点である。",
   "summaryEn": "Starting with OpenAI's March 17, 2026 positioning of GPT-5.4 mini and nano for subagents, and reading that next to public material from OpenAI Codex, Anthropic Claude Code, Google ADK, Microsoft Agent Framework, and Amazon Bedrock, a more precise pattern appears: practical AI work is moving away from one giant agent that owns everything and toward teams of narrower specialist agents. The important shift is not the raw number of agents. It is that public docs now make a concrete architecture visible: which judgment stays with the strongest model, which tasks move to cheaper and faster specialist units, and where state management plus approval boundaries need to sit.",
+  "seoDescriptionJa": "OpenAI、Anthropic、Google、Microsoft、AWS の資料から、subagents が実務向けAIの実装単位として具体化する流れを整理する。",
+  "seoDescriptionEn": "Using public material from OpenAI, Anthropic, Google, Microsoft, and AWS, this briefing explains why subagents are becoming a practical unit of AI implementation.",
+  "teaserJa": "どの判断を強いモデルに残し、どの作業を専門subagentへ分けるかという設計論点を読む。",
+  "teaserEn": "Read how teams are splitting judgment, execution, state, and approvals across narrower specialist agents.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

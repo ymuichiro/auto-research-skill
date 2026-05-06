@@ -2,6 +2,7 @@ import { readdir, readFile } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import path from "node:path";
 import { promisify } from "node:util";
+import { resolveArticleSeo } from "./seo-snippets.mjs";
 import { readJson, sortedByDateDesc } from "./utils.mjs";
 
 const contentRoot = path.resolve("content/articles");
@@ -17,6 +18,14 @@ const requiredFields = [
   "tags",
   "publishedSources",
   "draft"
+];
+const optionalStringFields = [
+  "seoTitleJa",
+  "seoTitleEn",
+  "seoDescriptionJa",
+  "seoDescriptionEn",
+  "teaserJa",
+  "teaserEn"
 ];
 
 function validateSource(source, index, articleId, errors) {
@@ -76,6 +85,12 @@ function validateMeta(meta, articleDirName, errors) {
   for (const field of ["titleJa", "titleEn", "summaryJa", "summaryEn", "category"]) {
     if (typeof meta[field] !== "string" || meta[field].trim().length === 0) {
       errors.push(`${articleId}: ${field} must be a non-empty string.`);
+    }
+  }
+
+  for (const field of optionalStringFields) {
+    if (field in meta && (typeof meta[field] !== "string" || meta[field].trim().length === 0)) {
+      errors.push(`${articleId}: ${field} must be a non-empty string when provided.`);
     }
   }
 
@@ -163,11 +178,13 @@ export async function loadArticles() {
 
     const outputPaths = computeOutputPaths(meta);
     const lastModified = await resolveLastModified(articleDir, meta);
+    const seo = resolveArticleSeo(meta);
     articles.push({
       ...meta,
       sourceDir: articleDir,
       sourceDirName: articleDirName,
       bodies,
+      seo,
       publishedAtIso: fallbackArticleDateTime(meta.date),
       lastModified,
       outputPaths

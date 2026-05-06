@@ -5,6 +5,10 @@
   "titleEn": "Interoperability is moving from roadmap rhetoric into a real integration premise",
   "summaryJa": "Google の A2A donation と MCP integrations、Microsoft Foundry の A2A / MCP / OpenAPI、OpenAI Responses API の remote MCP support により、agent 間接続やデータ接続は current architecture の一部になっている。",
   "summaryEn": "Google’s A2A donation and MCP integrations, Microsoft Foundry’s A2A / MCP / OpenAPI surfaces, and OpenAI’s remote MCP support in the Responses API turn agent-to-agent and data connectivity into part of the current architecture.",
+  "seoDescriptionJa": "Google、Microsoft、OpenAI の動きを通じて、相互運用性が roadmap 上の理想論から現行アーキテクチャの前提へ移る流れを読む。",
+  "seoDescriptionEn": "From Google, Microsoft, and OpenAI updates, this piece explains how interoperability is moving from roadmap rhetoric into present architecture.",
+  "teaserJa": "A2A、MCP、OpenAPI が接続設計の前提になり始めた流れをまとめる。",
+  "teaserEn": "A short read on how A2A, MCP, and OpenAPI are turning interoperability into a current design premise.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

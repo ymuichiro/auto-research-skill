@@ -5,6 +5,10 @@
   "titleEn": "Multi-agent workflow is appearing as a configurable, observable product surface",
   "summaryJa": "Foundry Agent Service の multi-agent workflows preview により、visual builder、YAML definition、templates、variables、observability、evaluators を備えた workflow 自体が product surface として見え始めている。",
   "summaryEn": "The multi-agent workflows preview in Foundry Agent Service makes the workflow itself visible as a product surface, with a visual builder, YAML definitions, templates, variables, observability, and evaluators.",
+  "seoDescriptionJa": "Foundry Agent Service の preview を軸に、multi-agent workflow そのものが product surface になる流れを整理する。",
+  "seoDescriptionEn": "Anchored in the Foundry Agent Service preview, this article shows how multi-agent workflow itself is becoming a product surface.",
+  "teaserJa": "visual builder、YAML、observability、evaluators を備えた workflow 自体の product surface 化を整理する。",
+  "teaserEn": "A concise look at workflow itself becoming a configurable, observable product surface.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

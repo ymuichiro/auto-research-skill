@@ -5,6 +5,10 @@
   "titleEn": "Agent evaluation is becoming a gating layer rather than an afterthought",
   "summaryJa": "研究ベンチマークの増加と各社発表の流れにより、prototype agent と production candidate を分ける軸は、派手さよりも評価・再現性・監督へ移っている。",
   "summaryEn": "The growing benchmark landscape and official platform messaging shift the dividing line between prototype agents and production candidates toward evaluation, reproducibility, and oversight.",
+  "seoDescriptionJa": "研究ベンチマークと各社発表をもとに、AIエージェント評価が導入前提のゲートへ変わる流れを整理する。",
+  "seoDescriptionEn": "Drawing on benchmarks and platform updates, this piece explains why agent evaluation is becoming a gating layer for production adoption.",
+  "teaserJa": "prototype と production を分ける軸が、派手さより評価・再現性・監督へ移る流れを短く読む。",
+  "teaserEn": "A quick read on why evaluation, reproducibility, and oversight now separate prototype agents from production candidates.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

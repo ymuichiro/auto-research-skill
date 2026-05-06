@@ -5,6 +5,10 @@
   "titleEn": "Agents spanning coding and research are moving into broader workflows",
   "summaryJa": "GPT-5 for developers と Looker MCP Server の発表により、coding agent と data-connected analyst の境界が薄れ、コード・データ・文書を横断する assistant の像が濃くなっている。",
   "summaryEn": "GPT-5 for developers and Looker MCP Server make the line between coding agents and data-connected analyst assistants thinner, pointing toward workflows that cross code, data, and documents.",
+  "seoDescriptionJa": "GPT-5 for developers と Looker MCP Server を軸に、coding と research をまたぐ agent が広い業務へ向かう動きを整理する。",
+  "seoDescriptionEn": "Using GPT-5 for developers and Looker MCP Server as anchors, this article maps how agents spanning coding and research broaden into wider workflows.",
+  "teaserJa": "coding agent と analyst assistant の境界が薄れ、コード・データ・文書を横断する流れを読む。",
+  "teaserEn": "See how coding and research agents are expanding into workflows that cross code, data, and documents.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

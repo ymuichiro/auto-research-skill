@@ -5,6 +5,10 @@
   "titleEn": "Why generative AI products converge on chat, and why chat will not stay alone",
   "summaryJa": "OpenAI、Microsoft、Google、Anthropic、Claude Cowork の公式発表と HCI 系の論文を重ねると、生成AIアプリがまずチャットUIに寄る理由は、自然言語が最も安い汎用入力だからである一方、実務化が進むほど状態表示、承認、進捗監督、成果物編集のための画面を周辺に必要とすることが見えてくる。チャットUIが消えるのではなく、対話を起点にした操作基盤へ複合化していく流れを整理する。",
   "summaryEn": "Taken together, official product announcements from OpenAI, Microsoft, Google, Anthropic, and Claude Cowork, plus HCI papers on human-agent collaboration, show why generative AI products first converged on chat: natural language is the cheapest general-purpose input surface. But as products move into longer-running work, teams need surrounding interfaces for state visibility, approvals, progress tracking, and artifact editing. The result is not the death of chat, but its evolution into a conversation-first control surface.",
+  "seoDescriptionJa": "OpenAI、Microsoft、Google、Anthropic などの発表をもとに、生成AIアプリがチャットに収束しつつチャットだけでは終わらない理由を整理する。",
+  "seoDescriptionEn": "Across OpenAI, Microsoft, Google, and Anthropic product signals, this article explains why AI products converge on chat but do not stop there.",
+  "teaserJa": "チャットUIが出発点になりつつ、状態表示や承認画面が周辺に必要になる理由を読む。",
+  "teaserEn": "See why chat remains the entry point for AI products while state, approval, and editing surfaces grow around it.",
   "category": "AI Strategy",
   "tags": [
     "LLM",

@@ -8,6 +8,26 @@ const siteOrigin = new URL(siteUrl);
 const basePath = siteOrigin.pathname.replace(/\/$/, "");
 const cname = siteOrigin.hostname.endsWith(".github.io") ? null : siteOrigin.hostname;
 
+export const trustPagePaths = {
+  about: "about.html",
+  editorialPolicy: "editorial-policy.html",
+  contact: "contact.html",
+  privacyPolicy: "privacy-policy.html",
+  terms: "terms.html",
+  disclaimer: "disclaimer.html",
+  advertisingPolicy: "advertising-policy.html"
+};
+
+export const trustPageOrder = [
+  "about",
+  "editorialPolicy",
+  "contact",
+  "privacyPolicy",
+  "terms",
+  "disclaimer",
+  "advertisingPolicy"
+];
+
 export const siteConfig = {
   name: "Auto Research Digest",
   owner: "Auto Research Digest Editorial Desk",
@@ -43,8 +63,36 @@ export const siteConfig = {
     en: "Reading the key signals in AI and agents through primary-source reporting."
   },
   nav: {
-    ja: [{ label: "トップ", path: "" }],
-    en: [{ label: "Home", path: "en/" }]
+    ja: [
+      { label: "トップ", path: "" },
+      { label: "Topics", path: "topics/" }
+    ],
+    en: [
+      { label: "Home", path: "en/" },
+      { label: "Topics", path: "en/topics/" }
+    ]
+  },
+  footerNav: {
+    ja: [
+      { label: "Topics", path: "topics/" },
+      { label: "About", path: trustPagePaths.about },
+      { label: "調査・編集方針", path: trustPagePaths.editorialPolicy },
+      { label: "Contact", path: trustPagePaths.contact },
+      { label: "Privacy Policy", path: trustPagePaths.privacyPolicy },
+      { label: "Terms", path: trustPagePaths.terms },
+      { label: "Disclaimer", path: trustPagePaths.disclaimer },
+      { label: "Advertising Policy", path: trustPagePaths.advertisingPolicy }
+    ],
+    en: [
+      { label: "Topics", path: "topics/" },
+      { label: "About", path: trustPagePaths.about },
+      { label: "Editorial Policy", path: trustPagePaths.editorialPolicy },
+      { label: "Contact", path: trustPagePaths.contact },
+      { label: "Privacy Policy", path: trustPagePaths.privacyPolicy },
+      { label: "Terms", path: trustPagePaths.terms },
+      { label: "Disclaimer", path: trustPagePaths.disclaimer },
+      { label: "Advertising Policy", path: trustPagePaths.advertisingPolicy }
+    ]
   }
 };
 
@@ -64,6 +112,14 @@ export function listingRelativePath(locale, pageNumber = 1) {
   }
 
   return locale === "ja" ? `page/${pageNumber}/` : `en/page/${pageNumber}/`;
+}
+
+export function topicIndexRelativePath(locale) {
+  return locale === "ja" ? "topics/" : "en/topics/";
+}
+
+export function topicHubRelativePath(locale, slug) {
+  return locale === "ja" ? `topics/${slug}/` : `en/topics/${slug}/`;
 }
 
 export function absoluteUrl(relativePath = "") {

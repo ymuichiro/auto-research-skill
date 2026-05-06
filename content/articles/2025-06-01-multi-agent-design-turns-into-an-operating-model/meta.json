@@ -5,6 +5,10 @@
   "titleEn": "Multi-agent design is becoming an operating model, not just a concept diagram",
   "summaryJa": "Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっている。",
   "summaryEn": "Azure AI Foundry Agent Service GA, Developer Essentials, OpenAI’s Responses API updates, and Semantic Kernel orchestration together turn multi-agent design into a concrete question of responsibility, evaluation, and auditability.",
+  "seoDescriptionJa": "Azure、OpenAI、Semantic Kernel の更新をもとに、multi-agent 設計が概念図から運用モデルへ変わる流れを整理する。",
+  "seoDescriptionEn": "Using updates from Azure, OpenAI, and Semantic Kernel, this article shows how multi-agent design is becoming an operating model.",
+  "teaserJa": "multi-agent をどう分担し、評価し、監査するかという実務設計の論点を短く整理する。",
+  "teaserEn": "See why multi-agent design is turning into an operational question of responsibility, evaluation, and audit.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

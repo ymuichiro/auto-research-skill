@@ -1,7 +1,17 @@
 import { access, readFile } from "node:fs/promises";
 import path from "node:path";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
-import { absoluteUrl, localizedPath, siteConfig } from "./lib/site-config.mjs";
+import {
+  absoluteUrl,
+  localizedPath,
+  siteConfig,
+  topicHubRelativePath,
+  topicIndexRelativePath,
+  trustPageOrder,
+  trustPagePaths
+} from "./lib/site-config.mjs";
+import { snippetLengthLimit, snippetTextLength } from "./lib/seo-snippets.mjs";
+import { buildTopicHubs } from "./lib/topic-hubs.mjs";
 import { escapeHtml } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
@@ -29,6 +39,18 @@ async function readBuiltFile(relativePath) {
   return readFile(path.join(outputRoot, relativePath), "utf8");
 }
 
+function trustPageBuiltPaths() {
+  return trustPageOrder.flatMap((pageId) => [trustPagePaths[pageId], `en/${trustPagePaths[pageId]}`]);
+}
+
+function topicBuiltPaths(topicHubs) {
+  return [
+    topicIndexRelativePath("ja"),
+    topicIndexRelativePath("en"),
+    ...topicHubs.flatMap((hub) => [topicHubRelativePath("ja", hub.slug), topicHubRelativePath("en", hub.slug)])
+  ].map((page) => `${page}index.html`);
+}
+
 function assertContains(markup, expected, message) {
   if (!markup.includes(expected)) {
     throw new Error(message);
@@ -41,7 +63,41 @@ function assertNotContains(markup, unexpected, message) {
   }
 }
 
+function expectedPageTitle(title, locale) {
+  if (title === siteConfig.name) {
+    return locale === "ja" ? siteConfig.name : `${siteConfig.name} EN`;
+  }
+
+  return `${title} | ${siteConfig.name} ${locale === "ja" ? "" : "EN"}`.trim();
+}
+
+function collectSnippetErrors(articles) {
+  const errors = [];
+
+  for (const article of articles) {
+    for (const locale of ["ja", "en"]) {
+      const description = article.seo?.[locale]?.description ?? "";
+      const teaser = article.seo?.[locale]?.teaser ?? "";
+      const descriptionLimit = snippetLengthLimit("description", locale);
+      const teaserLimit = snippetLengthLimit("teaser", locale);
+
+      if (snippetTextLength(description) > descriptionLimit) {
+        errors.push(
+          `${article.sourceDirName}/meta.json: ${locale} description must stay within ${descriptionLimit} characters.`
+        );
+      }
+
+      if (snippetTextLength(teaser) > teaserLimit) {
+        errors.push(`${article.sourceDirName}/meta.json: ${locale} teaser must stay within ${teaserLimit} characters.`);
+      }
+    }
+  }
+
+  return errors;
+}
+
 async function validateBuiltOutput(articles) {
+  const topicHubs = buildTopicHubs(articles);
   const requiredPages = [
     "index.html",
     "en/index.html",
@@ -58,7 +114,9 @@ async function validateBuiltOutput(articles) {
     "assets/favicon.svg"
   ]
     .concat(siteConfig.cname ? ["CNAME"] : [])
-    .concat(listingPagePaths(articles));
+    .concat(listingPagePaths(articles))
+    .concat(topicBuiltPaths(topicHubs))
+    .concat(trustPageBuiltPaths());
   const unexpectedPages = ["feed.xml", "en/feed.xml", "archive/index.html", "en/archive/index.html"];
 
   const missing = [];
@@ -100,6 +158,10 @@ async function validateBuiltOutput(articles) {
   const pageSitemap = await readBuiltFile("sitemap-pages.xml");
   const articleSitemap = await readBuiltFile("sitemap-articles.xml");
   const webManifest = await readBuiltFile("site.webmanifest");
+  const jaAboutHtml = await readBuiltFile(trustPagePaths.about);
+  const enAboutHtml = await readBuiltFile(`en/${trustPagePaths.about}`);
+  const jaTopicsHtml = await readBuiltFile(`${topicIndexRelativePath("ja")}index.html`);
+  const enTopicsHtml = await readBuiltFile(`${topicIndexRelativePath("en")}index.html`);
   const rootPath = siteConfig.basePath ? `${siteConfig.basePath}/` : "/";
   const totalPages = Math.max(1, Math.ceil(articles.length / siteConfig.pagination.articleListPageSize));
 
@@ -127,6 +189,45 @@ async function validateBuiltOutput(articles) {
   assertNotContains(homeHtml, `href="${localizedPath("ja", "feed.xml")}"`, "Japanese home page still links to the removed feed.");
   assertNotContains(enHomeHtml, `href="${localizedPath("en", "feed.xml")}"`, "English home page still links to the removed feed.");
 
+  for (const [markup, relativePath, canonicalUrl, label] of [
+    [jaAboutHtml, trustPagePaths.about, absoluteUrl(trustPagePaths.about), "Japanese about page"],
+    [enAboutHtml, `en/${trustPagePaths.about}`, absoluteUrl(`en/${trustPagePaths.about}`), "English about page"],
+    [jaTopicsHtml, topicIndexRelativePath("ja"), absoluteUrl(topicIndexRelativePath("ja")), "Japanese topics index"],
+    [enTopicsHtml, topicIndexRelativePath("en"), absoluteUrl(topicIndexRelativePath("en")), "English topics index"]
+  ]) {
+    assertContains(markup, `rel="canonical" href="${canonicalUrl}"`, `${label} is missing the expected canonical URL.`);
+    assertContains(markup, `property="og:url" content="${canonicalUrl}"`, `${label} is missing the expected og:url.`);
+    assertContains(markup, 'hreflang="ja"', `${label} is missing the ja hreflang link.`);
+    assertContains(markup, 'hreflang="en"', `${label} is missing the en hreflang link.`);
+    assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
+    assertNotContains(markup, 'content="noindex', `${label} should not be noindex.`);
+    assertContains(markup, `href="${absoluteUrl(relativePath)}"`, `${label} should contain its canonical URL in the markup.`);
+  }
+
+  for (const [markup, locale, label] of [
+    [homeHtml, "ja", "Japanese home page"],
+    [enHomeHtml, "en", "English home page"],
+    [jaAboutHtml, "ja", "Japanese about page"],
+    [enAboutHtml, "en", "English about page"],
+    [jaTopicsHtml, "ja", "Japanese topics index"],
+    [enTopicsHtml, "en", "English topics index"]
+  ]) {
+    for (const link of siteConfig.footerNav[locale]) {
+      assertContains(markup, `href="${localizedPath(locale, link.path)}"`, `${label} is missing footer link ${link.path}.`);
+    }
+  }
+
+  for (const [markup, locale, label] of [
+    [homeHtml, "ja", "Japanese home page"],
+    [enHomeHtml, "en", "English home page"]
+  ]) {
+    assertContains(
+      markup,
+      `href="${localizedPath(locale, "topics/")}"`,
+      `${label} is missing a visible route into the topics section.`
+    );
+  }
+
   if (totalPages > 1) {
     const jaPageTwo = await readBuiltFile("page/2/index.html");
     const enPageTwo = await readBuiltFile("en/page/2/index.html");
@@ -142,6 +243,47 @@ async function validateBuiltOutput(articles) {
   }
 
   const sampleArticle = articles[0];
+  const sampleHub = topicHubs[0];
+
+  if (sampleHub) {
+    const jaHubPath = topicHubRelativePath("ja", sampleHub.slug);
+    const enHubPath = topicHubRelativePath("en", sampleHub.slug);
+    const jaHubHtml = await readBuiltFile(`${jaHubPath}index.html`);
+    const enHubHtml = await readBuiltFile(`${enHubPath}index.html`);
+
+    for (const [markup, relativePath, canonicalUrl, label] of [
+      [jaHubHtml, jaHubPath, absoluteUrl(jaHubPath), "Japanese topic hub"],
+      [enHubHtml, enHubPath, absoluteUrl(enHubPath), "English topic hub"]
+    ]) {
+      assertContains(markup, `rel="canonical" href="${canonicalUrl}"`, `${label} is missing the expected canonical URL.`);
+      assertContains(markup, `property="og:url" content="${canonicalUrl}"`, `${label} is missing the expected og:url.`);
+      assertContains(markup, 'hreflang="ja"', `${label} is missing the ja hreflang link.`);
+      assertContains(markup, 'hreflang="en"', `${label} is missing the en hreflang link.`);
+      assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
+      assertContains(markup, escapeHtml(sampleHub.category), `${label} is missing the hub category heading.`);
+    }
+
+    assertContains(
+      pageSitemap,
+      absoluteUrl(jaHubPath),
+      "Page sitemap is missing the configured Japanese topic hub URL."
+    );
+    assertContains(
+      pageSitemap,
+      absoluteUrl(enHubPath),
+      "Page sitemap is missing the configured English topic hub URL."
+    );
+    assertContains(
+      pageSitemap,
+      `hreflang="ja" href="${absoluteUrl(jaHubPath)}"`,
+      "Page sitemap is missing the Japanese hreflang alternate for a topic hub."
+    );
+    assertContains(
+      pageSitemap,
+      `hreflang="en" href="${absoluteUrl(enHubPath)}"`,
+      "Page sitemap is missing the English hreflang alternate for a topic hub."
+    );
+  }
 
   if (sampleArticle) {
     const jaHtml = await readBuiltFile(sampleArticle.outputPaths.ja);
@@ -176,6 +318,82 @@ async function validateBuiltOutput(articles) {
     assertContains(enHtml, `data-share-url="${enUrl}"`, "English article share block is missing the expected URL.");
     assertContains(jaHtml, `data-share-title="${escapeHtml(jaTitle)}"`, "Japanese article share block is missing the expected title.");
     assertContains(enHtml, `data-share-title="${escapeHtml(enTitle)}"`, "English article share block is missing the expected title.");
+    assertContains(
+      jaHtml,
+      `<meta name="description" content="${escapeHtml(sampleArticle.seo.ja.description)}">`,
+      "Japanese article is missing the resolved SEO description."
+    );
+    assertContains(
+      enHtml,
+      `<meta name="description" content="${escapeHtml(sampleArticle.seo.en.description)}">`,
+      "English article is missing the resolved SEO description."
+    );
+    assertContains(
+      homeHtml,
+      `<p class="article-card-copy">${escapeHtml(sampleArticle.seo.ja.teaser)}</p>`,
+      "Japanese home page is missing the resolved teaser for the latest article."
+    );
+    assertContains(
+      enHomeHtml,
+      `<p class="article-card-copy">${escapeHtml(sampleArticle.seo.en.teaser)}</p>`,
+      "English home page is missing the resolved teaser for the latest article."
+    );
+
+    const articleHub = topicHubs.find((hub) => hub.category === sampleArticle.category);
+    if (articleHub) {
+      assertContains(
+        jaHtml,
+        `class="meta-pill is-accent article-topic-link" href="${localizedPath("ja", topicHubRelativePath("ja", articleHub.slug))}"`,
+        "Japanese article is missing the topic hub category link."
+      );
+      assertContains(
+        enHtml,
+        `class="meta-pill is-accent article-topic-link" href="${localizedPath("en", topicHubRelativePath("en", articleHub.slug).replace(/^en\//, ""))}"`,
+        "English article is missing the topic hub category link."
+      );
+      assertContains(jaHtml, 'class="panel-block topic-backlink"', "Japanese article is missing the topic backlink block.");
+      assertContains(enHtml, 'class="panel-block topic-backlink"', "English article is missing the topic backlink block.");
+    }
+
+    const articleWithCustomSeoTitle = articles.find(
+      (article) => article.seo.ja.title !== article.titleJa || article.seo.en.title !== article.titleEn
+    );
+
+    if (articleWithCustomSeoTitle) {
+      const jaSeoHtml = await readBuiltFile(articleWithCustomSeoTitle.outputPaths.ja);
+      const enSeoHtml = await readBuiltFile(articleWithCustomSeoTitle.outputPaths.en);
+
+      assertContains(
+        jaSeoHtml,
+        `<title>${escapeHtml(expectedPageTitle(articleWithCustomSeoTitle.seo.ja.title, "ja"))}</title>`,
+        "Japanese article is missing the custom SEO title in the document title."
+      );
+      assertContains(
+        enSeoHtml,
+        `<title>${escapeHtml(expectedPageTitle(articleWithCustomSeoTitle.seo.en.title, "en"))}</title>`,
+        "English article is missing the custom SEO title in the document title."
+      );
+      assertContains(
+        jaSeoHtml,
+        `<meta property="og:title" content="${escapeHtml(expectedPageTitle(articleWithCustomSeoTitle.seo.ja.title, "ja"))}">`,
+        "Japanese article is missing the custom SEO title in og:title."
+      );
+      assertContains(
+        enSeoHtml,
+        `<meta property="og:title" content="${escapeHtml(expectedPageTitle(articleWithCustomSeoTitle.seo.en.title, "en"))}">`,
+        "English article is missing the custom SEO title in og:title."
+      );
+      assertContains(
+        jaSeoHtml,
+        `<meta name="twitter:title" content="${escapeHtml(expectedPageTitle(articleWithCustomSeoTitle.seo.ja.title, "ja"))}">`,
+        "Japanese article is missing the custom SEO title in twitter:title."
+      );
+      assertContains(
+        enSeoHtml,
+        `<meta name="twitter:title" content="${escapeHtml(expectedPageTitle(articleWithCustomSeoTitle.seo.en.title, "en"))}">`,
+        "English article is missing the custom SEO title in twitter:title."
+      );
+    }
 
     assertContains(
       articleSitemap,
@@ -198,11 +416,39 @@ async function validateBuiltOutput(articles) {
   );
   assertContains(pageSitemap, absoluteUrl(""), "Page sitemap is missing the configured Japanese home URL.");
   assertContains(pageSitemap, absoluteUrl("en/"), "Page sitemap is missing the configured English home URL.");
+  assertContains(pageSitemap, absoluteUrl(topicIndexRelativePath("ja")), "Page sitemap is missing the Japanese topics index URL.");
+  assertContains(pageSitemap, absoluteUrl(topicIndexRelativePath("en")), "Page sitemap is missing the English topics index URL.");
+  assertContains(
+    pageSitemap,
+    `hreflang="ja" href="${absoluteUrl(topicIndexRelativePath("ja"))}"`,
+    "Page sitemap is missing the Japanese hreflang alternate for the topics index."
+  );
+  assertContains(
+    pageSitemap,
+    `hreflang="en" href="${absoluteUrl(topicIndexRelativePath("en"))}"`,
+    "Page sitemap is missing the English hreflang alternate for the topics index."
+  );
   assertNotContains(pageSitemap, absoluteUrl("archive/"), "Page sitemap should not contain the removed archive URL.");
   assertNotContains(pageSitemap, absoluteUrl("en/archive/"), "Page sitemap should not contain the removed English archive URL.");
+  for (const pageId of trustPageOrder) {
+    assertContains(pageSitemap, absoluteUrl(trustPagePaths[pageId]), `Page sitemap is missing ${trustPagePaths[pageId]}.`);
+    assertContains(
+      pageSitemap,
+      absoluteUrl(`en/${trustPagePaths[pageId]}`),
+      `Page sitemap is missing en/${trustPagePaths[pageId]}.`
+    );
+  }
   if (totalPages > 1) {
     assertContains(pageSitemap, absoluteUrl("page/2/"), "Page sitemap is missing the configured Japanese page 2 URL.");
     assertContains(pageSitemap, absoluteUrl("en/page/2/"), "Page sitemap is missing the configured English page 2 URL.");
+  }
+  for (const hub of topicHubs) {
+    assertContains(pageSitemap, absoluteUrl(topicHubRelativePath("ja", hub.slug)), `Page sitemap is missing topics/${hub.slug}/.`);
+    assertContains(
+      pageSitemap,
+      absoluteUrl(topicHubRelativePath("en", hub.slug)),
+      `Page sitemap is missing en/topics/${hub.slug}/.`
+    );
   }
   assertContains(webManifest, `"start_url": "${rootPath}"`, "Web manifest start_url does not match the configured base path.");
   assertContains(webManifest, `"scope": "${rootPath}"`, "Web manifest scope does not match the configured base path.");
@@ -210,9 +456,10 @@ async function validateBuiltOutput(articles) {
 
 async function validate() {
   const { articles, errors } = await loadArticles();
+  const snippetErrors = collectSnippetErrors(articles);
 
-  if (errors.length > 0) {
-    throw new Error(`Content validation failed:\n- ${errors.join("\n- ")}`);
+  if (errors.length > 0 || snippetErrors.length > 0) {
+    throw new Error(`Content validation failed:\n- ${errors.concat(snippetErrors).join("\n- ")}`);
   }
 
   if (await fileExists(outputRoot)) {

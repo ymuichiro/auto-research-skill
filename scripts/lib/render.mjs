@@ -1,4 +1,14 @@
-import { absoluteUrl, assetPath, listingRelativePath, localizedPath, siteConfig } from "./site-config.mjs";
+import {
+  absoluteUrl,
+  assetPath,
+  listingRelativePath,
+  localizedPath,
+  siteConfig,
+  topicHubRelativePath,
+  topicIndexRelativePath
+} from "./site-config.mjs";
+import { resolveArticleSeo } from "./seo-snippets.mjs";
+import { buildTopicHubs } from "./topic-hubs.mjs";
 import { escapeHtml, formatDisplayDate, formatXml } from "./utils.mjs";
 
 const localeCopy = {
@@ -32,6 +42,23 @@ const localeCopy = {
     copyErrorLabel: "コピーに失敗しました",
     emptyState: "公開済みレポートはまだありません。",
     homePath: "",
+    footerNavLabel: "フッターナビゲーション",
+    openExternal: "Open",
+    topicsTitle: "Topics",
+    topicsIntro: "公開済みレポートを主要テーマごとにまとめています。新着だけでなく、カテゴリ単位で論点の流れをたどれます。",
+    topicsPreviewIntro: "主要カテゴリから、公開済みレポートの流れをまとめてたどれます。",
+    topicsKicker: "Topic navigation",
+    topicsOpenHub: "テーマハブを開く",
+    topicsOpenIndex: "Topics 一覧へ",
+    topicsRepresentativeArticle: "代表記事",
+    topicsLatestLabel: "最新更新",
+    topicsCountLabel: "記事数",
+    topicsHubLabel: "テーマハブ",
+    topicsHubLatestLabel: "最新記事",
+    topicsHubListTitle: "このテーマの公開レポート",
+    topicsHubListIntro: "同じ category に属する公開済みレポートを新しい順に一覧しています。",
+    topicsBacklinkTitle: "テーマ別に戻る",
+    topicsBacklinkIntro: "このレポートが属するテーマハブから、同じ category の公開記事をまとめて追えます。"
   },
   en: {
     homeTitle: "Home",
@@ -63,7 +90,24 @@ const localeCopy = {
     copySuccessLabel: "Copied",
     copyErrorLabel: "Copy failed",
     emptyState: "No published briefings yet.",
-    homePath: "en/"
+    homePath: "en/",
+    footerNavLabel: "Footer navigation",
+    openExternal: "Open",
+    topicsTitle: "Topics",
+    topicsIntro: "Browse the published briefings by their main themes so readers can follow topic continuity beyond the latest post.",
+    topicsPreviewIntro: "Start from the major categories to follow the published briefings as organized topic streams.",
+    topicsKicker: "Topic navigation",
+    topicsOpenHub: "Open topic hub",
+    topicsOpenIndex: "Browse all topics",
+    topicsRepresentativeArticle: "Representative article",
+    topicsLatestLabel: "Latest update",
+    topicsCountLabel: "Articles",
+    topicsHubLabel: "Topic hub",
+    topicsHubLatestLabel: "Latest article",
+    topicsHubListTitle: "Published briefings in this topic",
+    topicsHubListIntro: "Published briefings in the same category, listed in reverse chronological order.",
+    topicsBacklinkTitle: "Back to topic",
+    topicsBacklinkIntro: "Return to the topic hub to continue with other published briefings in the same category."
   }
 };
 
@@ -132,7 +176,7 @@ function breadcrumbPayload(locale, items) {
   };
 }
 
-function pageSchemas({ locale, title, description, canonicalUrl, article, pageType, breadcrumbs, imageUrl }) {
+function pageSchemas({ locale, title, description, canonicalUrl, article, pageType, breadcrumbs, imageUrl, schemaType }) {
   const payloads = [];
 
   if (pageType === "article" && article) {
@@ -140,7 +184,7 @@ function pageSchemas({ locale, title, description, canonicalUrl, article, pageTy
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       headline: locale === "ja" ? article.titleJa : article.titleEn,
-      description: locale === "ja" ? article.summaryJa : article.summaryEn,
+      description: metaDescription(description, locale),
       datePublished: article.publishedAtIso,
       dateModified: article.lastModified,
       inLanguage: locale,
@@ -164,11 +208,21 @@ function pageSchemas({ locale, title, description, canonicalUrl, article, pageTy
   } else {
     payloads.push({
       "@context": "https://schema.org",
-      "@type": "CollectionPage",
+      "@type": schemaType ?? "CollectionPage",
       name: title,
       description: metaDescription(description, locale),
       inLanguage: locale,
-      url: canonicalUrl
+      url: canonicalUrl,
+      isPartOf: {
+        "@type": "WebSite",
+        name: siteConfig.name,
+        url: siteConfig.siteUrl
+      },
+      publisher: {
+        "@type": "Organization",
+        name: siteConfig.owner,
+        url: siteConfig.siteUrl
+      }
     });
   }
 
@@ -192,7 +246,8 @@ export function renderPage({
   pageType = "website",
   breadcrumbs = [],
   robotsContent = siteConfig.defaultRobots,
-  imagePath = siteConfig.ogImage
+  imagePath = siteConfig.ogImage,
+  schemaType
 }) {
   const alternateRelativePath = locale === "ja" ? `en/${relativePath}` : relativePath.replace(/^en\//, "");
   const canonicalUrl = absoluteUrl(relativePath);
@@ -209,7 +264,8 @@ export function renderPage({
     article,
     pageType,
     breadcrumbs,
-    imageUrl: pageImageUrl
+    imageUrl: pageImageUrl,
+    schemaType
   });
 
   const navLinks = siteConfig.nav[locale]
@@ -218,6 +274,9 @@ export function renderPage({
       const active = currentNavPath === item.path;
       return `<a class="nav-link ${active ? "is-active" : ""}" href="${href}">${escapeHtml(item.label)}</a>`;
     })
+    .join("");
+  const footerLinks = siteConfig.footerNav[locale]
+    .map((item) => `<a class="footer-link" href="${localizedPath(locale, item.path)}">${escapeHtml(item.label)}</a>`)
     .join("");
 
   return `<!doctype html>
@@ -285,17 +344,81 @@ ${renderSharedPageScript(pageType)}
         </div>
       </main>
       <footer class="footer-panel">
-        <p class="footer-brand">AR / ${escapeHtml(siteConfig.name)}</p>
-        <p class="footer-copy">${escapeHtml(siteConfig.taglines[locale])}</p>
+        <div class="footer-meta">
+          <a class="footer-brand" href="${localizedPath(locale, "")}">AR / ${escapeHtml(siteConfig.name)}</a>
+          <p class="footer-copy">${escapeHtml(siteConfig.taglines[locale])}</p>
+        </div>
+        <nav class="footer-links" aria-label="${escapeHtml(copy.footerNavLabel)}">${footerLinks}</nav>
       </footer>
     </div>
   </body>
 </html>`;
 }
 
+function renderResourceRows(resources, locale) {
+  if (!resources?.length) {
+    return "";
+  }
+
+  const copy = localeCopy[locale];
+
+  return `<div class="mt-6 grid gap-4">
+    ${resources
+      .map(
+        (resource) => `<a class="source-row" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">
+          <div>
+            <p class="source-title">${escapeHtml(resource.label)}</p>
+            <p class="panel-copy mt-3">${escapeHtml(resource.description)}</p>
+            <p class="source-url">${escapeHtml(resource.url)}</p>
+          </div>
+          <span class="source-action">${escapeHtml(copy.openExternal)}</span>
+        </a>`
+      )
+      .join("")}
+  </div>`;
+}
+
+function renderStaticSection(section, locale) {
+  return `<section class="panel-block">
+    <h2 class="panel-title">${escapeHtml(section.title)}</h2>
+    ${section.paragraphs?.map((paragraph) => `<p class="panel-copy">${escapeHtml(paragraph)}</p>`).join("") ?? ""}
+    ${section.bullets?.length
+      ? `<ul class="bullet-list">${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}</ul>`
+      : ""}
+    ${renderResourceRows(section.resources, locale)}
+  </section>`;
+}
+
+export function renderTrustPage(page, locale) {
+  const body = `<article class="article-shell">
+    <section class="panel-block">
+      <p class="section-kicker">${escapeHtml(page.noticeTitle)}</p>
+      <p class="panel-copy">${escapeHtml(page.noticeBody)}</p>
+    </section>
+    ${page.sections.map((section) => renderStaticSection(section, locale)).join("")}
+  </article>`;
+
+  return renderPage({
+    locale,
+    relativePath: page.relativePath,
+    title: page.title,
+    description: page.description,
+    pageHeading: page.heading,
+    pageIntro: page.intro,
+    body,
+    currentNavPath: localeCopy[locale].homePath,
+    breadcrumbs: [
+      { name: localeCopy[locale].homeTitle, path: localeCopy[locale].homePath },
+      { name: page.title, path: page.relativePath }
+    ],
+    pageType: "page",
+    schemaType: page.schemaType
+  });
+}
+
 function renderArticleCard(article, locale, { featured = false, eyebrow = "", headingTag = "h2" } = {}) {
   const title = locale === "ja" ? article.titleJa : article.titleEn;
-  const summary = locale === "ja" ? article.summaryJa : article.summaryEn;
+  const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
   const path = locale === "ja" ? article.outputPaths.ja : article.outputPaths.en;
   const copy = localeCopy[locale];
   const href = localizedPath(locale, path.replace(/^en\//, ""));
@@ -308,7 +431,7 @@ function renderArticleCard(article, locale, { featured = false, eyebrow = "", he
         <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
       </div>
       <${headingTag} class="article-card-title">${escapeHtml(title)}</${headingTag}>
-      <p class="article-card-copy">${escapeHtml(summary)}</p>
+      <p class="article-card-copy">${escapeHtml(seo.teaser)}</p>
       <div class="meta-tags">${article.tags
         .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
         .join("")}</div>
@@ -318,6 +441,77 @@ function renderArticleCard(article, locale, { featured = false, eyebrow = "", he
       <span class="text-link">${escapeHtml(copy.readReport)}</span>
     </div>
   </a>`;
+}
+
+function topicHubHref(locale, hub) {
+  return localizedPath(locale, topicHubRelativePath(locale, hub.slug).replace(/^en\//, ""));
+}
+
+function renderTopicTagRow(hub) {
+  return `<div class="meta-tags">${hub.representativeTags
+    .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
+    .join("")}</div>`;
+}
+
+function renderTopicCard(hub, locale) {
+  const copy = localeCopy[locale];
+  const hubHref = topicHubHref(locale, hub);
+  const representativeArticle = hub.latestArticle;
+  const representativeHref = representativeArticle
+    ? localizedPath(locale, (locale === "ja" ? representativeArticle.outputPaths.ja : representativeArticle.outputPaths.en).replace(/^en\//, ""))
+    : null;
+  const representativeTitle =
+    representativeArticle && (locale === "ja" ? representativeArticle.titleJa : representativeArticle.titleEn);
+
+  return `<article class="article-card topic-card">
+    <div class="article-card-main">
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">${escapeHtml(hub.category)}</span>
+        <span class="mono-note">${escapeHtml(copy.topicsCountLabel)}: ${hub.articleCount}</span>
+      </div>
+      <h3 class="article-card-title">${escapeHtml(hub.category)}</h3>
+      <p class="article-card-copy">${escapeHtml(hub.descriptions[locale])}</p>
+      <div class="topic-card-stats">
+        <p class="mono-note">${escapeHtml(copy.topicsLatestLabel)}: ${escapeHtml(
+          formatDisplayDate(hub.latestModified.slice(0, 10), locale)
+        )}</p>
+      </div>
+      ${renderTopicTagRow(hub)}
+    </div>
+    <div class="article-card-foot topic-card-foot">
+      <a class="text-link" href="${hubHref}">${escapeHtml(copy.topicsOpenHub)}</a>
+      ${
+        representativeHref
+          ? `<a class="text-link" href="${representativeHref}">${escapeHtml(copy.topicsRepresentativeArticle)}: ${escapeHtml(representativeTitle)}</a>`
+          : ""
+      }
+    </div>
+  </article>`;
+}
+
+function renderTopicsOverview(locale, topicHubs) {
+  if (!topicHubs.length) {
+    return "";
+  }
+
+  const copy = localeCopy[locale];
+  const topicsIndexHref = localizedPath(locale, topicIndexRelativePath(locale).replace(/^en\//, ""));
+
+  return `<section class="panel-block">
+    <div class="listing-panel-head">
+      <div>
+        <p class="section-kicker">${escapeHtml(copy.topicsKicker)}</p>
+        <h2 class="panel-title">${escapeHtml(copy.topicsTitle)}</h2>
+        <p class="panel-copy">${escapeHtml(copy.topicsPreviewIntro)}</p>
+      </div>
+      <div class="listing-page-meta">
+        <a class="text-link" href="${topicsIndexHref}">${escapeHtml(copy.topicsOpenIndex)}</a>
+      </div>
+    </div>
+    <div class="mt-8 grid gap-5 xl:grid-cols-2">
+      ${topicHubs.map((hub) => renderTopicCard(hub, locale)).join("")}
+    </div>
+  </section>`;
 }
 
 function sharedTagCount(left, right) {
@@ -483,6 +677,7 @@ export function renderIndexPage(locale, articles, pagination = {}) {
   const currentPage = pagination.currentPage ?? 1;
   const totalPages = pagination.totalPages ?? 1;
   const totalArticles = pagination.totalArticles ?? articles.length;
+  const topicHubs = pagination.topicHubs ?? [];
   const rangeStart = articles.length > 0 ? (pagination.startIndex ?? 0) + 1 : 0;
   const rangeEnd = articles.length > 0 ? (pagination.startIndex ?? 0) + articles.length : 0;
   const cards = articles
@@ -492,7 +687,7 @@ export function renderIndexPage(locale, articles, pagination = {}) {
       })
     )
     .join("");
-  const body = `<section class="panel-block">
+  const body = `${currentPage <= 1 ? renderTopicsOverview(locale, topicHubs) : ""}<section class="panel-block">
     <div class="listing-panel-head">
       <div>
         <p class="section-kicker">${escapeHtml(copy.listingTitle)}</p>
@@ -529,6 +724,97 @@ export function renderIndexPage(locale, articles, pagination = {}) {
         : [])
     ],
     pageType: "home"
+  });
+}
+
+export function renderTopicsIndexPage(locale, topicHubs) {
+  const copy = localeCopy[locale];
+  const relativePath = topicIndexRelativePath(locale);
+  const body = `<section class="panel-block">
+    <div>
+      <p class="section-kicker">${escapeHtml(copy.topicsKicker)}</p>
+      <h2 class="panel-title">${escapeHtml(copy.topicsTitle)}</h2>
+      <p class="panel-copy">${escapeHtml(copy.topicsIntro)}</p>
+    </div>
+    <div class="mt-8 grid gap-5 xl:grid-cols-2">
+      ${topicHubs.map((hub) => renderTopicCard(hub, locale)).join("")}
+    </div>
+  </section>`;
+
+  return renderPage({
+    locale,
+    relativePath,
+    title: copy.topicsTitle,
+    description: copy.topicsIntro,
+    pageHeading: copy.topicsTitle,
+    pageIntro: copy.topicsIntro,
+    body,
+    currentNavPath: locale === "ja" ? "topics/" : "en/topics/",
+    breadcrumbs: [
+      { name: copy.homeTitle, path: copy.homePath },
+      { name: copy.topicsTitle, path: relativePath }
+    ],
+    pageType: "page",
+    schemaType: "CollectionPage"
+  });
+}
+
+export function renderTopicHubPage(locale, hub) {
+  const copy = localeCopy[locale];
+  const relativePath = topicHubRelativePath(locale, hub.slug);
+  const featuredArticle = hub.articles[0];
+  const remainingArticles = hub.articles.slice(1);
+  const cards = featuredArticle
+    ? [
+        renderArticleCard(featuredArticle, locale, {
+          featured: true,
+          eyebrow: copy.topicsHubLatestLabel
+        }),
+        ...remainingArticles.map((article) => renderArticleCard(article, locale, { headingTag: "h3" }))
+      ]
+    : [];
+  const topicIndexPath = topicIndexRelativePath(locale);
+  const body = `<section class="panel-block">
+    <div class="listing-panel-head">
+      <div>
+        <p class="section-kicker">${escapeHtml(copy.topicsHubLabel)}</p>
+        <h2 class="panel-title">${escapeHtml(hub.category)}</h2>
+        <p class="panel-copy">${escapeHtml(hub.descriptions[locale])}</p>
+      </div>
+      <div class="listing-page-meta">
+        <p class="search-count">${escapeHtml(copy.topicsCountLabel)} ${hub.articleCount}</p>
+        <p class="search-hint">${escapeHtml(copy.topicsLatestLabel)} ${escapeHtml(
+          formatDisplayDate(hub.latestModified.slice(0, 10), locale)
+        )}</p>
+      </div>
+    </div>
+    ${renderTopicTagRow(hub)}
+  </section>
+  <section class="panel-block">
+    <div>
+      <p class="section-kicker">${escapeHtml(copy.topicsHubListTitle)}</p>
+      <h2 class="panel-title">${escapeHtml(copy.topicsHubListTitle)}</h2>
+      <p class="panel-copy">${escapeHtml(copy.topicsHubListIntro)}</p>
+    </div>
+    <div class="mt-8 grid gap-5">${cards.join("")}</div>
+  </section>`;
+
+  return renderPage({
+    locale,
+    relativePath,
+    title: hub.category,
+    description: hub.descriptions[locale],
+    pageHeading: hub.category,
+    pageIntro: hub.descriptions[locale],
+    body,
+    currentNavPath: locale === "ja" ? "topics/" : "en/topics/",
+    breadcrumbs: [
+      { name: copy.homeTitle, path: copy.homePath },
+      { name: copy.topicsTitle, path: topicIndexPath },
+      { name: hub.category, path: relativePath }
+    ],
+    pageType: "page",
+    schemaType: "CollectionPage"
   });
 }
 
@@ -634,14 +920,44 @@ function renderSources(article, locale) {
   </section>`;
 }
 
+function renderTopicBacklink(article, locale, hub) {
+  if (!hub) {
+    return "";
+  }
+
+  const copy = localeCopy[locale];
+  const hubHref = topicHubHref(locale, hub);
+
+  return `<section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">${escapeHtml(copy.topicsHubLabel)}</p>
+      <h2 class="panel-title">${escapeHtml(copy.topicsBacklinkTitle)}</h2>
+      <p class="panel-copy">${escapeHtml(copy.topicsBacklinkIntro)}</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">${escapeHtml(article.category)}</span>
+      <span class="mono-note">${escapeHtml(copy.topicsCountLabel)}: ${hub.articleCount}</span>
+      <a class="text-link" href="${hubHref}">${escapeHtml(copy.topicsOpenHub)}</a>
+    </div>
+  </section>`;
+}
+
 export function renderArticlePage(article, locale, articles = []) {
   const title = locale === "ja" ? article.titleJa : article.titleEn;
   const summary = locale === "ja" ? article.summaryJa : article.summaryEn;
+  const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
   const relativePath = locale === "ja" ? article.outputPaths.ja : article.outputPaths.en;
+  const topicHub = buildTopicHubs(articles).find((hub) => hub.category === article.category);
+  const topicHubPath = topicHub ? topicHubRelativePath(locale, topicHub.slug) : null;
+  const topicHubLink = topicHubPath ? localizedPath(locale, topicHubPath.replace(/^en\//, "")) : null;
   const body = `<article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
-        <span class="meta-pill is-accent">${escapeHtml(article.category)}</span>
+        ${
+          topicHubLink
+            ? `<a class="meta-pill is-accent article-topic-link" href="${topicHubLink}">${escapeHtml(article.category)}</a>`
+            : `<span class="meta-pill is-accent">${escapeHtml(article.category)}</span>`
+        }
         <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
       </div>
       <div class="meta-tags">${article.tags
@@ -650,6 +966,7 @@ export function renderArticlePage(article, locale, articles = []) {
     </section>
     ${renderArticleShare(article, locale, relativePath)}
     <section class="article-body">${locale === "ja" ? article.bodies.ja : article.bodies.en}</section>
+    ${renderTopicBacklink(article, locale, topicHub)}
     ${renderRelatedArticles(article, locale, articles)}
     ${renderSources(article, locale)}
   </article>`;
@@ -657,8 +974,8 @@ export function renderArticlePage(article, locale, articles = []) {
   return renderPage({
     locale,
     relativePath,
-    title,
-    description: summary,
+    title: seo.title,
+    description: seo.description,
     pageHeading: title,
     pageIntro: summary,
     body,
@@ -667,6 +984,12 @@ export function renderArticlePage(article, locale, articles = []) {
     imagePath: siteConfig.ogImage,
     breadcrumbs: [
       { name: localeCopy[locale].homeTitle, path: localeCopy[locale].homePath },
+      ...(topicHubPath
+        ? [
+            { name: localeCopy[locale].topicsTitle, path: topicIndexRelativePath(locale) },
+            { name: article.category, path: topicHubPath }
+          ]
+        : []),
       { name: title, path: relativePath }
     ],
     pageType: "article"

@@ -5,6 +5,10 @@
   "titleEn": "Control planes and evaluation discipline are starting to set the pace of agent adoption",
   "summaryJa": "Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。",
   "summaryEn": "Especially after Anthropic's evaluation article, the idea of agents as supervised workers becomes clearer, and the presence of a control plane plus regression evaluation starts to determine rollout speed.",
+  "seoDescriptionJa": "Anthropic を含む各社の流れから、control plane と eval discipline が agent 導入の速度を決め始めた背景を読む。",
+  "seoDescriptionEn": "Across vendor updates including Anthropic, this briefing shows why control planes and evaluation discipline are setting the pace of agent adoption.",
+  "teaserJa": "control plane と regression evaluation の有無が rollout 速度を左右する理由を短く整理する。",
+  "teaserEn": "See why control planes and regression evaluation now shape the speed of agent rollout.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

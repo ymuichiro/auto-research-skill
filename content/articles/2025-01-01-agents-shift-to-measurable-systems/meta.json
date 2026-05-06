@@ -5,6 +5,10 @@
   "titleEn": "AI agents are moving from flashy demos to measurable system design",
   "summaryJa": "ReAct から BrowserGym までの研究と、Anthropic・AWS・Google の公式発表を合わせて読むと、関心は prompt 実験から、ツール接続、環境操作、評価可能なシステム設計へ移っている。",
   "summaryEn": "Research from ReAct through BrowserGym, together with official updates from Anthropic, AWS, and Google, shows attention moving away from prompt experiments and toward tool-connected, environment-aware, measurable systems.",
+  "seoDescriptionJa": "ReAct から BrowserGym、Anthropic・AWS・Google の発表までを通じて、AIエージェントが測定可能なシステム設計へ向かう流れを整理する。",
+  "seoDescriptionEn": "From ReAct to BrowserGym and vendor updates from Anthropic, AWS, and Google, this article traces the shift toward measurable agent system design.",
+  "teaserJa": "研究と公式発表を通じて、関心が prompt 実験から評価可能なシステム設計へ移る流れを読む。",
+  "teaserEn": "A short read on how research and vendor updates shift attention from prompt experiments to measurable system design.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",

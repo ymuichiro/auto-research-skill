@@ -5,6 +5,10 @@
   "titleEn": "Workflow tooling is catching up with agent complexity",
   "summaryJa": "OpenAI AgentKit、Microsoft Agent Framework、Claude Agent SDK、GPT-5 for developers がそろい、agent graph、connector、chat UI、trace grading、workflow orchestration をまとめて扱う tooling layer が実体を持ち始めている。",
   "summaryEn": "OpenAI AgentKit, Microsoft Agent Framework, the Claude Agent SDK, and GPT-5 for developers make a real tooling layer visible, one that combines agent graphs, connectors, chat UI, trace grading, and workflow orchestration.",
+  "seoDescriptionJa": "OpenAI AgentKit、Microsoft Agent Framework、Claude Agent SDK などから、workflow tooling が agent の複雑さに追いつく流れを整理する。",
+  "seoDescriptionEn": "Using OpenAI AgentKit, Microsoft Agent Framework, and the Claude Agent SDK, this article explains how workflow tooling is catching up with agent complexity.",
+  "teaserJa": "agent graph、connector、chat UI、trace grading を束ねる tooling layer の立ち上がりを読む。",
+  "teaserEn": "Read how a tooling layer is emerging around agent graphs, connectors, chat UI, trace grading, and orchestration.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
