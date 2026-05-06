@@ -1,6 +1,7 @@
 import path from "node:path";
 import { mkdir, readFile } from "node:fs/promises";
-import sharp from "sharp";
+import { execFile } from "node:child_process";
+import { promisify } from "node:util";
 import pngToIco from "png-to-ico";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
 import {
@@ -24,6 +25,18 @@ import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
 const iconRoot = path.join(outputRoot, "assets");
+const execFileAsync = promisify(execFile);
+let sharpLoader = null;
+
+async function loadSharp() {
+  if (sharpLoader === null) {
+    sharpLoader = import("sharp")
+      .then((module) => module.default ?? module)
+      .catch(() => null);
+  }
+
+  return sharpLoader;
+}
 
 function paginateArticles(articles, pageSize) {
   const pages = [];
@@ -46,6 +59,7 @@ async function buildFaviconAssets() {
   await writeTextFile(faviconSvgPath, faviconSvg);
 
   const svgBuffer = Buffer.from(faviconSvg);
+  const sharp = await loadSharp();
   const sizes = [
     { name: "favicon-16.png", size: 16 },
     { name: "favicon-32.png", size: 32 },
@@ -58,17 +72,34 @@ async function buildFaviconAssets() {
   const generated = new Map();
 
   for (const icon of sizes) {
-    const buffer = await sharp(svgBuffer, { density: icon.size >= 180 ? 320 : 256 })
-      .resize(icon.size, icon.size)
-      .png({
-        compressionLevel: 9,
-        palette: icon.size <= 32,
-        quality: 100
-      })
-      .toBuffer();
+    const targetPath = path.join(iconRoot, icon.name);
+    const buffer = sharp
+      ? await sharp(svgBuffer, { density: icon.size >= 180 ? 320 : 256 })
+          .resize(icon.size, icon.size)
+          .png({
+            compressionLevel: 9,
+            palette: icon.size <= 32,
+            quality: 100
+          })
+          .toBuffer()
+      : await (async () => {
+          await execFileAsync("sips", [
+            "-s",
+            "format",
+            "png",
+            "-z",
+            String(icon.size),
+            String(icon.size),
+            faviconSvgPath,
+            "--out",
+            targetPath
+          ]);
+
+          return readFile(targetPath);
+        })();
 
     generated.set(icon.name, buffer);
-    await writeBufferFile(path.join(iconRoot, icon.name), buffer);
+    await writeBufferFile(targetPath, buffer);
   }
 
   const icoBuffer = await pngToIco([
