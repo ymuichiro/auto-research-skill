@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"/>
+    <lastmod>2026-05-07T02:25:05+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"/>
+    <lastmod>2026-05-07T02:25:05+09:00</lastmod>
+  </url>
+  <url>
     <loc>https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html"/>

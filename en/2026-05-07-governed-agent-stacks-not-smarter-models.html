@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents | Auto Research Digest EN</title>
+    <meta name="description" content="Primary sources from Google, Microsoft, AWS, Anthropic, and OpenAI show why AI agent competition is moving from model quality to governed stacks.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents | Auto Research Digest EN">
+    <meta property="og:description" content="Primary sources from Google, Microsoft, AWS, Anthropic, and OpenAI show why AI agent competition is moving from model quality to governed stacks.">
+    <meta property="og:url" content="https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents | Auto Research Digest EN">
+    <meta name="twitter:description" content="Primary sources from Google, Microsoft, AWS, Anthropic, and OpenAI show why AI agent competition is moving from model quality to governed stacks.">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents">
+    <link rel="canonical" href="https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-05-07T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-05-07T02:25:05+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Governance">
+    <meta property="article:tag" content="Runtime">
+    <meta property="article:tag" content="Evaluation">
+    <meta property="article:tag" content="Enterprise AI">
+    <meta property="article:tag" content="MCP">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents","description":"Primary sources from Google, Microsoft, AWS, Anthropic, and OpenAI show why AI agent competition is moving from model quality to governed stacks.","datePublished":"2026-05-07T00:00:00+09:00","dateModified":"2026-05-07T02:25:05+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Governance, Runtime, Evaluation, Enterprise AI, MCP","mainEntityOfPage":"https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents","item":"https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <a class="lang-switch" href="/2026-05-07-governed-agent-stacks-not-smarter-models.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents</h1>
+          <p class="hero-copy">Reading the primary-source material public by May 7, 2026 across the OpenAI Agents SDK, Anthropic’s agent and eval guidance, Microsoft Agent Framework 1.0 and the Agent Governance Toolkit, Google’s Gemini Enterprise Agent Platform, and AWS Bedrock AgentCore, Agent Registry, Policy, and Evaluations shows a clearer market shift. The comparison surface for AI agents is moving away from raw model quality and toward operating stacks that combine building, running, governing, and evaluating agents in one managed system. This week is therefore best read not as a single launch, but as a convergence week in which major vendors made build, runtime, approval, and evaluation surfaces legible as one product category.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
+        <time class="mono-note" datetime="2026-05-07">May 7, 2026</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
+    </section>
+    <section class="panel-block briefing-summary">
+    <div>
+      <p class="section-kicker">Briefing summary</p>
+      <h2 class="panel-title">What this briefing helps you get to quickly</h2>
+    </div>
+    <div class="briefing-summary-grid">
+      <div class="briefing-summary-main">
+        <div class="meta-row">
+          <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
+          <span class="mono-note">Sources: 31</span>
+        </div>
+        <p class="briefing-summary-copy">A concise read on why AI agents are now compared as platforms that combine build, governance, and evaluation, not just as models.</p>
+        <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span></div>
+      </div>
+    </div>
+  </section>
+    <section class="article-share" aria-label="Share article">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=This%20week%E2%80%99s%20AI%20agent%20story%20is%20the%20rise%20of%20operating%20stacks%20for%20building%2C%20running%2C%20governing%2C%20and%20evaluating%20agents&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-05-07-governed-agent-stacks-not-smarter-models.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Open share menu"
+      data-native-share
+      data-share-title="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents"
+      data-share-text="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents"
+      data-share-url="https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Copy article title and link"
+      data-copy-share
+      data-state="idle"
+      data-share-title="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents"
+      data-share-url="https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"
+      data-copy-label-default="Copy article title and link"
+      data-copy-label-success="Copied"
+      data-copy-status-success="Copied"
+      data-copy-status-error="Copy failed"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Snapshot</p>
+  <h2>This week’s key question is no longer which model is smartest, but which stack can build, run, govern, and evaluate agents as one system</h2>
+  <p>
+    Reading the official material public by May 7, 2026 across Google, Microsoft, AWS, Anthropic, and OpenAI shows a clearer market shift.
+    The comparison object for AI agents is changing. The main story used to be model quality or raw tool connectivity. That is no longer enough
+    to explain real deployment. Teams now need to know where agents are designed, which runtime they use, who can authorize access, what policy
+    boundary can stop them, and how failures are observed and improved over time.
+  </p>
+  <p class="mt-4">
+    This week is therefore better read as a convergence week than as a single launch. Google now presents Gemini Enterprise Agent Platform
+    through four public pillars: build, scale, govern, and optimize. Microsoft pairs Agent Framework 1.0 with the Agent Governance Toolkit.
+    AWS bundles Registry, Policy, Observability, and Evaluations into AgentCore. Anthropic and OpenAI fill in the operating details through
+    public material on agent SDKs, permissions, sessions, sandboxed workspaces, tracing, and evaluation harnesses.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">31</p>
+      <p class="stat-title">Primary sources</p>
+      <p class="stat-note">Official docs, official announcements, and official SDK references alone are enough to support the full thesis this week.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">5 stacks</p>
+      <p class="stat-title">Compared side by side</p>
+      <p class="stat-note">Google, Microsoft, AWS, Anthropic, and OpenAI now expose enough of the operating layer to make direct comparison possible.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">New comparison frame</p>
+      <p class="stat-note">Build, runtime, governance, and evaluation provide a cleaner frame than model quality alone.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 shift</p>
+      <p class="stat-title">The product changed</p>
+      <p class="stat-note">The product is no longer just an agent or model. It is the operating stack that keeps agents safe, observable, and reusable.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Why this week</p>
+  <h2>Signals that were separate in spring 2026 now read as one operating stack</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">03-31</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS made AgentCore Evaluations generally available and tied evaluation to live operations</h3>
+        <p>Evaluation was framed not as a research add-on, but as a production monitoring and change-validation layer.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-02</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Microsoft published the Agent Governance Toolkit and made governance a standalone layer</h3>
+        <p>Policy, identity, runtime, compliance, and marketplace governance were exposed as explicit packages rather than hidden internal glue.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-03</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Microsoft Agent Framework 1.0 fixed agents and workflows as production SDK primitives</h3>
+        <p>Sessions, middleware, checkpointing, and human-in-the-loop support became standard product features rather than optional scaffolding.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04-08</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">AWS Agent Registry preview productized discovery and approval outside the runtime</h3>
+        <p>Agents, tools, skills, and MCP servers can now be published with approval workflows and searchable metadata.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">05-05</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Google’s public Agent Platform docs now line up build, scale, govern, and optimize as one stack</h3>
+        <p>Agent Studio, Runtime, Identity, Gateway, Evaluation, and Observability now sit on one visible public surface.</p>
+      </div>
+    </article>
+  </div>
+  <p class="mt-6">
+    Add Anthropic’s public guidance on eval harnesses and long-running harnesses, and OpenAI’s public SDK material on sandboxing, sessions,
+    and tracing, and the shift becomes easier to read. The market is no longer competing only on better answers. It is competing on how well
+    humans can set boundaries, run agents for longer periods, interrupt them safely, trace failures, and reuse successful patterns.
+    That is why this article works better as a weekly roundup than as a focused single-launch piece.
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Four layers</p>
+  <h2>The current agent platform race becomes clearer when it is split into build, runtime, governance, and evaluation</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Build</h3>
+      <p>
+        The first question is how agents are designed and how much of the flow can be made deterministic. Google exposes Agent Studio and ADK.
+        Microsoft exposes workflows and type-safe routing. OpenAI keeps a small set of primitives such as agents and handoffs.
+        Anthropic distinguishes clearly between workflows and agents. The main difference is no longer feature count alone, but the granularity
+        at which design can be controlled.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Runtime</h3>
+      <p>
+        The next question is where long-running work actually lives. OpenAI offers sandbox agents and sessions. Anthropic focuses on long-running
+        harness design. Google exposes Agent Runtime and Memory Bank. AWS exposes AgentCore Runtime and Identity. The key comparison is no longer
+        whether the agent can work once, but whether state, permissions, resumability, and isolation can hold over time.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. Governance</h3>
+      <p>
+        Production deployment requires explicit answers to what is allowed, who approves it, and where the system can be stopped.
+        Google’s Agent Gateway and agent identity, Microsoft’s middleware and governance toolkit, AWS Policy and Registry, and Anthropic’s
+        permissions and security guidance all move governance outside the prompt. Agents are now compared partly by how they can be constrained.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. Evaluation</h3>
+      <p>
+        The last layer is how improvement is measured. Anthropic separates tasks, trials, graders, transcripts, and outcomes.
+        OpenAI standardizes tracing. Google combines eval cases, traces, metrics, and optimization. AWS ties Evaluations to Observability.
+        The competitive question is no longer only how a model scores, but how a full agent run is judged, debugged, and improved.
+      </p>
+    </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">Observation</p>
+    <p>AI agents are now easier to understand as operating platforms that connect design, execution, governance, and evaluation than as standalone smart features.</p>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Vendor view</p>
+  <h2>The direction is shared, but each vendor emphasizes a different layer of the stack</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>OpenAI emphasizes a lightweight runtime plus visibility</h3>
+      <p>
+        The OpenAI Agents SDK keeps the abstraction set intentionally small while still exposing sandboxed workspaces, sessions,
+        human-in-the-loop flows, and tracing. Its distinctive move is to frame the operating layer primarily as a developer runtime.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Anthropic centers evaluation and harness design</h3>
+      <p>
+        Anthropic’s public material pushes the harness and eval structure to the foreground. It distinguishes tasks, trials, graders,
+        outcomes, and long-running handoff patterns. Its strongest signal is that operational quality should be designed from the start,
+        not retrofitted after deployment.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Microsoft puts the agent-workflow split at the center</h3>
+      <p>
+        Agent Framework 1.0 separates LLM-driven agents from type-safe, checkpointed workflows. Middleware and the Agent Governance Toolkit
+        then let teams add policy and compliance outside agent prompts. Microsoft’s framing is the closest to enterprise software architecture.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Google gives the clearest end-to-end product grammar</h3>
+      <p>
+        Build, Scale, Govern, and Optimize appear side by side in one public documentation surface, connecting Agent Studio, ADK, Runtime,
+        Identity, Gateway, Evaluation, and Observability. Google’s strongest move is to give “agent platform” a concrete product boundary.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>AWS extends the stack outward into catalog and policy</h3>
+      <p>
+        AgentCore combines Runtime, Gateway, Identity, Policy, Registry, Observability, and Evaluations, with unusually strong emphasis on
+        approval workflows and publish-time governance. AWS makes it especially clear that agent platforms include what gets registered,
+        approved, and audited, not just what gets executed.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Workflows</p>
+  <h2>This matters most when agents are treated as organizational operating targets rather than prototypes</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Internal research and writing agents</h3>
+      <ul class="bullet-list">
+        <li>Platform teams can expose only approved tools or MCP servers in a registry.</li>
+        <li>Agent identity and policy can separate readable data from writable actions.</li>
+        <li>Without traces and evals, post-deployment accountability becomes harder.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Long-running coding and operations agents</h3>
+      <ul class="bullet-list">
+        <li>Sandboxed or secure runtimes make resumability and permission separation more practical.</li>
+        <li>Sessions and progress artifacts reduce quality collapse on longer tasks.</li>
+        <li>The ability to insert approvals mid-run remains a key threshold for real deployment.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Cross-team reuse</h3>
+      <ul class="bullet-list">
+        <li>Without a catalog, the same business logic is rebuilt across teams.</li>
+        <li>Approval, deprecation, and ownership metadata determine what is safe to reuse.</li>
+        <li>This week’s convergence strengthens the move to manage reuse outside the runtime itself.</li>
+      </ul>
+    </article>
+    <article class="comparison-card">
+      <h3>Customer-facing operations and continuous improvement</h3>
+      <ul class="bullet-list">
+        <li>Safety, task success, and tool-use quality all need ongoing evaluation after launch.</li>
+        <li>Policies work better as external controls than as prompt-only instructions.</li>
+        <li>Without observability, failures remain expensive to explain and hard to improve.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What remains early</p>
+  <h2>A cleaner public surface does not mean the industry has reached a stable operating answer</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Protocol support is not governance</h3>
+      <p>MCP and A2A can improve interoperability, but approval, revocation, and least-privilege design still live in separate control layers.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Low-code tooling does not guarantee production quality</h3>
+      <p>Visual builders and studios still depend on strong task definitions, graders, and permission boundaries to produce reliable systems.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>A catalog does not solve day-two operations</h3>
+      <p>Registration and discovery help, but change management, memory updates, cost control, and failure analysis remain separate operating work.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Automated evaluation depends on task design</h3>
+      <p>Most vendors now foreground automated evals, but weak graders or weak ground truth can still produce impressive numbers without trustworthy progress.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Takeaway</p>
+  <h2>The real change this week is that AI agents are starting to be sold and judged as governed operating platforms</h2>
+  <p>
+    Across the official material available in early May 2026, the agent market is becoming harder to explain through model leaderboards alone.
+    What matters in practice is who designs the system, where it runs, which permissions it receives, and how failures are measured and corrected.
+    Implementations still differ, but the comparison unit is already moving from the individual agent app toward the governed operating stack.
+  </p>
+  <p class="mt-4">
+    This change matters most for organizations that need to distribute agents across multiple teams rather than trial them one by one.
+    The next buying and deployment decisions will have to look past model quality and inspect the surrounding workflow, approval, policy,
+    trace, and evaluation layers. This week is important because the major vendors have started to expose that full frame in public.
+  </p>
+</section>
+</section>
+    <section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Agents</span>
+      <span class="mono-note">Articles: 27</span>
+      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
+    </div>
+  </section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html" aria-label="AI agent adoption is now shaped more by discovery and approval than by model comparison">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-27">April 27, 2026</time>
+      </div>
+      <h3 class="article-card-title">AI agent adoption is now shaped more by discovery and approval than by model comparison</h3>
+      <p class="article-card-copy">A quick read on how app stores and marketplaces are becoming the control layer for agent discovery, approvals, and permissions.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Apps</span><span class="meta-chip">Marketplace</span><span class="meta-chip">Governance</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 26</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Cowork signals that workplace AI is expanding into long-running agent systems">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-25">March 25, 2026</time>
+      </div>
+      <h3 class="article-card-title">Cowork signals that workplace AI is expanding into long-running agent systems</h3>
+      <p class="article-card-copy">Read how Cowork signals a shift toward long-running workplace agents that combine reasoning, execution, and governance.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Cowork</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">Workflow</span><span class="meta-chip">Productivity</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 43</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="Workflow tooling is catching up with agent complexity">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-11-01">November 1, 2025</time>
+      </div>
+      <h3 class="article-card-title">Workflow tooling is catching up with agent complexity</h3>
+      <p class="article-card-copy">Read how a tooling layer is emerging around agent graphs, connectors, chat UI, trace grading, and orchestration.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 10</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://openai.github.io/openai-agents-python/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Intro</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/sandbox/guide/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Sandbox agents guide</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/sandbox/guide/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/sessions/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Sessions</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/sessions/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Tracing</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/tracing/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.openai.com/apps-sdk/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Developers: Apps SDK</p>
+              <p class="source-url">https://developers.openai.com/apps-sdk/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Demystifying evals for AI agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic Engineering: Effective harnesses for long-running agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://code.claude.com/docs/en/agent-sdk/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Claude Agent SDK overview</p>
+              <p class="source-url">https://code.claude.com/docs/en/agent-sdk/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://code.claude.com/docs/en/security" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Claude Code security</p>
+              <p class="source-url">https://code.claude.com/docs/en/security</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Dev Blog: Microsoft Agent Framework version 1.0</p>
+              <p class="source-url">https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/overview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Agent Framework overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/overview/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Agent Framework agents</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/workflows/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Agent Framework workflows</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/workflows/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Open Source Blog: Introducing the Agent Governance Toolkit</p>
+              <p class="source-url">https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://microsoft.github.io/agent-governance-toolkit/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Agent Governance Toolkit docs</p>
+              <p class="source-url">https://microsoft.github.io/agent-governance-toolkit/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud Blog: Introducing Gemini Enterprise Agent Platform</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini Enterprise Agent Platform: Overview</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini Enterprise Agent Platform: Agent Studio overview</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini Enterprise Agent Platform: Agent Development Kit</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini Enterprise Agent Platform: Scale your agents</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini Enterprise Agent Platform: Agent identity</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini Enterprise Agent Platform: Agent Gateway overview</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini Enterprise Agent Platform: Agent evaluation</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Gemini Enterprise Agent Platform: Observability overview</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Machine Learning Blog: AWS Agent Registry now in preview</p>
+              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: What is Amazon Bedrock AgentCore?</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: AWS Agent Registry</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Policy in Amazon Bedrock AgentCore</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS Docs: Observability in Amazon Bedrock AgentCore</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS What&#39;s New: Amazon Bedrock AgentCore Evaluations is now generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <div class="footer-meta">
+          <a class="footer-brand" href="/en/">AR / Auto Research Digest</a>
+          <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a><a class="footer-link" href="/en/sitemap.html">Sitemap</a><a class="footer-link" href="/en/about.html">About</a><a class="footer-link" href="/en/editorial-policy.html">Editorial Policy</a><a class="footer-link" href="/en/contact.html">Contact</a><a class="footer-link" href="/en/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/en/terms.html">Terms</a><a class="footer-link" href="/en/disclaimer.html">Disclaimer</a><a class="footer-link" href="/en/advertising-policy.html">Advertising Policy</a></nav>
+      </footer>
+    </div>
+  </body>
+</html>
