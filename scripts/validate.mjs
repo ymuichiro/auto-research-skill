@@ -12,6 +12,7 @@ import {
 } from "./lib/site-config.mjs";
 import { snippetLengthLimit, snippetTextLength } from "./lib/seo-snippets.mjs";
 import { buildTopicHubs } from "./lib/topic-hubs.mjs";
+import { renderIndexPage } from "./lib/render.mjs";
 import { escapeHtml } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve("public");
@@ -94,6 +95,79 @@ function collectSnippetErrors(articles) {
   }
 
   return errors;
+}
+
+function validateSingleArticleHomepageRender() {
+  const singleArticle = {
+    category: "AI Agents",
+    date: "2026-05-01",
+    outputPaths: {
+      ja: "articles/single-homepage-boundary/index.html",
+      en: "en/articles/single-homepage-boundary/index.html"
+    },
+    publishedSources: [
+      {
+        label: "Example source",
+        description: "Synthetic validation source",
+        url: "https://example.com/source"
+      }
+    ],
+    seo: {
+      ja: {
+        teaser: "単一記事ホームの境界ケースを検証するための合成ティーザーです。"
+      },
+      en: {
+        teaser: "A synthetic teaser for validating the single-article homepage boundary."
+      }
+    },
+    tags: ["validation", "homepage"],
+    titleJa: "単一記事ホームの検証",
+    titleEn: "Single-article homepage validation"
+  };
+  const pagination = { currentPage: 1, totalPages: 1, totalArticles: 1, topicHubs: [] };
+  const jaMarkup = renderIndexPage("ja", [singleArticle], pagination);
+  const enMarkup = renderIndexPage("en", [singleArticle], pagination);
+
+  assertContains(
+    jaMarkup,
+    'class="panel-block editorial-briefing home-featured-briefing"',
+    "Japanese single-article homepage should still render the featured briefing."
+  );
+  assertContains(
+    enMarkup,
+    'class="panel-block editorial-briefing home-featured-briefing"',
+    "English single-article homepage should still render the featured briefing."
+  );
+  assertNotContains(
+    jaMarkup,
+    "公開済みレポートはまだありません。",
+    "Japanese single-article homepage should not render a false empty-state message."
+  );
+  assertNotContains(
+    jaMarkup,
+    'class="empty-state"',
+    "Japanese single-article homepage should not render an empty-state container."
+  );
+  assertNotContains(
+    enMarkup,
+    "No published briefings yet.",
+    "English single-article homepage should not render a false empty-state message."
+  );
+  assertNotContains(
+    enMarkup,
+    'class="empty-state"',
+    "English single-article homepage should not render an empty-state container."
+  );
+  assertNotContains(
+    jaMarkup,
+    "表示範囲: 0-0 / 1",
+    "Japanese single-article homepage should not render a 0-0 listing range."
+  );
+  assertNotContains(
+    enMarkup,
+    "Showing 0-0 of 1",
+    "English single-article homepage should not render a 0-0 listing range."
+  );
 }
 
 async function validateBuiltOutput(articles) {
@@ -330,17 +404,40 @@ async function validateBuiltOutput(articles) {
     );
     assertContains(
       homeHtml,
-      `<p class="article-card-copy">${escapeHtml(sampleArticle.seo.ja.teaser)}</p>`,
-      "Japanese home page is missing the resolved teaser for the latest article."
+      `<section class="panel-block editorial-briefing home-featured-briefing">`,
+      "Japanese home page is missing the featured briefing block."
     );
     assertContains(
       enHomeHtml,
-      `<p class="article-card-copy">${escapeHtml(sampleArticle.seo.en.teaser)}</p>`,
-      "English home page is missing the resolved teaser for the latest article."
+      `<section class="panel-block editorial-briefing home-featured-briefing">`,
+      "English home page is missing the featured briefing block."
+    );
+    assertContains(
+      homeHtml,
+      `<p class="editorial-briefing-copy">${escapeHtml(sampleArticle.seo.ja.teaser)}</p>`,
+      "Japanese home page is missing the resolved teaser in the featured briefing."
+    );
+    assertContains(
+      enHomeHtml,
+      `<p class="editorial-briefing-copy">${escapeHtml(sampleArticle.seo.en.teaser)}</p>`,
+      "English home page is missing the resolved teaser in the featured briefing."
+    );
+    assertNotContains(
+      homeHtml,
+      `class="article-card " href="${localizedPath("ja", sampleArticle.outputPaths.ja)}" aria-label="${escapeHtml(sampleArticle.titleJa)}"`,
+      "Japanese home page should not repeat the featured article as a standard list card."
+    );
+    assertNotContains(
+      enHomeHtml,
+      `class="article-card " href="${localizedPath("en", sampleArticle.outputPaths.en.replace(/^en\//, ""))}" aria-label="${escapeHtml(sampleArticle.titleEn)}"`,
+      "English home page should not repeat the featured article as a standard list card."
     );
 
     const articleHub = topicHubs.find((hub) => hub.category === sampleArticle.category);
     if (articleHub) {
+      const jaHubHtml = await readBuiltFile(`${topicHubRelativePath("ja", articleHub.slug)}index.html`);
+      const enHubHtml = await readBuiltFile(`${topicHubRelativePath("en", articleHub.slug)}index.html`);
+
       assertContains(
         jaHtml,
         `class="meta-pill is-accent article-topic-link" href="${localizedPath("ja", topicHubRelativePath("ja", articleHub.slug))}"`,
@@ -353,6 +450,48 @@ async function validateBuiltOutput(articles) {
       );
       assertContains(jaHtml, 'class="panel-block topic-backlink"', "Japanese article is missing the topic backlink block.");
       assertContains(enHtml, 'class="panel-block topic-backlink"', "English article is missing the topic backlink block.");
+      assertContains(jaHtml, 'class="panel-block briefing-summary"', "Japanese article is missing the briefing summary block.");
+      assertContains(enHtml, 'class="panel-block briefing-summary"', "English article is missing the briefing summary block.");
+      assertContains(
+        jaHtml,
+        `<p class="briefing-summary-copy">${escapeHtml(sampleArticle.seo.ja.teaser)}</p>`,
+        "Japanese article is missing the resolved teaser in the briefing summary."
+      );
+      assertContains(
+        enHtml,
+        `<p class="briefing-summary-copy">${escapeHtml(sampleArticle.seo.en.teaser)}</p>`,
+        "English article is missing the resolved teaser in the briefing summary."
+      );
+      assertContains(
+        jaHubHtml,
+        'class="panel-block editorial-briefing topic-featured-briefing"',
+        "Japanese topic hub is missing the latest briefing editorial block."
+      );
+      assertContains(
+        enHubHtml,
+        'class="panel-block editorial-briefing topic-featured-briefing"',
+        "English topic hub is missing the latest briefing editorial block."
+      );
+      assertContains(
+        jaHubHtml,
+        `<p class="editorial-briefing-copy">${escapeHtml(sampleArticle.seo.ja.teaser)}</p>`,
+        "Japanese topic hub is missing the resolved teaser in the latest briefing block."
+      );
+      assertContains(
+        enHubHtml,
+        `<p class="editorial-briefing-copy">${escapeHtml(sampleArticle.seo.en.teaser)}</p>`,
+        "English topic hub is missing the resolved teaser in the latest briefing block."
+      );
+      assertNotContains(
+        jaHubHtml,
+        `class="article-card " href="${localizedPath("ja", sampleArticle.outputPaths.ja)}" aria-label="${escapeHtml(sampleArticle.titleJa)}"`,
+        "Japanese topic hub should not repeat the latest article as a standard list card."
+      );
+      assertNotContains(
+        enHubHtml,
+        `class="article-card " href="${localizedPath("en", sampleArticle.outputPaths.en.replace(/^en\//, ""))}" aria-label="${escapeHtml(sampleArticle.titleEn)}"`,
+        "English topic hub should not repeat the latest article as a standard list card."
+      );
     }
 
     const articleWithCustomSeoTitle = articles.find(
@@ -461,6 +600,8 @@ async function validate() {
   if (errors.length > 0 || snippetErrors.length > 0) {
     throw new Error(`Content validation failed:\n- ${errors.concat(snippetErrors).join("\n- ")}`);
   }
+
+  validateSingleArticleHomepageRender();
 
   if (await fileExists(outputRoot)) {
     await validateBuiltOutput(publishedArticles(articles));
