@@ -65,8 +65,8 @@ export const siteConfig = {
   nav: {
     ja: [
       { label: "トップ", path: "" },
-      { label: "Topics", path: "topics/" },
-      { label: "Timeline", path: "timeline/" }
+      { label: "トピック", path: "topics/" },
+      { label: "タイムライン", path: "timeline/" }
     ],
     en: [
       { label: "Home", path: "en/" },
@@ -76,15 +76,15 @@ export const siteConfig = {
   },
   footerNav: {
     ja: [
-      { label: "Topics", path: "topics/" },
-      { label: "Sitemap", path: "sitemap.html" },
-      { label: "About", path: trustPagePaths.about },
+      { label: "トピック", path: "topics/" },
+      { label: "サイトマップ", path: "sitemap.html" },
+      { label: "このサイトについて", path: trustPagePaths.about },
       { label: "調査・編集方針", path: trustPagePaths.editorialPolicy },
-      { label: "Contact", path: trustPagePaths.contact },
-      { label: "Privacy Policy", path: trustPagePaths.privacyPolicy },
-      { label: "Terms", path: trustPagePaths.terms },
-      { label: "Disclaimer", path: trustPagePaths.disclaimer },
-      { label: "Advertising Policy", path: trustPagePaths.advertisingPolicy }
+      { label: "お問い合わせ", path: trustPagePaths.contact },
+      { label: "プライバシーポリシー", path: trustPagePaths.privacyPolicy },
+      { label: "利用規約", path: trustPagePaths.terms },
+      { label: "免責事項", path: trustPagePaths.disclaimer },
+      { label: "広告掲載方針", path: trustPagePaths.advertisingPolicy }
     ],
     en: [
       { label: "Topics", path: "topics/" },

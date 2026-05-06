@@ -75,6 +75,27 @@ function assertNotContains(markup, unexpected, message) {
   }
 }
 
+function assertCondition(condition, message) {
+  if (!condition) {
+    throw new Error(message);
+  }
+}
+
+function countOccurrences(markup, needle) {
+  let count = 0;
+  let offset = 0;
+
+  while (offset !== -1) {
+    offset = markup.indexOf(needle, offset);
+    if (offset !== -1) {
+      count += 1;
+      offset += needle.length;
+    }
+  }
+
+  return count;
+}
+
 function expectedPageTitle(title, locale) {
   if (title === siteConfig.name) {
     return locale === "ja" ? siteConfig.name : `${siteConfig.name} EN`;
@@ -660,7 +681,46 @@ async function validateBuiltOutput(articles) {
       `Page sitemap is missing en/topics/${hub.slug}/.`
     );
   }
+  const jaTimelineDiscoveryCount = countOccurrences(jaTimelineHtml, 'class="discovery-entry"');
+  const enTimelineDiscoveryCount = countOccurrences(enTimelineHtml, 'class="discovery-entry"');
+  const jaSitemapDiscoveryCount = countOccurrences(jaSitemapHtml, 'class="discovery-entry"');
+  const enSitemapDiscoveryCount = countOccurrences(enSitemapHtml, 'class="discovery-entry"');
+
+  assertContains(jaSitemapHtml, 'class="sitemap-month-jump"', "Japanese HTML sitemap is missing month anchors.");
+  assertContains(enSitemapHtml, 'class="sitemap-month-jump"', "English HTML sitemap is missing month anchors.");
+  assertContains(jaSitemapHtml, 'class="sitemap-article-links"', "Japanese HTML sitemap is missing the compact article link list.");
+  assertContains(enSitemapHtml, 'class="sitemap-article-links"', "English HTML sitemap is missing the compact article link list.");
+  assertCondition(
+    jaTimelineDiscoveryCount === articles.length,
+    `Japanese timeline should render ${articles.length} discovery entries, found ${jaTimelineDiscoveryCount}.`
+  );
+  assertCondition(
+    enTimelineDiscoveryCount === articles.length,
+    `English timeline should render ${articles.length} discovery entries, found ${enTimelineDiscoveryCount}.`
+  );
+  assertCondition(jaSitemapDiscoveryCount === 0, "Japanese HTML sitemap should not reuse discovery-entry cards.");
+  assertCondition(enSitemapDiscoveryCount === 0, "English HTML sitemap should not reuse discovery-entry cards.");
+  if (articles.length > 0) {
+    assertCondition(
+      jaSitemapDiscoveryCount !== jaTimelineDiscoveryCount,
+      "Japanese HTML sitemap and timeline should not expose the same discovery-entry count."
+    );
+    assertCondition(
+      enSitemapDiscoveryCount !== enTimelineDiscoveryCount,
+      "English HTML sitemap and timeline should not expose the same discovery-entry count."
+    );
+  }
   for (const article of articles) {
+    assertContains(
+      jaTimelineHtml,
+      `href="${localizedPath("ja", article.outputPaths.ja)}"`,
+      `Japanese timeline page is missing ${article.outputPaths.ja}.`
+    );
+    assertContains(
+      enTimelineHtml,
+      `href="${localizedPath("en", article.outputPaths.en.replace(/^en\//, ""))}"`,
+      `English timeline page is missing ${article.outputPaths.en}.`
+    );
     assertContains(
       jaSitemapHtml,
       `href="${localizedPath("ja", article.outputPaths.ja)}"`,

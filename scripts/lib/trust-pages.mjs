@@ -17,7 +17,7 @@ function noticeBody(locale) {
 const trustPages = {
   about: {
     schemaType: "AboutPage",
-    title: localizedText("About", "About"),
+    title: localizedText("このサイトについて", "About"),
     description: localizedText(
       "Auto Research Digest の目的、対象読者、公開範囲を説明します。",
       "Explaining the purpose, audience, and publishing scope of Auto Research Digest."
@@ -171,12 +171,12 @@ const trustPages = {
   },
   contact: {
     schemaType: "ContactPage",
-    title: localizedText("Contact", "Contact"),
+    title: localizedText("お問い合わせ", "Contact"),
     description: localizedText(
       "Auto Research Digest への連絡方法と受け付ける内容を案内します。",
       "Explaining how to contact Auto Research Digest and what kinds of inquiries fit the site."
     ),
-    heading: localizedText("Contact", "Contact"),
+    heading: localizedText("お問い合わせ", "Contact"),
     intro: localizedText(
       "現在の公開窓口は GitHub を中心に運用しています。訂正依頼、リンク不備、運用上の問い合わせはこちらで確認します。",
       "The current public contact channel is centered on GitHub. Correction requests, broken links, and operational questions are reviewed there."
@@ -207,7 +207,7 @@ const trustPages = {
           title: "受け付ける内容",
           bullets: [
             "事実誤認、表記揺れ、翻訳差分、リンク切れなどの修正依頼",
-            "Privacy Policy、Disclaimer、Advertising Policy など公開ポリシーに関する問い合わせ",
+            "プライバシーポリシー、免責事項、広告掲載方針など公開ポリシーに関する問い合わせ",
             "このサイトの公開方針と整合する範囲での業務連絡や協業相談"
           ],
           paragraphs: [
@@ -265,12 +265,12 @@ const trustPages = {
   },
   privacyPolicy: {
     schemaType: "WebPage",
-    title: localizedText("Privacy Policy", "Privacy Policy"),
+    title: localizedText("プライバシーポリシー", "Privacy Policy"),
     description: localizedText(
       "公開サイトとしての個人情報の扱いと、閲覧時に関係する第三者サービスを説明します。",
       "Explaining how personal information is handled on the public site and which third-party services are involved in normal browsing."
     ),
-    heading: localizedText("Privacy Policy", "Privacy Policy"),
+    heading: localizedText("プライバシーポリシー", "Privacy Policy"),
     intro: localizedText(
       "このページは、Auto Research Digest の公開面で想定される情報の扱いを、現在の運用に沿って説明するものです。",
       "This page explains how information is handled on the public face of Auto Research Digest based on the current operating model."
@@ -335,12 +335,12 @@ const trustPages = {
   },
   terms: {
     schemaType: "WebPage",
-    title: localizedText("Terms", "Terms"),
+    title: localizedText("利用規約", "Terms"),
     description: localizedText(
       "Auto Research Digest の公開ページを利用する際の基本的な考え方を示します。",
       "Explaining the basic operating terms for using the public pages of Auto Research Digest."
     ),
-    heading: localizedText("Terms", "Terms"),
+    heading: localizedText("利用規約", "Terms"),
     intro: localizedText(
       "このページは、公開サイトの利用にあたって共有したい運用上の前提をまとめたものです。",
       "This page summarizes the operating assumptions that matter when using the public site."
@@ -405,12 +405,12 @@ const trustPages = {
   },
   disclaimer: {
     schemaType: "WebPage",
-    title: localizedText("Disclaimer", "Disclaimer"),
+    title: localizedText("免責事項", "Disclaimer"),
     description: localizedText(
       "公開情報の性質、責任範囲、外部リンクの扱いについて説明します。",
       "Explaining the nature of the public information, the responsibility boundary, and how external links are treated."
     ),
-    heading: localizedText("Disclaimer", "Disclaimer"),
+    heading: localizedText("免責事項", "Disclaimer"),
     intro: localizedText(
       "本サイトの情報は、公開時点で確認できる資料をもとに整理した編集コンテンツです。",
       "The site provides editorial content organized from materials that were publicly verifiable at the time of publication."
@@ -467,12 +467,12 @@ const trustPages = {
   },
   advertisingPolicy: {
     schemaType: "WebPage",
-    title: localizedText("Advertising Policy", "Advertising Policy"),
+    title: localizedText("広告掲載方針", "Advertising Policy"),
     description: localizedText(
       "広告やスポンサー表記を導入する場合の考え方と、編集独立性の扱いを説明します。",
       "Explaining how advertising or sponsorship would be handled and how editorial independence is maintained."
     ),
-    heading: localizedText("Advertising Policy", "Advertising Policy"),
+    heading: localizedText("広告掲載方針", "Advertising Policy"),
     intro: localizedText(
       "広告審査や将来の導線整備を見据えつつ、現時点の公開面では編集独立性と読者への明示を優先します。",
       "While the site prepares for future monetization or review requirements, the current public priority is editorial independence and clear reader notice."
@@ -502,7 +502,7 @@ const trustPages = {
           title: "将来追加する場合の扱い",
           paragraphs: [
             "将来、ディスプレイ広告、スポンサー表記、アフィリエイトリンク、その他の収益導線を導入する場合は、編集コンテンツと識別できる形で分離し、利用者の理解を妨げない配置を優先します。",
-            "広告導入によって Privacy Policy や Contact の説明が変わる場合は、関連ページも合わせて更新します。"
+            "広告導入によってプライバシーポリシーやお問い合わせページの説明が変わる場合は、関連ページも合わせて更新します。"
           ]
         }
       ],
