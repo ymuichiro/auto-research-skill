@@ -1,0 +1,179 @@
+{
+  "slug": "governed-agent-stacks-not-smarter-models",
+  "date": "2026-05-07",
+  "titleJa": "なぜ今週のAIエージェントは、「賢いモデル」ではなく「統制して回せる基盤」として読むべきか",
+  "titleEn": "Why this week’s AI agent story should be read as governed operating stacks, not smarter models",
+  "summaryJa": "2026年5月7日までに公開されている OpenAI Agents SDK、Anthropic のエージェント運用・評価関連資料、Microsoft Agent Framework 1.0 と Agent Governance Toolkit、Google の Gemini Enterprise Agent Platform、AWS Bedrock AgentCore / Agent Registry / Policy / Evaluations の一次情報を重ねると、AIエージェントの競争軸は単純なモデル性能から、作成、実行、統制、評価を一続きで回せる運用基盤へ移っていることが見えてくる。今週は単独の発表より、主要ベンダーがそれぞれ作成面、実行面、承認面、評価面を公開面で一体の製品として見せ始めた収束週として読むのが自然である。",
+  "summaryEn": "Reading the primary-source material public by May 7, 2026 across the OpenAI Agents SDK, Anthropic’s agent and eval guidance, Microsoft Agent Framework 1.0 and the Agent Governance Toolkit, Google’s Gemini Enterprise Agent Platform, and AWS Bedrock AgentCore, Agent Registry, Policy, and Evaluations shows a clearer market shift. The comparison surface for AI agents is moving away from raw model quality and toward operating stacks that combine building, running, governing, and evaluating agents in one managed system. This week is therefore best read not as a single launch, but as a convergence week in which major vendors made build, runtime, approval, and evaluation surfaces legible as one product category.",
+  "seoDescriptionJa": "Google、Microsoft、AWS、Anthropic、OpenAI の一次情報から、AIエージェント競争がモデル性能より統制付き運用基盤へ移る流れを整理する。",
+  "seoDescriptionEn": "Primary sources from Google, Microsoft, AWS, Anthropic, and OpenAI show why AI agent competition is moving from model quality to governed stacks.",
+  "teaserJa": "AIエージェントを選ぶ基準が、モデル単体ではなく作成・統制・評価を束ねた基盤へ移る理由を短く読む。",
+  "teaserEn": "A concise read on why AI agents are now compared as platforms that combine build, governance, and evaluation, not just as models.",
+  "category": "AI Agents",
+  "tags": [
+    "AI Agent",
+    "Governance",
+    "Runtime",
+    "Evaluation",
+    "Enterprise AI",
+    "MCP"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI Agents SDK: Intro",
+      "url": "https://openai.github.io/openai-agents-python/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Agents SDK: Sandbox agents guide",
+      "url": "https://openai.github.io/openai-agents-python/sandbox/guide/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Agents SDK: Sessions",
+      "url": "https://openai.github.io/openai-agents-python/sessions/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Agents SDK: Tracing",
+      "url": "https://openai.github.io/openai-agents-python/tracing/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Developers: Apps SDK",
+      "url": "https://developers.openai.com/apps-sdk/",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic Engineering: Effective harnesses for long-running agents",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "type": "official"
+    },
+    {
+      "label": "Claude Agent SDK overview",
+      "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "type": "official"
+    },
+    {
+      "label": "Claude Code security",
+      "url": "https://code.claude.com/docs/en/security",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Dev Blog: Microsoft Agent Framework version 1.0",
+      "url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Agent Framework overview",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/overview/",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Agent Framework agents",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/agents/",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Agent Framework workflows",
+      "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Open Source Blog: Introducing the Agent Governance Toolkit",
+      "url": "https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Agent Governance Toolkit docs",
+      "url": "https://microsoft.github.io/agent-governance-toolkit/",
+      "type": "official"
+    },
+    {
+      "label": "Google Cloud Blog: Introducing Gemini Enterprise Agent Platform",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform",
+      "type": "official"
+    },
+    {
+      "label": "Gemini Enterprise Agent Platform: Overview",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/overview",
+      "type": "official"
+    },
+    {
+      "label": "Gemini Enterprise Agent Platform: Agent Studio overview",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/agent-studio/overview",
+      "type": "official"
+    },
+    {
+      "label": "Gemini Enterprise Agent Platform: Agent Development Kit",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/build/adk",
+      "type": "official"
+    },
+    {
+      "label": "Gemini Enterprise Agent Platform: Scale your agents",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale",
+      "type": "official"
+    },
+    {
+      "label": "Gemini Enterprise Agent Platform: Agent identity",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/scale/runtime/agent-identity",
+      "type": "official"
+    },
+    {
+      "label": "Gemini Enterprise Agent Platform: Agent Gateway overview",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/govern/gateways/agent-gateway-overview",
+      "type": "official"
+    },
+    {
+      "label": "Gemini Enterprise Agent Platform: Agent evaluation",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/agent-evaluation",
+      "type": "official"
+    },
+    {
+      "label": "Gemini Enterprise Agent Platform: Observability overview",
+      "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/observability/overview",
+      "type": "official"
+    },
+    {
+      "label": "AWS Machine Learning Blog: AWS Agent Registry now in preview",
+      "url": "https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: What is Amazon Bedrock AgentCore?",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: AWS Agent Registry",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Policy in Amazon Bedrock AgentCore",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS Docs: Observability in Amazon Bedrock AgentCore",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html",
+      "type": "official"
+    },
+    {
+      "label": "AWS What's New: Amazon Bedrock AgentCore Evaluations is now generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/",
+      "type": "official"
+    }
+  ],
+  "draft": false
+}
