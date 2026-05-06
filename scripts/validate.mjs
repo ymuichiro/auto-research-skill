@@ -144,9 +144,19 @@ function validateSingleArticleHomepageRender() {
     "Japanese single-article homepage should not render a false empty-state message."
   );
   assertNotContains(
+    jaMarkup,
+    'class="empty-state"',
+    "Japanese single-article homepage should not render an empty-state container."
+  );
+  assertNotContains(
     enMarkup,
     "No published briefings yet.",
     "English single-article homepage should not render a false empty-state message."
+  );
+  assertNotContains(
+    enMarkup,
+    'class="empty-state"',
+    "English single-article homepage should not render an empty-state container."
   );
   assertNotContains(
     jaMarkup,
