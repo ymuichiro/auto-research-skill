@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Coding AI agents now compete as supervised runtime systems, not helper UIs | Auto Research Digest EN</title>
-    <meta name="description" content="Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.">
+    <meta name="description" content="Based on public docs from OpenAI, Anthropic, GitHub, Google, and AWS, this article shows why coding agents are now compared as supervised runtimes rather than helper UIs.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="Coding AI agents now compete as supervised runtime systems, not helper UIs | Auto Research Digest EN">
-    <meta property="og:description" content="Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.">
+    <meta property="og:description" content="Based on public docs from OpenAI, Anthropic, GitHub, Google, and AWS, this article shows why coding agents are now compared as supervised runtimes rather than helper UIs.">
     <meta property="og:url" content="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
     <meta property="og:image:width" content="1536">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="Coding AI agents now compete as supervised runtime systems, not helper UIs">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Coding AI agents now compete as supervised runtime systems, not helper UIs | Auto Research Digest EN">
-    <meta name="twitter:description" content="Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.">
+    <meta name="twitter:description" content="Based on public docs from OpenAI, Anthropic, GitHub, Google, and AWS, this article shows why coding agents are now compared as supervised runtimes rather than helper UIs.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
     <meta name="twitter:image:alt" content="Coding AI agents now compete as supervised runtime systems, not helper UIs">
     <link rel="canonical" href="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-04-13T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-04-13T09:43:40+09:00">
+    <meta property="article:modified_time" content="2026-05-06T23:53:04+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Coding Agent">
@@ -50,8 +50,8 @@
     <meta property="article:tag" content="Runtime">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="DevOps">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Coding AI agents now compete as supervised runtime systems, not helper UIs","description":"Reading the official material available by April 13, 2026 from OpenAI Codex, Anthropic Claude Code, GitHub Copilot cloud agent / CLI, Google Jules, and AWS DevOps Agent alongside papers such as SWE-bench, OSWorld, MLE-bench, and RE-Bench shows a clearer comparison axis for coding agents. The real shift is no longer about autocomplete quality or chat-based assistance alone. It is about supervised runtime design: plan review, isolated execution environments, permission boundaries, session logs, custom agents and skills, and the ability to pause, resume, and redirect long-running work. The late-March to early-April 2026 signal is especially strong because GitHub expanded cloud-agent controls, Anthropic published on harnesses, auto mode, and infrastructure noise, Jules made plan-and-review workflows more explicit in public docs, and AWS moved DevOps Agent into GA.","datePublished":"2026-04-13T00:00:00+09:00","dateModified":"2026-04-13T09:43:40+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Coding Agent, Software Engineering, Runtime, Workflow, DevOps","mainEntityOfPage":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Coding AI agents now compete as supervised runtime systems, not helper UIs","item":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Coding AI agents now compete as supervised runtime systems, not helper UIs","description":"Based on public docs from OpenAI, Anthropic, GitHub, Google, and AWS, this article shows why coding agents are now compared as supervised runtimes rather than helper UIs.","datePublished":"2026-04-13T00:00:00+09:00","dateModified":"2026-05-06T23:53:04+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Coding Agent, Software Engineering, Runtime, Workflow, DevOps","mainEntityOfPage":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Coding AI agents now compete as supervised runtime systems, not helper UIs","item":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -61,7 +61,7 @@
           <span class="brand-badge">AR /</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a></nav>
+        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a></nav>
         <a class="lang-switch" href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html">日本語</a>
       </header>
       <main class="site-main">
@@ -74,7 +74,7 @@
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
-        <span class="meta-pill is-accent">AI Agents</span>
+        <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-04-13">April 13, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
@@ -339,6 +339,18 @@
   </p>
 </section>
 </section>
+    <section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Agents</span>
+      <span class="mono-note">Articles: 26</span>
+      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
+    </div>
+  </section>
     <section class="panel-block related-articles">
     <div>
       <p class="section-kicker">Continue reading</p>
@@ -354,7 +366,7 @@
         <time class="mono-note" datetime="2026-04-20">April 20, 2026</time>
       </div>
       <h3 class="article-card-title">The real comparison axis for AI agents is now whether they can carry work forward</h3>
-      <p class="article-card-copy">Reading the primary-source material available by April 20, 2026 across OpenAI Codex, the Agents SDK, Projects, Tasks, and Apps, Anthropic Managed Agents and the Claude Agent SDK, Google Vertex AI Agent Engine Sessions and ADK, and AWS AgentCore Runtime, Evaluations, and Observability shows a clearer comparison axis for AI agents. The central question is no longer just whether an agent can answer well in the moment. It is whether the system can carry work across time: preserve context, resume execution, persist artifacts, reconnect tools only when needed, and expose enough observability to judge quality in production. The April 15 to April 17 cluster is especially important because OpenAI advanced both the developer-facing and user-facing sides of that stack at once, while Google, Anthropic, and AWS made the same pattern legible in their own public docs.</p>
+      <p class="article-card-copy">See why the new agent comparison axis is resume-able work, persistent state, and production observability.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Automation</span><span class="meta-chip">Sessions</span><span class="meta-chip">Observability</span><span class="meta-chip">Workflow</span><span class="meta-chip">Background Work</span></div>
     </div>
     <div class="article-card-foot">
@@ -369,7 +381,7 @@
         <time class="mono-note" datetime="2026-04-08">April 8, 2026</time>
       </div>
       <h3 class="article-card-title">AI agent memory is shifting from vector retrieval to a layered systems design</h3>
-      <p class="article-card-copy">Across official documentation current as of April 2026 from OpenAI, Anthropic, Google ADK, LangGraph, Letta, Mem0, Microsoft Azure, and AWS Bedrock / AgentCore, plus papers such as MemGPT, CoALA, LoCoMo, LongMemEval, A-MEM, MemoryOS, Reflective Memory Management, and MemInsight, a clear pattern emerges: agent memory is no longer a single vector retrieval feature. It is becoming a layered system made up of short-term session state, long-term persistent memory, shared memory, and background consolidation or reflection. At the same time, the main problems are shifting away from pure recall failure and toward the write path, shared-memory contention, and stale memory. Vendors are responding with type separation, scope separation, asynchronous summarization, graph memory, file-backed memory, and reflective updates. The most widely adopted implementation pattern remains the split between per-conversation state and persistent stores with selective reinjection, but the next frontier is likely to be governed by write policy and forgetting policy as much as by retrieval quality.</p>
+      <p class="article-card-copy">Read the shift from single retrieval to layered memory with session state, persistent stores, shared memory, and write policies.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
@@ -384,7 +396,7 @@
         <time class="mono-note" datetime="2025-11-01">November 1, 2025</time>
       </div>
       <h3 class="article-card-title">Workflow tooling is catching up with agent complexity</h3>
-      <p class="article-card-copy">OpenAI AgentKit, Microsoft Agent Framework, the Claude Agent SDK, and GPT-5 for developers make a real tooling layer visible, one that combines agent graphs, connectors, chat UI, trace grading, and workflow orchestration.</p>
+      <p class="article-card-copy">Read how a tooling layer is emerging around agent graphs, connectors, chat UI, trace grading, and orchestration.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
@@ -800,8 +812,11 @@
         </div>
       </main>
       <footer class="footer-panel">
-        <p class="footer-brand">AR / Auto Research Digest</p>
-        <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+        <div class="footer-meta">
+          <a class="footer-brand" href="/en/">AR / Auto Research Digest</a>
+          <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a><a class="footer-link" href="/en/about.html">About</a><a class="footer-link" href="/en/editorial-policy.html">Editorial Policy</a><a class="footer-link" href="/en/contact.html">Contact</a><a class="footer-link" href="/en/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/en/terms.html">Terms</a><a class="footer-link" href="/en/disclaimer.html">Disclaimer</a><a class="footer-link" href="/en/advertising-policy.html">Advertising Policy</a></nav>
       </footer>
     </div>
   </body>
