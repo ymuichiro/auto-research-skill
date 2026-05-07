@@ -1,6 +1,7 @@
 import {
   absoluteUrl,
   assetPath,
+  feedRelativePath,
   listingRelativePath,
   localizedPath,
   sitemapHtmlRelativePath,
@@ -206,7 +207,13 @@ function jsonLdBlock(payload) {
   return `<script type="application/ld+json">${JSON.stringify(payload)}</script>`;
 }
 
-function renderSharedHeadAssets() {
+function feedLinkTitle(locale) {
+  return locale === "ja" ? `${siteConfig.name} RSS` : `${siteConfig.name} RSS`;
+}
+
+function renderSharedHeadAssets(locale) {
+  const feedHref = localizedPath(locale, feedRelativePath(locale).replace(/^en\//, ""));
+
   return `    <link rel="icon" href="${assetPath("assets/favicon.ico")}" type="image/x-icon">
     <link rel="shortcut icon" href="${assetPath("assets/favicon.ico")}" type="image/x-icon">
     <link rel="icon" href="${assetPath("assets/favicon.svg")}" type="image/svg+xml" sizes="any">
@@ -214,6 +221,7 @@ function renderSharedHeadAssets() {
     <link rel="icon" href="${assetPath("assets/favicon-16.png")}" type="image/png" sizes="16x16">
     <link rel="apple-touch-icon" href="${assetPath("assets/apple-touch-icon.png")}" sizes="180x180">
     <link rel="manifest" href="${assetPath("site.webmanifest")}">
+    <link rel="alternate" type="application/rss+xml" title="${escapeHtml(feedLinkTitle(locale))}" href="${feedHref}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -246,7 +254,43 @@ function breadcrumbPayload(locale, items) {
   };
 }
 
-function pageSchemas({ locale, title, description, canonicalUrl, article, pageType, breadcrumbs, imageUrl, schemaType }) {
+function itemListPayload(locale, title, items) {
+  if (!items?.length) {
+    return null;
+  }
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: title,
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: items.length,
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": item.schemaType ?? "WebPage",
+        name: item.name,
+        url: item.url,
+        description: item.description,
+        inLanguage: locale
+      }
+    }))
+  };
+}
+
+function pageSchemas({
+  locale,
+  title,
+  description,
+  canonicalUrl,
+  article,
+  pageType,
+  breadcrumbs,
+  imageUrl,
+  schemaType,
+  listItems = []
+}) {
   const payloads = [];
 
   if (pageType === "article" && article) {
@@ -276,7 +320,7 @@ function pageSchemas({ locale, title, description, canonicalUrl, article, pageTy
       image: [imageUrl]
     });
   } else {
-    payloads.push({
+    const collectionPayload = {
       "@context": "https://schema.org",
       "@type": schemaType ?? "CollectionPage",
       name: title,
@@ -293,7 +337,13 @@ function pageSchemas({ locale, title, description, canonicalUrl, article, pageTy
         name: siteConfig.owner,
         url: siteConfig.siteUrl
       }
-    });
+    };
+    const listPayload = itemListPayload(locale, title, listItems);
+    if (listPayload) {
+      collectionPayload.mainEntity = listPayload;
+    }
+
+    payloads.push(collectionPayload);
   }
 
   if (breadcrumbs?.length) {
@@ -317,7 +367,8 @@ export function renderPage({
   breadcrumbs = [],
   robotsContent = siteConfig.defaultRobots,
   imagePath = siteConfig.ogImage,
-  schemaType
+  schemaType,
+  listItems = []
 }) {
   const alternateRelativePath = locale === "ja" ? `en/${relativePath}` : relativePath.replace(/^en\//, "");
   const canonicalUrl = absoluteUrl(relativePath);
@@ -335,7 +386,8 @@ export function renderPage({
     pageType,
     breadcrumbs,
     imageUrl: pageImageUrl,
-    schemaType
+    schemaType,
+    listItems
   });
 
   const navLinks = siteConfig.nav[locale]
@@ -380,7 +432,7 @@ export function renderPage({
     <link rel="alternate" hreflang="${locale}" href="${canonicalUrl}">
     <link rel="alternate" hreflang="${locale === "ja" ? "en" : "ja"}" href="${alternateUrl}">
     <link rel="alternate" hreflang="x-default" href="${defaultLocaleUrl}">
-${renderSharedHeadAssets()}
+${renderSharedHeadAssets(locale)}
 ${renderSharedPageScript(pageType)}
     ${pageType === "article" && article
       ? `<meta property="article:published_time" content="${article.publishedAtIso}">
@@ -1217,6 +1269,26 @@ function listingRangeText(locale, startIndex, endIndex, totalArticles) {
   return `${copy.rangeLabel} ${startIndex}-${endIndex} of ${totalArticles}`;
 }
 
+function articleListItems(locale, articles) {
+  return articles.map((article) => {
+    const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
+
+    return {
+      name: locale === "ja" ? article.titleJa : article.titleEn,
+      url: localizedArticleHref(article, locale),
+      description: seo.teaser
+    };
+  });
+}
+
+function topicHubListItems(locale, topicHubs) {
+  return topicHubs.map((hub) => ({
+    name: hub.category,
+    url: topicHubHref(locale, hub),
+    description: hub.descriptions[locale]
+  }));
+}
+
 function renderPagination(locale, currentPage, totalPages) {
   if (totalPages <= 1) {
     return "";
@@ -1271,6 +1343,7 @@ export function renderIndexPage(locale, articles, pagination = {}) {
   const rangeEnd = listingArticles.length > 0 ? listingOffset + listingArticles.length : 0;
   const cards = listingArticles.map((article) => renderArticleCard(article, locale)).join("");
   const showListingSection = !featuredArticle || listingArticles.length > 0;
+  const listItems = articleListItems(locale, featuredArticle ? [featuredArticle, ...listingArticles] : listingArticles);
   const body = `${featuredArticle
     ? renderEditorialBriefing(featuredArticle, locale, {
         kicker: copy.featuredBriefingKicker,
@@ -1319,15 +1392,17 @@ export function renderIndexPage(locale, articles, pagination = {}) {
               path: listingRelativePath(locale, currentPage)
             }
           ]
-        : [])
+          : [])
     ],
-    pageType: "home"
+    pageType: "home",
+    listItems
   });
 }
 
 export function renderTopicsIndexPage(locale, topicHubs) {
   const copy = localeCopy[locale];
   const relativePath = topicIndexRelativePath(locale);
+  const listItems = topicHubListItems(locale, topicHubs);
   const body = `<section class="panel-block">
     <div>
       <p class="section-kicker">${escapeHtml(copy.topicsKicker)}</p>
@@ -1353,7 +1428,8 @@ export function renderTopicsIndexPage(locale, topicHubs) {
       { name: copy.topicsTitle, path: relativePath }
     ],
     pageType: "page",
-    schemaType: "CollectionPage"
+    schemaType: "CollectionPage",
+    listItems
   });
 }
 
@@ -1363,6 +1439,7 @@ export function renderTopicHubPage(locale, hub) {
   const featuredArticle = hub.articles[0];
   const remainingArticles = hub.articles.slice(1);
   const topicIndexPath = topicIndexRelativePath(locale);
+  const listItems = articleListItems(locale, hub.articles);
   const body = `<section class="panel-block">
     <div class="listing-panel-head">
       <div>
@@ -1420,7 +1497,8 @@ export function renderTopicHubPage(locale, hub) {
       { name: hub.category, path: relativePath }
     ],
     pageType: "page",
-    schemaType: "CollectionPage"
+    schemaType: "CollectionPage",
+    listItems
   });
 }
 
@@ -1429,6 +1507,11 @@ export function renderHtmlSitemapPage(locale, articles, { topicHubs = [], trustP
   const monthGroups = groupArticlesByMonth(articles);
   const topicHubMap = buildTopicHubMap(topicHubs);
   const pageEntries = buildSitemapPageEntries(locale, trustPages, latestUpdate);
+  const listItems = pageEntries.map((entry) => ({
+    name: entry.title,
+    url: entry.href,
+    description: entry.description
+  }));
   const timelineHref = localizedPath(locale, timelineRelativePath(locale).replace(/^en\//, ""));
   const body = `<section class="panel-block">
     <div class="listing-panel-head">
@@ -1488,7 +1571,8 @@ export function renderHtmlSitemapPage(locale, articles, { topicHubs = [], trustP
       { name: copy.sitemapTitle, path: sitemapHtmlRelativePath(locale) }
     ],
     pageType: "page",
-    schemaType: "CollectionPage"
+    schemaType: "CollectionPage",
+    listItems
   });
 }
 
@@ -1497,6 +1581,7 @@ export function renderTimelinePage(locale, articles, topicHubs = []) {
   const monthGroups = groupArticlesByMonth(articles);
   const topicHubMap = buildTopicHubMap(topicHubs);
   const sitemapHref = localizedPath(locale, sitemapHtmlRelativePath(locale).replace(/^en\//, ""));
+  const listItems = articleListItems(locale, articles);
   const body = `${renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHref)}
   ${renderChronologySections(locale, monthGroups, topicHubMap)}`;
 
@@ -1514,7 +1599,8 @@ export function renderTimelinePage(locale, articles, topicHubs = []) {
       { name: copy.timelineTitle, path: timelineRelativePath(locale) }
     ],
     pageType: "page",
-    schemaType: "CollectionPage"
+    schemaType: "CollectionPage",
+    listItems
   });
 }
 
@@ -1793,6 +1879,45 @@ ${(entry.alternates ?? [])
   )
   .join("\n")}
 </urlset>`;
+}
+
+export function renderFeed(locale, articles, latestUpdate) {
+  const feedUrl = absoluteUrl(feedRelativePath(locale));
+  const siteTitle = locale === "ja" ? siteConfig.name : `${siteConfig.name} EN`;
+  const channelTitle = locale === "ja" ? `${siteTitle} RSS` : `${siteTitle} RSS`;
+  const channelDescription = siteConfig.description[locale];
+  const feedLanguage = locale === "ja" ? "ja" : "en";
+  const buildDate = latestUpdate ? new Date(latestUpdate) : new Date();
+  const feedItems = articles.slice(0, 20);
+
+  return `<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>${formatXml(channelTitle)}</title>
+    <link>${formatXml(absoluteUrl(locale === "ja" ? "" : "en/"))}</link>
+    <description>${formatXml(channelDescription)}</description>
+    <language>${formatXml(feedLanguage)}</language>
+    <lastBuildDate>${formatXml(buildDate.toUTCString())}</lastBuildDate>
+    <atom:link href="${formatXml(feedUrl)}" rel="self" type="application/rss+xml"/>
+${feedItems
+  .map((article) => {
+    const title = locale === "ja" ? article.titleJa : article.titleEn;
+    const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
+    const link = absoluteUrl(locale === "ja" ? article.outputPaths.ja : article.outputPaths.en);
+    const pubDate = new Date(article.lastModified);
+
+    return `    <item>
+      <title>${formatXml(title)}</title>
+      <link>${formatXml(link)}</link>
+      <guid isPermaLink="true">${formatXml(link)}</guid>
+      <pubDate>${formatXml((Number.isNaN(pubDate.getTime()) ? new Date(article.publishedAtIso) : pubDate).toUTCString())}</pubDate>
+      <description>${formatXml(seo.description)}</description>
+      <category>${formatXml(article.category)}</category>
+    </item>`;
+  })
+  .join("\n")}
+  </channel>
+</rss>`;
 }
 
 export function renderRobots() {

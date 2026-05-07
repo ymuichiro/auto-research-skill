@@ -8,6 +8,7 @@ import {
   renderArticlePage,
   renderDefaultOgSvg,
   renderFaviconSvg,
+  renderFeed,
   renderHtmlSitemapPage,
   renderIndexPage,
   renderNotFoundPage,
@@ -21,6 +22,7 @@ import {
   renderWebManifest
 } from "./lib/render.mjs";
 import {
+  feedRelativePath,
   listingRelativePath,
   sitemapHtmlRelativePath,
   siteConfig,
@@ -381,6 +383,8 @@ async function buildSite() {
   await writeTextFile(path.join(outputRoot, "sitemap.xml"), renderSitemapIndex(sitemapIndexEntries));
   await writeTextFile(path.join(outputRoot, "sitemap-pages.xml"), renderSitemap(pageSitemapEntries));
   await writeTextFile(path.join(outputRoot, "sitemap-articles.xml"), renderSitemap(articleSitemapEntries));
+  await writeTextFile(path.join(outputRoot, feedRelativePath("ja")), renderFeed("ja", liveArticles, latestUpdate));
+  await writeTextFile(path.join(outputRoot, feedRelativePath("en")), renderFeed("en", liveArticles, latestUpdate));
   await writeTextFile(path.join(outputRoot, "robots.txt"), renderRobots());
   await writeTextFile(path.join(outputRoot, "site.webmanifest"), renderWebManifest());
   if (siteConfig.cname) {

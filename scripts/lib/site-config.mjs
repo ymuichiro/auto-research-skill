@@ -134,6 +134,10 @@ export function sitemapHtmlRelativePath(locale) {
   return locale === "ja" ? "sitemap.html" : "en/sitemap.html";
 }
 
+export function feedRelativePath(locale) {
+  return locale === "ja" ? "feed.xml" : "en/feed.xml";
+}
+
 export function absoluteUrl(relativePath = "") {
   const normalized = relativePath.replace(/^\/+/, "");
   return new URL(normalized, siteConfig.siteUrl).toString();

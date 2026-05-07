@@ -1,0 +1,159 @@
+{
+  "slug": "presentation-generation-becomes-artifact-workflow",
+  "date": "2026-05-08",
+  "titleJa": "生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった",
+  "titleEn": "Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature",
+  "summaryJa": "OpenAI の画像生成 API、Microsoft Copilot in PowerPoint と PowerPoint JavaScript API、Google Slides API、PptxGenJS、Adobe Firefly Services、そしてスライド生成研究の一次情報を重ねると、プレゼン資料生成の変化は「プロンプトからスライド本文を出す」ことでは説明しきれない。いま実務で問われているのは、構成、本文、図版、ブランド、レイアウト、PPTX 出力、編集可能性、レビューをどう一つの成果物工程に接続するかである。",
+  "summaryEn": "Primary sources across OpenAI image generation, Microsoft Copilot in PowerPoint and PowerPoint JavaScript APIs, Google Slides APIs, PptxGenJS, Adobe Firefly Services, and recent presentation-generation papers show that the post-generative-AI shift is no longer just prompt-to-slide text. The practical question is how teams connect structure, copy, imagery, brand, layout, PPTX output, editability, and review into one artifact workflow.",
+  "seoDescriptionJa": "画像生成、PptxGenJS、PowerPoint/Slides API、Copilot、スライド生成研究から、生成AI後のプレゼン資料生成の変化を整理する。",
+  "seoDescriptionEn": "A primary-source briefing on how image generation, PptxGenJS, PowerPoint and Slides APIs, Copilot, and slide-generation research are changing presentation generation.",
+  "teaserJa": "スライド生成の主戦場が、チャット本文から編集可能なPPTX成果物工程へ移った理由を読む。",
+  "teaserEn": "Why slide generation is moving from chat-written text to editable PPTX artifact workflows.",
+  "category": "AI Workflows",
+  "tags": [
+    "Generative AI",
+    "Presentation",
+    "PPTX",
+    "Image Generation",
+    "Automation",
+    "Evaluation"
+  ],
+  "publishedSources": [
+    {
+      "label": "OpenAI API docs: Image generation",
+      "url": "https://platform.openai.com/docs/guides/images",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI API reference: Images",
+      "url": "https://platform.openai.com/docs/api-reference/images",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Help Center: Creating images and videos in ChatGPT",
+      "url": "https://help.openai.com/en/articles/8932459-creating-images-and-videos-in-chatgpt",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Docs: Structured Outputs",
+      "url": "https://platform.openai.com/docs/guides/structured-outputs",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Docs: Function calling",
+      "url": "https://platform.openai.com/docs/guides/function-calling",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Support: Create a new presentation with Copilot in PowerPoint",
+      "url": "https://support.microsoft.com/en-us/office/create-a-new-presentation-with-copilot-in-powerpoint-3222ee03-f5a4-4d27-8642-9c387ab4854d",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Support: Create a presentation from a file with Copilot in PowerPoint",
+      "url": "https://support.microsoft.com/en-us/topic/create-a-presentation-from-existing-files-beb15deb-3241-4711-a480-9cbd8dc4d755",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: PowerPoint JavaScript API overview",
+      "url": "https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/powerpoint-add-ins-reference-overview",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: PowerPoint Add-ins overview",
+      "url": "https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/powerpoint-add-ins",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: PowerPoint JavaScript API package",
+      "url": "https://learn.microsoft.com/en-us/javascript/api/powerpoint?view=powerpoint-js-1.6",
+      "type": "official"
+    },
+    {
+      "label": "Microsoft Learn: Insert slides in PowerPoint",
+      "url": "https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/insert-slides-into-presentation",
+      "type": "official"
+    },
+    {
+      "label": "Google Slides API: Overview",
+      "url": "https://developers.google.com/workspace/slides/api/guides/overview",
+      "type": "official"
+    },
+    {
+      "label": "Google Slides API: Create presentations",
+      "url": "https://developers.google.com/workspace/slides/api/guides/presentations",
+      "type": "official"
+    },
+    {
+      "label": "Google Slides API: Add and edit text",
+      "url": "https://developers.google.com/workspace/slides/api/guides/styling",
+      "type": "official"
+    },
+    {
+      "label": "Google Slides API: Add images",
+      "url": "https://developers.google.com/workspace/slides/api/guides/add-image",
+      "type": "official"
+    },
+    {
+      "label": "Google Slides API: Batch update",
+      "url": "https://developers.google.com/workspace/slides/api/guides/batch",
+      "type": "official"
+    },
+    {
+      "label": "PptxGenJS documentation",
+      "url": "https://gitbrent.github.io/PptxGenJS/",
+      "type": "official"
+    },
+    {
+      "label": "PptxGenJS: Images",
+      "url": "https://gitbrent.github.io/PptxGenJS/docs/api-images/",
+      "type": "official"
+    },
+    {
+      "label": "PptxGenJS: Charts",
+      "url": "https://gitbrent.github.io/PptxGenJS/docs/api-charts/",
+      "type": "official"
+    },
+    {
+      "label": "PptxGenJS: Tables",
+      "url": "https://gitbrent.github.io/PptxGenJS/docs/api-tables/",
+      "type": "official"
+    },
+    {
+      "label": "PptxGenJS: HTML to PowerPoint",
+      "url": "https://gitbrent.github.io/PptxGenJS/docs/html-to-powerpoint/",
+      "type": "official"
+    },
+    {
+      "label": "Adobe Firefly API: Quickstart",
+      "url": "https://developer.adobe.com/firefly-services/docs/firefly-api/guides/",
+      "type": "official"
+    },
+    {
+      "label": "Adobe Firefly Services: API reference",
+      "url": "https://developer.adobe.com/firefly-services/docs/firefly-api/api/",
+      "type": "official"
+    },
+    {
+      "label": "PPTAgent: Generating and Evaluating Presentations Beyond Text-to-Slides",
+      "url": "https://arxiv.org/abs/2501.03936",
+      "type": "paper"
+    },
+    {
+      "label": "PreGenie: An Agentic Framework for High-quality Visual Presentation Generation",
+      "url": "https://arxiv.org/abs/2501.08280",
+      "type": "paper"
+    },
+    {
+      "label": "DeepPresenter: Environment-Grounded Reflection for Agentic Presentation Generation",
+      "url": "https://arxiv.org/abs/2507.12865",
+      "type": "paper"
+    },
+    {
+      "label": "SlideBot: A Multi-Agent Framework for Generating Informative and Reliable Multi-Modal Presentations",
+      "url": "https://arxiv.org/abs/2508.04203",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}

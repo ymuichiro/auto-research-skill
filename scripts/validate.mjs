@@ -3,6 +3,7 @@ import path from "node:path";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
 import {
   absoluteUrl,
+  feedRelativePath,
   localizedPath,
   sitemapHtmlRelativePath,
   siteConfig,
@@ -210,6 +211,8 @@ async function validateBuiltOutput(articles) {
     "sitemap.xml",
     "sitemap-pages.xml",
     "sitemap-articles.xml",
+    feedRelativePath("ja"),
+    feedRelativePath("en"),
     "robots.txt",
     "site.webmanifest",
     ".nojekyll",
@@ -224,7 +227,7 @@ async function validateBuiltOutput(articles) {
     .concat(discoveryBuiltPaths())
     .concat(topicBuiltPaths(topicHubs))
     .concat(trustPageBuiltPaths());
-  const unexpectedPages = ["feed.xml", "en/feed.xml", "archive/index.html", "en/archive/index.html"];
+  const unexpectedPages = ["archive/index.html", "en/archive/index.html"];
 
   const missing = [];
 
@@ -260,6 +263,8 @@ async function validateBuiltOutput(articles) {
 
   const homeHtml = await readBuiltFile("index.html");
   const enHomeHtml = await readBuiltFile("en/index.html");
+  const jaFeed = await readBuiltFile(feedRelativePath("ja"));
+  const enFeed = await readBuiltFile(feedRelativePath("en"));
   const robotsTxt = await readBuiltFile("robots.txt");
   const sitemapIndex = await readBuiltFile("sitemap.xml");
   const pageSitemap = await readBuiltFile("sitemap-pages.xml");
@@ -292,13 +297,25 @@ async function validateBuiltOutput(articles) {
     assertContains(markup, `property="og:url" content="${canonicalUrl}"`, `${label} is missing the expected og:url.`);
     assertContains(markup, siteConfig.siteUrl, `${label} is not using the configured site URL.`);
     assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
-    assertNotContains(markup, 'type="application/atom+xml"', `${label} should not advertise a removed feed.`);
+    assertContains(markup, 'type="application/rss+xml"', `${label} is missing the RSS feed link.`);
   }
 
   assertNotContains(homeHtml, `href="${localizedPath("ja", "archive/")}"`, "Japanese home page still links to the removed archive.");
   assertNotContains(enHomeHtml, `href="${localizedPath("en", "archive/")}"`, "English home page still links to the removed archive.");
-  assertNotContains(homeHtml, `href="${localizedPath("ja", "feed.xml")}"`, "Japanese home page still links to the removed feed.");
-  assertNotContains(enHomeHtml, `href="${localizedPath("en", "feed.xml")}"`, "English home page still links to the removed feed.");
+  assertContains(homeHtml, `href="${localizedPath("ja", feedRelativePath("ja"))}"`, "Japanese home page is missing the feed link.");
+  assertContains(enHomeHtml, `href="${localizedPath("en", feedRelativePath("en").replace(/^en\//, ""))}"`, "English home page is missing the feed link.");
+  assertContains(jaFeed, "<rss version=\"2.0\"", "Japanese feed is missing the RSS root element.");
+  assertContains(enFeed, "<rss version=\"2.0\"", "English feed is missing the RSS root element.");
+  assertContains(jaFeed, `atom:link href="${absoluteUrl(feedRelativePath("ja"))}"`, "Japanese feed is missing its self link.");
+  assertContains(enFeed, `atom:link href="${absoluteUrl(feedRelativePath("en"))}"`, "English feed is missing its self link.");
+  assertContains(homeHtml, '"@type":"ItemList"', "Japanese home page is missing ItemList schema.");
+  assertContains(enHomeHtml, '"@type":"ItemList"', "English home page is missing ItemList schema.");
+  assertContains(jaTopicsHtml, '"@type":"ItemList"', "Japanese topics index is missing ItemList schema.");
+  assertContains(enTopicsHtml, '"@type":"ItemList"', "English topics index is missing ItemList schema.");
+  assertContains(jaSitemapHtml, '"@type":"ItemList"', "Japanese sitemap page is missing ItemList schema.");
+  assertContains(enSitemapHtml, '"@type":"ItemList"', "English sitemap page is missing ItemList schema.");
+  assertContains(jaTimelineHtml, '"@type":"ItemList"', "Japanese timeline page is missing ItemList schema.");
+  assertContains(enTimelineHtml, '"@type":"ItemList"', "English timeline page is missing ItemList schema.");
 
   for (const [markup, relativePath, canonicalUrl, label] of [
     [jaAboutHtml, trustPagePaths.about, absoluteUrl(trustPagePaths.about), "Japanese about page"],
@@ -394,6 +411,8 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
       assertContains(markup, escapeHtml(sampleHub.category), `${label} is missing the hub category heading.`);
     }
+    assertContains(jaHubHtml, '"@type":"ItemList"', "Japanese topic hub is missing ItemList schema.");
+    assertContains(enHubHtml, '"@type":"ItemList"', "English topic hub is missing ItemList schema.");
 
     assertContains(
       pageSitemap,
@@ -611,6 +630,16 @@ async function validateBuiltOutput(articles) {
       enTimelineHtml,
       `href="${localizedPath("en", sampleArticle.outputPaths.en.replace(/^en\//, ""))}"`,
       "English timeline page is missing a published article link."
+    );
+    assertContains(
+      jaFeed,
+      `<title>${escapeHtml(sampleArticle.titleJa)}</title>`,
+      "Japanese feed is missing the latest article title."
+    );
+    assertContains(
+      enFeed,
+      `<title>${escapeHtml(sampleArticle.titleEn)}</title>`,
+      "English feed is missing the latest article title."
     );
   }
 
