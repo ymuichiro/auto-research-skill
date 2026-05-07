@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-05-08T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-08T08:28:52+09:00">
+    <meta property="article:modified_time" content="2026-05-08T08:43:27+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="Generative AI">
     <meta property="article:tag" content="Presentation">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Image Generation">
     <meta property="article:tag" content="Automation">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった","description":"画像生成、PptxGenJS、PowerPoint/Slides API、Copilot、スライド生成研究から、生成AI後のプレゼン資料生成の変化を整理する。","datePublished":"2026-05-08T00:00:00+09:00","dateModified":"2026-05-08T08:28:52+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった","description":"画像生成、PptxGenJS、PowerPoint/Slides API、Copilot、スライド生成研究から、生成AI後のプレゼン資料生成の変化を整理する。","datePublished":"2026-05-08T00:00:00+09:00","dateModified":"2026-05-08T08:43:27+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった","item":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった</h1>
-          <p class="hero-copy">OpenAI の画像生成 API、Microsoft Copilot in PowerPoint と PowerPoint JavaScript API、Google Slides API、PptxGenJS、Adobe Firefly Services、そしてスライド生成研究の一次情報を重ねると、プレゼン資料生成の変化は「プロンプトからスライド本文を出す」ことでは説明しきれない。いま実務で問われているのは、構成、本文、図版、ブランド、レイアウト、PPTX 出力、編集可能性、レビューをどう一つの成果物工程に接続するかである。</p>
+          <p class="hero-copy">OpenAI の画像生成 API、Microsoft Copilot in PowerPoint と PowerPoint JavaScript API、Google Slides API、PptxGenJS、Canva の AI プレゼン機能、Adobe Firefly Services、SVG を編集できる Office / Slides の仕組み、そしてスライド生成研究の一次情報を重ねると、プレゼン資料生成の変化は「プロンプトからスライド本文を出す」ことでは説明しきれない。いま実務で問われているのは、構成、本文、生成画像、SVG テンプレート、ブランド、レイアウト、PPTX 出力、編集可能性、レビューをどう一つの成果物工程に接続するかである。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -89,7 +89,7 @@
       <div class="briefing-summary-main">
         <div class="meta-row">
           <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
-          <span class="mono-note">根拠数: 27</span>
+          <span class="mono-note">根拠数: 42</span>
         </div>
         <p class="briefing-summary-copy">スライド生成の主戦場が、チャット本文から編集可能なPPTX成果物工程へ移った理由を読む。</p>
         <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span></div>
@@ -142,204 +142,323 @@
   </section>
     <section class="article-body"><section class="report-section">
   <p class="section-kicker">要点</p>
-  <h2>プレゼン資料生成の変化は、スライド本文を作ることではなく、編集可能な成果物を作る工程にある</h2>
+  <h2>生成AI後のプレゼン資料生成は、文章を作る仕事ではなく、素材・テンプレート・成果物をつなぐ工程になった</h2>
   <p>
-    生成AI登場後のプレゼン資料生成を「プロンプトからスライドを自動作成する機能」とだけ見ると、いま起きている変化を小さく見積もってしまう。
-    OpenAI の画像生成 API、Microsoft Copilot in PowerPoint、PowerPoint JavaScript API、Google Slides API、PptxGenJS、
-    Adobe Firefly Services、そして PPTAgent や PreGenie などの研究を重ねると、変化の中心は別の場所にある。
-    資料生成は、本文、図版、レイアウト、ブランド、ファイル形式、レビュー、再編集をつなぐ成果物工程になりつつある。
+    生成AIの登場以降に起きた変化を、`pptxGenJS` だけの話として読むのはかなり狭い。
+    いま実際に広がっているのは、OpenAI の画像生成、Microsoft Copilot in PowerPoint、Google Slides API、PptxGenJS、
+    Canva の AI プレゼン、Adobe Firefly Services、そして SVG を含むベクター素材の扱いまでを含んだ、もっと広い生成工程である。
+    変化の中心は「うまい本文を出すか」ではなく、「編集可能な成果物を、どの素材から、どのテンプレートで、どの環境に向けて作るか」に移っている。
   </p>
   <p class="mt-4">
-    以前の自動スライド生成は、アウトラインを作り、各ページに箇条書きを置くところで止まりやすかった。
-    しかし実務で必要な資料は、読めるだけでは足りない。PowerPoint や Google Slides で編集でき、図表や画像が差し替えられ、
-    ブランドルールを保ち、発表者が最終修正できる必要がある。生成AIの価値は、完成文を返すことから、PPTX や Slides という
-    既存の編集環境に入る成果物をどれだけ確実に作れるかへ移っている。
+    そのため、比較すべき対象も一つではない。チャットで初稿を作るケース、画像生成で表紙や概念図を作るケース、
+    SVG でテンプレート部品を作るケース、API とコードでページを組むケース、ブランド済みのプレゼン環境で生成するケースが並存している。
+    しかもそれぞれ、誰が作るか、どこでレビューするか、どこまで編集可能であるべきか、という働き方まで変えている。
   </p>
   <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
     <article class="stat-card">
-      <p class="stat-value">27件</p>
+      <p class="stat-value">39件</p>
       <p class="stat-title">公開根拠</p>
-      <p class="stat-note">公式 docs、公式サポート、公式ライブラリ、論文だけで、工程全体の変化を確認できる。</p>
+      <p class="stat-note">画像生成、SVG、テンプレート、Slides / PowerPoint API、研究論文まで入れた一次情報の束。</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">4層</p>
-      <p class="stat-title">成果物工程</p>
-      <p class="stat-note">構成、視覚素材、PPTX/Slides 生成、レビュー評価を分けると導入判断がしやすい。</p>
+      <p class="stat-value">5経路</p>
+      <p class="stat-title">生成の型</p>
+      <p class="stat-note">チャット初稿、画像主導、SVG主導、API主導、ブランド主導の5パターンで整理できる。</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">2系統</p>
-      <p class="stat-title">生成ルート</p>
-      <p class="stat-note">Copilot 型のアプリ内生成と、PptxGenJS/API 型のプログラム生成が並行して伸びている。</p>
+      <p class="stat-value">1工程</p>
+      <p class="stat-title">働き方の変化</p>
+      <p class="stat-note">「作る人」より「設計して、回して、直す人」が増える。</p>
     </article>
     <article class="stat-card">
-      <p class="stat-value">1条件</p>
-      <p class="stat-title">実務投入の条件</p>
-      <p class="stat-note">最終成果物が編集可能で、根拠、ブランド、レイアウトを検査できることが重要になる。</p>
+      <p class="stat-value">4論点</p>
+      <p class="stat-title">判断軸</p>
+      <p class="stat-note">編集可能性、ブランド統制、速度、再利用性の4つを同時に見る必要がある。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">何が変わったか</p>
-  <h2>「文章を並べたスライド」から「素材と構造を持つファイル」へ、生成対象が広がった</h2>
+  <p class="section-kicker">全体像</p>
+  <h2>今のプレゼン生成は、文章、画像、SVG、テンプレート、API を別々に持つ総合工程になっている</h2>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>1. 本文生成だけでは資料にならない</h3>
+      <h3>1. チャット初稿</h3>
       <p>
-        LLM は構成案、要約、話の流れを作るのに強い。しかし PowerPoint の資料では、ページごとの密度、図表の選択、
-        余白、タイトルの長さ、補足説明、発表者ノートまでが成果物の品質を左右する。研究側でも text-to-slides だけでなく、
-        deck planning、layout、visual grounding、evaluation を分けて扱う方向が強まっている。
+        Copilot in PowerPoint や Canva の AI Presentation Maker のような体験は、会話や既存ファイルからスライドの叩き台を作る入口として有効だ。
+        ただし、実務ではそのまま完成版になることは少なく、後段の編集や素材差し替えが前提になる。
       </p>
     </article>
     <article class="comparison-card">
-      <h3>2. 画像生成が、装飾ではなく資料部品になった</h3>
+      <h3>2. 画像主導</h3>
       <p>
-        画像生成 API は、背景画像やアイコン風素材だけでなく、概念図、プロダクト説明用のシーン、比較イメージを作る部品になった。
-        ただし、生成画像はそのまま信頼できる根拠ではない。資料では「雰囲気を作る画像」と「事実を表す図表」を分け、
-        後者はデータや根拠に接続する必要がある。
+        OpenAI や Firefly Services の画像生成は、表紙、章扉、概念図、製品イメージ、キャンペーン素材のような「見せるための要素」を作る。
+        このルートでは、画像が文章の補足ではなく、ページの主役になることがある。
       </p>
     </article>
     <article class="comparison-card">
-      <h3>3. PptxGenJS は、AI 出力を編集可能な PPTX に変換する実装面を担う</h3>
+      <h3>3. SVG 主導</h3>
       <p>
-        PptxGenJS のようなライブラリは、テキスト、画像、表、グラフ、HTML 由来の要素を PPTX に落とし込める。
-        これは単なるファイル出力ではなく、生成AIが作った構造化データを、発表者が後で開いて直せる成果物へ変換する層である。
+        ロゴ、図形、アイコン、テーマ背景、ブランド部品を SVG で持つと、拡大縮小に強く、テンプレートの再利用性も高い。
+        Microsoft 365 は SVG の編集をサポートし、PptxGenJS も SVG を扱えるため、ベクター資産は今の資料生成でかなり実用的だ。
       </p>
     </article>
     <article class="comparison-card">
-      <h3>4. PowerPoint と Slides API は、生成後の編集環境を工程に戻す</h3>
+      <h3>4. API 主導</h3>
       <p>
-        Microsoft と Google の API は、既存の資料編集環境に生成物を入れ、テキスト、画像、スライド挿入、更新を操作できる。
-        つまり生成AIは独立したスライド作成アプリではなく、PowerPoint や Google Slides の中に戻っていく工程として設計できる。
+        Google Slides API や PowerPoint JavaScript API、PptxGenJS は、マスター、レイアウト、テキスト、画像、表、図表を分けて組み立てられる。
+        ここでは「1枚ずつ作る」のではなく、「設計図を元に量産する」発想が強くなる。
       </p>
     </article>
+  </div>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">結論の方向</p>
+    <p>生成AI後のプレゼン資料生成は、単機能の自動化ではなく、編集環境に戻せる素材工程の設計問題として見る方が現実に近い。</p>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">2つの生成ルート</p>
-  <h2>現実的な導入は、アプリ内生成とプログラム生成を使い分ける形になる</h2>
+  <p class="section-kicker">画像生成</p>
+  <h2>画像生成でスライドを作るケースは、表紙や概念図に限られず、資料全体の主導権を持つ</h2>
+  <p>
+    画像生成は、以前は装飾の一部として扱われがちだった。しかし今は、プレゼンの目的によっては画像そのものがメッセージの中心になる。
+    たとえば新製品発表、ブランド刷新、研究テーマの概念説明、採用広報、イベント告知のような資料では、ページの見た目が内容理解に直結する。
+    Firefly Services はブランド整合を意識したカスタムモデルや画像の合成・拡張を扱い、Canva も AI Presentation Maker と Brand Kit を前面に出している。
+  </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>アプリ内生成は、個人やチームの初稿に向く</h3>
+      <h3>表紙と章扉</h3>
       <p>
-        Copilot in PowerPoint のような機能は、既存ファイルや指示から新しいプレゼンを作る入口として分かりやすい。
-        利点は、ユーザーが普段使う編集画面から離れず、出力をすぐ修正できることにある。短い提案資料、会議用たたき台、
-        既存ドキュメントからの説明資料には、この形が合う。
+        画像生成がもっとも使いやすいのはここだ。テーマの空気感、ブランドの温度、会議や発表の雰囲気を短時間で作れる。
+        この用途では、毎回新規画像を作ること自体が価値になる。
       </p>
     </article>
     <article class="comparison-card">
-      <h3>プログラム生成は、繰り返し作る資料に向く</h3>
+      <h3>概念図と比喩図</h3>
       <p>
-        PptxGenJS、PowerPoint JavaScript API、Google Slides API を使うルートは、営業提案、週次レポート、
-        顧客別サマリー、研修資料のように、同じ型で何度も作る資料に向く。生成AIはアウトラインや説明文を作り、
-        コード側がテンプレート、グラフ、画像配置、ファイル出力を制御する。
+        新しい仕組みや抽象概念を、図解や模式図として一枚に収めたいときに有効だ。
+        ここでは「正確な事実の証明」より、「理解の足場を作る」ことが主目的になる。
       </p>
     </article>
     <article class="comparison-card">
-      <h3>画像生成は、両方のルートに入る</h3>
+      <h3>製品シーンと利用場面</h3>
       <p>
-        OpenAI や Firefly Services の画像生成は、アプリ内生成でもプログラム生成でも使える。重要なのは、画像を「毎回自由に作る」
-        ことではなく、どのページで何の役割を持つ素材として使うかを決めることである。表紙、章扉、概念図、補足イメージでは
-        必要な検査が異なる。
+        実写的な製品写真やユースケース画像を新規に作ることで、まだ撮影していない状態でも説明資料が作れる。
+        Firefly の生成・合成・拡張のような機能はこの用途に合う。
       </p>
     </article>
     <article class="comparison-card">
-      <h3>構造化出力は、スライド設計図として効く</h3>
+      <h3>注意点</h3>
       <p>
-        LLM の出力をそのまま本文に流し込むより、ページタイトル、要点、図表タイプ、画像プロンプト、根拠リンク、ノートを
-        構造化してからレンダリングする方が安定する。Structured Outputs や function calling は、資料生成を
-        「文章の生成」から「設計図の生成」へ寄せるための実装部品になる。
+        画像は説明には役立つが、事実の根拠にはならない。数値や比較条件を含むページでは、画像と根拠データを分けて設計しないと、
+        見栄えだけよい資料になる。
       </p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">実務シナリオ</p>
-  <h2>実務では、生成AIが一発で完成資料を作るより、人間が検査できる中間物を持つ方が強い</h2>
+  <p class="section-kicker">SVG テンプレート</p>
+  <h2>SVG をテンプレートとして作るケースは、デザイン部品の再利用と編集性の両方を取りに行っている</h2>
+  <p>
+    SVG の使い方も、単なる「ベクター画像の挿入」から変わっている。Office は SVG の挿入と編集をサポートし、
+    その後の塗り色変更やアウトライン調整もできる。PptxGenJS も SVG をサポートしているため、ブランドロゴ、アイコン、幾何学的な装飾、
+    セクション背景、グラフィック見出しを SVG として作ると、スライド側では軽量で解像度に強い部品として扱える。
+  </p>
+  <p class="mt-4">
+    これは実務上かなり重要だ。画像を毎回 PNG に焼いてしまうと、拡大耐性が落ち、後から色を変えることも難しい。
+    SVG のまま部品化しておけば、ブランド変更、レイアウト変更、文言差し替えに追従しやすい。
+    つまり SVG ベースのテンプレートは、デザイナーが 1 回きれいに作って終わりではなく、運用側が再利用し続けるための素材になる。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>ブランド部品</h3>
+      <p>ロゴ、ライン、アイコン、コールアウト、セクション装飾を SVG にすると、サイズ変更で崩れにくい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>マスターとレイアウト</h3>
+      <p>Google Slides の master / layout、PowerPoint のテンプレート、Canva の Brand Template のような枠組みと相性がよい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>実務の利点</h3>
+      <p>色、余白、配置を共通化しやすく、複数チームで同じ見た目を保ちやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>限界</h3>
+      <p>SVG は万能ではなく、古い環境や外部出力との相性、ファイルサイズ、変換先の制約を確認する必要がある。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">コード生成</p>
+  <h2>コードで作るプレゼンは、本文生成ではなく、ページ構造の量産に向いている</h2>
+  <p>
+    PptxGenJS や Google Slides API を使うと、スライドは「ページ」というより「構造化オブジェクトの集合」になる。
+    見出し、本文、図表、注記、画像、ページレイアウトを分離できるので、定型の営業提案、週次レポート、研究ダイジェスト、
+    顧客別サマリーのように、毎回同じ骨格で中身だけ変える資料に強い。
+  </p>
+  <p class="mt-4">
+    研究に近い用途では、コード生成の価値はさらに明確になる。スライド本文を LLM に作らせても、最終的にはページの配置、余白、
+    図表のサイズ、フォント、配色、スピーカーノート、出典の配置を機械的に揃えないと運用できない。
+    Google Slides API は master と layout を前提にし、batchUpdate で shapes、text、images、tables を分けて扱える。
+    PptxGenJS は SVG、画像、チャート、HTML-to-PPTX を扱え、Node / browser 両方で動かせる。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>量産型の資料</h3>
+      <p>営業、CS、採用、研修、定例会議の資料はコード生成と相性がよい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>テンプレートの管理</h3>
+      <p>デザインの骨格をコードとテンプレートで固定し、LLM は内容生成に寄せると破綻しにくい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>レビューのしやすさ</h3>
+      <p>ページ単位で差分を見やすく、どの要素が変わったかを追跡しやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>弱点</h3>
+      <p>自由な見栄えは出しやすくない。テンプレート設計と素材設計が弱いと、逆に古臭くなる。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">ブランド主導</p>
+  <h2>Canva やブランドキット系の体験は、非デザイナーが資料を量産する働き方を変えている</h2>
+  <p>
+    Canva の AI Presentation Maker は、最初から「ブランドに沿った資料を短時間で作る」ことを前提にしている。
+    Brand Kit と branded templates を持つと、色、フォント、ロゴ、素材をチームで共有できるため、プレゼン作成は個人の腕前より、
+    会社としてどこまでテンプレートと素材を統制しているかに寄っていく。これは単なる UI の違いではなく、資料作成の責任分担の違いでもある。
+  </p>
+  <p class="mt-4">
+    このタイプの環境では、作る人の役割は「デザイナー」ではなく「ブランド済みの部品を選び、必要箇所だけ差し替える編集者」に近くなる。
+    その結果、制作速度は上がるが、テンプレート管理と承認ルールが弱いと品質がぶれやすい。
+  </p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">働き方</p>
+  <h2>この変化で増えるのは、スライドを作る人ではなく、スライド工程を設計する人である</h2>
   <div class="timeline">
     <article class="timeline-item">
       <div class="timeline-year">01</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">材料を読む</h3>
-        <p>議事録、提案メモ、製品仕様、調査結果を読み、目的、読者、所要時間、必須メッセージを抽出する。</p>
+        <h3 class="font-display text-xl font-semibold text-primary">素材設計</h3>
+        <p>画像、SVG、図表、文言、引用をどの段階で作るかを決める。</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">02</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">スライド設計図を作る</h3>
-        <p>各ページの役割、タイトル、本文量、図表、画像、発表者ノート、根拠の有無を構造化データとして固定する。</p>
+        <h3 class="font-display text-xl font-semibold text-primary">テンプレート管理</h3>
+        <p>ブランドテンプレート、レイアウト、マスター、部品を更新し続ける。</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">03</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">素材を生成・取得する</h3>
-        <p>必要な画像、図表、表、スクリーンショット、ブランド素材を生成または取得し、事実を示す要素と雰囲気を作る要素を分ける。</p>
+        <h3 class="font-display text-xl font-semibold text-primary">生成の運用</h3>
+        <p>チャット、画像生成、SVG 生成、PPTX 出力をワークフローに落とし込む。</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">04</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">PPTX または Slides にレンダリングする</h3>
-        <p>PptxGenJS や各種 API で、編集可能なファイルとして出力する。画像一枚のスライドではなく、後から直せる部品として残す。</p>
+        <h3 class="font-display text-xl font-semibold text-primary">レビューと修正</h3>
+        <p>事実、見栄え、編集可能性、アクセシビリティ、ブランド整合を毎回確認する。</p>
       </div>
     </article>
     <article class="timeline-item">
       <div class="timeline-year">05</div>
       <div>
-        <h3 class="font-display text-xl font-semibold text-primary">レビューして戻す</h3>
-        <p>事実誤認、長すぎる見出し、重なり、ブランド違反、出典欠落を検査し、必要なら設計図や素材生成へ戻る。</p>
+        <h3 class="font-display text-xl font-semibold text-primary">再利用</h3>
+        <p>良いページをテンプレート化し、次回以降の生成に戻す。</p>
       </div>
     </article>
   </div>
+  <p class="mt-6">
+    つまり、仕事の中心は「1回の出来」から「次回も使える工程」へ移る。人の役割も、執筆者、デザイナー、レビュー担当、ブランド管理者、
+    自動化担当に分かれていく。生成AIはその分担をなくすのではなく、むしろ明確にする。
+  </p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">評価</p>
-  <h2>評価軸も、文章品質からスライド成果物の品質へ広がる</h2>
+  <p class="section-kicker">具体例</p>
+  <h2>実際の使い分けは、資料の種類でかなり変わる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>営業提案</h3>
+      <p>会社固有のブランドが強いので、SVG テンプレートとブランドキットをベースに、本文だけ自動生成するのが現実的だ。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>研究発表</h3>
+      <p>本文、図表、引用、スピーカーノートの管理が重要なので、コード生成と人手レビューの組み合わせが安定する。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>新製品紹介</h3>
+      <p>画像生成が中心になりやすく、表紙や説明ビジュアルを Firefly や OpenAI で作り、最後に編集環境へ戻す形が合う。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>社内定例</h3>
+      <p>定型が強いので、PptxGenJS や Slides API で量産し、差分だけ埋める運用が向いている。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>採用・広報</h3>
+      <p>ブランド一貫性が重要なため、Canva のようなブランド主導の環境と AI 生成を組み合わせやすい。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>トレーニング資料</h3>
+      <p>同じ骨格を繰り返すため、テンプレートと素材管理を固めるほど、制作コストが下がる。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">運用上の論点</p>
+  <h2>見た目が良いだけでは足りず、編集可能性、互換性、アクセシビリティを見る必要がある</h2>
   <p>
-    スライド生成研究が示している重要な点は、出力の良し悪しを本文だけで測れないことだ。良いプレゼンは、内容の正確さ、
-    ページ間の流れ、視覚表現、レイアウト、編集可能性、発表しやすさの組み合わせで決まる。PPTAgent、PreGenie、DeepPresenter、
-    SlideBot のような研究は、計画、検索、視覚要素、環境フィードバック、マルチエージェント分担、評価を別々の要素として扱う。
+    SVG や画像生成を使ったスライドは便利だが、そこで止めると運用で詰まる。PowerPoint は SVG を編集できるが、
+    旧環境や変換経路によっては PNG に落ちたり、サイズが膨らんだりする。Google Slides API では画像フォーマットやページ要素の制約がある。
+    つまり、生成パイプラインを作るときは、最終的にどの編集環境で誰が触るのかを先に決める必要がある。
+  </p>
+  <p class="mt-4">
+    ここで重要なのは、資料の完成物を「静的な画像」と見なさないことだ。
+    文章、画像、SVG、レイアウト、ノート、出典を後で直せる状態で残すからこそ、生成AIは実務に入る。
   </p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>内容の正確さ</h3>
-      <p>主張、数値、引用、製品仕様が根拠と一致しているか。生成画像や要約が、事実を作っていないかを確認する。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>視覚とレイアウト</h3>
-      <p>文字量、余白、重なり、図表の種類、画像の役割が合っているか。PPTX 出力後の実表示で見る必要がある。</p>
-    </article>
-    <article class="comparison-card">
       <h3>編集可能性</h3>
-      <p>発表者が PowerPoint や Slides で直せる部品として残っているか。画像化された全文スライドは修正コストが高い。</p>
+      <p>スライドが後から手で直せるか。単一画像化すると修正コストが跳ね上がる。</p>
     </article>
     <article class="comparison-card">
-      <h3>運用再現性</h3>
-      <p>同じ型の資料を次回も作れるか。テンプレート、構造化出力、素材管理、レビュー結果の反映が必要になる。</p>
+      <h3>互換性</h3>
+      <p>PowerPoint、Google Slides、ブラウザ、PDF のどこで使うかを決めてから素材形式を選ぶ。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>アクセシビリティ</h3>
+      <p>色だけに頼らず、テキスト、構造、ノートを残す方が配布後の利用に強い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>レビュー工程</h3>
+      <p>ブランド、法務、事実確認のどこで止めるかを最初に決めておく必要がある。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">導入判断</p>
-  <h2>選ぶべきなのは「すごいスライド生成機能」ではなく、自社の資料工程に入る生成経路である</h2>
+  <p class="section-kicker">短い結論</p>
+  <h2>この分野は、本文生成よりも、素材とテンプレートを含む制作工程の設計で差がつく</h2>
   <p>
-    企業が見るべき比較軸は、出力例の見栄えだけではない。社内文書から初稿を作るならアプリ内生成が速い。
-    顧客ごとの定型資料を毎週作るなら、構造化出力と PptxGenJS や Slides API を組み合わせる方が再現性を持ちやすい。
-    ブランドや法務レビューが重い資料なら、生成画像の利用範囲、根拠リンク、編集履歴、承認工程まで設計する必要がある。
+    生成AI後のプレゼン資料生成は、もはや「いい感じのスライドを出す機能」ではない。
+    実務で問われるのは、画像生成をどこで使うか、SVG をどの部品として持つか、ブランドテンプレートをどう管理するか、
+    どの API でレンダリングするか、どこでレビューするか、という工程設計である。
   </p>
-  <div class="callout-panel mt-6">
-    <p class="callout-title">短い結論</p>
-    <p>
-      生成AI後のプレゼン資料生成は、チャットがきれいな箇条書きを返す段階を越えた。競争軸は、構造化された設計図、生成画像、
-      PPTX/Slides へのレンダリング、編集可能性、レビューをつないで、実務で使える成果物工程を作れるかにある。
-    </p>
-  </div>
+  <p class="mt-4">
+    その意味で、今の働き方はかなり変わっている。作る人は一枚ずつ手作業で整えるより、再利用可能な部品と工程を整える側に寄っている。
+    そして良い資料は、文章の上手さだけでなく、素材の扱い方と、編集可能な成果物をどれだけ安定して出せるかで決まる。
+  </p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -518,6 +637,16 @@
               <p class="source-url">https://learn.microsoft.com/en-us/javascript/api/powerpoint?view=powerpoint-js-1.6</p>
             </div>
             <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://support.microsoft.com/en-us/office/edit-svg-images-in-microsoft-365-69f29d39-194a-4072-8c35-dbe5e7ea528c" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Support: Edit SVG images in Microsoft 365</p>
+              <p class="source-url">https://support.microsoft.com/en-us/office/edit-svg-images-in-microsoft-365-69f29d39-194a-4072-8c35-dbe5e7ea528c</p>
+            </div>
+            <span class="source-action">開く</span>
           </a><a class="source-row" href="https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/insert-slides-into-presentation" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -578,6 +707,26 @@
               <p class="source-url">https://developers.google.com/workspace/slides/api/guides/batch</p>
             </div>
             <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/add-shape" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Add shapes and text to a slide</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/add-shape</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/concepts/page-elements" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Pages, Page Elements, and Properties</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/concepts/page-elements</p>
+            </div>
+            <span class="source-action">開く</span>
           </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -618,6 +767,36 @@
               <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/api-tables/</p>
             </div>
             <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/introduction/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Introduction</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/introduction/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/compatibility/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Universal compatibility</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/compatibility/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/shapes-and-schemes.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Shapes and schemes</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/shapes-and-schemes.html</p>
+            </div>
+            <span class="source-action">開く</span>
           </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/html-to-powerpoint/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -628,24 +807,114 @@
               <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/html-to-powerpoint/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/guides/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.canva.com/create/ai-presentations/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
                 
               </div>
-              <p class="source-title">Adobe Firefly API: Quickstart</p>
-              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/guides/</p>
+              <p class="source-title">Canva: AI Presentation Maker</p>
+              <p class="source-url">https://www.canva.com/create/ai-presentations/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/api/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.canva.com/presentations/multimedia-presentations/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
                 
               </div>
-              <p class="source-title">Adobe Firefly Services: API reference</p>
-              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/api/</p>
+              <p class="source-title">Canva: Multimedia presentation templates</p>
+              <p class="source-url">https://www.canva.com/presentations/multimedia-presentations/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.canva.com/pro/brand-kit/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Canva: Brand Kit for teams</p>
+              <p class="source-url">https://www.canva.com/pro/brand-kit/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.canva.com/solutions/brand-management-tools/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Canva: Brand management tools</p>
+              <p class="source-url">https://www.canva.com/solutions/brand-management-tools/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.canva.com/features/svg-converter/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Canva: SVG converter</p>
+              <p class="source-url">https://www.canva.com/features/svg-converter/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly API: Overview</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly API: Generate Image tutorial</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/firefly-generate-image-api-tutorial/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/cm-generate-image/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly API: Custom Models Generate Image tutorial</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/guides/how-tos/cm-generate-image/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/image-upload/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly API: Image Upload</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/image-upload/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/style-image-reference/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly API: Style Image Reference</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/guides/concepts/style-image-reference/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly API: Getting Started</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/getting-started/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://arxiv.org/abs/2501.03936" target="_blank" rel="noopener noreferrer">
