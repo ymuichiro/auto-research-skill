@@ -1,0 +1,206 @@
+<section class="report-section">
+  <p class="section-kicker">Key Point</p>
+  <h2>The shift in presentation generation is about editable artifacts, not slide text</h2>
+  <p>
+    It is too narrow to describe post-generative-AI presentation generation as a prompt-to-slides feature.
+    Reading OpenAI image generation, Microsoft Copilot in PowerPoint, the PowerPoint JavaScript API, the Google Slides API,
+    PptxGenJS, Adobe Firefly Services, and recent work such as PPTAgent and PreGenie together points to a broader change.
+    Presentation generation is becoming an artifact workflow that connects copy, imagery, layout, brand, file format,
+    review, and later editing.
+  </p>
+  <p class="mt-4">
+    Earlier automated slide systems often stopped at an outline and a set of bullet points. That is not enough for real work.
+    A business presentation has to remain editable in PowerPoint or Google Slides, preserve visual structure, accept image and chart changes,
+    respect brand rules, and leave room for the presenter to revise the final deck. The value of generative AI is therefore moving from
+    returning polished text to producing a reliable, editable PPTX or Slides artifact inside the tools teams already use.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">27</p>
+      <p class="stat-title">Primary sources</p>
+      <p class="stat-note">Official docs, official support pages, official libraries, and papers are enough to map the workflow shift.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">Artifact workflow</p>
+      <p class="stat-note">Structure, visual assets, PPTX or Slides rendering, and review make the adoption question concrete.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">2 paths</p>
+      <p class="stat-title">Generation routes</p>
+      <p class="stat-note">In-app generation and programmatic deck generation are both becoming practical, but serve different jobs.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 test</p>
+      <p class="stat-title">Operational fit</p>
+      <p class="stat-note">The artifact must be editable, inspectable, brand-safe, and reviewable after generation.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>The generated object has expanded from slide text to a structured, visual, editable file</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Generated text is not a presentation</h3>
+      <p>
+        LLMs are strong at outlines, summaries, and narrative flow. But PowerPoint quality depends on page density, visual choice,
+        spacing, title length, supporting notes, and the flow across the deck. Research is also moving beyond text-to-slides
+        toward deck planning, layout, visual grounding, and evaluation as separate parts of the task.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Image generation is becoming a slide component</h3>
+      <p>
+        Image APIs can supply more than decorative backgrounds. They can produce cover visuals, explanatory scenes, concept images,
+        and comparison imagery. The constraint is that generated images are not evidence by themselves. Presentation workflows need to
+        separate atmospheric images from charts, tables, and diagrams that claim facts.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. PptxGenJS turns AI output into editable PPTX</h3>
+      <p>
+        Libraries such as PptxGenJS can place text, images, tables, charts, and HTML-derived elements into a PowerPoint file.
+        That makes the library more than an export helper. It is the rendering layer that turns structured AI output into an artifact
+        a presenter can open and edit later.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. PowerPoint and Slides APIs bring generation back into the editing environment</h3>
+      <p>
+        Microsoft and Google APIs allow generated content to enter existing presentation tools, where text, images, inserted slides,
+        and updates can be controlled. Generative AI does not have to become a separate slide app; it can become a workflow that feeds
+        PowerPoint and Google Slides.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Two Routes</p>
+  <h2>Practical adoption will split between in-app generation and programmatic deck generation</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>In-app generation fits individual and team drafts</h3>
+      <p>
+        Tools such as Copilot in PowerPoint are natural starting points for generating a deck from an instruction or an existing file.
+        The advantage is proximity to the user’s normal editing surface. Short proposals, meeting drafts, and document-to-presentation
+        conversions fit this path well because the user can immediately revise the output.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Programmatic generation fits repeated deck types</h3>
+      <p>
+        A route based on PptxGenJS, the PowerPoint JavaScript API, or the Google Slides API fits sales proposals, weekly reports,
+        customer summaries, and training materials that follow a repeated format. The AI layer can draft structure and explanations,
+        while code controls templates, charts, image placement, and file output.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Image generation enters both paths</h3>
+      <p>
+        OpenAI and Firefly Services image generation can be used in both in-app and programmatic workflows. The important question is
+        not whether every page gets a fresh image. It is which role each image plays: cover, section break, concept illustration,
+        product scene, or factual visual.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Structured output works as the slide blueprint</h3>
+      <p>
+        It is usually more stable to ask the model for structured slide data than to stream prose directly into a deck.
+        Page titles, key points, chart types, image prompts, evidence links, and speaker notes can become a blueprint before rendering.
+        Structured Outputs and function calling therefore support presentation generation as design generation, not just text generation.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Workflow Scenario</p>
+  <h2>For real work, inspectable intermediate artifacts matter more than one-shot deck magic</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">01</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Read the material</h3>
+        <p>Parse meeting notes, proposal memos, product specs, and research findings to identify the audience, purpose, timing, and required message.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">02</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Create the slide blueprint</h3>
+        <p>Fix each page’s role, title, copy density, visual type, image prompt, speaker notes, and evidence requirement as structured data.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Generate or retrieve assets</h3>
+        <p>Create or fetch the required images, charts, tables, screenshots, and brand assets while separating factual visuals from atmospheric visuals.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Render to PPTX or Slides</h3>
+        <p>Use PptxGenJS or platform APIs to output an editable file, not a flattened image of a slide.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">05</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Review and loop back</h3>
+        <p>Check factual errors, long headings, overlap, brand violations, and missing evidence, then return to the blueprint or asset-generation step when needed.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation</p>
+  <h2>The evaluation surface expands from writing quality to deck quality</h2>
+  <p>
+    Presentation-generation research makes an important point: output quality cannot be judged only by the text.
+    A useful deck combines factual correctness, narrative flow, visual representation, layout, editability, and presentability.
+    Work such as PPTAgent, PreGenie, DeepPresenter, and SlideBot separates planning, retrieval, visual assets, environment feedback,
+    multi-agent collaboration, and evaluation into distinct parts of the system.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Content correctness</h3>
+      <p>Claims, numbers, citations, and product details must match the evidence. Generated imagery and summaries must not invent facts.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Visual and layout quality</h3>
+      <p>Text density, spacing, overlap, chart choice, and image role have to be checked in the rendered slide, not only in the prompt output.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Editability</h3>
+      <p>The presenter needs objects that remain editable in PowerPoint or Slides. A fully flattened slide is cheaper to generate but expensive to revise.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Operational repeatability</h3>
+      <p>The same deck type should be reproducible next time through templates, structured output, asset management, and review feedback.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Adoption Decision</p>
+  <h2>The thing to choose is not an impressive slide generator, but a generation route that fits the existing deck process</h2>
+  <p>
+    Organizations should compare more than the visual polish of sample decks. If the job is to draft from internal documents,
+    in-app generation is often the fastest route. If the job is to create customer-specific decks every week, structured output plus
+    PptxGenJS or a Slides API route may offer better repeatability. If brand and legal review matter, teams also need to decide
+    where generated images are allowed, how evidence links are preserved, how edits are tracked, and where approval happens.
+  </p>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">Short takeaway</p>
+    <p>
+      Presentation generation after generative AI has moved beyond chat-written bullet points. The comparison surface is whether a system
+      can connect structured blueprints, generated imagery, PPTX or Slides rendering, editability, and review into a usable artifact workflow.
+    </p>
+  </div>
+</section>
