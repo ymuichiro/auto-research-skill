@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Auto Research Digest RSS</title>
+    <link>https://research.notelligent.app/</link>
+    <description>LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理するリサーチ配信サイト。</description>
+    <language>ja</language>
+    <lastBuildDate>Thu, 07 May 2026 23:28:52 GMT</lastBuildDate>
+    <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった</title>
+      <link>https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html</guid>
+      <pubDate>Thu, 07 May 2026 23:28:52 GMT</pubDate>
+      <description>画像生成、PptxGenJS、PowerPoint/Slides API、Copilot、スライド生成研究から、生成AI後のプレゼン資料生成の変化を整理する。</description>
+      <category>AI Workflows</category>
+    </item>
+    <item>
+      <title>今週のAIエージェントは、「作る・動かす・統制する基盤」が製品カテゴリとして立ち上がった週だ</title>
+      <link>https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html</guid>
+      <pubDate>Wed, 06 May 2026 17:25:05 GMT</pubDate>
+      <description>Google、Microsoft、AWS、Anthropic、OpenAI の一次情報から、AIエージェント競争がモデル性能より統制付き運用基盤へ移る流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる</title>
+      <link>https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Anthropic、Microsoft、Google、AWS の一次情報から、AIエージェント導入で重要になる発見導線と承認面を整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった</title>
+      <link>https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Anthropic、Google、AWS の公開資料から、AIエージェント比較が継続作業、状態管理、可観測性へ移る流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>コーディングAIエージェントの主戦場は、補助UIではなく監督付き実行基盤にある</title>
+      <link>https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Anthropic、GitHub、Google、AWS の資料から、コーディングAIの競争軸が補助UIから監督付き実行基盤へ移る流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>AIエージェントの記憶は、ベクトル検索から層別システムへ移っている</title>
+      <link>https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Anthropic、Google ADK などの一次情報から、AIエージェントの記憶が単一RAGから層別メモリ設計へ移る流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>音声AIエージェントは、デモ機能から運用システムへ移り始めた</title>
+      <link>https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Google、Microsoft、AWS の公開資料から、音声AIエージェントがデモ機能から運用システムへ広がる流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>subagents は、実務向けAIの現実的な実装単位になり始めた</title>
+      <link>https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Anthropic、Google、Microsoft、AWS の資料から、subagents が実務向けAIの実装単位として具体化する流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>MCP、A2A、AG-UI が AI エージェントの接続層を分け始めた</title>
+      <link>https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Anthropic、Google、Microsoft、AWS と各プロトコル仕様から、MCP・A2A・AG-UI が接続層を分ける流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>動画生成AIはどこまで実用品になったのか、主要5製品の最新状況と技術の流れを整理する</title>
+      <link>https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Google、Adobe、Runway、Luma を比較し、動画生成AIの用途別の強みと導入時の注意点を整理する。</description>
+      <category>AI Strategy</category>
+    </item>
+    <item>
+      <title>AI エージェントの ID 管理は認証認可の統制基盤になり始めた</title>
+      <link>https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Microsoft、Amazon、Google、Okta/Auth0 などの一次情報から、agent identity が認証認可の統制基盤になる流れを読む。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Cowork は、職場AIが長時間動くエージェントの仕組みへ広がり始めたというシグナル</title>
+      <link>https://research.notelligent.app/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Anthropic、Microsoft、Google、Slack、OpenAI の資料から、職場AIが長時間動くエージェントの仕組みへ広がる動きを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか</title>
+      <link>https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Microsoft、Google、Anthropic などの発表をもとに、生成AIアプリがチャットに収束しつつチャットだけでは終わらない理由を整理する。</description>
+      <category>AI Strategy</category>
+    </item>
+    <item>
+      <title>AI agent の競争軸に security gate が入り始めた</title>
+      <link>https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI、Anthropic、Microsoft、AWS、Google Cloud の一次情報から、AI agent の比較軸に security gate が入る流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>AI エージェント導入の焦点は、単体性能競争から運用基盤設計へ</title>
+      <link>https://research.notelligent.app/2026-03-21-enterprise-ai-agents-readiness.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-21-enterprise-ai-agents-readiness.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>主要研究と OpenAI、Anthropic、Google、Microsoft、AWS の資料をもとに、AIエージェント導入が運用基盤設計へ向かう流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>agent architecture は model novelty よりも重要な比較軸になっていく</title>
+      <link>https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>2025年に積み上がった発表と研究をもとに、agent architecture が model novelty より重要な比較軸になる流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>control plane と eval discipline が、agent 導入の速度を決め始める</title>
+      <link>https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Anthropic を含む各社の流れから、control plane と eval discipline が agent 導入の速度を決め始めた背景を読む。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>2025年を通して見えてきたのは、operational boundary の明確化だ</title>
+      <link>https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>2025年の主要な発表を通じて、agent stack の論点が model novelty から control plane、protocol、evaluation、approval へ移る流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>multi-agent workflow そのものが product surface になり始める</title>
+      <link>https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Foundry Agent Service の preview を軸に、multi-agent workflow そのものが product surface になる流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>workflow tooling が agent の複雑さに追いつき始める</title>
+      <link>https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>OpenAI AgentKit、Microsoft Agent Framework、Claude Agent SDK などから、workflow tooling が agent の複雑さに追いつく流れを整理する。</description>
+      <category>AI Agents</category>
+    </item>
+  </channel>
+</rss>

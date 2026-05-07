@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった | Auto Research Digest</title>
+    <meta name="description" content="画像生成、PptxGenJS、PowerPoint/Slides API、Copilot、スライド生成研究から、生成AI後のプレゼン資料生成の変化を整理する。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった | Auto Research Digest">
+    <meta property="og:description" content="画像生成、PptxGenJS、PowerPoint/Slides API、Copilot、スライド生成研究から、生成AI後のプレゼン資料生成の変化を整理する。">
+    <meta property="og:url" content="https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった | Auto Research Digest">
+    <meta name="twitter:description" content="画像生成、PptxGenJS、PowerPoint/Slides API、Copilot、スライド生成研究から、生成AI後のプレゼン資料生成の変化を整理する。">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった">
+    <link rel="canonical" href="https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-05-08T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-05-08T08:28:52+09:00">
+    <meta property="article:section" content="AI Workflows">
+    <meta property="article:tag" content="Generative AI">
+    <meta property="article:tag" content="Presentation">
+    <meta property="article:tag" content="PPTX">
+    <meta property="article:tag" content="Image Generation">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="Evaluation">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった","description":"画像生成、PptxGenJS、PowerPoint/Slides API、Copilot、スライド生成研究から、生成AI後のプレゼン資料生成の変化を整理する。","datePublished":"2026-05-08T00:00:00+09:00","dateModified":"2026-05-08T08:28:52+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった","item":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html"}],"inLanguage":"ja"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/topics/">トピック</a><a class="nav-link " href="/timeline/">タイムライン</a></nav>
+        <a class="lang-switch" href="/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった</h1>
+          <p class="hero-copy">OpenAI の画像生成 API、Microsoft Copilot in PowerPoint と PowerPoint JavaScript API、Google Slides API、PptxGenJS、Adobe Firefly Services、そしてスライド生成研究の一次情報を重ねると、プレゼン資料生成の変化は「プロンプトからスライド本文を出す」ことでは説明しきれない。いま実務で問われているのは、構成、本文、図版、ブランド、レイアウト、PPTX 出力、編集可能性、レビューをどう一つの成果物工程に接続するかである。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
+        <time class="mono-note" datetime="2026-05-08">2026年5月8日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span><span class="meta-chip">Evaluation</span></div>
+    </section>
+    <section class="panel-block briefing-summary">
+    <div>
+      <p class="section-kicker">ブリーフィング概要</p>
+      <h2 class="panel-title">このレポートで先に確認できること</h2>
+    </div>
+    <div class="briefing-summary-grid">
+      <div class="briefing-summary-main">
+        <div class="meta-row">
+          <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
+          <span class="mono-note">根拠数: 27</span>
+        </div>
+        <p class="briefing-summary-copy">スライド生成の主戦場が、チャット本文から編集可能なPPTX成果物工程へ移った理由を読む。</p>
+        <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span></div>
+      </div>
+    </div>
+  </section>
+    <section class="article-share" aria-label="記事を共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E7%94%9F%E6%88%90AI%E5%BE%8C%E3%81%AE%E3%83%97%E3%83%AC%E3%82%BC%E3%83%B3%E8%B3%87%E6%96%99%E7%94%9F%E6%88%90%E3%81%AF%E3%80%81%E6%96%87%E7%AB%A0%E7%94%9F%E6%88%90%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E6%88%90%E6%9E%9C%E7%89%A9%E5%B7%A5%E7%A8%8B%E3%81%AE%E8%A8%AD%E8%A8%88%E5%95%8F%E9%A1%8C%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-05-08-presentation-generation-becomes-artifact-workflow.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="共有メニューを開く"
+      data-native-share
+      data-share-title="生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった"
+      data-share-text="生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった"
+      data-share-url="https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="記事タイトルとリンクをコピー"
+      data-copy-share
+      data-state="idle"
+      data-share-title="生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった"
+      data-share-url="https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html"
+      data-copy-label-default="記事タイトルとリンクをコピー"
+      data-copy-label-success="コピーしました"
+      data-copy-status-success="コピーしました"
+      data-copy-status-error="コピーに失敗しました"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">要点</p>
+  <h2>プレゼン資料生成の変化は、スライド本文を作ることではなく、編集可能な成果物を作る工程にある</h2>
+  <p>
+    生成AI登場後のプレゼン資料生成を「プロンプトからスライドを自動作成する機能」とだけ見ると、いま起きている変化を小さく見積もってしまう。
+    OpenAI の画像生成 API、Microsoft Copilot in PowerPoint、PowerPoint JavaScript API、Google Slides API、PptxGenJS、
+    Adobe Firefly Services、そして PPTAgent や PreGenie などの研究を重ねると、変化の中心は別の場所にある。
+    資料生成は、本文、図版、レイアウト、ブランド、ファイル形式、レビュー、再編集をつなぐ成果物工程になりつつある。
+  </p>
+  <p class="mt-4">
+    以前の自動スライド生成は、アウトラインを作り、各ページに箇条書きを置くところで止まりやすかった。
+    しかし実務で必要な資料は、読めるだけでは足りない。PowerPoint や Google Slides で編集でき、図表や画像が差し替えられ、
+    ブランドルールを保ち、発表者が最終修正できる必要がある。生成AIの価値は、完成文を返すことから、PPTX や Slides という
+    既存の編集環境に入る成果物をどれだけ確実に作れるかへ移っている。
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">27件</p>
+      <p class="stat-title">公開根拠</p>
+      <p class="stat-note">公式 docs、公式サポート、公式ライブラリ、論文だけで、工程全体の変化を確認できる。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4層</p>
+      <p class="stat-title">成果物工程</p>
+      <p class="stat-note">構成、視覚素材、PPTX/Slides 生成、レビュー評価を分けると導入判断がしやすい。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">2系統</p>
+      <p class="stat-title">生成ルート</p>
+      <p class="stat-note">Copilot 型のアプリ内生成と、PptxGenJS/API 型のプログラム生成が並行して伸びている。</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1条件</p>
+      <p class="stat-title">実務投入の条件</p>
+      <p class="stat-note">最終成果物が編集可能で、根拠、ブランド、レイアウトを検査できることが重要になる。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">何が変わったか</p>
+  <h2>「文章を並べたスライド」から「素材と構造を持つファイル」へ、生成対象が広がった</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. 本文生成だけでは資料にならない</h3>
+      <p>
+        LLM は構成案、要約、話の流れを作るのに強い。しかし PowerPoint の資料では、ページごとの密度、図表の選択、
+        余白、タイトルの長さ、補足説明、発表者ノートまでが成果物の品質を左右する。研究側でも text-to-slides だけでなく、
+        deck planning、layout、visual grounding、evaluation を分けて扱う方向が強まっている。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. 画像生成が、装飾ではなく資料部品になった</h3>
+      <p>
+        画像生成 API は、背景画像やアイコン風素材だけでなく、概念図、プロダクト説明用のシーン、比較イメージを作る部品になった。
+        ただし、生成画像はそのまま信頼できる根拠ではない。資料では「雰囲気を作る画像」と「事実を表す図表」を分け、
+        後者はデータや根拠に接続する必要がある。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. PptxGenJS は、AI 出力を編集可能な PPTX に変換する実装面を担う</h3>
+      <p>
+        PptxGenJS のようなライブラリは、テキスト、画像、表、グラフ、HTML 由来の要素を PPTX に落とし込める。
+        これは単なるファイル出力ではなく、生成AIが作った構造化データを、発表者が後で開いて直せる成果物へ変換する層である。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. PowerPoint と Slides API は、生成後の編集環境を工程に戻す</h3>
+      <p>
+        Microsoft と Google の API は、既存の資料編集環境に生成物を入れ、テキスト、画像、スライド挿入、更新を操作できる。
+        つまり生成AIは独立したスライド作成アプリではなく、PowerPoint や Google Slides の中に戻っていく工程として設計できる。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">2つの生成ルート</p>
+  <h2>現実的な導入は、アプリ内生成とプログラム生成を使い分ける形になる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>アプリ内生成は、個人やチームの初稿に向く</h3>
+      <p>
+        Copilot in PowerPoint のような機能は、既存ファイルや指示から新しいプレゼンを作る入口として分かりやすい。
+        利点は、ユーザーが普段使う編集画面から離れず、出力をすぐ修正できることにある。短い提案資料、会議用たたき台、
+        既存ドキュメントからの説明資料には、この形が合う。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>プログラム生成は、繰り返し作る資料に向く</h3>
+      <p>
+        PptxGenJS、PowerPoint JavaScript API、Google Slides API を使うルートは、営業提案、週次レポート、
+        顧客別サマリー、研修資料のように、同じ型で何度も作る資料に向く。生成AIはアウトラインや説明文を作り、
+        コード側がテンプレート、グラフ、画像配置、ファイル出力を制御する。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>画像生成は、両方のルートに入る</h3>
+      <p>
+        OpenAI や Firefly Services の画像生成は、アプリ内生成でもプログラム生成でも使える。重要なのは、画像を「毎回自由に作る」
+        ことではなく、どのページで何の役割を持つ素材として使うかを決めることである。表紙、章扉、概念図、補足イメージでは
+        必要な検査が異なる。
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>構造化出力は、スライド設計図として効く</h3>
+      <p>
+        LLM の出力をそのまま本文に流し込むより、ページタイトル、要点、図表タイプ、画像プロンプト、根拠リンク、ノートを
+        構造化してからレンダリングする方が安定する。Structured Outputs や function calling は、資料生成を
+        「文章の生成」から「設計図の生成」へ寄せるための実装部品になる。
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">実務シナリオ</p>
+  <h2>実務では、生成AIが一発で完成資料を作るより、人間が検査できる中間物を持つ方が強い</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">01</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">材料を読む</h3>
+        <p>議事録、提案メモ、製品仕様、調査結果を読み、目的、読者、所要時間、必須メッセージを抽出する。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">02</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">スライド設計図を作る</h3>
+        <p>各ページの役割、タイトル、本文量、図表、画像、発表者ノート、根拠の有無を構造化データとして固定する。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">素材を生成・取得する</h3>
+        <p>必要な画像、図表、表、スクリーンショット、ブランド素材を生成または取得し、事実を示す要素と雰囲気を作る要素を分ける。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">PPTX または Slides にレンダリングする</h3>
+        <p>PptxGenJS や各種 API で、編集可能なファイルとして出力する。画像一枚のスライドではなく、後から直せる部品として残す。</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">05</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">レビューして戻す</h3>
+        <p>事実誤認、長すぎる見出し、重なり、ブランド違反、出典欠落を検査し、必要なら設計図や素材生成へ戻る。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">評価</p>
+  <h2>評価軸も、文章品質からスライド成果物の品質へ広がる</h2>
+  <p>
+    スライド生成研究が示している重要な点は、出力の良し悪しを本文だけで測れないことだ。良いプレゼンは、内容の正確さ、
+    ページ間の流れ、視覚表現、レイアウト、編集可能性、発表しやすさの組み合わせで決まる。PPTAgent、PreGenie、DeepPresenter、
+    SlideBot のような研究は、計画、検索、視覚要素、環境フィードバック、マルチエージェント分担、評価を別々の要素として扱う。
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>内容の正確さ</h3>
+      <p>主張、数値、引用、製品仕様が根拠と一致しているか。生成画像や要約が、事実を作っていないかを確認する。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>視覚とレイアウト</h3>
+      <p>文字量、余白、重なり、図表の種類、画像の役割が合っているか。PPTX 出力後の実表示で見る必要がある。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>編集可能性</h3>
+      <p>発表者が PowerPoint や Slides で直せる部品として残っているか。画像化された全文スライドは修正コストが高い。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>運用再現性</h3>
+      <p>同じ型の資料を次回も作れるか。テンプレート、構造化出力、素材管理、レビュー結果の反映が必要になる。</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">導入判断</p>
+  <h2>選ぶべきなのは「すごいスライド生成機能」ではなく、自社の資料工程に入る生成経路である</h2>
+  <p>
+    企業が見るべき比較軸は、出力例の見栄えだけではない。社内文書から初稿を作るならアプリ内生成が速い。
+    顧客ごとの定型資料を毎週作るなら、構造化出力と PptxGenJS や Slides API を組み合わせる方が再現性を持ちやすい。
+    ブランドや法務レビューが重い資料なら、生成画像の利用範囲、根拠リンク、編集履歴、承認工程まで設計する必要がある。
+  </p>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">短い結論</p>
+    <p>
+      生成AI後のプレゼン資料生成は、チャットがきれいな箇条書きを返す段階を越えた。競争軸は、構造化された設計図、生成画像、
+      PPTX/Slides へのレンダリング、編集可能性、レビューをつないで、実務で使える成果物工程を作れるかにある。
+    </p>
+  </div>
+</section>
+</section>
+    <section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">テーマハブ</p>
+      <h2 class="panel-title">テーマ別に戻る</h2>
+      <p class="panel-copy">このレポートが属するテーマハブから、同じテーマの公開記事をまとめて追えます。</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Workflows</span>
+      <span class="mono-note">記事数: 1</span>
+      <a class="text-link" href="/topics/ai-workflows/">テーマハブを開く</a>
+    </div>
+  </section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">関連記事</p>
+      <h2 class="panel-title">関連記事</h2>
+      <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="今週のAIエージェントは、「作る・動かす・統制する基盤」が製品カテゴリとして立ち上がった週だ">
+    <div class="article-card-main">
+      <p class="section-kicker">ひとつ古い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-05-07">2026年5月7日</time>
+      </div>
+      <h3 class="article-card-title">今週のAIエージェントは、「作る・動かす・統制する基盤」が製品カテゴリとして立ち上がった週だ</h3>
+      <p class="article-card-copy">AIエージェントを選ぶ基準が、モデル単体ではなく作成・統制・評価を束ねた基盤へ移る理由を短く読む。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 31</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-04-20-agents-compete-on-work-continuity.html" aria-label="AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-20">2026年4月20日</time>
+      </div>
+      <h3 class="article-card-title">AIエージェントを比べる軸は、「一度うまく答えるか」ではなく「仕事を持ち越せるか」になった</h3>
+      <p class="article-card-copy">継続タスクを持ち越せるか、状態を残せるか、運用中に観測できるかという比較軸をまとめる。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Automation</span><span class="meta-chip">Sessions</span><span class="meta-chip">Observability</span><span class="meta-chip">Workflow</span><span class="meta-chip">Background Work</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 24</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-04-06-voice-agents-become-operational-systems.html" aria-label="音声AIエージェントは、デモ機能から運用システムへ移り始めた">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-06">2026年4月6日</time>
+      </div>
+      <h3 class="article-card-title">音声AIエージェントは、デモ機能から運用システムへ移り始めた</h3>
+      <p class="article-card-copy">speech-to-speech と chained 設計、割り込み、電話接続、テスト自動化まで含む比較軸をまとめる。</p>
+      <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 26</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://platform.openai.com/docs/guides/images" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: Image generation</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/images</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/api-reference/images" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API reference: Images</p>
+              <p class="source-url">https://platform.openai.com/docs/api-reference/images</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/8932459-creating-images-and-videos-in-chatgpt" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Creating images and videos in ChatGPT</p>
+              <p class="source-url">https://help.openai.com/en/articles/8932459-creating-images-and-videos-in-chatgpt</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/structured-outputs" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Docs: Structured Outputs</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/structured-outputs</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/function-calling" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Docs: Function calling</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/function-calling</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://support.microsoft.com/en-us/office/create-a-new-presentation-with-copilot-in-powerpoint-3222ee03-f5a4-4d27-8642-9c387ab4854d" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Support: Create a new presentation with Copilot in PowerPoint</p>
+              <p class="source-url">https://support.microsoft.com/en-us/office/create-a-new-presentation-with-copilot-in-powerpoint-3222ee03-f5a4-4d27-8642-9c387ab4854d</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://support.microsoft.com/en-us/topic/create-a-presentation-from-existing-files-beb15deb-3241-4711-a480-9cbd8dc4d755" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Support: Create a presentation from a file with Copilot in PowerPoint</p>
+              <p class="source-url">https://support.microsoft.com/en-us/topic/create-a-presentation-from-existing-files-beb15deb-3241-4711-a480-9cbd8dc4d755</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/powerpoint-add-ins-reference-overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: PowerPoint JavaScript API overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/powerpoint-add-ins-reference-overview</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/powerpoint-add-ins" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: PowerPoint Add-ins overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/powerpoint-add-ins</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/javascript/api/powerpoint?view=powerpoint-js-1.6" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: PowerPoint JavaScript API package</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/javascript/api/powerpoint?view=powerpoint-js-1.6</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/insert-slides-into-presentation" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Insert slides in PowerPoint</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/insert-slides-into-presentation</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Overview</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/overview</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/presentations" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Create presentations</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/presentations</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/styling" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Add and edit text</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/styling</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/add-image" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Add images</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/add-image</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/batch" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Batch update</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/batch</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS documentation</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/api-images/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Images</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/api-images/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/api-charts/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Charts</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/api-charts/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/api-tables/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Tables</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/api-tables/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/html-to-powerpoint/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: HTML to PowerPoint</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/html-to-powerpoint/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/guides/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly API: Quickstart</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/guides/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/api/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly Services: API reference</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/api/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2501.03936" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">PPTAgent: Generating and Evaluating Presentations Beyond Text-to-Slides</p>
+              <p class="source-url">https://arxiv.org/abs/2501.03936</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2501.08280" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">PreGenie: An Agentic Framework for High-quality Visual Presentation Generation</p>
+              <p class="source-url">https://arxiv.org/abs/2501.08280</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2507.12865" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">DeepPresenter: Environment-Grounded Reflection for Agentic Presentation Generation</p>
+              <p class="source-url">https://arxiv.org/abs/2507.12865</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2508.04203" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">SlideBot: A Multi-Agent Framework for Generating Informative and Reliable Multi-Modal Presentations</p>
+              <p class="source-url">https://arxiv.org/abs/2508.04203</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <div class="footer-meta">
+          <a class="footer-brand" href="/">AR / Auto Research Digest</a>
+          <p class="footer-copy">AI とエージェントの重要シグナルを、一次情報から読み解く。</p>
+        </div>
+        <nav class="footer-links" aria-label="フッターナビゲーション"><a class="footer-link" href="/topics/">トピック</a><a class="footer-link" href="/sitemap.html">サイトマップ</a><a class="footer-link" href="/about.html">このサイトについて</a><a class="footer-link" href="/editorial-policy.html">調査・編集方針</a><a class="footer-link" href="/contact.html">お問い合わせ</a><a class="footer-link" href="/privacy-policy.html">プライバシーポリシー</a><a class="footer-link" href="/terms.html">利用規約</a><a class="footer-link" href="/disclaimer.html">免責事項</a><a class="footer-link" href="/advertising-policy.html">広告掲載方針</a></nav>
+      </footer>
+    </div>
+  </body>
+</html>

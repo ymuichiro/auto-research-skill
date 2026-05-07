@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature | Auto Research Digest EN</title>
+    <meta name="description" content="A primary-source briefing on how image generation, PptxGenJS, PowerPoint and Slides APIs, Copilot, and slide-generation research are changing presentation generation.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature | Auto Research Digest EN">
+    <meta property="og:description" content="A primary-source briefing on how image generation, PptxGenJS, PowerPoint and Slides APIs, Copilot, and slide-generation research are changing presentation generation.">
+    <meta property="og:url" content="https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature | Auto Research Digest EN">
+    <meta name="twitter:description" content="A primary-source briefing on how image generation, PptxGenJS, PowerPoint and Slides APIs, Copilot, and slide-generation research are changing presentation generation.">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature">
+    <link rel="canonical" href="https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-05-08T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-05-08T08:28:52+09:00">
+    <meta property="article:section" content="AI Workflows">
+    <meta property="article:tag" content="Generative AI">
+    <meta property="article:tag" content="Presentation">
+    <meta property="article:tag" content="PPTX">
+    <meta property="article:tag" content="Image Generation">
+    <meta property="article:tag" content="Automation">
+    <meta property="article:tag" content="Evaluation">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature","description":"A primary-source briefing on how image generation, PptxGenJS, PowerPoint and Slides APIs, Copilot, and slide-generation research are changing presentation generation.","datePublished":"2026-05-08T00:00:00+09:00","dateModified":"2026-05-08T08:28:52+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/en/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature","item":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <a class="lang-switch" href="/2026-05-08-presentation-generation-becomes-artifact-workflow.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature</h1>
+          <p class="hero-copy">Primary sources across OpenAI image generation, Microsoft Copilot in PowerPoint and PowerPoint JavaScript APIs, Google Slides APIs, PptxGenJS, Adobe Firefly Services, and recent presentation-generation papers show that the post-generative-AI shift is no longer just prompt-to-slide text. The practical question is how teams connect structure, copy, imagery, brand, layout, PPTX output, editability, and review into one artifact workflow.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-workflows/">AI Workflows</a>
+        <time class="mono-note" datetime="2026-05-08">May 8, 2026</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span><span class="meta-chip">Evaluation</span></div>
+    </section>
+    <section class="panel-block briefing-summary">
+    <div>
+      <p class="section-kicker">Briefing summary</p>
+      <h2 class="panel-title">What this briefing helps you get to quickly</h2>
+    </div>
+    <div class="briefing-summary-grid">
+      <div class="briefing-summary-main">
+        <div class="meta-row">
+          <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-workflows/">AI Workflows</a>
+          <span class="mono-note">Sources: 27</span>
+        </div>
+        <p class="briefing-summary-copy">Why slide generation is moving from chat-written text to editable PPTX artifact workflows.</p>
+        <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span></div>
+      </div>
+    </div>
+  </section>
+    <section class="article-share" aria-label="Share article">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Presentation%20generation%20after%20generative%20AI%20is%20now%20an%20artifact%20workflow%20problem%2C%20not%20a%20text-generation%20feature&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-05-08-presentation-generation-becomes-artifact-workflow.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Open share menu"
+      data-native-share
+      data-share-title="Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature"
+      data-share-text="Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature"
+      data-share-url="https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Copy article title and link"
+      data-copy-share
+      data-state="idle"
+      data-share-title="Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature"
+      data-share-url="https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html"
+      data-copy-label-default="Copy article title and link"
+      data-copy-label-success="Copied"
+      data-copy-status-success="Copied"
+      data-copy-status-error="Copy failed"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Key Point</p>
+  <h2>The shift in presentation generation is about editable artifacts, not slide text</h2>
+  <p>
+    It is too narrow to describe post-generative-AI presentation generation as a prompt-to-slides feature.
+    Reading OpenAI image generation, Microsoft Copilot in PowerPoint, the PowerPoint JavaScript API, the Google Slides API,
+    PptxGenJS, Adobe Firefly Services, and recent work such as PPTAgent and PreGenie together points to a broader change.
+    Presentation generation is becoming an artifact workflow that connects copy, imagery, layout, brand, file format,
+    review, and later editing.
+  </p>
+  <p class="mt-4">
+    Earlier automated slide systems often stopped at an outline and a set of bullet points. That is not enough for real work.
+    A business presentation has to remain editable in PowerPoint or Google Slides, preserve visual structure, accept image and chart changes,
+    respect brand rules, and leave room for the presenter to revise the final deck. The value of generative AI is therefore moving from
+    returning polished text to producing a reliable, editable PPTX or Slides artifact inside the tools teams already use.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card">
+      <p class="stat-value">27</p>
+      <p class="stat-title">Primary sources</p>
+      <p class="stat-note">Official docs, official support pages, official libraries, and papers are enough to map the workflow shift.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">4 layers</p>
+      <p class="stat-title">Artifact workflow</p>
+      <p class="stat-note">Structure, visual assets, PPTX or Slides rendering, and review make the adoption question concrete.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">2 paths</p>
+      <p class="stat-title">Generation routes</p>
+      <p class="stat-note">In-app generation and programmatic deck generation are both becoming practical, but serve different jobs.</p>
+    </article>
+    <article class="stat-card">
+      <p class="stat-value">1 test</p>
+      <p class="stat-title">Operational fit</p>
+      <p class="stat-note">The artifact must be editable, inspectable, brand-safe, and reviewable after generation.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>The generated object has expanded from slide text to a structured, visual, editable file</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>1. Generated text is not a presentation</h3>
+      <p>
+        LLMs are strong at outlines, summaries, and narrative flow. But PowerPoint quality depends on page density, visual choice,
+        spacing, title length, supporting notes, and the flow across the deck. Research is also moving beyond text-to-slides
+        toward deck planning, layout, visual grounding, and evaluation as separate parts of the task.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>2. Image generation is becoming a slide component</h3>
+      <p>
+        Image APIs can supply more than decorative backgrounds. They can produce cover visuals, explanatory scenes, concept images,
+        and comparison imagery. The constraint is that generated images are not evidence by themselves. Presentation workflows need to
+        separate atmospheric images from charts, tables, and diagrams that claim facts.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>3. PptxGenJS turns AI output into editable PPTX</h3>
+      <p>
+        Libraries such as PptxGenJS can place text, images, tables, charts, and HTML-derived elements into a PowerPoint file.
+        That makes the library more than an export helper. It is the rendering layer that turns structured AI output into an artifact
+        a presenter can open and edit later.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>4. PowerPoint and Slides APIs bring generation back into the editing environment</h3>
+      <p>
+        Microsoft and Google APIs allow generated content to enter existing presentation tools, where text, images, inserted slides,
+        and updates can be controlled. Generative AI does not have to become a separate slide app; it can become a workflow that feeds
+        PowerPoint and Google Slides.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Two Routes</p>
+  <h2>Practical adoption will split between in-app generation and programmatic deck generation</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>In-app generation fits individual and team drafts</h3>
+      <p>
+        Tools such as Copilot in PowerPoint are natural starting points for generating a deck from an instruction or an existing file.
+        The advantage is proximity to the user’s normal editing surface. Short proposals, meeting drafts, and document-to-presentation
+        conversions fit this path well because the user can immediately revise the output.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Programmatic generation fits repeated deck types</h3>
+      <p>
+        A route based on PptxGenJS, the PowerPoint JavaScript API, or the Google Slides API fits sales proposals, weekly reports,
+        customer summaries, and training materials that follow a repeated format. The AI layer can draft structure and explanations,
+        while code controls templates, charts, image placement, and file output.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Image generation enters both paths</h3>
+      <p>
+        OpenAI and Firefly Services image generation can be used in both in-app and programmatic workflows. The important question is
+        not whether every page gets a fresh image. It is which role each image plays: cover, section break, concept illustration,
+        product scene, or factual visual.
+      </p>
+    </article>
+    <article class="comparison-card">
+      <h3>Structured output works as the slide blueprint</h3>
+      <p>
+        It is usually more stable to ask the model for structured slide data than to stream prose directly into a deck.
+        Page titles, key points, chart types, image prompts, evidence links, and speaker notes can become a blueprint before rendering.
+        Structured Outputs and function calling therefore support presentation generation as design generation, not just text generation.
+      </p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Workflow Scenario</p>
+  <h2>For real work, inspectable intermediate artifacts matter more than one-shot deck magic</h2>
+  <div class="timeline">
+    <article class="timeline-item">
+      <div class="timeline-year">01</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Read the material</h3>
+        <p>Parse meeting notes, proposal memos, product specs, and research findings to identify the audience, purpose, timing, and required message.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">02</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Create the slide blueprint</h3>
+        <p>Fix each page’s role, title, copy density, visual type, image prompt, speaker notes, and evidence requirement as structured data.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">03</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Generate or retrieve assets</h3>
+        <p>Create or fetch the required images, charts, tables, screenshots, and brand assets while separating factual visuals from atmospheric visuals.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">04</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Render to PPTX or Slides</h3>
+        <p>Use PptxGenJS or platform APIs to output an editable file, not a flattened image of a slide.</p>
+      </div>
+    </article>
+    <article class="timeline-item">
+      <div class="timeline-year">05</div>
+      <div>
+        <h3 class="font-display text-xl font-semibold text-primary">Review and loop back</h3>
+        <p>Check factual errors, long headings, overlap, brand violations, and missing evidence, then return to the blueprint or asset-generation step when needed.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation</p>
+  <h2>The evaluation surface expands from writing quality to deck quality</h2>
+  <p>
+    Presentation-generation research makes an important point: output quality cannot be judged only by the text.
+    A useful deck combines factual correctness, narrative flow, visual representation, layout, editability, and presentability.
+    Work such as PPTAgent, PreGenie, DeepPresenter, and SlideBot separates planning, retrieval, visual assets, environment feedback,
+    multi-agent collaboration, and evaluation into distinct parts of the system.
+  </p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Content correctness</h3>
+      <p>Claims, numbers, citations, and product details must match the evidence. Generated imagery and summaries must not invent facts.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Visual and layout quality</h3>
+      <p>Text density, spacing, overlap, chart choice, and image role have to be checked in the rendered slide, not only in the prompt output.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Editability</h3>
+      <p>The presenter needs objects that remain editable in PowerPoint or Slides. A fully flattened slide is cheaper to generate but expensive to revise.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Operational repeatability</h3>
+      <p>The same deck type should be reproducible next time through templates, structured output, asset management, and review feedback.</p>
+    </article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Adoption Decision</p>
+  <h2>The thing to choose is not an impressive slide generator, but a generation route that fits the existing deck process</h2>
+  <p>
+    Organizations should compare more than the visual polish of sample decks. If the job is to draft from internal documents,
+    in-app generation is often the fastest route. If the job is to create customer-specific decks every week, structured output plus
+    PptxGenJS or a Slides API route may offer better repeatability. If brand and legal review matter, teams also need to decide
+    where generated images are allowed, how evidence links are preserved, how edits are tracked, and where approval happens.
+  </p>
+  <div class="callout-panel mt-6">
+    <p class="callout-title">Short takeaway</p>
+    <p>
+      Presentation generation after generative AI has moved beyond chat-written bullet points. The comparison surface is whether a system
+      can connect structured blueprints, generated imagery, PPTX or Slides rendering, editability, and review into a usable artifact workflow.
+    </p>
+  </div>
+</section>
+</section>
+    <section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Workflows</span>
+      <span class="mono-note">Articles: 1</span>
+      <a class="text-link" href="/en/topics/ai-workflows/">Open topic hub</a>
+    </div>
+  </section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-05-07">May 7, 2026</time>
+      </div>
+      <h3 class="article-card-title">This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents</h3>
+      <p class="article-card-copy">A concise read on why AI agents are now compared as platforms that combine build, governance, and evaluation, not just as models.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 31</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-04-20-agents-compete-on-work-continuity.html" aria-label="The real comparison axis for AI agents is now whether they can carry work forward">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-20">April 20, 2026</time>
+      </div>
+      <h3 class="article-card-title">The real comparison axis for AI agents is now whether they can carry work forward</h3>
+      <p class="article-card-copy">See why the new agent comparison axis is resume-able work, persistent state, and production observability.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Automation</span><span class="meta-chip">Sessions</span><span class="meta-chip">Observability</span><span class="meta-chip">Workflow</span><span class="meta-chip">Background Work</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 24</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-04-06-voice-agents-become-operational-systems.html" aria-label="Voice AI agents are shifting from demo features to operational systems">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-04-06">April 6, 2026</time>
+      </div>
+      <h3 class="article-card-title">Voice AI agents are shifting from demo features to operational systems</h3>
+      <p class="article-card-copy">A quick guide to the new voice-agent stack: architecture choice, interruptions, telephony, escalation, and testing.</p>
+      <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 26</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://platform.openai.com/docs/guides/images" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API docs: Image generation</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/images</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/api-reference/images" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API reference: Images</p>
+              <p class="source-url">https://platform.openai.com/docs/api-reference/images</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://help.openai.com/en/articles/8932459-creating-images-and-videos-in-chatgpt" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Help Center: Creating images and videos in ChatGPT</p>
+              <p class="source-url">https://help.openai.com/en/articles/8932459-creating-images-and-videos-in-chatgpt</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/structured-outputs" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Docs: Structured Outputs</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/structured-outputs</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/function-calling" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Docs: Function calling</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/function-calling</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://support.microsoft.com/en-us/office/create-a-new-presentation-with-copilot-in-powerpoint-3222ee03-f5a4-4d27-8642-9c387ab4854d" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Support: Create a new presentation with Copilot in PowerPoint</p>
+              <p class="source-url">https://support.microsoft.com/en-us/office/create-a-new-presentation-with-copilot-in-powerpoint-3222ee03-f5a4-4d27-8642-9c387ab4854d</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://support.microsoft.com/en-us/topic/create-a-presentation-from-existing-files-beb15deb-3241-4711-a480-9cbd8dc4d755" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Support: Create a presentation from a file with Copilot in PowerPoint</p>
+              <p class="source-url">https://support.microsoft.com/en-us/topic/create-a-presentation-from-existing-files-beb15deb-3241-4711-a480-9cbd8dc4d755</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/powerpoint-add-ins-reference-overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: PowerPoint JavaScript API overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/office/dev/add-ins/reference/overview/powerpoint-add-ins-reference-overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/powerpoint-add-ins" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: PowerPoint Add-ins overview</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/powerpoint-add-ins</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/javascript/api/powerpoint?view=powerpoint-js-1.6" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: PowerPoint JavaScript API package</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/javascript/api/powerpoint?view=powerpoint-js-1.6</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/insert-slides-into-presentation" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Microsoft Learn: Insert slides in PowerPoint</p>
+              <p class="source-url">https://learn.microsoft.com/en-us/office/dev/add-ins/powerpoint/insert-slides-into-presentation</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Overview</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/presentations" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Create presentations</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/presentations</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/styling" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Add and edit text</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/styling</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/add-image" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Add images</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/add-image</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.google.com/workspace/slides/api/guides/batch" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Slides API: Batch update</p>
+              <p class="source-url">https://developers.google.com/workspace/slides/api/guides/batch</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS documentation</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/api-images/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Images</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/api-images/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/api-charts/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Charts</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/api-charts/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/api-tables/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: Tables</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/api-tables/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://gitbrent.github.io/PptxGenJS/docs/html-to-powerpoint/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">PptxGenJS: HTML to PowerPoint</p>
+              <p class="source-url">https://gitbrent.github.io/PptxGenJS/docs/html-to-powerpoint/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/guides/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly API: Quickstart</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/guides/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developer.adobe.com/firefly-services/docs/firefly-api/api/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Adobe Firefly Services: API reference</p>
+              <p class="source-url">https://developer.adobe.com/firefly-services/docs/firefly-api/api/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2501.03936" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">PPTAgent: Generating and Evaluating Presentations Beyond Text-to-Slides</p>
+              <p class="source-url">https://arxiv.org/abs/2501.03936</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2501.08280" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">PreGenie: An Agentic Framework for High-quality Visual Presentation Generation</p>
+              <p class="source-url">https://arxiv.org/abs/2501.08280</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2507.12865" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">DeepPresenter: Environment-Grounded Reflection for Agentic Presentation Generation</p>
+              <p class="source-url">https://arxiv.org/abs/2507.12865</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2508.04203" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">SlideBot: A Multi-Agent Framework for Generating Informative and Reliable Multi-Modal Presentations</p>
+              <p class="source-url">https://arxiv.org/abs/2508.04203</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <div class="footer-meta">
+          <a class="footer-brand" href="/en/">AR / Auto Research Digest</a>
+          <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a><a class="footer-link" href="/en/sitemap.html">Sitemap</a><a class="footer-link" href="/en/about.html">About</a><a class="footer-link" href="/en/editorial-policy.html">Editorial Policy</a><a class="footer-link" href="/en/contact.html">Contact</a><a class="footer-link" href="/en/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/en/terms.html">Terms</a><a class="footer-link" href="/en/disclaimer.html">Disclaimer</a><a class="footer-link" href="/en/advertising-policy.html">Advertising Policy</a></nav>
+      </footer>
+    </div>
+  </body>
+</html>

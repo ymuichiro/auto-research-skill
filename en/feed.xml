@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Auto Research Digest EN RSS</title>
+    <link>https://research.notelligent.app/en/</link>
+    <description>A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction.</description>
+    <language>en</language>
+    <lastBuildDate>Thu, 07 May 2026 23:28:52 GMT</lastBuildDate>
+    <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature</title>
+      <link>https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html</guid>
+      <pubDate>Thu, 07 May 2026 23:28:52 GMT</pubDate>
+      <description>A primary-source briefing on how image generation, PptxGenJS, PowerPoint and Slides APIs, Copilot, and slide-generation research are changing presentation generation.</description>
+      <category>AI Workflows</category>
+    </item>
+    <item>
+      <title>This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents</title>
+      <link>https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html</guid>
+      <pubDate>Wed, 06 May 2026 17:25:05 GMT</pubDate>
+      <description>Primary sources from Google, Microsoft, AWS, Anthropic, and OpenAI show why AI agent competition is moving from model quality to governed stacks.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>AI agent adoption is now shaped more by discovery and approval than by model comparison</title>
+      <link>https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Using primary-source material from OpenAI, Anthropic, Microsoft, Google, and AWS, this article explains how discovery and approval surfaces are shaping agent adoption.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>The real comparison axis for AI agents is now whether they can carry work forward</title>
+      <link>https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Drawing on public material from OpenAI, Anthropic, Google, and AWS, this briefing explains why agents are now judged by work continuity, state, and observability.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Coding AI agents now compete as supervised runtime systems, not helper UIs</title>
+      <link>https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Based on public docs from OpenAI, Anthropic, GitHub, Google, and AWS, this article shows why coding agents are now compared as supervised runtimes rather than helper UIs.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>AI agent memory is shifting from vector retrieval to a layered systems design</title>
+      <link>https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Using primary sources from OpenAI, Anthropic, Google ADK and others, this briefing explains why agent memory is moving from one-shot retrieval to layered memory design.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Voice AI agents are shifting from demo features to operational systems</title>
+      <link>https://research.notelligent.app/en/2026-04-06-voice-agents-become-operational-systems.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-06-voice-agents-become-operational-systems.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>From public material by OpenAI, Google, Microsoft, and AWS, this article outlines how voice agents are moving from demo features into operational systems.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Subagents are becoming the practical implementation unit for real-world AI work</title>
+      <link>https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Using public material from OpenAI, Anthropic, Google, Microsoft, and AWS, this briefing explains why subagents are becoming a practical unit of AI implementation.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>MCP, A2A, and AG-UI are separating the connection stack for AI agents</title>
+      <link>https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Using protocol specifications and vendor docs, this briefing explains how MCP, A2A, and AG-UI are separating tool access, delegation, and human approval layers.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>How practical video generation AI has become: the latest product status and technology shifts across five major platforms</title>
+      <link>https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Comparing OpenAI, Google, Adobe, Runway, and Luma, this article maps where video generation AI is becoming practical and where limits still matter.</description>
+      <category>AI Strategy</category>
+    </item>
+    <item>
+      <title>Agent identity is becoming the control plane for authentication and authorization</title>
+      <link>https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Across primary sources from Microsoft, Amazon, Google, Okta, and Auth0, this article explains why agent identity is becoming an auth control plane.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Cowork signals that workplace AI is expanding into long-running agent systems</title>
+      <link>https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Using material from Anthropic, Microsoft, Google, Slack, and OpenAI, this article maps the shift toward long-running workplace agent systems.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Why generative AI products converge on chat, and why chat will not stay alone</title>
+      <link>https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Across OpenAI, Microsoft, Google, and Anthropic product signals, this article explains why AI products converge on chat but do not stop there.</description>
+      <category>AI Strategy</category>
+    </item>
+    <item>
+      <title>Security gates are becoming part of the core comparison axis for AI agents</title>
+      <link>https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Using primary-source material from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, this piece explains why security gates now shape agent comparison.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>AI agent adoption is shifting from model races to operational architecture</title>
+      <link>https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Using major research and platform docs from OpenAI, Anthropic, Google, Microsoft, and AWS, this article maps the shift toward operational architecture.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Agent architecture is becoming a more important comparison axis than model novelty</title>
+      <link>https://research.notelligent.app/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Drawing on the 2025 launch cycle and benchmark research, this article explains why agent architecture matters more than model novelty.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Control planes and evaluation discipline are starting to set the pace of agent adoption</title>
+      <link>https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Across vendor updates including Anthropic, this briefing shows why control planes and evaluation discipline are setting the pace of agent adoption.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>The strongest signal across 2025 is the rise of explicit operational boundaries</title>
+      <link>https://research.notelligent.app/en/2026-01-01-the-2025-signal-is-operational-boundaries.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-01-01-the-2025-signal-is-operational-boundaries.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Reviewing the 2025 signal, this article explains how the agent stack shifted from model novelty toward control planes, protocols, evaluation, and approvals.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Multi-agent workflow is appearing as a configurable, observable product surface</title>
+      <link>https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Anchored in the Foundry Agent Service preview, this article shows how multi-agent workflow itself is becoming a product surface.</description>
+      <category>AI Agents</category>
+    </item>
+    <item>
+      <title>Workflow tooling is catching up with agent complexity</title>
+      <link>https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html</guid>
+      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
+      <description>Using OpenAI AgentKit, Microsoft Agent Framework, and the Claude Agent SDK, this article explains how workflow tooling is catching up with agent complexity.</description>
+      <category>AI Agents</category>
+    </item>
+  </channel>
+</rss>
