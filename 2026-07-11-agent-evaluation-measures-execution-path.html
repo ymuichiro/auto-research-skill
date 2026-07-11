@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った | Auto Research Digest</title>
+    <meta name="description" content="OpenAI、Anthropic、Google Cloud、AWS の一次情報から、AIエージェント評価が回答採点から実行経路・トレース・本番監視へ広がる流れを整理する。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った | Auto Research Digest">
+    <meta property="og:description" content="OpenAI、Anthropic、Google Cloud、AWS の一次情報から、AIエージェント評価が回答採点から実行経路・トレース・本番監視へ広がる流れを整理する。">
+    <meta property="og:url" content="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った | Auto Research Digest">
+    <meta name="twitter:description" content="OpenAI、Anthropic、Google Cloud、AWS の一次情報から、AIエージェント評価が回答採点から実行経路・トレース・本番監視へ広がる流れを整理する。">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った">
+    <link rel="canonical" href="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-07-11T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-07-11T19:37:51+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Evaluation">
+    <meta property="article:tag" content="Observability">
+    <meta property="article:tag" content="Tool Use">
+    <meta property="article:tag" content="Governance">
+    <meta property="article:tag" content="LLM">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った","description":"OpenAI、Anthropic、Google Cloud、AWS の一次情報から、AIエージェント評価が回答採点から実行経路・トレース・本番監視へ広がる流れを整理する。","datePublished":"2026-07-11T00:00:00+09:00","dateModified":"2026-07-11T19:37:51+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った","item":"https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html"}],"inLanguage":"ja"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/topics/">トピック</a><a class="nav-link " href="/timeline/">タイムライン</a></nav>
+        <a class="lang-switch" href="/en/2026-07-11-agent-evaluation-measures-execution-path.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った</h1>
+          <p class="hero-copy">2026年7月11日までに公開された OpenAI、Anthropic、Google Cloud、AWS の一次情報と評価研究を重ねると、AIエージェントの品質評価は最終回答の採点だけでは足りなくなっている。各社の評価機能は、ツール選択、呼び出し順序、承認境界、失敗時の復旧、トレースを対象に含め、開発時のデータセット評価と本番の観測をつなぎ始めた。重要なのは単一の総合スコアではなく、回答、実行経路、運用安全性を別々に測り、変更時にどの契約が崩れたかを追えるようにすることである。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
+        <time class="mono-note" datetime="2026-07-11">2026年7月11日</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
+    </section>
+    <section class="panel-block briefing-summary">
+    <div>
+      <p class="section-kicker">ブリーフィング概要</p>
+      <h2 class="panel-title">このレポートで先に確認できること</h2>
+    </div>
+    <div class="briefing-summary-grid">
+      <div class="briefing-summary-main">
+        <div class="meta-row">
+          <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
+          <span class="mono-note">根拠数: 29</span>
+        </div>
+        <p class="briefing-summary-copy">最終回答、ツール実行、本番運用を分けて測る、AIエージェント評価の新しい設計を整理する。</p>
+        <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span></div>
+      </div>
+    </div>
+  </section>
+    <section class="article-share" aria-label="記事を共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A9%95%E4%BE%A1%E3%81%AF%E3%80%81%E5%9B%9E%E7%AD%94%E3%81%A0%E3%81%91%E3%81%A7%E3%81%AA%E3%81%8F%E5%AE%9F%E8%A1%8C%E7%B5%8C%E8%B7%AF%E3%82%92%E6%B8%AC%E3%82%8B%E6%AE%B5%E9%9A%8E%E3%81%AB%E5%85%A5%E3%81%A3%E3%81%9F&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-07-11-agent-evaluation-measures-execution-path.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="共有メニューを開く"
+      data-native-share
+      data-share-title="AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った"
+      data-share-text="AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った"
+      data-share-url="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="記事タイトルとリンクをコピー"
+      data-copy-share
+      data-state="idle"
+      data-share-title="AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った"
+      data-share-url="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html"
+      data-copy-label-default="記事タイトルとリンクをコピー"
+      data-copy-label-success="コピーしました"
+      data-copy-status-success="コピーしました"
+      data-copy-status-error="コピーに失敗しました"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Snapshot</p>
+  <h2>正しい回答だけでは、正しいエージェントかを判断できない</h2>
+  <p>AIエージェントは、回答を生成するだけでなく、情報を探し、ツールを選び、外部システムに操作を依頼し、必要なら人に判断を戻す。したがって最終文だけが正しくても、誤った顧客レコードを参照した、不要な書き込みを試みた、承認を飛ばした、といった失敗を見落としうる。2026年7月11日までの公開資料では、OpenAI、Anthropic、Google Cloud、AWS がいずれも、回答品質に加えてツール利用や実行経路を評価・観測する面を整備している。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card"><p class="stat-value">28</p><p class="stat-title">Primary sources</p><p class="stat-note">公式資料と論文を横断し、特定ベンダーの主張だけに依存しない。</p></article>
+    <article class="stat-card"><p class="stat-value">3</p><p class="stat-title">Quality contracts</p><p class="stat-note">最終回答、実行経路、運用上の安全性は別々に測る。</p></article>
+    <article class="stat-card"><p class="stat-value">Trace</p><p class="stat-title">Shared evidence</p><p class="stat-note">ツール呼び出しと中間結果が、評価と障害調査を接続する。</p></article>
+    <article class="stat-card"><p class="stat-value">Not one score</p><p class="stat-title">Decision surface</p><p class="stat-note">総合点ではなく、どの契約が崩れたかを特定できる形が必要になる。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>評価対象が「答え」から「仕事の進め方」へ広がった</h2>
+  <p>OpenAI の agent evals と Agents SDK のトレースは、生成、ツール呼び出し、ハンドオフ、ガードレールを実行記録として扱う。Google Cloud は最終応答品質だけでなく、ツール利用品質、幻覚、安全性を含むエージェント用の評価指標を公開している。AWS AgentCore Evaluations はセッション、トレース、スパンを評価対象にし、期待した応答、目標達成の条件、期待するツール実行列を根拠として渡せる。これは、評価の単位が一問一答から状態を持つ業務の一連の進行へ広がっていることを示す。</p>
+  <div class="callout-panel mt-6"><p class="callout-title">観測</p><p>実行経路を測ることは、モデルの内的推論を採点することではない。外部から観測できるツール選択、引数、順序、承認、結果、復旧を、業務上の期待と照合できるようにすることである。</p></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Three Contracts</p>
+  <h2>実務では三つの品質契約を分けると、評価が意思決定に使いやすくなる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>1. 最終回答の契約</h3><p>利用者に返す内容が正確で、必要な形式、根拠、文体を満たすかを測る。参照回答との比較、ルールベース検査、人による判定、基準を明示したモデル判定を組み合わせられる。ここでは「何を返したか」が中心になる。</p></article>
+    <article class="comparison-card"><h3>2. 実行経路の契約</h3><p>適切なツールを選び、正しい順序で使い、不要な操作をせず、失敗時に停止または再試行できたかを測る。予約変更なら、本人確認、空き枠確認、変更提案、承認、書き込みという順序までが評価対象になる。</p></article>
+    <article class="comparison-card"><h3>3. 運用安全性の契約</h3><p>遅延、失敗率、費用、ガードレールの発火、承認待ち、機密データの記録範囲が許容内かを測る。回答と経路がテストで通っても、本番で異常な反復や権限外の試行が起きれば、出荷品質とは言えない。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evidence Loop</p>
+  <h2>データセット評価と本番観測は、同じ証拠の流れでつなぐ</h2>
+  <p>開発用の評価セットには、通常ケースだけでなく、曖昧な依頼、欠損した入力、権限不足、ツール障害、承認が必要な操作を含める。各ケースに、許容される最終結果だけでなく、必須または禁止のツール操作、期待する停止条件を記述すると、変更の影響を具体的に判定できる。OpenAI のトレース、Google Cloud の評価結果に含まれるトレース、AWS のスパンと評価結果が同じ方向を示すのは、評価結果を実行記録から切り離さないためである。</p>
+  <div class="timeline mt-6">
+    <article class="timeline-item"><div class="timeline-year">Before merge</div><div><h3 class="font-display text-xl font-semibold text-primary">固定ケースで契約を確認する</h3><p>主要業務、境界ケース、禁止操作を含む評価セットで、回答と経路の回帰を検出する。</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">Canary</div><div><h3 class="font-display text-xl font-semibold text-primary">少量の実運用で経路を確認する</h3><p>許可した利用者または低リスクの操作に絞り、トレース、失敗、承認待ちを確認する。</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">Production</div><div><h3 class="font-display text-xl font-semibold text-primary">評価指標を運用指標として監視する</h3><p>スコアの変化だけでなく、ツール失敗率、再試行、遅延、停止率を追い、ケースを評価セットへ戻す。</p></div></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Scenarios</p>
+  <h2>実行経路の評価が効くのは、外部操作と判断境界がある業務である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>顧客対応</h3><p>返金の説明文だけでなく、注文照会をして対象条件を確認したか、返金実行前に承認を求めたかを確認する。高い文章品質は、誤操作を補償しない。</p></article>
+    <article class="comparison-card"><h3>社内調査</h3><p>要約の正確さに加え、許可された文書だけを参照したか、根拠のない断定を避けたか、検索失敗を推測で埋めなかったかを調べる。</p></article>
+    <article class="comparison-card"><h3>開発支援</h3><p>テストが通る変更でも、無関係なファイルを編集していないか、危険なコマンドを承認なしで実行していないか、失敗時に差分を残して停止できたかを評価する。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Implication</p>
+  <h2>評価可能性は、後から足す監視画面ではなくエージェント設計の条件になる</h2>
+  <p>まず、業務上重要な操作に名前を付け、ツール呼び出しと承認結果を相関IDで追えるようにする。次に、回答品質、経路品質、安全性を一つの点数に無理に混ぜず、出荷を止める閾値をそれぞれ定める。たとえば「回答の有用性が高い」ことは、無承認の書き込みを許す理由にはならない。最後に、本番で起きた失敗を匿名化・審査した上で評価ケースへ戻す。この循環があれば、モデル、指示、ツール、ポリシーのどれを変えたときにも、品質の後退を早く見つけられる。</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>AIエージェントの評価は、もっともらしい答えを選ぶ工程から、外部に影響する仕事を期待どおりに進め、止め、説明できるかを確認する工程へ変わっている。実行経路を含めた評価と観測を用意することが、機能追加を安全に反復するための土台になる。</p></div>
+</section>
+</section>
+    <section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">テーマハブ</p>
+      <h2 class="panel-title">テーマ別に戻る</h2>
+      <p class="panel-copy">このレポートが属するテーマハブから、同じテーマの公開記事をまとめて追えます。</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Agents</span>
+      <span class="mono-note">記事数: 28</span>
+      <a class="text-link" href="/topics/ai-agents/">テーマハブを開く</a>
+    </div>
+  </section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">関連記事</p>
+      <h2 class="panel-title">関連記事</h2>
+      <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/2026-05-08-presentation-generation-becomes-artifact-workflow.html" aria-label="生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった">
+    <div class="article-card-main">
+      <p class="section-kicker">ひとつ古い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Workflows</span>
+        <time class="mono-note" datetime="2026-05-08">2026年5月8日</time>
+      </div>
+      <h3 class="article-card-title">生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった</h3>
+      <p class="article-card-copy">スライド生成の主戦場が、チャット本文から編集可能なPPTX成果物工程へ移った理由を読む。</p>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 42</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="今週のAIエージェントは、「作る・動かす・統制する基盤」が製品カテゴリとして立ち上がった週だ">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-05-07">2026年5月7日</time>
+      </div>
+      <h3 class="article-card-title">今週のAIエージェントは、「作る・動かす・統制する基盤」が製品カテゴリとして立ち上がった週だ</h3>
+      <p class="article-card-copy">AIエージェントを選ぶ基準が、モデル単体ではなく作成・統制・評価を束ねた基盤へ移る理由を短く読む。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 31</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="AI エージェント導入の焦点は、単体性能競争から運用基盤設計へ">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-21">2026年3月21日</time>
+      </div>
+      <h3 class="article-card-title">AI エージェント導入の焦点は、単体性能競争から運用基盤設計へ</h3>
+      <p class="article-card-copy">企業導入の焦点が、単体性能ではなくツール接続・評価・安全性・監督へ移る流れを読む。</p>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Use Case</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 33</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://platform.openai.com/docs/guides/agent-evals" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API: Agent evals</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/agent-evals</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/evals" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API: Evaluation best practices</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/evals</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/graders" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API: Graders</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/graders</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Tracing</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/tracing/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/guardrails/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Guardrails</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/guardrails/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/ref/tool_guardrails/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Tool guardrails</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/ref/tool_guardrails/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/running_agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Running agents</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/running_agents/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-guardrails-python/evals/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Guardrails Python: Evaluation Tool</p>
+              <p class="source-url">https://openai.github.io/openai-guardrails-python/evals/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Using the Evaluation Tool</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/define-success" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Define success criteria</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/define-success</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Develop test cases</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Tool use with Claude</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Reduce prompt leak</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Evaluate your agents</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-offline" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Run offline evaluations</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-offline</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-online" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Continuous evaluation with online monitors</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-online</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://cloud.google.com/vertex-ai/generative-ai/docs/models/determine-eval" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Evaluate Gen AI models</p>
+              <p class="source-url">https://cloud.google.com/vertex-ai/generative-ai/docs/models/determine-eval</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rpc/google.cloud.aiplatform.v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Vertex AI evaluation reference</p>
+              <p class="source-url">https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rpc/google.cloud.aiplatform.v1</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://google.github.io/agents-cli/guide/evaluation/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google agents-cli: Evaluation Guide</p>
+              <p class="source-url">https://google.github.io/agents-cli/guide/evaluation/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: Evaluate agent performance with AgentCore Evaluations</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluators.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: AgentCore Evaluators</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluators.html</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: Ground truth evaluations</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/results-and-output.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: AgentCore evaluation results and output</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/results-and-output.html</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: AgentCore Observability</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: Get started with AgentCore Observability</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2308.03688" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">AgentBench: Evaluating LLMs as Agents</p>
+              <p class="source-url">https://arxiv.org/abs/2308.03688</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2406.08746" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">ToolSandbox: A Stateful, Conversational, Interactive Evaluation Benchmark</p>
+              <p class="source-url">https://arxiv.org/abs/2406.08746</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction</p>
+              <p class="source-url">https://arxiv.org/abs/2406.12045</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
+              <p class="source-url">https://arxiv.org/abs/2310.06770</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <div class="footer-meta">
+          <a class="footer-brand" href="/">AR / Auto Research Digest</a>
+          <p class="footer-copy">AI とエージェントの重要シグナルを、一次情報から読み解く。</p>
+        </div>
+        <nav class="footer-links" aria-label="フッターナビゲーション"><a class="footer-link" href="/topics/">トピック</a><a class="footer-link" href="/sitemap.html">サイトマップ</a><a class="footer-link" href="/about.html">このサイトについて</a><a class="footer-link" href="/editorial-policy.html">調査・編集方針</a><a class="footer-link" href="/contact.html">お問い合わせ</a><a class="footer-link" href="/privacy-policy.html">プライバシーポリシー</a><a class="footer-link" href="/terms.html">利用規約</a><a class="footer-link" href="/disclaimer.html">免責事項</a><a class="footer-link" href="/advertising-policy.html">広告掲載方針</a></nav>
+      </footer>
+    </div>
+  </body>
+</html>

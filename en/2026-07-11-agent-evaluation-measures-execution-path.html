@@ -1,0 +1,581 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AI agent evaluation now has to measure the execution path, not just the answer | Auto Research Digest EN</title>
+    <meta name="description" content="Primary sources explain why AI-agent evaluation now includes execution paths, traces, and production monitoring alongside answer quality.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="AI agent evaluation now has to measure the execution path, not just the answer | Auto Research Digest EN">
+    <meta property="og:description" content="Primary sources explain why AI-agent evaluation now includes execution paths, traces, and production monitoring alongside answer quality.">
+    <meta property="og:url" content="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta property="og:image:width" content="1536">
+    <meta property="og:image:height" content="1024">
+    <meta property="og:image:alt" content="AI agent evaluation now has to measure the execution path, not just the answer">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI agent evaluation now has to measure the execution path, not just the answer | Auto Research Digest EN">
+    <meta name="twitter:description" content="Primary sources explain why AI-agent evaluation now includes execution paths, traces, and production monitoring alongside answer quality.">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card.png">
+    <meta name="twitter:image:alt" content="AI agent evaluation now has to measure the execution path, not just the answer">
+    <link rel="canonical" href="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-07-11T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-07-11T19:37:51+09:00">
+    <meta property="article:section" content="AI Agents">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Evaluation">
+    <meta property="article:tag" content="Observability">
+    <meta property="article:tag" content="Tool Use">
+    <meta property="article:tag" content="Governance">
+    <meta property="article:tag" content="LLM">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI agent evaluation now has to measure the execution path, not just the answer","description":"Primary sources explain why AI-agent evaluation now includes execution paths, traces, and production monitoring alongside answer quality.","datePublished":"2026-07-11T00:00:00+09:00","dateModified":"2026-07-11T19:37:51+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/"},"url":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","image":["https://research.notelligent.app/assets/og-twitter-card.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AI agent evaluation now has to measure the execution path, not just the answer","item":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <a class="lang-switch" href="/2026-07-11-agent-evaluation-measures-execution-path.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">AI agent evaluation now has to measure the execution path, not just the answer</h1>
+          <p class="hero-copy">Across primary-source material published through July 11, 2026 from OpenAI, Anthropic, Google Cloud, and AWS, plus evaluation research, agent quality can no longer be reduced to scoring the final answer. Their evaluation surfaces increasingly include tool selection, action order, approval boundaries, recovery from failure, and traces, connecting dataset-based tests in development to observation in production. The practical goal is not one composite score. It is to measure answer quality, execution quality, and operational safety separately, so teams can identify which contract regressed after a change.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
+        <time class="mono-note" datetime="2026-07-11">July 11, 2026</time>
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
+    </section>
+    <section class="panel-block briefing-summary">
+    <div>
+      <p class="section-kicker">Briefing summary</p>
+      <h2 class="panel-title">What this briefing helps you get to quickly</h2>
+    </div>
+    <div class="briefing-summary-grid">
+      <div class="briefing-summary-main">
+        <div class="meta-row">
+          <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
+          <span class="mono-note">Sources: 29</span>
+        </div>
+        <p class="briefing-summary-copy">A practical framework for measuring final answers, tool execution, and production behavior separately.</p>
+        <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span></div>
+      </div>
+    </div>
+  </section>
+    <section class="article-share" aria-label="Share article">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%20agent%20evaluation%20now%20has%20to%20measure%20the%20execution%20path%2C%20not%20just%20the%20answer&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-07-11-agent-evaluation-measures-execution-path.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Open share menu"
+      data-native-share
+      data-share-title="AI agent evaluation now has to measure the execution path, not just the answer"
+      data-share-text="AI agent evaluation now has to measure the execution path, not just the answer"
+      data-share-url="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Copy article title and link"
+      data-copy-share
+      data-state="idle"
+      data-share-title="AI agent evaluation now has to measure the execution path, not just the answer"
+      data-share-url="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"
+      data-copy-label-default="Copy article title and link"
+      data-copy-label-success="Copied"
+      data-copy-status-success="Copied"
+      data-copy-status-error="Copy failed"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <p class="section-kicker">Snapshot</p>
+  <h2>A correct answer is not enough to establish that an agent behaved correctly</h2>
+  <p>An AI agent does more than generate an answer. It finds information, selects tools, requests actions in external systems, and sometimes returns a decision to a person. A correct final sentence can therefore conceal a wrong customer lookup, an unnecessary write attempt, or a skipped approval. Public material available through July 11, 2026 shows OpenAI, Anthropic, Google Cloud, and AWS all building evaluation and observability surfaces that include tool use and execution paths alongside answer quality.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card"><p class="stat-value">28</p><p class="stat-title">Primary sources</p><p class="stat-note">Official documentation and papers avoid relying on a single vendor’s framing.</p></article>
+    <article class="stat-card"><p class="stat-value">3</p><p class="stat-title">Quality contracts</p><p class="stat-note">Measure the final answer, execution path, and operational safety separately.</p></article>
+    <article class="stat-card"><p class="stat-value">Trace</p><p class="stat-title">Shared evidence</p><p class="stat-note">Tool calls and intermediate results connect evaluation with incident investigation.</p></article>
+    <article class="stat-card"><p class="stat-value">Not one score</p><p class="stat-title">Decision surface</p><p class="stat-note">The goal is to identify which contract regressed, not to optimize a composite number.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>The object of evaluation is expanding from the answer to the way work is carried out</h2>
+  <p>OpenAI’s agent evals and Agents SDK tracing treat generations, tool calls, handoffs, and guardrails as a record of execution. Google Cloud publishes agent-oriented metrics that include final-response quality, tool-use quality, hallucination, and safety. AWS AgentCore Evaluations works over sessions, traces, and spans, and can accept an expected response, goal assertions, and an expected tool trajectory as evidence. The unit of evaluation is therefore moving beyond a single prompt-response pair toward the progress of a stateful piece of work.</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Observation</p><p>Measuring an execution path does not mean grading a model’s private chain of thought. It means comparing observable tool choice, arguments, ordering, approvals, outcomes, and recovery behavior with the expectations of the business workflow.</p></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Three Contracts</p>
+  <h2>Separating three quality contracts makes evaluation more useful for operational decisions</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>1. Final-answer contract</h3><p>Measure whether the user-facing result is accurate and meets the required format, evidence, and tone. Reference comparisons, deterministic checks, human review, and rubric-based model judging can all contribute. The central question is what the agent returned.</p></article>
+    <article class="comparison-card"><h3>2. Execution-path contract</h3><p>Measure whether the agent selected appropriate tools, used them in the right order, avoided unnecessary actions, and stopped or recovered correctly after failure. In a booking change, identity verification, availability lookup, proposal, approval, and write should be visible as a sequence.</p></article>
+    <article class="comparison-card"><h3>3. Operational-safety contract</h3><p>Measure whether latency, error rate, cost, guardrail trips, approval waits, and sensitive-data capture stay within an acceptable range. Passing an offline answer and path test is not a shipping guarantee if production shows loops or attempts beyond the agent’s authority.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evidence Loop</p>
+  <h2>Dataset evaluation and production observation should use one connected stream of evidence</h2>
+  <p>A development evaluation set should include more than normal requests: ambiguous instructions, missing inputs, insufficient permissions, tool outages, and actions that require approval. For each case, record not only an acceptable final result but also required or prohibited tool actions and expected stopping conditions. OpenAI traces, Google Cloud evaluation results with traces, and AWS spans with evaluation results point in the same direction: do not detach the score from the execution record that explains it.</p>
+  <div class="timeline mt-6">
+    <article class="timeline-item"><div class="timeline-year">Before merge</div><div><h3 class="font-display text-xl font-semibold text-primary">Check contracts with fixed cases</h3><p>Use core workflows, edge cases, and forbidden actions to catch answer and trajectory regressions.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">Canary</div><div><h3 class="font-display text-xl font-semibold text-primary">Inspect paths in limited live use</h3><p>Limit the agent to approved users or low-risk operations and inspect traces, failures, and approval waits.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">Production</div><div><h3 class="font-display text-xl font-semibold text-primary">Monitor evaluation signals as operational signals</h3><p>Track tool failures, retries, latency, and stop rates as well as scores, then feed reviewed failures back into the evaluation set.</p></div></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Scenarios</p>
+  <h2>Execution-path evaluation matters where work crosses an external action or judgment boundary</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Customer operations</h3><p>Check not just the wording of a refund explanation, but whether the agent looked up the right order, verified eligibility, and requested approval before executing a refund. Fluent prose does not compensate for an incorrect action.</p></article>
+    <article class="comparison-card"><h3>Internal research</h3><p>Alongside summary accuracy, check that only authorized documents were used, unsupported claims were avoided, and a search failure was not filled with a guess.</p></article>
+    <article class="comparison-card"><h3>Development assistance</h3><p>Even a change that passes tests should be evaluated for unrelated file edits, unapproved dangerous commands, and whether the agent can stop with an inspectable diff when a task fails.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Implication</p>
+  <h2>Evaluability becomes a design condition for the agent, not a dashboard added later</h2>
+  <p>Start by naming business-critical actions and making tool calls and approval results traceable with correlation IDs. Then define separate shipping thresholds for answer quality, path quality, and safety rather than forcing them into one score. A helpful answer is not a reason to permit an unapproved write. Finally, review and sanitize real production failures before returning them to the evaluation set. This loop makes it easier to detect quality loss when the model, instructions, tools, or policy changes.</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>Agent evaluation is shifting from selecting plausible answers to confirming that externally consequential work can proceed, stop, and be explained as expected. Evaluation and observation of the execution path provide the foundation for iterating on new capabilities safely.</p></div>
+</section>
+</section>
+    <section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Agents</span>
+      <span class="mono-note">Articles: 28</span>
+      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
+    </div>
+  </section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html" aria-label="Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Workflows</span>
+        <time class="mono-note" datetime="2026-05-08">May 8, 2026</time>
+      </div>
+      <h3 class="article-card-title">Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature</h3>
+      <p class="article-card-copy">Why slide generation is moving from chat-written text to editable PPTX artifact workflows.</p>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 42</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-05-07">May 7, 2026</time>
+      </div>
+      <h3 class="article-card-title">This week’s AI agent story is the rise of operating stacks for building, running, governing, and evaluating agents</h3>
+      <p class="article-card-copy">A concise read on why AI agents are now compared as platforms that combine build, governance, and evaluation, not just as models.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 31</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="AI agent adoption is shifting from model races to operational architecture">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-21">March 21, 2026</time>
+      </div>
+      <h3 class="article-card-title">AI agent adoption is shifting from model races to operational architecture</h3>
+      <p class="article-card-copy">Read how enterprise adoption is moving from model races toward tooling, evaluation, safety, and oversight.</p>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Use Case</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 33</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://platform.openai.com/docs/guides/agent-evals" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API: Agent evals</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/agent-evals</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/evals" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API: Evaluation best practices</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/evals</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://platform.openai.com/docs/guides/graders" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI API: Graders</p>
+              <p class="source-url">https://platform.openai.com/docs/guides/graders</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Tracing</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/tracing/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/guardrails/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Guardrails</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/guardrails/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/ref/tool_guardrails/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Tool guardrails</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/ref/tool_guardrails/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/running_agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Running agents</p>
+              <p class="source-url">https://openai.github.io/openai-agents-python/running_agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.github.io/openai-guardrails-python/evals/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">OpenAI Guardrails Python: Evaluation Tool</p>
+              <p class="source-url">https://openai.github.io/openai-guardrails-python/evals/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Using the Evaluation Tool</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/define-success" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Define success criteria</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/define-success</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Develop test cases</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Tool use with Claude</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Anthropic docs: Reduce prompt leak</p>
+              <p class="source-url">https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Evaluate your agents</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-offline" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Run offline evaluations</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-offline</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-online" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Continuous evaluation with online monitors</p>
+              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-online</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/vertex-ai/generative-ai/docs/models/determine-eval" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Evaluate Gen AI models</p>
+              <p class="source-url">https://cloud.google.com/vertex-ai/generative-ai/docs/models/determine-eval</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rpc/google.cloud.aiplatform.v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google Cloud: Vertex AI evaluation reference</p>
+              <p class="source-url">https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rpc/google.cloud.aiplatform.v1</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://google.github.io/agents-cli/guide/evaluation/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google agents-cli: Evaluation Guide</p>
+              <p class="source-url">https://google.github.io/agents-cli/guide/evaluation/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: Evaluate agent performance with AgentCore Evaluations</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluators.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: AgentCore Evaluators</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluators.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: Ground truth evaluations</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/results-and-output.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: AgentCore evaluation results and output</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/results-and-output.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: AgentCore Observability</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AWS: Get started with AgentCore Observability</p>
+              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2308.03688" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">AgentBench: Evaluating LLMs as Agents</p>
+              <p class="source-url">https://arxiv.org/abs/2308.03688</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2406.08746" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">ToolSandbox: A Stateful, Conversational, Interactive Evaluation Benchmark</p>
+              <p class="source-url">https://arxiv.org/abs/2406.08746</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction</p>
+              <p class="source-url">https://arxiv.org/abs/2406.12045</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                
+              </div>
+              <p class="source-title">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
+              <p class="source-url">https://arxiv.org/abs/2310.06770</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <div class="footer-meta">
+          <a class="footer-brand" href="/en/">AR / Auto Research Digest</a>
+          <p class="footer-copy">Reading the key signals in AI and agents through primary-source reporting.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a><a class="footer-link" href="/en/sitemap.html">Sitemap</a><a class="footer-link" href="/en/about.html">About</a><a class="footer-link" href="/en/editorial-policy.html">Editorial Policy</a><a class="footer-link" href="/en/contact.html">Contact</a><a class="footer-link" href="/en/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/en/terms.html">Terms</a><a class="footer-link" href="/en/disclaimer.html">Disclaimer</a><a class="footer-link" href="/en/advertising-policy.html">Advertising Policy</a></nav>
+      </footer>
+    </div>
+  </body>
+</html>

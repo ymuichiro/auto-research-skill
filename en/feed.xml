@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 07 May 2026 23:43:27 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jul 2026 10:37:51 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>AI agent evaluation now has to measure the execution path, not just the answer</title>
+      <link>https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</guid>
+      <pubDate>Sat, 11 Jul 2026 10:37:51 GMT</pubDate>
+      <description>Primary sources explain why AI-agent evaluation now includes execution paths, traces, and production monitoring alongside answer quality.</description>
+      <category>AI Agents</category>
+    </item>
     <item>
       <title>Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature</title>
       <link>https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html</link>
@@ -157,14 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html</guid>
       <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
       <description>Anchored in the Foundry Agent Service preview, this article shows how multi-agent workflow itself is becoming a product surface.</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>Workflow tooling is catching up with agent complexity</title>
-      <link>https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Using OpenAI AgentKit, Microsoft Agent Framework, and the Claude Agent SDK, this article explains how workflow tooling is catching up with agent complexity.</description>
       <category>AI Agents</category>
     </item>
   </channel>
