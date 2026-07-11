@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理するリサーチ配信サイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 11 Jul 2026 10:37:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jul 2026 15:03:59 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った</title>
@@ -14,6 +14,22 @@
       <pubDate>Sat, 11 Jul 2026 10:37:51 GMT</pubDate>
       <description>OpenAI、Anthropic、Google Cloud、AWS の一次情報から、AIエージェント評価が回答採点から実行経路・トレース・本番監視へ広がる流れを整理する。</description>
       <category>AI Agents</category>
+    </item>
+    <item>
+      <title>APIのない業務システムをAIエージェントに操作させる条件</title>
+      <link>https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html</guid>
+      <pubDate>Sat, 11 Jul 2026 15:03:59 GMT</pubDate>
+      <description>APIのない業務画面をAIエージェントに操作させるための隔離、権限、承認、途中停止、検証条件を整理する。</description>
+      <category>AI Workflows</category>
+    </item>
+    <item>
+      <title>営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある</title>
+      <link>https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</guid>
+      <pubDate>Sat, 11 Jul 2026 15:03:59 GMT</pubDate>
+      <description>会議メモや提案書から案件情報を抽出し、承認後にCRMへ反映する営業AIエージェントの具体的な本番設計を整理する。</description>
+      <category>AI Workflows</category>
     </item>
     <item>
       <title>生成AI後のプレゼン資料生成は、文章生成ではなく成果物工程の設計問題になった</title>
@@ -149,22 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html</guid>
       <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
       <description>Anthropic を含む各社の流れから、control plane と eval discipline が agent 導入の速度を決め始めた背景を読む。</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>2025年を通して見えてきたのは、operational boundary の明確化だ</title>
-      <link>https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>2025年の主要な発表を通じて、agent stack の論点が model novelty から control plane、protocol、evaluation、approval へ移る流れを整理する。</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>multi-agent workflow そのものが product surface になり始める</title>
-      <link>https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Foundry Agent Service の preview を軸に、multi-agent workflow そのものが product surface になる流れを整理する。</description>
       <category>AI Agents</category>
     </item>
   </channel>

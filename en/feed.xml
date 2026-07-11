@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 11 Jul 2026 10:37:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 11 Jul 2026 15:03:59 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>AI agent evaluation now has to measure the execution path, not just the answer</title>
@@ -14,6 +14,22 @@
       <pubDate>Sat, 11 Jul 2026 10:37:51 GMT</pubDate>
       <description>Primary sources explain why AI-agent evaluation now includes execution paths, traces, and production monitoring alongside answer quality.</description>
       <category>AI Agents</category>
+    </item>
+    <item>
+      <title>What it takes to let AI agents operate business systems without APIs</title>
+      <link>https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html</guid>
+      <pubDate>Sat, 11 Jul 2026 15:03:59 GMT</pubDate>
+      <description>The isolation, identity, approval, interruption, and verification controls needed for agents to operate business software without APIs.</description>
+      <category>AI Workflows</category>
+    </item>
+    <item>
+      <title>The production boundary for sales agents sits between meeting notes and CRM writes</title>
+      <link>https://research.notelligent.app/en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</guid>
+      <pubDate>Sat, 11 Jul 2026 15:03:59 GMT</pubDate>
+      <description>A concrete production design for sales agents that turn notes and proposals into reviewed, auditable CRM updates.</description>
+      <category>AI Workflows</category>
     </item>
     <item>
       <title>Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature</title>
@@ -149,22 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html</guid>
       <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
       <description>Across vendor updates including Anthropic, this briefing shows why control planes and evaluation discipline are setting the pace of agent adoption.</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>The strongest signal across 2025 is the rise of explicit operational boundaries</title>
-      <link>https://research.notelligent.app/en/2026-01-01-the-2025-signal-is-operational-boundaries.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-01-01-the-2025-signal-is-operational-boundaries.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Reviewing the 2025 signal, this article explains how the agent stack shifted from model novelty toward control planes, protocols, evaluation, and approvals.</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>Multi-agent workflow is appearing as a configurable, observable product surface</title>
-      <link>https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Anchored in the Foundry Agent Service preview, this article shows how multi-agent workflow itself is becoming a product surface.</description>
       <category>AI Agents</category>
     </item>
   </channel>
