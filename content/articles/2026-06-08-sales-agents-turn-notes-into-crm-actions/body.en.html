@@ -1,0 +1,83 @@
+<section class="report-section">
+  <p class="section-kicker">Snapshot</p>
+  <h2>The concrete job for sales AI begins by turning meeting notes into proposed updates</h2>
+  <p>
+    Treating a sales agent as a meeting summarizer or email writer misses the hardest part of production deployment.
+    Primary-source material available by June 8, 2026 from AWS Partner Central agents, Microsoft Sales agent, Salesforce Agentforce Sales, and OpenAI's sales-oriented Codex plugin describes a remarkably similar job.
+    The system reads meeting notes, proposals, email, or call transcripts; identifies the customer and opportunity; proposes updates to amount, stage, date, and next action; and writes to the CRM only after review.
+  </p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card"><p class="stat-value">24</p><p class="stat-title">Primary sources</p><p class="stat-note">The evidence set is limited to official AWS, Microsoft, Salesforce, and OpenAI material.</p></article>
+    <article class="stat-card"><p class="stat-value">6 steps</p><p class="stat-title">Write path</p><p class="stat-note">Separate intake, matching, extraction, validation, approval, and commit.</p></article>
+    <article class="stat-card"><p class="stat-value">Field level</p><p class="stat-title">Evidence unit</p><p class="stat-note">Retain evidence for each proposed field instead of only for the opportunity as a whole.</p></article>
+    <article class="stat-card"><p class="stat-value">Human gate</p><p class="stat-title">Production boundary</p><p class="stat-note">Place explicit confirmation immediately before creation or mutation.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>Sales AI is moving from an advisory surface into the process that prepares CRM changes</h2>
+  <p>
+    AWS Partner Central agents accept meeting notes, proposals, and call transcripts, extract opportunity fields, enrich customer information, recommend improvements, and create an opportunity after confirmation.
+    Its MCP surface explicitly requires approval for writes. Microsoft Sales agent connects Outlook and Teams email or meetings to Dynamics 365 or Salesforce records and presents related-record candidates before saving.
+    Salesforce uses recent notes, email, and voice or video calls to suggest field updates and next actions. OpenAI's sales plugin packages customer context, meeting preparation, follow-up, and CRM updates as one role-oriented workflow.
+  </p>
+  <div class="callout-panel mt-6"><p class="callout-title">This week's signal</p><p>Counting summaries is no longer enough. The useful operational metric is how many accurate, traceable opportunity updates the agent can prepare for review.</p></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Six-Step Flow</p>
+  <h2>The minimum production unit is a six-stage path from source material to committed CRM state</h2>
+  <div class="timeline mt-6">
+    <article class="timeline-item"><div class="timeline-year">01</div><div><h3 class="font-display text-xl font-semibold text-primary">Ingest the source</h3><p>Receive meeting notes, proposals, email, or transcripts in a form that can be linked to a candidate opportunity. Restrict attachment type, size, and retention here.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">02</div><div><h3 class="font-display text-xl font-semibold text-primary">Match the customer and opportunity</h3><p>Use email address, company name, participants, and existing deals to narrow candidates. Return ambiguous or missing matches to a person instead of guessing.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">03</div><div><h3 class="font-display text-xl font-semibold text-primary">Propose field-level changes</h3><p>Separate amount, stage, expected close date, problem statement, competitor, and next action, attaching the supporting passage or document location to each.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">04</div><div><h3 class="font-display text-xl font-semibold text-primary">Expose gaps and conflicts</h3><p>Show missing required fields, disagreement with current CRM state, and weak inference separately from confirmed facts.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">05</div><div><h3 class="font-display text-xl font-semibold text-primary">Obtain review</h3><p>Approve or reject consequential operations such as opportunity creation, stage movement, amount changes, and outbound customer communication at the relevant field or action.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">06</div><div><h3 class="font-display text-xl font-semibold text-primary">Verify the committed state</h3><p>Re-read the CRM response and record who changed which field, from which source, under whose approval.</p></div></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Vendor Comparison</p>
+  <h2>The products differ less by model than by where they place the write boundary</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>AWS turns opportunity creation into a conversation</h3><p>Partner Central agents combine document intake, opportunity creation, pipeline insight, and funding recommendations. The MCP server can be reached from an existing CRM or AI client, but writes require explicit approval and can be tested in an isolated sandbox.</p></article>
+    <article class="comparison-card"><h3>Microsoft emphasizes linking work communication to CRM</h3><p>Sales agent reads CRM context from Outlook, Teams, and Microsoft 365 Copilot and saves email or meetings to the appropriate customer and opportunity. Its documentation explicitly covers manual selection for multiple matches and administrator control over entities and attachments.</p></article>
+    <article class="comparison-card"><h3>Salesforce continuously proposes opportunity maintenance</h3><p>Agentforce Pipeline Management analyzes recent notes, email, and calls to recommend field updates, follow-up, and meetings. It operates inside existing sales permissions, customer data, and opportunity state.</p></article>
+    <article class="comparison-card"><h3>OpenAI bundles work across sales applications</h3><p>The sales plugin combines app-backed capabilities and skills for meeting preparation, follow-up, deal-risk review, and CRM changes across tools such as Salesforce, HubSpot, and Slack. Workspace administrators retain control of the underlying app permissions.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Failure Boundaries</p>
+  <h2>The most consequential failure is not awkward prose, but a plausible fact written to the wrong record</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Wrong customer</h3><p>Similar company names, multiple contacts, and forwarded messages can send a correct extraction to the wrong customer. An ambiguous match should stop automatic mutation.</p></article>
+    <article class="comparison-card"><h3>Fact and inference mixed together</h3><p>“The customer prefers next month” is not the same as “expected close next month.” Source facts, seller judgment, and model inference need separate treatment.</p></article>
+    <article class="comparison-card"><h3>Stale overwrite</h3><p>Another seller may update the CRM after extraction. Refresh current state at approval time and request another review when the source and target have diverged.</p></article>
+    <article class="comparison-card"><h3>Excessive authority</h3><p>Separate read access needed for analysis from permissions to create opportunities, change stages, or contact customers. Avoid a single integration identity with unrestricted sales access.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation</p>
+  <h2>Evaluate field accuracy and write safety, not only summary quality</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Entity-match accuracy</h3><p>Measure correct customer, contact, and opportunity selection, plus the rate at which the agent appropriately stops on ambiguity.</p></article>
+    <article class="comparison-card"><h3>Field accuracy</h3><p>Score amount, date, stage, and next action independently as correct, uncertain, or wrong. One opportunity-level score can conceal a serious field error.</p></article>
+    <article class="comparison-card"><h3>Review burden</h3><p>Track fields corrected by the seller, review time, and unnecessary confirmation prompts. A higher automation rate has little value if review work grows.</p></article>
+    <article class="comparison-card"><h3>Commit integrity</h3><p>Re-read the CRM to confirm that approved changes match final state and that no duplicate record or partial update was created.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Rollout</p>
+  <h2>Start with proposed updates, then expand the write surface gradually</h2>
+  <p>
+    In the first stage, the agent should only produce proposed fields with evidence while the seller performs the CRM operation.
+    Next, allow the review surface to commit only approved fields. Consider low-risk bulk updates after entity matching, conflict detection, and duplicate prevention are stable.
+    External customer communication, major amount or stage changes, and new opportunity creation should remain separate approval boundaries even as usage grows.
+  </p>
+  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>The production boundary for a sales agent is not whether it understands a meeting. It is whether that understanding can be applied to the right CRM record with evidence, authority, and accountable approval.</p></div>
+</section>
