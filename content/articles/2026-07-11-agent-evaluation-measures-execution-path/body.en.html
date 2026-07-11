@@ -1,0 +1,56 @@
+<section class="report-section">
+  <p class="section-kicker">Snapshot</p>
+  <h2>A correct answer is not enough to establish that an agent behaved correctly</h2>
+  <p>An AI agent does more than generate an answer. It finds information, selects tools, requests actions in external systems, and sometimes returns a decision to a person. A correct final sentence can therefore conceal a wrong customer lookup, an unnecessary write attempt, or a skipped approval. Public material available through July 11, 2026 shows OpenAI, Anthropic, Google Cloud, and AWS all building evaluation and observability surfaces that include tool use and execution paths alongside answer quality.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card"><p class="stat-value">28</p><p class="stat-title">Primary sources</p><p class="stat-note">Official documentation and papers avoid relying on a single vendor’s framing.</p></article>
+    <article class="stat-card"><p class="stat-value">3</p><p class="stat-title">Quality contracts</p><p class="stat-note">Measure the final answer, execution path, and operational safety separately.</p></article>
+    <article class="stat-card"><p class="stat-value">Trace</p><p class="stat-title">Shared evidence</p><p class="stat-note">Tool calls and intermediate results connect evaluation with incident investigation.</p></article>
+    <article class="stat-card"><p class="stat-value">Not one score</p><p class="stat-title">Decision surface</p><p class="stat-note">The goal is to identify which contract regressed, not to optimize a composite number.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>The object of evaluation is expanding from the answer to the way work is carried out</h2>
+  <p>OpenAI’s agent evals and Agents SDK tracing treat generations, tool calls, handoffs, and guardrails as a record of execution. Google Cloud publishes agent-oriented metrics that include final-response quality, tool-use quality, hallucination, and safety. AWS AgentCore Evaluations works over sessions, traces, and spans, and can accept an expected response, goal assertions, and an expected tool trajectory as evidence. The unit of evaluation is therefore moving beyond a single prompt-response pair toward the progress of a stateful piece of work.</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Observation</p><p>Measuring an execution path does not mean grading a model’s private chain of thought. It means comparing observable tool choice, arguments, ordering, approvals, outcomes, and recovery behavior with the expectations of the business workflow.</p></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Three Contracts</p>
+  <h2>Separating three quality contracts makes evaluation more useful for operational decisions</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>1. Final-answer contract</h3><p>Measure whether the user-facing result is accurate and meets the required format, evidence, and tone. Reference comparisons, deterministic checks, human review, and rubric-based model judging can all contribute. The central question is what the agent returned.</p></article>
+    <article class="comparison-card"><h3>2. Execution-path contract</h3><p>Measure whether the agent selected appropriate tools, used them in the right order, avoided unnecessary actions, and stopped or recovered correctly after failure. In a booking change, identity verification, availability lookup, proposal, approval, and write should be visible as a sequence.</p></article>
+    <article class="comparison-card"><h3>3. Operational-safety contract</h3><p>Measure whether latency, error rate, cost, guardrail trips, approval waits, and sensitive-data capture stay within an acceptable range. Passing an offline answer and path test is not a shipping guarantee if production shows loops or attempts beyond the agent’s authority.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evidence Loop</p>
+  <h2>Dataset evaluation and production observation should use one connected stream of evidence</h2>
+  <p>A development evaluation set should include more than normal requests: ambiguous instructions, missing inputs, insufficient permissions, tool outages, and actions that require approval. For each case, record not only an acceptable final result but also required or prohibited tool actions and expected stopping conditions. OpenAI traces, Google Cloud evaluation results with traces, and AWS spans with evaluation results point in the same direction: do not detach the score from the execution record that explains it.</p>
+  <div class="timeline mt-6">
+    <article class="timeline-item"><div class="timeline-year">Before merge</div><div><h3 class="font-display text-xl font-semibold text-primary">Check contracts with fixed cases</h3><p>Use core workflows, edge cases, and forbidden actions to catch answer and trajectory regressions.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">Canary</div><div><h3 class="font-display text-xl font-semibold text-primary">Inspect paths in limited live use</h3><p>Limit the agent to approved users or low-risk operations and inspect traces, failures, and approval waits.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">Production</div><div><h3 class="font-display text-xl font-semibold text-primary">Monitor evaluation signals as operational signals</h3><p>Track tool failures, retries, latency, and stop rates as well as scores, then feed reviewed failures back into the evaluation set.</p></div></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Scenarios</p>
+  <h2>Execution-path evaluation matters where work crosses an external action or judgment boundary</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Customer operations</h3><p>Check not just the wording of a refund explanation, but whether the agent looked up the right order, verified eligibility, and requested approval before executing a refund. Fluent prose does not compensate for an incorrect action.</p></article>
+    <article class="comparison-card"><h3>Internal research</h3><p>Alongside summary accuracy, check that only authorized documents were used, unsupported claims were avoided, and a search failure was not filled with a guess.</p></article>
+    <article class="comparison-card"><h3>Development assistance</h3><p>Even a change that passes tests should be evaluated for unrelated file edits, unapproved dangerous commands, and whether the agent can stop with an inspectable diff when a task fails.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Implication</p>
+  <h2>Evaluability becomes a design condition for the agent, not a dashboard added later</h2>
+  <p>Start by naming business-critical actions and making tool calls and approval results traceable with correlation IDs. Then define separate shipping thresholds for answer quality, path quality, and safety rather than forcing them into one score. A helpful answer is not a reason to permit an unapproved write. Finally, review and sanitize real production failures before returning them to the evaluation set. This loop makes it easier to detect quality loss when the model, instructions, tools, or policy changes.</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>Agent evaluation is shifting from selecting plausible answers to confirming that externally consequential work can proceed, stop, and be explained as expected. Evaluation and observation of the execution path provide the foundation for iterating on new capabilities safely.</p></div>
+</section>

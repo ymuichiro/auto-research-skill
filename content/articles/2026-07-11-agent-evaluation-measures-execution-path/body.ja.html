@@ -1,0 +1,56 @@
+<section class="report-section">
+  <p class="section-kicker">Snapshot</p>
+  <h2>正しい回答だけでは、正しいエージェントかを判断できない</h2>
+  <p>AIエージェントは、回答を生成するだけでなく、情報を探し、ツールを選び、外部システムに操作を依頼し、必要なら人に判断を戻す。したがって最終文だけが正しくても、誤った顧客レコードを参照した、不要な書き込みを試みた、承認を飛ばした、といった失敗を見落としうる。2026年7月11日までの公開資料では、OpenAI、Anthropic、Google Cloud、AWS がいずれも、回答品質に加えてツール利用や実行経路を評価・観測する面を整備している。</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card"><p class="stat-value">28</p><p class="stat-title">Primary sources</p><p class="stat-note">公式資料と論文を横断し、特定ベンダーの主張だけに依存しない。</p></article>
+    <article class="stat-card"><p class="stat-value">3</p><p class="stat-title">Quality contracts</p><p class="stat-note">最終回答、実行経路、運用上の安全性は別々に測る。</p></article>
+    <article class="stat-card"><p class="stat-value">Trace</p><p class="stat-title">Shared evidence</p><p class="stat-note">ツール呼び出しと中間結果が、評価と障害調査を接続する。</p></article>
+    <article class="stat-card"><p class="stat-value">Not one score</p><p class="stat-title">Decision surface</p><p class="stat-note">総合点ではなく、どの契約が崩れたかを特定できる形が必要になる。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changed</p>
+  <h2>評価対象が「答え」から「仕事の進め方」へ広がった</h2>
+  <p>OpenAI の agent evals と Agents SDK のトレースは、生成、ツール呼び出し、ハンドオフ、ガードレールを実行記録として扱う。Google Cloud は最終応答品質だけでなく、ツール利用品質、幻覚、安全性を含むエージェント用の評価指標を公開している。AWS AgentCore Evaluations はセッション、トレース、スパンを評価対象にし、期待した応答、目標達成の条件、期待するツール実行列を根拠として渡せる。これは、評価の単位が一問一答から状態を持つ業務の一連の進行へ広がっていることを示す。</p>
+  <div class="callout-panel mt-6"><p class="callout-title">観測</p><p>実行経路を測ることは、モデルの内的推論を採点することではない。外部から観測できるツール選択、引数、順序、承認、結果、復旧を、業務上の期待と照合できるようにすることである。</p></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Three Contracts</p>
+  <h2>実務では三つの品質契約を分けると、評価が意思決定に使いやすくなる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>1. 最終回答の契約</h3><p>利用者に返す内容が正確で、必要な形式、根拠、文体を満たすかを測る。参照回答との比較、ルールベース検査、人による判定、基準を明示したモデル判定を組み合わせられる。ここでは「何を返したか」が中心になる。</p></article>
+    <article class="comparison-card"><h3>2. 実行経路の契約</h3><p>適切なツールを選び、正しい順序で使い、不要な操作をせず、失敗時に停止または再試行できたかを測る。予約変更なら、本人確認、空き枠確認、変更提案、承認、書き込みという順序までが評価対象になる。</p></article>
+    <article class="comparison-card"><h3>3. 運用安全性の契約</h3><p>遅延、失敗率、費用、ガードレールの発火、承認待ち、機密データの記録範囲が許容内かを測る。回答と経路がテストで通っても、本番で異常な反復や権限外の試行が起きれば、出荷品質とは言えない。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evidence Loop</p>
+  <h2>データセット評価と本番観測は、同じ証拠の流れでつなぐ</h2>
+  <p>開発用の評価セットには、通常ケースだけでなく、曖昧な依頼、欠損した入力、権限不足、ツール障害、承認が必要な操作を含める。各ケースに、許容される最終結果だけでなく、必須または禁止のツール操作、期待する停止条件を記述すると、変更の影響を具体的に判定できる。OpenAI のトレース、Google Cloud の評価結果に含まれるトレース、AWS のスパンと評価結果が同じ方向を示すのは、評価結果を実行記録から切り離さないためである。</p>
+  <div class="timeline mt-6">
+    <article class="timeline-item"><div class="timeline-year">Before merge</div><div><h3 class="font-display text-xl font-semibold text-primary">固定ケースで契約を確認する</h3><p>主要業務、境界ケース、禁止操作を含む評価セットで、回答と経路の回帰を検出する。</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">Canary</div><div><h3 class="font-display text-xl font-semibold text-primary">少量の実運用で経路を確認する</h3><p>許可した利用者または低リスクの操作に絞り、トレース、失敗、承認待ちを確認する。</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">Production</div><div><h3 class="font-display text-xl font-semibold text-primary">評価指標を運用指標として監視する</h3><p>スコアの変化だけでなく、ツール失敗率、再試行、遅延、停止率を追い、ケースを評価セットへ戻す。</p></div></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Scenarios</p>
+  <h2>実行経路の評価が効くのは、外部操作と判断境界がある業務である</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>顧客対応</h3><p>返金の説明文だけでなく、注文照会をして対象条件を確認したか、返金実行前に承認を求めたかを確認する。高い文章品質は、誤操作を補償しない。</p></article>
+    <article class="comparison-card"><h3>社内調査</h3><p>要約の正確さに加え、許可された文書だけを参照したか、根拠のない断定を避けたか、検索失敗を推測で埋めなかったかを調べる。</p></article>
+    <article class="comparison-card"><h3>開発支援</h3><p>テストが通る変更でも、無関係なファイルを編集していないか、危険なコマンドを承認なしで実行していないか、失敗時に差分を残して停止できたかを評価する。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Implication</p>
+  <h2>評価可能性は、後から足す監視画面ではなくエージェント設計の条件になる</h2>
+  <p>まず、業務上重要な操作に名前を付け、ツール呼び出しと承認結果を相関IDで追えるようにする。次に、回答品質、経路品質、安全性を一つの点数に無理に混ぜず、出荷を止める閾値をそれぞれ定める。たとえば「回答の有用性が高い」ことは、無承認の書き込みを許す理由にはならない。最後に、本番で起きた失敗を匿名化・審査した上で評価ケースへ戻す。この循環があれば、モデル、指示、ツール、ポリシーのどれを変えたときにも、品質の後退を早く見つけられる。</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>AIエージェントの評価は、もっともらしい答えを選ぶ工程から、外部に影響する仕事を期待どおりに進め、止め、説明できるかを確認する工程へ変わっている。実行経路を含めた評価と観測を用意することが、機能追加を安全に反復するための土台になる。</p></div>
+</section>
