@@ -1,0 +1,78 @@
+<section class="report-section">
+  <p class="section-kicker">Snapshot</p>
+  <h2>AI collaboration does not have to start with a perfect instruction</h2>
+  <p>When people ask AI to do a piece of work, they are often told to make the goal explicit, add the constraints, and write the right instruction before generation starts. That sequence works when the goal and its evaluation criteria are already shared. It fits less well for an article, product brief, interface, or codebase whose direction becomes visible only after someone sees an early result.</p>
+  <p>Here, “one-shot output” does not mean a short prompt. It means sending an underspecified request, receiving one artifact, and accepting it without inspection, feedback, or verification. The alternative is a short loop: make something small, inspect the gap between it and the expectation, feed that gap back to the model, and revise.</p>
+  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+    <article class="stat-card"><p class="stat-value">01</p><p class="stat-title">Make small</p><p class="stat-note">Produce a probe that reveals the gap, not a pretend-final deliverable.</p></article>
+    <article class="stat-card"><p class="stat-value">02</p><p class="stat-title">Inspect</p><p class="stat-note">Compare concrete candidates instead of describing every preference in advance.</p></article>
+    <article class="stat-card"><p class="stat-value">03</p><p class="stat-title">Return the gap</p><p class="stat-note">Separate what to keep, change, remove, and emulate.</p></article>
+    <article class="stat-card"><p class="stat-value">04</p><p class="stat-title">Verify</p><p class="stat-note">Use conversation to improve fit, then use tests and evidence to check correctness.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">The Problem</p>
+  <h2>Some work is difficult precisely because the goal cannot be stated upfront</h2>
+  <p>“Clarify your goal” is an easy instruction to give when the goal and success criteria are already known. For a new article, proposal, interface, or implementation, the first request usually captures only part of the real objective. How the reader should react, what level of detail is appropriate, and what should be left out often become clear only after a candidate exists.</p>
+  <p>AI systems cannot be assumed to solve this problem on their own. In Google DeepMind’s QuestBench, even state-of-the-art models selected the right clarification question only 40–50% of the time on logic and planning tasks with missing information. In AmbiEnt, GPT-4’s generated disambiguations were judged correct only 32% of the time. Detecting ambiguity and deciding which question changes the outcome is a separate capability.</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Reframing the problem</p><p>If AI use requires a perfectly articulated goal first, it becomes a skill for people who already know how to write complete specifications. For work whose direction is still tacit, the better question is how to arrange the work so that the goal can be discovered.</p></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">First Artifact</p>
+  <h2>The first artifact becomes a probe for discovering the goal</h2>
+  <p>The first thing to make does not have to be the whole article. It can be a set of headings and an opening paragraph. It can be one representative screen or one test. For a design task, it can be two alternatives with different directions. The important property is that the artifact is small enough to inspect and concrete enough for someone to say, “this is close” or “this is not the direction.”</p>
+  <p>In the 20-person AI Chains study, people used intermediate outputs to compare strategies, calibrate expectations, and debug unexpected results at the level of individual components. PromptChainer’s case studies similarly found that complex tasks need support for inspecting intermediate nodes and debugging at multiple granularities.</p>
+  <p>The same structure appears in image generation. Google DeepMind’s proactive text-to-image agents showed an editable belief graph representing the system’s understanding of user intent, alongside clarification questions. At least 90% of participants found the agents and belief graphs helpful, and the system achieved higher VQAScore than standard single-turn generation. The domain is specific, but the pattern is general: externalize an interpretation, then revise it.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">The Loop</p>
+  <h2>The core of the conversation is an exchange of artifacts, not an endless exchange of questions</h2>
+  <p>This does not mean asking the AI to repeatedly say, “What is your real goal?” The model produces a provisional artifact; the human makes the gap between that artifact and the expectation concrete; the model carries the feedback into the next version. The human does not need to know the whole goal before the conversation begins. The goal becomes more visible through reactions to the artifact.</p>
+  <div class="timeline mt-6">
+    <article class="timeline-item"><div class="timeline-year">01</div><div><h3 class="font-display text-xl font-semibold text-primary">Place a provisional request</h3><p>State the audience, user, constraints, and desired outcome as far as they are known. Do not demand a complete specification.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">02</div><div><h3 class="font-display text-xl font-semibold text-primary">Make a small artifact</h3><p>Choose an outline, representative screen, short implementation, test, or a few contrasting design directions that can be judged.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">03</div><div><h3 class="font-display text-xl font-semibold text-primary">Return the gap</h3><p>Explain what to keep, change, remove, and emulate instead of saying only that the result is wrong.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">04</div><div><h3 class="font-display text-xl font-semibold text-primary">Update the working brief</h3><p>Ask the AI to summarize the current goal, priorities, and unresolved points as well as applying the revision.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">05</div><div><h3 class="font-display text-xl font-semibold text-primary">Close with external checks</h3><p>Use tests, source material, user review, or editorial review outside the conversation to decide when to stop.</p></div></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Improves</p>
+  <h2>Conversation is more likely to improve fit to the goal than factual truth by itself</h2>
+  <p>“Accuracy” needs to be split into different contracts. Conversation can improve alignment with user intent, requirements, constraints, tone, and structure. It cannot by itself establish that the model’s knowledge is correct, that a citation supports a claim, or that code is safe.</p>
+  <p>Several studies report gains from iterative feedback. ClarifyGPT reported higher GPT-4 Pass@1 after requirement clarification. TiCoder’s study with 15 programmers found that tests used for partial intent formalization improved participants’ ability to evaluate generated code and reduced task-induced cognitive load. R3 incorporated accepted and rejected edits into later writing revisions. Self-Refine also reported improvements over one-step generation through model-generated feedback alone.</p>
+  <p>These results come from code, writing, image, and benchmark settings where outcomes can be evaluated. They do not prove that talking with an AI generally increases factual accuracy. The defensible claim is narrower: conversation is a mechanism for bringing a human’s latent preferences and constraints into the artifact, while truth and safety require separate checks.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Not Endless Chat</p>
+  <h2>A short loop is not a recommendation to make conversations arbitrarily long</h2>
+  <p>Multi-turn interaction is most useful when feedback is structured and tied to an external criterion. MINT found that tools and natural-language feedback can improve performance, while also finding that better single-turn performance does not guarantee better multi-turn performance.</p>
+  <p>There is important counterevidence. Microsoft Research’s multi-turn study analyzed more than 200,000 simulated conversations and reported an average 39% performance drop relative to single-turn settings. Models often made an early assumption, attempted a final answer too soon, and then relied on the wrong turn. DELEGATE-52 similarly reported silent document corruption in long delegated workflows, with degradation worsening as documents and interactions grew.</p>
+  <p>These findings do not invalidate the loop; they specify its operating conditions. Keep artifacts small and reversible. Re-state the working brief at checkpoints. Verify whether each change improved the target rather than merely changing the wording. Set a maximum number of iterations or a stopping rule. Anthropic’s engineering guidance makes a similar case for prompt chaining, intermediate gates, evaluator-optimizer loops, ground truth from the environment, human checkpoints, and bounded iteration.</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Boundary</p><p>Use conversation to improve fit. Use independent verification to establish correctness and safety. Do not collapse both jobs into the same chat.</p></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Scenarios</p>
+  <h2>The pattern works best when the result can be inspected before the whole job is complete</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Articles and proposals</h3><p>Start with the headings and opening. Check the intended audience, an overstrong thesis, and unnecessary explanation before expanding the full draft. Verify sources as a separate final step.</p></article>
+    <article class="comparison-card"><h3>Software</h3><p>Start with a representative case or test instead of implementing the entire requirement. Let a working slice expose business rules and exceptions. Keep architecture, permissions, and the final diff under human review even when tests pass.</p></article>
+    <article class="comparison-card"><h3>Design</h3><p>Generate a small number of contrasting directions rather than committing to one polished visual. The person selects a direction through comparison, and the AI carries that choice into the next version.</p></article>
+  </div>
+  <p class="mt-6">For clearly specified transformations, fixed-format extraction, routine summaries, or small changes with strong automated tests, more conversation may not be worth its latency and cost. Anthropic’s guidance makes the same practical point: add complexity only when a simpler approach falls short.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design Implication</p>
+  <h2>AI-native collaboration is less about writing instructions than about making feedback part of the workflow</h2>
+  <p>It is reasonable to describe this pattern as an exploratory form of PDCA. The first plan is provisional. A small Do produces evidence. Check includes both human judgment and tests. Act updates the working goal and the next plan. The research does not establish “AI PDCA” as a formal method; this is a synthesis of evidence about iterative revision, intermediate artifacts, feedback, and checkpoints into one practical workflow.</p>
+  <p>The human’s role is neither to write a perfect specification before work starts nor to hand-edit every AI output forever. It is to look at a result, decide what to preserve, what to change, and what to verify. The AI turns those judgments into alternatives, revisions, a current brief, tests, and evidence checks.</p>
+  <p>Microsoft’s human-AI interaction guidelines point in the same direction through granular feedback, efficient correction, and scoped behavior when the system is uncertain. Keeping human judgment in the loop does not mean keeping the human inside an unstructured chat. It means leaving behind inspectable intermediate artifacts and a recoverable path for correction.</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>The starting point for AI collaboration is a first artifact, not a perfect prompt. Make something, inspect it, return the gap, and revise. Let the short loop reveal the shape of the goal; then close with tests, source material, and review. Moving beyond one-shot output is not about talking to AI for longer. It is about making the exchange between artifacts and human judgment the center of the work.</p></div>
+</section>
