@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 11 Jul 2026 15:03:59 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 17:51:45 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>The starting point for AI collaboration is a first artifact, not a perfect prompt</title>
+      <link>https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html</guid>
+      <pubDate>Sat, 01 Aug 2026 17:51:45 GMT</pubDate>
+      <description>Why AI collaboration works better as a small-artifact and feedback loop than as a search for the perfect first prompt.</description>
+      <category>AI Workflows</category>
+    </item>
     <item>
       <title>AI agent evaluation now has to measure the execution path, not just the answer</title>
       <link>https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</link>
@@ -157,14 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html</guid>
       <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
       <description>Drawing on the 2025 launch cycle and benchmark research, this article explains why agent architecture matters more than model novelty.</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>Control planes and evaluation discipline are starting to set the pace of agent adoption</title>
-      <link>https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Across vendor updates including Anthropic, this briefing shows why control planes and evaluation discipline are setting the pace of agent adoption.</description>
       <category>AI Agents</category>
     </item>
   </channel>

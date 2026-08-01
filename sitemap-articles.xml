@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html"/>
+    <lastmod>2026-08-02T02:51:45+09:00</lastmod>
+  </url>
+  <url>
+    <loc>https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html</loc>
+    <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html"/>
+    <lastmod>2026-08-02T02:51:45+09:00</lastmod>
+  </url>
+  <url>
     <loc>https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html</loc>
     <xhtml:link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"/>
