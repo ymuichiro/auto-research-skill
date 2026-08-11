@@ -1,0 +1,87 @@
+<section class="report-section">
+  <p class="section-kicker">Signal</p>
+  <h2>AIエージェントの次に必要なのは、仕事そのものを共有する場所である</h2>
+  <p>AIアシスタントは質問に答え、AIエージェントはツールを使って仕事を実行する。エージェンティックAIは複数の手順やエージェントを組み合わせ、作成基盤はそれらを設計し、統制基盤は権限や利用状況を管理する。だが、企業の仕事は一つの回答や一回の実行では終わらない。人が目的を決め、AIへ委ね、途中で条件を変え、複数の成果物を統合し、根拠を確認し、最後に責任を持って判断する。</p>
+  <p>Gartnerの2026年Digital Workplace Applications Hype Cycleの公開要約は、職場の焦点が組み込みAIの統制と「human-agent work models」への準備へ移ったと説明する。OpenAIのWorkspace Agents、Microsoft Agent Framework、GoogleのAgent Platform、Anthropicのマルチエージェント実装、NISTのEvaluation Probesも、共有文脈、委譲、状態、承認、評価、証跡という周辺要素を同時に広げている。</p>
+  <p>本稿では、この収束した業務環境をHuman-Agent Collaboration Workspace（HACW）と呼ぶ。ただし、これは公開情報から導く作業仮説であり、Gartnerが公開面で詳細な標準仕様として確定した名称ではない。重要なのは呼び名ではなく、AIを単独の実行者から、責任ある共同作業の参加者へ移すために何が必要かである。</p>
+  <div class="callout-panel mt-6"><p class="callout-title">作業上の定義</p><p>HACWとは、人間または組織が目的・権限・制約を定め、オーケストレーターが適切な実行主体へ仕事を委ね、成果物・根拠・状態・不確実性を共通形式で管理し、定義された判断点で人間が介入できる業務環境である。</p></div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Changes</p>
+  <h2>違いは、より賢いエージェントではなく、仕事の状態を第一級の対象にすること</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>AIアシスタント</h3><p>人間との会話を入口に、回答、要約、下書きを返す。中心となる対象は会話であり、通常は人間が次の作業へ運ぶ。</p></article>
+    <article class="comparison-card"><h3>AIエージェント／エージェンティックAI</h3><p>目標に向けてツールを使い、複数手順を進める。中心となる対象は実行であり、単一または複数エージェントの能力が比較される。</p></article>
+    <article class="comparison-card"><h3>作成・実行・統制基盤</h3><p>エージェントを作り、接続し、実行し、監視する。開発者や管理者に必要な機能を提供するが、人間の判断を含む業務全体が共有状態になるとは限らない。</p></article>
+    <article class="comparison-card"><h3>HACW</h3><p>タスク、担当、成果物、根拠、依存関係、承認、未解決点を共有する。中心となる対象は「誰が何を、どの権限と状態で進め、何を人へ返すか」である。</p></article>
+  </div>
+  <p class="mt-6">Microsoft Researchは、単なる人間とAIの対話ではなく、共同目標の理解、先回りしたタスク管理、共有された進捗追跡を協働の条件として挙げてきた。より新しいInteraction、Process、Infrastructureの枠組みは、活動の構造を明示的かつ検査可能な対象にする。HACWの差分は、この「業務過程」を会話の裏側に隠さないことにある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Operating Model</p>
+  <h2>汎用オーケストレーターと特化型エージェントでは、監査する内容が異なる</h2>
+  <p>人間の曖昧な依頼を受け取る入口には、目的の確認、タスク分解、担当選択、進捗管理、結果統合を担う汎用的なオーケストレーターが必要になる。OpenAIは、管理役が会話の主導権を保ちながら専門エージェントをツールとして呼び出す方式と、専門エージェントへ会話自体を引き渡す方式を区別している。Microsoftも、中央の担当が全体責任を保つagent-as-toolsと、担当自体が移るhandoffを分けている。</p>
+  <p>ただし、オーケストレーターの「人の意図を理解する汎用性」と「何でも直接実行できる権限」は分離すべきである。オーケストレーターが専門エージェントと同じデータ更新権限を持てば、業務別の手順と監査を迂回できてしまう。原則として、オーケストレーターは仕事を定義し、許可された担当へ配り、状態を統合する。高い権限を伴う実行は、明確な業務契約を持つ特化型エージェントか決定的なシステムへ限定する。</p>
+  <div class="timeline mt-6">
+    <article class="timeline-item"><div class="timeline-year">01</div><div><h3 class="font-display text-xl font-semibold text-primary">目的をタスク契約にする</h3><p>目的、成功条件、禁止事項、期限、予算、必要な根拠、人間の承認点を記録する。曖昧さは消したふりをせず、未確定条件として残す。</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">02</div><div><h3 class="font-display text-xl font-semibold text-primary">実行主体と権限を選ぶ</h3><p>登録された能力、利用可能なデータ、許可されたツール、監査方法を見て、エージェント、決定的な処理、人間専門家へ割り当てる。</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">03</div><div><h3 class="font-display text-xl font-semibold text-primary">状態付き成果物を返す</h3><p>成果物だけでなく、完了・部分完了・ブロック・曖昧の状態、使用した根拠、検証結果、満たせなかった条件を返す。</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">04</div><div><h3 class="font-display text-xl font-semibold text-primary">統合して人へ説明する</h3><p>オーケストレーターは、達成済み、未達、対立、要承認を目的ごとに統合する。原成果物と証跡への参照を保ち、要約で不確実性を消さない。</p></div></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Audit</p>
+  <h2>汎用化できるのは監査の基盤であり、「正しさ」の基準ではない</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>共通監査</h3><p>誰が依頼し、どのエージェントが受け、どのデータとツールを使い、どの状態を変更し、どこで承認・停止・再実行されたかを記録する。権限、実行回数、異常な反復、不可逆操作も共通に検査できる。</p></article>
+    <article class="comparison-card"><h3>業務別監査</h3><p>財務照合、契約確認、セキュリティ調査、記事作成では正解条件が異なる。期待手順、参照すべき資料、許容誤差、禁止操作、完了判定をタスクごとに定義する必要がある。</p></article>
+  </div>
+  <p class="mt-6">MicrosoftとGoogleの評価機能は、最終回答だけでなく、タスク完了、指示遵守、ツール選択、入力値、出力利用、期待された実行経路を別々に評価する。これは汎用エージェント全体を一つの点数で監査するのではなく、特定タスクの契約をテストする方向である。</p>
+  <p>NISTのEvaluation Probesも、まずはAIの主張が人間によって管理された信頼済み文書に支えられているかを、引用ごとに検査する。ここで注意すべきなのは、出典があること、回答が出典と整合すること、出典自体が現実に正しいこと、業務で採用してよいことは別の状態だという点である。HACWでは、根拠を「未検証」「出典と整合」「独立確認済み」「システム検証済み」「人間承認済み」「対立中」「期限切れ」のように段階管理する方が実務的である。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Human Attention</p>
+  <h2>人間に全ログを読ませる設計では、AIが速いほど経済効果が失われる</h2>
+  <p>監査可能性を高めるためにAIがすべてを説明しても、人間がその速度と量を処理できなければ、承認待ちとレビュー疲れが新しいボトルネックになる。Gartnerは高い自律性のエージェントについて、人間が個々の判断ではなく、例外、監査ログ、集約結果を見る運用を示す。2026年の初期研究も、AI成果物の継続的な確認と大量の提案が、人間の認知負荷と隠れたコストになり得ると報告している。</p>
+  <p>したがってHACWは、全量の実行記録を機械可読な形で保存しながら、人間には状態の差分だけを示す必要がある。状態カードには、現在の目的、前回からの変化、重要な操作、自動検証の結果、未確認事項、判断しなかった場合の影響、求める決定を含める。詳細なトレースは調査時に開ければよく、常時読ませるものではない。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>低リスク</h3><p>自動検証に合格すれば自動実行し、後から標本監査する。</p></article>
+    <article class="comparison-card"><h3>中リスク</h3><p>例外、根拠の衝突、低い確実性だけを短い判断カードとして提示する。</p></article>
+    <article class="comparison-card"><h3>高リスク</h3><p>公開、送信、権限変更、支払いなどの直前で人間の明示承認を求める。</p></article>
+    <article class="comparison-card"><h3>未定義・対立</h3><p>自律処理を止め、業務責任者へ引き渡す。もっともらしい推測で埋めない。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Three Modes</p>
+  <h2>HACWは一つの自動化方式ではなく、仕事に応じて人とAIの比重を変える</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>手順と判断が明確</h3><p>請求書照合や定型レポートのように、入力、手順、合格条件が安定している仕事は、決定的な業務処理へ変換する。HACWは背後で権限、証跡、例外を管理し、人間はルール変更と例外だけを見る。</p></article>
+    <article class="comparison-card"><h3>手順が柔軟で判断も必要</h3><p>契約レビュー、障害調査、複雑な開発のような仕事は、オーケストレーターと特化型エージェントが分担する。人間は目的、重要な分岐、例外、最終承認を担う。</p></article>
+    <article class="comparison-card"><h3>アイデア・交渉・戦略</h3><p>新規事業や交渉では、エージェントは調査、比較、選択肢、反対意見を集める。方向性、価値判断、関係性、最終責任は人が持つ。監査対象は唯一の正解ではなく、前提、材料、選択肢、決定者である。</p></article>
+  </div>
+  <p class="mt-6">この分類には、失敗時の影響と不可逆性も重ねる必要がある。手順が明確な送金でも高額なら承認が要り、手順が柔軟な社内ブレインストーミングでも低リスクなら自律性を高められる。HACWの役割は常に人を減らすことではなく、業務ごとに適切な責任分担を選べるようにすることにある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Scenarios</p>
+  <h2>同じ基盤でも、人が見るものは業務によって変わる</h2>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>月次決算</h3><p>特化型エージェントが仕訳、照合、差異分析を実行し、統制値と作業資料を返す。通常項目は自動処理し、基準外の差異、データ不足、承認対象だけを担当者へ上げる。</p></article>
+    <article class="comparison-card"><h3>契約・調達</h3><p>条項抽出、社内方針との比較、取引先調査を別々のエージェントが担当する。オーケストレーターは根拠と不一致を統合するが、受容可能なリスクや交渉条件は人が決める。</p></article>
+    <article class="comparison-card"><h3>新規事業</h3><p>市場、顧客、規制、競合を並行調査し、前提と反証を含む選択肢を作る。エージェントは「どれが正解か」を決めず、人間がどの価値とリスクを選んだかを決定記録として残す。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What Is Missing</p>
+  <h2>部品はそろい始めたが、HACWとしての共通契約はまだ弱い</h2>
+  <p>OpenAI、Microsoft、Google、Anthropicの公開資料には、オーケストレーション、専門エージェント、セッション、承認、評価、トレース、権限管理という部品が存在する。研究面では、CHAPが作業空間（workspace）、参加者、タスク、成果物、追記型の証拠ログを最小構成として提案し、CLEOとPistaは人が実行途中で観察、指示、共同作業、停止できる画面を検証している。しかし、これらは一つの成熟した標準や製品カテゴリとして統合済みとは言えない。</p>
+  <p>企業導入で不足するのは、モデル性能よりも次の接続部分である。業務ごとのタスク契約と評価器、エージェントの能力・所有者・権限を示す登録簿、成果物と根拠の共通状態、オーケストレーター自身の経路評価、証跡を別製品へ持ち運ぶ方法、人間の注意力を予算として扱う運用指標が必要になる。</p>
+  <p>成果を測る指標も、エージェントの実行回数では足りない。検証済み成果物一件あたりの総コスト、人間のレビュー時間、エスカレーション率、判断待ち時間、差し戻し率、自動承認後の誤り発見率、監査キューの滞留量を、成果物の正確性、完全性、目的適合性と分けて追う必要がある。</p>
+  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>AIエージェントの先にある競争軸は、より多くの仕事を勝手に実行できることではない。人が目的と境界を定め、適切な実行主体へ委ね、成果物と根拠の状態を追い、必要な判断だけを引き受けられることにある。HACWは、エージェントを作る場所ではなく、人とAIが責任を分けて仕事を完了する場所として捉えると、その必要性が見えやすい。</p></div>
+</section>
