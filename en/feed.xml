@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Aug 2026 17:04:51 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2026 17:18:08 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Beyond AI agents: HACW is where work is delegated, audited, and decided</title>
+      <link>https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</guid>
+      <pubDate>Tue, 11 Aug 2026 17:18:08 GMT</pubDate>
+      <description>A business-oriented explanation of HACW as a shared work layer for human-agent delegation, state, evidence, permissions, approvals, and audit.</description>
+      <category>AI Strategy</category>
+    </item>
     <item>
       <title>The starting point for AI collaboration is a first artifact, not a perfect prompt</title>
       <link>https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html</link>
@@ -157,14 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</guid>
       <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
       <description>Using major research and platform docs from OpenAI, Anthropic, Google, Microsoft, and AWS, this article maps the shift toward operational architecture.</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>Agent architecture is becoming a more important comparison axis than model novelty</title>
-      <link>https://research.notelligent.app/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Drawing on the 2025 launch cycle and benchmark research, this article explains why agent architecture matters more than model novelty.</description>
       <category>AI Agents</category>
     </item>
   </channel>
