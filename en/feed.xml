@@ -5,13 +5,13 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction.</description>
     <language>en</language>
-    <lastBuildDate>Tue, 11 Aug 2026 17:18:08 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 15:00:40 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Beyond AI agents: HACW is where work is delegated, audited, and decided</title>
       <link>https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</guid>
-      <pubDate>Tue, 11 Aug 2026 17:18:08 GMT</pubDate>
+      <pubDate>Thu, 13 Aug 2026 15:00:40 GMT</pubDate>
       <description>A business-oriented explanation of HACW as a shared work layer for human-agent delegation, state, evidence, permissions, approvals, and audit.</description>
       <category>AI Strategy</category>
     </item>
