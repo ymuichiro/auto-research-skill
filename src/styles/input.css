@@ -29,6 +29,7 @@
     background: var(--ard-bg);
     color: var(--ard-text);
     font-family: "Noto Sans JP", ui-sans-serif, system-ui, sans-serif;
+    text-autospace: normal;
     overflow-x: clip;
   }
 
