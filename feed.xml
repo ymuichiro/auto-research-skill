@@ -5,14 +5,14 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理するリサーチ配信サイト。</description>
     <language>ja</language>
-    <lastBuildDate>Thu, 13 Aug 2026 15:00:40 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 07:22:31 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>AIエージェントの先にあるHACW。仕事を委ね、監査し、人が判断する場所</title>
+      <title>AIエージェントの先にあるHACW。人の判断を、次の自動化へ変える場所</title>
       <link>https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html</guid>
-      <pubDate>Thu, 13 Aug 2026 15:00:40 GMT</pubDate>
-      <description>HACWを、人間とAIが目的、権限、状態、根拠、承認を共有する次世代の業務基盤として、構成要素と適用領域から整理する。</description>
+      <pubDate>Fri, 14 Aug 2026 07:22:31 GMT</pubDate>
+      <description>HACWを、人の判断を記録し、検証済みルールへ変え、AIへ任せる範囲を更新する業務基盤として整理する。</description>
       <category>AI Strategy</category>
     </item>
     <item>
