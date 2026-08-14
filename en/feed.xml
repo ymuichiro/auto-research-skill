@@ -5,14 +5,14 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 14 Aug 2026 07:22:31 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 16:47:31 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Beyond AI agents: HACW turns human decisions into a safer automation boundary</title>
+      <title>Beyond AI agents: HACW turns human decisions into rules for future work</title>
       <link>https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</guid>
-      <pubDate>Fri, 14 Aug 2026 07:22:31 GMT</pubDate>
-      <description>A business-oriented explanation of HACW as a work layer that records human decisions, promotes validated rules, and updates the scope of AI delegation.</description>
+      <pubDate>Fri, 14 Aug 2026 16:47:31 GMT</pubDate>
+      <description>HACW records human decisions and turns only validated decisions into business rules that future tasks can execute without another review.</description>
       <category>AI Strategy</category>
     </item>
     <item>
