@@ -56,10 +56,11 @@ Keep `titleJa` / `titleEn` as the article H1 and `summaryJa` / `summaryEn` as th
 2. For unstable topics, browse first.
 3. Use broad discovery to identify themes and likely official sources.
 4. Build a research inventory of 20 or more primary-source URLs before publishing a new article or substantial rewrite.
-5. Narrow public evidence to sources you can verify directly.
-6. If a source cannot be verified on its official page or paper page, exclude it from `publishedSources`.
-7. For retrospective articles, only use sources that were publicly available on or before the article date.
-8. For weekly publication, do not lower the quality bar to hit cadence. If one theme is too thin, widen scope into a weekly roundup of 2 to 4 converging signals.
+5. Treat the inventory as a research gate, not a public coverage quota. Rank sources by the claim they support and discard sources that add no new evidence, comparison, counterexample, or limit.
+6. Narrow public evidence to sources you can verify directly.
+7. If a source cannot be verified on its official page or paper page, exclude it from `publishedSources`.
+8. For retrospective articles, only use sources that were publicly available on or before the article date.
+9. For weekly publication, do not lower the quality bar to hit cadence. Use a roundup only when 2 to 4 signals converge on one thesis; source count alone is not a reason to widen scope.
 
 Good official-source buckets:
 
@@ -82,15 +83,17 @@ Do not quote or cite discovery-only sources in the public evidence list.
 
 Update `meta.json`, `body.ja.html`, and `body.en.html` together.
 
-For substantial pieces, prefer a structure like:
+Before drafting, write an argument map containing:
 
-1. signal snapshot or top-line thesis
-2. research shift or evidence pattern
-3. platform convergence or vendor comparison
-4. use-case archetypes
-5. concrete scenarios
-6. design, evaluation, and governance implications
-7. key takeaway
+- the question the article answers
+- the article's one-sentence thesis
+- the 3 to 5 claims needed to establish it
+- the strongest primary evidence and concrete case for each claim
+- the comparison or mechanism that connects the evidence to the claim
+- the author's interpretation and its confidence level
+- credible counterevidence, limits, and unresolved questions
+
+Choose sections only after the argument map is complete. Evidence patterns, vendor comparisons, use cases, scenarios, governance implications, and takeaways are possible section roles, not a required template. Delete or merge any section that does not change the reader's answer to the central question.
 
 For weekly pieces, prefer this decision rule:
 
@@ -101,7 +104,11 @@ For weekly pieces, prefer this decision rule:
 Depth rules:
 
 - compare sources instead of listing them
-- include concrete workflow examples, not only abstractions
+- state the author's evidence-grounded conclusion instead of ending at source summary
+- include sourced implementations, product behaviors, measured cases, or paper results where available
+- label hypothetical scenarios and state what mechanism they illustrate
+- connect every section to the previous question or claim; a connective word alone is not a logical bridge
+- keep operational detail needed to understand actor, action, condition, evidence, and outcome
 - mention approval boundaries, tool access, or operational constraints where relevant
 - keep Japanese and English versions aligned in meaning
 - avoid exposing repo-internal policy wording in public copy
@@ -143,6 +150,10 @@ Before you stop, check:
 - retrospective articles only cite sources available by the article date
 - `publishedSources` contains only official docs, official announcement / release pages, or papers
 - the article has specific use cases and concrete scenarios
-- the article reads like a coherent synthesis, not a source dump
+- the source inventory did not dictate the article structure and irrelevant sources were omitted from the narrative
+- every major claim has evidence, a concrete case or mechanism, the author's interpretation, and an explicit limit where one exists
+- hypothetical scenarios are labeled and are not presented as deployed implementations
+- replacing the subject with an unrelated technology makes the central claims fail; otherwise the prose is too generic
+- every section advances the central question and the article reads like a coherent argument, not a source dump or checklist
 - `pnpm build` succeeds
 - if published, GitHub Actions deploy succeeds

@@ -1,7 +1,6 @@
 ---
 name: auto-research-digest-author
-description: Research, write, and update Auto Research Digest articles about LLM, AI, and AI agents for this repository. Use this whenever the user asks to investigate the latest AI or agent trends, gather official docs or papers, expand an article in content/articles/, create a new bilingual research briefing, publish an infographic-style HTML report for this site, or create retrospective snapshot articles. Always browse for current information, collect at least 20 primary-source URLs before publishing a new or substantially revised article, keep public evidence limited to official docs, official announcements, and papers, update both Japanese and English article files plus meta.json, and preserve the weekly publishing cadence without lowering the evidence bar.
-compatibility: Requires repo write access, shell commands, and web research.
+description: Research, write, and update evidence-led Auto Research Digest articles about LLM, AI, and AI agents in this repository. Use for current-trend research, official-doc or paper collection, bilingual article creation or revision, infographic-style HTML reports, retrospective snapshots, and publication. Build one explicit thesis from primary evidence, support major claims with concrete sourced cases, use clearly labeled scenarios only to explain supported mechanisms, preserve the author's reasoned interpretation, and keep every section connected to that thesis. Browse for current information, collect at least 20 primary-source URLs as a research gate rather than a coverage quota, update Japanese and English article files plus meta.json, and preserve the evidence and publication contracts.
 ---
 
 # Auto Research Digest Author
@@ -16,6 +15,10 @@ Before writing, read these files:
 - `/Users/you/github/ymuichiro/auto-research-skill/guidelines/editorial-expression-guideline.md`
 - `/Users/you/github/ymuichiro/auto-research-skill/guidelines/design-system.md`
 - `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/auto-research-digest-author/references/workflow.md`
+- `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/write-concrete-coherent-prose/SKILL.md`
+- `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/japanese-tech-writing/SKILL.md`
+
+Read `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/cognitive-rhythm-writing/SKILL.md` only after the claims, evidence, examples, and section order are stable. Rhythm must not create new claims or filler.
 
 When updating an existing article, also read that article's `meta.json`, `body.ja.html`, and `body.en.html`.
 
@@ -28,19 +31,21 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 3. For new or time-sensitive topics, browse the web first. Do not rely on memory for "latest" questions.
 4. Start broad to map the topic, then narrow to official documentation and papers for anything that will appear in the public article.
 5. Build a research inventory of at least 20 primary-source URLs before publishing a new article or substantially rewriting an existing one.
-6. For retrospective or backfilled articles, use only sources that were publicly available on or before the article date.
-7. Write or revise all three article files together:
+6. Write an argument map before choosing sections: one central question, one thesis, the claims needed to establish it, the strongest evidence and concrete case for each claim, the author's interpretation, and credible limits or counterevidence.
+7. Remove sources and topics that do not advance the argument. The research inventory is not a requirement to mention every source in public copy.
+8. For retrospective or backfilled articles, use only sources that were publicly available on or before the article date.
+9. Write or revise all three article files together:
    - `meta.json`
    - `body.ja.html`
    - `body.en.html`
-8. Run `pnpm build` after edits. Use `pnpm validate` if you need a separate validation pass.
-9. If the user wants the change published, commit, push, watch GitHub Actions, and verify the public page.
+10. Run `pnpm build` after edits. Use `pnpm validate` if you need a separate validation pass.
+11. If the user wants the change published, commit, push, watch GitHub Actions, and verify the public page.
 
 ## Weekly Publishing Rules
 
 - The default operating cadence is one public article per week.
 - Weekly cadence does not relax the evidence bar. New weekly articles still need a 20+ primary-source inventory.
-- If one weekly topic is too thin to clear the quality bar, broaden it into a weekly roundup rather than publishing a shallow single-theme piece.
+- If one weekly topic is too thin, delay or reframe it. Use a roundup only when 2 to 4 signals already support one shared thesis; do not broaden the scope merely to reach a source count.
 - Weekly roundups should still have a clear thesis, not a loose list of headlines.
 - For weekly articles, treat the article date as the publication-date snapshot and use only primary sources that were public on or before that date.
 - If a week does not have enough verified primary material for publication, prefer delaying or reframing the piece over padding with third-party coverage.
@@ -55,10 +60,15 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 
 ## Writing Rules
 
-- Keep the tone neutral and evidence-led.
-- Distinguish clearly between fact, observed pattern, and inference.
-- Avoid thin articles. Compare and synthesize sources; do not merely list them.
-- Always include concrete use cases or operating scenarios so the article is not purely conceptual.
+- Remain independent of vendor interests and evidence-led. Neutrality does not mean removing the article's conclusion.
+- Distinguish clearly between verified fact, observed pattern, inference, recommendation, and unresolved question.
+- State the article's thesis as the author's traceable interpretation of the evidence. Do not limit the article to claims that one source states verbatim.
+- Build each major claim as a chain: verified fact or case, relevant comparison, interpretation, practical implication, and limit. Not every paragraph needs all five parts, but the chain must be visible before the topic changes.
+- Compare and synthesize the strongest sources. Do not list sources, vendors, or features merely because they are in the research inventory.
+- Prefer a sourced implementation, measured case, named product behavior, or paper result over a generic use case. When a hypothetical operating scenario is useful, label it as a scenario and state exactly what it illustrates; never present it as deployed evidence.
+- Keep causal and operational details that explain why systems differ, even for business readers. Remove only details that do not affect the decision or argument.
+- Give each section one job in the argument. Its opening must receive a question or claim from the preceding section, and its ending must change what the reader can conclude.
+- Apply `write-concrete-coherent-prose` before the final language cleanup. Reject undefined umbrella nouns, floating sentences, generic claims that fit any technology, and examples that prove nothing.
 - Keep Japanese and English versions aligned in meaning and confidence level.
 - In Japanese copy, prefer natural Japanese for general concepts and workflow terms. Keep English only when it is the product name, paper title, protocol name, API name, or another identifier that would become less clear if translated.
 - Before finalizing Japanese copy, do one cleanup pass specifically for language mixing. Replace avoidable English nouns and adjective phrases such as workflow, control surface, progress, deliverable, or chat-only when clear Japanese equivalents exist.
@@ -73,35 +83,30 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 
 - Do not let article titles converge on one repeated ending pattern across consecutive weeks.
 - Before finalizing a title, check the latest 2 to 4 published articles and avoid reusing the same Japanese ending pattern or the same English framing if it already appeared repeatedly.
-- In particular, avoid chaining too many titles that end with forms such as `〜し始めた`, `〜へ移り始めた`, `is shifting`, `are shifting`, `is becoming`, or `are becoming`.
-- When the core idea is similar, vary the title structure on purpose. Alternate between patterns such as:
-  - `Xの主戦場はYにある`
-  - `Xを比較する軸はYになった`
-  - `なぜ今週XはYとして読むべきか`
-  - `Xを支える条件はYである`
-  - `X now competes as Y`
-  - `The real comparison axis for X is now Y`
-  - `Why X should now be read as Y`
-- Favor titles that state the changed comparison axis, operating constraint, or decision surface, rather than relying on vague momentum wording.
-- If a draft title feels too close in cadence or ending to the previous few articles, rewrite it even if the wording is technically correct.
+- Make the subject, observable change, and affected decision or work explicit. A reader must understand the title without reconstructing undefined terms such as `state`, `scope`, `surface`, `layer`, or `axis` from the article.
+- Do not force titles into reusable rhetorical templates. Varying cadence is secondary to naming the actual change accurately.
+- Reject a title that could describe several unrelated technologies after replacing the product or concept name.
+- If a title feels too close to recent titles, rewrite it only when the alternative remains equally concrete and accurate.
 
-## Minimum Article Depth
+## Argument Completeness
 
-Unless the user explicitly asks for a shorter format, aim to cover:
+Do not treat the following as mandatory sections. Select only the elements needed to establish the thesis:
 
 - What changed and why it matters now
 - What the papers and official docs jointly indicate
-- Concrete use-case archetypes
-- Concrete operational scenarios or workflow examples
+- Concrete sourced implementations, product behavior, paper results, or clearly labeled operating scenarios
 - Design, evaluation, and governance implications
-- A short takeaway
+- Limits, counterevidence, or conditions under which the thesis does not hold
+- A takeaway derived from the preceding argument
 
-If the article still reads like an outline, add specifics:
+If the article reads like an outline, do not automatically add more sections. First merge repeated claims, remove checklist-only sections, and replace general statements with evidence that performs a clear role:
 
 - named benchmarks, platforms, or official products
 - task examples with tools, approvals, and failure boundaries
 - comparisons across vendors or research tracks
 - implications for rollout, cost, evaluation, or oversight
+
+A concrete scenario does not substitute for evidence. Use it to explain a mechanism already supported by sources, and label it when it is hypothetical.
 
 For retrospective monthly series, also make sure each article answers:
 
@@ -140,5 +145,5 @@ For exact commands, file fields, and publish steps, read `/Users/you/github/ymui
 
 - "最新の AI Agent 動向を調べて新規記事を書いて"
 - "この既存記事を一次情報で厚くして"
-- "OpenAI / Google / Microsoft の公式 docs と論文を調べて中立的にまとめて"
+- "OpenAI / Google / Microsoft の公式 docs と論文を比較し、根拠から導ける判断が見える記事にして"
 - "このトピックを Auto Research Digest の記事として公開して"

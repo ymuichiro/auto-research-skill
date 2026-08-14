@@ -1,0 +1,4 @@
+interface:
+  display_name: "具体的でつながる文章"
+  short_description: "抽象語、論理の切断、根拠のない一般論を見つけて直す"
+  default_prompt: "$write-concrete-coherent-prose を使って、文章の抽象語、前後の切断、根拠と著者の判断を欠く一般論を点検し、具体的につながる文章へ修正してください。"
