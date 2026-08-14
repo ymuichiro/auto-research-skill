@@ -4,35 +4,35 @@
   <p>When an AI agent is asked to research, reconcile, or prepare a document, it can return a result quickly.</p>
   <p>That report does not finish the work.</p>
   <p>Without knowing which conditions were met, which materials were used, where the work stopped, and what a person must decide, the artifact cannot safely move into the business process.</p>
-  <p>This briefing calls the work environment that addresses this problem a <strong>Human-Agent Collaboration Workspace</strong>, or HACW.</p>
+  <p>Solving this problem requires an environment that carries one unit of work from request through execution, validation, and human decision.</p>
   <div class="callout-panel mt-6">
     <p class="callout-title">Working definition</p>
-    <p>A <strong>HACW</strong> is a work environment in which a person or organization defines goals, authority, and constraints; an orchestrator delegates work to the appropriate executor; and artifacts, evidence, state, and uncertainty are managed in a common form.</p>
-    <p>It separates decisions people must own from approvals reserved by authority, records human decisions with their reasoning and applicability, and feeds reusable decisions back into validated business rules.</p>
+    <p>A <strong>Human-Agent Collaboration Workspace (HACW)</strong> is a work environment that records the objective and prohibited actions, owners and authority, agent execution, artifacts and sources, task-specific validation, and human decisions for one unit of work in the same shared record.</p>
+    <p>Human decisions are stored with reasoning, applicability, exceptions, and expiry. Only decisions that can be tested under the same conditions become task contracts, evaluators, or authorization policies that future tasks may use without another human review.</p>
   </div>
-  <p class="mt-6">Here, workspace does not mean only a chat interface or a shared folder.</p>
-  <p>It means a persistent work layer in which people and AI treat the goal, owner, authority, progress, artifacts, evidence, validation results, approvals, and unresolved issues as the state of one unit of work.</p>
-  <p>That state persists when an agent changes or work returns to a person, making the next required decision and its owner traceable.</p>
-  <p>People do not need to monitor every agent operation; they review changes in state, exceptions, decisions reserved for people, and operations that require approval because of authority.</p>
+  <p class="mt-6">HACW is a working hypothesis derived from public evidence, not a detailed standard that Gartner has publicly established.</p>
+  <p>Gartner's public abstract for the 2026 Hype Cycle for Digital Workplace Applications says digital-workplace priorities have shifted toward governing embedded AI and preparing for “human-agent work models.”</p>
+  <p>Here, workspace does not mean only a chat interface or a shared folder.</p>
+  <p>It means a shared work record that preserves the same objective, current owner, permitted actions, completed and unfinished items, evidence, and validation results when an agent changes or the work returns to a person.</p>
+  <p>People do not monitor every operation. They review what changed since the last checkpoint, which items failed validation, which decisions remain human, and which operations the organization reserves for explicit approval.</p>
   <p>AI assistants answer questions, while AI agents use tools to execute work.</p>
   <p>Agentic systems combine multiple steps or agents, builders create them, and governance platforms manage permissions and usage.</p>
   <p>Enterprise work continues with goal setting, changing conditions, artifact integration, evidence review, and approval.</p>
-  <p>Gartner's public abstract for the 2026 Hype Cycle for Digital Workplace Applications points to governing embedded AI and preparing for “human-agent work models.”</p>
-  <p>OpenAI Workspace Agents, Microsoft Agent Framework, Google's Agent Platform, Anthropic's multi-agent implementation, and NIST's Evaluation Probes are also expanding the surrounding layers of shared context, delegation, state, approval, evaluation, and evidence.</p>
-  <p>HACW is a working hypothesis derived from public evidence, not a detailed standard that Gartner has publicly established.</p>
-  <p>The common requirement visible across these sources is to preserve a state in which people can remain accountable after delegating work to AI.</p>
+  <p>OpenAI Workspace Agents run long-running work within organization-defined data and tool permissions, request approval for selected operations, and expose configuration, updates, and runs to administrators.</p>
+  <p>Microsoft and Google evaluators separately inspect task completion, tool selection, tool inputs, and use of tool outputs. NIST Evaluation Probes compare agent claims with a human-curated trusted corpus and accumulate the evidence mapping in a machine-readable audit trail.</p>
+  <p>Taken together, these sources point to a work environment that preserves who executed each step, under which authority, how it was validated, and which decisions a person accepted after work was delegated to AI.</p>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Core Components</p>
   <h2>Who does what, and what moves forward in a HACW</h2>
   <p>In a HACW, a person sets the conditions of the work, an orchestrator selects owners, and specialist agents or existing systems execute it.</p>
-  <p>Task-specific evaluators inspect the result, only decisions that cannot be resolved automatically return to people, and those decisions update the scope of future delegation.</p>
+  <p>Task-specific evaluators inspect the result, and only decisions that cannot be resolved automatically return to people. A decision recorded with its reasoning and applicability updates which future conditions still require a person and which may proceed automatically.</p>
   <p>The six steps are not necessarily a one-way sequence; evaluation results and human decisions can send work back to an earlier step.</p>
   <div class="callout-panel mt-6">
     <p class="callout-title">Shared work record across every step</p>
     <p><span class="mono-note">Records</span><br>Goal, owner, authority, progress, artifacts, evidence, validation results, approvals, and unresolved issues</p>
-    <p>When an agent or person changes, everyone continues from the same recorded state of the work.</p>
+    <p>When an agent or person changes, everyone continues from the same objective, progress, permitted actions, artifacts, validation results, and unresolved issues.</p>
   </div>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
@@ -54,10 +54,10 @@
       <p><span class="mono-note">Output</span><br>Results, intermediate artifacts, execution records, and reasons for stopping</p>
     </article>
     <article class="comparison-card">
-      <h3><span class="mono-note">Step 04</span><br>Attach evidence and completion state</h3>
+      <h3><span class="mono-note">Step 04</span><br>Attach evidence, completed items, and unfinished items</h3>
       <p><span class="mono-note">Who</span><br>The agent, system, or person that performed the work</p>
       <p><span class="mono-note">What</span><br>Connects the artifact to the sources used, validation results, conditions met, unfinished items, and remaining uncertainty.</p>
-      <p><span class="mono-note">Output</span><br>An artifact with evidence and completion state</p>
+      <p><span class="mono-note">Output</span><br>An artifact with sources, validation results, completed items, and unfinished items</p>
     </article>
     <article class="comparison-card">
       <h3><span class="mono-note">Step 05</span><br>Check the result against business rules</h3>
@@ -72,25 +72,26 @@
       <p><span class="mono-note">Output</span><br>Decision, reasoning, applicability, exceptions, and reuse classification</p>
     </article>
   </div>
-  <p class="mt-6">A HACW manages this sequence as work state that people and multiple executors can inspect rather than hiding it inside a single agent.</p>
+  <p class="mt-6">A HACW keeps these records in a shared work ledger that the business owner, orchestrator, executor, and evaluator can inspect rather than hiding them inside a single agent.</p>
   <p>A decision made in Step 06 does not end as a one-time approval. Its reasoning and applicability enter the shared work record, and reusable decisions return to the task contract in Step 01 or the evaluator in Step 05.</p>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Decision Memory</p>
-  <h2>Turn human decisions into the next automation boundary</h2>
-  <p>A per-action approval gate stops an agent immediately before an operation and asks a person to allow or reject it.</p>
-  <p>If the reasoning and applicability do not return to the business rules, the same conditions can call a person again next time.</p>
+  <h2>Turn human decisions into rules for future work</h2>
+  <p>The OpenAI Agents SDK manual approval flow pauses immediately before a sensitive tool call and asks a person to approve or reject it. When a condition can be decided in code, an approval callback can also let the run continue without a human interruption.</p>
+  <p>Both mechanisms authorize an operation in a running execution. They do not necessarily turn a business decision into a rule that applies to separate future tasks.</p>
+  <p>If the reasoning and applicability do not return to a task contract, evaluator, or authorization policy, the same business conditions can call a person again next time.</p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
       <h3>Per-action approval gate</h3>
-      <p><span class="mono-note">Decision unit</span><br>One tool operation</p>
-      <p><span class="mono-note">Human output</span><br>Allow or reject</p>
-      <p><span class="mono-note">Next time</span><br>The same conditions may stop again</p>
+      <p><span class="mono-note">Decision unit</span><br>One tool operation in the current run</p>
+      <p><span class="mono-note">Output</span><br>Allow or reject from a person or approval program</p>
+      <p><span class="mono-note">Separate future task</span><br>The same business conditions may stop again</p>
     </article>
     <article class="comparison-card">
       <h3>HACW decision update</h3>
-      <p><span class="mono-note">Decision unit</span><br>A class of business decisions with shared conditions</p>
+      <p><span class="mono-note">Decision unit</span><br>A business decision that can hold across separate future tasks</p>
       <p><span class="mono-note">Human output</span><br>Decision, reasoning, scope, exceptions, and reuse classification</p>
       <p><span class="mono-note">Next time</span><br>Work proceeds automatically when a validated rule matches</p>
     </article>
@@ -112,18 +113,21 @@
 
 <section class="report-section">
   <p class="section-kicker">What Changes</p>
-  <h2>Work state changes the next delegation boundary</h2>
-  <p>This difference cannot be captured by comparing agent intelligence alone.</p>
-  <p>The dividing line is whether people carry results into the next task or whether work state, including decision records and business rules, updates the delegation boundary for the next task.</p>
+  <h2>A prior decision changes whether the next task calls a person</h2>
+  <p>When an invoice with the same conditions arrives next month, a conventional assistant leaves a person to find the prior answer and approval, then carry them into the new task.</p>
+  <p>A HACW compares the prior reasoning, amount, counterparty, exceptions, and expiry with the new invoice. It runs automatically when an approved rule matches; otherwise it returns the prior decision to a person as reference material.</p>
+  <p>The dividing line is not agent intelligence. It is whether a decision from one completed task becomes a tested condition under which a separate future task may proceed without another human review.</p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card"><h3>AI assistant</h3><p>Uses conversation as the entry point and returns an answer, summary, or draft. A person carries the result into the next task.</p></article>
     <article class="comparison-card"><h3>AI agent and agentic AI</h3><p>Uses tools to execute one or more steps toward a goal. Execution is the central object.</p></article>
-    <article class="comparison-card"><h3>Build, runtime, and governance platforms</h3><p>Create, connect, run, and monitor agents. They provide essential developer and administrator functions, but do not necessarily make the full business process, including human judgment, a shared state.</p></article>
-    <article class="comparison-card"><h3>HACW</h3><p>Shares tasks, ownership, artifacts, evidence, dependencies, decision records, active business rules, and unresolved issues. Its central question is who is doing what, under which authority and state, and which decisions should update future delegation.</p></article>
+    <article class="comparison-card"><h3>Build, runtime, and governance platforms</h3><p>Create, connect, run, and monitor agents. They provide essential developer and administrator functions, but do not necessarily keep the human request, execution, validation, decision, and future rule update in one work record.</p></article>
+    <article class="comparison-card"><h3>HACW</h3><p>Shares requests, owners, permitted actions, artifacts, evidence, validation results, decision reasoning, active business rules, and unresolved issues. Its central question is who executed what and which decisions may become rules that future tasks use without another review.</p></article>
   </div>
-  <p class="mt-6">Microsoft Research has described collaboration through mutual goal understanding, proactive task co-management, and shared progress tracking.</p>
+  <p class="mt-6">In a customer statement published by OpenAI, Rippling reports that its sales workspace agent researches accounts, summarizes Gong calls, and posts deal briefs to Slack, turning work that had taken representatives five to six hours per week into a process that runs automatically on every deal.</p>
+  <p>This is a deployed example of an agent operating across tools and a shared team process. The example alone does not establish that human business decisions are promoted into task contracts or evaluators for separate future work.</p>
+  <p>Microsoft Research has described collaboration through mutual goal understanding, proactive task co-management, and shared progress tracking.</p>
   <p>Its Interaction, Process, Infrastructure framework also makes the structure of activities explicit and inspectable.</p>
-  <p>In a HACW, the work process therefore does not remain hidden behind the conversation; changes in state and responsibility stay attached to the artifact.</p>
+  <p>Together, these implementations and research support a HACW condition: the process must not disappear behind a conversation. Owners, authority, progress, validation results, and human decisions remain in the same work record as the artifact.</p>
 </section>
 
 <section class="report-section">
@@ -134,29 +138,29 @@
   <p>Microsoft similarly distinguishes agent-as-tools, where a primary agent keeps overall responsibility, from handoffs, where task ownership moves.</p>
   <p>The general ability to interpret intent is not the same as permission to execute any business action directly.</p>
   <p>If an orchestrator has the same write access as every specialist, it can bypass task-specific procedures and audit boundaries.</p>
-  <p>The safer default is for the orchestrator to define work, route it to approved executors, and integrate state.</p>
+  <p>The safer default is for the orchestrator to define work, route it to approved executors, and integrate their progress, artifacts, validation results, and unresolved issues.</p>
   <p>High-authority execution belongs with specialist agents or deterministic systems that have an explicit business contract.</p>
   <div class="timeline mt-6">
     <article class="timeline-item"><div class="timeline-year">01</div><div><h3 class="font-display text-xl font-semibold text-primary">Turn intent into a task contract</h3><p>Record the goal, success criteria, prohibited actions, deadline, budget, required evidence, decisions reserved for people, and authority-based approvals. Keep ambiguity visible as an unresolved condition.</p></div></article>
     <article class="timeline-item"><div class="timeline-year">02</div><div><h3 class="font-display text-xl font-semibold text-primary">Select an executor and authority</h3><p>Use registered capability, available data, permitted tools, and the audit method to assign work to an agent, deterministic process, or human specialist.</p></div></article>
-    <article class="timeline-item"><div class="timeline-year">03</div><div><h3 class="font-display text-xl font-semibold text-primary">Return a stateful artifact</h3><p>Return not only the artifact, but also its status—complete, partial, stopped, or ambiguous—plus evidence, validation results, and unmet requirements.</p></div></article>
+    <article class="timeline-item"><div class="timeline-year">03</div><div><h3 class="font-display text-xl font-semibold text-primary">Return completed items, unfinished items, and evidence</h3><p>Return not only the artifact, but also the conditions completed, unfinished items, reasons for stopping, uncertainty, evidence, and validation results.</p></div></article>
     <article class="timeline-item"><div class="timeline-year">04</div><div><h3 class="font-display text-xl font-semibold text-primary">Integrate and return decisions to the next run</h3><p>The orchestrator groups completed, unmet, conflicting, human-reserved, and authority-approval work by goal. It preserves references to original artifacts and traces, then returns reusable conditions from human decisions to the task contract or evaluator.</p></div></article>
   </div>
 </section>
 
 <section class="report-section">
   <p class="section-kicker">Audit</p>
-  <h2>The audit substrate can be common; correctness cannot</h2>
+  <h2>Execution records can be common; acceptance criteria remain task-specific</h2>
   <p>Auditing has a common record shared across tasks and acceptance criteria that differ by business process.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Common audit</h3><p>Record who requested the work, which agent accepted it, what data and tools it used, which state it changed, and where it was approved, stopped, or retried. Check permissions, run counts, abnormal repetition, and irreversible actions across tasks.</p></article>
+    <article class="comparison-card"><h3>Common audit</h3><p>Record who requested the work, which agent accepted it, what data and tools it used, which files, business records, or permissions it changed, and where it was approved, stopped, or retried. Check permissions, run counts, abnormal repetition, and irreversible actions across tasks.</p></article>
     <article class="comparison-card"><h3>Task-specific audit</h3><p>Financial reconciliation, contract review, security investigation, and article production have different correctness criteria. Define expected steps, authoritative materials, tolerances, prohibited actions, and completion tests for each task.</p></article>
   </div>
   <p class="mt-6">Microsoft and Google evaluation services separately assess final task completion, instruction adherence, tool selection, inputs, use of tool outputs, and the expected execution trajectory.</p>
   <p>This is not one universal score for a general agent.</p>
   <p>It is a test of the contract for a particular task.</p>
   <p>NIST's Evaluation Probes similarly begin with one bounded question: whether an AI claim is supported by a human-curated corpus of trusted documents.</p>
-  <p>A cited claim, a claim aligned with its source, a source that is true in the world, and a result approved for business use are different states.</p>
+  <p>“A source is cited,” “the answer matches the source,” “the source is true in the world,” and “the result is approved for business use” require separate judgments.</p>
   <p>A practical HACW therefore needs staged evidence labels such as unverified, source-grounded, independently checked, system-validated, human-approved, contested, and expired.</p>
 </section>
 
@@ -167,8 +171,8 @@
   <p>Approval queues and review fatigue become a new bottleneck.</p>
   <p>Gartner's highest autonomy level has people review exceptions, audit logs, and aggregated outcomes rather than each individual decision.</p>
   <p>Early 2026 research also describes constant inspection of AI artifacts and floods of suggestions as sources of cognitive load and hidden cost.</p>
-  <p>A HACW should therefore retain the full run record in machine-readable form while showing people changes in state.</p>
-  <p>A state card should contain the current goal, change since the last checkpoint, significant actions, automated validation results, open issues, the consequence of taking no action, and the requested decision.</p>
+  <p>A HACW should therefore retain the full run record in machine-readable form while showing people only what changed since the last checkpoint.</p>
+  <p>A decision request should contain the current goal, newly completed or failed items, significant actions, automated validation results, open issues, the consequence of taking no action, and the requested decision.</p>
   <p>Full traces should be available for investigation, not pushed into every review.</p>
   <p>Explicit approval for a high-risk operation is a control that reserves execution authority for the organization, not evidence that the agent is incapable of making a judgment.</p>
   <div class="comparison-grid mt-6">
@@ -183,7 +187,7 @@
   <p class="section-kicker">Three Modes</p>
   <h2>The human-AI balance changes with the work</h2>
   <p>HACW is not one automation method.</p>
-  <p>The division changes for work with clear procedures and judgments, work with flexible procedures and judgment, and work such as ideas or negotiation where human judgment remains central.</p>
+  <p>Even with the same work record and rule-promotion process, the tasks that run automatically and the decisions returned to people change across clear procedures, flexible work, and ideas or negotiation where human judgment remains central.</p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card"><h3>Clear procedure and judgment</h3><p>Stable work such as invoice matching or routine reporting should become a deterministic business process. HACW manages authority, evidence, and exceptions in the background, while people review rule changes and unusual cases.</p></article>
     <article class="comparison-card"><h3>Flexible procedure with judgment</h3><p>Contract review, incident investigation, and complex development benefit from an orchestrator and specialist agents. People own objectives, changes to evaluation criteria, and unprecedented exceptions, while reusable decisions move into task contracts or evaluators.</p></article>
@@ -196,7 +200,8 @@
 
 <section class="report-section">
   <p class="section-kicker">Scenarios</p>
-  <h2>The same foundation creates different review surfaces</h2>
+  <h2>The same work record presents different items for human review</h2>
+  <p>The following are operating scenarios, not published deployment cases. They apply the three modes above to show how automated validation and human judgment divide differently by business process.</p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card"><h3>Month-end close</h3><p>Specialists prepare entries, reconciliations, and variance analysis, then return control totals and workpapers. Normal items proceed automatically; out-of-policy variances, missing data, and approval items are escalated.</p></article>
     <article class="comparison-card"><h3>Contracts and procurement</h3><p>Separate agents extract clauses, compare internal policy, and research the counterparty. The orchestrator integrates evidence and disagreement, but people choose acceptable risk and negotiation terms.</p></article>
@@ -206,12 +211,12 @@
 
 <section class="report-section">
   <p class="section-kicker">What Is Missing</p>
-  <h2>The parts are appearing, but the shared contract remains weak</h2>
-  <p>Public material from OpenAI, Microsoft, Google, and Anthropic already contains orchestration, specialist agents, sessions, approvals, evaluations, traces, and permission controls.</p>
+  <h2>Implementation features exist, but a cross-product work record and task rules do not</h2>
+  <p>OpenAI, Microsoft, Google, and Anthropic each implement orchestration, specialist agents, sessions, approvals, evaluations, traces, or permission controls.</p>
   <p>Research proposals add more of the shared-work layer: CHAP defines workspaces, participants, tasks, artifacts, and an append-only evidence log; CLEO and Pista study interfaces where people can observe, direct, work concurrently, and stop execution.</p>
   <p>These parts have not yet converged into one mature standard or product category.</p>
-  <p>The missing layer is mostly connective rather than another model capability.</p>
-  <p>Organizations need task contracts and evaluators for each business process, a registry of agent capabilities, owners, and authority, common artifact and evidence states, evaluation of the orchestrator's routing, portable audit records, and operating metrics that treat human attention as a finite budget.</p>
+  <p>What is missing is a shared contract that connects those features as one unit of work.</p>
+  <p>Organizations need task contracts and evaluators for each business process; a registry of agent capabilities, owners, and authority; common labels attached to artifacts and evidence; evaluation of whether the orchestrator chose the right executor; a portable audit format across products; and metrics that cap the amount of human review time.</p>
   <p>Decision records need applicability, exceptions, expiry, and accountable ownership; promotion to a business rule needs testing, versioning, approval, and a rollback path.</p>
   <p>Run counts are not enough to measure value.</p>
   <p>Organizations need the total cost per validated artifact, human review time, escalation rate, decision waiting time, rework rate, defects found after automatic approval, and audit backlog, measured separately from artifact accuracy, completeness, and fitness for purpose.</p>
