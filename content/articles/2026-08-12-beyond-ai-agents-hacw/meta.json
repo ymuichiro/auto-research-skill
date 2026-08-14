@@ -1,16 +1,16 @@
 {
   "slug": "beyond-ai-agents-hacw",
   "date": "2026-08-12",
-  "titleJa": "AIエージェントの先にあるHACW。仕事を委ね、監査し、人が判断する場所",
-  "titleEn": "Beyond AI agents: HACW is where work is delegated, audited, and decided",
-  "summaryJa": "AIエージェントが個別の仕事を実行できるようになった次に必要なのは、人間と複数のエージェントが目的、権限、進捗、成果物、根拠、承認を共有できる業務環境である。Human-Agent Collaboration Workspace（HACW）を作業仮説として、既存のAIアシスタント、エージェンティックAI、エージェント作成、統制基盤との違いを整理する。人が条件を決め、オーケストレーターが作業を割り当て、専門AIや既存システムが実行し、評価器が検査し、自動判定できない点だけを人へ戻す流れを、共通の仕事台帳でつなぐ。",
-  "summaryEn": "Once AI agents can execute individual jobs, the next requirement is a work environment in which people and multiple agents share goals, permissions, progress, artifacts, evidence, and approvals. This briefing uses Human-Agent Collaboration Workspace (HACW) as a working hypothesis, not a settled industry standard, to distinguish that environment from AI assistants, agentic systems, agent builders, and governance platforms. A shared work record connects the flow in which people set conditions, an orchestrator assigns tasks, specialist agents or existing systems execute them, evaluators inspect the results, and only decisions that cannot be automated return to people.",
+  "titleJa": "AIエージェントの先にあるHACW。人の判断を、次の自動化へ変える場所",
+  "titleEn": "Beyond AI agents: HACW turns human decisions into a safer automation boundary",
+  "summaryJa": "AIエージェントが個別の仕事を実行できるようになった次に必要なのは、人間と複数のエージェントが目的、権限、進捗、成果物、根拠、判断記録を共有できる業務環境である。Human-Agent Collaboration Workspace（HACW）を作業仮説として、既存のAIアシスタント、エージェンティックAI、エージェント作成、統制基盤との違いを整理する。人の判断は理由と適用条件とともに保存し、再利用できるものだけを検証済みのタスク契約、評価器、権限ポリシーへ変える。記憶そのものには実行権限を与えず、ルールへ変換できない判断は人に残す。",
+  "summaryEn": "Once AI agents can execute individual jobs, the next requirement is a work environment in which people and multiple agents share goals, permissions, progress, artifacts, evidence, and decision records. This briefing uses Human-Agent Collaboration Workspace (HACW) as a working hypothesis, not a settled industry standard, to distinguish that environment from AI assistants, agentic systems, agent builders, and governance platforms. Human decisions are stored with their reasoning and applicability, while only reusable decisions become validated task contracts, evaluators, or authorization policies. Memory itself never grants execution authority, and decisions that cannot become rules remain with people.",
   "seoTitleJa": "AIエージェントの先にあるHACWとは",
   "seoTitleEn": "Beyond AI agents: what HACW changes",
-  "seoDescriptionJa": "HACWを、人間とAIが目的、権限、状態、根拠、承認を共有する次世代の業務基盤として、構成要素と適用領域から整理する。",
-  "seoDescriptionEn": "A business-oriented explanation of HACW as a shared work layer for human-agent delegation, state, evidence, permissions, approvals, and audit.",
-  "teaserJa": "AIエージェントの次の競争軸は、実行能力ではなく、仕事を委ね、検証し、人へ返せる業務環境にある。",
-  "teaserEn": "The next comparison axis after AI agents is the work layer that can delegate, verify, and return decisions to people.",
+  "seoDescriptionJa": "HACWを、人の判断を記録し、検証済みルールへ変え、AIへ任せる範囲を更新する業務基盤として整理する。",
+  "seoDescriptionEn": "A business-oriented explanation of HACW as a work layer that records human decisions, promotes validated rules, and updates the scope of AI delegation.",
+  "teaserJa": "HACWは人の判断をその場で消費せず、再利用できるものを検証済みルールへ変え、次回の自動化範囲を更新する。",
+  "teaserEn": "HACW does not consume human judgment as a one-time approval; it promotes reusable decisions into validated rules for future automation.",
   "category": "AI Strategy",
   "tags": [
     "AI Agent",
@@ -35,6 +35,8 @@
     { "label": "OpenAI Agents SDK: Human-in-the-loop", "url": "https://openai.github.io/openai-agents-python/human_in_the_loop/", "type": "official" },
     { "label": "OpenAI Agents SDK: Results", "url": "https://openai.github.io/openai-agents-python/results/", "type": "official" },
     { "label": "OpenAI Agents SDK: Tracing", "url": "https://openai.github.io/openai-agents-python/tracing/", "type": "official" },
+    { "label": "OpenAI Agents SDK: Agent Memory", "url": "https://openai.github.io/openai-agents-python/sandbox/memory/", "type": "official" },
+    { "label": "AWS: Policy in Amazon Bedrock AgentCore", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html", "type": "official" },
     { "label": "Microsoft Agent Framework: Workflow Orchestrations", "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/", "type": "official" },
     { "label": "Microsoft Agent Framework: Handoff Orchestration", "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/handoff", "type": "official" },
     { "label": "Microsoft Agent Framework: Evaluation", "url": "https://learn.microsoft.com/en-us/agent-framework/agents/evaluation", "type": "official" },
@@ -55,7 +57,9 @@
     { "label": "Pista: Auditing and Controlling AI Agent Actions in Spreadsheets", "url": "https://arxiv.org/abs/2604.20070", "type": "paper" },
     { "label": "CollabSkill: Evaluating Human-Agent Collaboration on Real-World Tasks", "url": "https://arxiv.org/abs/2606.09833", "type": "paper" },
     { "label": "Human Oversight and Overload", "url": "https://arxiv.org/abs/2606.05770", "type": "paper" },
-    { "label": "Human Oversight of Agentic Systems in Practice", "url": "https://arxiv.org/abs/2606.05391", "type": "paper" }
+    { "label": "Human Oversight of Agentic Systems in Practice", "url": "https://arxiv.org/abs/2606.05391", "type": "paper" },
+    { "label": "Reflexion: Language Agents with Verbal Reinforcement Learning", "url": "https://arxiv.org/abs/2303.11366", "type": "paper" },
+    { "label": "ExpeL: LLM Agents Are Experiential Learners", "url": "https://arxiv.org/abs/2308.10144", "type": "paper" }
   ],
   "draft": false
 }
