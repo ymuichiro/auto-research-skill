@@ -82,6 +82,24 @@ function assertCondition(condition, message) {
   }
 }
 
+function assertSocialCardMarkup(markup, label) {
+  const imageUrl = absoluteUrl(siteConfig.ogImage);
+
+  assertContains(markup, '<meta name="twitter:card" content="summary_large_image">', `${label} is missing the large X card type.`);
+  assertContains(markup, `<meta property="og:image" content="${imageUrl}">`, `${label} is missing the expected og:image URL.`);
+  assertContains(markup, `<meta name="twitter:image" content="${imageUrl}">`, `${label} is missing the expected twitter:image URL.`);
+  assertContains(
+    markup,
+    `<meta property="og:image:width" content="${siteConfig.ogImageWidth}">`,
+    `${label} is missing the expected og:image width.`
+  );
+  assertContains(
+    markup,
+    `<meta property="og:image:height" content="${siteConfig.ogImageHeight}">`,
+    `${label} is missing the expected og:image height.`
+  );
+}
+
 function countOccurrences(markup, needle) {
   let count = 0;
   let offset = 0;
@@ -218,7 +236,7 @@ async function validateBuiltOutput(articles) {
     ".nojekyll",
     "assets/site.css",
     "assets/article-share.js",
-    "assets/og-twitter-card.png",
+    siteConfig.ogImage,
     "assets/og-default.svg",
     "assets/favicon.svg"
   ]
@@ -270,6 +288,7 @@ async function validateBuiltOutput(articles) {
   const pageSitemap = await readBuiltFile("sitemap-pages.xml");
   const articleSitemap = await readBuiltFile("sitemap-articles.xml");
   const webManifest = await readBuiltFile("site.webmanifest");
+  const socialCard = await readFile(path.join(outputRoot, siteConfig.ogImage));
   const jaAboutHtml = await readBuiltFile(trustPagePaths.about);
   const enAboutHtml = await readBuiltFile(`en/${trustPagePaths.about}`);
   const jaTopicsHtml = await readBuiltFile(`${topicIndexRelativePath("ja")}index.html`);
@@ -280,6 +299,15 @@ async function validateBuiltOutput(articles) {
   const enTimelineHtml = await readBuiltFile(`${timelineRelativePath("en")}index.html`);
   const rootPath = siteConfig.basePath ? `${siteConfig.basePath}/` : "/";
   const totalPages = Math.max(1, Math.ceil(articles.length / siteConfig.pagination.articleListPageSize));
+
+  assertCondition(
+    socialCard.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a])),
+    "Built social card is not a PNG image."
+  );
+  assertCondition(
+    socialCard.readUInt32BE(16) === siteConfig.ogImageWidth && socialCard.readUInt32BE(20) === siteConfig.ogImageHeight,
+    `Built social card dimensions must be ${siteConfig.ogImageWidth}x${siteConfig.ogImageHeight}.`
+  );
 
   if (siteConfig.cname) {
     const cname = (await readBuiltFile("CNAME")).trim();
@@ -298,6 +326,7 @@ async function validateBuiltOutput(articles) {
     assertContains(markup, siteConfig.siteUrl, `${label} is not using the configured site URL.`);
     assertContains(markup, "application/ld+json", `${label} is missing JSON-LD metadata.`);
     assertContains(markup, 'type="application/rss+xml"', `${label} is missing the RSS feed link.`);
+    assertSocialCardMarkup(markup, label);
   }
 
   assertNotContains(homeHtml, `href="${localizedPath("ja", "archive/")}"`, "Japanese home page still links to the removed archive.");
@@ -461,6 +490,7 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, 'data-native-share', `${label} is missing the native share trigger.`);
       assertContains(markup, 'data-copy-share', `${label} is missing the copy share trigger.`);
       assertContains(markup, 'assets/article-share.js', `${label} is missing the article share script.`);
+      assertSocialCardMarkup(markup, label);
     }
 
     assertContains(jaHtml, `href="${jaXIntent}"`, "Japanese article is missing the expected X share URL.");

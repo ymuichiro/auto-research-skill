@@ -40,9 +40,9 @@ export const siteConfig = {
   basePath,
   cname,
   themeColor: "#0d0f14",
-  ogImage: "assets/og-twitter-card.png",
-  ogImageWidth: 1536,
-  ogImageHeight: 1024,
+  ogImage: "assets/og-twitter-card-1200x628.png",
+  ogImageWidth: 1200,
+  ogImageHeight: 628,
   defaultRobots: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
   description: {
     ja: "LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理するリサーチ配信サイト。",
