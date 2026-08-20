@@ -3,9 +3,9 @@
   <channel>
     <title>Auto Research Digest EN RSS</title>
     <link>https://research.notelligent.app/en/</link>
-    <description>A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction.</description>
+    <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Aug 2026 04:41:05 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 00:00:00 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Beyond AI agents: HACW turns human decisions into rules for future work</title>
