@@ -45,13 +45,13 @@ export const siteConfig = {
   ogImageHeight: 628,
   defaultRobots: "index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1",
   description: {
-    ja: "LLM、AI、AI Agent の事例、ユースケース、技術トレンドを中立的に整理するリサーチ配信サイト。",
-    en: "A neutral research publication on LLM, AI, and AI agent use cases, technical trends, and market direction."
+    ja: "LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。",
+    en: "A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work."
   },
   seo: {
     homeTitle: {
-      ja: "LLM・AI・AI Agent の調査レポート",
-      en: "LLM, AI, and AI Agent Research Briefings"
+      ja: "AIエージェント・生成AIの導入、評価、運用を読む",
+      en: "AI Agent and Generative AI Adoption, Evaluation, and Operations"
     }
   },
   heroKicker: {
@@ -59,8 +59,8 @@ export const siteConfig = {
     en: "Research Signal"
   },
   taglines: {
-    ja: "AI とエージェントの重要シグナルを、一次情報から読み解く。",
-    en: "Reading the key signals in AI and agents through primary-source reporting."
+    ja: "AIエージェントと生成AIを業務へ導入する前に、任せる仕事、根拠、評価、承認を一次情報から判断する。",
+    en: "Primary-source research for deciding what to delegate, evaluate, and approve before putting AI agents and generative AI into work."
   },
   nav: {
     ja: [

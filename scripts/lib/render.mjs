@@ -8,7 +8,8 @@ import {
   siteConfig,
   timelineRelativePath,
   topicHubRelativePath,
-  topicIndexRelativePath
+  topicIndexRelativePath,
+  trustPagePaths
 } from "./site-config.mjs";
 import { resolveArticleSeo } from "./seo-snippets.mjs";
 import { buildTopicHubs } from "./topic-hubs.mjs";
@@ -24,13 +25,20 @@ const localeCopy = {
     featuredBriefingIntro: "まずは最新公開レポートの要点と導線を、短く整理した編集枠から確認できます。",
     briefingSummaryKicker: "ブリーフィング概要",
     briefingSummaryTitle: "このレポートで先に確認できること",
+    articleAuthorKicker: "編集・検証",
+    articleAuthorTitle: "この記事の編集責任",
+    articleAuthorIntro:
+      "Auto Research Digest Editorial Desk が公開根拠を直接確認し、確認できた事実、比較から導く解釈、未解決点を区別して編集しています。",
+    articleAuthorAbout: "このサイトについて",
+    articleAuthorPolicy: "調査・編集方針",
+    articleUpdatedLabel: "最終更新",
     pageStatus: "ページ",
     rangeLabel: "表示範囲",
     paginationPrevious: "前へ",
     paginationNext: "次へ",
     paginationPage: "ページ",
     heroIntro:
-      "主要な発表、論文、実装の動きを横断しながら、AI の実務トレンドを簡潔に追います。",
+      "公開資料と論文を基に、AIエージェントに任せる仕事、必要な評価、承認、運用条件を比較し、導入判断に必要な差を整理します。",
     sourceHeading: "公開根拠",
     sourceNote: "公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。",
     readReport: "レポートを開く",
@@ -106,13 +114,20 @@ const localeCopy = {
     featuredBriefingIntro: "Start with a compact editorial frame for the newest published briefing before moving into the full list.",
     briefingSummaryKicker: "Briefing summary",
     briefingSummaryTitle: "What this briefing helps you get to quickly",
+    articleAuthorKicker: "Editorial review",
+    articleAuthorTitle: "How this briefing is reviewed",
+    articleAuthorIntro:
+      "Auto Research Digest Editorial Desk checks the published evidence directly and separates confirmed facts, interpretations drawn from comparisons, and unresolved questions.",
+    articleAuthorAbout: "About this publication",
+    articleAuthorPolicy: "Editorial policy",
+    articleUpdatedLabel: "Updated",
     pageStatus: "Page",
     rangeLabel: "Showing",
     paginationPrevious: "Previous",
     paginationNext: "Next",
     paginationPage: "Page",
     heroIntro:
-      "Tracking major launches, papers, and implementation signals to follow practical AI direction.",
+      "Using public documentation and papers to compare what work to delegate to AI agents and which evaluation, approval, and operating conditions matter before adoption.",
     sourceHeading: "Published evidence",
     sourceNote:
       "Public pages list only evidence that can be verified as official documentation or papers.",
@@ -271,11 +286,37 @@ function itemListPayload(locale, title, items) {
       item: {
         "@type": item.schemaType ?? "WebPage",
         name: item.name,
-        url: item.url,
+        url: absoluteUrl(item.url),
         description: item.description,
         inLanguage: locale
       }
     }))
+  };
+}
+
+function authorProfilePath(locale) {
+  return locale === "ja" ? trustPagePaths.about : `en/${trustPagePaths.about}`;
+}
+
+function publisherSchema() {
+  return {
+    "@type": "Organization",
+    name: siteConfig.owner,
+    url: siteConfig.siteUrl,
+    logo: {
+      "@type": "ImageObject",
+      url: absoluteUrl("assets/favicon-512.png"),
+      width: 512,
+      height: 512
+    }
+  };
+}
+
+function authorSchema(locale) {
+  return {
+    "@type": "Organization",
+    name: siteConfig.owner,
+    url: absoluteUrl(authorProfilePath(locale))
   };
 }
 
@@ -306,16 +347,8 @@ function pageSchemas({
       articleSection: article.category,
       keywords: article.tags.join(", "),
       mainEntityOfPage: canonicalUrl,
-      publisher: {
-        "@type": "Organization",
-        name: siteConfig.owner,
-        url: siteConfig.siteUrl
-      },
-      author: {
-        "@type": "Organization",
-        name: siteConfig.owner,
-        url: siteConfig.siteUrl
-      },
+      publisher: publisherSchema(),
+      author: authorSchema(locale),
       url: canonicalUrl,
       image: [imageUrl]
     });
@@ -332,11 +365,7 @@ function pageSchemas({
         name: siteConfig.name,
         url: siteConfig.siteUrl
       },
-      publisher: {
-        "@type": "Organization",
-        name: siteConfig.owner,
-        url: siteConfig.siteUrl
-      }
+      publisher: publisherSchema()
     };
     const listPayload = itemListPayload(locale, title, listItems);
     if (listPayload) {
@@ -635,6 +664,26 @@ function renderBriefingSummary(article, locale, topicHub) {
         </div>
         <p class="briefing-summary-copy">${escapeHtml(seo.teaser)}</p>
         ${renderTagRow(article.tags, 5)}
+      </div>
+    </div>
+  </section>`;
+}
+
+function renderArticleAuthorship(locale) {
+  const copy = localeCopy[locale];
+  const aboutHref = localizedPath(locale, trustPagePaths.about);
+  const policyHref = localizedPath(locale, trustPagePaths.editorialPolicy);
+
+  return `<section class="panel-block article-authorship">
+    <div>
+      <p class="section-kicker">${escapeHtml(copy.articleAuthorKicker)}</p>
+      <h2 class="panel-title">${escapeHtml(copy.articleAuthorTitle)}</h2>
+    </div>
+    <div>
+      <p class="panel-copy">${escapeHtml(copy.articleAuthorIntro)}</p>
+      <div class="mt-4 flex flex-wrap gap-x-5 gap-y-3">
+        <a class="text-link" href="${aboutHref}">${escapeHtml(copy.articleAuthorAbout)}</a>
+        <a class="text-link" href="${policyHref}">${escapeHtml(copy.articleAuthorPolicy)}</a>
       </div>
     </div>
   </section>`;
@@ -1181,6 +1230,30 @@ function relatedArticleLabel(locale, relation) {
   return copy.relatedArticle;
 }
 
+function renderTopicGuide(locale, guide) {
+  if (!guide) {
+    return "";
+  }
+
+  return `<section class="panel-block topic-guide">
+    <div>
+      <p class="section-kicker">${escapeHtml(guide.kicker)}</p>
+      <h2 class="panel-title">${escapeHtml(guide.title)}</h2>
+      <p class="panel-copy">${escapeHtml(guide.intro)}</p>
+    </div>
+    <div class="comparison-grid mt-6">
+      ${guide.points
+        .map(
+          (point) => `<article class="comparison-card">
+        <h3>${escapeHtml(point.title)}</h3>
+        <p>${escapeHtml(point.body)}</p>
+      </article>`
+        )
+        .join("")}
+    </div>
+  </section>`;
+}
+
 function selectRelatedArticles(articles, currentArticle) {
   const currentIndex = articles.findIndex((article) => article.sourceDirName === currentArticle.sourceDirName);
 
@@ -1456,6 +1529,7 @@ export function renderTopicHubPage(locale, hub) {
     </div>
     ${renderTopicTagRow(hub)}
   </section>
+  ${renderTopicGuide(locale, hub.guide?.[locale])}
   ${featuredArticle
     ? renderEditorialBriefing(featuredArticle, locale, {
         kicker: copy.topicsHubLatestLabel,
@@ -1729,6 +1803,7 @@ function renderTopicBacklink(article, locale, hub) {
 }
 
 export function renderArticlePage(article, locale, articles = []) {
+  const copy = localeCopy[locale];
   const title = locale === "ja" ? article.titleJa : article.titleEn;
   const summary = locale === "ja" ? article.summaryJa : article.summaryEn;
   const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
@@ -1736,6 +1811,7 @@ export function renderArticlePage(article, locale, articles = []) {
   const topicHub = buildTopicHubs(articles).find((hub) => hub.category === article.category);
   const topicHubPath = topicHub ? topicHubRelativePath(locale, topicHub.slug) : null;
   const topicHubLink = topicHubPath ? localizedPath(locale, topicHubPath.replace(/^en\//, "")) : null;
+  const updatedAt = article.lastModified.slice(0, 10);
   const body = `<article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
@@ -1745,12 +1821,20 @@ export function renderArticlePage(article, locale, articles = []) {
             : `<span class="meta-pill is-accent">${escapeHtml(article.category)}</span>`
         }
         <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+        ${
+          updatedAt !== article.date
+            ? `<time class="mono-note" datetime="${updatedAt}">${escapeHtml(copy.articleUpdatedLabel)} ${escapeHtml(
+                formatDisplayDate(updatedAt, locale)
+              )}</time>`
+            : ""
+        }
       </div>
       <div class="meta-tags">${article.tags
         .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
         .join("")}</div>
     </section>
     ${renderBriefingSummary(article, locale, topicHub)}
+    ${renderArticleAuthorship(locale)}
     ${renderArticleShare(article, locale, relativePath)}
     <section class="article-body">${locale === "ja" ? article.bodies.ja : article.bodies.en}</section>
     ${renderTopicBacklink(article, locale, topicHub)}

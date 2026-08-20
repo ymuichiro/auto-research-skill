@@ -2,7 +2,7 @@ import { trustPageOrder, trustPagePaths } from "./site-config.mjs";
 
 const repositoryUrl = "https://github.com/ymuichiro/auto-research-skill";
 const issuesUrl = `${repositoryUrl}/issues/new`;
-const lastReviewed = "2026-05-06T00:00:00Z";
+const lastReviewed = "2026-08-19T00:00:00Z";
 
 function localizedText(ja, en) {
   return { ja, en };
@@ -10,8 +10,8 @@ function localizedText(ja, en) {
 
 function noticeBody(locale) {
   return locale === "ja"
-    ? "このページは 2026-05-06 時点の公開運用をもとに記載しています。公開面の運用を変える場合は、この説明も合わせて更新します。"
-    : "This page describes the current public operation of Auto Research Digest as of 2026-05-06. If the public operation changes, this explanation is updated as well.";
+    ? "このページは 2026-08-19 時点の公開運用をもとに記載しています。公開面の運用を変える場合は、この説明も合わせて更新します。"
+    : "This page describes the current public operation of Auto Research Digest as of 2026-08-19. If the public operation changes, this explanation is updated as well.";
 }
 
 const trustPages = {
@@ -46,7 +46,8 @@ const trustPages = {
           title: "どのように記事を作るか",
           paragraphs: [
             "トピック探索は広く行いますが、公開ページで根拠として掲示するのは、公式ドキュメントまたは論文として直接確認できた資料だけです。",
-            "新規記事や大きな改稿に進む前に、対象テーマについて十分な一次情報インベントリを集め、公開根拠欄には検証済みの URL のみを載せます。根拠が薄い場合は、公開を急がず保留します。"
+            "新規記事や大きな改稿に進む前に、対象テーマについて十分な一次情報インベントリを集め、公開根拠欄には検証済みの URL のみを載せます。根拠が薄い場合は、公開を急がず保留します。",
+            "各記事の編集責任は Auto Research Digest Editorial Desk が負い、記事ページに制作と検証の案内を表示します。本文では、出典に直接書かれた事実と、複数の出典を比べて導く編集上の解釈を分けます。"
           ]
         },
         {
@@ -74,7 +75,8 @@ const trustPages = {
           title: "How articles are produced",
           paragraphs: [
             "Topic discovery is broad, but the evidence shown on public pages is limited to materials that can be verified directly as official documents or papers.",
-            "Before a new article or substantial rewrite is published, the editorial workflow builds a primary-source inventory for the topic and limits the public evidence list to verified URLs. When the evidence is still thin, publication is held back."
+            "Before a new article or substantial rewrite is published, the editorial workflow builds a primary-source inventory for the topic and limits the public evidence list to verified URLs. When the evidence is still thin, publication is held back.",
+            "Auto Research Digest Editorial Desk is accountable for editing and review, and every article links readers to that process. Each briefing separates facts stated in the cited material from editorial interpretation formed by comparing sources."
           ]
         },
         {
