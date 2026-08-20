@@ -76,6 +76,35 @@ function assertNotContains(markup, unexpected, message) {
   }
 }
 
+function assertJsonLdUrlsAreAbsolute(markup, label) {
+  const blocks = [...markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+
+  assertCondition(blocks.length > 0, `${label} is missing JSON-LD metadata.`);
+
+  const visit = (value) => {
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+      return;
+    }
+
+    if (!value || typeof value !== "object") {
+      return;
+    }
+
+    for (const [key, item] of Object.entries(value)) {
+      if (["url", "item", "@id"].includes(key) && typeof item === "string") {
+        assertCondition(
+          item.startsWith("https://") || item.startsWith("http://"),
+          `${label} JSON-LD ${key} must use an absolute URL.`
+        );
+      }
+      visit(item);
+    }
+  };
+
+  blocks.forEach((match) => visit(JSON.parse(match[1])));
+}
+
 function assertCondition(condition, message) {
   if (!condition) {
     throw new Error(message);
@@ -345,6 +374,18 @@ async function validateBuiltOutput(articles) {
   assertContains(enSitemapHtml, '"@type":"ItemList"', "English sitemap page is missing ItemList schema.");
   assertContains(jaTimelineHtml, '"@type":"ItemList"', "Japanese timeline page is missing ItemList schema.");
   assertContains(enTimelineHtml, '"@type":"ItemList"', "English timeline page is missing ItemList schema.");
+  if (articles[0]) {
+    assertContains(
+      homeHtml,
+      `"url":"${absoluteUrl(articles[0].outputPaths.ja)}"`,
+      "Japanese home ItemList is missing the first article's absolute URL."
+    );
+    assertContains(
+      enHomeHtml,
+      `"url":"${absoluteUrl(articles[0].outputPaths.en)}"`,
+      "English home ItemList is missing the first article's absolute URL."
+    );
+  }
 
   for (const [markup, relativePath, canonicalUrl, label] of [
     [jaAboutHtml, trustPagePaths.about, absoluteUrl(trustPagePaths.about), "Japanese about page"],
@@ -472,6 +513,9 @@ async function validateBuiltOutput(articles) {
     const enTitle = sampleArticle.titleEn;
     const jaUrl = absoluteUrl(sampleArticle.outputPaths.ja);
     const enUrl = absoluteUrl(sampleArticle.outputPaths.en);
+    const jaAuthorUrl = absoluteUrl(trustPagePaths.about);
+    const enAuthorUrl = absoluteUrl(`en/${trustPagePaths.about}`);
+    const publisherLogoUrl = absoluteUrl("assets/favicon-512.png");
     const jaXIntent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(jaTitle)}&url=${encodeURIComponent(jaUrl)}`;
     const enXIntent = `https://twitter.com/intent/tweet?text=${encodeURIComponent(enTitle)}&url=${encodeURIComponent(enUrl)}`;
 
@@ -508,6 +552,38 @@ async function validateBuiltOutput(articles) {
       enHtml,
       `<meta name="description" content="${escapeHtml(sampleArticle.seo.en.description)}">`,
       "English article is missing the resolved SEO description."
+    );
+    assertContains(jaHtml, 'class="panel-block article-authorship"', "Japanese article is missing the editorial authorship block.");
+    assertContains(enHtml, 'class="panel-block article-authorship"', "English article is missing the editorial authorship block.");
+    assertContains(
+      jaHtml,
+      `"author":{"@type":"Organization","name":"${siteConfig.owner}","url":"${jaAuthorUrl}"}`,
+      "Japanese article schema is missing the author profile URL."
+    );
+    assertContains(
+      enHtml,
+      `"author":{"@type":"Organization","name":"${siteConfig.owner}","url":"${enAuthorUrl}"}`,
+      "English article schema is missing the author profile URL."
+    );
+    assertContains(
+      jaHtml,
+      `"logo":{"@type":"ImageObject","url":"${publisherLogoUrl}","width":512,"height":512}`,
+      "Japanese article schema is missing the publisher logo."
+    );
+    assertContains(
+      enHtml,
+      `"logo":{"@type":"ImageObject","url":"${publisherLogoUrl}","width":512,"height":512}`,
+      "English article schema is missing the publisher logo."
+    );
+    assertContains(
+      jaAboutHtml,
+      "各記事の編集責任は Auto Research Digest Editorial Desk が負い",
+      "Japanese about page is missing the editorial accountability explanation."
+    );
+    assertContains(
+      enAboutHtml,
+      "Auto Research Digest Editorial Desk is accountable for editing and review",
+      "English about page is missing the editorial accountability explanation."
     );
     assertContains(
       homeHtml,
@@ -739,6 +815,16 @@ async function validateBuiltOutput(articles) {
       absoluteUrl(topicHubRelativePath("en", hub.slug)),
       `Page sitemap is missing en/topics/${hub.slug}/.`
     );
+
+    if (hub.guide) {
+      const jaHubHtml = await readBuiltFile(`${topicHubRelativePath("ja", hub.slug)}index.html`);
+      const enHubHtml = await readBuiltFile(`${topicHubRelativePath("en", hub.slug)}index.html`);
+
+      assertContains(jaHubHtml, 'class="panel-block topic-guide"', `Japanese topic hub ${hub.slug} is missing its guide.`);
+      assertContains(enHubHtml, 'class="panel-block topic-guide"', `English topic hub ${hub.slug} is missing its guide.`);
+      assertContains(jaHubHtml, hub.guide.ja.title, `Japanese topic hub ${hub.slug} is missing its guide title.`);
+      assertContains(enHubHtml, hub.guide.en.title, `English topic hub ${hub.slug} is missing its guide title.`);
+    }
   }
   const jaTimelineDiscoveryCount = countOccurrences(jaTimelineHtml, 'class="discovery-entry"');
   const enTimelineDiscoveryCount = countOccurrences(enTimelineHtml, 'class="discovery-entry"');
@@ -793,6 +879,26 @@ async function validateBuiltOutput(articles) {
   }
   assertContains(webManifest, `"start_url": "${rootPath}"`, "Web manifest start_url does not match the configured base path.");
   assertContains(webManifest, `"scope": "${rootPath}"`, "Web manifest scope does not match the configured base path.");
+
+  for (const [markup, label] of [
+    [homeHtml, "Japanese home page"],
+    [enHomeHtml, "English home page"],
+    [jaAboutHtml, "Japanese about page"],
+    [enAboutHtml, "English about page"],
+    [jaTopicsHtml, "Japanese topics index"],
+    [enTopicsHtml, "English topics index"],
+    [jaSitemapHtml, "Japanese sitemap page"],
+    [enSitemapHtml, "English sitemap page"],
+    [jaTimelineHtml, "Japanese timeline page"],
+    [enTimelineHtml, "English timeline page"]
+  ]) {
+    assertJsonLdUrlsAreAbsolute(markup, label);
+  }
+
+  for (const article of articles) {
+    assertJsonLdUrlsAreAbsolute(await readBuiltFile(article.outputPaths.ja), `Japanese article ${article.slug}`);
+    assertJsonLdUrlsAreAbsolute(await readBuiltFile(article.outputPaths.en), `English article ${article.slug}`);
+  }
 }
 
 async function validate() {
