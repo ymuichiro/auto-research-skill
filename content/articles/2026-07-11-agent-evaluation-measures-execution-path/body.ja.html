@@ -3,7 +3,7 @@
   <h2>正しい回答だけでは、正しいエージェントかを判断できない</h2>
   <p>AIエージェントは、回答を生成するだけでなく、情報を探し、ツールを選び、外部システムに操作を依頼し、必要なら人に判断を戻す。したがって最終文だけが正しくても、誤った顧客レコードを参照した、不要な書き込みを試みた、承認を飛ばした、といった失敗を見落としうる。2026年7月11日までの公開資料では、OpenAI、Anthropic、Google Cloud、AWS がいずれも、回答品質に加えてツール利用や実行経路を評価・観測する面を整備している。</p>
   <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-    <article class="stat-card"><p class="stat-value">28</p><p class="stat-title">Primary sources</p><p class="stat-note">公式資料と論文を横断し、特定ベンダーの主張だけに依存しない。</p></article>
+    <article class="stat-card"><p class="stat-value">4</p><p class="stat-title">Provider tracks</p><p class="stat-note">OpenAI、Anthropic、Google Cloud、AWS の公開機能を同じ観点で比べる。</p></article>
     <article class="stat-card"><p class="stat-value">3</p><p class="stat-title">Quality contracts</p><p class="stat-note">最終回答、実行経路、運用上の安全性は別々に測る。</p></article>
     <article class="stat-card"><p class="stat-value">Trace</p><p class="stat-title">Shared evidence</p><p class="stat-note">ツール呼び出しと中間結果が、評価と障害調査を接続する。</p></article>
     <article class="stat-card"><p class="stat-value">Not one score</p><p class="stat-title">Decision surface</p><p class="stat-note">総合点ではなく、どの契約が崩れたかを特定できる形が必要になる。</p></article>
@@ -24,6 +24,17 @@
     <article class="comparison-card"><h3>1. 最終回答の契約</h3><p>利用者に返す内容が正確で、必要な形式、根拠、文体を満たすかを測る。参照回答との比較、ルールベース検査、人による判定、基準を明示したモデル判定を組み合わせられる。ここでは「何を返したか」が中心になる。</p></article>
     <article class="comparison-card"><h3>2. 実行経路の契約</h3><p>適切なツールを選び、正しい順序で使い、不要な操作をせず、失敗時に停止または再試行できたかを測る。予約変更なら、本人確認、空き枠確認、変更提案、承認、書き込みという順序までが評価対象になる。</p></article>
     <article class="comparison-card"><h3>3. 運用安全性の契約</h3><p>遅延、失敗率、費用、ガードレールの発火、承認待ち、機密データの記録範囲が許容内かを測る。回答と経路がテストで通っても、本番で異常な反復や権限外の試行が起きれば、出荷品質とは言えない。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation Card</p>
+  <h2>一つの評価ケースに、成功条件と禁止操作を書く</h2>
+  <p>三つの契約を実務で使うには、ケースごとに「何が成功か」と「何をしてはいけないか」を同じカードへ記録する。次の例は、予約変更を題材にした仮想ケースであり、特定サービスの実測結果ではない。目的は、最終回答だけでは見えない回帰を、同じ証拠で判定する形式を示すことにある。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>入力・結果契約</h3><p><strong>Fixture:</strong> 本人が日時変更を依頼する。<br><strong>許容結果:</strong> 変更後の日時、料金、根拠を正しく返す。<br><strong>証拠:</strong> 参照レコードと返答の差分。</p></article>
+    <article class="comparison-card"><h3>実行経路契約</h3><p><strong>必須:</strong> 本人確認 → 空き枠確認 → 承認取得 → 書き込み。<br><strong>禁止:</strong> 承認前の書き込み、権限外レコード参照、不要な再試行。<br><strong>証拠:</strong> ツール名、引数、順序、停止理由。</p></article>
+    <article class="comparison-card"><h3>運用安全性契約</h3><p><strong>閾値:</strong> 許容遅延、費用、再試行回数、承認待ち時間を定める。<br><strong>停止条件:</strong> 権限エラーや不一致を検出したら外部操作を止める。<br><strong>証拠:</strong> トレース、失敗率、機密データの記録範囲。</p></article>
   </div>
 </section>
 

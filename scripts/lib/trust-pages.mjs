@@ -48,6 +48,18 @@ const trustPages = {
             "トピック探索は広く行いますが、公開ページで根拠として掲示するのは、公式ドキュメントまたは論文として直接確認できた資料だけです。",
             "新規記事や大きな改稿に進む前に、対象テーマについて十分な一次情報インベントリを集め、公開根拠欄には検証済みの URL のみを載せます。根拠が薄い場合は、公開を急がず保留します。",
             "各記事の編集責任は Auto Research Digest Editorial Desk が負い、記事ページに制作と検証の案内を表示します。本文では、出典に直接書かれた事実と、複数の出典を比べて導く編集上の解釈を分けます。"
+          ],
+          resources: [
+            {
+              label: "公開ソースと変更履歴",
+              url: repositoryUrl,
+              description: "記事テンプレート、公開ソース、変更履歴を確認できる公開リポジトリです。"
+            },
+            {
+              label: "訂正・問い合わせ窓口",
+              url: issuesUrl,
+              description: "事実誤認、リンク切れ、翻訳差分などを報告できる GitHub Issues です。"
+            }
           ]
         },
         {
@@ -77,6 +89,18 @@ const trustPages = {
             "Topic discovery is broad, but the evidence shown on public pages is limited to materials that can be verified directly as official documents or papers.",
             "Before a new article or substantial rewrite is published, the editorial workflow builds a primary-source inventory for the topic and limits the public evidence list to verified URLs. When the evidence is still thin, publication is held back.",
             "Auto Research Digest Editorial Desk is accountable for editing and review, and every article links readers to that process. Each briefing separates facts stated in the cited material from editorial interpretation formed by comparing sources."
+          ],
+          resources: [
+            {
+              label: "Public source and change history",
+              url: repositoryUrl,
+              description: "The public repository exposes the article templates, source code, and change history."
+            },
+            {
+              label: "Corrections and questions",
+              url: issuesUrl,
+              description: "GitHub Issues is the public channel for factual corrections, broken links, and translation mismatches."
+            }
           ]
         },
         {

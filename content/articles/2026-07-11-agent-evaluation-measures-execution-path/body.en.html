@@ -3,7 +3,7 @@
   <h2>A correct answer is not enough to establish that an agent behaved correctly</h2>
   <p>An AI agent does more than generate an answer. It finds information, selects tools, requests actions in external systems, and sometimes returns a decision to a person. A correct final sentence can therefore conceal a wrong customer lookup, an unnecessary write attempt, or a skipped approval. Public material available through July 11, 2026 shows OpenAI, Anthropic, Google Cloud, and AWS all building evaluation and observability surfaces that include tool use and execution paths alongside answer quality.</p>
   <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-    <article class="stat-card"><p class="stat-value">28</p><p class="stat-title">Primary sources</p><p class="stat-note">Official documentation and papers avoid relying on a single vendor’s framing.</p></article>
+    <article class="stat-card"><p class="stat-value">4</p><p class="stat-title">Provider tracks</p><p class="stat-note">OpenAI, Anthropic, Google Cloud, and AWS are compared through the same lens.</p></article>
     <article class="stat-card"><p class="stat-value">3</p><p class="stat-title">Quality contracts</p><p class="stat-note">Measure the final answer, execution path, and operational safety separately.</p></article>
     <article class="stat-card"><p class="stat-value">Trace</p><p class="stat-title">Shared evidence</p><p class="stat-note">Tool calls and intermediate results connect evaluation with incident investigation.</p></article>
     <article class="stat-card"><p class="stat-value">Not one score</p><p class="stat-title">Decision surface</p><p class="stat-note">The goal is to identify which contract regressed, not to optimize a composite number.</p></article>
@@ -24,6 +24,17 @@
     <article class="comparison-card"><h3>1. Final-answer contract</h3><p>Measure whether the user-facing result is accurate and meets the required format, evidence, and tone. Reference comparisons, deterministic checks, human review, and rubric-based model judging can all contribute. The central question is what the agent returned.</p></article>
     <article class="comparison-card"><h3>2. Execution-path contract</h3><p>Measure whether the agent selected appropriate tools, used them in the right order, avoided unnecessary actions, and stopped or recovered correctly after failure. In a booking change, identity verification, availability lookup, proposal, approval, and write should be visible as a sequence.</p></article>
     <article class="comparison-card"><h3>3. Operational-safety contract</h3><p>Measure whether latency, error rate, cost, guardrail trips, approval waits, and sensitive-data capture stay within an acceptable range. Passing an offline answer and path test is not a shipping guarantee if production shows loops or attempts beyond the agent’s authority.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Evaluation Card</p>
+  <h2>Write the success conditions and forbidden actions into one case</h2>
+  <p>To make the three contracts operational, record what counts as success and what must not happen on the same card for each case. The example below uses a hypothetical booking change; it is not a measurement from a particular service. Its purpose is to show a repeatable format for detecting regressions that a final-answer score would hide.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Input and result contract</h3><p><strong>Fixture:</strong> The verified customer requests a date change.<br><strong>Acceptable result:</strong> Return the new date, price, and supporting record accurately.<br><strong>Evidence:</strong> The source record and response diff.</p></article>
+    <article class="comparison-card"><h3>Execution-path contract</h3><p><strong>Required:</strong> Verify identity → check availability → obtain approval → write the change.<br><strong>Forbidden:</strong> Write before approval, read an unauthorized record, or retry without a reason.<br><strong>Evidence:</strong> Tool names, arguments, order, and stop reason.</p></article>
+    <article class="comparison-card"><h3>Operational-safety contract</h3><p><strong>Thresholds:</strong> Set limits for latency, cost, retries, and approval wait time.<br><strong>Stop condition:</strong> Halt external action on a permission error or mismatch.<br><strong>Evidence:</strong> Traces, failure rate, and the scope of sensitive-data capture.</p></article>
   </div>
 </section>
 

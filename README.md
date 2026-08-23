@@ -1,6 +1,6 @@
 # Auto Research Digest
 
-`Auto Research Digest` は、LLM、AI、AI Agent の技術動向、導入論点、実務ユースケースを、一次情報ベースでまとめて公開する静的サイトです。
+`Auto Research Digest` は、LLM、AI、AI Agent の導入判断を、一次情報と論文から整理して公開するリサーチサイトです。
 
 公開サイト:
 
