@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 19 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 05:06:06 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Beyond AI agents: HACW turns human decisions into rules for future work</title>
@@ -27,8 +27,8 @@
       <title>AI agent evaluation now has to measure the execution path, not just the answer</title>
       <link>https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</guid>
-      <pubDate>Sat, 11 Jul 2026 10:37:51 GMT</pubDate>
-      <description>Primary sources explain why AI-agent evaluation now includes execution paths, traces, and production monitoring alongside answer quality.</description>
+      <pubDate>Sun, 23 Aug 2026 05:06:06 GMT</pubDate>
+      <description>A primary-source framework for evaluating AI agents through three contracts: answers, execution paths, and operational safety.</description>
       <category>AI Agents</category>
     </item>
     <item>
