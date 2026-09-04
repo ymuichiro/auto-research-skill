@@ -2,10 +2,19 @@
 
 `Auto Research Digest` は、LLM、AI、AI Agent の導入判断を、一次情報と論文から整理して公開するリサーチサイトです。
 
+Auto Research Digest is a public research publication about adopting, evaluating, and operating LLMs, generative AI, and AI agents. The site separates source-backed facts from editorial interpretation and keeps the Japanese and English editions aligned.
+
 公開サイト:
 
 - [https://research.notelligent.app/](https://research.notelligent.app/)
 - 移行前 URL: [https://ymuichiro.github.io/auto-research-skill/](https://ymuichiro.github.io/auto-research-skill/)
+
+主要な公開ページ:
+
+- [AI Agents トピック](https://research.notelligent.app/topics/ai-agents/)
+- [AIエージェント評価の記事](https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html)
+- [このサイトについて](https://research.notelligent.app/about.html)
+- [調査・編集方針](https://research.notelligent.app/editorial-policy.html)
 
 ## 目的
 
