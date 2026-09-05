@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>APIのない業務システムをAIエージェントに操作させる条件 | Auto Research Digest</title>
-    <meta name="description" content="APIのない業務画面をAIエージェントに操作させるための隔離、権限、承認、途中停止、検証条件を整理する。">
+    <title>APIなしの業務アプリをAIで操作する際の検証 | Auto Research Digest</title>
+    <meta name="description" content="APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="APIのない業務システムをAIエージェントに操作させる条件 | Auto Research Digest">
-    <meta property="og:description" content="APIのない業務画面をAIエージェントに操作させるための隔離、権限、承認、途中停止、検証条件を整理する。">
+    <meta property="og:title" content="APIなしの業務アプリをAIで操作する際の検証 | Auto Research Digest">
+    <meta property="og:description" content="APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。">
     <meta property="og:url" content="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="APIのない業務システムをAIエージェントに操作させる条件">
+    <meta property="og:image:alt" content="APIなしの業務アプリをAIで操作する際の検証">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="APIのない業務システムをAIエージェントに操作させる条件 | Auto Research Digest">
-    <meta name="twitter:description" content="APIのない業務画面をAIエージェントに操作させるための隔離、権限、承認、途中停止、検証条件を整理する。">
+    <meta name="twitter:title" content="APIなしの業務アプリをAIで操作する際の検証 | Auto Research Digest">
+    <meta name="twitter:description" content="APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="APIのない業務システムをAIエージェントに操作させる条件">
+    <meta name="twitter:image:alt" content="APIなしの業務アプリをAIで操作する際の検証">
     <link rel="canonical" href="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-06-30T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-07-12T00:03:59+09:00">
+    <meta property="article:modified_time" content="2026-09-05T19:47:21+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Computer Use">
@@ -51,8 +51,8 @@
     <meta property="article:tag" content="Human Approval">
     <meta property="article:tag" content="Legacy Systems">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"APIのない業務システムをAIエージェントに操作させる条件","description":"APIのない業務画面をAIエージェントに操作させるための隔離、権限、承認、途中停止、検証条件を整理する。","datePublished":"2026-06-30T00:00:00+09:00","dateModified":"2026-07-12T00:03:59+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"APIのない業務システムをAIエージェントに操作させる条件","item":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"APIのない業務アプリで、AIの入力と保存結果を確かめる","description":"APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。","datePublished":"2026-06-30T00:00:00+09:00","dateModified":"2026-09-05T19:47:21+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"APIのない業務アプリで、AIの入力と保存結果を確かめる","item":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,8 +68,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">APIのない業務システムをAIエージェントに操作させる条件</h1>
-          <p class="hero-copy">2026年6月30日までの Amazon WorkSpaces for AI agents、Windows 365 for Agents、Microsoft Copilot Studio / Foundry、OpenAI、Anthropic の一次情報と画面操作エージェントの評価研究を重ねると、APIのない業務システムをAIエージェントに操作させるための具体的な条件が見えてくる。必要なのは画面認識モデルだけではない。隔離された作業環境、担当者または専用ID、対象アプリとネットワークの制限、有人・無人実行の選択、重要操作前の承認、途中停止、再現可能な初期状態、実行後の照合がそろって初めて、保険金請求、患者情報更新、取引照合、請求書入力などを本番候補として評価できる。</p>
+          <h1 class="hero-title">APIのない業務アプリで、AIの入力と保存結果を確かめる</h1>
+          <p class="hero-copy">画面を操作できても、保存が成功したか分からなければ再試行で重複を作る恐れがある。請求書入力の想定例を通じ、管理された実行環境、入力前後の照合、保存応答が不明なときの停止を説明する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,12 +77,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
         <time class="mono-note" datetime="2026-06-30">2026年6月30日</time>
-        <time class="mono-note" datetime="2026-07-12">最終更新 2026年7月12日</time>
+        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=API%E3%81%AE%E3%81%AA%E3%81%84%E6%A5%AD%E5%8B%99%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%82%92AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AB%E6%93%8D%E4%BD%9C%E3%81%95%E3%81%9B%E3%82%8B%E6%9D%A1%E4%BB%B6&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-30-agents-operate-legacy-desktop-workflows.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=API%E3%81%AE%E3%81%AA%E3%81%84%E6%A5%AD%E5%8B%99%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E3%80%81AI%E3%81%AE%E5%85%A5%E5%8A%9B%E3%81%A8%E4%BF%9D%E5%AD%98%E7%B5%90%E6%9E%9C%E3%82%92%E7%A2%BA%E3%81%8B%E3%82%81%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-30-agents-operate-legacy-desktop-workflows.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="APIのない業務システムをAIエージェントに操作させる条件"
-      data-share-text="APIのない業務システムをAIエージェントに操作させる条件"
+      data-share-title="APIのない業務アプリで、AIの入力と保存結果を確かめる"
+      data-share-text="APIのない業務アプリで、AIの入力と保存結果を確かめる"
       data-share-url="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="APIのない業務システムをAIエージェントに操作させる条件"
+      data-share-title="APIのない業務アプリで、AIの入力と保存結果を確かめる"
       data-share-url="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,98 +126,57 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Snapshot</p>
-  <h2>APIがないから画面操作を使う。その判断は、自動化の終点ではなく審査の始点である</h2>
-  <p>
-    企業の重要業務には、APIがない、利用できるAPIが不足している、改修が高額である、といった理由で人が画面を操作し続けているシステムが多い。
-    2026年6月30日までの Amazon WorkSpaces for AI agents、Windows 365 for Agents、Microsoft Copilot Studio / Foundry、OpenAI、Anthropic の公開資料では、AIエージェントがブラウザやデスクトップアプリを操作する機能が、隔離された作業環境、企業ID、途中介入、監査と結び付けられている。
-    画面をクリックできることと、本番業務を任せられることの間には、明確な設計差がある。
-  </p>
-  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-    <article class="stat-card"><p class="stat-value">24</p><p class="stat-title">Primary sources</p><p class="stat-note">公式資料と画面操作エージェントの評価論文を横断した。</p></article>
-    <article class="stat-card"><p class="stat-value">2 modes</p><p class="stat-title">Execution model</p><p class="stat-note">無人実行と有人実行を業務ごとに選ぶ。</p></article>
-    <article class="stat-card"><p class="stat-value">7 controls</p><p class="stat-title">Production minimum</p><p class="stat-note">隔離、身元、制限、承認、停止、初期化、照合をそろえる。</p></article>
-    <article class="stat-card"><p class="stat-value">20.6%</p><p class="stat-title">Long-horizon caution</p><p class="stat-note">OSWorld 2.0の主要設定で、最良モデルでも長時間課題の完了率は限定的だった。</p></article>
-  </div>
+<h2>保存できたか分からない画面操作</h2>
+<p>APIのない業務アプリでも、画面を読み、入力欄を選び、保存ボタンを押す方式なら自動化を試せる。
+Anthropicが2024年10月に公開したcomputer useも、画面を見る、カーソルを動かす、クリックする、文字を入力する操作を提供する一方、実験的で誤りを伴う機能だと説明している。<a href="https://www.anthropic.com/news/3-5-models-and-computer-use">Anthropicの発表</a></p>
+<p>問題は入力できるかだけではない。
+保存後に画面が固まった場合、保存は成功したのか、それとも再入力が必要なのか。
+判断できないまま同じ操作を繰り返すと、伝票を二重に作る可能性がある。
+本稿では請求書入力を想定例に、保存の前後を確認できる単位で画面操作を設計する方法を考える。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Changed</p>
-  <h2>6月末の変化は、computer use が「モデル機能」から「管理された作業場所」へ広がったことにある</h2>
-  <p>
-    Amazon WorkSpaces for AI agents は、ERP、CRM、メインフレーム、独自アプリなどを、既存のID、ネットワーク分離、順守境界の内側で操作する管理環境として一般提供された。
-    MicrosoftはWindows 365 for Agentsで、エージェント用Cloud PCの貸出・返却、Entra IDとIntuneによる管理、有人・無人実行、リアルタイム介入を明示する。
-    OpenAIのCodex Remoteは、実行環境を外部公開せずにスマートフォンから出力、差分、試験結果、承認を確認できる設計を示し、AnthropicとOpenAIのcomputer-use資料は、画面操作がプロンプトインジェクションや意図しない操作を伴うことを警告している。
-  </p>
-  <div class="callout-panel mt-6"><p class="callout-title">今週の主論点</p><p>APIがない業務を操作できること自体は新しい出発点にすぎない。誰の権限で、どの作業環境を、いつ人が止められる状態で使うかが、導入可否を決める。</p></div>
+<h2>管理された作業環境が担う部分</h2>
+<p>AWSは2026年6月30日、Amazon WorkSpaces for AI agentsの一般提供を発表した。
+既存のID管理とネットワーク分離を持つ管理デスクトップで、エージェントが業務アプリを操作する構成である。
+実行中の活動を確認し、アクセスを取り消す機能も説明されている。<a href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/">AWSの発表</a></p>
+<p>これは、画面操作モデルに与える場所と権限を管理する仕組みである。
+請求額を正しく読み取ることや、保存済みの伝票を見分けることまで保証する機能ではない。
+請求書入力に使うなら、管理者は必要なアプリと保存先だけを許可し、業務担当者は対象伝票と完了条件を定める。
+実行環境の制限と業務結果の検査には、別々の役割がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Seven Conditions</p>
-  <h2>本番候補にする前に、少なくとも7つの条件を決める</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>1. 隔離された作業環境</h3><p>人の普段使いのPCではなく、作業ごとに初期化または再現できるCloud PC、仮想マシン、コンテナを使う。誤操作や不正な画面内容の影響範囲を限定する。</p></article>
-    <article class="comparison-card"><h3>2. 専用の身元</h3><p>誰の代行かを識別しつつ、エージェント専用IDまたは短期資格情報で操作する。共有アカウントでは、操作主体と承認者を追跡できない。</p></article>
-    <article class="comparison-card"><h3>3. アプリと通信先の制限</h3><p>利用できるアプリ、URL、ファイル領域、クリップボード、外部通信を業務に必要な範囲へ絞る。画面操作が可能でも、任意サイトへの移動を許す必要はない。</p></article>
-    <article class="comparison-card"><h3>4. 有人・無人実行の選択</h3><p>定型で低リスクの処理は無人、高額取引、個人情報、法的判断を含む処理は有人または混合型にする。自律度を製品全体で一つに決めない。</p></article>
-    <article class="comparison-card"><h3>5. 承認と途中停止</h3><p>送信、確定、削除、支払、患者情報更新などの直前に承認を置き、異常時は実行中でも資格情報やセッションを取り消せるようにする。</p></article>
-    <article class="comparison-card"><h3>6. 再現可能な初期状態</h3><p>画面配置、アプリ版、ログイン状態、入力資料を固定または記録する。再試行のたびに状態が変わると、失敗原因も評価結果も比較できない。</p></article>
-    <article class="comparison-card"><h3>7. 実行後の照合</h3><p>「完了しました」という自己申告ではなく、対象システムを再読込し、変更された値、作成された記録、送信結果を決定論的に確認する。</p></article>
-  </div>
+<h2>長い操作の成績を読む際の条件</h2>
+<p>OSWorld 2.0の初版は、108件の長時間の画面操作課題を評価する。
+平均318回というツール呼び出し数は、Claude Opus 4.7のmaximum thinking設定による値であり、業務一般に必要な回数ではない。
+主要な完全完了指標では、500ステップ上限でClaude Opus 4.8のmaximum thinkingと一括ツール呼び出しを使った設定が20.6%だった。<a href="https://arxiv.org/abs/2606.29537v1">OSWorld 2.0初版</a></p>
+<p>論文は、制約を忘れる、途中で届いた情報を逃す、確認を省くといった失敗を挙げている。
+この結果を自社の請求書入力の成功率に読み替えることはできない。
+本稿が設計上の注意として採るのは、クリック単体の正否に加えて、途中の条件と保存結果を確認する必要があるという点である。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Execution Modes</p>
-  <h2>無人実行と有人実行は、利便性ではなく失敗時の影響で選ぶ</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>無人実行に向く業務</h3><ul class="bullet-list"><li>入力形式と完了条件が固定された低リスクの照合</li><li>失敗しても自動で巻き戻せる定期処理</li><li>読取中心の情報収集や報告書作成</li><li>件数が多く、人の待ち時間が律速になる業務</li></ul></article>
-    <article class="comparison-card"><h3>有人実行に向く業務</h3><ul class="bullet-list"><li>金銭、医療、法務、雇用に影響する更新</li><li>画面上の情報だけでは判断根拠が不足する処理</li><li>曖昧な入力や複数候補が頻繁に発生する業務</li><li>一度確定すると取消や復旧が難しい操作</li></ul></article>
-    <article class="comparison-card"><h3>混合型の基本形</h3><p>エージェントが無人で資料収集と入力候補作成を行い、人が対象、差分、根拠を確認し、その後の書き込みを再びエージェントが実行する。重要な境界だけを人に戻す。</p></article>
-  </div>
+<h2>請求書入力を三つの区間で確認する</h2>
+<p>次は導入事例ではなく、保存の不確実さを扱う想定例である。
+一つのアプリで取引先、請求番号、金額を入力するとし、まず実データを変更しない検証環境で試す。</p>
+<ol>
+<li>入力前：対象会社と請求番号を確認し、同じ請求がすでに登録されていないか調べる。画面や資料から対象を一意に決められなければ停止する。</li>
+<li>保存前：入力欄の値を請求書と照合する。最初の試行では担当者が差分を確認し、保存を許可する。</li>
+<li>保存後：作成された伝票を開き直し、番号、取引先、金額を照合する。利用できるなら帳票や出力データでも確認する。</li>
+</ol>
+<p>同じ画面認識だけで入力と確認を行うと、同じ誤認を繰り返す可能性が残る。
+帳票など別の確認手段がないなら、その制約を踏まえて人の確認を残す。
+画面に成功と表示されたことだけを、正しい伝票が作られた証拠にはしない。</p>
+<p>保存応答が不明な場合は、同じ請求番号を検索して結果を確かめる。
+それでも保存の有無を決められなければ、再保存せず、入力済みの項目と最後に確認できた画面を担当者へ渡す。
+初期状態へ戻す際も、デスクトップを初期化すれば業務データの書き込みまで取り消せるとは考えない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Workflows</p>
-  <h2>導入可否は「何をクリックするか」ではなく、どこで確定操作が起きるかで分ける</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>保険金請求</h3><p>申請書と添付を開き、契約番号を照合し、入力候補を作るところまでは自動化しやすい。支払区分や金額の確定は、根拠資料と差分を人に提示してから実行する。</p></article>
-    <article class="comparison-card"><h3>患者情報更新</h3><p>予約変更や連絡先修正と、診断・投薬に関係する更新を分ける。画面の患者IDと依頼元を再確認し、臨床判断を含む変更は対象外または専門職承認とする。</p></article>
-    <article class="comparison-card"><h3>取引照合</h3><p>複数画面から数量、価格、期日を収集し、不一致を一覧化する。取引の訂正や確定は、対象件数と金額に応じた承認段階を通す。</p></article>
-    <article class="comparison-card"><h3>請求書入力</h3><p>請求書から取引先、金額、税、支払期日を抽出して入力する。重複請求、取引先変更、閾値超過を検出した場合は保存前に停止する。</p></article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Research Evidence</p>
-  <h2>長時間の画面操作では、局所的なクリック精度より、状態管理と検証の失敗が支配的になる</h2>
-  <p>
-    WebArena、VisualWebArena、WorkArena、OSWorld、AndroidWorldは、実際に近いWeb・デスクトップ・モバイル環境で、エージェントが人より大きく低い完了率を示すこと、画面変化や長い操作列に弱いことを報告してきた。
-    6月28日公開のOSWorld 2.0は、平均318回のツール呼び出しを要する長時間課題を含み、主要設定の最良モデルでも完全完了率は20.6%だった。
-    失敗は基本的なクリックだけでなく、途中で届く情報、暗黙状態、確認不足、推測による続行に集中している。
-  </p>
-  <p class="mt-4">この結果から読み取れるのは、短いデモの成功率をそのまま本番の自動化率へ置き換えられないということである。業務を短い検証可能な区間へ分割し、区間ごとに状態を確認する方が現実的である。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Evaluation</p>
-  <h2>評価セットはスクリーンショットではなく、初期状態と最終状態を持つ</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>完了状態</h3><p>対象システムの値、作成レコード、送信履歴を直接検査する。画面上の完了メッセージだけを正解にしない。</p></article>
-    <article class="comparison-card"><h3>禁止操作</h3><p>承認前の保存、対象外顧客への移動、外部サイトへの送信、機密ファイルの持出しが一度でも発生していないかを確認する。</p></article>
-    <article class="comparison-card"><h3>復旧能力</h3><p>セッション切断、ダイアログ表示、画面配置変更、資格情報期限切れから、安全に停止または再開できるかを試す。</p></article>
-    <article class="comparison-card"><h3>人への戻し方</h3><p>どの判断が必要か、現在の状態、実行済み操作、残りの選択肢を短く提示できるかを測る。単なる「失敗しました」では不十分である。</p></article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Rollout</p>
-  <h2>最初の本番化では、1業務・1環境・1確定操作に範囲を絞る</h2>
-  <p>
-    導入初期は、対象アプリを一つにし、入力資料を固定し、確定操作を一種類に限定する。
-    最初は読取と入力候補作成だけを無人化し、保存前に人が確認する。実行ログと最終状態の照合が安定した後に、低リスクの保存を自動化する。
-    画面変更への耐性を高めるために権限や対象業務を広げるのではなく、失敗時の停止と再現性を改善することが先になる。
-  </p>
-  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>APIのない業務システムをAIエージェントに触らせる条件は、画面を操作できることではない。隔離された場所で、限定された身元と権限を使い、人が途中で止められ、最終状態を照合できることである。</p></div>
+<h2>無人化の範囲を結果から決める</h2>
+<p>試験には通常入力に加えて、重複請求、画面配置の変更、期限切れのログイン、保存直後の切断を含める。
+正しく登録できた件数と、重複や誤登録、確認不能で止まった件数を分けて記録する。
+人の確認時間も測り、手入力より負担が増えていないか比較する。</p>
+<p>独立した照合が安定している区間から無人化を検討し、確認できない操作は人に残す。
+管理環境と画面操作機能が利用できても、対象アプリの保存結果を検査できなければ、この請求書処理を無人で完了させる根拠は足りない。
+導入範囲は、製品がクリックできる対象の広さより、実際に結果を確かめられた作業から決める。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -306,106 +265,6 @@
               <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/automate-web-desktop-apps-computer-use" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Automate web and desktop apps with computer use</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/power-platform/release-plan/2026wave1/microsoft-copilot-studio/automate-web-desktop-apps-computer-use</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/computer-use" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Computer use tool for Foundry agents</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/computer-use</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-copilot-studio/faqs-computer-use" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Computer use FAQ</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-copilot-studio/faqs-computer-use</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/windows-365/agents/introduction-windows-365-for-agents" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: What is Windows 365 for Agents?</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/windows-365/agents/introduction-windows-365-for-agents</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/windows-365/agents/attended-unattended" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Attended vs. unattended execution</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/windows-365/agents/attended-unattended</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/windows-365/agents/w365a-availability-a365" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Windows 365 for Agents in Agent 365</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/windows-365/agents/w365a-availability-a365</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/work-with-codex-from-anywhere/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年5月14日</span>
-              </div>
-              <p class="source-title">OpenAI: Work with Codex from anywhere</p>
-              <p class="source-url">https://openai.com/index/work-with-codex-from-anywhere/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/running-codex-safely/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年5月8日</span>
-              </div>
-              <p class="source-title">OpenAI: Running Codex safely at OpenAI</p>
-              <p class="source-url">https://openai.com/index/running-codex-safely/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://help.openai.com/en/articles/6825453-chatgpt-release-notes" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">OpenAI Help Center: ChatGPT release notes</p>
-              <p class="source-url">https://help.openai.com/en/articles/6825453-chatgpt-release-notes</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://platform.openai.com/docs/guides/tools-computer-use" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">OpenAI API: Computer use</p>
-              <p class="source-url">https://platform.openai.com/docs/guides/tools-computer-use</p>
-            </div>
-            <span class="source-action">開く</span>
           </a><a class="source-row" href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -416,124 +275,14 @@
               <p class="source-url">https://www.anthropic.com/news/3-5-models-and-computer-use</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.anthropic.com/en/docs/build-with-claude/computer-use" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Anthropic docs: Computer use tool</p>
-              <p class="source-url">https://docs.anthropic.com/en/docs/build-with-claude/computer-use</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://privacy.anthropic.com/en/articles/10030352-what-personal-data-will-be-processed-by-computer-use" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Anthropic Privacy Center: Data processed by computer use</p>
-              <p class="source-url">https://privacy.anthropic.com/en/articles/10030352-what-personal-data-will-be-processed-by-computer-use</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2606.29537" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2606.29537v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2026年6月28日</span>
               </div>
               <p class="source-title">OSWorld 2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2606.29537</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年4月11日</span>
-              </div>
-              <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2405.14573" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年5月23日</span>
-              </div>
-              <p class="source-title">AndroidWorld: A Dynamic Benchmarking Environment for Autonomous Agents</p>
-              <p class="source-url">https://arxiv.org/abs/2405.14573</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2307.13854" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2023年7月25日</span>
-              </div>
-              <p class="source-title">WebArena: A Realistic Web Environment for Building Autonomous Agents</p>
-              <p class="source-url">https://arxiv.org/abs/2307.13854</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2401.13649" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年1月24日</span>
-              </div>
-              <p class="source-title">VisualWebArena: Evaluating Multimodal Agents on Realistic Visual Web Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2401.13649</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2403.07718" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年3月12日</span>
-              </div>
-              <p class="source-title">WorkArena: How Capable Are Web Agents at Solving Common Knowledge Work Tasks?</p>
-              <p class="source-url">https://arxiv.org/abs/2403.07718</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2306.06070" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2023年6月9日</span>
-              </div>
-              <p class="source-title">Mind2Web: Towards a Generalist Agent for the Web</p>
-              <p class="source-url">https://arxiv.org/abs/2306.06070</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2402.17553" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年2月27日</span>
-              </div>
-              <p class="source-title">OmniAct: A Dataset and Benchmark for Enabling Multimodal Generalist Autonomous Agents</p>
-              <p class="source-url">https://arxiv.org/abs/2402.17553</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2401.13919" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年1月25日</span>
-              </div>
-              <p class="source-title">WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models</p>
-              <p class="source-url">https://arxiv.org/abs/2401.13919</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2410.08164" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年10月10日</span>
-              </div>
-              <p class="source-title">Agent S: An Open Agentic Framework that Uses Computers Like a Human</p>
-              <p class="source-url">https://arxiv.org/abs/2410.08164</p>
+              <p class="source-url">https://arxiv.org/abs/2606.29537v1</p>
             </div>
             <span class="source-action">開く</span>
           </a>

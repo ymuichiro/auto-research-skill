@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:44:30 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 10:47:21 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -32,11 +32,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>APIのない業務システムをAIエージェントに操作させる条件</title>
+      <title>APIのない業務アプリで、AIの入力と保存結果を確かめる</title>
       <link>https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html</guid>
-      <pubDate>Sat, 11 Jul 2026 15:03:59 GMT</pubDate>
-      <description>APIのない業務画面をAIエージェントに操作させるための隔離、権限、承認、途中停止、検証条件を整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 10:47:21 GMT</pubDate>
+      <description>APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。</description>
       <category>AI Workflows</category>
     </item>
     <item>
