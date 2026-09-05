@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:26:33 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 10:41:11 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -16,11 +16,11 @@
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>AIとの共同作業の起点は、完璧な指示ではなく最初の成果物である</title>
+      <title>希望が定まらない仕事で、確認質問とAIの試作品を使い分ける</title>
       <link>https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html</guid>
-      <pubDate>Sun, 02 Aug 2026 17:04:51 GMT</pubDate>
-      <description>AIに完璧な指示を書くより、小さな試作品を作り、期待との差を伝えて直す方がよい場面を、具体例と研究結果から説明する。</description>
+      <pubDate>Sat, 05 Sep 2026 10:41:11 GMT</pubDate>
+      <description>何を確認し、どんなAIの試作品を作ればよいか。研究の評価条件と記事構成の例から、要件確認、修正、事実確認を使い分ける。</description>
       <category>AI Workflows</category>
     </item>
     <item>

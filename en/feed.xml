@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:26:33 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 10:41:11 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -16,11 +16,11 @@
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>The starting point for AI collaboration is a first artifact, not a perfect prompt</title>
+      <title>When to clarify a request and when to show an AI prototype</title>
       <link>https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html</guid>
-      <pubDate>Sun, 02 Aug 2026 17:04:51 GMT</pubDate>
-      <description>A concrete guide to using small prototypes, specific feedback, and independent checks instead of relying on one perfect AI prompt.</description>
+      <pubDate>Sat, 05 Sep 2026 10:41:11 GMT</pubDate>
+      <description>Use questions for missing requirements and prototypes for emerging preferences. Research and an outline example explain revision and verification.</description>
       <category>AI Workflows</category>
     </item>
     <item>
