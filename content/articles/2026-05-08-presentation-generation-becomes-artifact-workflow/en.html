@@ -1,0 +1,22 @@
+<section class="report-section">
+<h2>Build a deck that can accept next week's numbers</h2>
+<p>An AI-generated slide can look finished while remaining awkward to revise. Consider a hypothetical weekly report: its owner needs to replace the sales figures and update one chart. If the entire page is a single image, selecting the number and editing it as text is unavailable. The owner must change the source and export again, or edit the image.</p>
+<p>Keeping the title as text and the chart as a chart object with data allows separate update steps. My proposal is to decide who will revise which elements, and in which application, before choosing a generation service. Testing the next revision alongside the initial appearance provides a more useful way to judge the delivery format.</p>
+</section>
+<section class="report-section">
+<h2>Images, SVGs, and slide objects offer different edits</h2>
+<p>A background illustration may work perfectly well as one image. Baking frequently changing amounts and notes into that background, however, makes a text correction require image rework. A slide can separate fixed decoration from information that will change.</p>
+<p>An SVG can preserve sharp outlines when enlarged, but that does not turn its contents into PowerPoint text or chart objects. Microsoft's documentation distinguishes resizing or recoloring a whole SVG from converting it to shapes to edit individual parts; conversion also has environment requirements. The <a href="https://support.microsoft.com/en-us/office/graphics-visuals/edit-svg-images-in-microsoft-365">SVG editing guide</a> is a reason to test the required edit in the recipient's application.</p>
+<p>Individual slide objects offer another route. The <a href="https://gitbrent.github.io/PptxGenJS/docs/api-charts/">PptxGenJS chart API</a> adds charts from series data and options, separately from inserting images. Connecting data to its display this way is a candidate for recurring charts. A successful API call still does not establish how the output will render or behave during editing in the destination application.</p>
+</section>
+<section class="report-section">
+<h2>Check the receiving application, not just the file extension</h2>
+<p>The editing environment needs to be specified along with the file format. Google Slides API's <a href="https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateImageRequest">CreateImageRequest</a> accepts PNG, JPEG, and GIF images; it is not a request for inserting SVG directly. A PowerPoint SVG insertion procedure cannot simply be transferred to this Slides API operation.</p>
+<p>For a weekly report maintained in Slides, choose whether headings and notes will be editable text or whether image replacement will be the update procedure. If the workflow passes through PPTX, inspect wrapping, fonts, charts, and positioning after conversion. Successfully saving a PPTX does not establish that its recipient can perform the intended revision.</p>
+</section>
+<section class="report-section">
+<h2>Evaluate the generated deck and the next revision separately</h2>
+<p><a href="https://arxiv.org/abs/2501.03936v3">PPTAgent</a> proposes analyzing reference decks and generating editing actions, with evaluation across content, design, and coherence. Its problem framing is useful: correct prose alone does not establish presentation quality. Its evaluation does not guarantee compliance with a particular company's template or the time an employee will need for revisions.</p>
+<p>For practical acceptance, I recommend a small revision task in addition to reviewing the rendered slides. For the weekly report, change one source value, update its chart, correct a note, and reopen the deck in the recipient's application. Inspect visual changes and numerical consistency, and check whether the owner can make the edit without returning to the generation environment.</p>
+<p>A deck regenerated for every use may benefit more from a reproducible generation procedure than from individual editing. A deck frequently revised by its recipient during meetings gives editable elements greater value. The deciding factor is the revision the document will actually undergo.</p>
+</section>
