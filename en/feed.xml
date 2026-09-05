@@ -5,14 +5,14 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 23 Aug 2026 05:06:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 10:26:33 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Beyond AI agents: HACW turns human decisions into rules for future work</title>
+      <title>When can a human approval become a rule for future agent tasks?</title>
       <link>https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</guid>
-      <pubDate>Sun, 16 Aug 2026 04:41:05 GMT</pubDate>
-      <description>HACW records human decisions and turns only validated decisions into business rules that future tasks can execute without another review.</description>
+      <pubDate>Sat, 05 Sep 2026 10:26:33 GMT</pubDate>
+      <description>An invoice example explains when AI agents can reuse human approvals, with explicit conditions, exception tests, rule ownership, and expiry.</description>
       <category>AI Strategy</category>
     </item>
     <item>

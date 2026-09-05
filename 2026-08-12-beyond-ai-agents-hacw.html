@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AIエージェントの先にあるHACWとは | Auto Research Digest</title>
-    <meta name="description" content="HACWを、人の判断を記録し、検証できた判断だけを次回から人に確認せず実行できる業務ルールへ変える環境として整理する。">
+    <title>AIの承認を業務ルールへ変える条件とHACW | Auto Research Digest</title>
+    <meta name="description" content="AIへの一回の承認を次回の業務ルールへ変える条件を、請求書の例で説明。判断記録、適用条件、例外テスト、ルールの承認と失効を整理する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AIエージェントの先にあるHACWとは | Auto Research Digest">
-    <meta property="og:description" content="HACWを、人の判断を記録し、検証できた判断だけを次回から人に確認せず実行できる業務ルールへ変える環境として整理する。">
+    <meta property="og:title" content="AIの承認を業務ルールへ変える条件とHACW | Auto Research Digest">
+    <meta property="og:description" content="AIへの一回の承認を次回の業務ルールへ変える条件を、請求書の例で説明。判断記録、適用条件、例外テスト、ルールの承認と失効を整理する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AIエージェントの先にあるHACWとは">
+    <meta property="og:image:alt" content="AIの承認を業務ルールへ変える条件とHACW">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIエージェントの先にあるHACWとは | Auto Research Digest">
-    <meta name="twitter:description" content="HACWを、人の判断を記録し、検証できた判断だけを次回から人に確認せず実行できる業務ルールへ変える環境として整理する。">
+    <meta name="twitter:title" content="AIの承認を業務ルールへ変える条件とHACW | Auto Research Digest">
+    <meta name="twitter:description" content="AIへの一回の承認を次回の業務ルールへ変える条件を、請求書の例で説明。判断記録、適用条件、例外テスト、ルールの承認と失効を整理する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AIエージェントの先にあるHACWとは">
+    <meta name="twitter:image:alt" content="AIの承認を業務ルールへ変える条件とHACW">
     <link rel="canonical" href="https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-08-12T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-08-16T13:41:05+09:00">
+    <meta property="article:modified_time" content="2026-09-05T19:26:33+09:00">
     <meta property="article:section" content="AI Strategy">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Human-AI Collaboration">
@@ -52,8 +52,8 @@
     <meta property="article:tag" content="Orchestration">
     <meta property="article:tag" content="AI Governance">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの先にあるHACW。人の判断を次回の業務ルールへ変える","description":"HACWを、人の判断を記録し、検証できた判断だけを次回から人に確認せず実行できる業務ルールへ変える環境として整理する。","datePublished":"2026-08-12T00:00:00+09:00","dateModified":"2026-08-16T13:41:05+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"AI Agent, Human-AI Collaboration, HACW, AI Workspace, Orchestration, AI Governance, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/topics/ai-strategy/"},{"@type":"ListItem","position":4,"name":"AIエージェントの先にあるHACW。人の判断を次回の業務ルールへ変える","item":"https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"人の承認を次回の自動処理に再利用するには何が必要か","description":"AIへの一回の承認を次回の業務ルールへ変える条件を、請求書の例で説明。判断記録、適用条件、例外テスト、ルールの承認と失効を整理する。","datePublished":"2026-08-12T00:00:00+09:00","dateModified":"2026-09-05T19:26:33+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"AI Agent, Human-AI Collaboration, HACW, AI Workspace, Orchestration, AI Governance, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/topics/ai-strategy/"},{"@type":"ListItem","position":4,"name":"人の承認を次回の自動処理に再利用するには何が必要か","item":"https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -69,8 +69,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AIエージェントの先にあるHACW。人の判断を次回の業務ルールへ変える</h1>
-          <p class="hero-copy">Human-Agent Collaboration Workspace（HACW）は、目的、制約、AIの実行結果、根拠、業務別の検査結果、人の判断を、人とAIが引き継げる共有記録へ残し、再利用できる判断だけを次回の自動処理ルールへ変える業務環境である。本稿ではHACWを公開情報から導く作業仮説として、AIアシスタント、エージェンティックAI、エージェント作成基盤、統制基盤との違いを整理する。判断記録は参考情報として保存するが、それだけで実行を許可しない。適用条件をテストできた判断だけをタスク契約、評価器、権限ポリシーへ変え、目的、価値の衝突、交渉、前例のない例外は人に残す。</p>
+          <h1 class="hero-title">人の承認を次回の自動処理に再利用するには何が必要か</h1>
+          <p class="hero-copy">一回の承認を次回にも使うには、判断の理由だけでなく適用条件を定め、例外を検査し、責任者がルールを承認する必要がある。請求書の想定例と承認、ポリシー、記憶の仕組みを比較し、HACWという設計案の成立条件を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -78,7 +78,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-strategy/">AI Strategy</a>
         <time class="mono-note" datetime="2026-08-12">2026年8月12日</time>
-        <time class="mono-note" datetime="2026-08-16">最終更新 2026年8月16日</time>
+        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">HACW</span><span class="meta-chip">AI Workspace</span><span class="meta-chip">Orchestration</span><span class="meta-chip">AI Governance</span><span class="meta-chip">Evaluation</span></div>
     </section>
@@ -91,9 +91,9 @@
       <div class="briefing-summary-main">
         <div class="meta-row">
           <a class="meta-pill is-accent article-topic-link" href="/topics/ai-strategy/">AI Strategy</a>
-          <span class="mono-note">根拠数: 38</span>
+          <span class="mono-note">根拠数: 4</span>
         </div>
-        <p class="briefing-summary-copy">HACWは人の判断を一回の承認で終わらせず、適用条件をテストできた判断だけを、次回から人に確認せず使える業務ルールへ変える。</p>
+        <p class="briefing-summary-copy">請求書の承認を例に、判断記録から検査可能な業務ルールへ変える手順と限界を考える。</p>
         <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">HACW</span><span class="meta-chip">AI Workspace</span><span class="meta-chip">Orchestration</span></div>
       </div>
     </div>
@@ -112,7 +112,7 @@
     </div>
   </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E5%85%88%E3%81%AB%E3%81%82%E3%82%8BHACW%E3%80%82%E4%BA%BA%E3%81%AE%E5%88%A4%E6%96%AD%E3%82%92%E6%AC%A1%E5%9B%9E%E3%81%AE%E6%A5%AD%E5%8B%99%E3%83%AB%E3%83%BC%E3%83%AB%E3%81%B8%E5%A4%89%E3%81%88%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-08-12-beyond-ai-agents-hacw.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E4%BA%BA%E3%81%AE%E6%89%BF%E8%AA%8D%E3%82%92%E6%AC%A1%E5%9B%9E%E3%81%AE%E8%87%AA%E5%8B%95%E5%87%A6%E7%90%86%E3%81%AB%E5%86%8D%E5%88%A9%E7%94%A8%E3%81%99%E3%82%8B%E3%81%AB%E3%81%AF%E4%BD%95%E3%81%8C%E5%BF%85%E8%A6%81%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-08-12-beyond-ai-agents-hacw.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -122,8 +122,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AIエージェントの先にあるHACW。人の判断を次回の業務ルールへ変える"
-      data-share-text="AIエージェントの先にあるHACW。人の判断を次回の業務ルールへ変える"
+      data-share-title="人の承認を次回の自動処理に再利用するには何が必要か"
+      data-share-text="人の承認を次回の自動処理に再利用するには何が必要か"
       data-share-url="https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html"
       hidden
     >
@@ -137,7 +137,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AIエージェントの先にあるHACW。人の判断を次回の業務ルールへ変える"
+      data-share-title="人の承認を次回の自動処理に再利用するには何が必要か"
       data-share-url="https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -156,239 +156,70 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Signal</p>
-  <h2>AIの成果物を採用するには、根拠、検査結果、人の判断を次に作業する人またはAIエージェントへ引き継ぐ必要がある</h2>
-  <p>AIエージェントに調査、照合、資料作成を任せると、成果物はすぐ返ってくる。</p>
-  <p>しかし、その報告だけでは仕事は終わらない。</p>
-  <p>どの条件を満たしたのか、どの資料を使ったのか、どこで作業が止まったのか、そして何を人が決めるのかが分からなければ、成果物を業務へ移せないからだ。</p>
-  <p>AIアシスタントは質問に答え、AIエージェントはツールを使って仕事を実行する。</p>
-  <p>エージェンティックAIは複数の手順やエージェントを組み合わせ、作成基盤はそれらを設計し、統制基盤は権限や利用状況を管理する。</p>
-  <p>企業の仕事では、これらの実行の前後に目的の設定、条件の変更、成果物の統合、根拠の確認、承認が続く。</p>
-  <p>OpenAIのWorkspace Agentsは、組織が許可したデータと道具の範囲で長時間の仕事を進め、必要な操作では承認を求め、管理者には設定、更新、実行履歴を見せる。</p>
-  <p>MicrosoftとGoogleの評価機能は、最終回答だけでなく、タスク完了、道具の選択、入力値、道具の出力を正しく使ったかを個別に検査する。NISTのEvaluation Probesは、AIの主張を人が選んだ信頼済み文書と照合し、根拠との対応を機械可読な監査記録へ残す。</p>
-  <p class="mt-6">OpenAIが掲載した顧客コメントで、Ripplingは、営業向けWorkspace Agentがアカウント調査、Gong通話の要約、Slackへの案件概要投稿をつなぎ、担当者が週に5〜6時間かけていた作業を案件ごとに自動実行していると報告している。</p>
-  <p>これは、エージェントが会話を越えて複数の道具とチーム手順を扱う実装例である。一方、業務判断を将来のタスク契約や評価器へ昇格させる部分までを、この事例だけから確認することはできない。</p>
-  <p>これらの公開資料を重ねると、AIへ仕事を委ねた後も、誰が何を実行し、どの根拠で検査し、どの判断を人が引き受けたかを追える業務環境が必要になる。</p>
+<h2>今回の承認は、次回の許可にもなるのか</h2>
+<p>AIが用意した請求書の処理案を担当者が承認したとする。
+翌月、同じ取引先から請求書が届いても、前回の承認だけで処理を続けてよいとは限らない。
+金額が変わった、振込先が変更された、前回だけの例外を認めた、といった違いがあり得るからだ。</p>
+<p>エージェントに仕事を任せる製品は、この問題の一部を扱っている。
+OpenAIのWorkspace Agentsの発表では、組織が道具とデータへのアクセスを設定し、必要な操作に承認を求める仕組みが説明されている。
+ただし、一回の承認を別の仕事でも使える業務ルールへ変換する工程まで、この説明から確認できるわけではない。<a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/">OpenAIの発表</a></p>
+<p>本稿で検討するのは、その間をどう設計するかである。
+人の判断を記録し、再利用できる条件を確かめ、責任者が承認したルールだけを次の処理に使う。
+この設計案をHuman-Agent Collaboration Workspace（HACW）と呼ぶ。
+本稿の作業仮説であり、確立した標準や、効果を実証済みの製品分類ではない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Definition</p>
-  <h2>目的、制約、担当、実行結果、根拠、検査結果、人の判断を人とAIが引き継ぐ業務環境を、本稿ではHACWと呼ぶ</h2>
-  <p>この問題を解くには、依頼時の目的と禁止事項から、実行記録、根拠、検査結果、人の判断までを、業務担当者やAIエージェントが替わっても引き継げる環境が要る。</p>
-  <p class="mt-6">HACWは本稿が公開情報から導く作業仮説であり、Gartnerが公開面で詳細な標準仕様として確定した名称ではない。</p>
-  <p>Gartnerの2026年Digital Workplace Applications Hype Cycleの公開要約が確認できるのは、組み込みAIの統制と「human-agent work models」への準備である。</p>
-  <p>ここでいうワークスペースは、チャット画面や共有フォルダだけを指さない。</p>
-  <p>担当するAIエージェントが替わっても、業務が人へ戻っても、同じ目的、現在の業務担当者、許可された操作、完了済みと未完了の項目、根拠、検査結果を引き継げる共有記録を指す。</p>
-  <div class="callout-panel mt-6">
-      <p class="callout-title">作業上の定義</p>
-      <p><strong>Human-Agent Collaboration Workspace（HACW）</strong>とは、人からAIへ依頼した業務について、目的と禁止事項、業務担当者と権限、AIの実行記録、成果物と出典、業務別の検査結果、業務責任者が決めた内容を、担当する人やAIエージェントが替わっても利用できる記録として残す業務環境である。</p>
-      <p>人の判断は理由、適用条件、例外、有効期限とともに保存する。同じ条件でも成立するとテストできた判断だけを、次回から人に確認せず使えるタスク契約、評価器、権限ポリシーへ変える。</p>
-    </div>
-  <div class="callout-panel mt-6">
-      <p class="callout-title">全段階をつなぐ共有記録</p>
-      <p><span class="mono-note">記録するもの</span><br>目的、担当、権限、進捗、成果物、根拠、検証結果、承認、未解決点</p>
-      <p>担当するAIや人が替わっても、全員が同じ目的、進捗、許可された操作、成果物、検査結果、未解決点を引き継ぐ。</p>
-    </div>
-  <div class="comparison-grid mt-6">
-      <article class="comparison-card"><h3>AIアシスタント</h3><p>会話を入口に回答、要約、下書きを返す。
-        人間が結果を次の作業へ運ぶ。</p></article>
-      <article class="comparison-card"><h3>AIエージェントとエージェンティックAI</h3><p>目標に向けてツールを使い、単一または複数の手順を進める。
-        中心になるのは実行である。</p></article>
-      <article class="comparison-card"><h3>作成、実行、統制の基盤</h3><p>エージェントを作り、接続し、実行し、監視する。
-        開発者と管理者に必要な機能を提供するが、人の依頼から実行、検査、判断、次回のルール更新までを一つの共有記録に残すとは限らない。</p></article>
-      <article class="comparison-card"><h3>HACW</h3><p>依頼、担当、許可された操作、成果物、根拠、検査結果、判断理由、適用中の業務ルール、未解決点を共有記録で共有する。
-        誰が何を実行し、どの判断を次回から人に確認せず使えるルールへ変えるのかが中心になる。</p></article>
-    </div>
-  <p>Microsoft Researchは、共同目標の理解、先回りしたタスク管理、共有された進捗追跡を協働の条件として挙げてきた。</p>
-  <p>Interaction、Process、Infrastructureの枠組みも、活動の構造を明示的かつ検査可能な対象にする。</p>
-  <p>これらの実装と研究を重ねると、HACWの条件は、業務過程を会話の裏側へ隠さず、担当、権限、進捗、検査結果、人の判断を成果物と同じ共有記録に残すことだと判断できる。</p>
-  <p class="mt-6">HACWは、この一連の記録を単一のエージェントの内部に隠さず、業務責任者、オーケストレーター、実行担当、評価担当が読める共有記録として管理する。</p>
+<h2>判断記録と実行ルールの違い</h2>
+<p>判断記録は「なぜ今回は許可したか」を説明する。
+実行ルールは「次の依頼がどの条件を満たせば、誰の権限で何をしてよいか」を決める。
+前者を検索できても、後者が定まらなければ新しい操作の許可は決まらない。</p>
+<p>OpenAI Agents SDKの人による承認では、道具の呼び出しを中断し、許可または拒否を受けて再開する。
+これは実行中の操作を制御する仕組みである。<a href="https://openai.github.io/openai-agents-python/human_in_the_loop/">承認の仕様</a>
+一方、AWS AgentCore Policyは、Gatewayを通る道具の利用を、エージェントのコードの外で規則に照らして判定する。<a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html">Policyの仕様</a></p>
+<p>両者を比較すると、人の許可を受け取る機能と、実行条件を繰り返し判定する機能を分けて設計できる。
+本稿では、その間に「判断理由から規則の候補を作り、検査して承認する工程」を置くことを提案する。
+これらの製品を接続すれば自動的に完成する機能ではなく、業務側で条件と責任者を定める必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Operating Model</p>
-  <h2>権限と判断基準が異なるため、業務責任者、オーケストレーター、特化型エージェント、評価プログラムに役割を分ける</h2>
-  <p>目的と禁止事項を決める、作業を割り当てる、データを更新する、成果物を検査するという行為では、必要な権限と判断基準が異なる。</p>
-  <p>そのため、HACWでは、業務責任者が業務の条件を決め、オーケストレーターが担当を選び、専門AIや既存システムが実行する。</p>
-  <p>その結果を業務別の評価器が検査し、自動判定できない点だけを人へ戻す。人が理由と適用条件を記録した判断は、次回も人に尋ねる条件と、人に尋ねず進められる条件を更新する。</p>
-  <p>人間の曖昧な依頼を受け取る入口には、目的の確認、タスク分解、担当選択、進捗管理、結果統合を担うオーケストレーターが必要になる。</p>
-  <p>OpenAIは、管理役が会話の主導権を保ちながら専門エージェントを道具として呼び出す方式と、専門エージェントへ会話自体を引き渡す方式を区別している。</p>
-  <p>Microsoftも、中央の担当が全体責任を保つagent-as-toolsと、担当自体が移るhandoffを分けている。</p>
-  <p>ただし、意図を解釈する汎用性と、何でも直接実行できる権限は同じではない。</p>
-  <p>オーケストレーターが専門エージェントと同じデータ更新権限を持てば、業務別の手順と監査を迂回できるためだ。</p>
-  <p>原則として、オーケストレーターは仕事を定義し、許可された担当へ配り、各担当の進捗、成果物、検査結果、未解決点を統合する。</p>
-  <p>高い権限を伴う実行は、明確な業務契約を持つ特化型エージェントか、決定的なシステムへ限定する。</p>
-  <p>次の六段階は直線的に一度だけ進むとは限らず、検査結果や人の判断によって前の段階へ戻る。</p>
-  <div class="comparison-grid mt-6">
-      <article class="comparison-card">
-        <h3><span class="mono-note">Step 01</span><br>目的と禁止事項を決める</h3>
-        <p><span class="mono-note">担当</span><br>業務責任者</p>
-        <p><span class="mono-note">作業</span><br>達成したい結果、期限、予算、参照してよい情報、禁止する操作、人に留保する判断、権限上の承認が必要な操作を決める。</p>
-        <p><span class="mono-note">受け渡すもの</span><br>達成条件、制約、判断の留保、承認対象を記録した依頼</p>
-      </article>
-      <article class="comparison-card">
-        <h3><span class="mono-note">Step 02</span><br>依頼を作業へ分け、担当を選ぶ</h3>
-        <p><span class="mono-note">担当</span><br>オーケストレーター</p>
-        <p><span class="mono-note">作業</span><br>依頼を調査、照合、作成、確認などに分け、必要な能力と権限を持つ担当へ割り当てる。</p>
-        <p><span class="mono-note">受け渡すもの</span><br>作業一覧、担当、実行順序、依存関係、必要な権限</p>
-      </article>
-      <article class="comparison-card">
-        <h3><span class="mono-note">Step 03</span><br>許可された範囲で作業する</h3>
-        <p><span class="mono-note">担当</span><br>専門AI、既存の業務システム、人の専門家</p>
-        <p><span class="mono-note">作業</span><br>割り当てられたデータと操作権限だけを使い、定められた完了条件に向けて作業する。</p>
-        <p><span class="mono-note">受け渡すもの</span><br>作業結果、途中成果物、実行記録、停止した場合の理由</p>
-      </article>
-      <article class="comparison-card">
-        <h3><span class="mono-note">Step 04</span><br>成果物に根拠と完了、未完了を付ける</h3>
-        <p><span class="mono-note">担当</span><br>作業を担当したAI、システム、人</p>
-        <p><span class="mono-note">作業</span><br>成果物に使用した資料、検証結果、満たした条件、未完了項目、不確実な点を結び付ける。</p>
-        <p><span class="mono-note">受け渡すもの</span><br>出典、検査結果、完了項目、未完了項目を伴う成果物</p>
-      </article>
-      <article class="comparison-card">
-        <h3><span class="mono-note">Step 05</span><br>業務ルールで結果を検査する</h3>
-        <p><span class="mono-note">担当</span><br>照合プログラム、テスト、評価用AI</p>
-        <p><span class="mono-note">作業</span><br>請求書の金額、契約書の必須条項、調査記事の出典対応など、業務ごとの合格条件で結果と手順を検査する。</p>
-        <p><span class="mono-note">受け渡すもの</span><br>合格、不合格、要再実行、根拠不足、人の判断が必要という判定</p>
-      </article>
-      <article class="comparison-card">
-        <h3><span class="mono-note">Step 06</span><br>人に留保した判断を引き受ける</h3>
-        <p><span class="mono-note">担当</span><br>判断権を持つ業務責任者</p>
-        <p><span class="mono-note">作業</span><br>目的の優先順位、許容するリスク、価値の衝突、既存ルールで扱えない例外を判断する。</p>
-        <p><span class="mono-note">受け渡すもの</span><br>決定、理由、適用条件、例外、再利用できるかの判定</p>
-      </article>
-    </div>
-  <div class="timeline mt-6">
-      <article class="timeline-item"><div class="timeline-year">01</div><div><h3 class="font-display text-xl font-semibold text-primary">目的をタスク契約にする</h3><p>目的、成功条件、禁止事項、期限、予算、必要な根拠、人に留保する判断、権限上の承認対象を記録する。
-        曖昧さは消したふりをせず、未確定条件として残す。</p></div></article>
-      <article class="timeline-item"><div class="timeline-year">02</div><div><h3 class="font-display text-xl font-semibold text-primary">実行主体と権限を選ぶ</h3><p>登録された能力、利用可能なデータ、許可された道具、監査方法を見て、エージェント、決定的な処理、人間の専門家へ割り当てる。</p></div></article>
-      <article class="timeline-item"><div class="timeline-year">03</div><div><h3 class="font-display text-xl font-semibold text-primary">完了、未完了と根拠を付けて返す</h3><p>成果物だけでなく、完了した条件、未完了の項目、停止理由、不確実な点、使用した根拠、検証結果を返す。</p></div></article>
-      <article class="timeline-item"><div class="timeline-year">04</div><div><h3 class="font-display text-xl font-semibold text-primary">統合し、判断を次回へ戻す</h3><p>オーケストレーターは、達成済み、未達、対立、人に留保した判断、権限上の承認を目的ごとに統合する。
-        原成果物と証跡への参照を保ち、人の決定から再利用できる条件をタスク契約か評価器へ戻す。</p></div></article>
-    </div>
+<h2>請求書の承認を再利用する想定例</h2>
+<p>以下は導入実績ではなく、判断を再利用できる場合とできない場合を説明する想定例である。
+ある会社が、契約に一致する月額料金の請求を処理しているとする。
+担当者は今回の請求について、契約番号、請求期間、金額、登録済みの支払先を確かめて承認した。</p>
+<p>その承認を次回へ使うために、責任者は「同じ会社なら許可する」という広い条件を避け、契約が有効で、請求額が契約額に一致し、請求期間が未処理で、支払先に変更がない場合に適用する候補ルールを作る。
+記録には、参照した契約と、その版、承認者、適用期限を付ける。
+請求書の文章が前回に似ているという理由だけでは、この条件を満たしたことにならない。</p>
+<ul>
+<li>契約と各項目が一致し、未処理の請求なら、ルールの対象候補にする。</li>
+<li>契約額を超える、支払先が変わる、同じ期間を処理済みなら、自動処理を許可しない。</li>
+<li>契約を取得できない、請求期間を読み取れない場合も、推測せず確認へ戻す。</li>
+</ul>
+<p>開発者は、この通常例と例外をテストにする。
+業務責任者が結果と適用範囲を確認し、ルールの版を承認してから有効にする。
+実行時には対象データを再確認し、使用したルールの版と処理結果を残す。
+契約が更新されたら再検査し、誤りが見つかった場合はルールを無効化できるようにする。</p>
+<p>ここで自動化できるのは、組織がそのルールに委ねた操作までである。
+照合に合格しても送金には別承認が必要という組織なら、送金の許可は省略しない。
+また、テストに合格したことは、まだ含めていない例外でも正しく判定できる保証にはならない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Validation and Human Review</p>
-  <h2>成果物を業務別に検査し、自動判定できない事項と、組織がAIに実行権限を与えていない操作だけを人へ示す</h2>
-  <p>監査には、どの業務にも共通する記録と、業務ごとに異なる合格条件がある。</p>
-  <div class="comparison-grid mt-6">
-      <article class="comparison-card"><h3>共通監査</h3><p>誰が依頼し、どのエージェントが受け、どのデータと道具を使い、どのファイル、業務記録、権限を変更し、どこで承認、停止、再実行されたかを記録する。
-        権限、実行回数、異常な反復、不可逆操作も共通に検査する。</p></article>
-      <article class="comparison-card"><h3>業務別監査</h3><p>財務照合、契約確認、セキュリティ調査、記事作成では正解条件が異なる。
-        期待手順、参照すべき資料、許容誤差、禁止操作、完了判定をタスクごとに定義する。</p></article>
-    </div>
-  <p class="mt-6">MicrosoftとGoogleの評価機能は、最終回答だけでなく、タスク完了、指示遵守、道具の選択、入力値、出力の利用、期待された実行経路を別々に評価する。</p>
-  <p>これは汎用エージェント全体を一つの点数で監査する方向ではない。</p>
-  <p>特定のタスクが定めた契約をテストする方向である。</p>
-  <p>NISTのEvaluation Probesも、まずAIの主張が人間によって管理された信頼済み文書に支えられているかを、引用ごとに検査する。</p>
-  <p>ただし、「出典がある」「回答が出典と整合する」「出典自体が現実に正しい」「業務で採用してよい」は、別々に判定しなければならない。</p>
-  <p>根拠は「未検証」「出典と整合」「独立確認済み」「システム検証済み」「人間承認済み」「対立中」「期限切れ」のように段階管理する方が、二値の正誤より実務に近い。</p>
-  <p>AIにすべてを説明させても、人がその速度と量を処理できなければ、承認待ちとレビュー疲れが新しいボトルネックになる。</p>
-  <p>Gartnerは高い自律性のエージェントについて、人が個々の判断ではなく、例外、監査ログ、集約結果を見る運用を示している。</p>
-  <p>2026年の初期研究も、AI成果物の継続的な確認と大量の提案が、人の認知負荷と見えにくいコストになり得ると報告している。</p>
-  <p>そのため、HACWは全量の実行記録を機械可読な形で保存しながら、人には前回の確認から変わった項目だけを示す。</p>
-  <p>人はエージェントの全操作を常時監視せず、前回の確認から変わった項目、検査に落ちた項目、人に残した判断、組織が実行権限を留保した操作を確認する。</p>
-  <p>人へ出す判断依頼には、現在の目的、新たに完了または失敗した項目、重要な操作、自動検証の結果、未確認事項、判断しなかった場合の影響、求める決定を含める。</p>
-  <p>詳細なトレースは調査時に開ければよく、常時読ませるものではない。</p>
-  <p>高リスク操作の明示承認は、エージェントが判断できないからではなく、組織が実行権限を人に留保する統制である。</p>
-  <div class="comparison-grid mt-6">
-      <article class="comparison-card"><h3>低リスク</h3><p>自動検証に合格すれば自動実行し、後から標本監査する。</p></article>
-      <article class="comparison-card"><h3>中リスク</h3><p>例外、根拠の衝突、弱い裏付けだけを短い判断カードとして提示する。</p></article>
-      <article class="comparison-card"><h3>高リスク</h3><p>公開、送信、権限変更、支払いなどの直前で人の明示承認を求める。</p></article>
-      <article class="comparison-card"><h3>未定義、対立</h3><p>自律処理を止め、業務責任者へ引き渡す。
-        もっともらしい推測で埋めない。</p></article>
-    </div>
+<h2>人とAIが引き継ぐ記録を絞る</h2>
+<p>この例で次の担当者に必要なのは、元の請求と契約、今回の照合結果、適用したルール、人に戻した理由である。
+会話全文を読むことを前提にせず、対象の記録へ戻れる参照を持たせる。
+複数のエージェントに分担させる場合は、担当選択と結果統合を担う役割を置く。
+一つの処理で完結するなら、独立した管理用エージェントを追加することは前提にしない。</p>
+<p>記憶から経験を取り出すこと自体には研究上の根拠がある。
+Reflexionは、試行のフィードバックを文章として保存し、後の試行へ渡す方式を評価している。<a href="https://arxiv.org/abs/2303.11366">Reflexion論文</a>
+ただし、課題の成績改善は、企業の支払いを許可する根拠とは異なる。
+記憶は過去の判断候補を探すために使い、操作の許可は承認済みルールで判定する、という分担がここでは必要になる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Decision Memory</p>
-  <h2>人の判断は記録しただけでは自動実行に使わず、適用条件を検証できた場合だけ次回の業務ルールへ変える</h2>
-  <p>Step 06で得た判断は、その場の承認で終わらせない。理由と適用条件を共有記録へ記録し、再利用できるものはStep 01のタスク契約かStep 05の評価器へ戻す。</p>
-  <p>OpenAI Agents SDKの手動承認は、機密性の高いツール呼び出しの直前で実行を止め、人が許可か拒否を返す。プログラムで判定できる条件なら、承認コールバックによって停止せず続行することもできる。</p>
-  <p>どちらも実行中の操作を許可する仕組みであり、人が下した業務判断を、別の将来タスクにも適用できるルールへ変える仕組みとは限らない。</p>
-  <p>判断理由と適用条件が次のタスク契約、評価器、権限ポリシーへ戻らなければ、同じ条件でも次回また人を呼ぶ。</p>
-  <div class="comparison-grid mt-6">
-      <article class="comparison-card">
-        <h3>都度承認型のゲート</h3>
-        <p><span class="mono-note">判断単位</span><br>実行中の一回のツール操作</p>
-        <p><span class="mono-note">返すもの</span><br>人または承認プログラムによる許可、拒否</p>
-        <p><span class="mono-note">将来の別タスク</span><br>同じ業務条件でも再び停止し得る</p>
-      </article>
-      <article class="comparison-card">
-        <h3>HACWの判断更新</h3>
-        <p><span class="mono-note">判断単位</span><br>別の将来タスクでも成立する業務判断</p>
-        <p><span class="mono-note">人が返すもの</span><br>決定、理由、適用範囲、例外、再利用可否</p>
-        <p><span class="mono-note">次回</span><br>検証済みルールに一致すれば自動で進む</p>
-      </article>
-    </div>
-  <div class="callout-panel mt-6">
-      <p class="callout-title">記憶は実行権限ではない</p>
-      <p><span class="mono-note">判断記録</span><br>タスクの種類、前提、根拠、判断結果、理由、適用範囲、例外、有効期限、責任者を保存する。将来のタスクでは参考情報として扱う。</p>
-      <p><span class="mono-note">承認済みの業務ルール</span><br>同じ条件なら同じ判断が成立するとテストできた場合、版管理されたタスク契約、評価器、権限ポリシーへ変換する。この段階で初めて自動実行の根拠になる。</p>
-      <p><span class="mono-note">人に残す判断</span><br>目的の選択、価値の衝突、交渉、関係性、責任の引き受けは、過去事例を参考にしても自動実行へ移さない。</p>
-    </div>
-  <p>同じ条件の請求書が翌月にも届いたとき、従来のAIアシスタントでは、担当者が前回の回答と承認結果を探し、新しい作業へ持ち込む。</p>
-  <p>HACWでは、前回の判断理由、金額や取引先などの適用条件、例外、有効期限を共有記録から照合する。承認済みルールに一致すれば自動処理し、一致しなければ過去判断を参考資料として人へ戻す。</p>
-  <p>この違いはエージェントの賢さではなく、前回の仕事で得た判断が、将来の別タスクを人に確認せず進められる条件へ変換されるかどうかにある。</p>
-  <p class="mt-6">新しいタスクが過去の判断と意味的に似ているだけでは、自動実行しない。</p>
-  <p>金額、取引先、機密性、適用規程、取り消し可能性、有効期限を照合し、承認済みルールに一致した場合だけ進める。</p>
-  <p>類似するだけなら過去判断を参考資料として人へ提示し、情報が足りなければ追加調査か再評価へ戻す。</p>
-  <p>ReflexionとExpeLは、反省や経験を記憶し、後の試行で取り出すことでエージェントの判断を改善できることを示した。</p>
-  <p>OpenAIのAgent memoryも、過去の作業から抽出した教訓や人の修正を将来の実行へ持ち越す一方、記憶は古くなり得るため、現在の環境を優先するよう求めている。</p>
-  <p>AWSのAgentCore Policyは、実行条件をエージェントの記憶ではなく、検証可能な決定的ポリシーとして外部で評価する。</p>
-  <p>これらを組み合わせると、記憶は判断候補の検索に使い、自動実行は検証済みルールで制御するという境界が導ける。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Three Modes</p>
-  <h2>手順の明確さ、失敗の影響、操作を取り消せるかに応じて、AIへ任せる作業と人が決める事項を変える</h2>
-  <p>HACWは一つの自動化方式ではない。</p>
-  <p>手順と判断が明確な仕事、手順が柔軟で判断も必要な仕事、アイデアや交渉のように人の判断が中心になる仕事では、同じ共有記録とルール更新を使っても、自動実行する作業と人へ戻す判断が変わる。</p>
-  <div class="comparison-grid mt-6">
-      <article class="comparison-card"><h3>手順と判断が明確</h3><p>請求書照合や定型レポートのように、入力、手順、合格条件が安定している仕事は、決定的な業務処理へ変換する。
-        HACWは背後で権限、証跡、例外を管理し、人はルール変更と例外だけを見る。</p></article>
-      <article class="comparison-card"><h3>手順が柔軟で判断も必要</h3><p>契約レビュー、障害調査、複雑な開発のような仕事は、オーケストレーターと特化型エージェントが分担する。
-        人は目的、評価基準の変更、前例のない例外を担い、再利用できる判断はタスク契約か評価器へ移す。</p></article>
-      <article class="comparison-card"><h3>アイデア、交渉、戦略</h3><p>新規事業や交渉では、エージェントは調査、比較、選択肢、反対意見を集める。
-        方向性、価値判断、関係性、最終責任は人が持つ。
-        監査対象は唯一の正解ではなく、前提、材料、選択肢、決定者である。</p></article>
-    </div>
-  <p class="mt-6">この分類には、失敗時の影響と不可逆性も重ねる。</p>
-  <p>手順が明確な送金でも高額なら承認が要り、手順が柔軟な社内ブレインストーミングでも低リスクなら自律性を高められる。</p>
-  <p>HACWの役割は常に人を減らすことではなく、業務ごとに責任の分担を選べるようにすることにある。</p>
-  <p>以下は公開済みの導入事例ではなく、この三分類を具体的な業務へ当てはめた想定シナリオである。各例は、業務によって自動検査と人の判断の分担がどう変わるかを示す。</p>
-  <div class="comparison-grid mt-6">
-      <article class="comparison-card"><h3>月次決算</h3><p>特化型エージェントが仕訳、照合、差異分析を実行し、統制値と作業資料を返す。
-        通常項目は自動処理し、基準外の差異、データ不足、承認対象だけを担当者へ上げる。</p></article>
-      <article class="comparison-card"><h3>契約、調達</h3><p>条項抽出、社内方針との比較、取引先調査を別々のエージェントが担当する。
-        オーケストレーターは根拠と不一致を統合するが、受容可能なリスクや交渉条件は人が決める。</p></article>
-      <article class="comparison-card"><h3>新規事業</h3><p>市場、顧客、規制、競合を並行調査し、前提と反証を含む選択肢を作る。
-        エージェントは「どれが正解か」を決めず、人がどの価値とリスクを選んだかを決定記録として残す。</p></article>
-    </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">What Is Missing</p>
-  <h2>オーケストレーション、承認、評価、権限管理は各社製品にあるが、目的、根拠、検査結果、人の判断を製品間で引き継ぐ共通形式はまだない</h2>
-  <p>OpenAI、Microsoft、Google、Anthropicは、オーケストレーション、専門エージェント、セッション、承認、評価、トレース、権限管理をそれぞれ実装している。</p>
-  <p>研究面では、CHAPが作業空間（workspace）、参加者、タスク、成果物、追記型の証拠ログを最小構成として提案し、CLEOとPistaは人が実行途中で観察、指示、共同作業、停止できる画面を検証している。</p>
-  <p>しかし、これらは一つの成熟した標準や製品カテゴリとして統合済みとは言えない。</p>
-  <p>企業導入で不足するのは、依頼時の目的、実行結果、検査結果、業務責任者の判断を、これらの機能の間で引き継ぐ共通契約である。</p>
-  <p>業務ごとのタスク契約と評価器、エージェントの能力、所有者、権限を示す登録簿、成果物と根拠に付ける共通ラベル、オーケストレーターが適切な担当を選んだかの評価、証跡を別製品へ持ち運ぶ形式、人のレビュー時間を上限付きで管理する指標が必要になる。</p>
-  <p>判断記録には適用範囲、例外、有効期限、責任者を持たせ、業務ルールへ昇格するときはテスト、版管理、承認、取り消し方法を備える必要がある。</p>
-  <p>成果を測る指標も、エージェントの実行回数では足りない。</p>
-  <p>検証済み成果物一件あたりの総コスト、人のレビュー時間、エスカレーション率、判断待ち時間、差し戻し率、自動承認後の誤り発見率、監査キューの滞留量を、成果物の正確性、完全性、目的適合性と分けて追う必要がある。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>AIエージェントの次に問われるのは、人の確認を必要な判断だけに絞り、検証済みの判断を次回の同種作業へ反映できるかである</h2>
-  <div class="callout-panel mt-6">
-      <p class="callout-title">Takeaway</p>
-      <p>AIエージェントの先にある競争軸は、より多くの仕事を人に聞かず実行できることではない。</p>
-      <p>人の判断を理由と適用条件とともに残し、再利用できるものを検証済みルールへ変え、記憶そのものには実行権限を与えないことである。</p>
-      <p>HACWは、エージェントを作る場所ではなく、人とAIが責任を分けて仕事を完了する場所として捉えると、その必要性が見えやすい。</p>
-    </div>
+<h2>再利用の効果を確かめる</h2>
+<p>試行では、まずAIに適用ルールを提案させ、人が従来どおり判断する。
+両者が一致した件数だけでなく、誤って許可した候補、見落とした例外、調査に必要だった時間を記録する。
+その結果から自動化する範囲を決め、運用後も抽出検査とルールの取り消しを行えるようにする。</p>
+<p>確認回数が減っても、ルールの作成と維持にそれ以上の時間がかかるなら、この方式の利点は小さい。
+前例の少ない交渉や、条件が頻繁に変わる判断では、過去の記録を参考資料として残すだけの方が扱いやすい場合もある。
+HACWという提案の評価点は、保存した判断の量ではなく、検査できる条件を持つ判断について、誤適用を増やさず次の仕事へ引き継げるかにある。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -467,87 +298,7 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://www.gartner.com/en/documents/7878877" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Gartner: Hype Cycle for Digital Workplace Applications, 2026</p>
-              <p class="source-url">https://www.gartner.com/en/documents/7878877</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.gartner.com/en/documents/7760821" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Gartner First Take: OpenAI Launches Workspace Agents</p>
-              <p class="source-url">https://www.gartner.com/en/documents/7760821</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.gartner.com/en/documents/7663361" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Gartner First Take: Slackbot Transforms Slack to an AI Workhub</p>
-              <p class="source-url">https://www.gartner.com/en/documents/7663361</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.gartner.com/en/articles/human-ai-collaboration" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Gartner: The New Rules of Human-AI Collaboration and Teamwork</p>
-              <p class="source-url">https://www.gartner.com/en/articles/human-ai-collaboration</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.gartner.com/en/newsroom/press-releases/2025-11-11-gartner-says-leaders-must-create-four-scenarios-for-human-artificial-intelligence-collaboration-at-work" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Gartner: Four Scenarios for Human-AI Collaboration at Work</p>
-              <p class="source-url">https://www.gartner.com/en/newsroom/press-releases/2025-11-11-gartner-says-leaders-must-create-four-scenarios-for-human-artificial-intelligence-collaboration-at-work</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Gartner: Uniform Governance Across AI Agents Will Lead to Failure</p>
-              <p class="source-url">https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.gartner.com/en/articles/agentic-ai-in-finance" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Gartner: Agentic AI Will Transform Finance</p>
-              <p class="source-url">https://www.gartner.com/en/articles/agentic-ai-in-finance</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.gartner.com/en/articles/agentic-ai-for-chros" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Gartner: How CHROs Can Redefine Manager Oversight</p>
-              <p class="source-url">https://www.gartner.com/en/articles/agentic-ai-for-chros</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
@@ -555,16 +306,6 @@
               </div>
               <p class="source-title">OpenAI: Introducing Workspace Agents in ChatGPT</p>
               <p class="source-url">https://openai.com/index/introducing-workspace-agents-in-chatgpt/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/multi_agent/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">OpenAI Agents SDK: Agent Orchestration</p>
-              <p class="source-url">https://openai.github.io/openai-agents-python/multi_agent/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://openai.github.io/openai-agents-python/human_in_the_loop/" target="_blank" rel="noopener noreferrer">
@@ -577,36 +318,6 @@
               <p class="source-url">https://openai.github.io/openai-agents-python/human_in_the_loop/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/results/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">OpenAI Agents SDK: Results</p>
-              <p class="source-url">https://openai.github.io/openai-agents-python/results/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">OpenAI Agents SDK: Tracing</p>
-              <p class="source-url">https://openai.github.io/openai-agents-python/tracing/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.github.io/openai-agents-python/sandbox/memory/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">OpenAI Agents SDK: Agent Memory</p>
-              <p class="source-url">https://openai.github.io/openai-agents-python/sandbox/memory/</p>
-            </div>
-            <span class="source-action">開く</span>
           </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -617,216 +328,6 @@
               <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Agent Framework: Workflow Orchestrations</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/handoff" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Agent Framework: Handoff Orchestration</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/handoff</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/agent-framework/agents/evaluation" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Agent Framework: Evaluation</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/agent-framework/agents/evaluation</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Azure Architecture Center: AI Agent Orchestration Patterns</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Google Cloud: Gemini Enterprise Agent Platform Agents Overview</p>
-              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Google Cloud: Evaluate Gen AI Agents</p>
-              <p class="source-url">https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Anthropic: Building Effective Agents</p>
-              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Anthropic: How We Built Our Multi-Agent Research System</p>
-              <p class="source-url">https://www.anthropic.com/engineering/multi-agent-research-system</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Anthropic: Demystifying Evals for AI Agents</p>
-              <p class="source-url">https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.nist.gov/programs-projects/building-evaluation-probes-agentic-ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">NIST: Building Evaluation Probes into Agentic AI</p>
-              <p class="source-url">https://www.nist.gov/programs-projects/building-evaluation-probes-agentic-ai</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">NIST AI 600-1: Generative AI Profile</p>
-              <p class="source-url">https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/publication/interaction-process-infrastructure-a-unified-framework-for-human-agent-collaboration/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">Microsoft Research: Interaction, Process, Infrastructure</p>
-              <p class="source-url">https://www.microsoft.com/en-us/research/publication/interaction-process-infrastructure-a-unified-framework-for-human-agent-collaboration/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/project/from-task-solvers-to-teammates-a-theory-grounded-architecture-for-advancing-collaboration-readiness-in-llm-agents/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">Microsoft Research: From Task Solvers to Teammates</p>
-              <p class="source-url">https://www.microsoft.com/en-us/research/project/from-task-solvers-to-teammates-a-theory-grounded-architecture-for-advancing-collaboration-readiness-in-llm-agents/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/publication/magentic-ui-report/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">Microsoft Research: Magentic-UI</p>
-              <p class="source-url">https://www.microsoft.com/en-us/research/publication/magentic-ui-report/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/publication/human-agent-collaboration-can-an-agent-be-a-partner/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">Microsoft Research: Human-Agent Collaboration: Can an Agent Be a Partner?</p>
-              <p class="source-url">https://www.microsoft.com/en-us/research/publication/human-agent-collaboration-can-an-agent-be-a-partner/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2606.09751" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">Collaborative Human-Agent Protocol (CHAP)</p>
-              <p class="source-url">https://arxiv.org/abs/2606.09751</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2603.02050" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">CLEO: When to Hand Off, When to Work Together</p>
-              <p class="source-url">https://arxiv.org/abs/2603.02050</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2604.20070" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">Pista: Auditing and Controlling AI Agent Actions in Spreadsheets</p>
-              <p class="source-url">https://arxiv.org/abs/2604.20070</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2606.09833" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">CollabSkill: Evaluating Human-Agent Collaboration on Real-World Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2606.09833</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2606.05770" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">Human Oversight and Overload</p>
-              <p class="source-url">https://arxiv.org/abs/2606.05770</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2606.05391" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">Human Oversight of Agentic Systems in Practice</p>
-              <p class="source-url">https://arxiv.org/abs/2606.05391</p>
-            </div>
-            <span class="source-action">開く</span>
           </a><a class="source-row" href="https://arxiv.org/abs/2303.11366" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -835,16 +336,6 @@
               </div>
               <p class="source-title">Reflexion: Language Agents with Verbal Reinforcement Learning</p>
               <p class="source-url">https://arxiv.org/abs/2303.11366</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2308.10144" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                
-              </div>
-              <p class="source-title">ExpeL: LLM Agents Are Experiential Learners</p>
-              <p class="source-url">https://arxiv.org/abs/2308.10144</p>
             </div>
             <span class="source-action">開く</span>
           </a>

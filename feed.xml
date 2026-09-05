@@ -5,14 +5,14 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 23 Aug 2026 05:06:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 10:26:33 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>AIエージェントの先にあるHACW。人の判断を次回の業務ルールへ変える</title>
+      <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
       <link>https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html</guid>
-      <pubDate>Sun, 16 Aug 2026 04:41:05 GMT</pubDate>
-      <description>HACWを、人の判断を記録し、検証できた判断だけを次回から人に確認せず実行できる業務ルールへ変える環境として整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 10:26:33 GMT</pubDate>
+      <description>AIへの一回の承認を次回の業務ルールへ変える条件を、請求書の例で説明。判断記録、適用条件、例外テスト、ルールの承認と失効を整理する。</description>
       <category>AI Strategy</category>
     </item>
     <item>
