@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:11:52 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:14:20 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -72,11 +72,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>The real comparison axis for AI agents is now whether they can carry work forward</title>
+      <title>What to preserve so an AI agent can resume interrupted work</title>
       <link>https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Drawing on public material from OpenAI, Anthropic, Google, and AWS, this briefing explains why agents are now judged by work continuity, state, and observability.</description>
+      <pubDate>Sat, 05 Sep 2026 11:14:20 GMT</pubDate>
+      <description>Distinguish saved sessions from task recovery using Managed Agents and Google ADK: persistence, artifact versions, duplicate actions, and resumption checks.</description>
       <category>AI Agents</category>
     </item>
     <item>
