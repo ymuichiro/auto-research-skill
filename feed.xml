@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:47:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 10:50:15 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -40,11 +40,11 @@
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある</title>
+      <title>営業AIが会議メモからCRMを更新する際、何を確認するか</title>
       <link>https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</guid>
-      <pubDate>Sat, 11 Jul 2026 15:03:59 GMT</pubDate>
-      <description>会議メモや提案書から案件情報を抽出し、承認後にCRMへ反映する営業AIエージェントの具体的な本番設計を整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 10:50:15 GMT</pubDate>
+      <description>営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。</description>
       <category>AI Workflows</category>
     </item>
     <item>

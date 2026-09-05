@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある | Auto Research Digest</title>
-    <meta name="description" content="会議メモや提案書から案件情報を抽出し、承認後にCRMへ反映する営業AIエージェントの具体的な本番設計を整理する。">
+    <title>営業AIのCRM更新：案件、根拠、競合の確認 | Auto Research Digest</title>
+    <meta name="description" content="営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある | Auto Research Digest">
-    <meta property="og:description" content="会議メモや提案書から案件情報を抽出し、承認後にCRMへ反映する営業AIエージェントの具体的な本番設計を整理する。">
+    <meta property="og:title" content="営業AIのCRM更新：案件、根拠、競合の確認 | Auto Research Digest">
+    <meta property="og:description" content="営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある">
+    <meta property="og:image:alt" content="営業AIのCRM更新：案件、根拠、競合の確認">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある | Auto Research Digest">
-    <meta name="twitter:description" content="会議メモや提案書から案件情報を抽出し、承認後にCRMへ反映する営業AIエージェントの具体的な本番設計を整理する。">
+    <meta name="twitter:title" content="営業AIのCRM更新：案件、根拠、競合の確認 | Auto Research Digest">
+    <meta name="twitter:description" content="営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある">
+    <meta name="twitter:image:alt" content="営業AIのCRM更新：案件、根拠、競合の確認">
     <link rel="canonical" href="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-06-08T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-07-12T00:03:59+09:00">
+    <meta property="article:modified_time" content="2026-09-05T19:50:15+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Sales">
@@ -51,8 +51,8 @@
     <meta property="article:tag" content="Human Approval">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Enterprise AI">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある","description":"会議メモや提案書から案件情報を抽出し、承認後にCRMへ反映する営業AIエージェントの具体的な本番設計を整理する。","datePublished":"2026-06-08T00:00:00+09:00","dateModified":"2026-07-12T00:03:59+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Sales, CRM, Human Approval, Workflow, Enterprise AI","mainEntityOfPage":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある","item":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"営業AIが会議メモからCRMを更新する際、何を確認するか","description":"営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。","datePublished":"2026-06-08T00:00:00+09:00","dateModified":"2026-09-05T19:50:15+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Sales, CRM, Human Approval, Workflow, Enterprise AI","mainEntityOfPage":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"営業AIが会議メモからCRMを更新する際、何を確認するか","item":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,8 +68,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある</h1>
-          <p class="hero-copy">2026年6月8日までの AWS Partner Central agents、Microsoft Sales agent、Salesforce Agentforce Sales、OpenAI の営業向けCodexプラグインに関する一次情報を重ねると、営業AIの具体的な導入単位が見えてくる。会議メモ、提案書、メール、通話記録から案件情報を抽出し、既存CRMと照合し、不足や矛盾を示し、担当者が確認した後にレコードを作成・更新する流れである。重要なのは要約精度だけではない。顧客と案件の同定、項目ごとの根拠、書き込み権限、承認、差し戻し、監査記録を一つの工程として設計できるかが、本番導入の境界になる。</p>
+          <h1 class="hero-title">営業AIが会議メモからCRMを更新する際、何を確認するか</h1>
+          <p class="hero-copy">顧客の希望を成約予定日に変えてよいとは限らない。営業AIが作る更新候補について、保存先の案件、項目ごとの根拠、最新のCRM値を確認する方法を、製品資料と想定例から整理する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,12 +77,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
         <time class="mono-note" datetime="2026-06-08">2026年6月8日</time>
-        <time class="mono-note" datetime="2026-07-12">最終更新 2026年7月12日</time>
+        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Sales</span><span class="meta-chip">CRM</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Workflow</span><span class="meta-chip">Enterprise AI</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E5%96%B6%E6%A5%ADAI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%9C%AC%E7%95%AA%E5%A2%83%E7%95%8C%E3%81%AF%E3%80%81%E4%BC%9A%E8%AD%B0%E3%83%A1%E3%83%A2%E3%81%8B%E3%82%89CRM%E3%82%92%E6%9B%B8%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B%E7%9B%B4%E5%89%8D%E3%81%AB%E3%81%82%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-08-sales-agents-turn-notes-into-crm-actions.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E5%96%B6%E6%A5%ADAI%E3%81%8C%E4%BC%9A%E8%AD%B0%E3%83%A1%E3%83%A2%E3%81%8B%E3%82%89CRM%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%E9%9A%9B%E3%80%81%E4%BD%95%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-08-sales-agents-turn-notes-into-crm-actions.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある"
-      data-share-text="営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある"
+      data-share-title="営業AIが会議メモからCRMを更新する際、何を確認するか"
+      data-share-text="営業AIが会議メモからCRMを更新する際、何を確認するか"
       data-share-url="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="営業AIエージェントの本番境界は、会議メモからCRMを書き換える直前にある"
+      data-share-title="営業AIが会議メモからCRMを更新する際、何を確認するか"
       data-share-url="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,90 +126,51 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Snapshot</p>
-  <h2>営業AIの具体的な仕事は、会議メモを「更新候補」に変えることから始まる</h2>
-  <p>
-    営業AIエージェントを、商談の要約やメール文案だけで捉えると、本番導入で最も難しい部分を見落とす。
-    2026年6月8日までに公開された AWS Partner Central agents、Microsoft Sales agent、Salesforce Agentforce Sales、OpenAI の営業向けCodexプラグインの資料を重ねると、各社が具体化している仕事はよく似ている。
-    会議メモ、提案書、メール、通話記録を読み、顧客と案件を特定し、金額、段階、期日、次の行動などの更新候補を作り、人が確認した後にCRMへ反映する流れである。
-  </p>
-  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-    <article class="stat-card"><p class="stat-value">24</p><p class="stat-title">Primary sources</p><p class="stat-note">AWS、Microsoft、Salesforce、OpenAI の公式資料だけで構成した。</p></article>
-    <article class="stat-card"><p class="stat-value">6 steps</p><p class="stat-title">Write path</p><p class="stat-note">取込、照合、抽出、検証、承認、反映を分ける。</p></article>
-    <article class="stat-card"><p class="stat-value">Field level</p><p class="stat-title">Evidence unit</p><p class="stat-note">案件全体ではなく、更新する項目ごとに根拠を残す。</p></article>
-    <article class="stat-card"><p class="stat-value">Human gate</p><p class="stat-title">Production boundary</p><p class="stat-note">新規作成や書き換えの直前に、明示的な確認を置く。</p></article>
-  </div>
+<h2>会議の一文を、どのCRM項目に入れるか</h2>
+<p>会議メモに「来月の導入を希望」とあっても、商談の成約予定日が来月に決まったとは限らない。
+顧客の希望、営業担当者の見込み、合意済みの日付を区別せずに保存すると、読みやすい要約から誤った案件情報が作られる。</p>
+<p>本稿が扱うのは、会議などの資料からCRMの更新候補を作る作業である。
+AIが何を読み取ったかに加え、どの顧客と案件に対応し、どの項目を変更しようとしているかを確認する。
+これは営業AI全般の価値を一つの指標で評価する提案ではなく、CRM更新を任せる範囲を決めるための整理である。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Changed</p>
-  <h2>今週の変化は、営業AIが「助言する画面」から「CRM更新を準備する工程」へ入ったことにある</h2>
-  <p>
-    AWS Partner Central agents は、会議メモ、提案書、通話記録を添付し、案件項目の抽出、顧客情報の補完、内容改善の提案を経て、担当者の確認後に案件を作成する流れを公開している。
-    MCP経由でも書き込み操作には明示的な承認を要求する。Microsoft Sales agent は、OutlookやTeamsのメール・会議とDynamics 365またはSalesforceのレコードを結び、関連候補を示して保存する。
-    Salesforceは、最近のメモ、メール、音声・映像通話を使って商談項目の更新候補や次の行動を出す。OpenAIの営業向けプラグインは、顧客文脈の収集、会議準備、フォローアップ、CRM更新を一つの役割別作業としてまとめている。
-  </p>
-  <div class="callout-panel mt-6">
-    <p class="callout-title">今週の主論点</p>
-    <p>営業AIの価値を「何件要約したか」で測るだけでは不十分である。確認済みの案件更新を、どれだけ正確に、追跡可能な形で準備できたかが実務上の比較軸になる。</p>
-  </div>
+<h2>製品が扱う記録は同じではない</h2>
+<p>AWS Partner Central agentsの2026年5月15日の発表は、会議メモ、提案書、通話記録などから情報を抽出し、顧客情報の補完や不足項目の改善提案を経て案件を作成する機能を説明する。
+対象はPartner Centralの案件作成である。<a href="https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/">AWSの発表</a></p>
+<p>Microsoft Sales agentの保存機能は、Outlookのメールや会議をDynamics 365またはSalesforceへ保存し、関連するレコードを選ぶ作業を扱う。
+候補から選択するほか、検索してレコードを指定する手順がある。
+メールを案件に関連付けて保存することと、本文から商談金額を抽出して更新することは、同じ操作ではない。<a href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-outlook-activities-crm">Microsoftの保存手順</a></p>
+<p>SalesforceのAgentforce Salesの発表では、Pipeline Management agentが営業活動に基づいて商談の項目を更新し、次の行動を提案する。
+こちらは既存商談の継続的な更新が対象になる。<a href="https://www.salesforce.com/news/stories/agentforce-sales-announcement/">Salesforceの発表</a></p>
+<p>三つの資料を比較すると、新規案件の作成、活動記録の関連付け、既存案件の項目更新を分けて評価すべきだと分かる。
+ある製品で確認した手動選択や承認の仕組みが、他製品の全操作にも備わっているとは推定しない。
+導入時は、実際に使う操作について、更新先、利用権限、確認画面、反映結果を確かめる必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Six-Step Flow</p>
-  <h2>本番向けの最小単位は、文書入力からCRM反映までの6段階である</h2>
-  <div class="timeline mt-6">
-    <article class="timeline-item"><div class="timeline-year">01</div><div><h3 class="font-display text-xl font-semibold text-primary">資料を取り込む</h3><p>会議メモ、提案書、メール、通話記録を、案件候補に結び付けられる状態で受け取る。添付ファイルの種類、容量、保持期間もここで制限する。</p></div></article>
-    <article class="timeline-item"><div class="timeline-year">02</div><div><h3 class="font-display text-xl font-semibold text-primary">顧客と案件を照合する</h3><p>メールアドレス、会社名、既存の商談、参加者を使って候補を絞る。複数候補や未登録顧客は自動決定せず、人に選択を戻す。</p></div></article>
-    <article class="timeline-item"><div class="timeline-year">03</div><div><h3 class="font-display text-xl font-semibold text-primary">項目ごとに更新候補を作る</h3><p>金額、商談段階、成約見込み日、課題、競合、次の行動を分け、根拠となる文や資料位置を添える。</p></div></article>
-    <article class="timeline-item"><div class="timeline-year">04</div><div><h3 class="font-display text-xl font-semibold text-primary">不足と矛盾を示す</h3><p>必須項目の欠落、既存CRMとの不一致、根拠が弱い推定を、確定情報と混ぜずに表示する。</p></div></article>
-    <article class="timeline-item"><div class="timeline-year">05</div><div><h3 class="font-display text-xl font-semibold text-primary">担当者が確認する</h3><p>新規案件の作成、段階変更、金額更新、顧客への送信など、影響の大きい操作を項目単位で承認または差し戻す。</p></div></article>
-    <article class="timeline-item"><div class="timeline-year">06</div><div><h3 class="font-display text-xl font-semibold text-primary">反映結果を照合する</h3><p>CRMの応答と再読込結果を確認し、誰が、どの資料を根拠に、どの項目を変更したかを監査記録に残す。</p></div></article>
-  </div>
+<h2>更新候補を確認する想定例</h2>
+<p>以下は製品の実測ではなく、確認対象を示す想定例である。
+同じ顧客に二つの商談があり、会議メモには「来月の導入を希望。見積もりは再提示」と書かれているとする。
+AIが成約予定日を翌月末へ変える候補を作った場合、担当者は三点を確認する。</p>
+<ol>
+<li>保存先：参加者や議題はどちらの商談に対応するか。同じ会社名だけで決めず、候補を一意にできなければ担当者が選ぶ。</li>
+<li>根拠：来月という希望は読み取れても、翌月末の成約を示す記述はない。希望時期のメモとして残すか、別途確認してから成約予定日を変える。</li>
+<li>現在値：会議後に別の担当者が予定日を更新していないか。更新されていれば、新しい情報を確認して候補を作り直す。</li>
+</ol>
+<p>この確認を可能にするため、候補には現在値、提案値、根拠となる文、未確定の点を付けることを勧める。
+これは本稿の設計上の提案であり、前節の各製品がすべて同じ形式を提供するという意味ではない。</p>
+<p>承認後も、書き込みの直前に現在値が変わる場合がある。
+更新先が版番号などによる条件付き更新を提供するなら利用し、競合時には再確認へ戻す。
+その仕組みを利用できない場合、読み直しだけで競合を完全に防げるとは考えず、同時更新を避ける手順も必要になる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Vendor Comparison</p>
-  <h2>各製品の違いは、AIモデルよりも、どの業務面に書き込み境界を置くかにある</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>AWS: 案件作成そのものを会話化する</h3><p>Partner Central agents は、資料取込、案件作成、パイプライン分析、資金制度の提案までを一つの会話にまとめる。MCPサーバーは既存CRMやAIクライアントから利用できる一方、書き込みには明示的な承認を要求し、試験用の隔離環境も用意する。</p></article>
-    <article class="comparison-card"><h3>Microsoft: メール・会議とCRMの結び付けを重視する</h3><p>Sales agent はOutlook、Teams、Microsoft 365 CopilotからCRM情報を参照し、メールや会議を適切な顧客・案件へ保存する。候補が複数ある場合の手動選択や、管理者による対象エンティティ・添付保存の制御が明示されている。</p></article>
-    <article class="comparison-card"><h3>Salesforce: 商談の継続的な更新候補を作る</h3><p>Agentforce Pipeline Management は、最近のメモ、メール、通話を分析し、項目更新、フォローアップ、会議設定を提案する。既存の権限、顧客データ、商談状態の内側で動くことが中心になる。</p></article>
-    <article class="comparison-card"><h3>OpenAI: 複数アプリをまたぐ営業作業を束ねる</h3><p>営業向けCodexプラグインは、Salesforce、HubSpot、Slackなどのアプリとスキルを役割別に束ね、会議準備、追客、案件リスク確認、CRM更新を横断する。管理者が基盤となるアプリ権限を制御する前提がある。</p></article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Failure Boundaries</p>
-  <h2>最も危険なのは、文章の誤りよりも、正しそうな情報を誤ったレコードへ書くことである</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>顧客の取り違え</h3><p>同名企業、複数の担当者、転送されたメールにより、正しい抽出結果が別の顧客へ保存される。候補が一意でない場合は自動更新を止める必要がある。</p></article>
-    <article class="comparison-card"><h3>事実と推定の混同</h3><p>「来月を希望」と「来月に成約予定」は同じではない。原文にある事実、営業担当者の判断、AIの推定を別の項目として扱う。</p></article>
-    <article class="comparison-card"><h3>古い情報による上書き</h3><p>会議後に別の担当者がCRMを更新している可能性がある。承認時に最新版を再取得し、抽出時点との差分があれば再確認する。</p></article>
-    <article class="comparison-card"><h3>権限の過大化</h3><p>分析に必要な読取権限と、案件作成、段階変更、顧客送信に必要な権限を分ける。すべてを一つの統合ユーザーへ与える構成は避ける。</p></article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Evaluation</p>
-  <h2>評価は要約の読みやすさではなく、項目単位の正確性と書き込み安全性で行う</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>同定精度</h3><p>正しい顧客、連絡先、案件へ接続できた割合と、曖昧なケースで自動処理を停止できた割合を測る。</p></article>
-    <article class="comparison-card"><h3>項目精度</h3><p>金額、日付、段階、次の行動ごとに、正解、未確定、誤りを分ける。案件全体の総合点だけでは重大項目の誤りを隠してしまう。</p></article>
-    <article class="comparison-card"><h3>承認負荷</h3><p>担当者が修正した項目数、確認に要した時間、不要な確認の回数を測る。自動化率を上げても、確認負荷が増えれば実務価値は下がる。</p></article>
-    <article class="comparison-card"><h3>反映の完全性</h3><p>承認内容とCRMの最終状態が一致したか、重複案件や部分更新が生じていないかを再読込で確認する。</p></article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Rollout</p>
-  <h2>導入は「更新候補の提示」から始め、書き込み範囲を段階的に広げる</h2>
-  <p>
-    最初の段階では、エージェントは会議メモから更新候補と根拠を作るだけにし、CRM操作は担当者が行う。
-    次に、確認画面から承認された項目だけを書き込む。顧客と案件の照合、差分確認、重複防止が安定してから、低リスク項目の一括更新を検討する。
-    顧客への外部送信、商談段階や金額の大幅変更、新規案件作成は、利用実績が増えても別の承認境界として残す方がよい。
-  </p>
-  <div class="callout-panel mt-6"><p class="callout-title">Takeaway</p><p>営業AIエージェントの本番境界は、会議内容を理解できるかではなく、その理解を誰のどのCRMレコードへ、どの根拠と承認で反映できるかにある。</p></div>
+<h2>候補提示から試し、修正量を測る</h2>
+<p>最初は、実際のCRMを書き換えずに候補と根拠を作り、担当者が通常の手順で更新する。
+正しい案件を選べた割合、項目ごとの誤り、未確定情報を確定扱いした件数、確認時間を記録する。
+少ない確認で正しい候補を作れる操作から、承認済みの変更を反映する試行へ進む。</p>
+<p>反映後には、保存された項目が承認内容と一致し、重複した案件や一部だけの更新が生じていないかを照合する。
+通信エラーで結果が不明な場合も、成功と報告したり無条件で再実行したりせず、更新先を確認する。</p>
+<p>自動化件数が増えても、誤った案件を直す時間や、推定を見抜く負担が増えれば、営業担当者の仕事は軽くならない。
+会議内容から候補を作る効果と、安全に反映するための負担を合わせて測ることで、CRM更新のどこをAIに任せるかを判断できる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -298,116 +259,6 @@
               <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/aws-partner-central-agents-accelerate-co-sell/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年3月16日</span>
-              </div>
-              <p class="source-title">AWS: Announcing Partner Central agents to accelerate co-sell</p>
-              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/aws-partner-central-agents-accelerate-co-sell/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.aws.amazon.com/partner-central/latest/APIReference/partner-central-mcp-server.html" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">AWS Partner Central: Partner Central agents MCP Server</p>
-              <p class="source-url">https://docs.aws.amazon.com/partner-central/latest/APIReference/partner-central-mcp-server.html</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://aws.amazon.com/blogs/apn/introducing-aws-partner-central-agents/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">AWS Partner Network: Introducing AWS Partner Central agents</p>
-              <p class="source-url">https://aws.amazon.com/blogs/apn/introducing-aws-partner-central-agents/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.aws.amazon.com/partner-central/latest/getting-started/managed-policies.html" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">AWS Partner Central: Managed policies for Partner Central users</p>
-              <p class="source-url">https://docs.aws.amazon.com/partner-central/latest/getting-started/managed-policies.html</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/codex-for-every-role-tool-workflow/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年6月2日</span>
-              </div>
-              <p class="source-title">OpenAI: Codex for every role, tool, and workflow</p>
-              <p class="source-url">https://openai.com/index/codex-for-every-role-tool-workflow/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/codex-for-knowledge-work" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年6月2日</span>
-              </div>
-              <p class="source-title">OpenAI: Codex is becoming a productivity tool for everyone</p>
-              <p class="source-url">https://openai.com/index/codex-for-knowledge-work</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/academy/codex-for-work/how-sales-teams-use-codex/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年5月15日</span>
-              </div>
-              <p class="source-title">OpenAI Academy: How sales teams use Codex</p>
-              <p class="source-url">https://openai.com/academy/codex-for-work/how-sales-teams-use-codex/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://help.openai.com/en/articles/20001256" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">OpenAI Help Center: Plugins in Codex</p>
-              <p class="source-url">https://help.openai.com/en/articles/20001256</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/copilot/release-plan/2026wave1/copilot-sales/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Sales agent 2026 release wave 1</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/copilot/release-plan/2026wave1/copilot-sales/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/use-sales-chat" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Use Sales agent in Microsoft 365 Copilot</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-sales-copilot/use-sales-chat</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/set-up-sales-chat" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Set up Sales agent in Microsoft 365 Copilot</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-sales-copilot/set-up-sales-chat</p>
-            </div>
-            <span class="source-action">開く</span>
           </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-outlook-activities-crm" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -418,56 +269,6 @@
               <p class="source-url">https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-outlook-activities-crm</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-additional-details-outlook" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Configure how Outlook activities are saved to CRM</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-additional-details-outlook</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/use-sales-copilot-app-during-meeting" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Use Sales agent during a meeting</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-sales-copilot/use-sales-copilot-app-during-meeting</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/connect-contact" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Connect a contact to your CRM</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-sales-copilot/connect-contact</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/connect-agent-datasource" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Connect your agents to a data source</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-sales-copilot/connect-agent-datasource</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/dynamics365/release-plan/2025wave2/sales/dynamics365-sales/use-sales-agent-365-copilot-inside-dynamics-365" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Microsoft Learn: Use Sales agent inside Dynamics 365</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/dynamics365/release-plan/2025wave2/sales/dynamics365-sales/use-sales-agent-365-copilot-inside-dynamics-365</p>
-            </div>
-            <span class="source-action">開く</span>
           </a><a class="source-row" href="https://www.salesforce.com/news/stories/agentforce-sales-announcement/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -476,56 +277,6 @@
               </div>
               <p class="source-title">Salesforce: Agentforce Sales announcement</p>
               <p class="source-url">https://www.salesforce.com/news/stories/agentforce-sales-announcement/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.salesforce.com/ap/news/press-releases/2026/01/07/the-1-ai-crm-meets-chatgpt/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年1月7日</span>
-              </div>
-              <p class="source-title">Salesforce: Agentforce Sales meets ChatGPT</p>
-              <p class="source-url">https://www.salesforce.com/ap/news/press-releases/2026/01/07/the-1-ai-crm-meets-chatgpt/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://help.salesforce.com/s/articleView?id=sf.sales_cloud_agents.htm&amp;language=en_US&amp;type=5" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Salesforce Help: AI Agents for Sales</p>
-              <p class="source-url">https://help.salesforce.com/s/articleView?id=sf.sales_cloud_agents.htm&amp;language=en_US&amp;type=5</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://help.salesforce.com/s/articleView?id=sales.pipeline_mgmt_parent.htm&amp;language=en_US&amp;type=5" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Salesforce Help: Agentforce Pipeline Management</p>
-              <p class="source-url">https://help.salesforce.com/s/articleView?id=sales.pipeline_mgmt_parent.htm&amp;language=en_US&amp;type=5</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/resources/Agentforce-for-Sales-Pipeline-Management_-Implementation-Guide.pdf" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Salesforce: Agentforce for Sales Pipeline Management Implementation Guide</p>
-              <p class="source-url">https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/resources/Agentforce-for-Sales-Pipeline-Management_-Implementation-Guide.pdf</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/Sales/Agentforce-for-Sales-Account-Management_-Implementation-Guide.pdf" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Salesforce: Agentforce for Sales Account Management Implementation Guide</p>
-              <p class="source-url">https://www.salesforce.com/en-us/wp-content/uploads/sites/4/documents/Sales/Agentforce-for-Sales-Account-Management_-Implementation-Guide.pdf</p>
             </div>
             <span class="source-action">開く</span>
           </a>

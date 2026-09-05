@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:47:21 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 10:50:15 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -40,11 +40,11 @@
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>The production boundary for sales agents sits between meeting notes and CRM writes</title>
+      <title>What to verify when sales AI turns meeting notes into CRM updates</title>
       <link>https://research.notelligent.app/en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</guid>
-      <pubDate>Sat, 11 Jul 2026 15:03:59 GMT</pubDate>
-      <description>A concrete production design for sales agents that turn notes and proposals into reviewed, auditable CRM updates.</description>
+      <pubDate>Sat, 05 Sep 2026 10:50:15 GMT</pubDate>
+      <description>Check CRM update proposals from sales AI: opportunity matching, field evidence, changed records, and saved results, with product comparisons.</description>
       <category>AI Workflows</category>
     </item>
     <item>
