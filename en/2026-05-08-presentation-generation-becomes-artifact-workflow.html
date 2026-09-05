@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-05-08T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T20:06:06+09:00">
+    <meta property="article:modified_time" content="2026-09-05T20:06:46+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="Generative AI">
     <meta property="article:tag" content="Presentation">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Image Generation">
     <meta property="article:tag" content="Automation">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Choosing editable formats for AI-generated presentations","description":"Compare images, SVGs, and chart objects in AI-generated slides, then test the next revision in PowerPoint or Google Slides.","datePublished":"2026-05-08T00:00:00+09:00","dateModified":"2026-09-05T20:06:06+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Choosing editable formats for AI-generated presentations","description":"Compare images, SVGs, and chart objects in AI-generated slides, then test the next revision in PowerPoint or Google Slides.","datePublished":"2026-05-08T00:00:00+09:00","dateModified":"2026-09-05T20:06:46+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/en/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"Choosing editable formats for AI-generated presentations","item":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
@@ -126,314 +126,26 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Key Point</p>
-  <h2>Presentation generation after generative AI is now an engineering problem for materials, templates, and editable artifacts</h2>
-  <p>
-    It is too narrow to explain this topic only through PptxGenJS. What is actually expanding is a broader production chain:
-    OpenAI image generation, Microsoft Copilot in PowerPoint, Google Slides API, PptxGenJS, Canva's AI presentation features,
-    Adobe Firefly Services, and SVG-based template assets all now sit in the same workflow conversation.
-    The core shift is from "write good slide text" to "produce an editable artifact from the right mix of sources, templates, and rendering paths."
-  </p>
-  <p class="mt-4">
-    In practice, there is no single way teams are doing this. Some start from chat-based drafts, some generate the main visual layer with image models,
-    some build reusable vector templates in SVG, some render everything through APIs and code, and some use brand-governed presentation tools.
-    These are not just technical choices. They change who drafts, who reviews, who owns the template system, and how much the final deck must remain editable.
-  </p>
-  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-    <article class="stat-card">
-      <p class="stat-value">39</p>
-      <p class="stat-title">Primary sources</p>
-      <p class="stat-note">The workflow shift is supported by official docs, support pages, vendor product pages, and research papers.</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">5 paths</p>
-      <p class="stat-title">Generation modes</p>
-      <p class="stat-note">Chat drafts, image-led decks, SVG-led templates, API-led rendering, and brand-led presentation tools now coexist.</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">1 workflow</p>
-      <p class="stat-title">Work changes</p>
-      <p class="stat-note">The job shifts toward designing, operating, and revising a repeatable production flow.</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">4 decisions</p>
-      <p class="stat-title">Decision surface</p>
-      <p class="stat-note">Editability, brand control, speed, and reuse have to be judged together.</p>
-    </article>
-  </div>
+<h2>Build a deck that can accept next week's numbers</h2>
+<p>An AI-generated slide can look finished while remaining awkward to revise. Consider a hypothetical weekly report: its owner needs to replace the sales figures and update one chart. If the entire page is a single image, selecting the number and editing it as text is unavailable. The owner must change the source and export again, or edit the image.</p>
+<p>Keeping the title as text and the chart as a chart object with data allows separate update steps. My proposal is to decide who will revise which elements, and in which application, before choosing a generation service. Testing the next revision alongside the initial appearance provides a more useful way to judge the delivery format.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Big Picture</p>
-  <h2>Slide generation is now a chain of texts, images, SVG, templates, and APIs rather than one monolithic feature</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>1. Chat-first drafts</h3>
-      <p>
-        Copilot in PowerPoint and Canva's AI Presentation Maker show the easiest entry point: start from a prompt or an existing file and get a first deck.
-        In real work, that usually becomes a draft that still needs human editing and asset replacement.
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>2. Image-led decks</h3>
-      <p>
-        OpenAI and Firefly image generation can become the main visual layer for a cover, section opener, concept diagram, product scene, or campaign deck.
-        In those cases, the image is not a supplement to the slide; it is the thing the slide is built around.
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>3. SVG-led templates</h3>
-      <p>
-        Logos, icons, background accents, section dividers, and geometric motifs work well as SVG assets because they stay scalable and editable.
-        Office can edit SVGs, and PptxGenJS can use them directly, which makes vector assets practical for modern presentation systems.
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>4. API-led decks</h3>
-      <p>
-        Google Slides API, the PowerPoint JavaScript API, and PptxGenJS let you separate layouts, text, tables, images, and charts.
-        That pushes teams toward a blueprint-based workflow instead of hand-building every slide.
-      </p>
-    </article>
-  </div>
-  <div class="callout-panel mt-6">
-    <p class="callout-title">Bottom line</p>
-    <p>Post-generative-AI presentation generation is best understood as an artifact workflow that has to return something editable to a real deck environment.</p>
-  </div>
+<h2>Images, SVGs, and slide objects offer different edits</h2>
+<p>A background illustration may work perfectly well as one image. Baking frequently changing amounts and notes into that background, however, makes a text correction require image rework. A slide can separate fixed decoration from information that will change.</p>
+<p>An SVG can preserve sharp outlines when enlarged, but that does not turn its contents into PowerPoint text or chart objects. Microsoft's documentation distinguishes resizing or recoloring a whole SVG from converting it to shapes to edit individual parts; conversion also has environment requirements. The <a href="https://support.microsoft.com/en-us/office/graphics-visuals/edit-svg-images-in-microsoft-365">SVG editing guide</a> is a reason to test the required edit in the recipient's application.</p>
+<p>Individual slide objects offer another route. The <a href="https://gitbrent.github.io/PptxGenJS/docs/api-charts/">PptxGenJS chart API</a> adds charts from series data and options, separately from inserting images. Connecting data to its display this way is a candidate for recurring charts. A successful API call still does not establish how the output will render or behave during editing in the destination application.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Image Generation</p>
-  <h2>Image generation is now used for more than decoration</h2>
-  <p>
-    Image generation used to feel like a cosmetic layer. Now it can be the main delivery mechanism for a presentation’s visual message.
-    Product launches, brand refreshes, research concept slides, recruiting decks, and event announcements often depend on a strong visual narrative.
-    Firefly Services adds brand-aware custom models and image compositing, while Canva pushes AI-generated presentations and brand kits into the same surface.
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>Cover and section pages</h3>
-      <p>
-        This is the simplest and most valuable use case. Image generation can quickly create a mood, a color language, and a clear first impression.
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>Concept diagrams</h3>
-      <p>
-        New systems or abstract ideas often need a diagram that is not yet available as a real screenshot. A generated illustration can provide that scaffolding.
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>Product scenes</h3>
-      <p>
-        Firefly’s compositing and generation features are useful when a team wants realistic product or scenario visuals before photos exist.
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>Boundary</h3>
-      <p>
-        A generated image can support explanation, but it should not silently become evidence. Data-heavy slides still need the factual layer separated from the visual layer.
-      </p>
-    </article>
-  </div>
+<h2>Check the receiving application, not just the file extension</h2>
+<p>The editing environment needs to be specified along with the file format. Google Slides API's <a href="https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateImageRequest">CreateImageRequest</a> accepts PNG, JPEG, and GIF images; it is not a request for inserting SVG directly. A PowerPoint SVG insertion procedure cannot simply be transferred to this Slides API operation.</p>
+<p>For a weekly report maintained in Slides, choose whether headings and notes will be editable text or whether image replacement will be the update procedure. If the workflow passes through PPTX, inspect wrapping, fonts, charts, and positioning after conversion. Successfully saving a PPTX does not establish that its recipient can perform the intended revision.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">SVG Templates</p>
-  <h2>SVG templates are becoming a serious production asset, not just a graphic format</h2>
-  <p>
-    SVG is increasingly useful as a template medium. Microsoft 365 supports inserting and editing SVG images, and PptxGenJS supports SVGs as well.
-    That means a team can build logos, dividers, icons, and branded accents as vector assets and reuse them across presentations without flattening them too early.
-  </p>
-  <p class="mt-4">
-    This matters because rasterizing everything into PNG is a poor tradeoff for long-lived deck systems. SVG keeps the template lightweight, scalable, and easier to recolor.
-    In a workflow built around templates, that is a real operational advantage: the same visual system can survive brand changes, layout changes, and content swaps.
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>Brand components</h3>
-      <p>Logos, lines, icons, and section decorations are easier to reuse when they stay in SVG form.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Masters and layouts</h3>
-      <p>Google Slides masters, PowerPoint templates, and Canva brand templates all benefit from reusable vector assets.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Operational gain</h3>
-      <p>Teams can keep one common visual language while letting content vary.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Limits</h3>
-      <p>SVG is still not universally harmless. Older clients, conversion paths, file size, and export behavior all need checks.</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Code-Driven Decks</p>
-  <h2>Code-driven presentation generation is best for repeatable deck structures</h2>
-  <p>
-    PptxGenJS and the Google Slides API both treat a deck as a structured collection of elements rather than a flat visual output.
-    That is why they work well for sales decks, weekly reports, research summaries, customer briefings, and training content that follow a fixed skeleton.
-  </p>
-  <p class="mt-4">
-    The value is not only output speed. A code-driven deck can preserve layout rules, notes, chart placement, image positions, and metadata more consistently than a manual process.
-    Google Slides API explicitly exposes masters, layouts, shapes, images, tables, and batch updates. PptxGenJS supports SVGs, charts, HTML-to-PPTX, and browser or Node usage.
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>Best-fit jobs</h3>
-      <p>Recurring decks with the same frame but changing content are ideal for this path.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Template discipline</h3>
-      <p>The more stable the template system, the better the generated output will hold up.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Reviewability</h3>
-      <p>Page-level diffs and element-level structure make human review much easier.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Tradeoff</h3>
-      <p>Without good templates and assets, code-driven decks can look rigid or generic.</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Brand-Led Tools</p>
-  <h2>Brand-led tools are changing how non-designers make presentations</h2>
-  <p>
-    Canva’s AI Presentation Maker is not just a generative feature. It is part of a brand-controlled presentation environment where Brand Kit and branded templates
-    keep colors, fonts, logos, and reusable assets aligned. That changes the job of the presenter: instead of designing every component from scratch, they select
-    and adapt approved pieces.
-  </p>
-  <p class="mt-4">
-    This makes production faster, but it also shifts responsibility upward. Teams now need to manage templates, approved assets, and review rules more carefully,
-    because the tool can make large volumes of on-brand slides very quickly.
-  </p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Workflow Shift</p>
-  <h2>The new work is to design the presentation pipeline, not just write the slides</h2>
-  <div class="timeline">
-    <article class="timeline-item">
-      <div class="timeline-year">01</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Asset planning</h3>
-        <p>Decide whether the deck needs text, generated images, SVG parts, charts, or a mix.</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">02</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Template governance</h3>
-        <p>Maintain masters, layouts, brand kit assets, and reusable vector components.</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">03</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Generation routing</h3>
-        <p>Send content to the right path: chat draft, image generation, SVG generation, or code rendering.</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">04</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Human review</h3>
-        <p>Check facts, layout, editability, accessibility, and brand compliance.</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">05</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Reuse</h3>
-        <p>Turn the best slide patterns back into templates or components for the next deck.</p>
-      </div>
-    </article>
-  </div>
-  <p class="mt-6">
-    This is why the role map changes. The interesting work is no longer only "writer" or "designer."
-    It starts to include template owner, asset curator, workflow operator, reviewer, and automation maintainer.
-  </p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Different deck types want different generation paths</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>Sales proposal</h3>
-      <p>A brand-heavy deck usually wants SVG components, templates, and text drafted by AI.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Research talk</h3>
-      <p>Need tight control over citations, notes, charts, and editability. Code-driven generation is often the safer default.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Product launch</h3>
-      <p>Generated visuals can carry the deck, especially when the product imagery does not yet exist.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Weekly internal report</h3>
-      <p>Template consistency matters more than novelty, so automation and structured rendering matter most.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Recruiting and PR</h3>
-      <p>Brand-governed tools can be more efficient because they keep the team inside a controlled design system.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Training content</h3>
-      <p>Repeated structures benefit from reusable modules and a stable template library.</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operational Issues</p>
-  <h2>Good-looking output is not enough unless the artifact stays editable and portable</h2>
-  <p>
-    SVG and image generation are useful, but they introduce new failure modes. PowerPoint can edit SVGs, yet older clients or conversion paths can flatten them,
-    grow file sizes, or behave differently on export. Google Slides API also works through explicit page elements and image constraints.
-    So the pipeline has to be designed around the final editing environment, not just around the generation step.
-  </p>
-  <p class="mt-4">
-    The practical rule is simple: do not treat the deck as a static image. Keep the text, image, SVG, notes, citations, and structure as editable artifacts
-    for as long as possible, because that is what makes generative AI usable in a real presentation workflow.
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>Editability</h3>
-      <p>A flattened slide is cheaper to generate but more expensive to revise.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Compatibility</h3>
-      <p>Decide first whether the deck must survive PowerPoint, Google Slides, browser export, or PDF.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Accessibility</h3>
-      <p>Text structure and notes matter, especially when the slide is reused elsewhere.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Review gates</h3>
-      <p>Brand, legal, and factual review should be explicit, not implicit.</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Short Takeaway</p>
-  <h2>This field now lives at the level of production workflow, not slide text</h2>
-  <p>
-    Presentation generation after generative AI has moved beyond "generate some bullet points."
-    The real comparison surface is whether a team can combine generated imagery, SVG templates, brand systems, APIs, and human review
-    into an editable artifact flow that fits the deck environment they already use.
-  </p>
-  <p class="mt-4">
-    In other words, the work is shifting from writing slides to designing the way slides get made, checked, and reused.
-  </p>
+<h2>Evaluate the generated deck and the next revision separately</h2>
+<p><a href="https://arxiv.org/abs/2501.03936v3">PPTAgent</a> proposes analyzing reference decks and generating editing actions, with evaluation across content, design, and coherence. Its problem framing is useful: correct prose alone does not establish presentation quality. Its evaluation does not guarantee compliance with a particular company's template or the time an employee will need for revisions.</p>
+<p>For practical acceptance, I recommend a small revision task in addition to reviewing the rendered slides. For the weekly report, change one source value, update its chart, correct a note, and reopen the deck in the recipient's application. Inspect visual changes and numerical consistency, and check whether the owner can make the edit without returning to the generation environment.</p>
+<p>A deck regenerated for every use may benefit more from a reproducible generation procedure than from individual editing. A deck frequently revised by its recipient during meetings gives editable elements greater value. The deciding factor is the revision the document will actually undergo.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">

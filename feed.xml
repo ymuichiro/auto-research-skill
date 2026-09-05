@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:06:06 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:06:46 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -51,7 +51,7 @@
       <title>AIで作るプレゼン資料の編集可能性を、次の修正から考える</title>
       <link>https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html</guid>
-      <pubDate>Sat, 05 Sep 2026 11:06:06 GMT</pubDate>
+      <pubDate>Sat, 05 Sep 2026 11:06:46 GMT</pubDate>
       <description>AI生成スライドの画像・SVG・グラフ要素を比較。PowerPointとGoogle Slidesの形式制約を踏まえ、次の修正で納品形式を評価する。</description>
       <category>AI Workflows</category>
     </item>

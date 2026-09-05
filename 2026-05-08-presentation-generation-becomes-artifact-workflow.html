@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-05-08T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T20:06:06+09:00">
+    <meta property="article:modified_time" content="2026-09-05T20:06:46+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="Generative AI">
     <meta property="article:tag" content="Presentation">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Image Generation">
     <meta property="article:tag" content="Automation">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIで作るプレゼン資料の編集可能性を、次の修正から考える","description":"AI生成スライドの画像・SVG・グラフ要素を比較。PowerPointとGoogle Slidesの形式制約を踏まえ、次の修正で納品形式を評価する。","datePublished":"2026-05-08T00:00:00+09:00","dateModified":"2026-09-05T20:06:06+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIで作るプレゼン資料の編集可能性を、次の修正から考える","description":"AI生成スライドの画像・SVG・グラフ要素を比較。PowerPointとGoogle Slidesの形式制約を踏まえ、次の修正で納品形式を評価する。","datePublished":"2026-05-08T00:00:00+09:00","dateModified":"2026-09-05T20:06:46+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"AIで作るプレゼン資料の編集可能性を、次の修正から考える","item":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -126,324 +126,46 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">要点</p>
-  <h2>生成AI後のプレゼン資料生成は、文章を作る仕事ではなく、素材・テンプレート・成果物をつなぐ工程になった</h2>
-  <p>
-    生成AIの登場以降に起きた変化を、`pptxGenJS` だけの話として読むのはかなり狭い。
-    いま実際に広がっているのは、OpenAI の画像生成、Microsoft Copilot in PowerPoint、Google Slides API、PptxGenJS、
-    Canva の AI プレゼン、Adobe Firefly Services、そして SVG を含むベクター素材の扱いまでを含んだ、もっと広い生成工程である。
-    変化の中心は「うまい本文を出すか」ではなく、「編集可能な成果物を、どの素材から、どのテンプレートで、どの環境に向けて作るか」に移っている。
-  </p>
-  <p class="mt-4">
-    そのため、比較すべき対象も一つではない。チャットで初稿を作るケース、画像生成で表紙や概念図を作るケース、
-    SVG でテンプレート部品を作るケース、API とコードでページを組むケース、ブランド済みのプレゼン環境で生成するケースが並存している。
-    しかもそれぞれ、誰が作るか、どこでレビューするか、どこまで編集可能であるべきか、という働き方まで変えている。
-  </p>
-  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-    <article class="stat-card">
-      <p class="stat-value">39件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">画像生成、SVG、テンプレート、Slides / PowerPoint API、研究論文まで入れた一次情報の束。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">5経路</p>
-      <p class="stat-title">生成の型</p>
-      <p class="stat-note">チャット初稿、画像主導、SVG主導、API主導、ブランド主導の5パターンで整理できる。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">1工程</p>
-      <p class="stat-title">働き方の変化</p>
-      <p class="stat-note">「作る人」より「設計して、回して、直す人」が増える。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">4論点</p>
-      <p class="stat-title">判断軸</p>
-      <p class="stat-note">編集可能性、ブランド統制、速度、再利用性の4つを同時に見る必要がある。</p>
-    </article>
-  </div>
+<h2>翌週の数字を差し替えられる資料にする</h2>
+<p>AIが作ったスライドは、見た目が整っていても、担当者が必要な修正をできるとは限らない。
+たとえば週次報告で、売上の数字とグラフだけを翌週更新したいとする。これは説明のための想定例である。
+ページ全体が一枚の画像なら、文字を選択して数字を直す操作はできない。元の素材を修正して再出力するか、画像を加工する必要がある。</p>
+<p>一方、タイトルがテキスト、グラフがデータを持つグラフ要素として残っていれば、それぞれを更新する手順を組める。
+本稿では、生成サービスを選ぶ前に「誰が、どのアプリで、何を直すか」を決めることを提案する。
+生成直後の見栄えに加えて、次の修正まで試すと、納品形式の適否を判断しやすい。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">全体像</p>
-  <h2>今のプレゼン生成は、文章、画像、SVG、テンプレート、API を別々に持つ総合工程になっている</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>1. チャット初稿</h3>
-      <p>
-        Copilot in PowerPoint や Canva の AI Presentation Maker のような体験は、会話や既存ファイルからスライドの叩き台を作る入口として有効だ。
-        ただし、実務ではそのまま完成版になることは少なく、後段の編集や素材差し替えが前提になる。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>2. 画像主導</h3>
-      <p>
-        OpenAI や Firefly Services の画像生成は、表紙、章扉、概念図、製品イメージ、キャンペーン素材のような「見せるための要素」を作る。
-        このルートでは、画像が文章の補足ではなく、ページの主役になることがある。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>3. SVG 主導</h3>
-      <p>
-        ロゴ、図形、アイコン、テーマ背景、ブランド部品を SVG で持つと、拡大縮小に強く、テンプレートの再利用性も高い。
-        Microsoft 365 は SVG の編集をサポートし、PptxGenJS も SVG を扱えるため、ベクター資産は今の資料生成でかなり実用的だ。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>4. API 主導</h3>
-      <p>
-        Google Slides API や PowerPoint JavaScript API、PptxGenJS は、マスター、レイアウト、テキスト、画像、表、図表を分けて組み立てられる。
-        ここでは「1枚ずつ作る」のではなく、「設計図を元に量産する」発想が強くなる。
-      </p>
-    </article>
-  </div>
-  <div class="callout-panel mt-6">
-    <p class="callout-title">結論の方向</p>
-    <p>生成AI後のプレゼン資料生成は、単機能の自動化ではなく、編集環境に戻せる素材工程の設計問題として見る方が現実に近い。</p>
-  </div>
+<h2>画像、SVG、スライド要素では直せる箇所が違う</h2>
+<p>背景のイラストは、一枚の画像で渡しても困らない場合がある。
+しかし、頻繁に変わる金額や注記まで背景に焼き込むと、文章の訂正にも画像の再作成が必要になる。
+同じスライドでも、固定する装飾と更新する情報は分けて扱える。</p>
+<p>SVGなら拡大しても輪郭を保ちやすいが、それだけで中身がPowerPointのテキストやグラフになるわけではない。
+Microsoftの説明でも、SVG全体の塗りやサイズの変更と、図形に変換して一部分を変更する操作は区別されている。変換には環境の条件もある。
+<a href="https://support.microsoft.com/en-us/office/graphics-visuals/edit-svg-images-in-microsoft-365">MicrosoftのSVG編集ガイド</a>を踏まえ、実際の納品先で必要な編集ができるかを確かめたい。</p>
+<p>スライド要素を個別に作る方法もある。
+<a href="https://gitbrent.github.io/PptxGenJS/docs/api-charts/">PptxGenJSのグラフAPI</a>は、画像の貼り付けとは別に、系列データとオプションを渡してグラフを追加する。
+定期更新のグラフなら、このようにデータと表示を結び付ける方式が候補になる。ただし、出力先での表示や編集結果までAPIの呼び出し成功だけで保証されるわけではない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">画像生成</p>
-  <h2>画像生成でスライドを作るケースは、表紙や概念図に限られず、資料全体の主導権を持つ</h2>
-  <p>
-    画像生成は、以前は装飾の一部として扱われがちだった。しかし今は、プレゼンの目的によっては画像そのものがメッセージの中心になる。
-    たとえば新製品発表、ブランド刷新、研究テーマの概念説明、採用広報、イベント告知のような資料では、ページの見た目が内容理解に直結する。
-    Firefly Services はブランド整合を意識したカスタムモデルや画像の合成・拡張を扱い、Canva も AI Presentation Maker と Brand Kit を前面に出している。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>表紙と章扉</h3>
-      <p>
-        画像生成がもっとも使いやすいのはここだ。テーマの空気感、ブランドの温度、会議や発表の雰囲気を短時間で作れる。
-        この用途では、毎回新規画像を作ること自体が価値になる。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>概念図と比喩図</h3>
-      <p>
-        新しい仕組みや抽象概念を、図解や模式図として一枚に収めたいときに有効だ。
-        ここでは「正確な事実の証明」より、「理解の足場を作る」ことが主目的になる。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>製品シーンと利用場面</h3>
-      <p>
-        実写的な製品写真やユースケース画像を新規に作ることで、まだ撮影していない状態でも説明資料が作れる。
-        Firefly の生成・合成・拡張のような機能はこの用途に合う。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>注意点</h3>
-      <p>
-        画像は説明には役立つが、事実の根拠にはならない。数値や比較条件を含むページでは、画像と根拠データを分けて設計しないと、
-        見栄えだけよい資料になる。
-      </p>
-    </article>
-  </div>
+<h2>PowerPointでできる操作をSlidesにも期待しない</h2>
+<p>ファイル形式だけでなく、受け手の編集環境も指定する必要がある。
+Google Slides APIの<a href="https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateImageRequest">CreateImageRequest</a>が受け付ける画像形式はPNG、JPEG、GIFであり、SVGを直接挿入する要求ではない。
+PowerPointへのSVG挿入と同じ手順を、そのままSlides APIに移すことはできない。</p>
+<p>先ほどの週次報告をSlidesで運用するなら、見出しや注記を編集可能なテキストとして作るか、画像を更新する工程にするかを選ぶ。
+PPTXを経由する場合も、変換後に文字の折り返し、フォント、グラフ、配置を確認する。
+「PPTXとして保存できた」は、受け手が予定した修正を行えることの確認にはならない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">SVG テンプレート</p>
-  <h2>SVG をテンプレートとして作るケースは、デザイン部品の再利用と編集性の両方を取りに行っている</h2>
-  <p>
-    SVG の使い方も、単なる「ベクター画像の挿入」から変わっている。Office は SVG の挿入と編集をサポートし、
-    その後の塗り色変更やアウトライン調整もできる。PptxGenJS も SVG をサポートしているため、ブランドロゴ、アイコン、幾何学的な装飾、
-    セクション背景、グラフィック見出しを SVG として作ると、スライド側では軽量で解像度に強い部品として扱える。
-  </p>
-  <p class="mt-4">
-    これは実務上かなり重要だ。画像を毎回 PNG に焼いてしまうと、拡大耐性が落ち、後から色を変えることも難しい。
-    SVG のまま部品化しておけば、ブランド変更、レイアウト変更、文言差し替えに追従しやすい。
-    つまり SVG ベースのテンプレートは、デザイナーが 1 回きれいに作って終わりではなく、運用側が再利用し続けるための素材になる。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>ブランド部品</h3>
-      <p>ロゴ、ライン、アイコン、コールアウト、セクション装飾を SVG にすると、サイズ変更で崩れにくい。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>マスターとレイアウト</h3>
-      <p>Google Slides の master / layout、PowerPoint のテンプレート、Canva の Brand Template のような枠組みと相性がよい。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>実務の利点</h3>
-      <p>色、余白、配置を共通化しやすく、複数チームで同じ見た目を保ちやすい。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>限界</h3>
-      <p>SVG は万能ではなく、古い環境や外部出力との相性、ファイルサイズ、変換先の制約を確認する必要がある。</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">コード生成</p>
-  <h2>コードで作るプレゼンは、本文生成ではなく、ページ構造の量産に向いている</h2>
-  <p>
-    PptxGenJS や Google Slides API を使うと、スライドは「ページ」というより「構造化オブジェクトの集合」になる。
-    見出し、本文、図表、注記、画像、ページレイアウトを分離できるので、定型の営業提案、週次レポート、研究ダイジェスト、
-    顧客別サマリーのように、毎回同じ骨格で中身だけ変える資料に強い。
-  </p>
-  <p class="mt-4">
-    研究に近い用途では、コード生成の価値はさらに明確になる。スライド本文を LLM に作らせても、最終的にはページの配置、余白、
-    図表のサイズ、フォント、配色、スピーカーノート、出典の配置を機械的に揃えないと運用できない。
-    Google Slides API は master と layout を前提にし、batchUpdate で shapes、text、images、tables を分けて扱える。
-    PptxGenJS は SVG、画像、チャート、HTML-to-PPTX を扱え、Node / browser 両方で動かせる。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>量産型の資料</h3>
-      <p>営業、CS、採用、研修、定例会議の資料はコード生成と相性がよい。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>テンプレートの管理</h3>
-      <p>デザインの骨格をコードとテンプレートで固定し、LLM は内容生成に寄せると破綻しにくい。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>レビューのしやすさ</h3>
-      <p>ページ単位で差分を見やすく、どの要素が変わったかを追跡しやすい。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>弱点</h3>
-      <p>自由な見栄えは出しやすくない。テンプレート設計と素材設計が弱いと、逆に古臭くなる。</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">ブランド主導</p>
-  <h2>Canva やブランドキット系の体験は、非デザイナーが資料を量産する働き方を変えている</h2>
-  <p>
-    Canva の AI Presentation Maker は、最初から「ブランドに沿った資料を短時間で作る」ことを前提にしている。
-    Brand Kit と branded templates を持つと、色、フォント、ロゴ、素材をチームで共有できるため、プレゼン作成は個人の腕前より、
-    会社としてどこまでテンプレートと素材を統制しているかに寄っていく。これは単なる UI の違いではなく、資料作成の責任分担の違いでもある。
-  </p>
-  <p class="mt-4">
-    このタイプの環境では、作る人の役割は「デザイナー」ではなく「ブランド済みの部品を選び、必要箇所だけ差し替える編集者」に近くなる。
-    その結果、制作速度は上がるが、テンプレート管理と承認ルールが弱いと品質がぶれやすい。
-  </p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">働き方</p>
-  <h2>この変化で増えるのは、スライドを作る人ではなく、スライド工程を設計する人である</h2>
-  <div class="timeline">
-    <article class="timeline-item">
-      <div class="timeline-year">01</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">素材設計</h3>
-        <p>画像、SVG、図表、文言、引用をどの段階で作るかを決める。</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">02</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">テンプレート管理</h3>
-        <p>ブランドテンプレート、レイアウト、マスター、部品を更新し続ける。</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">03</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">生成の運用</h3>
-        <p>チャット、画像生成、SVG 生成、PPTX 出力をワークフローに落とし込む。</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">04</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">レビューと修正</h3>
-        <p>事実、見栄え、編集可能性、アクセシビリティ、ブランド整合を毎回確認する。</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">05</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">再利用</h3>
-        <p>良いページをテンプレート化し、次回以降の生成に戻す。</p>
-      </div>
-    </article>
-  </div>
-  <p class="mt-6">
-    つまり、仕事の中心は「1回の出来」から「次回も使える工程」へ移る。人の役割も、執筆者、デザイナー、レビュー担当、ブランド管理者、
-    自動化担当に分かれていく。生成AIはその分担をなくすのではなく、むしろ明確にする。
-  </p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">具体例</p>
-  <h2>実際の使い分けは、資料の種類でかなり変わる</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>営業提案</h3>
-      <p>会社固有のブランドが強いので、SVG テンプレートとブランドキットをベースに、本文だけ自動生成するのが現実的だ。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>研究発表</h3>
-      <p>本文、図表、引用、スピーカーノートの管理が重要なので、コード生成と人手レビューの組み合わせが安定する。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>新製品紹介</h3>
-      <p>画像生成が中心になりやすく、表紙や説明ビジュアルを Firefly や OpenAI で作り、最後に編集環境へ戻す形が合う。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>社内定例</h3>
-      <p>定型が強いので、PptxGenJS や Slides API で量産し、差分だけ埋める運用が向いている。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>採用・広報</h3>
-      <p>ブランド一貫性が重要なため、Canva のようなブランド主導の環境と AI 生成を組み合わせやすい。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>トレーニング資料</h3>
-      <p>同じ骨格を繰り返すため、テンプレートと素材管理を固めるほど、制作コストが下がる。</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">運用上の論点</p>
-  <h2>見た目が良いだけでは足りず、編集可能性、互換性、アクセシビリティを見る必要がある</h2>
-  <p>
-    SVG や画像生成を使ったスライドは便利だが、そこで止めると運用で詰まる。PowerPoint は SVG を編集できるが、
-    旧環境や変換経路によっては PNG に落ちたり、サイズが膨らんだりする。Google Slides API では画像フォーマットやページ要素の制約がある。
-    つまり、生成パイプラインを作るときは、最終的にどの編集環境で誰が触るのかを先に決める必要がある。
-  </p>
-  <p class="mt-4">
-    ここで重要なのは、資料の完成物を「静的な画像」と見なさないことだ。
-    文章、画像、SVG、レイアウト、ノート、出典を後で直せる状態で残すからこそ、生成AIは実務に入る。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>編集可能性</h3>
-      <p>スライドが後から手で直せるか。単一画像化すると修正コストが跳ね上がる。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>互換性</h3>
-      <p>PowerPoint、Google Slides、ブラウザ、PDF のどこで使うかを決めてから素材形式を選ぶ。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>アクセシビリティ</h3>
-      <p>色だけに頼らず、テキスト、構造、ノートを残す方が配布後の利用に強い。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>レビュー工程</h3>
-      <p>ブランド、法務、事実確認のどこで止めるかを最初に決めておく必要がある。</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">短い結論</p>
-  <h2>この分野は、本文生成よりも、素材とテンプレートを含む制作工程の設計で差がつく</h2>
-  <p>
-    生成AI後のプレゼン資料生成は、もはや「いい感じのスライドを出す機能」ではない。
-    実務で問われるのは、画像生成をどこで使うか、SVG をどの部品として持つか、ブランドテンプレートをどう管理するか、
-    どの API でレンダリングするか、どこでレビューするか、という工程設計である。
-  </p>
-  <p class="mt-4">
-    その意味で、今の働き方はかなり変わっている。作る人は一枚ずつ手作業で整えるより、再利用可能な部品と工程を整える側に寄っている。
-    そして良い資料は、文章の上手さだけでなく、素材の扱い方と、編集可能な成果物をどれだけ安定して出せるかで決まる。
-  </p>
+<h2>生成結果と、その後の修正を別々に評価する</h2>
+<p><a href="https://arxiv.org/abs/2501.03936v3">PPTAgentの研究</a>は、参照資料を分析して編集操作を生成する方式を提案し、内容・デザイン・一貫性を評価軸にしている。
+文章の正しさだけでは資料全体を評価できない、という問題設定は参考になる。
+ただし、この研究の評価を、特定企業のテンプレートへの適合や担当者の修正時間の保証に読み替えることはできない。</p>
+<p>実務向けの確認として、私は完成画像のレビューに加え、小さな修正課題を一つ通すことを勧める。
+週次報告なら、元データの一値を変え、グラフを更新し、注記を訂正し、受け手のアプリで再び開く。
+表示の崩れと数値の不一致に加えて、担当者が生成環境に戻らず直せるかを確認する。</p>
+<p>毎回再生成する資料なら、個別編集よりも再現できる生成手順が適している場合もある。
+反対に、受け手が会議中に細かく直す資料なら、編集可能な要素を残す価値が高い。
+選択の基準は、生成技術の新しさではなく、その資料に実際に起こる修正である。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
