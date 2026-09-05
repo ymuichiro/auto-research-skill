@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:20:05 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:22:51 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -96,11 +96,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>音声AIエージェントは、デモ機能から運用システムへ移り始めた</title>
+      <title>音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか</title>
       <link>https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>OpenAI、Google、Microsoft、AWS の公開資料から、音声AIエージェントがデモ機能から運用システムへ広がる流れを整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 11:22:51 GMT</pubDate>
+      <description>音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。</description>
       <category>AI Agents</category>
     </item>
     <item>
