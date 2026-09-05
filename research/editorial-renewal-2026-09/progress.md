@@ -17,8 +17,8 @@
 
 ## 記事進捗
 
-- [x] 2026-08-12-beyond-ai-agents-hacw — 日英再確認/ビルド完了、公開照合待ち
-- [ ] 2026-08-01-ai-collaboration-starts-with-first-artifact
+- [x] 2026-08-12-beyond-ai-agents-hacw — 日英改稿/ビルド/公開照合完了 (a9c2759, Actions 33960670864 success, 日英HTTP 200 + 新本文一致)
+- [x] 2026-08-01-ai-collaboration-starts-with-first-artifact — 改稿/再確認、公開照合待ち
 - [ ] 2026-07-11-agent-evaluation-measures-execution-path
 - [ ] 2026-06-30-agents-operate-legacy-desktop-workflows
 - [ ] 2026-06-08-sales-agents-turn-notes-into-crm-actions

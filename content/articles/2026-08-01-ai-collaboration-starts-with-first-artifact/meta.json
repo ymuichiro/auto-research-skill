@@ -1,14 +1,14 @@
 {
   "slug": "ai-collaboration-starts-with-first-artifact",
   "date": "2026-08-01",
-  "titleJa": "AIとの共同作業の起点は、完璧な指示ではなく最初の成果物である",
-  "titleEn": "The starting point for AI collaboration is a first artifact, not a perfect prompt",
-  "summaryJa": "AIに仕事を頼む前に、目的や完成条件をすべて言葉にできるとは限らない。記事、画面、コードのように、案を見て初めて希望が具体化する仕事では、まず小さな試作品を作り、残す点と直す点を伝え、短く修正を重ねる方が進めやすい。本稿は、どんな対話が役立つのか、長い会話が失敗するのはなぜか、最後に何を別途検証すべきかを、研究結果と実務例から説明する。",
-  "summaryEn": "People cannot always state every goal and success condition before asking AI to work. For articles, interfaces, and code, preferences often become clear only after an early version exists. A practical approach is to make a small prototype, identify what to keep and change, revise in short cycles, and finish with independent checks. This briefing explains which kinds of interaction help, why long conversations can fail, and what still needs separate verification.",
-  "seoDescriptionJa": "AIに完璧な指示を書くより、小さな試作品を作り、期待との差を伝えて直す方がよい場面を、具体例と研究結果から説明する。",
-  "seoDescriptionEn": "A concrete guide to using small prototypes, specific feedback, and independent checks instead of relying on one perfect AI prompt.",
-  "teaserJa": "目的を言い切れないなら、小さな試作品を見て、残す点と直す点を決めればよい。",
-  "teaserEn": "When the goal is unclear, inspect a small prototype and decide what to keep and change.",
+  "titleJa": "希望が定まらない仕事で、確認質問とAIの試作品を使い分ける",
+  "titleEn": "When to clarify a request and when to show an AI prototype",
+  "summaryJa": "締切のように質問で確かめられる条件と、案を見て初めて決まる希望は異なる。コード生成と中間結果の研究、記事構成の想定例を通じて、確認質問、試作、修正、事実確認の役割を分ける。",
+  "summaryEn": "Some requirements can be clarified with a question; other preferences emerge from an example. Research and an article-outline scenario explain how to combine clarification, prototypes, revision, and verification.",
+  "seoDescriptionJa": "何を確認し、どんなAIの試作品を作ればよいか。研究の評価条件と記事構成の例から、要件確認、修正、事実確認を使い分ける。",
+  "seoDescriptionEn": "Use questions for missing requirements and prototypes for emerging preferences. Research and an outline example explain revision and verification.",
+  "teaserJa": "質問で決まる条件と、案を見て決まる希望を分け、AIと直す対象を明確にする。",
+  "teaserEn": "Distinguish missing requirements from emerging preferences, then choose a question or an inspectable prototype.",
   "category": "AI Workflows",
   "tags": [
     "Generative AI",
@@ -19,35 +19,28 @@
     "LLM"
   ],
   "publishedSources": [
-    { "label": "Google DeepMind: QuestBench", "url": "https://deepmind.google/research/publications/121987/", "type": "official" },
-    { "label": "ICLR 2025: Active Task Disambiguation with LLMs", "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/5e07476b6bd2497e1fbd11b8f0b2de3c-Abstract-Conference.html", "type": "paper" },
-    { "label": "ACL: We’re Afraid Language Models Aren’t Modeling Ambiguity", "url": "https://aclanthology.org/2023.emnlp-main.51/", "type": "paper" },
-    { "label": "ACL: CLAMBER", "url": "https://aclanthology.org/2024.acl-long.578.pdf", "type": "paper" },
-    { "label": "ICLR 2025: Modeling Future Conversation Turns", "url": "https://proceedings.iclr.cc/paper_files/paper/2025/hash/97e2df4bb8b2f1913657344a693166a2-Abstract-Conference.html", "type": "paper" },
-    { "label": "ACL: Asking Clarification Questions to Handle Ambiguity", "url": "https://aclanthology.org/2023.findings-emnlp.772/", "type": "paper" },
-    { "label": "Python Code Generation by Asking Clarification Questions", "url": "https://arxiv.org/abs/2212.09885", "type": "paper" },
-    { "label": "ClarifyGPT", "url": "https://arxiv.org/abs/2310.10996", "type": "paper" },
-    { "label": "LLM-Based Test-Driven Interactive Code Generation", "url": "https://arxiv.org/abs/2404.10100", "type": "paper" },
-    { "label": "Google DeepMind: Proactive Agents for Multi-Turn Text-to-Image Generation", "url": "https://deepmind.google/research/publications/121578/", "type": "official" },
-    { "label": "AI Chains", "url": "https://arxiv.org/abs/2110.01691", "type": "paper" },
-    { "label": "PromptChainer", "url": "https://arxiv.org/abs/2203.06566", "type": "paper" },
-    { "label": "Self-Refine", "url": "https://arxiv.org/abs/2303.17651", "type": "paper" },
-    { "label": "ACL: Read, Revise, Repeat", "url": "https://aclanthology.org/2022.in2writing-1.14/", "type": "paper" },
-    { "label": "MINT", "url": "https://arxiv.org/abs/2309.10691", "type": "paper" },
-    { "label": "CollabLLM", "url": "https://arxiv.org/abs/2502.00640", "type": "paper" },
-    { "label": "EMNLP 2025: Prototypical Human-AI Collaboration Behaviors", "url": "https://aclanthology.org/2025.emnlp-main.852.pdf", "type": "paper" },
-    { "label": "Microsoft Research: LLMs Get Lost In Multi-Turn Conversation", "url": "https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/", "type": "official" },
-    { "label": "Microsoft Research: LLMs Corrupt Your Documents When You Delegate", "url": "https://www.microsoft.com/en-us/research/publication/llms-corrupt-your-documents-when-you-delegate/", "type": "official" },
-    { "label": "Organization Science: Navigating the Jagged Technological Frontier", "url": "https://pubsonline.informs.org/doi/pdf/10.1287/orsc.2025.21838", "type": "paper" },
-    { "label": "To Trust or to Think", "url": "https://arxiv.org/abs/2102.09692", "type": "paper" },
-    { "label": "Microsoft Research: Scaffolding Human-AI Collaboration", "url": "https://www.microsoft.com/en-us/research/publication/human-ai-collaboration-field-experiment/", "type": "official" },
-    { "label": "Microsoft Research: Helping Me Versus Doing It for Me", "url": "https://www.microsoft.com/en-us/research/publication/helping-me-versus-doing-it-for-me-designing-for-agency-in-llm-infused-writing-tools-for-science-journalism/", "type": "official" },
-    { "label": "Microsoft Research: From Use to Oversight", "url": "https://www.microsoft.com/en-us/research/publication/from-use-to-oversight-how-mental-models-influence-user-behavior-and-output-in-ai-writing-assistants/", "type": "official" },
-    { "label": "Microsoft: Guidelines for Human-AI Interaction", "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2019/01/Guidelines-for-Human-AI-Interaction-camera-ready.pdf", "type": "paper" },
-    { "label": "OpenAI Help Center: How to create a good prompt", "url": "https://help.openai.com/en/articles/4936848-how-do-i-create-a-good-prompt", "type": "official" },
-    { "label": "Anthropic: Building effective agents", "url": "https://www.anthropic.com/engineering/building-effective-agents", "type": "official" },
-    { "label": "Google AI for Developers: Prompt design strategies", "url": "https://ai.google.dev/gemini-api/docs/prompting-strategies", "type": "official" },
-    { "label": "GitHub Docs: About GitHub Copilot CLI", "url": "https://docs.github.com/en/copilot/concepts/agents/copilot-cli/about-copilot-cli", "type": "official" }
+    {
+      "label": "ClarifyGPT",
+      "url": "https://arxiv.org/abs/2310.10996",
+      "type": "paper"
+    },
+    {
+      "label": "Google DeepMind: Proactive Agents for Multi-Turn Text-to-Image Generation",
+      "url": "https://deepmind.google/research/publications/121578/",
+      "type": "official"
+    },
+    {
+      "label": "AI Chains",
+      "url": "https://arxiv.org/abs/2110.01691",
+      "type": "paper"
+    },
+    {
+      "label": "Microsoft Research: LLMs Get Lost In Multi-Turn Conversation",
+      "url": "https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/",
+      "type": "official"
+    }
   ],
-  "draft": false
+  "draft": false,
+  "seoTitleJa": "AIとの共同作業で質問と試作品を使い分ける",
+  "seoTitleEn": "AI collaboration: clarification, prototypes, and verification"
 }

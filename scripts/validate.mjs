@@ -633,18 +633,10 @@ async function validateBuiltOutput(articles) {
       );
       assertContains(jaHtml, 'class="panel-block topic-backlink"', "Japanese article is missing the topic backlink block.");
       assertContains(enHtml, 'class="panel-block topic-backlink"', "English article is missing the topic backlink block.");
-      assertContains(jaHtml, 'class="panel-block briefing-summary"', "Japanese article is missing the briefing summary block.");
-      assertContains(enHtml, 'class="panel-block briefing-summary"', "English article is missing the briefing summary block.");
-      assertContains(
-        jaHtml,
-        `<p class="briefing-summary-copy">${escapeHtml(sampleArticle.seo.ja.teaser)}</p>`,
-        "Japanese article is missing the resolved teaser in the briefing summary."
-      );
-      assertContains(
-        enHtml,
-        `<p class="briefing-summary-copy">${escapeHtml(sampleArticle.seo.en.teaser)}</p>`,
-        "English article is missing the resolved teaser in the briefing summary."
-      );
+      for (const markup of [jaHtml, enHtml]) {
+        assertNotContains(markup, 'class="panel-block briefing-summary"', "Article should not repeat its introduction in a summary panel.");
+        assertCondition(markup.indexOf('class="article-body"') < markup.indexOf('class="panel-block article-authorship"'), "Article text should precede the editorial policy panel.");
+      }
       assertContains(
         jaHubHtml,
         'class="panel-block editorial-briefing topic-featured-briefing"',

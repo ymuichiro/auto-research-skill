@@ -646,29 +646,6 @@ function renderEditorialBriefing(
   </section>`;
 }
 
-function renderBriefingSummary(article, locale, topicHub) {
-  const copy = localeCopy[locale];
-  const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
-  const topicHubLink = topicHub ? topicHubHref(locale, topicHub) : "";
-
-  return `<section class="panel-block briefing-summary">
-    <div>
-      <p class="section-kicker">${escapeHtml(copy.briefingSummaryKicker)}</p>
-      <h2 class="panel-title">${escapeHtml(copy.briefingSummaryTitle)}</h2>
-    </div>
-    <div class="briefing-summary-grid">
-      <div class="briefing-summary-main">
-        <div class="meta-row">
-          ${renderTopicPill(locale, article.category, topicHubLink)}
-          <span class="mono-note">${escapeHtml(copy.sourceCount)}: ${article.publishedSources.length}</span>
-        </div>
-        <p class="briefing-summary-copy">${escapeHtml(seo.teaser)}</p>
-        ${renderTagRow(article.tags, 5)}
-      </div>
-    </div>
-  </section>`;
-}
-
 function renderArticleAuthorship(locale) {
   const copy = localeCopy[locale];
   const aboutHref = localizedPath(locale, trustPagePaths.about);
@@ -1833,13 +1810,12 @@ export function renderArticlePage(article, locale, articles = []) {
         .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
         .join("")}</div>
     </section>
-    ${renderBriefingSummary(article, locale, topicHub)}
-    ${renderArticleAuthorship(locale)}
     ${renderArticleShare(article, locale, relativePath)}
     <section class="article-body">${locale === "ja" ? article.bodies.ja : article.bodies.en}</section>
     ${renderTopicBacklink(article, locale, topicHub)}
     ${renderRelatedArticles(article, locale, articles)}
     ${renderSources(article, locale)}
+    ${renderArticleAuthorship(locale)}
   </article>`;
 
   return renderPage({

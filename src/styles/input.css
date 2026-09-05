@@ -1389,3 +1389,33 @@
     padding-right: 1rem;
   }
 }
+
+/* Reading prose must remain legible on phones as well as large displays. */
+.article-body {
+  width: 100%;
+  max-width: 54rem;
+  margin-inline: auto;
+}
+.article-body .report-section p,
+.article-body .report-section li {
+  font-size: 1rem;
+  line-height: 1.95;
+}
+.article-body .report-section > ul,
+.article-body .report-section > ol {
+  padding-inline-start: 1.5rem;
+  margin-block: 1.25rem;
+}
+.article-body .report-section > ul { list-style: disc; }
+.article-body .report-section > ol { list-style: decimal; }
+.article-body .report-section li + li { margin-top: 0.6rem; }
+.article-body a {
+  color: var(--ard-signal);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+.article-body a:focus-visible {
+  outline: 2px solid var(--ard-signal);
+  outline-offset: 3px;
+}
