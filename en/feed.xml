@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:17:01 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:20:05 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -88,11 +88,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>AI agent memory is shifting from vector retrieval to a layered systems design</title>
+      <title>Designing agent memory for retrieval, applicability, and updates</title>
       <link>https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Using primary sources from OpenAI, Anthropic, Google ADK and others, this briefing explains why agent memory is moving from one-shot retrieval to layered memory design.</description>
+      <pubDate>Sat, 05 Sep 2026 11:20:05 GMT</pubDate>
+      <description>Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.</description>
       <category>AI Agents</category>
     </item>
     <item>

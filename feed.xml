@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:17:01 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:20:05 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -88,11 +88,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>AIエージェントの記憶は、ベクトル検索から層別システムへ移っている</title>
+      <title>AIエージェントの記憶を、検索・適用・更新に分けて設計する</title>
       <link>https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>OpenAI、Anthropic、Google ADK などの一次情報から、AIエージェントの記憶が単一RAGから層別メモリ設計へ移る流れを整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 11:20:05 GMT</pubDate>
+      <description>AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。</description>
       <category>AI Agents</category>
     </item>
     <item>
