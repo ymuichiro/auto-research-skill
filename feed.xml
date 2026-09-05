@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:41:11 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 10:44:30 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -24,11 +24,11 @@
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った</title>
+      <title>AIエージェントの誤操作を、回答と実行記録から評価する</title>
       <link>https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html</guid>
-      <pubDate>Sun, 23 Aug 2026 05:06:06 GMT</pubDate>
-      <description>AIエージェント評価を回答・実行経路・運用安全性の3契約に分け、評価カードで回帰を追う設計を一次情報から整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 10:44:30 GMT</pubDate>
+      <description>予約変更の例で、AIエージェントの回答、承認順序、入力値、最終状態を別々に評価。トレースと合否判定の違い、正しい代替経路の扱いを解説する。</description>
       <category>AI Agents</category>
     </item>
     <item>
