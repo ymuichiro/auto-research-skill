@@ -28,8 +28,8 @@
 - [x] 2026-04-20-agents-compete-on-work-continuity — 改稿/ビルド/公開完了 (7d5e59b, Actions 33962793601 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-04-13-coding-agents-become-supervised-runtime-systems — 改稿/ビルド/公開完了 (b611f51, Actions 33962917492 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-04-08-agent-memory-shifts-to-layered-systems — 改稿/ビルド/公開完了 (ad6ca01, Actions 33963053925 success, 日英HTTP 200 + 本文一致)
-- [x] 2026-04-06-voice-agents-become-operational-systems — 改稿/ビルド完了、公開照合待ち
-- [ ] 2026-03-30-subagents-become-the-practical-unit-of-work-ai
+- [x] 2026-04-06-voice-agents-become-operational-systems — 改稿/ビルド/公開完了 (7dc3572, Actions 33963181638 success, 日英HTTP 200 + 本文一致)
+- [x] 2026-03-30-subagents-become-the-practical-unit-of-work-ai — 改稿/ビルド完了、公開照合待ち
 - [ ] 2026-03-28-video-generation-ai-product-landscape
 - [ ] 2026-03-28-open-agent-protocol-stack
 - [ ] 2026-03-26-agent-identity-becomes-an-auth-control-plane
