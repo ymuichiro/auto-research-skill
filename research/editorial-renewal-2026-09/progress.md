@@ -26,8 +26,8 @@
 - [x] 2026-05-07-governed-agent-stacks-not-smarter-models — 改稿/ビルド/公開完了 (ed79bed, Actions 33962558284 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-04-27-agent-discovery-and-approval-shape-adoption — 改稿/ビルド/公開完了 (3a92240, Actions 33962682078 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-04-20-agents-compete-on-work-continuity — 改稿/ビルド/公開完了 (7d5e59b, Actions 33962793601 success, 日英HTTP 200 + 本文一致)
-- [x] 2026-04-13-coding-agents-become-supervised-runtime-systems — 改稿/ビルド完了、公開照合待ち
-- [ ] 2026-04-08-agent-memory-shifts-to-layered-systems
+- [x] 2026-04-13-coding-agents-become-supervised-runtime-systems — 改稿/ビルド/公開完了 (b611f51, Actions 33962917492 success, 日英HTTP 200 + 本文一致)
+- [x] 2026-04-08-agent-memory-shifts-to-layered-systems — 改稿/ビルド完了、公開照合待ち
 - [ ] 2026-04-06-voice-agents-become-operational-systems
 - [ ] 2026-03-30-subagents-become-the-practical-unit-of-work-ai
 - [ ] 2026-03-28-video-generation-ai-product-landscape
