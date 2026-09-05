@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:22:51 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:30:37 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -104,11 +104,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>subagents は、実務向けAIの現実的な実装単位になり始めた</title>
+      <title>AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか</title>
       <link>https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>OpenAI、Anthropic、Google、Microsoft、AWS の資料から、subagents が実務向けAIの実装単位として具体化する流れを整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 11:30:37 GMT</pubDate>
+      <description>subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。</description>
       <category>AI Agents</category>
     </item>
     <item>
