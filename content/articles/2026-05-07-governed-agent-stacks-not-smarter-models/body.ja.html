@@ -1,256 +1,41 @@
 <section class="report-section">
-  <p class="section-kicker">要点</p>
-  <h2>今週の論点は、どのモデルが賢いかより、どの基盤が作成・実行・統制・評価を一続きで回せるかにある</h2>
-  <p>
-    2026年5月7日までに公開されている Google、Microsoft、AWS、Anthropic、OpenAI の一次情報を重ねると、
-    AIエージェントの比較対象がはっきり変わってきたことが見える。以前なら、主役はモデル性能や単体のツール接続力だった。
-    しかし今は、それだけでは本番導入の説明にならない。どこでエージェントを設計するのか、どの実行環境で動かすのか、
-    誰が権限を与えるのか、どのルールで止めるのか、どうやって失敗を観測し改善するのかまでが、同じ製品面で比較され始めている。
-  </p>
-  <p class="mt-4">
-    今週を単独の発表として読むより、主要ベンダーが「作成」「実行」「承認」「評価」を一体の運用基盤として公開面にそろえ始めた
-    収束週として読む方が自然である。Google は Gemini Enterprise Agent Platform を「作成」「拡張」「統制」「最適化」の4本柱で見せ、
-    Microsoft は Agent Framework 1.0 と Agent Governance Toolkit を並べ、AWS は AgentCore に Registry、Policy、Observability、
-    Evaluations を載せた。Anthropic と OpenAI は Agent SDK、permissions、sessions、sandbox、tracing、eval harness の公開資料で、
-    その基盤をどう運用するかを補っている。
-  </p>
-  <div class="mt-6 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-    <article class="stat-card">
-      <p class="stat-value">31件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">公式 docs、公式告知、公式 SDK ドキュメントだけで、今週の主論点を十分に比較できる厚みがある。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">5系統</p>
-      <p class="stat-title">比較対象</p>
-      <p class="stat-note">Google、Microsoft、AWS、Anthropic、OpenAI の運用面を横並びで読むと、共通の設計語彙が見えてくる。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">4層</p>
-      <p class="stat-title">新しい比較軸</p>
-      <p class="stat-note">作成、実行、統制、評価の4層で見ると、各社の違いと収束が同時に整理しやすい。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">1変化</p>
-      <p class="stat-title">主役が変わった</p>
-      <p class="stat-note">モデル単体ではなく、エージェントを安全に回し続ける運用基盤そのものが製品の主役になっている。</p>
-    </article>
-  </div>
+<h2>エージェント基盤を、業務の一往復で比較する</h2>
+<p>エージェントを部署に配るとき、モデルの回答精度に加えて確認したいことがある。
+誰の権限でデータを読み、更新前にどこで承認を取り、失敗した処理をどう調べるかである。
+本稿は2026年5月7日までの発表を基に、こうした確認を基盤選定に組み込む方法を考える。
+製品資料だけから、モデル性能の重要性が下がったことや、市場全体が一つの方式に収束したことまでは言えない。</p>
+<p>比較対象を具体化するため、社内の問い合わせを読み、担当部署を提案し、人の確認後にチケットを更新する仕組みを想定する。
+この一往復を候補の基盤で動かせば、機能一覧にある「統制」や「評価」が、実際のどの操作を扱うのかを確かめられる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">今週の意味</p>
-  <h2>2026年春の点だった動きが、今週は一つの運用スタックとして線でつながった</h2>
-  <div class="timeline">
-    <article class="timeline-item">
-      <div class="timeline-year">03-31</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">AWS は AgentCore Evaluations を GA にし、評価を本番監視と結びつけた</h3>
-        <p>評価は研究用の補助ではなく、本番トラフィックの継続監視と変更検証に使う前提が明示された。</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">04-02</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Microsoft は Agent Governance Toolkit を公開し、統制を独立レイヤーとして前面化した</h3>
-        <p>policy、identity、runtime、compliance、marketplace governance を別パッケージとして扱う姿勢がはっきりした。</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">04-03</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Microsoft Agent Framework 1.0 は agents と workflows を本番向け SDK として固定した</h3>
-        <p>sessions、middleware、checkpointing、human-in-the-loop を伴う運用前提が、抽象論ではなく標準機能になった。</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">04-08</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">AWS Agent Registry preview は、発見と承認を runtime の外に切り出して製品化した</h3>
-        <p>agent、tool、skill、MCP server を approval workflow とメタデータ付きで扱う前提が公開面に出た。</p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">05-05</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">Google は Agent Platform の公開 docs を作成・拡張・統制・最適化でそろえた</h3>
-        <p>Agent Studio、Runtime、Identity、Gateway、Evaluation、Observability が同一の運用面として並び、比較軸が一気に読みやすくなった。</p>
-      </div>
-    </article>
-  </div>
-  <p class="mt-6">
-    ここに Anthropic の eval harness と long-running harness の整理、OpenAI Agents SDK の sandbox、sessions、tracing を重ねると、
-    今週の変化はさらに明確になる。各社が競っているのは「より賢い応答」だけではなく、
-    人間が境界を定め、長時間動かし、途中で止め、失敗を追跡し、再利用しやすくする基盤そのものである。
-    だから今回の週次記事は単独テーマ記事ではなく、複数の公開面が一度にそろった週次総括として読む方が内容を正確に表せる。
-  </p>
+<h2>発表が示すのは、実行以外にも用意された機能である</h2>
+<p>Googleは4月22日の<a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform発表</a>で、開発・拡張・統制・最適化を並べ、実行環境に加えてIdentity、Registry、Gateway、評価と観測の機能を説明した。
+これは、エージェントの作成後に必要になる管理機能も製品の範囲として示した例である。
+ただし、機能名が並んでいることは、自社の既存システムまで同じ規則が適用される証明ではない。</p>
+<p>AWSは3月31日の<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">AgentCore Evaluationsの一般提供発表</a>で、本番のトレースを抽出して採点するオンライン評価と、変更をテストするオンデマンド評価を区別した。
+実行後の品質を測る機能が具体化している。ただし、採点する仕組みと、不適切な更新を実行前に拒否する仕組みは役割が異なる。</p>
+<p>この二例から私が導くのは、調達時の質問を増やす必要性である。
+「動くか」に加え、「許可されない処理を止められるか」「失敗を判別できるか」を問う。
+両社の提供範囲や性能が同等である、という比較結果ではない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">4層の整理</p>
-  <h2>今のエージェント基盤は、少なくとも作成・実行・統制・評価の4層で比較すると見通しが良い</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>1. 作成の層</h3>
-      <p>
-        まず必要なのは、エージェントをどう設計し、どこまで決め打ちで組むかである。Google は Agent Studio と ADK、
-        Microsoft は workflows と型安全な routing、OpenAI は handoffs と最小の primitives、
-        Anthropic は workflows と agents の切り分けを明文化している。ここでは「何を作れるか」より、
-        どの粒度で設計を固定できるかが差になり始めた。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>2. 実行の層</h3>
-      <p>
-        次に必要なのは、長く動く仕事をどこで持続させるかである。OpenAI は sandbox agents と sessions、
-        Anthropic は long-running harness、Google は Agent Runtime と Memory Bank、AWS は AgentCore Runtime と Identity を出している。
-        ここでは「一度動くか」より、状態、権限、再開性、隔離実行をどう揃えるかが重要になる。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>3. 統制の層</h3>
-      <p>
-        本番導入では、何を許可し、誰が承認し、どの境界で止めるかが必要になる。Google の Agent Gateway と agent identity、
-        Microsoft の middleware と Agent Governance Toolkit、AWS の Policy と Registry、Anthropic の permissions と security docs は、
-        いずれも統制を prompt の外へ出している。エージェントは自由度だけでなく、止め方の設計まで含めて比べる対象になった。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>4. 評価の層</h3>
-      <p>
-        最後に必要なのは、何をもって改善とみなすかである。Anthropic はタスク、試行、採点器、実行記録、結果状態を分け、
-        OpenAI はトレーシングを標準化し、Google は評価ケース、トレース、指標、最適化を一体化し、
-        AWS は Evaluations と Observability を production monitoring に結びつけた。ここではモデル評価ではなく、
-        agent run 全体の品質をどう測るかが競争軸になっている。
-      </p>
-    </article>
-  </div>
-  <div class="callout-panel mt-6">
-    <p class="callout-title">観測点</p>
-    <p>今の AI エージェントは、単一モデルを包む UI ではなく、設計、実行、統制、評価がつながった運用基盤として読んだ方が現実に近い。</p>
-  </div>
+<h2>チケット更新のどこで責任が移るかを試す</h2>
+<p>想定した業務では、まずテスト用の問い合わせから適切な部署を選べるかを確認する。
+ここはモデルの読解や分類が関わる。次に、権限のないチケットを指定し、接続先が読み取りや更新を拒否するかを確かめる。
+正しい部署名を返せても、別の担当者の権限を借りて更新できてしまえば、導入条件を満たさない。</p>
+<p>人の確認を挟む場合には、承認した対象と内容が実際の更新と一致するかを見る。
+承認待ちの間にチケットが変わった場合や、実行が中断した場合も試したい。
+再開後の重複更新を防ぐ責任が基盤、業務API、アプリケーションのどこにあるかを、処理記録と保存結果から確認する。</p>
+<p>最後に、部署の誤分類と、承認を飛ばした更新を別々に検出できるかを調べる。
+前者には分類用の正解例、後者には承認と更新を結び付けた記録が必要になる。
+単一の品質スコアだけでは、この違いを見落とす可能性がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">各社の差</p>
-  <h2>同じ方向へ進んでいても、どの層を前面に出すかはかなり違う</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>OpenAI は、軽量な実行基盤と可視化を強く押し出す</h3>
-      <p>
-        OpenAI Agents SDK は agents、handoffs、guardrails という少数の要素を保ちながら、
-        sandbox、sessions、human in the loop、tracing を標準機能として持つ。特徴は、複雑な基盤を大きな control plane ではなく
-        開発者向け実行基盤として扱っている点にある。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>Anthropic は、評価設計とハーネス設計を中心に据える</h3>
-      <p>
-        Anthropic の資料は、agent 自体よりハーネスと評価の設計を前に出す。タスク、試行、採点器、結果状態を分け、
-        long-running harness では initializer agent と incremental progress を使う。強みは、運用を始めた後の品質維持を
-        最初から設計課題として扱っている点である。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>Microsoft は、agents と workflows の分離を製品の中心に置く</h3>
-      <p>
-        Agent Framework 1.0 は、LLM 主導の agent と、型付きで checkpointing できる workflow を明確に分ける。
-        さらに middleware と Agent Governance Toolkit で policy や compliance を外付けできる。
-        つまり Microsoft は、エージェントを推論体というより企業向けソフトウェア部品として見せている。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>Google は、最も一連で読める製品語彙を与えた</h3>
-      <p>
-        Build、Scale、Govern、Optimize を同じ docs 面で並べ、Agent Studio、ADK、Runtime、Identity、Gateway、
-        Evaluation、Observability を一連の流れとして見せている。Google の特徴は、agent platform という言葉に
-        製品境界を与え、個別機能ではなく全体像で比較しやすくしたことにある。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>AWS は、runtime より外側の catalog と policy まで運用面に含めた</h3>
-      <p>
-        AgentCore は Runtime、Gateway、Identity、Policy、Registry、Observability、Evaluations を分けて持ち、
-        特に Registry と Policy で承認と境界設定を強く前面化している。AWS の見せ方は、
-        「何を作るか」だけでなく「何を登録し、何を許し、どう監査するか」まで含めて agent platform と読むものだ。
-      </p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">業務フロー</p>
-  <h2>この比較軸が効くのは、エージェントを試作品ではなく組織の運用対象として扱う場面である</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>社内調査・文書作成エージェント</h3>
-      <ul class="bullet-list">
-        <li>基盤担当チームが承認済みの tool や MCP server だけを registry に載せる</li>
-        <li>agent identity と policy で、読めるデータと書ける操作を分ける</li>
-        <li>トレースと評価結果を残せない基盤は、導入後の説明責任が重くなる</li>
-      </ul>
-    </article>
-    <article class="comparison-card">
-      <h3>長時間のコーディング・運用支援</h3>
-      <ul class="bullet-list">
-        <li>sandbox や secure runtime がないと、再開性と権限分離を両立しにくい</li>
-        <li>session と progress artifact がないと、長い仕事ほど品質がぶれやすい</li>
-        <li>human approval を途中で差し込めるかが、実務投入の分かれ目になる</li>
-      </ul>
-    </article>
-    <article class="comparison-card">
-      <h3>複数部門での再利用</h3>
-      <ul class="bullet-list">
-        <li>agent や skill を catalog 化しないと、同じ業務ロジックが各部門で重複しやすい</li>
-        <li>approval、deprecation、ownership metadata がないと、使ってよい資産が曖昧になる</li>
-        <li>今週の収束は、reuse を runtime の外で管理する方向を強めている</li>
-      </ul>
-    </article>
-    <article class="comparison-card">
-      <h3>顧客向け運用と継続改善</h3>
-      <ul class="bullet-list">
-        <li>本番後も safety、task success、tool use quality を継続評価する必要がある</li>
-        <li>policy が agent code の外にある方が、修正と監査を切り分けやすい</li>
-        <li>observability を持たない agent は、失敗しても改善点が追いにくい</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">まだ早いこと</p>
-  <h2>ただし、公開面が整ったことと、現場の標準解が固まったことは同じではない</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>protocol 対応だけで統制は完成しない</h3>
-      <p>MCP や A2A に対応しても、approval、revocation、least privilege は別レイヤーで設計し続ける必要がある。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>low-code 化だけで本番品質は出ない</h3>
-      <p>visual builder や studio があっても、task 定義、grader 設計、権限境界の詰めが弱いと品質は安定しない。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>catalog があっても day-two 運用は残る</h3>
-      <p>登録、承認、発見が整っても、変更管理、メモリ更新、コスト制御、障害解析までは別に回す必要がある。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>評価自動化は task 設計に強く依存する</h3>
-      <p>多くのベンダーが自動評価を前面化したが、良い grader と ground truth を持たないままでは、数字だけが先に立ちやすい。</p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">結論</p>
-  <h2>今週読むべき変化は、AIエージェントが「賢い機能」から「統制された運用基盤」へ商品定義を変え始めたことだ</h2>
-  <p>
-    2026年5月上旬の一次情報を横断すると、エージェントの競争軸は model leaderboard だけでは説明しにくくなっている。
-    実務で問われるのは、誰が設計し、どこで動かし、どの権限で接続し、どう失敗を測るかである。
-    各社の実装はまだ揃っていないが、比較する単位はすでに agent app から統制付き運用基盤へ移り始めた。
-  </p>
-  <p class="mt-4">
-    この変化は、エージェントを試す企業より、複数部門へ配る企業ほど重く効く。今後の導入判断では、
-    モデル性能表の次に、ワークフロー、承認、ポリシー、トレース、評価をどこまで標準装備で持つかを見る必要がある。
-    今週は、その読み方が主要ベンダーの公開面で共通化し始めた週だった。
-  </p>
+<h2>必要な管理機能を、既存の仕組みも含めて揃える</h2>
+<p>全機能を一つの製品から導入することが常に最適とは限らない。
+<a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropicの設計記事</a>は、簡単な構成から始め、必要に応じて複雑さを増やす考え方を示している。
+既存のチケットシステムに承認と監査があるなら、それを利用する案と、新しい基盤に寄せる案を比べられる。</p>
+<p>私は、試行結果を「基盤が提供すること」「接続先が保証すること」「自分たちが実装すること」に分けて残すことを勧める。
+機能が不足する箇所だけでなく、設定、障害対応、変更時の再検証を誰が担うかも書く。
+この比較なら、モデル品質を測りながら、業務を運用するための追加作業と費用も判断できる。</p>
 </section>
