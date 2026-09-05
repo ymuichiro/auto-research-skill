@@ -1,16 +1,16 @@
 {
   "slug": "beyond-ai-agents-hacw",
   "date": "2026-08-12",
-  "titleJa": "AIエージェントの先にあるHACW。人の判断を次回の業務ルールへ変える",
-  "titleEn": "Beyond AI agents: HACW turns human decisions into rules for future work",
-  "summaryJa": "Human-Agent Collaboration Workspace（HACW）は、目的、制約、AIの実行結果、根拠、業務別の検査結果、人の判断を、人とAIが引き継げる共有記録へ残し、再利用できる判断だけを次回の自動処理ルールへ変える業務環境である。本稿ではHACWを公開情報から導く作業仮説として、AIアシスタント、エージェンティックAI、エージェント作成基盤、統制基盤との違いを整理する。判断記録は参考情報として保存するが、それだけで実行を許可しない。適用条件をテストできた判断だけをタスク契約、評価器、権限ポリシーへ変え、目的、価値の衝突、交渉、前例のない例外は人に残す。",
-  "summaryEn": "A Human-Agent Collaboration Workspace (HACW) preserves objectives, constraints, agent execution, evidence, task-specific validation, and human decisions in a record people and agents can carry forward, then turns only reusable decisions into rules for future automation. This briefing treats HACW as a working hypothesis derived from public evidence, not a settled industry standard, and distinguishes it from AI assistants, agentic systems, agent builders, and governance platforms. Decision records remain reference material rather than execution authority. Only decisions with testable applicability become task contracts, evaluators, or authorization policies; objectives, value conflicts, negotiation, and unprecedented exceptions remain with people.",
-  "seoTitleJa": "AIエージェントの先にあるHACWとは",
-  "seoTitleEn": "Beyond AI agents: what HACW changes",
-  "seoDescriptionJa": "HACWを、人の判断を記録し、検証できた判断だけを次回から人に確認せず実行できる業務ルールへ変える環境として整理する。",
-  "seoDescriptionEn": "HACW records human decisions and turns only validated decisions into business rules that future tasks can execute without another review.",
-  "teaserJa": "HACWは人の判断を一回の承認で終わらせず、適用条件をテストできた判断だけを、次回から人に確認せず使える業務ルールへ変える。",
-  "teaserEn": "HACW turns human decisions with testable conditions into rules future tasks can use without another review.",
+  "titleJa": "人の承認を次回の自動処理に再利用するには何が必要か",
+  "titleEn": "When can a human approval become a rule for future agent tasks?",
+  "summaryJa": "一回の承認を次回にも使うには、判断の理由だけでなく適用条件を定め、例外を検査し、責任者がルールを承認する必要がある。請求書の想定例と承認、ポリシー、記憶の仕組みを比較し、HACWという設計案の成立条件を考える。",
+  "summaryEn": "Reusing an approval requires explicit conditions, tests for exceptions, and an accountable rule owner. An invoice example distinguishes approval, policy, and memory, and examines when the proposed HACW design is useful.",
+  "seoTitleJa": "AIの承認を業務ルールへ変える条件とHACW",
+  "seoTitleEn": "Reusing human approvals in AI agent workflows",
+  "seoDescriptionJa": "AIへの一回の承認を次回の業務ルールへ変える条件を、請求書の例で説明。判断記録、適用条件、例外テスト、ルールの承認と失効を整理する。",
+  "seoDescriptionEn": "An invoice example explains when AI agents can reuse human approvals, with explicit conditions, exception tests, rule ownership, and expiry.",
+  "teaserJa": "請求書の承認を例に、判断記録から検査可能な業務ルールへ変える手順と限界を考える。",
+  "teaserEn": "An invoice example separates remembered decisions from permission to act on the next task.",
   "category": "AI Strategy",
   "tags": [
     "AI Agent",
@@ -22,44 +22,26 @@
     "Evaluation"
   ],
   "publishedSources": [
-    { "label": "Gartner: Hype Cycle for Digital Workplace Applications, 2026", "url": "https://www.gartner.com/en/documents/7878877", "type": "official" },
-    { "label": "Gartner First Take: OpenAI Launches Workspace Agents", "url": "https://www.gartner.com/en/documents/7760821", "type": "official" },
-    { "label": "Gartner First Take: Slackbot Transforms Slack to an AI Workhub", "url": "https://www.gartner.com/en/documents/7663361", "type": "official" },
-    { "label": "Gartner: The New Rules of Human-AI Collaboration and Teamwork", "url": "https://www.gartner.com/en/articles/human-ai-collaboration", "type": "official" },
-    { "label": "Gartner: Four Scenarios for Human-AI Collaboration at Work", "url": "https://www.gartner.com/en/newsroom/press-releases/2025-11-11-gartner-says-leaders-must-create-four-scenarios-for-human-artificial-intelligence-collaboration-at-work", "type": "official" },
-    { "label": "Gartner: Uniform Governance Across AI Agents Will Lead to Failure", "url": "https://www.gartner.com/en/newsroom/press-releases/2026-05-26-gartner-says-applying-uniform-governance-across-ai-agents-will-lead-to-enterprise-ai-agent-failure", "type": "official" },
-    { "label": "Gartner: Agentic AI Will Transform Finance", "url": "https://www.gartner.com/en/articles/agentic-ai-in-finance", "type": "official" },
-    { "label": "Gartner: How CHROs Can Redefine Manager Oversight", "url": "https://www.gartner.com/en/articles/agentic-ai-for-chros", "type": "official" },
-    { "label": "OpenAI: Introducing Workspace Agents in ChatGPT", "url": "https://openai.com/index/introducing-workspace-agents-in-chatgpt/", "type": "official" },
-    { "label": "OpenAI Agents SDK: Agent Orchestration", "url": "https://openai.github.io/openai-agents-python/multi_agent/", "type": "official" },
-    { "label": "OpenAI Agents SDK: Human-in-the-loop", "url": "https://openai.github.io/openai-agents-python/human_in_the_loop/", "type": "official" },
-    { "label": "OpenAI Agents SDK: Results", "url": "https://openai.github.io/openai-agents-python/results/", "type": "official" },
-    { "label": "OpenAI Agents SDK: Tracing", "url": "https://openai.github.io/openai-agents-python/tracing/", "type": "official" },
-    { "label": "OpenAI Agents SDK: Agent Memory", "url": "https://openai.github.io/openai-agents-python/sandbox/memory/", "type": "official" },
-    { "label": "AWS: Policy in Amazon Bedrock AgentCore", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html", "type": "official" },
-    { "label": "Microsoft Agent Framework: Workflow Orchestrations", "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/", "type": "official" },
-    { "label": "Microsoft Agent Framework: Handoff Orchestration", "url": "https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/handoff", "type": "official" },
-    { "label": "Microsoft Agent Framework: Evaluation", "url": "https://learn.microsoft.com/en-us/agent-framework/agents/evaluation", "type": "official" },
-    { "label": "Microsoft Azure Architecture Center: AI Agent Orchestration Patterns", "url": "https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/ai-agent-design-patterns", "type": "official" },
-    { "label": "Google Cloud: Gemini Enterprise Agent Platform Agents Overview", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/agents", "type": "official" },
-    { "label": "Google Cloud: Evaluate Gen AI Agents", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/evaluation-agents", "type": "official" },
-    { "label": "Anthropic: Building Effective Agents", "url": "https://www.anthropic.com/engineering/building-effective-agents", "type": "official" },
-    { "label": "Anthropic: How We Built Our Multi-Agent Research System", "url": "https://www.anthropic.com/engineering/multi-agent-research-system", "type": "official" },
-    { "label": "Anthropic: Demystifying Evals for AI Agents", "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents", "type": "official" },
-    { "label": "NIST: Building Evaluation Probes into Agentic AI", "url": "https://www.nist.gov/programs-projects/building-evaluation-probes-agentic-ai", "type": "official" },
-    { "label": "NIST AI 600-1: Generative AI Profile", "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence", "type": "official" },
-    { "label": "Microsoft Research: Interaction, Process, Infrastructure", "url": "https://www.microsoft.com/en-us/research/publication/interaction-process-infrastructure-a-unified-framework-for-human-agent-collaboration/", "type": "paper" },
-    { "label": "Microsoft Research: From Task Solvers to Teammates", "url": "https://www.microsoft.com/en-us/research/project/from-task-solvers-to-teammates-a-theory-grounded-architecture-for-advancing-collaboration-readiness-in-llm-agents/", "type": "paper" },
-    { "label": "Microsoft Research: Magentic-UI", "url": "https://www.microsoft.com/en-us/research/publication/magentic-ui-report/", "type": "paper" },
-    { "label": "Microsoft Research: Human-Agent Collaboration: Can an Agent Be a Partner?", "url": "https://www.microsoft.com/en-us/research/publication/human-agent-collaboration-can-an-agent-be-a-partner/", "type": "paper" },
-    { "label": "Collaborative Human-Agent Protocol (CHAP)", "url": "https://arxiv.org/abs/2606.09751", "type": "paper" },
-    { "label": "CLEO: When to Hand Off, When to Work Together", "url": "https://arxiv.org/abs/2603.02050", "type": "paper" },
-    { "label": "Pista: Auditing and Controlling AI Agent Actions in Spreadsheets", "url": "https://arxiv.org/abs/2604.20070", "type": "paper" },
-    { "label": "CollabSkill: Evaluating Human-Agent Collaboration on Real-World Tasks", "url": "https://arxiv.org/abs/2606.09833", "type": "paper" },
-    { "label": "Human Oversight and Overload", "url": "https://arxiv.org/abs/2606.05770", "type": "paper" },
-    { "label": "Human Oversight of Agentic Systems in Practice", "url": "https://arxiv.org/abs/2606.05391", "type": "paper" },
-    { "label": "Reflexion: Language Agents with Verbal Reinforcement Learning", "url": "https://arxiv.org/abs/2303.11366", "type": "paper" },
-    { "label": "ExpeL: LLM Agents Are Experiential Learners", "url": "https://arxiv.org/abs/2308.10144", "type": "paper" }
+    {
+      "label": "OpenAI: Introducing Workspace Agents in ChatGPT",
+      "url": "https://openai.com/index/introducing-workspace-agents-in-chatgpt/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI Agents SDK: Human-in-the-loop",
+      "url": "https://openai.github.io/openai-agents-python/human_in_the_loop/",
+      "type": "official"
+    },
+    {
+      "label": "AWS: Policy in Amazon Bedrock AgentCore",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html",
+      "type": "official"
+    },
+    {
+      "label": "Reflexion: Language Agents with Verbal Reinforcement Learning",
+      "url": "https://arxiv.org/abs/2303.11366",
+      "type": "paper"
+    }
   ],
   "draft": false
 }
