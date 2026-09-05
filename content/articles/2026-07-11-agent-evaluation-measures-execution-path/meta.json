@@ -1,46 +1,41 @@
 {
   "slug": "agent-evaluation-measures-execution-path",
   "date": "2026-07-11",
-  "titleJa": "AIエージェントの評価は、回答だけでなく実行経路を測る段階に入った",
-  "titleEn": "AI agent evaluation now has to measure the execution path, not just the answer",
-  "summaryJa": "2026年7月11日までに公開された OpenAI、Anthropic、Google Cloud、AWS の一次情報と評価研究を重ねると、AIエージェントの品質評価は最終回答の採点だけでは足りなくなっている。各社の評価機能は、ツール選択、呼び出し順序、承認境界、失敗時の復旧、トレースを対象に含め、開発時のデータセット評価と本番の観測をつなぎ始めた。本稿では、回答、実行経路、運用安全性を分けて測る評価カードを示し、変更時にどの契約が崩れたかを追えるようにする。",
-  "summaryEn": "Across primary-source material published through July 11, 2026 from OpenAI, Anthropic, Google Cloud, and AWS, plus evaluation research, agent quality can no longer be reduced to scoring the final answer. Their evaluation surfaces increasingly include tool selection, action order, approval boundaries, recovery from failure, and traces, connecting dataset-based tests in development to observation in production. This article turns the distinction into an evaluation card that measures answer quality, execution quality, and operational safety separately, so teams can identify which contract regressed after a change.",
-  "seoDescriptionJa": "AIエージェント評価を回答・実行経路・運用安全性の3契約に分け、評価カードで回帰を追う設計を一次情報から整理する。",
-  "seoDescriptionEn": "A primary-source framework for evaluating AI agents through three contracts: answers, execution paths, and operational safety.",
-  "teaserJa": "回答・実行経路・運用安全性を分けて測る評価カードで、AIエージェントの回帰を追う。",
-  "teaserEn": "Use an evaluation card to track regressions across answers, execution paths, and operational safety.",
+  "titleJa": "AIエージェントの誤操作を、回答と実行記録から評価する",
+  "titleEn": "Evaluating AI agent actions beyond the final answer",
+  "summaryJa": "同じ予約変更の回答を返しても、承認より先に保存した実行は不合格になる。予約変更の想定例を使い、トレースの取得、入力値と順序の判定、最終状態の照合を分け、変更前後の回帰を検出する方法を説明する。",
+  "summaryEn": "Two booking agents can return the same correct answer while only one follows the approval rule. A hypothetical example separates event collection, argument and order checks, final-state verification, and regression evaluation.",
+  "seoDescriptionJa": "予約変更の例で、AIエージェントの回答、承認順序、入力値、最終状態を別々に評価。トレースと合否判定の違い、正しい代替経路の扱いを解説する。",
+  "seoDescriptionEn": "Evaluate AI agents using booking traces, approval order, tool arguments, and saved state. Learn how to allow valid paths and detect regressions.",
+  "teaserJa": "同じ正しい回答でも、承認前に保存した実行は不合格になる。その違いを判定する記録と規則を示す。",
+  "teaserEn": "The same correct answer can conceal an unapproved write. Check events, arguments, and final state separately.",
   "category": "AI Agents",
-  "tags": ["AI Agent", "Evaluation", "Observability", "Tool Use", "Governance", "LLM"],
-  "publishedSources": [
-    { "label": "OpenAI API: Agent evals", "url": "https://platform.openai.com/docs/guides/agent-evals", "type": "official" },
-    { "label": "OpenAI API: Evaluation best practices", "url": "https://platform.openai.com/docs/guides/evals", "type": "official" },
-    { "label": "OpenAI API: Graders", "url": "https://platform.openai.com/docs/guides/graders", "type": "official" },
-    { "label": "OpenAI Agents SDK: Tracing", "url": "https://openai.github.io/openai-agents-python/tracing/", "type": "official" },
-    { "label": "OpenAI Agents SDK: Guardrails", "url": "https://openai.github.io/openai-agents-python/guardrails/", "type": "official" },
-    { "label": "OpenAI Agents SDK: Tool guardrails", "url": "https://openai.github.io/openai-agents-python/ref/tool_guardrails/", "type": "official" },
-    { "label": "OpenAI Agents SDK: Running agents", "url": "https://openai.github.io/openai-agents-python/running_agents/", "type": "official" },
-    { "label": "OpenAI Guardrails Python: Evaluation Tool", "url": "https://openai.github.io/openai-guardrails-python/evals/", "type": "official" },
-    { "label": "Anthropic docs: Using the Evaluation Tool", "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool", "type": "official" },
-    { "label": "Anthropic docs: Define success criteria", "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/define-success", "type": "official" },
-    { "label": "Anthropic docs: Develop test cases", "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/develop-tests", "type": "official" },
-    { "label": "Anthropic docs: Tool use with Claude", "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview", "type": "official" },
-    { "label": "Anthropic docs: Reduce prompt leak", "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak", "type": "official" },
-    { "label": "Google Cloud: Evaluate your agents", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-agents", "type": "official" },
-    { "label": "Google Cloud: Run offline evaluations", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-offline", "type": "official" },
-    { "label": "Google Cloud: Continuous evaluation with online monitors", "url": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/optimize/evaluation/evaluate-online", "type": "official" },
-    { "label": "Google Cloud: Evaluate Gen AI models", "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/models/determine-eval", "type": "official" },
-    { "label": "Google Cloud: Vertex AI evaluation reference", "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rpc/google.cloud.aiplatform.v1", "type": "official" },
-    { "label": "Google agents-cli: Evaluation Guide", "url": "https://google.github.io/agents-cli/guide/evaluation/", "type": "official" },
-    { "label": "AWS: Evaluate agent performance with AgentCore Evaluations", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluations.html", "type": "official" },
-    { "label": "AWS: AgentCore Evaluators", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/evaluators.html", "type": "official" },
-    { "label": "AWS: Ground truth evaluations", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html", "type": "official" },
-    { "label": "AWS: AgentCore evaluation results and output", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/results-and-output.html", "type": "official" },
-    { "label": "AWS: AgentCore Observability", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability.html", "type": "official" },
-    { "label": "AWS: Get started with AgentCore Observability", "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/observability-get-started.html", "type": "official" },
-    { "label": "AgentBench: Evaluating LLMs as Agents", "url": "https://arxiv.org/abs/2308.03688", "type": "paper" },
-    { "label": "ToolSandbox: A Stateful, Conversational, Interactive Evaluation Benchmark", "url": "https://arxiv.org/abs/2406.08746", "type": "paper" },
-    { "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction", "url": "https://arxiv.org/abs/2406.12045", "type": "paper" },
-    { "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?", "url": "https://arxiv.org/abs/2310.06770", "type": "paper" }
+  "tags": [
+    "AI Agent",
+    "Evaluation",
+    "Observability",
+    "Tool Use",
+    "Governance",
+    "LLM"
   ],
-  "draft": false
+  "publishedSources": [
+    {
+      "label": "OpenAI Agents SDK: Tracing",
+      "url": "https://openai.github.io/openai-agents-python/tracing/",
+      "type": "official"
+    },
+    {
+      "label": "AWS: Ground truth evaluations",
+      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html",
+      "type": "official"
+    },
+    {
+      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction",
+      "url": "https://arxiv.org/abs/2406.12045",
+      "type": "paper"
+    }
+  ],
+  "draft": false,
+  "seoTitleJa": "AIエージェント評価：実行記録で誤操作を見つける",
+  "seoTitleEn": "AI agent evaluation with traces and final-state checks"
 }
