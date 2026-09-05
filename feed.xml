@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:09:14 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:11:52 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -64,11 +64,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>AIエージェントの導入判断は、モデル比較より「どこで見つかり、誰が許可するか」で決まる</title>
+      <title>ストアで見つけたAIエージェントを、組織で使うまでの確認事項</title>
       <link>https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>OpenAI、Anthropic、Microsoft、Google、AWS の一次情報から、AIエージェント導入で重要になる発見導線と承認面を整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 11:11:52 GMT</pubDate>
+      <description>AIエージェントの掲載、接続、購入、組織への配布は別の手続き。一次資料と商談メモの例から、試用の権限・費用・更新・停止を整理する。</description>
       <category>AI Agents</category>
     </item>
     <item>

@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:09:14 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:11:52 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -64,11 +64,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>AI agent adoption is now shaped more by discovery and approval than by model comparison</title>
+      <title>From an agent listing to an approved organizational trial</title>
       <link>https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Using primary-source material from OpenAI, Anthropic, Microsoft, Google, and AWS, this article explains how discovery and approval surfaces are shaping agent adoption.</description>
+      <pubDate>Sat, 05 Sep 2026 11:11:52 GMT</pubDate>
+      <description>Separate agent discovery, connection, purchase, and distribution. Define permissions, costs, changes, and withdrawal for an organizational trial.</description>
       <category>AI Agents</category>
     </item>
     <item>
