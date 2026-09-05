@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:14:20 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:17:01 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -80,11 +80,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>コーディングAIエージェントの主戦場は、補助UIではなく監督付き実行基盤にある</title>
+      <title>コーディングAIの計画・権限・差分・テストを、どう確認するか</title>
       <link>https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>OpenAI、Anthropic、GitHub、Google、AWS の資料から、コーディングAIの競争軸が補助UIから監督付き実行基盤へ移る流れを整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 11:17:01 GMT</pubDate>
+      <description>コーディングAIの監督で混同しやすい計画承認、ブランチとVMの隔離、Verified署名、テスト結果を整理。各機能の保証範囲を確かめる。</description>
       <category>AI Agents</category>
     </item>
     <item>

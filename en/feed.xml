@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:14:20 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:17:01 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -80,11 +80,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>Coding AI agents now compete as supervised runtime systems, not helper UIs</title>
+      <title>Reviewing a coding agent: plans, permissions, diffs, and tests</title>
       <link>https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Based on public docs from OpenAI, Anthropic, GitHub, Google, and AWS, this article shows why coding agents are now compared as supervised runtimes rather than helper UIs.</description>
+      <pubDate>Sat, 05 Sep 2026 11:17:01 GMT</pubDate>
+      <description>Separate coding-agent plan review, branch and VM isolation, Verified signatures, and test evidence to understand what each check establishes.</description>
       <category>AI Agents</category>
     </item>
     <item>
