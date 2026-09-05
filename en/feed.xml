@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 10:50:15 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:06:06 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -48,11 +48,11 @@
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>Presentation generation after generative AI is now an artifact workflow problem, not a text-generation feature</title>
+      <title>Choosing editable formats for AI-generated presentations</title>
       <link>https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html</guid>
-      <pubDate>Thu, 07 May 2026 23:43:27 GMT</pubDate>
-      <description>A primary-source briefing on how image generation, PptxGenJS, PowerPoint and Slides APIs, Copilot, and slide-generation research are changing presentation generation.</description>
+      <pubDate>Sat, 05 Sep 2026 11:06:06 GMT</pubDate>
+      <description>Compare images, SVGs, and chart objects in AI-generated slides, then test the next revision in PowerPoint or Google Slides.</description>
       <category>AI Workflows</category>
     </item>
     <item>
