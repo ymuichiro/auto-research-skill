@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:06:46 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 05 Sep 2026 11:09:14 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -56,11 +56,11 @@
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>今週のAIエージェントは、「作る・動かす・統制する基盤」が製品カテゴリとして立ち上がった週だ</title>
+      <title>AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか</title>
       <link>https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html</guid>
-      <pubDate>Wed, 06 May 2026 17:25:05 GMT</pubDate>
-      <description>Google、Microsoft、AWS、Anthropic、OpenAI の一次情報から、AIエージェント競争がモデル性能より統制付き運用基盤へ移る流れを整理する。</description>
+      <pubDate>Sat, 05 Sep 2026 11:09:14 GMT</pubDate>
+      <description>AIエージェント基盤の機能一覧を、チケット更新の具体的な検証に置き換える。権限、承認、実行記録、評価、既存システムの責任分担を整理。</description>
       <category>AI Agents</category>
     </item>
     <item>
