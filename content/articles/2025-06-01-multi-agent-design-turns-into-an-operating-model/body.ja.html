@@ -1,76 +1,36 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める</h2>
-  <p>multi-agent は、概念紹介の段階を越えつつある。Foundry Agent Service GA と Developer Essentials、OpenAI の Responses API 更新、Semantic Kernel の multi-agent orchestration 発表が重なり、worker の分担、handoff、tool governance、evaluation をどう設計するかが現実の運用課題として並び始めている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">multi-agent operating model に直結する source のみに絞った。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">41件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された一次情報 URL だけを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4論点</p>
-      <p class="stat-title">設計責務</p>
-      <p class="stat-note">role split、handoff、connector、evaluation が一体で問われた。</p>
-    </article></div>
+<h2>仕事を分ける前に、前の結果が必要かを確かめる</h2>
+<p>調査、執筆、確認にエージェントを一体ずつ置いても、それだけでは良い分業にならない。
+執筆には調査結果が必要だが、表記の確認と出典の照合は同じ下書きから別々に進められる場合がある。
+仕事同士の依存関係によって、順番に実行するか、並列に実行するかが変わる。</p>
+<p>2025年5月のSemantic Kernelの発表は、こうした複数の実行パターンをSDKから扱う方法を紹介した。
+本稿では、役割の数を増やす話から離れ、結果の受け渡しと完了条件をどう決めるかを考える。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>enterprise connector と orchestration が同じ面に出てきた</h3>
-      <p>Foundry の GA / Developer Essentials は、Bing、SharePoint、Azure AI Search、Fabric、Logic Apps などの connector と agent runtime を同じ managed surface で説明した。worker 分担は diagram の話ではなく、既存 system integration の話へ進んでいる。</p>
-    </article><article class="comparison-card">
-      <h3>OpenAI と Semantic Kernel も flow 設計を厚くした</h3>
-      <p>Responses API の更新や Semantic Kernel の orchestration 発信は、agent loop を単発 request ではなく、longer-lived workflow として扱う方向を補強した。tool call と routing の設計責務が増えている。</p>
-    </article><article class="comparison-card">
-      <h3>multi-agent の価値は worker 数ではなく operating model にある</h3>
-      <p>重要なのは agent を増やすことそのものではなく、どの role を固定し、どこで review を入れ、どの connector をどの権限で使うかを運用ルールへ落とせるかだった。</p>
-    </article></div>
+<h2>順次、並列、引き継ぎでは、後段が待つものが違う</h2>
+<p><a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernelの解説</a>は、前の出力を次へ渡す順次処理、独立に処理して結果を集める並列処理、状況に応じて担当を移す引き継ぎを説明する。
+これらは実行方法の選択肢であり、どれが自分たちの仕事に合うかは別に判断する。</p>
+<p>以下は文章制作を例にした設計案である。
+調査結果から下書きを作る工程なら、調査が終わってから執筆へ進む。
+同じ下書きの表記と出典を別々に調べるなら、両方の確認結果が返るまで修正の判断を待つ。
+一方、特定分野の知識が必要な質問だけ専門担当へ送るなら、元の担当がその後も続けるのか、責任ごと移るのかを決める。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>incident / service desk の分業フロー</h3>
-      <ul class="bullet-list"><li>collector が情報を集め、analyst が原因候補を並べ、reviewer が通知文面を確定する。</li><li>multi-agent 設計は、役割ごとに connector と権限を分けやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>research と document production の役割分担</h3>
-      <ul class="bullet-list"><li>search、retrieval、drafting、fact check を worker ごとに分ける。</li><li>handoff と evidence trace が残れば、knowledge workflow を継続運用しやすい。</li></ul>
-    </article></div>
+<h2>確認担当には、結論だけでなく根拠を渡す</h2>
+<p>調査担当が「この製品は最も速い」とだけ返した場合、確認担当は比較条件を調べ直す必要がある。
+資料名、該当箇所、測定条件、分からなかった点を一緒に渡せば、何を検証すべきかが具体的になる。
+受け渡しを短くすることと、必要な根拠を失うことは区別したい。</p>
+<p>また、確認担当が指摘を返し続けると、執筆との往復が終わらない可能性がある。
+必ず直す誤り、任意の表現提案、人へ戻す判断を分け、どの状態で終了するかを定める。
+複数の役割を作ること自体は、停止条件や権限の分離を実装したことにはならない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>公開根拠から見える具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Foundry は connector-rich な enterprise workflow を前提にしていた</h3>
-      <p>SharePoint、Azure AI Search、Fabric、Logic Apps のような接続先が同じ surface で説明されていることから、multi-agent の実務価値は internal data と business process をまたぐ orchestrator にあると読み取れる。support case、knowledge retrieval、approval つき実行が典型だ。</p>
-    </article><article class="comparison-card">
-      <h3>Semantic Kernel の orchestration は reviewer を含む flow を考えやすくした</h3>
-      <p>multi-agent orchestration を SDK から扱えると、writer / researcher / reviewer のような分業が diagram に留まらず implementation artifact になる。これは regulated workflow や document-heavy process にとって重要な一歩だった。</p>
-    </article><article class="comparison-card">
-      <h3>Responses API の更新は tool-rich flow を production closer にした</h3>
-      <p>tool call と longer-lived response handling が厚くなると、agent は QA bot ではなく real workflow worker に近づく。research、triage、drafting をまたぐ flow を single request の外へ出して考えやすくなった。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>multi-agent を成立させる鍵は、賢い worker を増やすことより operating model を先に決めることにある。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>planner、specialist、reviewer の role と permission を分ける。</li><li>connector ごとに誰が呼べるか、何を write できるかを固定する。</li><li>handoff payload と evidence trace を後から読める形式で残す。</li><li>multi-agent を導入する前に、single-agent で十分な工程を切り出しておく。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>multi-agent 設計は、概念図ではなく、connector・handoff・review を含む operating model として扱う段階へ入っている。</p>
+<h2>分業による改善と、受け渡しの負担を一緒に測る</h2>
+<p>Anthropicの<a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>は、まず単純な方法を試し、必要な場合に複雑さを加える方針を勧めている。
+この文章制作の例でも、一つのエージェントで作成と確認を行う構成を比較対象にできる。</p>
+<p>同じ資料と依頼で、修正できた事実誤り、根拠の欠落、所要時間、利用費用を比べる。
+並列化しても一方の確認が遅ければ全体は待つし、受け渡しを誤れば再調査が増える。
+最終的に人が直した量も含めて、分けた工程に効果があったかを判断する。</p>
+<p>分業の単位は、担当名から決めるより、入力、出力、確認方法を定義できる仕事から選びたい。
+その単位が明確なら、SDKの実行パターンを選ぶ理由も説明できる。</p>
 </section>

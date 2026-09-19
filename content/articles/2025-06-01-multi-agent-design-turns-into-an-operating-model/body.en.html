@@ -1,76 +1,21 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>Multi-agent design is becoming an operating model rather than a concept diagram</h2>
-  <p>Multi-agent design is moving beyond conceptual framing. Foundry Agent Service GA and Developer Essentials, OpenAI’s Responses API updates, and Semantic Kernel’s orchestration work all point toward a practical question: how should teams design worker roles, handoffs, tool governance, and evaluation inside real operating workflows?</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">The source set is limited to papers and official posts directly tied to multi-agent operating models.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">41</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4 duties</p>
-      <p class="stat-title">Shared responsibilities</p>
-      <p class="stat-note">Role splits, handoffs, connectors, and evaluation had to be designed together.</p>
-    </article></div>
+<h2>Before splitting the work, check its dependencies</h2>
+<p>Assigning separate agents to research, writing, and review does not automatically create effective collaboration. Writing depends on research, while style checking and source verification may proceed independently from the same draft. Those dependencies determine the execution pattern.</p>
+<p>Semantic Kernel's May 2025 announcement exposed several such patterns through an SDK. The useful design question is what each stage receives and when the job is complete.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Enterprise connectors and orchestration moved onto the same surface</h3>
-      <p>Foundry GA and Developer Essentials described connectors such as Bing, SharePoint, Azure AI Search, Fabric, and Logic Apps alongside the agent runtime itself. Worker decomposition was no longer just a diagram question; it was becoming an enterprise integration question.</p>
-    </article><article class="comparison-card">
-      <h3>OpenAI and Semantic Kernel also thickened the flow layer</h3>
-      <p>The Responses API updates and Semantic Kernel orchestration work both reinforced a move from single requests toward longer-lived workflows. Tool calls, routing, and handoffs were becoming first-class design responsibilities.</p>
-    </article><article class="comparison-card">
-      <h3>The value of multi-agent systems depended on the operating model, not the agent count</h3>
-      <p>The important question was not how many workers existed, but which roles were fixed, where review happened, and which connectors were used under which permissions. Multi-agent design was becoming operational discipline.</p>
-    </article></div>
+<h2>Sequential, concurrent, and handoff patterns wait for different things</h2>
+<p>The <a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernel article</a> describes sequential output passing, concurrent independent work followed by aggregation, and context-dependent handoffs. These are implementation choices, not evidence that one fits every task.</p>
+<p>Consider a hypothetical writing workflow. Drafting follows completed research. Independent style and source checks can run together, with revision waiting for both. A specialist handoff needs another decision: does responsibility transfer, or does the original agent resume after receiving advice?</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Incident and service-desk division of labor</h3>
-      <ul class="bullet-list"><li>A collector gathers information, an analyst proposes likely causes, and a reviewer finalizes the outgoing update.</li><li>Multi-agent design makes it easier to separate connectors and permissions by role.</li></ul>
-    </article><article class="comparison-card">
-      <h3>Research and document-production workflows</h3>
-      <ul class="bullet-list"><li>Search, retrieval, drafting, and fact checking can be assigned to different workers.</li><li>If handoffs and evidence traces are preserved, the workflow becomes repeatable.</li></ul>
-    </article></div>
+<h2>Pass evidence to the reviewer, not just conclusions</h2>
+<p>If a researcher returns only a claim that a product is fastest, the reviewer must reconstruct the comparison. Passing the source, relevant passage, measurement conditions, and unresolved questions makes verification specific. Short handoffs should not discard necessary evidence.</p>
+<p>Revision can also continue indefinitely if reviewers keep requesting changes. Distinguish mandatory factual corrections, optional wording suggestions, and decisions requiring a person. Define termination conditions. Creating multiple roles does not itself implement stopping rules or permission separation.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete scenarios visible in the source set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Foundry assumed connector-rich enterprise workflows from the start</h3>
-      <p>Because SharePoint, Azure AI Search, Fabric, and Logic Apps were described alongside the runtime, the practical value of multi-agent systems was already pointing toward orchestrators that span internal data and business process systems. Support cases, knowledge retrieval, and approval-backed execution fit that frame well.</p>
-    </article><article class="comparison-card">
-      <h3>Semantic Kernel made reviewer-style flows easier to implement</h3>
-      <p>Once multi-agent orchestration is accessible inside an SDK, role splits like writer, researcher, and reviewer become implementation artifacts rather than architecture sketches. That matters especially for regulated or document-heavy workflows.</p>
-    </article><article class="comparison-card">
-      <h3>Responses API updates made tool-rich workflows feel closer to production</h3>
-      <p>As tool calling and longer-lived response handling become more explicit, agents begin to resemble real workflow workers instead of QA bots. Research, triage, and drafting can then be thought about outside the limits of a single request-response loop.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>The key to successful multi-agent delivery is less about adding smarter workers and more about defining the operating model first.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Separate planner, specialist, and reviewer roles along with their permissions.</li><li>Define which connectors each role can call and what they are allowed to write.</li><li>Keep handoff payloads and evidence traces in a format humans can inspect later.</li><li>Before adding more agents, identify the steps that still work better as single-agent or deterministic flow.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>Multi-agent design is moving beyond system diagrams and becoming an operating model defined by connectors, handoffs, and review loops.</p>
+<h2>Measure the benefit alongside coordination cost</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> recommends beginning with simpler approaches and adding complexity when needed. A single agent that drafts and reviews is a useful baseline here.</p>
+<p>Using the same inputs, compare factual errors corrected, missing evidence, time, and usage cost. Parallel work still waits for slow branches, and incomplete handoffs can cause repeated research. Include the human correction burden in the result.</p>
+<p>Choose a division of labor around work with definable inputs, outputs, and verification, rather than role names alone. That makes the choice of an SDK orchestration pattern explainable.</p>
 </section>

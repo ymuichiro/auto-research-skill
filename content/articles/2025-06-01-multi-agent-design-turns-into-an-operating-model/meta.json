@@ -1,14 +1,14 @@
 {
   "slug": "multi-agent-design-turns-into-an-operating-model",
   "date": "2025-06-01",
-  "titleJa": "multi-agent 設計は、概念図ではなく運用モデルとして扱われ始める",
-  "titleEn": "Multi-agent design is becoming an operating model, not just a concept diagram",
-  "summaryJa": "Foundry Agent Service GA、Developer Essentials、OpenAI Responses API の更新、Semantic Kernel の orchestration 発表が重なり、multi-agent をどう分担・評価・監査するかが現実の設計課題になっている。",
-  "summaryEn": "Azure AI Foundry Agent Service GA, Developer Essentials, OpenAI’s Responses API updates, and Semantic Kernel orchestration together turn multi-agent design into a concrete question of responsibility, evaluation, and auditability.",
-  "seoDescriptionJa": "Azure、OpenAI、Semantic Kernel の更新をもとに、multi-agent 設計が概念図から運用モデルへ変わる流れを整理する。",
-  "seoDescriptionEn": "Using updates from Azure, OpenAI, and Semantic Kernel, this article shows how multi-agent design is becoming an operating model.",
-  "teaserJa": "multi-agent をどう分担し、評価し、監査するかという実務設計の論点を短く整理する。",
-  "teaserEn": "See why multi-agent design is turning into an operational question of responsibility, evaluation, and audit.",
+  "titleJa": "複数エージェントの分業設計：順序・受け渡し・終了条件を決める",
+  "titleEn": "Designing multi-agent work: dependencies, handoffs, and stopping conditions",
+  "summaryJa": "Semantic Kernelの実行パターンを手がかりに、文章制作の分業を考える。順次と並列の違い、根拠の受け渡し、確認を終える条件を具体化し、単一エージェントと比較する。",
+  "summaryEn": "Use Semantic Kernel orchestration patterns to reason about writing workflows, evidence handoffs, and stopping conditions, then compare against a single-agent baseline.",
+  "seoDescriptionJa": "複数エージェントをどう分担させるか。順次・並列・引き継ぎの違いを文章制作の例で説明し、根拠の受け渡しと終了条件を整理する。",
+  "seoDescriptionEn": "Design multi-agent workflows around task dependencies, evidence handoffs, and stopping rules, using writing and review as a concrete example.",
+  "teaserJa": "調査・執筆・確認を分けるなら、何を渡し、何を待ち、いつ終えるかを決める。",
+  "teaserEn": "Define what each agent receives, what it waits for, and when collaboration ends.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,52 +18,16 @@
   ],
   "publishedSources": [
     {
-      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
-      "url": "https://arxiv.org/abs/2406.12045",
-      "type": "paper",
-      "publishedAt": "2024-06-17"
-    },
-    {
-      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
-      "type": "paper",
-      "publishedAt": "2024-11-07"
-    },
-    {
-      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
-      "type": "official",
-      "publishedAt": "2025-04-09"
-    },
-    {
-      "label": "Google Developers Blog: A2A, a new era of agent interoperability",
-      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
-      "type": "official",
-      "publishedAt": "2025-04-09"
-    },
-    {
-      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
-      "type": "official",
-      "publishedAt": "2025-05-19"
-    },
-    {
-      "label": "Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry",
-      "url": "https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/",
-      "type": "official",
-      "publishedAt": "2025-05-19"
-    },
-    {
-      "label": "OpenAI: New tools and features in the Responses API",
-      "url": "https://openai.com/index/new-tools-and-features-in-the-responses-api/",
-      "type": "official",
-      "publishedAt": "2025-05-21"
-    },
-    {
       "label": "Microsoft: Semantic Kernel multi-agent orchestration",
       "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/",
       "type": "official",
       "publishedAt": "2025-05-27"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
     }
   ],
   "draft": false
