@@ -1,76 +1,22 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>Control planes and evaluation discipline are starting to set the pace of agent adoption</h2>
-  <p>The idea of agents as supervised workers is becoming much clearer. With AgentKit, Agent Framework, Foundry workflows, and Anthropic’s article on agent evals all in view, rollout speed is increasingly shaped by whether teams can align workflow versioning, trace grading, regression checks, and approval policy.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">The source set is limited to papers and official posts directly tied to control planes and evaluation discipline.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">52</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4 conditions</p>
-      <p class="stat-title">What set rollout speed</p>
-      <p class="stat-note">Workflow versioning, regression evals, approval policy, and trace review became the critical factors.</p>
-    </article></div>
+<h2>Did fixing one failure break another task?</h2>
+<p>Imagine revising instructions to improve support-ticket routing, only to find the agent now answers questions it previously escalated. This hypothetical illustrates an update risk: success on the repaired case does not establish that existing behavior survived.</p>
+<p>Anthropic's January 2026 evaluation article and Microsoft's November 2025 Foundry workflow announcement offer ways to investigate such changes. They inform evaluation and workflow management; they do not establish a universal determinant of adoption speed or an industry-wide standard.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Evals were becoming shipping gates, not benchmark side notes</h3>
-      <p>Anthropic’s evals article framed agents not as replacements for people but as supervised workers that require datasets and rubrics that improve over time. Choosing a stronger model was no longer enough to satisfy shipping conditions.</p>
-    </article><article class="comparison-card">
-      <h3>Workflow versioning and trace review moved to the center of the control plane</h3>
-      <p>Read together, AgentKit, Agent Framework, and Foundry workflows point toward a standard pattern where graph definitions, run traces, and evaluation outputs are tied together. The control plane was no longer abstract architecture language; it was becoming an operational surface.</p>
-    </article><article class="comparison-card">
-      <h3>Teams that fixed the position of human review could move faster</h3>
-      <p>When approval stays ambiguous, rollout stalls. Teams that explicitly decide which steps remain deterministic and where humans sign off can ship bounded workflows much faster.</p>
-    </article></div>
+<h2>Separate new capabilities from behavior that must survive</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">guide to agent evaluations</a> distinguishes capability tests, which target difficult tasks, from regression tests, which detect the loss of established abilities. Improvements on the former should be checked against the latter.</p>
+<p>In support, difficult questions about a new product serve a different purpose from routine guidance on an existing return policy. One average can hide deterioration in established work behind gains on new tasks. Identify the work that must remain reliable and report that group separately.</p>
+<p>When a question requires escalation, escalating should be a success condition. Optimizing automatic-answer rates alone can reward answering questions the agent should hand over. The measured action must match the business objective.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Support and case-operation workflows under continuous improvement</h3>
-      <ul class="bullet-list"><li>Intent classification, evidence retrieval, drafting, and escalation can be managed as a versioned workflow.</li><li>Regression evals make it easier to see whether the workflow is actually improving.</li></ul>
-    </article><article class="comparison-card">
-      <h3>Approval-backed business workflows</h3>
-      <ul class="bullet-list"><li>Financial approvals, document review, and operations change requests fit naturally with a control-plane approach.</li><li>Rollout becomes easier once the human checkpoint is treated as a fixed part of the flow.</li></ul>
-    </article></div>
+<h2>Connect results to the workflow that actually ran</h2>
+<p>Microsoft's <a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundry workflow public-preview announcement</a> described immutable versions created on saving, together with tracing of branches and variables. It also qualified the initial observability scope as focused on individual agents within a workflow.</p>
+<p>An execution-history screen alone is insufficient. Associate each result with its model, instructions, branch conditions, question set, and grading criteria. Scores from different question sets are not directly interchangeable.</p>
+<p>For the routing example, inspect how the revised instructions affect return guidance and escalation. A failed trial's record may help distinguish incorrect classification from incorrect branching after a correct classification. Grading the result and investigating the path serve different purposes.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete scenarios visible in the evidence set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Support workflows improve faster once they have versioned eval sets</h3>
-      <p>With dataset-based evals and trace review, teams can distinguish whether gains came from better intent classification, better retrieval, or better escalation thresholds. That is one of the clearest places where Anthropic’s eval framing overlaps with AgentKit and Foundry workflow tooling.</p>
-    </article><article class="comparison-card">
-      <h3>Approval-heavy flows benefit from separating deterministic and agentic steps</h3>
-      <p>In financial approvals or document review, deterministic rule-based steps should stay deterministic while the agent focuses on summarization, comparison, and option generation. That design choice directly affects rollout speed.</p>
-    </article><article class="comparison-card">
-      <h3>Workflow-graph changes need the same caution as model changes</h3>
-      <p>Once workflow definitions are versioned and tied to traces, updates to branch conditions or reviewer nodes become regression risks in their own right. Teams increasingly need to evaluate graph changes, not only model upgrades.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>Rollout speed depends less on model cleverness than on whether workflows and evals can be managed inside the same release discipline.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Version workflow definitions, datasets, and rubrics together.</li><li>Treat human checkpoints as formal workflow nodes, not as vague exceptions.</li><li>Run regression evals against both model updates and graph updates.</li><li>Make trace review part of the operating cadence so failure classes are updated continuously.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>The pace of agent adoption is being set less by model novelty than by the ability to align workflow versioning, evaluation discipline, and approval policy in one control plane.</p>
+<h2>Check the grader before deciding to release</h2>
+<p>A rejected answer may be a valid alternative wording. Anthropic's guide also distinguishes the strengths and limitations of code, model, and human graders. A program can check a concrete stored state; judgments about explanation quality need calibration against human assessment.</p>
+<p>Review cases whose scores changed to distinguish a real regression from a grading problem. Then consider effects on established work, added cost, and human workload before releasing. An evaluation system does not by itself guarantee faster adoption, but it can make update decisions explainable and problematic changes easier to detect.</p>
 </section>

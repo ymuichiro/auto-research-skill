@@ -1,14 +1,14 @@
 {
   "slug": "control-planes-and-evals-set-the-pace",
   "date": "2026-02-01",
-  "titleJa": "control plane と eval discipline が、agent 導入の速度を決め始める",
-  "titleEn": "Control planes and evaluation discipline are starting to set the pace of agent adoption",
-  "summaryJa": "Anthropic の evals 記事まで含めると、agent を supervised worker として扱う発想がよりはっきりし、control plane と regression evaluation の有無が rollout 速度を左右している。",
-  "summaryEn": "Especially after Anthropic's evaluation article, the idea of agents as supervised workers becomes clearer, and the presence of a control plane plus regression evaluation starts to determine rollout speed.",
-  "seoDescriptionJa": "Anthropic を含む各社の流れから、control plane と eval discipline が agent 導入の速度を決め始めた背景を読む。",
-  "seoDescriptionEn": "Across vendor updates including Anthropic, this briefing shows why control planes and evaluation discipline are setting the pace of agent adoption.",
-  "teaserJa": "control plane と regression evaluation の有無が rollout 速度を左右する理由を短く整理する。",
-  "teaserEn": "See why control planes and regression evaluation now shape the speed of agent rollout.",
+  "titleJa": "エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る",
+  "titleEn": "Agent regression evaluation: check what an update fixes and breaks",
+  "summaryJa": "エージェントの更新では、新しい課題の改善が既存業務の後退を隠すことがある。評価課題、処理手順の版、実行記録を対応付け、採点の誤りも確認する方法を考える。",
+  "summaryEn": "An agent update can improve new tasks while weakening established work. Connect evaluation sets, workflow versions, and traces, and check whether the grader is wrong.",
+  "seoDescriptionJa": "エージェントの更新で既存の仕事を壊していないか。回帰評価、ワークフローの版管理、採点器の確認を、問い合わせ対応の例で解説。",
+  "seoDescriptionEn": "Check agent updates with regression tests, workflow versions, and grader review. A support-routing example explains what to measure before release.",
+  "teaserJa": "新しい課題で点数が上がっても、以前できた仕事が残っているとは限らない。",
+  "teaserEn": "A higher score on new tasks can hide regressions in established work.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,52 +18,16 @@
   ],
   "publishedSources": [
     {
-      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
-      "url": "https://arxiv.org/abs/2411.15114",
-      "type": "paper",
-      "publishedAt": "2024-11-22"
-    },
-    {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
-    },
-    {
-      "label": "OpenAI: Introducing GPT-5 for developers",
-      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
+      "label": "Anthropic: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
       "type": "official",
-      "publishedAt": "2025-08-07"
-    },
-    {
-      "label": "Microsoft Azure: Agent Factory, designing the open agentic web stack",
-      "url": "https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/",
-      "type": "official",
-      "publishedAt": "2025-09-24"
-    },
-    {
-      "label": "OpenAI: Introducing AgentKit",
-      "url": "https://openai.com/index/introducing-agentkit/",
-      "type": "official",
-      "publishedAt": "2025-10-06"
-    },
-    {
-      "label": "Microsoft: Introducing Microsoft Agent Framework",
-      "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
-      "type": "official",
-      "publishedAt": "2025-10-01"
+      "publishedAt": "2026-01-09"
     },
     {
       "label": "Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service",
       "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/",
       "type": "official",
       "publishedAt": "2025-11-25"
-    },
-    {
-      "label": "Anthropic: Demystifying evals for AI agents",
-      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
-      "type": "official",
-      "publishedAt": "2026-01-09"
     }
   ],
   "draft": false

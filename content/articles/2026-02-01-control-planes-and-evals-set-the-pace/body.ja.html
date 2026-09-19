@@ -1,76 +1,40 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>control plane と eval discipline が、agent 導入の速度を決め始める</h2>
-  <p>agent を supervised worker として扱う発想は、かなりはっきりしてきている。AgentKit、Agent Framework、Foundry workflows に加え、Anthropic の Demystifying evals for AI agents が入ったことで、workflow versioning、trace grading、regression checks、approval policy をどれだけ揃えられるかが rollout 速度の差になっている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">control plane と eval discipline に直結する source に絞った。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">52件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる一次情報のみを採用候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4条件</p>
-      <p class="stat-title">導入速度を決めるもの</p>
-      <p class="stat-note">workflow versioning、regression eval、approval policy、trace review が主な条件だった。</p>
-    </article></div>
+<h2>一つの失敗を直して、別の仕事を壊していないか</h2>
+<p>問い合わせを正しく振り分けるために指示を直したところ、以前は人へ引き継いでいた相談まで自動回答するようになった。
+これは想定例だが、エージェントを更新するときに確認したい問題を示している。
+修正対象の成功だけでなく、維持すべき動作が残っているかを確かめる必要がある。</p>
+<p>本稿では、2026年1月のAnthropicの評価記事と、2025年11月のFoundryワークフロー発表から、その確認を繰り返す方法を考える。
+両資料は評価と処理手順を管理する手がかりになる。
+ただし、導入速度を決める唯一の条件や、すべての企業が採用した標準を示すものではない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>eval は benchmark ではなく shipping gate になった</h3>
-      <p>Anthropic の evals 記事は、agent を人の代替ではなく supervised worker として捉え、dataset と rubric を継続改善する必要を前に出した。良い model を選ぶだけでは shipping condition は満たせない。</p>
-    </article><article class="comparison-card">
-      <h3>workflow versioning と trace review が control plane の中心に来た</h3>
-      <p>AgentKit、Agent Framework、Foundry workflows の発信を合わせると、graph や workflow definition を version 管理し、run trace と evaluation result を結びつける構成が標準に近づいている。control plane は抽象語ではなく運用画面の問題になった。</p>
-    </article><article class="comparison-card">
-      <h3>human review の位置を固定できる team のほうが速い</h3>
-      <p>approval が曖昧なままだと rollout は止まりやすい。反対に、どの step を deterministic にし、どこで人が sign-off するかを決めた team は narrow workflow を速く出しやすい。</p>
-    </article></div>
+<h2>新しい能力を探す課題と、失ってはいけない課題を分ける</h2>
+<p>Anthropicの<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">エージェント評価の解説</a>は、まだ苦手な課題で能力を測る評価と、以前できた仕事の後退を検出する回帰評価を区別する。
+前者の成績を伸ばすときも、後者を同時に確認するという考え方だ。</p>
+<p>問い合わせ対応なら、新商品の複雑な質問を解く課題と、既存商品の返品条件を正しく案内する課題では役割が異なる。
+両方を一つの平均点にすると、新しい課題の改善が既存業務の悪化を隠しかねない。
+どの業務を維持する必要があるかを決め、その課題群の成績を別に表示したい。</p>
+<p>さらに、引き継ぎが必要な質問には、引き継ぐこと自体を成功条件として設定する。
+自動回答率だけを上げる目標では、答えられない質問に答える構成が有利になってしまう。
+評価する行為と業務上の目的を合わせることが先に必要だ。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>support / case operations の継続改善</h3>
-      <ul class="bullet-list"><li>intent 分類、根拠 retrieval、drafting、escalation を versioned workflow として運用する。</li><li>regression eval があれば、改善が本当に前進かを判断しやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>approval つき業務フロー</h3>
-      <ul class="bullet-list"><li>financial approvals、document review、ops change request など、approval chain を持つ flow は control plane と相性がよい。</li><li>human checkpoint の位置を固定すると rollout が進みやすい。</li></ul>
-    </article></div>
+<h2>評価結果を、実際に使った処理手順へ結び付ける</h2>
+<p>Microsoftの<a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundryワークフローの公開プレビュー発表</a>では、保存ごとに変更不能な版を作る機能と、分岐や変数を追跡する機能が説明された。
+初期リリースの観測はワークフロー内の個々のエージェントを中心とする、という範囲も記されている。</p>
+<p>こうした機能を使う場合も、画面に実行履歴があるだけでは十分ではない。
+どのモデル、指示、分岐条件を使い、どの質問集と採点基準で評価したかを対応付ける。
+質問集を変えた後の点数と、変更前の点数をそのまま比較しないためである。</p>
+<p>冒頭の例なら、振り分けの指示を変えた版で、返品案内と人への引き継ぎがどう変わったかを調べる。
+失敗した試行の記録を読むと、分類を誤ったのか、正しい分類の後で分岐を誤ったのかを切り分けられる場合がある。
+結果の採点と途中経過の調査は、異なる役割を持つ。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>公開根拠から見える具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>support workflow は versioned eval set を持つと改善を回しやすい</h3>
-      <p>dataset-based eval と trace review を持つと、intent classification が改善したのか、retrieval の質が上がったのか、escalation threshold が適切かを切り分けられる。これは Anthropic の evals 記事と AgentKit / Foundry の workflow surface が重なる代表例だ。</p>
-    </article><article class="comparison-card">
-      <h3>approval-heavy flow では deterministic step と agentic step を混ぜすぎないことが重要になる</h3>
-      <p>financial approvals や document review では、ルールで決まる step は deterministic にし、agent は要約、比較、候補提示に寄せたほうが control plane を保ちやすい。これが rollout 速度に直結する。</p>
-    </article><article class="comparison-card">
-      <h3>workflow graph の変更は model update と同じくらい慎重に扱う必要がある</h3>
-      <p>workflow definition が versioning と trace に結びつくと、branch 条件や reviewer node の変更も regression source になる。model upgrade だけでなく graph change を eval する考え方が、重要になっている。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>導入速度を分けているのは、agent の賢さ以上に、workflow と eval を同じ release discipline で扱えるかどうかだ。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>workflow definition、dataset、rubric をひとまとまりで version 管理する。</li><li>human checkpoint を例外処理ではなく flow の正式 node として扱う。</li><li>model update と graph update の両方に regression eval をかける。</li><li>trace review を運用会議の routine に組み込み、failure class を継続更新する。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent 導入の速度を決めるのは、model novelty ではなく、workflow versioning、evaluation discipline、approval policy をひとつの control plane に載せられるかどうかだ。</p>
+<h2>採点の誤りも、更新判断の前に確認する</h2>
+<p>評価で落ちた回答が、実は別の正しい言い方だった可能性もある。
+Anthropicの解説も、コード、モデル、人による採点にはそれぞれ得意不得意があると整理している。
+登録の有無のような状態はプログラムで確認し、説明の適切さのように判断を伴う部分は、人の評価と突き合わせながら扱う。</p>
+<p>更新時には、点数が変わった課題を読み、実際の後退か、採点基準の問題かを調べる。
+そのうえで、既存業務への影響、追加費用、人の対応量を見て公開を判断する。
+評価基盤を置くだけで導入が速くなるとは言えないが、何を根拠に更新したかを説明し、問題のある変更を見つける助けにはなる。</p>
 </section>
