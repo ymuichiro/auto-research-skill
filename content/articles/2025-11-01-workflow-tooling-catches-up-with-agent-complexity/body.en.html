@@ -1,76 +1,17 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>Workflow tooling is catching up with agent complexity and turning private tricks into product surfaces</h2>
-  <p>The tooling layer needed for production agents is becoming much more concrete. OpenAI's AgentKit packages a visual builder, connector registry, chat UI, and evaluation features together. Microsoft Agent Framework positions orchestration and enterprise readiness inside one foundation. Anthropic's Claude Agent SDK article also describes long-running loops with subagents, compaction, and tool design as first-class concerns.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">Only papers and official posts that directly support the main claims are listed.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">20+</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4 parts</p>
-      <p class="stat-title">Tooling layer</p>
-      <p class="stat-note">Workflow builders, connector governance, chat surfaces, and eval discipline were converging.</p>
-    </article></div>
+<h2>Which development work does an agent toolkit take over?</h2>
+<p>Embedding an agent in a product involves a user interface, data connections, execution logic, and evaluation. The October 2025 AgentKit and Microsoft Agent Framework announcements offered different ways to supply parts of that work. The useful comparison is what the provider handles and what the application team still builds.</p>
+<p>This article examines the announcements as of November 2025. A product suite and an embeddable SDK are not interchangeable products to rank by feature count.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>OpenAI made the fragmented tooling problem explicit</h3>
-      <p>By launching Agent Builder, Connector Registry, ChatKit, and new evaluation features together, OpenAI made it clear that agent development was no longer just a prompt-and-code exercise. It was becoming a product discipline that had to combine workflow, UI, connectors, and evaluation.</p>
-    </article><article class="comparison-card">
-      <h3>Microsoft framed the bridge from research patterns to enterprise runtime</h3>
-      <p>Microsoft Agent Framework brought together orchestration patterns inspired by AutoGen and the enterprise connectors and observability expected from Semantic Kernel. Workflow tooling was being positioned as the production bridge, not as a side experiment.</p>
-    </article><article class="comparison-card">
-      <h3>Anthropic filled in the management story for long-running loops</h3>
-      <p>The Claude Agent SDK article described a gather context, take action, verify work, repeat loop with subagents, agentic search, semantic search, and compaction. Workflow tooling mattered because agents were staying alive longer and managing more state along the way.</p>
-    </article></div>
+<h2>A product suite with UI components versus an embedded runtime</h2>
+<p>OpenAI's <a href="https://openai.com/index/introducing-agentkit/">AgentKit announcement</a> introduced Agent Builder for workflow editing, Connector Registry for managing connections, and ChatKit for embedded chat interfaces. Availability differed: Agent Builder launched in beta, while Connector Registry began a limited beta rollout.</p>
+<p>Microsoft's <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Agent Framework announcement</a> described an open-source SDK and runtime combining ideas from Semantic Kernel and AutoGen. It addressed both predetermined workflows and model-directed orchestration. Some integration with Microsoft 365 and a shared Foundry runtime was described as a future direction.</p>
+<p>These differences change what a prototype should test. With a supplied interface, check whether it presents the required actions and integrates with user authentication. With embedded execution code, check integration with the application's state and failure handling. The same agent label does not imply the same remaining implementation work.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Buyer, support, and knowledge-oriented agent applications</h3>
-      <ul class="bullet-list"><li>AgentKit was clearly aimed at buyer agents, work assistants, support agents, onboarding guides, and research agents.</li><li>These application types need workflow composition and chat surfaces at the same time.</li></ul>
-    </article><article class="comparison-card">
-      <h3>Audit, telemetry, and regulated support workflows</h3>
-      <ul class="bullet-list"><li>Microsoft Agent Framework highlighted KPMG audit automation, BMW telemetry analysis, and compliant support scenarios at Commerzbank.</li><li>In these settings, observability and governance mattered as much as orchestration logic.</li></ul>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Specific scenarios already visible in the source set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>OpenAI tied buyer and support agents to concrete delivery-speed claims</h3>
-      <p>The AgentKit post describes Ramp building a buyer agent in hours, LY Corporation standing up a work assistant quickly, and HubSpot and Canva using chat surfaces for support-related experiences. The message was not only about model quality but about visual canvases, versioning, chat embedding, and connector governance arriving together.</p>
-    </article><article class="comparison-card">
-      <h3>Microsoft foregrounded production scenarios in audit and telemetry</h3>
-      <p>The Agent Framework post pointed to KPMG audit testing and documentation, BMW near-real-time vehicle telemetry analysis, and Commerzbank's compliant support flows. Workflow tooling was being presented as an operational surface for regulated processes, not just a builder for demos.</p>
-    </article><article class="comparison-card">
-      <h3>Anthropic showed that one harness could span far more than coding</h3>
-      <p>Anthropic said the same harness was already being used for research, video creation, and note-taking in addition to coding. That made workflow tooling look less like a narrow vertical feature and more like a foundation for computer-mediated knowledge work.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>Differentiation depends less on raw model novelty and more on whether teams can manage workflow, connectors, chat surfaces, and evals inside one release discipline.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Workflow definitions need versioning and preview runs, not informal documentation.</li><li>Connector governance and permission scopes should not remain team-by-team ad hoc settings.</li><li>If chat UI and orchestration are split across separate projects, operational quality tends to degrade.</li><li>Trace grading, dataset-based evals, and human checkpoints need to be treated as ship criteria, not afterthoughts.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>The competitive question in agent delivery is expanding from model novelty toward whether teams have a tooling layer that can version, observe, and evaluate complex workflows.</p>
+<h2>Compare one request from the interface to the saved result</h2>
+<p>Imagine a small feature that accepts a support question and saves a draft for a staff member. Use the same request and reference material in each prototype. Check the interface, retrieval, saved draft, and behavior when retrieval fails.</p>
+<p>Record which parts the toolkit supplied and which required custom code. Rapid interface construction may leave substantial work on per-user data access and storage integration. If the product already has an interface, an embedded execution mechanism may be more useful than another chat component.</p>
+<p>AgentKit's announcement includes customers describing short prototype timelines. Those timelines do not establish how long another organization's finished application will take. Estimate saved implementation work, remaining integration, and quality verification separately to make the adoption decision concrete.</p>
 </section>

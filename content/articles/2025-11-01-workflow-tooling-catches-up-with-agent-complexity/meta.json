@@ -1,14 +1,14 @@
 {
   "slug": "workflow-tooling-catches-up-with-agent-complexity",
   "date": "2025-11-01",
-  "titleJa": "workflow tooling が agent の複雑さに追いつき始める",
-  "titleEn": "Workflow tooling is catching up with agent complexity",
-  "summaryJa": "OpenAI AgentKit、Microsoft Agent Framework、Claude Agent SDK、GPT-5 for developers がそろい、agent graph、connector、chat UI、trace grading、workflow orchestration をまとめて扱う tooling layer が実体を持ち始めている。",
-  "summaryEn": "OpenAI AgentKit, Microsoft Agent Framework, the Claude Agent SDK, and GPT-5 for developers make a real tooling layer visible, one that combines agent graphs, connectors, chat UI, trace grading, and workflow orchestration.",
-  "seoDescriptionJa": "OpenAI AgentKit、Microsoft Agent Framework、Claude Agent SDK などから、workflow tooling が agent の複雑さに追いつく流れを整理する。",
-  "seoDescriptionEn": "Using OpenAI AgentKit, Microsoft Agent Framework, and the Claude Agent SDK, this article explains how workflow tooling is catching up with agent complexity.",
-  "teaserJa": "agent graph、connector、chat UI、trace grading を束ねる tooling layer の立ち上がりを読む。",
-  "teaserEn": "Read how a tooling layer is emerging around agent graphs, connectors, chat UI, trace grading, and orchestration.",
+  "titleJa": "AgentKitとAgent Framework：エージェント開発のどこを任せるか",
+  "titleEn": "AgentKit and Agent Framework: which development work do they handle?",
+  "summaryJa": "2025年10月の発表を、画面・接続・実行手順のどこを提供するかで比較する。試作の速さと、実際の製品へ組み込むために残る作業を分けて考える。",
+  "summaryEn": "Compare the October 2025 announcements by the interface, connections, and execution work they supply, while separating prototype speed from remaining integration.",
+  "seoDescriptionJa": "AgentKitとMicrosoft Agent Frameworkの2025年10月発表を比較。画面、接続、実行手順の役割と、試作後に残る統合作業を整理する。",
+  "seoDescriptionEn": "Compare AgentKit and Microsoft Agent Framework as announced in October 2025: supplied interfaces, execution logic, availability, and remaining integration work.",
+  "teaserJa": "機能の数より、作らずに済む部分と自分たちで統合する部分を確かめる。",
+  "teaserEn": "Compare supplied components and remaining integration, not just feature counts.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,64 +19,16 @@
   ],
   "publishedSources": [
     {
-      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
-      "type": "paper",
-      "publishedAt": "2024-11-07"
-    },
-    {
-      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
-      "url": "https://arxiv.org/abs/2411.15114",
-      "type": "paper",
-      "publishedAt": "2024-11-22"
-    },
-    {
-      "label": "OpenAI: New tools and features in the Responses API",
-      "url": "https://openai.com/index/new-tools-and-features-in-the-responses-api/",
+      "label": "OpenAI: Introducing AgentKit",
+      "url": "https://openai.com/index/introducing-agentkit/",
       "type": "official",
-      "publishedAt": "2025-05-21"
-    },
-    {
-      "label": "OpenAI: Introducing GPT-5 for developers",
-      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "type": "official",
-      "publishedAt": "2025-08-07"
-    },
-    {
-      "label": "Google Cloud: Introducing Looker MCP Server",
-      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server",
-      "type": "official",
-      "publishedAt": "2025-08-09"
-    },
-    {
-      "label": "Google Cloud: Firestore support and custom tools in MCP Toolbox",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox",
-      "type": "official",
-      "publishedAt": "2025-09-17"
-    },
-    {
-      "label": "Anthropic: Building agents with the Claude Agent SDK",
-      "url": "https://claude.com/blog/building-agents-with-the-claude-agent-sdk",
-      "type": "official",
-      "publishedAt": "2025-09-29"
-    },
-    {
-      "label": "Microsoft Azure: Agent Factory, designing the open agentic web stack",
-      "url": "https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/",
-      "type": "official",
-      "publishedAt": "2025-09-24"
+      "publishedAt": "2025-10-06"
     },
     {
       "label": "Microsoft: Introducing Microsoft Agent Framework",
       "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
       "type": "official",
       "publishedAt": "2025-10-01"
-    },
-    {
-      "label": "OpenAI: Introducing AgentKit",
-      "url": "https://openai.com/index/introducing-agentkit/",
-      "type": "official",
-      "publishedAt": "2025-10-06"
     }
   ],
   "draft": false
