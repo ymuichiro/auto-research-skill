@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Sep 2026 08:47:14 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 08:50:44 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -112,11 +112,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>MCP, A2A, and AG-UI are separating the connection stack for AI agents</title>
+      <title>What MCP, A2A, and AG-UI actually exchange</title>
       <link>https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Using protocol specifications and vendor docs, this briefing explains how MCP, A2A, and AG-UI are separating tool access, delegation, and human approval layers.</description>
+      <pubDate>Sat, 19 Sep 2026 08:50:44 GMT</pubDate>
+      <description>Compare MCP, A2A, and AG-UI through tool calls, delegated tasks, and interface updates, including overlapping features and application approval checks.</description>
       <category>AI Agents</category>
     </item>
     <item>
