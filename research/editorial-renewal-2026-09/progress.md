@@ -47,8 +47,8 @@
 - [x] 2025-08-01-agent-ops-gets-promoted-to-a-control-layer — 改稿/ビルド/公開完了 (e37cbf9, 日英HTTP 200 + 本文一致)
 - [x] 2025-07-01-interoperability-leaves-the-roadmap — 改稿/ビルド/公開完了 (9dbdfa5, 日英HTTP 200 + 本文一致)
 - [x] 2025-06-01-multi-agent-design-turns-into-an-operating-model — 改稿/ビルド/公開完了 (0c6eab5, 日英HTTP 200 + 本文一致)
-- [x] 2025-05-01-open-runtimes-and-managed-platforms-converge — 改稿/ビルド完了、公開照合待ち
-- [ ] 2025-04-01-managed-agent-primitives-arrive-together
+- [x] 2025-05-01-open-runtimes-and-managed-platforms-converge — 改稿/ビルド/公開完了 (1385aa3, 日英HTTP 200 + 本文一致)
+- [x] 2025-04-01-managed-agent-primitives-arrive-together — 改稿/ビルド完了、公開照合待ち
 - [ ] 2025-03-01-agent-evaluation-becomes-a-gating-layer
 - [ ] 2025-02-01-browser-agents-enter-the-product-roadmap
 - [ ] 2025-01-01-agents-shift-to-measurable-systems

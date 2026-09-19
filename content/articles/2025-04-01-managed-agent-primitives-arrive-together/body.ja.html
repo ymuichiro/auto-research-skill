@@ -1,76 +1,35 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>managed agent の基本プリミティブが、複数ベンダーで一気に出そろい始める</h2>
-  <p>agent runtime、tooling、multi-agent coordination は、研究用の部品ではなく製品レイヤーの比較対象へ上がり始めている。OpenAI は new tools for building agents を出し、AWS は Bedrock の multi-agent collaboration GA を公開し、Operator も browser task の product surface を見せている。AutoGen と Magentic-One の研究系パターンも、managed product の語彙へ近づいている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">主要主張に直結する papers と official releases のみに絞った。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">33件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された一次情報 URL のみを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3面</p>
-      <p class="stat-title">比較軸</p>
-      <p class="stat-note">runtime、tooling、multi-agent coordination が並行して製品化し始めた。</p>
-    </article></div>
+<h2>「エージェント基盤」が管理する範囲を確かめる</h2>
+<p>2025年3月、OpenAIはResponses APIとAgents SDKを発表し、AWSはBedrockのマルチエージェント連携を一般提供に進めた。
+どちらも開発のための部品を提供するが、同じ範囲の処理を預かるわけではない。
+ツールの実行、エージェント間の調整、アプリケーションの運用を分けると、比較しやすくなる。</p>
+<p>本稿は当時の二つの発表を扱う。
+発表された機能の数から完成度を順位付けせず、どこをサービスに任せ、何を自分たちで動かすかを確認する。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>OpenAI と AWS が managed primitive を前面に出した</h3>
-      <p>OpenAI の agent-building release は tool use と hosted orchestration をひとまとまりの開発体験として見せ、AWS は supervisor 型の multi-agent collaboration を GA に進めた。agent stack の議論は prompt engineering より runtime feature へ寄っている。</p>
-    </article><article class="comparison-card">
-      <h3>research pattern と product surface が近づいた</h3>
-      <p>AutoGen や Magentic-One が描いていた planner、specialist、reviewer の役割分離は、managed service 側の routing や orchestration と重なって見えるようになった。multi-agent は diagram ではなく product choice の一部になり始めた。</p>
-    </article><article class="comparison-card">
-      <h3>browser task と backend tool task が同じ議論に入った</h3>
-      <p>Operator の browser task と Bedrock / agent tools の API action は見た目こそ違うが、どちらも『agent が外部環境へ作用する』問題として扱える。この月の変化は、UI 操作と tool invocation が同じ設計責務へ寄ったことだ。</p>
-    </article></div>
+<h2>ホスト型のツールと、アプリへ組み込むSDKは異なる</h2>
+<p>OpenAIの<a href="https://openai.com/index/new-tools-for-building-agents/">3月11日の発表</a>は、Responses APIにウェブ検索、ファイル検索、コンピューター操作の道具を追加し、別途オープンソースのAgents SDKを紹介した。
+SDKは、エージェントの設定、担当の引き継ぎ、入力や出力の検査、実行記録を扱う。</p>
+<p>ここで、APIが提供するツールと、開発者がアプリケーションへ組み込むSDKを混同しないようにしたい。
+SDKを使ったことだけで、アプリケーションの配備、利用者の認証、業務用データの保存までサービス側が管理すると判断することはできない。
+具体的な構成で、どの処理をどこで動かすかを確認する必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>調査・比較・ドラフト作成の orchestration</h3>
-      <ul class="bullet-list"><li>planner が論点を分け、specialist が検索や取得を行い、reviewer が体裁と根拠を確認する。</li><li>managed orchestration があれば、長い knowledge workflow を繰り返しやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>社内 support と API action の分担</h3>
-      <ul class="bullet-list"><li>問い合わせ内容の理解、社内 knowledge の参照、必要な system action の準備を分ける。</li><li>tool use を安全に制限できるかが production では重要になる。</li></ul>
-    </article></div>
+<h2>Bedrockは、統括役による分担をサービスの機能として提供した</h2>
+<p>AWSの<a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">3月10日の発表</a>は、統括エージェントが仕事を分解して各担当へ渡す構成と、単純な依頼を担当へ直接振り分けるモードを説明した。
+後者でも、複雑な依頼や意図が明確でない依頼では、統括役が複数の担当を調整する。</p>
+<p>これは、分担の一部をサービス設定として扱えるという違いである。
+ただし、担当の説明が曖昧なら振り分けが適切とは限らず、接続した業務APIの意味も利用側で定義する必要がある。
+一般提供という状態は、個別業務での回答や操作の正しさを保証するものではない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>公開根拠から見える具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>OpenAI は browser と hosted tools を同じ agent stack に置いた</h3>
-      <p>Operator と new tools for building agents を並べると、browser を使う loop と API / retrieval を使う loop が別々の実験ではなく、同じ product family として整えられている。これは、agent の UI-facing work と backend-facing work を同じ platform の上で比較し始めたことを意味する。</p>
-    </article><article class="comparison-card">
-      <h3>AWS の multi-agent collaboration は supervisor pattern を実装選択肢にした</h3>
-      <p>task routing や specialist の分担を managed feature として持てるなら、社内 support、case triage、document processing のような分業型 workflow を diagram ではなく実際の service configuration として扱えるようになる。</p>
-    </article><article class="comparison-card">
-      <h3>AutoGen / Magentic-One は product 側の抽象を読む手がかりになった</h3>
-      <p>research 系の multi-agent pattern を知っておくと、managed platform が何を『primitive』として売り出しているかを読み解きやすい。planner、specialist、reviewer の役割分離は、すでに vendor-neutral な設計語彙になり始めている。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>どの model を使うかより、agent runtime と tooling をどこまで managed primitive に委ねるかが重要になっている。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>single agent と multi-agent を切り替える基準を task complexity で定義する。</li><li>browser action と backend action の approval 条件を分ける。</li><li>managed feature を使う場合も、trace と fallback を自前で読めるようにする。</li><li>product surface の進化速度が速いので、abstraction layer を薄く持っておく。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent の基本プリミティブは研究要素ではなく product surface へ上がり、runtime・tooling・coordination をどう組み合わせるかが新しい比較軸になっている。</p>
+<h2>一つの問い合わせで、残る実装と運用を比較する</h2>
+<p>例えば、製品の使い方と注文状況を答える社内サポートを想定する。
+前者は文書検索、後者は注文APIへの照会が必要になる。
+まず一つのエージェントで両方を扱う構成を試し、分担が必要なら、同じ質問集で担当を分けた構成と比べる。</p>
+<p>比較では、回答の正しさ、誤った振り分け、APIが失敗した場合の応答を確認する。
+同時に、どの実行環境を自分たちで保守し、どの記録を取得でき、どの設定を変更できるかを残す。
+待ち時間や利用費用も、複数の担当を呼ぶ構成では変わり得る。</p>
+<p>二つの発表を読む価値は、「エージェント基盤がそろった」と結論することより、提供された部品の責任範囲を見分けることにある。
+小さな業務を通して残る作業を確かめると、マネージド機能を使う理由と、アプリ側で管理する理由をそれぞれ説明できる。</p>
 </section>

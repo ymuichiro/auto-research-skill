@@ -1,14 +1,14 @@
 {
   "slug": "managed-agent-primitives-arrive-together",
   "date": "2025-04-01",
-  "titleJa": "managed agent の基本プリミティブが、複数ベンダーで一気に出そろい始める",
-  "titleEn": "Managed agent primitives are arriving across multiple vendors at once",
-  "summaryJa": "OpenAI の new tools for building agents と AWS の multi-agent collaboration GA により、agent runtime、tooling、multi-agent coordination は製品レイヤーの比較対象になっている。",
-  "summaryEn": "OpenAI's new agent-building tools and AWS's multi-agent collaboration GA put runtimes, tooling, and multi-agent coordination onto the product-comparison layer.",
-  "seoDescriptionJa": "OpenAI と AWS の発表を軸に、managed agent の基本プリミティブが複数ベンダーで出そろい始めた動きを整理する。",
-  "seoDescriptionEn": "Anchored in OpenAI and AWS announcements, this article maps how core managed-agent primitives are arriving across vendors.",
-  "teaserJa": "runtime、tooling、multi-agent coordination が製品比較の項目になる転換点をまとめる。",
-  "teaserEn": "Read the shift as runtimes, tooling, and multi-agent coordination become part of product comparison.",
+  "titleJa": "Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる",
+  "titleEn": "Responses API, Agents SDK, and Bedrock: compare what each manages",
+  "summaryJa": "2025年3月のOpenAIとAWSの発表を、ツール実行、担当の調整、アプリ運用の範囲から読む。ホスト型機能とSDKを区別し、一つの問い合わせで残る作業を確かめる。",
+  "summaryEn": "Read the March 2025 OpenAI and AWS launches by their responsibilities for tools, coordination, and application operation, distinguishing hosted capabilities from SDKs.",
+  "seoDescriptionJa": "Responses API、Agents SDK、Bedrockの2025年3月発表を比較。ツールの実行とエージェント間の調整、アプリ運用の責任範囲を整理する。",
+  "seoDescriptionEn": "Compare the March 2025 Responses API, Agents SDK, and Bedrock collaboration launches by hosted tools, orchestration, and remaining operational responsibilities.",
+  "teaserJa": "ホスト型のツールとSDKを区別し、サービスへ任せられる仕事を確認する。",
+  "teaserEn": "Distinguish hosted tools, embedded orchestration, and application operations.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -17,42 +17,6 @@
     "Multi-Agent"
   ],
   "publishedSources": [
-    {
-      "label": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
-      "url": "https://arxiv.org/abs/2308.08155",
-      "type": "paper",
-      "publishedAt": "2023-08-15"
-    },
-    {
-      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
-      "type": "paper",
-      "publishedAt": "2024-11-07"
-    },
-    {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
-    },
-    {
-      "label": "Anthropic: Building effective agents",
-      "url": "https://www.anthropic.com/engineering/building-effective-agents",
-      "type": "official",
-      "publishedAt": "2024-12-19"
-    },
-    {
-      "label": "OpenAI: Introducing Operator",
-      "url": "https://openai.com/index/introducing-operator/",
-      "type": "official",
-      "publishedAt": "2025-01-23"
-    },
-    {
-      "label": "Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai",
-      "type": "official",
-      "publishedAt": "2025-01-24"
-    },
     {
       "label": "OpenAI: New tools for building agents",
       "url": "https://openai.com/index/new-tools-for-building-agents/",
