@@ -1,76 +1,43 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>agent architecture は model novelty よりも重要な比較軸になっていく</h2>
-  <p>積み上がっている一次情報を見ると、agent の比較軸は model の新しさより architecture の厚みへ移っている。protocol、SDK、runtime、workflow surface、evals、approval をどう束ねるかが、coding、analysis、support、approval-heavy workflow のすべてに効く共通論点になっている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">architecture 比較に直結する papers と official launches を掲載。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">52件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる一次情報のみを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">5層</p>
-      <p class="stat-title">比較される層</p>
-      <p class="stat-note">protocol、SDK、runtime、workflow、eval / approval が主要レイヤーになった。</p>
-    </article></div>
+<h2>成績が上がったとき、何を変えたか説明できるか</h2>
+<p>エージェントのモデルを新しくすると同時に、検索の回数や再試行の上限も増やしたとする。
+成績が上がっても、それだけではモデルの効果か、追加した処理の効果かを区別できない。
+モデルと処理手順の両方を比較対象にし、変更点を記録する必要がある。</p>
+<p>2026年3月時点で参照できる研究と開発ツールから、本稿では比較条件のそろえ方を考える。
+「設計の方がモデルより重要」と一般化する根拠は十分ではない。
+問いたいのは、同じ仕事に対して、どの変更がどの費用で改善をもたらしたかである。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>protocol と SDK だけでは architecture を語れなくなった</h3>
-      <p>A2A、MCP、Agent SDK、Agent Framework が重要なのは確かだが、それだけでは production architecture にならない。workflow surface、trace、approval、evaluation が揃って初めて導入の比較軸として機能するようになった。</p>
-    </article><article class="comparison-card">
-      <h3>workflow surface が model 差を吸収する領域を広げた</h3>
-      <p>Foundry workflows や AgentKit のような builder / eval / versioning を持つ面が厚くなると、model difference だけで成果差を説明しにくくなる。実務では architecture quality の寄与が大きくなる。</p>
-    </article><article class="comparison-card">
-      <h3>approval と governance は後付けではなく中心設計になった</h3>
-      <p>2025年を通じて見えたのは、approval chain と policy boundary を早く定義した team のほうが narrow workflow を前に進めやすいということだった。governance は innovation brake ではなく delivery enabler に近い。</p>
-    </article></div>
+<h2>時間の上限を変えると、比較結果も変わる</h2>
+<p><a href="https://arxiv.org/abs/2411.15114v1">RE-Benchの初版</a>は、機械学習の研究開発課題で、人の専門家とエージェントを比較した。
+この実験では、短い時間枠でエージェントが優位だった一方、与える総時間を増やすと人の成績がより大きく伸びた。
+対象は限定された研究課題であり、あらゆる仕事で人とAIの優劣が決まったわけではない。</p>
+<p>この結果から比較方法に取り入れたいのは、時間の上限を成績から切り離さないことだ。
+何度も候補を作り、最も良いものを選んだ結果は、一度の実行結果とは異なる。
+モデル名と成功率だけでなく、試行回数、選び方、実行時間、利用費用を一緒に残すと、改善を再現しやすくなる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>architecture 比較が効きやすいユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>browser / ops workflow</h3>
-      <ul class="bullet-list"><li>複数 step、外部 system、approval が絡むため runtime と review surface の質が重要になる。</li><li>single model の性能差より orchestration quality が効きやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>coding + data + document workflow</h3>
-      <ul class="bullet-list"><li>code change、analysis、document drafting をまたぐ task では protocol と control plane の一貫性が必要になる。</li><li>architecture が弱いと evidence と review が分断しやすい。</li></ul>
-    </article></div>
+<h2>同じ画面を見る条件をそろえ、手順の変更を保存する</h2>
+<p>ブラウザー操作なら、モデルに何を見せ、どの操作を許すかも条件になる。
+<a href="https://arxiv.org/abs/2412.05467v1">BrowserGym</a>は、観測と操作の形式を定めた共通環境を用意し、複数のウェブ操作ベンチマークを扱う。
+併用するAgentLabは、エージェントの実験と分析を支援する。
+こうした仕組みは条件を記録する助けになるが、別々の業務課題を自動的に同等にするものではない。</p>
+<p>処理手順にも版を付けたい。
+OpenAIは<a href="https://openai.com/index/introducing-agentkit/">2025年10月のAgentKit発表</a>で、ワークフローの版管理と実行経路を評価する機能を紹介した。
+ここでは当時発表された機能を参照している。
+機能の存在は性能向上の証明ではないが、どの処理手順で失敗したかを調べるための材料になる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>公開根拠から見えた architecture 差の具体像</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>browser-oriented workflow では approval と trace が architecture quality を左右する</h3>
-      <p>browser task は model が多少良くても、途中状態が見えず、irreversible action を止められないと production で使いにくい。ここでは protocol の美しさより runtime と review surface の設計が効く。</p>
-    </article><article class="comparison-card">
-      <h3>coding / analysis workflow では evidence と review の一貫性が重要になる</h3>
-      <p>Agent Framework、AgentKit、GPT-5 for developers の流れを合わせると、code diff、metric access、analysis memo が同じ control plane に載るかどうかで運用品質が変わる。architecture comparison は抽象論ではなく release quality の差になる。</p>
-    </article><article class="comparison-card">
-      <h3>approval-heavy workflow では governance が rollout speed を決める</h3>
-      <p>financial approvals や document review のような flow では、review node、policy boundary、regression eval が整っている architecture のほうが narrow workflow を速く出せる。強い model だけではここを代替できない。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>比較軸は、どの model を積むかより、protocol から approval までを一貫した architecture として保てるかに移っている。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>protocol、SDK、runtime、workflow、eval / approval を別々の比較表にしない。</li><li>workflow architecture を model benchmark と同じくらい重要な選定項目にする。</li><li>review surface と observability を early architecture に組み込む。</li><li>narrow workflow ごとに architecture fit を評価し、万能 platform 期待を避ける。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent 導入の現実的な比較軸は、model novelty ではなく、protocol・runtime・workflow・approval を一体で扱える architecture の質になっている。</p>
+<h2>検索手順とモデルを別々に変える、小さな比較から始める</h2>
+<p>例えば、社内資料を調べて回答するエージェントを改善する場面を考える。
+これは比較方法を説明する想定例である。
+同じ質問集、資料の版、採点基準を用意し、まず処理手順を固定してモデルだけを変える。
+次にモデルを固定し、一度の検索で回答する手順と、根拠が足りない場合に追加検索する手順を比べる。</p>
+<p>回答の正しさと出典の一致に加え、検索回数と待ち時間を記録する。
+追加検索で正答が増えても、時間や費用が許容範囲を超えるなら、そのまま採用する理由にはならない。
+両方の変更を組み合わせた構成も最後に試す。
+モデルと手順には相互作用があり、片方だけの結果から組み合わせの性能を推定できないからだ。</p>
+<p>この順序なら、「新しいモデルだから良くなった」という説明から一歩進める。
+改善した質問、悪化した質問、増えた処理を示し、採用する構成を選べる。
+設計とモデルを抽象的に順位付けするより、同じ仕事で変更の効果を確かめる方が、次の改善につながる。</p>
 </section>
