@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく | Auto Research Digest</title>
-    <meta name="description" content="研究ベンチマークと各社発表をもとに、AIエージェント評価が導入前提のゲートへ変わる流れを整理する。">
+    <title>GAIAとOSWorldで考える、エージェント評価の完成条件 | Auto Research Digest</title>
+    <meta name="description" content="GAIAとOSWorldは何を評価するのか。締切を答える仕事と予定表へ登録する仕事を比べ、完成条件、初期状態、失敗の原因調査を解説。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく | Auto Research Digest">
-    <meta property="og:description" content="研究ベンチマークと各社発表をもとに、AIエージェント評価が導入前提のゲートへ変わる流れを整理する。">
+    <meta property="og:title" content="GAIAとOSWorldで考える、エージェント評価の完成条件 | Auto Research Digest">
+    <meta property="og:description" content="GAIAとOSWorldは何を評価するのか。締切を答える仕事と予定表へ登録する仕事を比べ、完成条件、初期状態、失敗の原因調査を解説。">
     <meta property="og:url" content="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく">
+    <meta property="og:image:alt" content="GAIAとOSWorldで考える、エージェント評価の完成条件">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく | Auto Research Digest">
-    <meta name="twitter:description" content="研究ベンチマークと各社発表をもとに、AIエージェント評価が導入前提のゲートへ変わる流れを整理する。">
+    <meta name="twitter:title" content="GAIAとOSWorldで考える、エージェント評価の完成条件 | Auto Research Digest">
+    <meta name="twitter:description" content="GAIAとOSWorldは何を評価するのか。締切を答える仕事と予定表へ登録する仕事を比べ、完成条件、初期状態、失敗の原因調査を解説。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく">
+    <meta name="twitter:image:alt" content="GAIAとOSWorldで考える、エージェント評価の完成条件">
     <link rel="canonical" href="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-03-01-agent-evaluation-becomes-a-gating-layer.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-03-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-06T23:53:04+09:00">
+    <meta property="article:modified_time" content="2026-09-19T19:00:32+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Evaluation">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく","description":"研究ベンチマークと各社発表をもとに、AIエージェント評価が導入前提のゲートへ変わる流れを整理する。","datePublished":"2025-03-01T00:00:00+09:00","dateModified":"2026-05-06T23:53:04+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Evaluation, Governance","mainEntityOfPage":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく","item":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"GAIAとOSWorldで考える、エージェント評価の完成条件","description":"GAIAとOSWorldは何を評価するのか。締切を答える仕事と予定表へ登録する仕事を比べ、完成条件、初期状態、失敗の原因調査を解説。","datePublished":"2025-03-01T00:00:00+09:00","dateModified":"2026-09-19T19:00:32+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Evaluation, Governance","mainEntityOfPage":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"GAIAとOSWorldで考える、エージェント評価の完成条件","item":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく</h1>
-          <p class="hero-copy">研究ベンチマークの増加と各社発表の流れにより、prototype agent と production candidate を分ける軸は、派手さよりも評価・再現性・監督へ移っている。</p>
+          <h1 class="hero-title">GAIAとOSWorldで考える、エージェント評価の完成条件</h1>
+          <p class="hero-copy">正しい答えを返す課題と、アプリを操作して結果を保存する課題では採点対象が異なる。GAIAとOSWorldを手がかりに、締切登録の例で完成条件と原因調査を分ける。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-03-01">2025年3月1日</time>
-        <time class="mono-note" datetime="2026-05-06">最終更新 2026年5月6日</time>
+        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Governance</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%20%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E8%A9%95%E4%BE%A1%E3%81%AF%E3%80%81%E3%81%82%E3%81%A8%E3%81%8B%E3%82%89%E8%B6%B3%E3%81%99%E9%A0%85%E7%9B%AE%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%E5%B0%8E%E5%85%A5%E3%82%B2%E3%83%BC%E3%83%88%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%A6%E3%81%84%E3%81%8F&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-03-01-agent-evaluation-becomes-a-gating-layer.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=GAIA%E3%81%A8OSWorld%E3%81%A7%E8%80%83%E3%81%88%E3%82%8B%E3%80%81%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E8%A9%95%E4%BE%A1%E3%81%AE%E5%AE%8C%E6%88%90%E6%9D%A1%E4%BB%B6&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-03-01-agent-evaluation-becomes-a-gating-layer.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく"
-      data-share-text="AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく"
+      data-share-title="GAIAとOSWorldで考える、エージェント評価の完成条件"
+      data-share-text="GAIAとOSWorldで考える、エージェント評価の完成条件"
       data-share-url="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく"
+      data-share-title="GAIAとOSWorldで考える、エージェント評価の完成条件"
       data-share-url="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,80 +124,43 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく</h2>
-  <p>prototype agent と production candidate を分ける軸は、回答の面白さより評価可能性へ移っている。AgentBench、GAIA、SWE-bench、OSWorld、BrowserGym が task ごとに失敗の仕方を違う形で露出させ、Anthropic の effective agents や computer use の発信も、途中過程の観測と guardrail を切り離して考える必要性を補強している。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">評価・再現性・監督に直結する source に限定した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">31件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる一次情報のみを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4尺度</p>
-      <p class="stat-title">導入ゲート</p>
-      <p class="stat-note">完遂率、再現性、traceability、handoff 条件が主な判断軸になった。</p>
-    </article></div>
+<h2>正しい答えを返す評価と、操作の完了を確かめる評価</h2>
+<p>資料から締切日を答える仕事と、その締切をカレンダーへ登録する仕事では、完成の定義が異なる。
+前者は答えの日付を確かめればよいが、後者では登録先や保存内容も確認する必要がある。
+エージェントの評価を選ぶときには、まず何を成果として採点するかを決めたい。</p>
+<p>2025年3月時点で参照できるGAIAとOSWorldは、この違いを考える手がかりになる。
+本稿は両者の成績を順位付けするものではなく、評価課題と業務の完成条件を対応付けるための整理である。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>評価セットが増えるほど、task ごとの難しさが分解された</h3>
-      <p>AgentBench は多種の tool task を、GAIA は一般 assistant の実用問題を、SWE-bench は issue resolution を、OSWorld は desktop action を測った。ひとつの総合スコアではなく、workflow ごとの failure mode を見る必要があることがはっきりした。</p>
-    </article><article class="comparison-card">
-      <h3>guardrail は model の外側に置くべき論点になった</h3>
-      <p>Anthropic の Building effective agents と computer use 系の source は、途中観測と手前の制御を別レイヤーとして持つ必要を示した。高性能な model を選んでも、trace と escalation がなければ実務導入は難しい。</p>
-    </article><article class="comparison-card">
-      <h3>適用範囲を絞った team のほうが rollout しやすい</h3>
-      <p>当時の公開根拠を並べると、成功に近いのは万能 agent を目指す構成より、support triage、research summary、issue routing のような bounded workflow に agent をはめる構成だった。評価のしやすさが導入速度を決めている。</p>
-    </article></div>
+<h2>GAIAは道具を使って答える課題、OSWorldは環境で操作する課題を扱う</h2>
+<p><a href="https://arxiv.org/abs/2311.12983v1">GAIAの初版</a>は、推論、ウェブ閲覧、複数の情報形式の扱い、道具の利用を要する質問を用意した。
+質問と答えを持つ課題から、アシスタントとして必要な能力を調べる構成である。</p>
+<p><a href="https://arxiv.org/abs/2404.07972v1">OSWorldの初版</a>は、実際のウェブアプリやデスクトップアプリ、ファイル操作を含む課題を扱う。
+課題ごとに初期状態と評価用スクリプトを用意し、実行結果を検査する。
+答えの文章がもっともらしいかとは異なる方法で、操作の成果を確認している。</p>
+<p>この違いがあるため、一方の成功率をもう一方の仕事の成功率として読むことはできない。
+評価環境と完成条件が、自分たちの任せたい仕事にどれだけ近いかを確認する必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>リサーチ・ダイジェスト作成</h3>
-      <ul class="bullet-list"><li>公開資料の収集、分類、比較、初稿生成を行い、人が根拠を確認して仕上げる。</li><li>評価しやすいのは、引用形式や粒度をあらかじめ固定できる workflow である。</li></ul>
-    </article><article class="comparison-card">
-      <h3>問い合わせ一次切り分け</h3>
-      <ul class="bullet-list"><li>意図分類、FAQ 検索、回答案の下書き、必要時のエスカレーションを担う。</li><li>曖昧案件だけ人へ戻す条件を固定すれば、導入ゲートを作りやすい。</li></ul>
-    </article></div>
+<h2>締切の登録なら、保存された予定まで確かめる</h2>
+<p>冒頭の締切登録を、評価用の想定例として具体化する。
+入力資料には締切日と時刻、対象の予定表には既存の予定を用意する。
+期待する結果は、正しい予定表に、正しい日付と時刻で、新しい予定が一件保存されることとする。</p>
+<p>「登録しました」という返答だけでは成功にしない。
+別の予定表への保存、時刻のずれ、二重登録、未保存の下書きは、異なる失敗として扱う。
+資料に時刻がなければ、勝手に補わず質問することを期待するのかも、試行前に決めておく。</p>
+<p>同じ課題でも、予定表の初期状態や利用権限が変われば難しさは変わる。
+比較時には、資料、初期データ、アプリの版、使える操作を記録する。
+失敗を再現するときに条件を戻せることが、改善の判断に役立つ。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>ベンチマークが見せた具体的な失敗と成功の差</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>SWE-bench は『コード生成できる』と『issue を解ける』の差を明確にした</h3>
-      <p>issue を理解し、relevant file を探し、patch を作り、test を実行して初めて task completion になる。この差分があるため、社内でも code assistant を導入するなら snippet quality ではなく end-to-end issue handling を eval したほうがよいことが読み取れる。</p>
-    </article><article class="comparison-card">
-      <h3>BrowserGym と OSWorld は、環境が変わるだけで難易度が変わることを示した</h3>
-      <p>browser task で通る agent が desktop task では崩れる、あるいはその逆が起きうる。つまり『agent が得意か』ではなく、『どの environment と permission model に対して安定か』を測らないと、導入可否を誤る。</p>
-    </article><article class="comparison-card">
-      <h3>support triage のような bounded workflow は eval を設計しやすい</h3>
-      <p>意図分類、根拠文書の参照、回答案の下書き、human escalation の 4 step に分けると、どこで失敗したかを trace で追いやすい。これは research benchmark から production eval へ写しやすい実務例だった。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>重要なのは、model の新旧比較より、自社 task で何を failure と見なすかを先に定義することだ。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>代表 task ごとに success / failure / escalate の基準を先に文章化する。</li><li>途中の retrieval source、tool call、handoff を trace に残す。</li><li>『曖昧なら人へ返す』条件を業務設計として固定する。</li><li>general benchmark の数字は参考にしつつ、自社 workflow 用の mini eval を別に持つ。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent 導入の差は、『できることの派手さ』より『失敗を測り、止める条件を持てるか』で開いている。</p>
+<h2>採点に必要な結果と、原因調査に必要な記録を分ける</h2>
+<p>予定が正しく保存されたかは、最終状態から判定できる。
+一方、日付を読み違えたのか、画面で別の日を選んだのかは、途中の操作を調べないと分からない場合がある。
+成功の採点と失敗の原因調査は、使う情報が異なる。</p>
+<p>業務への導入判断では、平均点だけでなく、起きた失敗と人が修正した内容を残す。
+公開ベンチマークは候補を理解する資料として使い、実際の完成条件は業務に合わせて作る。
+その対応が明確なら、評価を通ったという説明が、何を任せられるという判断なのかも伝わる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -276,104 +239,24 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2308.03688" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2023年8月7日</span>
-              </div>
-              <p class="source-title">AgentBench: Evaluating LLMs as Agents</p>
-              <p class="source-url">https://arxiv.org/abs/2308.03688</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2023年10月10日</span>
-              </div>
-              <p class="source-title">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
-              <p class="source-url">https://arxiv.org/abs/2310.06770</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2311.12983" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2311.12983v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2023年11月21日</span>
               </div>
               <p class="source-title">GAIA: a benchmark for General AI Assistants</p>
-              <p class="source-url">https://arxiv.org/abs/2311.12983</p>
+              <p class="source-url">https://arxiv.org/abs/2311.12983v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年4月11日</span>
               </div>
               <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
-              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年12月6日</span>
-              </div>
-              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/research/developing-computer-use" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年10月22日</span>
-              </div>
-              <p class="source-title">Anthropic: Developing computer use</p>
-              <p class="source-url">https://www.anthropic.com/research/developing-computer-use</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年12月19日</span>
-              </div>
-              <p class="source-title">Anthropic: Building effective agents</p>
-              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月17日</span>
-              </div>
-              <p class="source-title">Microsoft Research: AutoGen v0.4</p>
-              <p class="source-url">https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月23日</span>
-              </div>
-              <p class="source-title">OpenAI: Introducing Operator</p>
-              <p class="source-url">https://openai.com/index/introducing-operator/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月24日</span>
-              </div>
-              <p class="source-title">Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai</p>
+              <p class="source-url">https://arxiv.org/abs/2404.07972v1</p>
             </div>
             <span class="source-action">開く</span>
           </a>
