@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 19 Sep 2026 09:04:48 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 09:07:20 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -152,11 +152,11 @@
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>AI agent の競争軸に security gate が入り始めた</title>
+      <title>エージェント公開前に、外部の指示で何が実行されるかを試す</title>
       <link>https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>OpenAI、Anthropic、Microsoft、AWS、Google Cloud の一次情報から、AI agent の比較軸に security gate が入る流れを整理する。</description>
+      <pubDate>Sat, 19 Sep 2026 09:07:20 GMT</pubDate>
+      <description>OpenAI、AWS、Anthropicの公開資料から、プロンプトインジェクション対策の違いを比較。外部送信やツール実行を公開前に確かめる試験を提案する。</description>
       <category>AI Agents</category>
     </item>
     <item>

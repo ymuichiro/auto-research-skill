@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Sep 2026 09:04:48 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 09:07:20 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -152,11 +152,11 @@
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>Security gates are becoming part of the core comparison axis for AI agents</title>
+      <title>Before releasing an agent, test what external instructions can make it do</title>
       <link>https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Using primary-source material from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, this piece explains why security gates now shape agent comparison.</description>
+      <pubDate>Sat, 19 Sep 2026 09:07:20 GMT</pubDate>
+      <description>Compare prompt-injection defenses from OpenAI, AWS, and Anthropic, then test tool execution and outbound transmission before releasing an agent.</description>
       <category>AI Agents</category>
     </item>
     <item>
