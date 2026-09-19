@@ -1,76 +1,21 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>AgentOps is becoming a control layer rather than a helper feature</h2>
-  <p>The competition in agent platforms is shifting from “what can it do?” toward “how can we see it, stop it, and recover it?” Foundry GA and Developer Essentials, Responses API updates, Semantic Kernel orchestration, and Google’s MCP and A2A work all point to traceability, reviewability, connector governance, and run history as an emerging control layer.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">The source set is limited to papers and official posts directly tied to AgentOps and control-layer design.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">43</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4 requirements</p>
-      <p class="stat-title">Control layer</p>
-      <p class="stat-note">Trace, review, permission, and recovery became core requirements.</p>
-    </article></div>
+<h2>Visible execution and recoverable execution are different</h2>
+<p>Execution records help investigate an agent that stopped, but do not automatically undo partial updates or make retries safe. Observability, status retrieval, and recovery should be assessed separately.</p>
+<p>The March 2025 Agents SDK announcement and May Responses API background-mode release provide examples. This is a way to interpret operational features, not evidence of an industry-wide shift in buying criteria.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Observability was becoming part of the purchase decision</h3>
-      <p>Across Foundry, Responses API, and Semantic Kernel, the value proposition was no longer only new capability. Teams increasingly needed to inspect traces and run history in order to improve the system. Observability was becoming part of the buying criteria.</p>
-    </article><article class="comparison-card">
-      <h3>Connector governance created a separate axis from model quality</h3>
-      <p>As MCP, A2A, and enterprise connectors spread, the important questions became who could call which tool and which actions required review. AgentOps was drifting toward the design of the control layer outside the model itself.</p>
-    </article><article class="comparison-card">
-      <h3>Iteration speed was increasingly determined by operational discipline</h3>
-      <p>Read together with RE-Bench and BrowserGym, the public evidence suggested that teams able to inspect traces and improve quickly would outpace teams relying on model choice alone. AgentOps was turning into both developer tooling and management discipline.</p>
-    </article></div>
+<h2>A trace provides material for investigating progress</h2>
+<p>OpenAI's <a href="https://openai.com/index/new-tools-for-building-agents/">March Agents SDK announcement</a> introduced visualization of execution traces for debugging and improvement. It adds information beyond the final answer.</p>
+<p>For an incorrect support response, a record may help distinguish missing search, retrieval of the wrong material, and misinterpretation after retrieval. It cannot reveal unrecorded processing in a connected service. Check whether the inputs, tool results, and external state needed for a relevant investigation can be associated.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Support case operations</h3>
-      <ul class="bullet-list"><li>Agents can classify requests, retrieve prior cases, draft replies, and decide whether to escalate.</li><li>Trace data makes it much easier to investigate misclassification or evidence errors later.</li></ul>
-    </article><article class="comparison-card">
-      <h3>IT operations diagnostics</h3>
-      <ul class="bullet-list"><li>Agents can combine alerts, runbooks, and recent change history into likely causes and next actions.</li><li>Run history and replay make it easier to compare similar incidents over time.</li></ul>
-    </article></div>
+<h2>Background mode changes how an application waits</h2>
+<p>The <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">May Responses API update</a> added asynchronous background execution for longer tasks, with polling or streaming events to follow progress.</p>
+<p>This helps design long-running experiences. It should not be read as a guarantee that arbitrary business operations recover automatically or that external updates happen exactly once. Retrieving completion status and retrying a side-effecting operation are separate concerns.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete scenarios visible in the evidence set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Support workflows need explanation, not only output quality</h3>
-      <p>When a support flow combines FAQ retrieval and connector actions, the team needs to know which documents and tool calls produced the response. Without traces and run history, correcting errors becomes overly manual, which is why AgentOps mattered so much here.</p>
-    </article><article class="comparison-card">
-      <h3>Database-connected assistants require permission and review controls</h3>
-      <p>The MCP and enterprise-connector direction suggested that the closer assistants get to data systems, the more important permission scopes and review gates become. The decisive question was no longer whether the model was clever, but whether risky actions could be stopped cleanly.</p>
-    </article><article class="comparison-card">
-      <h3>As orchestration spreads, end-to-end traces become essential</h3>
-      <p>Once multiple agents share work, teams need to know which node stalled, which handoff lost information, and which tool call introduced the problem. The real center of the control layer was not adding more agents, but making the complexity inspectable.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>The critical capability is not prompt cleverness, but the operational ability to read traces, run review loops, and preserve recovery paths.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Persist traces, sessions, and tool-call history by default.</li><li>Treat approval UI and review queues as part of the platform, not as side tooling.</li><li>Define retry, rollback, and human-takeover rules by failure class.</li><li>As connectors expand, make permission-scope review a recurring operating task.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>Platform differentiation is increasingly defined not by capability breadth alone, but by how well the system can be observed, stopped, and recovered.</p>
+<h2>Test a connection failure immediately after ticket creation</h2>
+<p>Imagine an agent creating a support ticket, then losing the connection before receiving the response. The application may show failure even though the ticket exists. Repeating creation could produce a duplicate.</p>
+<p>A possible design retains an identifier for the request and checks external state before deciding to retry. If the service provides duplicate-prevention behavior, follow its contract. Unknown outcomes need explicit handling, potentially including human review.</p>
+<p>Test separately whether the record explains the failure, the interface communicates the current status, and recovery avoids duplicate registration. Operational features are best assessed through the failures they can handle.</p>
 </section>

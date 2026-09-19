@@ -1,14 +1,14 @@
 {
   "slug": "agent-ops-gets-promoted-to-a-control-layer",
   "date": "2025-08-01",
-  "titleJa": "AgentOps は補助機能ではなく control layer として扱われ始める",
-  "titleEn": "AgentOps is becoming a control layer rather than a helper feature",
-  "summaryJa": "Foundry・OpenAI・Google の発表を通じて、agent stack の競争は trace、review、observability、tool governance といった control layer へ移っている。",
-  "summaryEn": "The spring-to-summer launch pattern across Microsoft, OpenAI, and Google shifts competition in the agent stack toward traces, reviews, observability, and tool governance as control layers.",
-  "seoDescriptionJa": "Foundry、OpenAI、Google の発表をもとに、AgentOps が補助機能ではなく control layer として立ち上がる流れを整理する。",
-  "seoDescriptionEn": "Based on releases from Microsoft, OpenAI, and Google, this article shows how AgentOps is becoming a control layer rather than a helper feature.",
-  "teaserJa": "trace、review、observability、tool governance が control layer になる動きを整理する。",
-  "teaserEn": "Read how traces, reviews, observability, and tool governance are becoming the control layer for agents.",
+  "titleJa": "エージェント運用の確認点：実行記録・背景実行・復旧を分ける",
+  "titleEn": "Agent operations: distinguish traces, background execution, and recovery",
+  "summaryJa": "Agents SDKの実行記録とResponses APIの背景実行から、運用機能の範囲を整理する。チケット作成後の通信断を例に、進行状況の取得と安全な再試行を分けて考える。",
+  "summaryEn": "Use Agents SDK tracing and Responses API background mode to distinguish visibility from recovery, with a ticket-creation failure illustrating retry risks.",
+  "seoDescriptionJa": "実行記録があれば安全に再試行できるのか。Agents SDKとResponses APIの発表を手がかりに、観測、背景実行、重複を防ぐ復旧を解説。",
+  "seoDescriptionEn": "Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.",
+  "teaserJa": "処理を追えることと、二重登録せずにやり直せることは別に確かめる。",
+  "teaserEn": "Tracing a failure and retrying without duplicate effects require separate checks.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,52 +18,16 @@
   ],
   "publishedSources": [
     {
-      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
-      "url": "https://arxiv.org/abs/2411.15114",
-      "type": "paper",
-      "publishedAt": "2024-11-22"
-    },
-    {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
-    },
-    {
-      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
+      "label": "OpenAI: New tools for building agents",
+      "url": "https://openai.com/index/new-tools-for-building-agents/",
       "type": "official",
-      "publishedAt": "2025-05-19"
-    },
-    {
-      "label": "Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry",
-      "url": "https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/",
-      "type": "official",
-      "publishedAt": "2025-05-19"
+      "publishedAt": "2025-03-11"
     },
     {
       "label": "OpenAI: New tools and features in the Responses API",
       "url": "https://openai.com/index/new-tools-and-features-in-the-responses-api/",
       "type": "official",
       "publishedAt": "2025-05-21"
-    },
-    {
-      "label": "Microsoft: Semantic Kernel multi-agent orchestration",
-      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/",
-      "type": "official",
-      "publishedAt": "2025-05-27"
-    },
-    {
-      "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
-      "type": "official",
-      "publishedAt": "2025-06-04"
-    },
-    {
-      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
-      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
-      "type": "official",
-      "publishedAt": "2025-06-23"
     }
   ],
   "draft": false

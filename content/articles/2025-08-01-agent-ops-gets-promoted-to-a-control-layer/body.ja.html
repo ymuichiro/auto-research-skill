@@ -1,76 +1,35 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>AgentOps は補助機能ではなく control layer として扱われ始める</h2>
-  <p>agent stack の競争は、『何ができるか』から『どう見え、どう止め、どうやり直せるか』へ移っている。Foundry 系の GA と Developer Essentials、OpenAI の Responses API 更新、Semantic Kernel orchestration、Google の MCP と A2A の発表を通して、trace、review、connector governance、run history が独立した control layer として見え始めている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">AgentOps と control layer の論点に直結する source のみに絞った。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">43件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる一次情報 URL だけを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4要件</p>
-      <p class="stat-title">control layer</p>
-      <p class="stat-note">trace、review、permission、recovery が主要条件になった。</p>
-    </article></div>
+<h2>実行が見えることと、失敗から戻せることを分ける</h2>
+<p>エージェントの処理が止まったとき、記録を見られることは調査の助けになる。
+しかし、その記録があるだけで、途中まで行った更新を取り消したり、安全に再実行したりできるわけではない。
+運用機能を比較するときは、観測、進行状況の取得、復旧を別々に確認したい。</p>
+<p>本稿では、2025年3月に発表されたAgents SDKの実行記録と、5月のResponses APIの背景実行を手がかりに、この違いを整理する。
+業界全体の競争軸が移ったという断定ではなく、機能を採用するときの読み方である。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>observability が purchase criteria に近づいた</h3>
-      <p>Foundry 系の発表、Responses API、Semantic Kernel の流れを見ると、team が求めているのは新しい capability の追加だけでなく、trace と run history を見て改善できることだった。可観測性の有無が導入判断に効き始めている。</p>
-    </article><article class="comparison-card">
-      <h3>connector governance は model quality と別軸の差を作る</h3>
-      <p>MCP や A2A、enterprise connector が増えるほど、どの tool を誰が使え、どの action に review が必要かが大きな論点になる。AgentOps は model の外にある制御面の設計へ寄っている。</p>
-    </article><article class="comparison-card">
-      <h3>iteration 速度は運用能力で開きやすい</h3>
-      <p>RE-Bench や BrowserGym 系の示唆も含めると、同じ model を使っていても trace を読み改善を回せる team のほうが先へ進む。AgentOps は developer tooling であると同時に management discipline でもある。</p>
-    </article></div>
+<h2>実行記録は、どこまで進んだかを調べる材料になる</h2>
+<p>OpenAIの<a href="https://openai.com/index/new-tools-for-building-agents/">2025年3月のAgents SDK発表</a>は、エージェントの実行経路を可視化し、調査や改善に使う機能を紹介した。
+最終回答だけを見る場合に比べ、処理の途中を調べるための情報が増える。</p>
+<p>問い合わせへの誤回答なら、検索を行ったか、適切な資料を取得したか、資料を得た後で解釈を誤ったかを順に調べられる可能性がある。
+ただし、記録されていない接続先の処理まで分かるとは限らない。
+自分たちが調査したい失敗について、入力、ツールの結果、接続先の状態を関連付けられるかが確認点になる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>support case operations</h3>
-      <ul class="bullet-list"><li>問い合わせ分類、既知事例の参照、返信ドラフト作成、escalation 条件判定を行う。</li><li>trace があれば、誤分類や誤参照の原因をあとから追いやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>IT 運用の診断補助</h3>
-      <ul class="bullet-list"><li>アラート、runbook、最近の変更情報をまとめ、原因候補と次アクションを整理する。</li><li>run history と replay が残れば、再発時の比較がしやすい。</li></ul>
-    </article></div>
+<h2>背景実行は、通信の待ち方を変える</h2>
+<p><a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">2025年5月のResponses API更新</a>は、長い処理を非同期で開始する背景実行を追加した。
+アプリケーションは状態を問い合わせたり、イベントの受信を開始したりして、進行を追う構成を取れる。</p>
+<p>これは、画面が長時間待つ処理を設計するうえで役立つ。
+ただし、任意の業務処理が自動的に復旧することや、接続先への更新が一度だけ行われることを保証する機能としては読めない。
+処理が完了したかを取得する仕組みと、副作用を含む業務の再実行は区別する必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>公開根拠から見える具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>support workflow では『なぜその回答になったか』の説明責任が重要になる</h3>
-      <p>FAQ retrieval と connector action を含む support flow では、答えの quality だけでなく、どの document と tool call に基づいたかが必要になる。trace と run history がないと、誤回答の修正が属人的になるため、AgentOps の価値が大きい。</p>
-    </article><article class="comparison-card">
-      <h3>database-connected assistant は permission と review の control layer が前提になる</h3>
-      <p>Google の MCP integrations や enterprise connector の文脈では、assistant が data source へ近づくほど review gate と permission scope が必要になる。ここで重要なのは、model が賢いかではなく、危険な action を止められるかだ。</p>
-    </article><article class="comparison-card">
-      <h3>A2A や orchestration が増えるほど end-to-end trace が重要になる</h3>
-      <p>複数 agent が分担する flow では、どの node で遅れたか、どの handoff で情報が欠けたかを追えることが改善速度を左右する。control layer の中心は、agent を増やすことではなく、複雑さを読めるようにすることだった。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>agent を導入する team に必要なのは、prompt の妙味より、trace を読み、review を回し、recovery path を持てる運用能力だ。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>trace、session、tool call history を標準で保存する。</li><li>approval UI と review queue を運用基盤の一部として扱う。</li><li>failure class ごとに retry / rollback / human takeover の条件を決める。</li><li>connector が増えるほど、permission scope の棚卸しを定期運用にする。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent platform の差は、『何ができるか』より『問題が起きたときにどう観測し、どう止め、どう復帰できるか』で測られている。</p>
+<h2>チケットを作成した直後の通信断で、復旧を試す</h2>
+<p>ここでは、エージェントが問い合わせ用のチケットを作り、その応答を受け取る前に通信が切れた場面を想定する。
+アプリケーション側に失敗と表示されても、接続先にはチケットが存在するかもしれない。
+同じ作成処理を繰り返すと、二重登録になる可能性がある。</p>
+<p>この場合の設計案は、同じ依頼を識別できる値を残し、接続先の状態を確認してから再試行を決めることだ。
+接続先が重複を防ぐ仕組みを提供しているなら、その契約に合わせる。
+結果が分からない場合には人へ戻すなど、成功とも失敗とも確定できない状態を扱う必要がある。</p>
+<p>この試行で、記録から原因を追えるか、利用者に現在の状態を伝えられるか、二重登録せずに完了へ進めるかを別々に確認する。
+運用機能の価値は、機能名の数より、具体的な失敗に対応できる範囲から判断したい。</p>
 </section>
