@@ -1,14 +1,14 @@
 {
   "slug": "open-runtimes-and-managed-platforms-converge",
   "date": "2025-05-01",
-  "titleJa": "open runtime と managed platform が、同じ設計図の上で接続され始める",
-  "titleEn": "Open runtimes and managed platforms are starting to connect inside the same architecture",
-  "summaryJa": "OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっている。",
-  "summaryEn": "OpenAI’s agent-building stack, AWS multi-agent collaboration plus human confirmation, Google’s multi-system agents and A2A, and Microsoft’s Semantic Kernel Agents GA all reinforce the need to separate open protocols, hosted execution, and approval design inside one architecture.",
-  "seoDescriptionJa": "OpenAI、AWS、Google、Anthropic、Microsoft の発表から、open runtime と managed platform が同じ設計図で接続される流れを読む。",
-  "seoDescriptionEn": "Across OpenAI, AWS, Google, Anthropic, and Microsoft updates, this article explains how open runtimes and managed platforms are converging.",
-  "teaserJa": "open protocol、hosted execution、承認設計を分けて考える新しい設計図を整理する。",
-  "teaserEn": "A concise guide to the emerging architecture that separates open protocols, hosted execution, and approval design.",
+  "titleJa": "エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から",
+  "titleEn": "Separate agent connectivity from action confirmation: a Bedrock example",
+  "summaryJa": "Amazon Bedrock Agentsの利用者確認とreturn of controlを比較する。休暇申請を例に、API接続、本人の確認、上長の承認、実際の登録を区別して設計する。",
+  "summaryEn": "Compare Bedrock user confirmation with return of control, separating API connectivity, user intent, managerial approval, and the stored outcome of a leave request.",
+  "seoDescriptionJa": "Bedrock Agentsのuser confirmationとreturn of controlの違いを解説。休暇申請の例で、接続・利用者確認・業務上の承認を分けて考える。",
+  "seoDescriptionEn": "Understand Bedrock user confirmation and return of control, distinguishing connectivity, user consent, and organizational approval in a leave-request workflow.",
+  "teaserJa": "APIを呼べること、本人が確認したこと、申請が承認されたことを区別する。",
+  "teaserEn": "An available API, user confirmation, and an approved request are different states.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,50 +19,8 @@
   ],
   "publishedSources": [
     {
-      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
-      "type": "paper",
-      "publishedAt": "2024-11-07"
-    },
-    {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
-    },
-    {
-      "label": "Microsoft Research: AutoGen v0.4",
-      "url": "https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/",
-      "type": "official",
-      "publishedAt": "2025-01-17"
-    },
-    {
-      "label": "OpenAI: Introducing Operator",
-      "url": "https://openai.com/index/introducing-operator/",
-      "type": "official",
-      "publishedAt": "2025-01-23"
-    },
-    {
-      "label": "OpenAI: New tools for building agents",
-      "url": "https://openai.com/index/new-tools-for-building-agents/",
-      "type": "official",
-      "publishedAt": "2025-03-11"
-    },
-    {
-      "label": "AWS: Amazon Bedrock announces general availability of multi-agent collaboration",
-      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/",
-      "type": "official",
-      "publishedAt": "2025-03-10"
-    },
-    {
       "label": "AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents",
       "url": "https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/",
-      "type": "official",
-      "publishedAt": "2025-04-09"
-    },
-    {
-      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
       "type": "official",
       "publishedAt": "2025-04-09"
     },
@@ -71,18 +29,6 @@
       "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
       "type": "official",
       "publishedAt": "2025-04-09"
-    },
-    {
-      "label": "Anthropic: Introducing Code with Claude",
-      "url": "https://www.anthropic.com/news/Introducing-code-with-claude",
-      "type": "official",
-      "publishedAt": "2025-04-03"
-    },
-    {
-      "label": "Microsoft: Semantic Kernel Agents are now generally available",
-      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/",
-      "type": "official",
-      "publishedAt": "2025-04-04"
     }
   ],
   "draft": false
