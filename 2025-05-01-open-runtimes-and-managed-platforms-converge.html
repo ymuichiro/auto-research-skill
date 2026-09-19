@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>open runtime と managed platform が、同じ設計図の上で接続され始める | Auto Research Digest</title>
-    <meta name="description" content="OpenAI、AWS、Google、Anthropic、Microsoft の発表から、open runtime と managed platform が同じ設計図で接続される流れを読む。">
+    <title>エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から | Auto Research Digest</title>
+    <meta name="description" content="Bedrock Agentsのuser confirmationとreturn of controlの違いを解説。休暇申請の例で、接続・利用者確認・業務上の承認を分けて考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="open runtime と managed platform が、同じ設計図の上で接続され始める | Auto Research Digest">
-    <meta property="og:description" content="OpenAI、AWS、Google、Anthropic、Microsoft の発表から、open runtime と managed platform が同じ設計図で接続される流れを読む。">
+    <meta property="og:title" content="エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から | Auto Research Digest">
+    <meta property="og:description" content="Bedrock Agentsのuser confirmationとreturn of controlの違いを解説。休暇申請の例で、接続・利用者確認・業務上の承認を分けて考える。">
     <meta property="og:url" content="https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="open runtime と managed platform が、同じ設計図の上で接続され始める">
+    <meta property="og:image:alt" content="エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="open runtime と managed platform が、同じ設計図の上で接続され始める | Auto Research Digest">
-    <meta name="twitter:description" content="OpenAI、AWS、Google、Anthropic、Microsoft の発表から、open runtime と managed platform が同じ設計図で接続される流れを読む。">
+    <meta name="twitter:title" content="エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から | Auto Research Digest">
+    <meta name="twitter:description" content="Bedrock Agentsのuser confirmationとreturn of controlの違いを解説。休暇申請の例で、接続・利用者確認・業務上の承認を分けて考える。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="open runtime と managed platform が、同じ設計図の上で接続され始める">
+    <meta name="twitter:image:alt" content="エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から">
     <link rel="canonical" href="https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
@@ -43,15 +43,15 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-05-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-06T23:53:04+09:00">
+    <meta property="article:modified_time" content="2026-09-19T18:50:49+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Interoperability">
     <meta property="article:tag" content="Runtime">
     <meta property="article:tag" content="Approval">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"open runtime と managed platform が、同じ設計図の上で接続され始める","description":"OpenAI、AWS、Google、Anthropic、Microsoft の発表から、open runtime と managed platform が同じ設計図で接続される流れを読む。","datePublished":"2025-05-01T00:00:00+09:00","dateModified":"2026-05-06T23:53:04+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Interoperability, Runtime, Approval","mainEntityOfPage":"https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"open runtime と managed platform が、同じ設計図の上で接続され始める","item":"https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から","description":"Bedrock Agentsのuser confirmationとreturn of controlの違いを解説。休暇申請の例で、接続・利用者確認・業務上の承認を分けて考える。","datePublished":"2025-05-01T00:00:00+09:00","dateModified":"2026-09-19T18:50:49+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Interoperability, Runtime, Approval","mainEntityOfPage":"https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から","item":"https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,8 +67,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">open runtime と managed platform が、同じ設計図の上で接続され始める</h1>
-          <p class="hero-copy">OpenAI の agent building 基盤、AWS の multi-agent collaboration GA と human confirmation、Google の multi-system agents と A2A、Anthropic の Code with Claude、Microsoft の Semantic Kernel Agents GA が重なり、open protocol・hosted execution・承認設計を分けて考える見方が強まっている。</p>
+          <h1 class="hero-title">エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から</h1>
+          <p class="hero-copy">Amazon Bedrock Agentsの利用者確認とreturn of controlを比較する。休暇申請を例に、API接続、本人の確認、上長の承認、実際の登録を区別して設計する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -76,12 +76,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-05-01">2025年5月1日</time>
-        <time class="mono-note" datetime="2026-05-06">最終更新 2026年5月6日</time>
+        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Runtime</span><span class="meta-chip">Approval</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=open%20runtime%20%E3%81%A8%20managed%20platform%20%E3%81%8C%E3%80%81%E5%90%8C%E3%81%98%E8%A8%AD%E8%A8%88%E5%9B%B3%E3%81%AE%E4%B8%8A%E3%81%A7%E6%8E%A5%E7%B6%9A%E3%81%95%E3%82%8C%E5%A7%8B%E3%82%81%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-05-01-open-runtimes-and-managed-platforms-converge.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%8E%A5%E7%B6%9A%E3%81%A8%E5%AE%9F%E8%A1%8C%E7%A2%BA%E8%AA%8D%E3%82%92%E5%88%86%E3%81%91%E3%82%8B%EF%BC%9ABedrock%E3%81%AE%E4%BC%91%E6%9A%87%E7%94%B3%E8%AB%8B%E4%BE%8B%E3%81%8B%E3%82%89&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-05-01-open-runtimes-and-managed-platforms-converge.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="open runtime と managed platform が、同じ設計図の上で接続され始める"
-      data-share-text="open runtime と managed platform が、同じ設計図の上で接続され始める"
+      data-share-title="エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から"
+      data-share-text="エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から"
       data-share-url="https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="open runtime と managed platform が、同じ設計図の上で接続され始める"
+      data-share-title="エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から"
       data-share-url="https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -125,77 +125,38 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>open runtime と managed platform を分けて組み合わせる設計が現実味を持ち始める</h2>
-  <p>agent stack は、単一ベンダー製品の比較ではなくなりつつある。OpenAI は agent building の基本部品を公開し、AWS は multi-agent collaboration と human-in-the-loop を具体機能として見せ、Google は multi-system agents と A2A を同日に打ち出し、Microsoft は Semantic Kernel Agents を GA に進めている。Anthropic の Code with Claude は event announcement ではあるものの、tool を使う developer agent への関心が強まっていることを補強している。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">11件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">主要主張に直結する論文と公式 announcement / docs のみを掲載。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">20+</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された一次情報 URL だけで棚卸しした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3論点</p>
-      <p class="stat-title">収束点</p>
-      <p class="stat-note">protocol、hosted runtime、approval path を切り分けて設計する見方が強まった。</p>
-    </article></div>
+<h2>接続先を決めることと、実行を認めることを分ける</h2>
+<p>エージェントが休暇申請のAPIを呼べるとしても、利用者が知りたかったのは残日数だけかもしれない。
+接続ができることと、その操作を実行してよいことの間には、確認すべき内容が残る。</p>
+<p>2025年4月のAWSの実装記事は、この違いを休暇申請で説明した。
+同月のA2A発表がエージェント間の依頼を扱う一方、実行前の確認はアプリケーション側で具体化する必要がある。
+本稿では、接続方式と承認処理を一つの機能として考えず、それぞれの役割を見る。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Google は protocol と platform を同時に押し出した</h3>
-      <p>Vertex AI の multi-system agents と A2A は、managed platform と open coordination rule をセットで考える流れを前に進めた。agent を自社クラウドの内側だけで完結させず、他システムや他 vendor と接続できる前提を作ろうとしていた点が重要だ。</p>
-    </article><article class="comparison-card">
-      <h3>AWS と Microsoft は managed orchestration を実装論へ近づけた</h3>
-      <p>AWS は supervisor / routing を含む multi-agent collaboration の GA と、行為前確認を入れる human-in-the-loop パターンを並べて示した。Microsoft の Semantic Kernel Agents GA も、役割分担した worker と orchestration を experiment ではなく SDK の安定機能として扱う方向を強めている。</p>
-    </article><article class="comparison-card">
-      <h3>OpenAI と Anthropic は developer loop 側の期待を押し上げた</h3>
-      <p>OpenAI の new tools for building agents と Operator は、web / tool / computer use を前提にした agent loop を見えやすくした。Anthropic の Code with Claude announcement は enterprise runtime の GA ではないが、tool-using coding workflow が注目の中心に入り始めていたことを示していた。</p>
-    </article></div>
+<h2>確認を返す方法と、処理をアプリケーションへ戻す方法</h2>
+<p>AWSの<a href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/">2025年4月9日の記事</a>は、二つの方法を説明する。
+user confirmationでは、エージェントが使おうとしている関数と引数をアプリケーションが受け取り、利用者の確認を集めてから進める。
+return of controlでは、処理の情報を受け取ったアプリケーション側が実行を担い、引数の修正なども扱える。</p>
+<p>前者は提示された操作を認めるかという確認に向き、後者は既存画面で内容を編集したり、独自の処理を挟んだりする構成を作る手段になる。
+どちらも、すべての操作に同じ確認を追加するという意味ではない。
+業務で認める自動実行の範囲に合わせて、止める位置を選ぶ。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>ブラウザ操作を伴う調査・申請補助</h3>
-      <ul class="bullet-list"><li>Operator のような browser-oriented agent は、情報収集やフォーム準備の自動化を前に進めた。</li><li>ただし submit を完全自動にするより、最終確認を人間に残す構成のほうが当時の一次情報と整合的だった。</li></ul>
-    </article><article class="comparison-card">
-      <h3>複数システムをまたぐ社内アシスタント</h3>
-      <ul class="bullet-list"><li>検索、FAQ、データ取得、通知、承認依頼を分担する multi-agent 構成は、single prompt よりも管理しやすい形として見え始めていた。</li><li>A2A や orchestration SDK があると、将来の接続先変更を吸収しやすくなる。</li></ul>
-    </article></div>
+<h2>本人の確認と、業務上の承認は同じではない</h2>
+<p>休暇申請なら、利用者が日付を確認することと、上長が申請を承認することは別の行為になり得る。
+AWSの記事の利用者確認を、そのまま組織の承認手続きが実装済みという意味に広げることはできない。</p>
+<p>この例を自社で設計するなら、画面には申請日、日数、対象者、実行する操作を表示する。
+利用者が日付を修正した後は、修正後の内容を確認対象にする。
+申請の登録が済んでも審査待ちなら、その状態を「休暇が承認された」と表示しない。
+これらは本稿の設計上の提案であり、記事のサンプルにすべて含まれると述べているわけではない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>一次情報に現れていた具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>AWS は PTO 申請の確認フローを例に、automation と承認の境界を示した</h3>
-      <p>AWS の human-in-the-loop post では、休暇申請 agent が create / update / cancel のような DB 更新前に user confirmation を求める構成と、より複雑な場合は return of control で application 側へ制御を戻す構成が説明されている。ここから読み取れるのは、価値のある agent は「全部自動でやるもの」ではなく、「実行前に止められるもの」だということだ。</p>
-    </article><article class="comparison-card">
-      <h3>A2A と multi-system agents は specialist の束ね方を具体化した</h3>
-      <p>Google の A2A announcement は candidate sourcing の例を使い、client agent が remote agent 群へ役割ごとに task を渡し、長い task lifecycle を追跡する姿を描いた。AWS の supervisor pattern や AutoGen v0.4 と重ねると、調査、取得、検証、要約を specialist ごとに分ける設計が当時すでに現実的だったことが見えてくる。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>実務論点は、「どの vendor を選ぶか」よりも、「protocol、hosted execution、approval をどこで分けるか」に移っている。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>tool schema と message contract は、runtime を差し替えても壊れにくい形で定義する。</li><li>read-only automation と write action を分け、変更系の操作には確認か return of control を入れる。</li><li>single agent で十分な工程と、supervisor + specialist に分ける工程を早い段階で整理する。</li><li>event announcement と GA release を混同せず、platform maturity は source ごとに温度差を付けて読む。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent stack は、「単一製品の採用判断」ではなく、「open な接続規約と managed な実行基盤、そして承認設計をどう重ねるか」という architecture の問題になっている。</p>
+<h2>担当を別のエージェントへ渡しても、確認は省略できない</h2>
+<p>Googleの<a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A発表</a>は、依頼する側と処理する側のエージェントが、能力、仕事の状態、成果物を交換する構成を示した。
+このような接続で申請担当を呼ぶ場合も、担当が見つかったことから利用者の同意を推定してはいけない。</p>
+<p>実装を試すときは、残日数だけの問い合わせ、申請内容の訂正、実行の拒否、実行後の状態確認を別々の課題にする。
+どの接続規格や実行基盤を選ぶ場合も、利用者が認めた内容と実際の処理が一致するかを確かめる。
+接続と実行の責任を分ける価値は、その一致を検査できることにある。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -274,67 +235,7 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2411.04468" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年11月7日</span>
-              </div>
-              <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2411.04468</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年12月6日</span>
-              </div>
-              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月17日</span>
-              </div>
-              <p class="source-title">Microsoft Research: AutoGen v0.4</p>
-              <p class="source-url">https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月23日</span>
-              </div>
-              <p class="source-title">OpenAI: Introducing Operator</p>
-              <p class="source-url">https://openai.com/index/introducing-operator/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年3月11日</span>
-              </div>
-              <p class="source-title">OpenAI: New tools for building agents</p>
-              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年3月10日</span>
-              </div>
-              <p class="source-title">AWS: Amazon Bedrock announces general availability of multi-agent collaboration</p>
-              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
@@ -342,16 +243,6 @@
               </div>
               <p class="source-title">AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents</p>
               <p class="source-url">https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年4月9日</span>
-              </div>
-              <p class="source-title">Google Cloud: Build and manage multi-system agents with Vertex AI</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
@@ -362,26 +253,6 @@
               </div>
               <p class="source-title">Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)</p>
               <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/news/Introducing-code-with-claude" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年4月3日</span>
-              </div>
-              <p class="source-title">Anthropic: Introducing Code with Claude</p>
-              <p class="source-url">https://www.anthropic.com/news/Introducing-code-with-claude</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年4月4日</span>
-              </div>
-              <p class="source-title">Microsoft: Semantic Kernel Agents are now generally available</p>
-              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/</p>
             </div>
             <span class="source-action">開く</span>
           </a>
