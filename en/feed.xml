@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Sep 2026 09:07:20 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 09:09:50 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -160,11 +160,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>AI agent adoption is shifting from model races to operational architecture</title>
+      <title>Evaluate agent readiness against the work your organization must complete</title>
       <link>https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Using major research and platform docs from OpenAI, Anthropic, Google, Microsoft, and AWS, this article maps the shift toward operational architecture.</description>
+      <pubDate>Sat, 19 Sep 2026 09:09:50 GMT</pubDate>
+      <description>Translate public agent benchmarks into workflow-specific tests covering completion, exceptions, retries, escalation, and the cost of human review.</description>
       <category>AI Agents</category>
     </item>
   </channel>
