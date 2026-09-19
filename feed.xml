@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 19 Sep 2026 09:01:57 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 09:04:48 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -144,11 +144,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか</title>
+      <title>生成AIのチャットと編集画面は、どの作業を分担するのか</title>
       <link>https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>OpenAI、Microsoft、Google、Anthropic などの発表をもとに、生成AIアプリがチャットに収束しつつチャットだけでは終わらない理由を整理する。</description>
+      <pubDate>Sat, 19 Sep 2026 09:04:48 GMT</pubDate>
+      <description>Gemini Canvas、Copilot Pages、Cocoaを例に、チャットで目的を伝えることと、編集画面で変更箇所を選ぶことの違いを解説する。</description>
       <category>AI Strategy</category>
     </item>
     <item>

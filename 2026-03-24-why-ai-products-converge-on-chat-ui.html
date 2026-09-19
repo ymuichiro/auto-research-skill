@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか | Auto Research Digest</title>
-    <meta name="description" content="OpenAI、Microsoft、Google、Anthropic などの発表をもとに、生成AIアプリがチャットに収束しつつチャットだけでは終わらない理由を整理する。">
+    <title>生成AIのチャットと編集画面は、どの作業を分担するのか | Auto Research Digest</title>
+    <meta name="description" content="Gemini Canvas、Copilot Pages、Cocoaを例に、チャットで目的を伝えることと、編集画面で変更箇所を選ぶことの違いを解説する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか | Auto Research Digest">
-    <meta property="og:description" content="OpenAI、Microsoft、Google、Anthropic などの発表をもとに、生成AIアプリがチャットに収束しつつチャットだけでは終わらない理由を整理する。">
+    <meta property="og:title" content="生成AIのチャットと編集画面は、どの作業を分担するのか | Auto Research Digest">
+    <meta property="og:description" content="Gemini Canvas、Copilot Pages、Cocoaを例に、チャットで目的を伝えることと、編集画面で変更箇所を選ぶことの違いを解説する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか">
+    <meta property="og:image:alt" content="生成AIのチャットと編集画面は、どの作業を分担するのか">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか | Auto Research Digest">
-    <meta name="twitter:description" content="OpenAI、Microsoft、Google、Anthropic などの発表をもとに、生成AIアプリがチャットに収束しつつチャットだけでは終わらない理由を整理する。">
+    <meta name="twitter:title" content="生成AIのチャットと編集画面は、どの作業を分担するのか | Auto Research Digest">
+    <meta name="twitter:description" content="Gemini Canvas、Copilot Pages、Cocoaを例に、チャットで目的を伝えることと、編集画面で変更箇所を選ぶことの違いを解説する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか">
+    <meta name="twitter:image:alt" content="生成AIのチャットと編集画面は、どの作業を分担するのか">
     <link rel="canonical" href="https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-03-24T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-06T23:53:04+09:00">
+    <meta property="article:modified_time" content="2026-09-19T18:04:48+09:00">
     <meta property="article:section" content="AI Strategy">
     <meta property="article:tag" content="LLM">
     <meta property="article:tag" content="AI Agent">
@@ -51,8 +51,8 @@
     <meta property="article:tag" content="Product Design">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="UX">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか","description":"OpenAI、Microsoft、Google、Anthropic などの発表をもとに、生成AIアプリがチャットに収束しつつチャットだけでは終わらない理由を整理する。","datePublished":"2026-03-24T00:00:00+09:00","dateModified":"2026-05-06T23:53:04+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, AI Agent, Chat Interface, Product Design, Workflow, UX","mainEntityOfPage":"https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/topics/ai-strategy/"},{"@type":"ListItem","position":4,"name":"なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか","item":"https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"生成AIのチャットと編集画面は、どの作業を分担するのか","description":"Gemini Canvas、Copilot Pages、Cocoaを例に、チャットで目的を伝えることと、編集画面で変更箇所を選ぶことの違いを解説する。","datePublished":"2026-03-24T00:00:00+09:00","dateModified":"2026-09-19T18:04:48+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, AI Agent, Chat Interface, Product Design, Workflow, UX","mainEntityOfPage":"https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/topics/ai-strategy/"},{"@type":"ListItem","position":4,"name":"生成AIのチャットと編集画面は、どの作業を分担するのか","item":"https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,8 +68,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか</h1>
-          <p class="hero-copy">OpenAI、Microsoft、Google、Anthropic、Claude Cowork の公式発表と HCI 系の論文を重ねると、生成AIアプリがまずチャットUIに寄る理由は、自然言語が最も安い汎用入力だからである一方、実務化が進むほど状態表示、承認、進捗監督、成果物編集のための画面を周辺に必要とすることが見えてくる。チャットUIが消えるのではなく、対話を起点にした操作基盤へ複合化していく流れを整理する。</p>
+          <h1 class="hero-title">生成AIのチャットと編集画面は、どの作業を分担するのか</h1>
+          <p class="hero-copy">Gemini Canvas、Copilot Pages、Cocoaの研究から、会話で目的を伝えることと、画面で修正対象を選ぶことの違いを考える。開発費や使いやすさを一律に断定せず、編集と共有の課題に沿って画面を評価する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,12 +77,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-strategy/">AI Strategy</a>
         <time class="mono-note" datetime="2026-03-24">2026年3月24日</time>
-        <time class="mono-note" datetime="2026-05-06">最終更新 2026年5月6日</time>
+        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Chat Interface</span><span class="meta-chip">Product Design</span><span class="meta-chip">Workflow</span><span class="meta-chip">UX</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%81%AA%E3%81%9C%E7%94%9F%E6%88%90AI%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AF%E3%83%81%E3%83%A3%E3%83%83%E3%83%88UI%E3%81%AB%E5%8F%8E%E6%9D%9F%E3%81%99%E3%82%8B%E3%81%AE%E3%81%8B%E3%80%81%E3%81%9D%E3%81%97%E3%81%A6%E3%81%AA%E3%81%9C%E3%83%81%E3%83%A3%E3%83%83%E3%83%88%E3%81%A0%E3%81%91%E3%81%A7%E3%81%AF%E7%B5%82%E3%82%8F%E3%82%89%E3%81%AA%E3%81%84%E3%81%AE%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-24-why-ai-products-converge-on-chat-ui.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E7%94%9F%E6%88%90AI%E3%81%AE%E3%83%81%E3%83%A3%E3%83%83%E3%83%88%E3%81%A8%E7%B7%A8%E9%9B%86%E7%94%BB%E9%9D%A2%E3%81%AF%E3%80%81%E3%81%A9%E3%81%AE%E4%BD%9C%E6%A5%AD%E3%82%92%E5%88%86%E6%8B%85%E3%81%99%E3%82%8B%E3%81%AE%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-24-why-ai-products-converge-on-chat-ui.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか"
-      data-share-text="なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか"
+      data-share-title="生成AIのチャットと編集画面は、どの作業を分担するのか"
+      data-share-text="生成AIのチャットと編集画面は、どの作業を分担するのか"
       data-share-url="https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="なぜ生成AIアプリはチャットUIに収束するのか、そしてなぜチャットだけでは終わらないのか"
+      data-share-title="生成AIのチャットと編集画面は、どの作業を分担するのか"
       data-share-url="https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,384 +126,48 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">要点</p>
-  <h2>生成AIアプリがチャットUIに寄るのは自然だが、勝ち筋はチャット単独ではなくなっている</h2>
-  <p>
-    OpenAI、Microsoft、Google、Anthropic の公開資料を横に置くと、生成AIアプリがまずチャットUIに収束した理由はかなり説明しやすい。
-    自然言語は最も安い汎用入力であり、曖昧な依頼をそのまま受け止められ、プロダクト側も専用画面を先に作り込まずに価値提供を始められるからだ。
-    生成AIが何を返すべきか、どこまで実行すべきか、どの情報を参照すべきかが流動的な段階では、入力欄ひとつで始められること自体が強みになる。
-  </p>
-  <p>
-    ただし、同じ公開資料を丁寧に読むと、各社はすでにチャットだけで完結する体験を目指していない。
-    状態表示、成果物編集、承認、進捗監督、権限制御、共有コンテキストをチャットの外側に足し、会話を入口にした操作基盤を作り始めている。
-    言い換えると、チャットUIは敗れるのではなく、仕事を最後まで扱うために周辺画面を吸収し始めている。
-  </p>
-  <div class="mt-6 grid gap-4 md:grid-cols-4">
-    <article class="stat-card">
-      <p class="stat-value">22件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">公式発表、公式文書、論文だけで論旨を組み立てた。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">5社+</p>
-      <p class="stat-title">共通パターン</p>
-      <p class="stat-note">チャットを入口にしつつ、編集画面、成果物画面、実行機能、承認機能を足す流れが見える。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">4層</p>
-      <p class="stat-title">複合画面の軸</p>
-      <p class="stat-note">対話、状態表示、承認、成果物が別々に補強されている。</p>
-    </article>
-    <article class="stat-card">
-      <p class="stat-value">1結論</p>
-      <p class="stat-title">チャットUIは消えない</p>
-      <p class="stat-note">ただし、実務化するほど単独の主画面では足りなくなる。</p>
-    </article>
-  </div>
+<h2>依頼を言葉にすることと、直す場所を指すこと</h2>
+<p>「この説明を読みやすくして」という依頼には、長さ、語調、構成など複数の判断が含まれる。
+会話なら、まず目的を伝え、返ってきた案を見て条件を補える。
+一方、「この段落だけ短くしたい」と対象が決まった後には、その段落を画面で選ぶ方が、場所を文章で説明する手間を減らせる。</p>
+<p>生成AIの画面を考える際には、この二つを分けたい。
+本稿の見方は、会話が目的や例外を伝え、直接操作が対象や変更箇所を指定するという役割分担である。
+チャットが最も安く開発できる、あるいはすべての作業に使いやすいと断定する根拠は、以下の製品発表にはない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">なぜチャットか</p>
-  <h2>チャットUIが最初に勝ったのは、自然言語が最も安い汎用インターフェースだから</h2>
-  <p>
-    チャットUIが強いのは、単に ChatGPT が有名だったからではない。生成AIアプリでは、やりたいことが最初から固定フォームに落ちないことが多い。
-    相談、下書き、調査、比較、作業依頼、条件変更が一つの流れの中で混ざるため、自然言語で始められること自体が強い設計上の利点になる。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>1. 入力設計のコストが低い</h3>
-      <p>
-        生成AIアプリは、ユーザーが何をしたいかを最初から固定フォームで表現しづらい。チャットなら要件が曖昧でも始められ、プロダクト側も「まず入力欄ひとつ」で価値検証を始められる。
-        OpenAI が apps を ChatGPT に入れた際も、apps は会話の流れに自然に溶け込み、自然言語で呼び出せる前提で説明されている。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>2. 曖昧な相談と実行依頼を同じ面で扱える</h3>
-      <p>
-        生成AIアプリでは、「まず調べて」「違ったら方向を変えて」「必要なら実行して」といった指示の揺れが頻繁に起きる。
-        OpenAI は deep research、Operator、ChatGPT agent を通じて、軽い相談からブラウザ操作、レポート生成までを同じチャットの中で連続化している。
-        会話と実行依頼が同じ場所にあると、ユーザーは作業の途中で条件変更や追加指示を入れやすい。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>3. 安全設計と相性が良い</h3>
-      <p>
-        高リスク操作の前に確認を差し込む、途中で人に引き継がせる、進行中に中断させる、といった安全制御は会話の流れに乗せやすい。
-        Operator、ChatGPT agent、Cowork はいずれも「重要操作前の承認」を明示し、チャットをブレーキの差し込み口として使っている。
-        これは、チャットが単なる入力欄ではなく、監督と責任分界の面でもあることを意味する。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>4. 学習コストと配布コストが低い</h3>
-      <p>
-        文書作成ソフトや業務システムのような専用画面は、項目設計と学習コストが高い。対してチャットは、ほとんどの利用者が初見でも使える。
-        Microsoft 365 Copilot Chat や Gemini の prompt-first 設計が示しているのは、AI を組織全体に広げるうえで、最初の入口をできるだけ軽くしたいという判断である。
-      </p>
-    </article>
-  </div>
-  <div class="callout-panel mt-6">
-    <p class="callout-title">観測点</p>
-    <p>チャットは、あらゆる作業に最適な画面だから勝ったのではない。最も早く配布でき、最も少ない設計で曖昧な依頼を受け止められるから勝った。</p>
-  </div>
+<h2>Canvasでは変更箇所を選び、Pagesでは編集する本文を共有する</h2>
+<p>Googleの<a href="https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/">Canvas発表</a>には、段落を選択して簡潔さや語調を変更する例がある。
+文章で変更内容を伝えながら、選択操作で変更対象を特定する構成だ。
+生成された文書を別の返答として読み直すだけでなく、編集対象の本文を画面上に置いて作業を続けられる。</p>
+<p>Microsoftの<a href="https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/">Copilot Pages発表</a>は、AIの出力を残し、追記や編集を行い、他の人と共有する画面を説明している。
+こちらで注目したいのは、会話が進んでも共同で編集する対象を持てる点だ。
+チームで提案書を直す想定なら、会話のどの返答を最新版とするかを伝え合う代わりに、同じページへ変更を集める使い方が考えられる。</p>
+<p>二つは同じ機能ではない。
+Canvasの例は修正対象の指定、Pagesの例は編集対象の保持と共有を示す。
+どちらも機能の公表であり、作業時間や誤りがどれだけ減るかを測った比較実験ではない。
+その効果を判断するには、変更したい箇所を正しく指定できるか、意図しない箇所まで変わらないかを実際の原稿で試す必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">限界</p>
-  <h2>ただし、長い作業や状態が多い業務ではチャット単独の限界が露出する</h2>
-  <p>
-    ここから先が重要である。チャットUIは入口としては強いが、作業が長くなり、途中状態が増え、成果物が複雑になるほど、会話だけでは足りなくなる。
-    生成AIアプリの現在の進化は、チャットを捨てることではなく、この不足分をどの画面で補うかの競争として理解した方が正確である。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>状態が流れていく</h3>
-      <p>
-        チャットは履歴が線形に流れるため、作業状態、依存関係、途中成果物、保留論点を一覧で持ちづらい。
-        何が決まり、何が保留なのか、どこからやり直せるのかが埋もれやすい。
-        単発の質疑応答では問題になりにくいが、調査、計画、実行、確認が続く仕事ではこの弱さが目立つ。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>成果物編集には別の面が必要になる</h3>
-      <p>
-        スライド、文書、スプレッドシート、図、フォーム、自動化設定のような成果物は、会話だけより並べて見られる編集面や確認画面があった方が扱いやすい。
-        Anthropic の Artifacts、Google の Canvas、Microsoft の Pages はこの問題に正面から答えている。
-        生成AIが書いた内容を人が手直しし、比較し、承認するには、文字列の往復ではなく、見える成果物の面が必要になる。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>承認と権限の粒度が不足しやすい</h3>
-      <p>
-        実作業に近づくほど、「どのフォルダに触れるか」「どの接続先を使うか」「この操作だけ承認するか」が重要になる。
-        これは単なる会話履歴では表現が弱く、明示的な操作画面が必要になる。
-        特に企業導入では、監査可能性、アクセス範囲、誰が最終決定を持つかを会話文だけに埋め込むのは危うい。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>非同期の長時間作業を扱いにくい</h3>
-      <p>
-        長い作業は、進捗、分岐、失敗箇所、再開ポイントを見せる画面がないと不安定に見える。
-        結果として、生成AIアプリはチャットの周辺に進行説明、時系列表示、作業履歴、作業画面を足し始める。
-        Cowork や ChatGPT agent で重要なのは、回答を返すことより「作業が今どこまで進んでいるか」を見せる面があることだ。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>共同作業の単位が会話より広い</h3>
-      <p>
-        実務では、一人の質問に一人のAIが答えるだけでは終わらない。資料、チームメモ、承認者、接続先、成果物が共有される。
-        Projects、Pages、Google Home の履歴面が意味を持つのは、AI の出力だけでなく、人とAIが共有する作業状態を残す必要があるからである。
-      </p>
-    </article>
-  </div>
+<h2>成果物だけでなく、作業計画を編集対象にする研究</h2>
+<p>変更したい対象が本文ではなく、これから行う作業の順番である場合もある。
+<a href="https://arxiv.org/abs/2412.10999v1">Cocoaの初版論文</a>は、文書編集画面で人とエージェントが計画を作り、その各手順を共同で実行する仕組みを提案している。
+科学研究を題材にした研究者16人の評価では、強いチャット型の比較対象に対し、使いやすさを損なわずにエージェントを方向づけやすくなったと報告した。</p>
+<p>この結果は、あらゆる利用者や業務で計画画面が優れることを示すものではない。
+複数の手順を見ながら、特定の手順へ介入する課題に対する結果である。
+本稿はそこから、AIに長い依頼を渡すときには、利用者が変更したい単位を画面に出す設計を試す価値があると考える。
+文章なら段落、調査なら計画の一手順というように、作業ごとにその単位は異なる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">外に出てくる画面</p>
-  <h2>チャットの周辺で強化されるのは、だいたい同じ4種類の画面である</h2>
-  <p>
-    各社の実装は違っても、外に出てくる画面の種類はかなり似ている。これは偶然ではなく、チャットだけでは足りない領域が似ているからである。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>1. 成果物の画面</h3>
-      <p>
-        文書、表、コード、図、メモ、設定のような成果物を横に出す面である。
-        Artifacts、Pages、Canvas は、AI の返答を読むだけでなく、人が編集し直し、比較し、完成形へ近づけるための画面として設計されている。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>2. 進行状況の画面</h3>
-      <p>
-        今どこまで進んだか、次に何をするか、どこで止まったかを見せる面である。
-        deep research や Cowork が「回答」だけでなく途中の進行を見せるのは、長時間作業では安心感と修正可能性が重要だからだ。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>3. 承認と権限の画面</h3>
-      <p>
-        どのデータに触れるか、どの操作を許可するか、どの段階で人が止めるかを示す面である。
-        これが別画面や明示的な設定として出てくるほど、生成AIアプリは業務システムに近づいていると見てよい。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>4. 共有コンテキストの画面</h3>
-      <p>
-        関連資料、チームの前提、作業履歴、接続先の状態をまとめる面である。
-        Projects や enterprise knowledge 連携が重要になるのは、AI が賢いことより、どの前提を共有して動くかが品質を左右するからである。
-      </p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">各社の動き</p>
-  <h2>主要プロダクトの公開資料は、すでに「チャット + 周辺画面」の収束を示している</h2>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>OpenAI はチャットを実行と連携機能のハブにした</h3>
-      <ul class="bullet-list">
-        <li>Apps in ChatGPT は、apps が会話の流れに自然に入ると明示し、チャット内に操作できる画面を埋め込む設計を取った。</li>
-        <li>Operator はブラウザ操作、deep research は長時間の調査、ChatGPT agent はその両方をまとめ、会話から実行へ自然に移る面を作った。</li>
-        <li>System Card まで含めて読むと、OpenAI の論点は「賢く答える」より「長い作業を承認付きで扱う」方向へ広がっている。</li>
-      </ul>
-    </article>
-    <article class="comparison-card">
-      <h3>Microsoft はチャットを日常の入口にしつつ Pages を前面に出した</h3>
-      <ul class="bullet-list">
-        <li>Microsoft は「Copilot is the UI for AI」と言い切りながら、同時に Pages を継続的に編集できる作業面として押し出している。</li>
-        <li>Copilot Chat を組織全体の入口にしつつ、Pages で出力を残し、actions や agents で実行面へ伸ばす構成が見える。</li>
-        <li>ここではチャットが入口、Pages が共同作業の面、Copilot actions が実行面という役割分担になっている。</li>
-      </ul>
-    </article>
-    <article class="comparison-card">
-      <h3>Google は入力欄を残しながら Canvas とアプリ連携を足した</h3>
-      <ul class="bullet-list">
-        <li>Gemini は Deep Research、connected apps、personalization を入力欄から扱わせつつ、Canvas を共同編集の画面として追加した。</li>
-        <li>つまり Google は、自然言語の入口を維持したまま、思考途中のメモと成果物を別面で扱う方向を取っている。</li>
-        <li>Google Home でも、自然言語での操作を残しながら履歴と自動化の画面を強化しており、会話と操作画面を分離していない。</li>
-      </ul>
-    </article>
-    <article class="comparison-card">
-      <h3>Anthropic は Projects、Artifacts、Computer use で協働面を厚くした</h3>
-      <ul class="bullet-list">
-        <li>Projects は資料と会話履歴を束ね、Artifacts は成果物を横に出す専用画面を持ち、Computer use は画面操作を道具として扱う。</li>
-        <li>同社の「Building effective agents」は、価値が出るのは会話と実行の両方が必要な作業だと整理している。</li>
-        <li>Anthropic の流れは、チャットを消すことではなく、チャットの周辺に実行と成果物の面を厚くすることだと読める。</li>
-      </ul>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Cowork の位置づけ</p>
-  <h2>Cowork は「脱チャット」ではなく、チャットを操作基盤に変える中間形として読める</h2>
-  <p>
-    Cowork はこの流れを最も分かりやすく見せている。公開ページは、通常のチャットを捨てるのではなく、Cowork では Claude が自分で作業を進められると説明する。
-    つまりチャットを否定しているのではなく、チャットだけでは不足する実行の層を付け足している。
-    通常のチャットでは、一往復ごとに「質問して答える」関係が中心だが、Cowork では「依頼して任せ、途中で監督し、必要なら承認し、成果物を受け取る」関係へ寄っている。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>依頼を伝える面は会話のまま</h3>
-      <p>
-        ユーザーは自然言語で完成イメージを渡す。Claude は接続先、ブラウザ、画面操作など最短経路を選ぶ。
-        ここでは対話が消えるのではなく、仕事の開始点としてより重要になっている。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>進み具合と計画は作業画面に出る</h3>
-      <p>
-        Claude は各段階で何をしているかを見せ、長い作業は見守ることも任せて席を外すこともできる。
-        これは通常のチャットより監督しやすく、長時間作業の心理的な不安も下げる。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>承認と権限範囲が明示される</h3>
-      <p>
-        フォルダと接続先へのアクセスは明示的で、重要操作の前には計画を出して承認を待つ。
-        ここで操作基盤としての性格が強くなる。質問応答アプリではなく、権限付きの仕事アプリへ寄り始める部分である。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>プラグインで職種別の使い分けを吸収する</h3>
-      <p>
-        プラグインはスキル、接続先、補助エージェント、コマンドを束ね、経理や法務などの業務フローを対話中心の画面に持ち込む。
-        これは、単一の万能チャットを目指すより、役割別の仕事面をチャットに重ねる設計である。
-      </p>
-    </article>
-  </div>
-  <div class="callout-panel mt-6">
-    <p class="callout-title">観測点</p>
-    <p>チャットUIがなくなるのではない。Cowork 型の進化は、チャットを入口に残したまま、状態表示、承認、成果物、職種別の業務フローを周辺に足す方向にある。</p>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">研究の示唆</p>
-  <h2>人とAIの協働を扱う論文も、会話だけでは足りない場面を示し始めている</h2>
-  <p>
-    ここで面白いのは、製品側だけでなく研究側も似た方向を示していることだ。論文は「チャットを捨てよ」とは言っていない。
-    代わりに、状態が多く、途中介入が重要で、成果物が複雑な作業では、会話の外側に見える構造が必要だと示し始めている。
-  </p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>Low-code LLM は制御しやすさのために画面操作を取り入れた</h3>
-      <p>
-        Low-code LLM は、複雑な作業におけるプロンプト設計の不安定さに対し、視覚的な手順編集を使って、より制御しやすく安定した応答を得ようとした。
-        これはチャットを捨てる議論ではなく、意図と手順を見える形で編集したいという要求の現れである。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>IDA は画面自動化を、人が教えやすい形に再設計した</h3>
-      <p>
-        IDA は業務部門の利用者向けに、実演しながら教える方法と意味モデルを組み合わせている。
-        生成AIが画面操作を伴う作業に入るほど、対話だけより、見せながら教える設計が重要になることを示している。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>Cocoa は単純なチャット型よりも途中介入しやすくした</h3>
-      <p>
-        Cocoa は文書編集画面の上で共同で編集できる計画面を提案し、複雑な作業では高性能なチャット型の比較対象よりも途中介入しやすさを改善した。
-        ここで重要なのは、会話の代替というより、共同で計画し共同で実行するための面が必要だという点だ。
-      </p>
-    </article>
-    <article class="comparison-card">
-      <h3>The Keyhole Effect はチャットだけの分析が見通しを悪くすると示した</h3>
-      <p>
-        複数段階で途中状態に強く依存する分析では、チャットは狭いのぞき窓のように働き、情報を見失わせやすいという指摘が出ている。
-        特にデータ分析のような状態が多い作業では、対話を起点にしても、可視化面や作業空間が不可欠になる。
-      </p>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">具体像</p>
-  <h2>現実味が高いのは、チャットから始めて別画面で作業を固める流れだ</h2>
-  <div class="timeline">
-    <article class="timeline-item">
-      <div class="timeline-year">調査</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">調査とレポート生成</h3>
-        <p>
-          質問はチャットから始まるが、途中で出典一覧、進捗要約、成果物の下書きが必要になる。
-          deep research や Cowork のレポート作成はこの形に近く、利用者は「答え」よりも「調査過程と成果物の質」を見たい。
-        </p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">文書</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">文書・スライド・表計算の共同編集</h3>
-        <p>
-          会話だけでは成果物の構造を把握しにくいので、Canvas、Artifacts、Pages、表計算の編集画面のように、並べて確認できる画面が必要になる。
-          この領域では、AI が書くことより、人が途中で直しやすいことの方が重要になる。
-        </p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">運用</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">承認付きの業務自動化</h3>
-        <p>
-          フォルダへのアクセス、接続先の権限、高リスク操作の確認がある作業では、チャットは依頼面として強いが、実行面には承認画面と監査できる状態表示が要る。
-          ここで求められるのは、回答品質より、止めどころと引き継ぎどころの分かりやすさである。
-        </p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">生活</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">自然言語制御付きの既存アプリ</h3>
-        <p>
-          Google Home のように、自然言語での操作を残しながら履歴、時系列表示、自動化設定を強化する形は、会話と操作画面の複合化を最も素直に表している。
-          生成AIは新しいアプリを作るだけでなく、既存アプリの入口を自然言語化しつつ、裏側の操作面を厚くする形でも広がる。
-        </p>
-      </div>
-    </article>
-    <article class="timeline-item">
-      <div class="timeline-year">チーム</div>
-      <div>
-        <h3 class="font-display text-xl font-semibold text-primary">チーム前提の共有作業</h3>
-        <p>
-          Projects や enterprise knowledge 連携が必要になるのは、質問と回答の一往復ではなく、資料共有、承認、役割分担、接続先の制御が仕事の単位になるからだ。
-          つまり企業向けAIでは、個人チャットより共有作業面の設計が重要になっていく。
-        </p>
-      </div>
-    </article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">運用含意</p>
-  <h2>設計と運用で先に決めるべき論点</h2>
-  <p>
-    実務で差が付くのは、チャットを残すか消すかではない。何をチャットに残し、何を別画面へ出すかを早い段階で決められるかどうかである。
-  </p>
-  <ul class="bullet-list mt-6">
-    <li>チャットUIを消すか残すかではなく、チャットが担う役割を「意図入力」と「例外対話」に限定するかどうかを決める。</li>
-    <li>長い作業には、進捗、中間状態、確認点を見せる面を別途持つ。</li>
-    <li>成果物が文書、スライド、表計算、自動化設定なら、対話画面と並列の編集画面を最初から一体設計する。</li>
-    <li>承認、フォルダ権限、接続先の権限、高リスク操作を会話文だけに埋め込まない。</li>
-    <li>対話履歴と作業状態を別物として扱い、どこまでが会話で、どこからがワークフローかを切り分ける。</li>
-    <li>企業導入では、回答の正しさだけでなく、誰が承認し、どの権限で動き、どの状態を保存するかを評価対象に入れる。</li>
-    <li>複雑業務では、対話履歴よりも作業状態と成果物の状態が一次の運用単位になる。</li>
-  </ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">結論</p>
-  <h2>結論</h2>
-  <p>
-    生成AIアプリがチャットUIに収束したのは、チャットが最終形だからではなく、自然言語が最も導入しやすい汎用インターフェースだったからである。
-    そして 2026 年 3 月時点で見えている次の段階は、脱チャットではない。会話を入口に残したまま、編集画面、成果物画面、承認、進捗表示、プラグイン、共有コンテキストを重ねることで、
-    チャットUIを実務向けの操作基盤へ変えていく段階に入っている。
-  </p>
-  <p>
-    したがって、この領域を「チャットUIか、操作UIか」という二者択一で捉えるのは粗すぎる。実際に起きているのは、チャットが消えることではなく、
-    チャットが仕事の入口として残り続けながら、その周辺に仕事を完遂するための画面が増えていくことだ。
-    いま見るべきなのは、どの会社がチャットを捨てるかではない。どの会社が、チャットの周辺にどれだけ実務的な作業面を積み上げられるかである。
-  </p>
+<h2>画面を足す判断は、修正が起きる場所から始める</h2>
+<p>短い用語説明や単発の相談なら、会話の中で回答と訂正を扱える場合が多い。
+編集用の画面を必ず設ける必要はない。
+一方、長い文書の一部だけを直す、複数人で同じ原稿を更新する、途中の計画を入れ替える仕事では、操作対象を固定して見せる理由が生まれる。</p>
+<p>製品を評価する小さな課題として、長い原稿の一段落だけを修正し、別の担当者へ最新版を渡す流れを試せる。
+対象の指定に何回説明が必要だったか、他の段落へ変更が及んだか、受け手が同じ版を開けたかを確認する。
+これは本稿の提案であり、上記製品の性能を実測した結果ではない。</p>
+<p>会話を残すかどうかより、利用者が何を見ながら何を変えたいのかを先に決める。
+そうすれば、入力欄だけで足りる仕事と、選択、編集、共有の操作を加える意味がある仕事を区別できる。
+画面を増やすこと自体ではなく、修正対象の指定と結果の確認がしやすくなったかで判断したい。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -582,224 +246,34 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月23日</span>
-              </div>
-              <p class="source-title">OpenAI: Introducing Operator</p>
-              <p class="source-url">https://openai.com/index/introducing-operator/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-deep-research/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年2月2日</span>
-              </div>
-              <p class="source-title">OpenAI: Introducing deep research</p>
-              <p class="source-url">https://openai.com/index/introducing-deep-research/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-chatgpt-agent/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年7月17日</span>
-              </div>
-              <p class="source-title">OpenAI: Introducing ChatGPT agent</p>
-              <p class="source-url">https://openai.com/index/introducing-chatgpt-agent/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cdn.openai.com/pdf/6bcccca6-3b64-43cb-a66e-4647073142d7/chatgpt_agent_system_card_launch.pdf" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年7月17日</span>
-              </div>
-              <p class="source-title">OpenAI: ChatGPT Agent System Card</p>
-              <p class="source-url">https://cdn.openai.com/pdf/6bcccca6-3b64-43cb-a66e-4647073142d7/chatgpt_agent_system_card_launch.pdf</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-apps-in-chatgpt/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年10月6日</span>
-              </div>
-              <p class="source-title">OpenAI: Introducing apps in ChatGPT and the new Apps SDK</p>
-              <p class="source-url">https://openai.com/index/introducing-apps-in-chatgpt/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/microsoft-365/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年9月16日</span>
-              </div>
-              <p class="source-title">Microsoft: Microsoft 365 Copilot Wave 2</p>
-              <p class="source-url">https://www.microsoft.com/en-us/microsoft-365/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月15日</span>
-              </div>
-              <p class="source-title">Microsoft: Copilot for all</p>
-              <p class="source-url">https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/microsoft-365/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年11月19日</span>
-              </div>
-              <p class="source-title">Microsoft: Introducing Microsoft Copilot actions, new agents, and tools to empower IT</p>
-              <p class="source-url">https://www.microsoft.com/en-us/microsoft-365/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://blog.google/products-and-platforms/products/gemini/new-gemini-app-features-march-2025/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年3月13日</span>
-              </div>
-              <p class="source-title">Google: New Gemini app features, available to try at no cost</p>
-              <p class="source-url">https://blog.google/products-and-platforms/products/gemini/new-gemini-app-features-march-2025/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年3月18日</span>
-              </div>
-              <p class="source-title">Google: New ways to collaborate and get creative with Gemini</p>
-              <p class="source-url">https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://blog.google/products-and-platforms/devices/google-nest/google-home-app-gemini-redesign/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年10月1日</span>
-              </div>
-              <p class="source-title">Google: A new Google Home app, redesigned for Gemini</p>
-              <p class="source-url">https://blog.google/products-and-platforms/devices/google-nest/google-home-app-gemini-redesign/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/news/projects" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年6月25日</span>
-              </div>
-              <p class="source-title">Anthropic: Collaborate with Claude on Projects</p>
-              <p class="source-url">https://www.anthropic.com/news/projects</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://claude.com/blog/artifacts" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年8月27日</span>
-              </div>
-              <p class="source-title">Anthropic: Artifacts are now generally available</p>
-              <p class="source-url">https://claude.com/blog/artifacts</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年12月19日</span>
-              </div>
-              <p class="source-title">Anthropic: Building effective agents</p>
-              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
                 
               </div>
-              <p class="source-title">Anthropic: Computer use tool</p>
-              <p class="source-url">https://platform.claude.com/docs/en/agents-and-tools/tool-use/computer-use-tool</p>
+              <p class="source-title">Google: Canvas and Audio Overview (March 18, 2025)</p>
+              <p class="source-url">https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://claude.com/product/cowork" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年3月23日</span>
+                
               </div>
-              <p class="source-title">Claude: Cowork</p>
-              <p class="source-url">https://claude.com/product/cowork</p>
+              <p class="source-title">Microsoft: Copilot Pages (September 16, 2024)</p>
+              <p class="source-url">https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://claude.com/blog/cowork-plugins" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年1月30日</span>
-              </div>
-              <p class="source-title">Claude: Customize Cowork with plugins</p>
-              <p class="source-url">https://claude.com/blog/cowork-plugins</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://claude.com/blog/cowork-plugins-across-enterprise" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年2月24日</span>
-              </div>
-              <p class="source-title">Claude: Cowork and plugins for teams across the enterprise</p>
-              <p class="source-url">https://claude.com/blog/cowork-plugins-across-enterprise</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2304.08103" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.10999v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
-                <span class="mono-note">2023年4月17日</span>
+                
               </div>
-              <p class="source-title">Low-code LLM: Graphical User Interface over Large Language Models</p>
-              <p class="source-url">https://arxiv.org/abs/2304.08103</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2407.15673" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年7月22日</span>
-              </div>
-              <p class="source-title">IDA: Breaking Barriers in No-code UI Automation Through Large Language Models and Human-Centric Design</p>
-              <p class="source-url">https://arxiv.org/abs/2407.15673</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.10999" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年12月14日</span>
-              </div>
-              <p class="source-title">Cocoa: Co-Planning and Co-Execution with AI Agents</p>
-              <p class="source-url">https://arxiv.org/abs/2412.10999</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2602.00947" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2026年2月1日</span>
-              </div>
-              <p class="source-title">The Keyhole Effect: Why Chat Interfaces Fail at Data Analysis</p>
-              <p class="source-url">https://arxiv.org/abs/2602.00947</p>
+              <p class="source-title">Cocoa: Co-Planning and Co-Execution with AI Agents (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2412.10999v1</p>
             </div>
             <span class="source-action">開く</span>
           </a>
