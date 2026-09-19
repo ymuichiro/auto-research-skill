@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agent SDKs are expanding beyond coding assistance into a broader application layer | Auto Research Digest EN</title>
-    <meta name="description" content="Across the Claude Agent SDK, Agent Framework, and related launches, this piece explains why agent SDKs are expanding beyond coding.">
+    <title>Claude Agent SDK beyond coding: separate execution from business correctness | Auto Research Digest EN</title>
+    <meta name="description" content="Use a monthly-report example to distinguish the Claude Agent SDK’s execution loop, Looker MCP metric access, and checks for business correctness.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Agent SDKs are expanding beyond coding assistance into a broader application layer | Auto Research Digest EN">
-    <meta property="og:description" content="Across the Claude Agent SDK, Agent Framework, and related launches, this piece explains why agent SDKs are expanding beyond coding.">
+    <meta property="og:title" content="Claude Agent SDK beyond coding: separate execution from business correctness | Auto Research Digest EN">
+    <meta property="og:description" content="Use a monthly-report example to distinguish the Claude Agent SDK’s execution loop, Looker MCP metric access, and checks for business correctness.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Agent SDKs are expanding beyond coding assistance into a broader application layer">
+    <meta property="og:image:alt" content="Claude Agent SDK beyond coding: separate execution from business correctness">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Agent SDKs are expanding beyond coding assistance into a broader application layer | Auto Research Digest EN">
-    <meta name="twitter:description" content="Across the Claude Agent SDK, Agent Framework, and related launches, this piece explains why agent SDKs are expanding beyond coding.">
+    <meta name="twitter:title" content="Claude Agent SDK beyond coding: separate execution from business correctness | Auto Research Digest EN">
+    <meta name="twitter:description" content="Use a monthly-report example to distinguish the Claude Agent SDK’s execution loop, Looker MCP metric access, and checks for business correctness.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Agent SDKs are expanding beyond coding assistance into a broader application layer">
+    <meta name="twitter:image:alt" content="Claude Agent SDK beyond coding: separate execution from business correctness">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html">
@@ -43,15 +43,15 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-10-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-06T23:53:04+09:00">
+    <meta property="article:modified_time" content="2026-09-19T18:29:34+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="SDK">
     <meta property="article:tag" content="MCP">
     <meta property="article:tag" content="Workflow">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent SDKs are expanding beyond coding assistance into a broader application layer","description":"Across the Claude Agent SDK, Agent Framework, and related launches, this piece explains why agent SDKs are expanding beyond coding.","datePublished":"2025-10-01T00:00:00+09:00","dateModified":"2026-05-06T23:53:04+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, SDK, MCP, Workflow","mainEntityOfPage":"https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent SDKs are expanding beyond coding assistance into a broader application layer","item":"https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Claude Agent SDK beyond coding: separate execution from business correctness","description":"Use a monthly-report example to distinguish the Claude Agent SDK’s execution loop, Looker MCP metric access, and checks for business correctness.","datePublished":"2025-10-01T00:00:00+09:00","dateModified":"2026-09-19T18:29:34+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, SDK, MCP, Workflow","mainEntityOfPage":"https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Claude Agent SDK beyond coding: separate execution from business correctness","item":"https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,8 +67,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Agent SDKs are expanding beyond coding assistance into a broader application layer</h1>
-          <p class="hero-copy">The Claude Agent SDK, Looker MCP Server, Firestore-enabled MCP Toolbox, Agent Factory, and Microsoft Agent Framework turn agent SDKs into a broader application layer that includes data access, permission design, and control-plane concerns.</p>
+          <h1 class="hero-title">Claude Agent SDK beyond coding: separate execution from business correctness</h1>
+          <p class="hero-copy">A monthly-report example separates the Claude Agent SDK’s execution loop from Looker MCP’s metric access, and running code from producing a correct business result.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -76,12 +76,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-10-01">October 1, 2025</time>
-        <time class="mono-note" datetime="2026-05-06">Updated May 6, 2026</time>
+        <time class="mono-note" datetime="2026-09-19">Updated September 19, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">SDK</span><span class="meta-chip">MCP</span><span class="meta-chip">Workflow</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20SDKs%20are%20expanding%20beyond%20coding%20assistance%20into%20a%20broader%20application%20layer&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-10-01-agent-sdks-expand-beyond-coding.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Claude%20Agent%20SDK%20beyond%20coding%3A%20separate%20execution%20from%20business%20correctness&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-10-01-agent-sdks-expand-beyond-coding.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Agent SDKs are expanding beyond coding assistance into a broader application layer"
-      data-share-text="Agent SDKs are expanding beyond coding assistance into a broader application layer"
+      data-share-title="Claude Agent SDK beyond coding: separate execution from business correctness"
+      data-share-text="Claude Agent SDK beyond coding: separate execution from business correctness"
       data-share-url="https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Agent SDKs are expanding beyond coding assistance into a broader application layer"
+      data-share-title="Claude Agent SDK beyond coding: separate execution from business correctness"
       data-share-url="https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -125,80 +125,25 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>Agent SDKs are expanding beyond coding assistance into a broader application layer</h2>
-  <p>It no longer makes sense to treat agent SDKs as thin wrappers for code-writing assistants. Anthropic has renamed the Claude Code SDK as the Claude Agent SDK and explicitly broadened the target to finance, personal assistant, customer support, and deep research agents. Google is using MCP to connect Looker and Firestore into agent workflows. Microsoft is describing shared runtime, open protocols, and control-plane design through Agent Factory and Microsoft Agent Framework.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">11</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">Only papers and official sources available by publication are used.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">20+</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4 roles</p>
-      <p class="stat-title">What SDKs now had to cover</p>
-      <p class="stat-note">Computer use, data access, policy, and shared runtime were converging.</p>
-    </article></div>
+<h2>Using a coding loop for analysis and research</h2>
+<p>Reading files, writing a procedure, running it, and revising the result can support CSV analysis and document research as well as software development. Anthropic's September 2025 renaming of the Claude Code SDK to the Claude Agent SDK described that broader application.</p>
+<p>Execution tools do not supply the business definition of a correct result. This article separates the SDK's work loop from Looker MCP Server's access to defined metrics. They address different problems rather than replacing one another.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Anthropic broadened the SDK from coding into general-purpose agents</h3>
-      <p>The Claude Agent SDK article explicitly extended the harness behind Claude Code into finance, travel and calendar assistance, customer support, and deep research. Bash access, file editing, subagents, and compaction were being framed as primitives for general digital work, not just software development.</p>
-    </article><article class="comparison-card">
-      <h3>Google pulled governed data access into the SDK conversation</h3>
-      <p>Looker MCP Server exposed trusted, semantic-layer-backed data to agents, while Firestore support in MCP Toolbox brought schema work and rule validation into AI-assisted development. The real design question was shifting from model choice toward data plane and permission design.</p>
-    </article><article class="comparison-card">
-      <h3>Microsoft grouped shared runtime and open stack concerns into one foundation</h3>
-      <p>Agent Factory and Microsoft Agent Framework treated MCP, A2A, OpenAPI, observability, and durability as parts of one platform foundation. The ability to move from local prototypes to hosted runtimes without changing abstractions was becoming a core SDK criterion.</p>
-    </article></div>
+<h2>The SDK supports repeated collection, action, and checking</h2>
+<p>The <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDK article</a> describes applying file and command tools to activities such as research and support, organized around gathering information, acting, and checking work. A broader name does not establish success rates for those uses.</p>
+<p>For a hypothetical monthly report, an agent could read a CSV, generate aggregation code, and inspect the output before revising it. Valid syntax is only an initial check. The reporting period, missing values, duplicate rows, and currency handling must also match the requirements.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>General-purpose agents for research, finance, and support</h3>
-      <ul class="bullet-list"><li>Anthropic's own source described finance agents, personal assistants, customer support agents, and deep research agents running on the same harness.</li><li>That made it hard to keep thinking of agent SDKs as coding-only tools.</li></ul>
-    </article><article class="comparison-card">
-      <h3>Bridging governed analytics and application change</h3>
-      <ul class="bullet-list"><li>Looker MCP Server let agents query a governed semantic layer instead of improvising SQL.</li><li>Firestore and MCP Toolbox showed how data cleanup, schema updates, and rule validation could sit inside the same development loop.</li></ul>
-    </article></div>
+<h2>Generated code should not invent the revenue definition</h2>
+<p>Google's <a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server">Looker MCP Server announcement</a> describes AI querying Looker's semantic layer, with Looker generating SQL. The semantic layer defines metrics and aggregation rules in advance, offering agents a route to existing business definitions.</p>
+<p>If revenue is defined net of returns, summing a CSV amount column may produce a different result. Even with an established metric, the selected period and filters must match the question. Connectivity does not guarantee correct interpretation.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Specific scenarios already visible in the source set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Anthropic explicitly listed personal assistant and finance agents</h3>
-      <p>The Claude Agent SDK article named finance agents that evaluate portfolios, personal assistants that coordinate travel and calendars, customer support agents that escalate ambiguous tickets, and deep research agents that search across document collections. The public source itself showed that “agent SDK = coding” was already too narrow.</p>
-    </article><article class="comparison-card">
-      <h3>Google showed data-connected development end to end</h3>
-      <p>The Firestore article follows a retail-app developer through wishlist cleanup, document updates, and security-rule comparison using natural language. The Looker MCP Server launch describes an agent querying a governed semantic layer instead of writing raw SQL. In both cases, connector design and governance are the value center.</p>
-    </article><article class="comparison-card">
-      <h3>Microsoft connected the SDK story to audit, telemetry, and compliance</h3>
-      <p>The Microsoft Agent Framework post highlighted KPMG audit testing, BMW vehicle telemetry analysis, and compliant support scenarios at Commerzbank. The point was not orchestration in isolation, but orchestration plus observability, approval, and durability.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>SDK selection is becoming less about developer ergonomics alone and more about how computer use, data access, shared runtime, and policy fit together.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Separate computer-oriented agent loops from deterministic workflow segments and decide what should become code or tools.</li><li>If governed data layers are part of the design, permissions and audit need to sit inside the core architecture rather than outside it.</li><li>Check whether telemetry remains consistent across local and hosted execution.</li><li>As abstractions multiply, memory, session, approval, and fallback behavior need a shared control plane.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>Agent SDKs are becoming application-layer infrastructure for computer use and governed data access, not just tools for building coding assistants.</p>
+<h2>Check both the calculation and its meaning on one report</h2>
+<p>For this example, prepare a verified aggregation for the same period and compare the agent's result. Investigate differences in source data, metric selection, filtering, and calculation. Producing the artifact and defining acceptance conditions are separate tasks.</p>
+<p>An initial trial could use read-only inputs and save generated files elsewhere. Define whether missing evidence causes a stop or an explicitly unverified result. These are proposed test conditions, not descriptions of either product's defaults.</p>
+<p>The value of using an SDK beyond coding is not established by the number of suggested applications. Check how reliably it can retrieve, calculate, and verify one artifact, then decide which tools and human checks that work needs.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -277,87 +222,7 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2410.08164" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">October 10, 2024</span>
-              </div>
-              <p class="source-title">Agent S: An Open Agentic Framework that Uses Computers Like a Human</p>
-              <p class="source-url">https://arxiv.org/abs/2410.08164</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">November 22, 2024</span>
-              </div>
-              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
-              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">March 11, 2025</span>
-              </div>
-              <p class="source-title">OpenAI: New tools for building agents</p>
-              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">May 21, 2025</span>
-              </div>
-              <p class="source-title">OpenAI: New tools and features in the Responses API</p>
-              <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">June 5, 2025</span>
-              </div>
-              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-5-for-developers/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">August 7, 2025</span>
-              </div>
-              <p class="source-title">OpenAI: Introducing GPT-5 for developers</p>
-              <p class="source-url">https://openai.com/index/introducing-gpt-5-for-developers/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">August 9, 2025</span>
-              </div>
-              <p class="source-title">Google Cloud: Introducing Looker MCP Server</p>
-              <p class="source-url">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">September 17, 2025</span>
-              </div>
-              <p class="source-title">Google Cloud: Firestore support and custom tools in MCP Toolbox</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
@@ -367,24 +232,14 @@
               <p class="source-url">https://claude.com/blog/building-agents-with-the-claude-agent-sdk</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">September 24, 2025</span>
+                <span class="mono-note">August 8, 2025</span>
               </div>
-              <p class="source-title">Microsoft Azure: Agent Factory, designing the open agentic web stack</p>
-              <p class="source-url">https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">October 1, 2025</span>
-              </div>
-              <p class="source-title">Microsoft: Introducing Microsoft Agent Framework</p>
-              <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/</p>
+              <p class="source-title">Google Cloud: Introducing Looker MCP Server</p>
+              <p class="source-url">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server</p>
             </div>
             <span class="source-action">Open</span>
           </a>
