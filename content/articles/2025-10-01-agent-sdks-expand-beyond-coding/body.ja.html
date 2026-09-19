@@ -1,76 +1,39 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>agent SDK は coding 補助の外へ広がり、汎用 workflow の application layer に寄り始める</h2>
-  <p>agent SDK を「コードを書く assistant のための薄い wrapper」と見るには無理が出てきている。Anthropic は Claude Code SDK を Claude Agent SDK に改名し、finance agent、personal assistant、customer support、deep research まで射程を広げた。Google は Looker と Firestore を MCP でつなぎ、Microsoft は Agent Factory と Agent Framework で shared runtime、open protocol、control plane をまとめて語り始めている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">11件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">公開日までに確認できる論文と公式 source だけに絞った。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">20+</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる一次情報 URL だけを採用候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4役割</p>
-      <p class="stat-title">SDK の広がり</p>
-      <p class="stat-note">computer use、data access、policy、shared runtime が同じ議論に入った。</p>
-    </article></div>
+<h2>コードを書く仕組みを、集計や調査へ使うには</h2>
+<p>ファイルを読み、必要な処理を書き、実行結果を見て修正する。
+この反復は、ソフトウェア開発だけでなく、CSVの集計や資料の調査にも使える。
+Anthropicが2025年9月にClaude Code SDKをClaude Agent SDKへ改称した説明は、こうした用途の広がりを示している。</p>
+<p>ただし、処理を実行する道具が増えても、業務上正しい結果の定義まで付いてくるわけではない。
+本稿では、SDKによる作業の反復と、Looker MCP Serverによる指標への接続を分けて考える。
+両者は代替製品ではなく、異なる課題を扱う部品である。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Anthropic は SDK の射程を coding から general-purpose agent へ広げた</h3>
-      <p>Claude Agent SDK の記事では、Claude Code の背後にある harness を finance、travel / calendar、customer support、deep research にも転用できると明示している。bash、file editing、subagents、compaction を備えた computer-oriented loop が、coding 固有ではなく汎用の digital work に使えるという整理だ。</p>
-    </article><article class="comparison-card">
-      <h3>Google は governed data access を SDK の一部に引き込んだ</h3>
-      <p>Looker MCP Server は semantic layer を通じて trusted data を agent に渡し、Firestore / MCP Toolbox は schema change や rule validation まで AI-assisted development に組み込んだ。ここでは「どの model を使うか」より、「どの data plane と permission model を束ねるか」が前に出ている。</p>
-    </article><article class="comparison-card">
-      <h3>Microsoft は shared runtime と open stack を control plane の言葉でまとめ始めた</h3>
-      <p>Agent Factory と Microsoft Agent Framework は、MCP、A2A、OpenAPI、observability、durability を同じ foundation として扱った。local prototype から hosted runtime まで同じ abstraction でつなぐことが、SDK 選定の中心条件に入り始めている。</p>
-    </article></div>
+<h2>SDKが支えるのは、情報収集から結果確認までの反復</h2>
+<p><a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDKの説明</a>は、ファイルやコマンドを使う仕組みを、調査や問い合わせ対応などへ応用する例を挙げる。
+中心にあるのは、情報を集め、処理を行い、結果を確かめる流れである。
+SDKの名称変更だけで新しい用途の成功率が示されたわけではない。</p>
+<p>月次レポートの作成を想定すると、CSVを読み、集計用のコードを作り、出力を検査して修正する構成が考えられる。
+この場合、構文エラーがないことは最初の確認にすぎない。
+対象月、欠損値、重複行、通貨の扱いが要件と一致しなければ、実行できるコードでも誤ったレポートになる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>deep research / finance / support をまたぐ general-purpose agent</h3>
-      <ul class="bullet-list"><li>Claude Agent SDK の source は、portfolio analysis、travel scheduling、customer ticket handling、deep research を同じ harness で扱えると説明している。</li><li>SDK は coding assistant ではなく、computer を使う汎用 worker の基盤として読める。</li></ul>
-    </article><article class="comparison-card">
-      <h3>governed analytics と application change の bridge</h3>
-      <ul class="bullet-list"><li>Looker MCP Server は governed semantic layer を通じて AI に trusted data を渡す。</li><li>Firestore / MCP Toolbox は data cleanup、schema update、security rule validation を IDE 内から進める道筋を示した。</li></ul>
-    </article></div>
+<h2>売上の定義を、生成したコードだけに任せない</h2>
+<p>Googleの<a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server">Looker MCP Server発表</a>は、AIがLookerのセマンティックレイヤーへ問い合わせ、Looker側がSQLを生成する構成を説明した。
+セマンティックレイヤーは、売上などの指標や集計方法をあらかじめ定義する仕組みである。
+既存の定義をエージェントから参照する接続手段が増えた、と読める。</p>
+<p>例えば、社内で売上を返品控除後の金額と定めているなら、CSVの金額列を単純に足す処理とは結果が異なり得る。
+既存指標を使う場合にも、選んだ指標、期間、絞り込み条件が質問に合うかは確認が必要だ。
+接続できることは、質問の解釈が正しいことの保証にはならない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>一次情報に現れていた具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Anthropic は personal assistant と finance agent を明示的に挙げた</h3>
-      <p>Claude Agent SDK の記事では、portfolio を理解して計算を実行する finance agent、travel や calendar を扱う personal assistant agent、曖昧な問い合わせを整理して escalation する support agent が例示されている。つまり「agent SDK = coding」の整理は、公開 source 自体がもう否定していた。</p>
-    </article><article class="comparison-card">
-      <h3>Google は data-connected development を end-to-end で描いた</h3>
-      <p>Firestore support の post では、retail app の full-stack developer Alex が wishlist cleanup、document update、security rule comparison を自然言語で進める。Looker MCP Server の post では、AI が SQL を直接書かず semantic layer を経由して指標定義を保ったまま分析する。どちらも connector と governance が価値の中核だ。</p>
-    </article><article class="comparison-card">
-      <h3>Microsoft は audit、telemetry、compliance まで視野に入れていた</h3>
-      <p>Microsoft Agent Framework post では、KPMG の audit testing、BMW の vehicle telemetry analysis、Commerzbank の compliant support などが customer momentum として挙がる。SDK が価値を持つのは、multi-agent orchestration だけでなく observability、approval、durability を併せて持てるからだと読める。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>SDK 選定は、開発者体験の比較ではなく、computer use、data access、shared runtime、policy を一体でどう扱うかの判断になっている。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>computer-oriented agent loop と deterministic workflow の境界を分け、何を code と tool に落とすか決める。</li><li>semantic layer や database connector を入れるなら、権限と監査を SDK の外付けではなく core 設計に入れる。</li><li>local 実行と hosted 実行で telemetry が分断されないかを確認する。</li><li>SDK の抽象が増えるほど、memory、session、approval、fallback を共通 control plane で吸収できるかが重要になる。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent SDK は、coding assistant を作るための部品ではなく、computer use と governed data access を束ねる application layer へ広がり始めている。</p>
+<h2>まず一つのレポートで、計算と意味を照合する</h2>
+<p>この月次レポートの例では、同じ期間の確認済み集計を用意し、エージェントの出力と照合する。
+一致しない場合は、元データ、指標の選択、絞り込み、計算のどこで差が生じたかを調べる。
+出力を作る作業と、その出力を正しいと認める条件を、別々に用意するということだ。</p>
+<p>最初の試行では入力を読み取り専用にし、生成物は別の場所へ保存する設計が考えられる。
+必要な資料が見つからないときに推測で埋めるのか、未確認として止めるのかも決めておく。
+これは本稿の検証案であり、両製品の既定動作を説明したものではない。</p>
+<p>SDKをコーディング以外へ使う価値は、扱う用途の数だけでは判断できない。
+一つの成果物について、取得、計算、確認までをどこまで繰り返せるかを確かめる。
+その結果から、追加するツールと、人が引き受ける確認作業を選ぶ方が具体的である。</p>
 </section>
