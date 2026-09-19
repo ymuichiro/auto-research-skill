@@ -1,76 +1,34 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>相互運用性は roadmap 上の理想論ではなく、現在の integration premise に近づき始める</h2>
-  <p>相互運用性は、「そのうち対応する」機能ではなく、設計初期から入れておくべき条件になりつつある。Google は A2A を Linux Foundation に寄贈し、MCP Toolbox を通じて database 接続を IDE に近づけた。Microsoft Foundry は A2A、MCP、OpenAPI を managed platform の語彙に入れ、OpenAI も Responses API で remote MCP support を前に出している。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">論文と official announcement / docs だけで主要主張を構成した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">20+</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">記事日付以前に公開された一次情報だけで候補を整理した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3接点</p>
-      <p class="stat-title">具体化した層</p>
-      <p class="stat-note">agent-to-agent、database-to-agent、managed runtime の接続が同時に具体化した。</p>
-    </article></div>
+<h2>同じ規格でつながると、何を交換しやすくなるのか</h2>
+<p>エージェントの接続先を変えるたびに、通信処理を作り直す負担は減らしたい。
+2025年春から夏にかけて、A2Aの発表と運営移管、Responses APIのリモートMCP対応は、共通の接続方式を利用する選択肢を増やした。</p>
+<p>ただし、共通規格への対応だけで、接続先をそのまま交換できるわけではない。
+結果の意味、使える権限、失敗時の挙動は、接続する相手ごとに確認が残る。
+本稿では、通信の共通化と、業務として交換できることを分けて読む。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>A2A は vendor launch から ecosystem governance の論点へ進んだ</h3>
-      <p>Google の A2A donation は、相互運用性を自社広報ではなく Linux Foundation 配下の project として扱い始めた点が大きい。spec、SDK、developer tooling を寄贈することで、agent card、task lifecycle、long-running task を ecosystem 共通課題に引き上げた。</p>
-    </article><article class="comparison-card">
-      <h3>MCP は data connectivity を daily tooling へ寄せた</h3>
-      <p>Google Cloud Databases の MCP integrations は、agent をチャット UI の延長ではなく、IDE 内で DB 探索、schema change、test 更新まで進める開発補助として見せた。MCP は future protocol ではなく、今月の developer workflow に入ってきている。</p>
-    </article><article class="comparison-card">
-      <h3>managed platform 側も open connection を前提にし始めた</h3>
-      <p>Microsoft Foundry の GA / developer essentials は、A2A、MCP、OpenAPI を agent service の一部として扱っていた。OpenAI の Responses API も remote MCP support を加え、closed runtime と open connector が両立する設計が現実路線になってきた。</p>
-    </article></div>
+<h2>A2AとリモートMCPの発表は、異なる接続を具体化した</h2>
+<p>Googleの<a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">2025年4月のA2A発表</a>は、能力を示すAgent Card、依頼した仕事の状態、返される成果物を扱う仕組みを説明した。
+さらに<a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">6月の発表</a>では、仕様とSDKなどをLinux Foundationのプロジェクトへ移すとした。
+これは仕様を育てる運営体制の変更であり、すべての実装間の互換性を確認した報告ではない。</p>
+<p>OpenAIの<a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">5月のResponses API更新</a>は、外部のMCPサーバーが公開するツールへの接続を追加した。
+A2Aの発表がエージェントへの仕事の依頼と状態の交換を説明する一方、こちらはAPIから外部ツールを利用する経路を示している。
+この整理は発表された用途の違いであり、規格で包まれた処理の内部にAIがあるかどうかを決めるものではない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>database-connected developer assistant</h3>
-      <ul class="bullet-list"><li>開発者が自然言語で schema を把握し、必要な query や model change を agent に委ねる。</li><li>単なる SQL 生成ではなく、DB と codebase をまたいだ変更をまとめて進める形が現実味を帯びていた。</li></ul>
-    </article><article class="comparison-card">
-      <h3>複数 agent をまたぐ case routing と調査補助</h3>
-      <ul class="bullet-list"><li>採用、問い合わせ、社内申請のように複数システムへ task を振る業務では、agent 間 handoff が重要になる。</li><li>接続仕様が open であるほど、後から tool や runtime を差し替えやすい。</li></ul>
-    </article></div>
+<h2>検索担当を交換するなら、同じ依頼を通して比べる</h2>
+<p>例えば、社内資料から根拠を探す担当を別の実装へ交換する場面を想定する。
+両方へ接続できても、一方が資料全文を返し、もう一方が要約だけを返すなら、後段の回答作成は同じ条件にならない。
+出典、該当箇所、検索できなかった範囲を、どの形で返すかを決める必要がある。</p>
+<p>交換試験では、同じ質問と資料を使い、正しい資料を返す場合だけでなく、該当資料なし、閲覧権限なし、途中で応答が止まる場合を確認する。
+後段が空の結果を「該当なし」と解釈するのか、「検索に失敗した」と解釈するのかで、利用者への回答が変わるからだ。</p>
+<p>この試験は、規格への対応確認とは別に行う業務上の確認である。
+共通規格が減らした通信実装と、交換のために追加した変換や検証を記録すると、実際にどれだけ移行しやすくなったかを説明できる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>一次情報に書かれていた具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Google Cloud は DB 接続付き開発補助をかなり具体的に描いた</h3>
-      <p>Google Cloud Databases の MCP post では、新任開発者 Sara が自然言語で table を調べ、open orders を確認し、vendors table と inventory の vendor_id を追加し、InventoryDAO の test まで更新する流れが示されている。ここでは assistant が IDE、database、application code をまたいで同じ task を扱う。</p>
-    </article><article class="comparison-card">
-      <h3>A2A は採用業務の handoff を例に、task lifecycle を明示した</h3>
-      <p>Google の A2A announcement は、hiring manager の依頼を起点に sourcing 用 agent、面接調整用 agent、background check 用 agent が連携する candidate sourcing の例を載せている。これは「agent が agent を呼ぶ」こと自体より、capability discovery、status update、artifact 返却を protocol で持つ必要性を示した。</p>
-    </article><article class="comparison-card">
-      <h3>Microsoft Foundry は enterprise connector の組み合わせを現実の product surface にした</h3>
-      <p>Foundry Agent Service GA と developer essentials では、Bing、SharePoint、Azure AI Search、Fabric、Logic Apps、OpenAPI、MCP、A2A が同じ managed surface で説明されている。相互運用性は外部 spec の話ではなく、既存 SaaS や internal system をどうつなぐかの実装論に入っていた。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>賢い agent を作ることより、接続先を増やしても trust boundary と data contract を保てるかが競争力になっている。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>agent card、tool schema、artifact format の ownership を決め、誰が変更管理するか明確にする。</li><li>database access や workflow trigger を agent に渡すときは、権限範囲と監査ログを最初から分けて設計する。</li><li>protocol 境界を越える long-running task では、status update、timeout、fallback を仕様として持つ。</li><li>interoperability を広げるほど、失敗時にどの agent / tool が原因だったか追える trace が重要になる。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>相互運用性は、roadmap の美辞麗句ではなく、agent を production に寄せるなら最初から織り込むべき architecture 条件になっている。</p>
+<h2>規格名ではなく、受け渡しの契約を残す</h2>
+<p>接続先を増やすときには、依頼の入力、返す成果物、権限不足の通知、処理を打ち切る条件を文書に残す。
+その契約に合う実装を同じ課題で試すことが、将来の変更への備えになる。</p>
+<p>2025年6月までの発表から確認できるのは、接続の選択肢と共同開発の体制が広がったことである。
+自社の移行費用が下がったか、運用が安定したかは、接続した仕事で測る必要がある。</p>
 </section>

@@ -44,8 +44,8 @@
 - [x] 2025-11-01-workflow-tooling-catches-up-with-agent-complexity — 改稿/ビルド/公開完了 (c32a098, 日英HTTP 200 + 本文一致)
 - [x] 2025-10-01-agent-sdks-expand-beyond-coding — 改稿/ビルド/公開完了 (cc55c2a, 日英HTTP 200 + 本文一致)
 - [x] 2025-09-01-coding-and-research-agents-broaden-the-scope — 改稿/ビルド/公開完了 (7ca7d23, 日英HTTP 200 + 本文一致)
-- [x] 2025-08-01-agent-ops-gets-promoted-to-a-control-layer — 改稿/ビルド完了、公開照合待ち
-- [ ] 2025-07-01-interoperability-leaves-the-roadmap
+- [x] 2025-08-01-agent-ops-gets-promoted-to-a-control-layer — 改稿/ビルド/公開完了 (e37cbf9, 日英HTTP 200 + 本文一致)
+- [x] 2025-07-01-interoperability-leaves-the-roadmap — 改稿/ビルド完了、公開照合待ち
 - [ ] 2025-06-01-multi-agent-design-turns-into-an-operating-model
 - [ ] 2025-05-01-open-runtimes-and-managed-platforms-converge
 - [ ] 2025-04-01-managed-agent-primitives-arrive-together
