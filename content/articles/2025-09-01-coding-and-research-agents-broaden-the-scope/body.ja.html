@@ -1,76 +1,36 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>coding と research をまたぐ agent が、より広い業務へ踏み出し始める</h2>
-  <p>coding assistant と analyst assistant の境界は薄れ始めている。GPT-5 for developers は software workflow の厚みを増し、Looker MCP Server は governed analytics を agent に渡し、Agent S、MLE-bench、RE-Bench は code、data、document を横断する task を benchmark 側から支えている。agent は editor の中だけに閉じた helper ではなくなりつつある。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">7件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">coding と research の接続に直結する source に限定した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">45件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる一次情報 URL のみを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3横断</p>
-      <p class="stat-title">越え始めた境界</p>
-      <p class="stat-note">code、data、document をまたぐ task がひとつの workflow に寄り始めた。</p>
-    </article></div>
+<h2>コードが書けることから、実験を任せられることへ</h2>
+<p>機械学習の実験では、コードが実行できても仕事は終わらない。
+データの準備、比較する手法の選択、学習、結果の評価をつなぎ、何が改善したのかを説明する必要がある。
+エージェントにこの一連の作業を任せるなら、コード生成とは異なる完成条件が必要になる。</p>
+<p>2025年9月時点で参照できるMLE-benchとGPT-5の開発者向け発表を使い、何を評価でき、何が別の確認として残るかを整理する。
+両者を同じ成績表に並べるのではなく、実験を任せるときの確認項目を読む。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>coding と analysis の道具立てが近づいた</h3>
-      <p>GPT-5 for developers は coding workflow を厚くし、Looker MCP Server は semantic layer を通じた data access を agent へ開いた。editor helper と BI assistant が別世界ではなくなり始めている。</p>
-    </article><article class="comparison-card">
-      <h3>benchmark 側も cross-functional task を前提にした</h3>
-      <p>Agent S、MLE-bench、RE-Bench は、code editing、ML engineering、research-like synthesis をまたぐ長い task を対象にした。agent は単一 skill ではなく、複数の認知資源をまたぐ worker として見られ始めていた。</p>
-    </article><article class="comparison-card">
-      <h3>governed data access が analyst agent を production closer にした</h3>
-      <p>Looker MCP Server の価値は SQL 自動生成ではなく、semantic layer を通じた trusted metric access にある。research と coding の中間にある analyst workflow が、より現実的な導入対象になった。</p>
-    </article></div>
+<h2>MLE-benchは、データ準備と学習を含む課題を測る</h2>
+<p><a href="https://arxiv.org/abs/2410.07095v1">MLE-benchの初版</a>は、Kaggleから選んだ75の競技を使い、データ準備、モデル学習、実験を含む機械学習の作業を評価した。
+人の比較対象には公開順位表を使っている。
+単独の関数を正しく書けるかとは、課題の範囲が異なる。</p>
+<p>ただし、競技の評価指標を改善することと、実サービスへ採用できるモデルを作ることは同じではない。
+運用時の遅延、更新方法、データの利用条件などは、自分たちの用途で確認する必要がある。
+また、論文の成績はモデルと実行用の仕組みを組み合わせた結果であり、任意のモデルへそのまま移せない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>data-connected product analysis</h3>
-      <ul class="bullet-list"><li>仕様文書、ダッシュボード、コード変更候補をまたいで、原因仮説と改善案を下書きする。</li><li>semantic layer を通すと、指標の意味を崩さずに agent を使いやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>ML / data engineering の作業補助</h3>
-      <ul class="bullet-list"><li>実験整理、評価結果の比較、script の修正、document 更新までを一続きで扱う。</li><li>research と engineering を往復する task ほど assistant の価値が出やすい。</li></ul>
-    </article></div>
+<h2>モデルの道具利用が向上しても、実験全体の成功は別に測る</h2>
+<p>OpenAIの<a href="https://openai.com/index/introducing-gpt-5-for-developers/">2025年8月7日の発表</a>は、GPT-5のコーディング評価と、複数のツール呼び出しを扱う能力を紹介した。
+コードを編集し、実行結果を受け取り、次の処理へ進む構成に使える要素である。</p>
+<p>この発表を根拠に、GPT-5がMLE-benchの特定の成績を達成したとは言えない。
+評価する課題、実行環境、時間制限が異なるからだ。
+実験支援に採用する場合は、使うデータと道具を含む構成全体で、目的の成果が得られるかを測る必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>公開根拠から見える具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Looker MCP Server は governed analytics assistant の像を具体化した</h3>
-      <p>agent が semantic model と定義済み metric に接続できるなら、BI ツールの外側で product analysis や revenue analysis の下書きを進められる。大事なのは、raw SQL の自由度ではなく trusted metric の境界を保ったまま質問できることだ。</p>
-    </article><article class="comparison-card">
-      <h3>MLE-bench と RE-Bench は coding agent の先を見せた</h3>
-      <p>agent が単にコードを書くのではなく、実験設計、結果比較、調査、文書化まで含む task を扱う構図が見えてきた。これは software engineer だけでなく ML engineer や applied researcher の workflow が対象になり始めたことを意味する。</p>
-    </article><article class="comparison-card">
-      <h3>GPT-5 for developers は software workflow を他業務へ拡張する踏み台になった</h3>
-      <p>coding に強い model と tool use が揃うと、document understanding、diff review、analysis memo 作成のような近接 task へ広げやすい。9月時点の signal は、coding assistant が周辺 knowledge work を引き寄せ始めたことだった。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>coding agent を評価するだけでは足りず、code・data・document を横断する workflow をどう制御するかが重要になっている。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>semantic layer や metric definition を経由する data access を優先する。</li><li>code change と analysis output を同じ review loop に載せないよう責務を分ける。</li><li>research task と deterministic engineering step の境界を明確にする。</li><li>cross-functional workflow では evidence trace と source attribution を必須にする。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent は coding helper の外へ出て、code・data・document をまたぐ broader workflow assistant になり始めている。</p>
+<h2>需要予測の試作なら、改善値と再現材料を一緒に残す</h2>
+<p>例えば、過去の販売データから翌月の需要を予測する想定例を考える。
+エージェントへ渡す前に、学習に使う期間、比較用の単純な予測方法、評価指標を決める。
+最後の確認に使うデータを分け、何度も結果を見て調整するためのデータと混同しない。</p>
+<p>成果物には、予測値だけでなく、利用したデータの版、実行したコード、設定、評価結果を含める。
+データを読めなかった試行と、学習は完了したが精度が低い試行も区別する。
+人が確認すべきなのは、成功を宣言する文章より、同じ条件で結果を作り直せる材料である。</p>
+<p>この方法なら、エージェントが省いた作業と、新たに発生した確認作業を見積もれる。
+実験が自動で進んだという印象だけでなく、比較対象より良い結果を、確認可能な形で得たかを判断したい。</p>
 </section>

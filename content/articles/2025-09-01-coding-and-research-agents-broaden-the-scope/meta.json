@@ -1,14 +1,14 @@
 {
   "slug": "coding-and-research-agents-broaden-the-scope",
   "date": "2025-09-01",
-  "titleJa": "coding と research をまたぐ agent が、より広い業務へ踏み出し始める",
-  "titleEn": "Agents spanning coding and research are moving into broader workflows",
-  "summaryJa": "GPT-5 for developers と Looker MCP Server の発表により、coding agent と data-connected analyst の境界が薄れ、コード・データ・文書を横断する assistant の像が濃くなっている。",
-  "summaryEn": "GPT-5 for developers and Looker MCP Server make the line between coding agents and data-connected analyst assistants thinner, pointing toward workflows that cross code, data, and documents.",
-  "seoDescriptionJa": "GPT-5 for developers と Looker MCP Server を軸に、coding と research をまたぐ agent が広い業務へ向かう動きを整理する。",
-  "seoDescriptionEn": "Using GPT-5 for developers and Looker MCP Server as anchors, this article maps how agents spanning coding and research broaden into wider workflows.",
-  "teaserJa": "coding agent と analyst assistant の境界が薄れ、コード・データ・文書を横断する流れを読む。",
-  "teaserEn": "See how coding and research agents are expanding into workflows that cross code, data, and documents.",
+  "titleJa": "コード生成から実験支援へ：MLE-benchで読むエージェントの評価範囲",
+  "titleEn": "From code generation to experiments: what MLE-bench evaluates",
+  "summaryJa": "MLE-benchの課題とGPT-5の開発者向け発表を分けて読み、実験支援をどう評価するかを考える。需要予測の想定例で、成果の確認と再現に必要な記録を整理する。",
+  "summaryEn": "Separate MLE-bench’s task scope from GPT-5’s developer announcement, then use a demand-forecasting example to define verifiable experiment outcomes.",
+  "seoDescriptionJa": "コードが動くことと実験が成功することの違いを、MLE-benchとGPT-5の発表から解説。需要予測の例で、評価条件と再現用の記録を整理する。",
+  "seoDescriptionEn": "Understand MLE-bench’s evaluation scope and why coding capability alone does not establish experiment success, with a reproducible forecasting example.",
+  "teaserJa": "実行できるコードの先に、比較条件と再現できる実験結果を求める。",
+  "teaserEn": "An experiment needs comparable results and reproducible materials, beyond executable code.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,39 +19,9 @@
   "publishedSources": [
     {
       "label": "MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering",
-      "url": "https://arxiv.org/abs/2410.07095",
+      "url": "https://arxiv.org/abs/2410.07095v1",
       "type": "paper",
       "publishedAt": "2024-10-09"
-    },
-    {
-      "label": "Agent S: An Open Agentic Framework that Uses Computers Like a Human",
-      "url": "https://arxiv.org/abs/2410.08164",
-      "type": "paper",
-      "publishedAt": "2024-10-10"
-    },
-    {
-      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
-      "url": "https://arxiv.org/abs/2411.15114",
-      "type": "paper",
-      "publishedAt": "2024-11-22"
-    },
-    {
-      "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
-      "type": "official",
-      "publishedAt": "2025-06-04"
-    },
-    {
-      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
-      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
-      "type": "official",
-      "publishedAt": "2025-06-23"
-    },
-    {
-      "label": "Google Cloud: Introducing Looker MCP Server",
-      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/",
-      "type": "official",
-      "publishedAt": "2025-08-08"
     },
     {
       "label": "OpenAI: Introducing GPT-5 for developers",

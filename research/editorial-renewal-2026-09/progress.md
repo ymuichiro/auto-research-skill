@@ -42,8 +42,8 @@
 - [x] 2026-01-01-the-2025-signal-is-operational-boundaries — 改稿/ビルド/公開完了 (f61e716, 日英HTTP 200 + 本文一致)
 - [x] 2025-12-01-multi-agent-workflows-become-a-product-surface — 改稿/ビルド/公開完了 (cd77c26, 日英HTTP 200 + 本文一致)
 - [x] 2025-11-01-workflow-tooling-catches-up-with-agent-complexity — 改稿/ビルド/公開完了 (c32a098, 日英HTTP 200 + 本文一致)
-- [x] 2025-10-01-agent-sdks-expand-beyond-coding — 改稿/ビルド完了、公開照合待ち
-- [ ] 2025-09-01-coding-and-research-agents-broaden-the-scope
+- [x] 2025-10-01-agent-sdks-expand-beyond-coding — 改稿/ビルド/公開完了 (cc55c2a, 日英HTTP 200 + 本文一致)
+- [x] 2025-09-01-coding-and-research-agents-broaden-the-scope — 改稿/ビルド完了、公開照合待ち
 - [ ] 2025-08-01-agent-ops-gets-promoted-to-a-control-layer
 - [ ] 2025-07-01-interoperability-leaves-the-roadmap
 - [ ] 2025-06-01-multi-agent-design-turns-into-an-operating-model

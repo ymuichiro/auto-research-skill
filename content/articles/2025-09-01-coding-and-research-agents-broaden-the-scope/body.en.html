@@ -1,76 +1,21 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>Agents spanning coding and research are moving into broader workflows</h2>
-  <p>The boundary between coding assistants and analyst assistants is starting to thin out. GPT-5 for developers reinforces software workflows, Looker MCP Server opens governed analytics to agents, and Agent S, MLE-bench, and RE-Bench support cross-functional work from the benchmark side. Agents are no longer confined to being editor-only helpers.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">7</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">The source set is limited to papers and official posts directly tied to coding, research, and analytics convergence.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">45</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3 boundaries</p>
-      <p class="stat-title">What was blurring</p>
-      <p class="stat-note">Code, data, and documents were starting to live in one workflow.</p>
-    </article></div>
+<h2>From writing code to delegating an experiment</h2>
+<p>Executable code does not finish a machine-learning experiment. Data preparation, method selection, training, and evaluation must connect to an explanation of what improved. Delegating that work requires completion criteria beyond code generation.</p>
+<p>MLE-bench and the GPT-5 developer announcement, both available by September 2025, help separate what can be evaluated from what remains to verify. They are not interchangeable rows in one leaderboard.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Coding tools and analysis tools were starting to converge</h3>
-      <p>GPT-5 for developers strengthened coding workflows, while Looker MCP Server gave agents governed access to semantic metrics. Editor helpers and BI assistants were starting to look like parts of the same architecture.</p>
-    </article><article class="comparison-card">
-      <h3>Benchmarks also assumed cross-functional tasks</h3>
-      <p>Agent S, MLE-bench, and RE-Bench all moved beyond narrow code generation into longer tasks that mix editing, ML engineering, and research-like synthesis. Agents were increasingly being treated as workers that cross multiple cognitive domains.</p>
-    </article><article class="comparison-card">
-      <h3>Governed data access made analyst agents more production-ready</h3>
-      <p>The real value of Looker MCP Server was not automatic SQL generation, but trusted access to metrics through a semantic layer. That pushed analyst-style workflows into the set of realistic deployment targets.</p>
-    </article></div>
+<h2>MLE-bench includes data preparation and training</h2>
+<p>The <a href="https://arxiv.org/abs/2410.07095v1">first version of MLE-bench</a> uses 75 Kaggle competitions to evaluate work including dataset preparation, model training, and experimentation, with human baselines drawn from public leaderboards. Its task scope differs from writing an individual function.</p>
+<p>Improving a competition metric does not establish readiness for a live service. Latency, updating procedures, and data-use conditions need application-specific checks. Reported results also belong to model-and-scaffold combinations, not arbitrary models.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Data-connected product analysis</h3>
-      <ul class="bullet-list"><li>Agents could move across product specs, dashboards, and code-change candidates to draft hypotheses and suggested improvements.</li><li>Using a semantic layer made it easier to preserve metric meaning while adding agent assistance.</li></ul>
-    </article><article class="comparison-card">
-      <h3>ML and data-engineering work support</h3>
-      <ul class="bullet-list"><li>Experiment tracking, result comparison, script fixes, and document updates could sit in one workflow.</li><li>Assistants became more valuable as tasks bounced between research and engineering contexts.</li></ul>
-    </article></div>
+<h2>Better tool use still needs an end-to-end experiment test</h2>
+<p>OpenAI's <a href="https://openai.com/index/introducing-gpt-5-for-developers/">August 7, 2025 announcement</a> presented GPT-5 coding evaluations and capabilities involving sequences of tool calls. These are relevant ingredients for editing code, receiving execution results, and taking another step.</p>
+<p>That announcement does not establish a particular GPT-5 result on MLE-bench. Tasks, environments, and time limits differ. An experiment assistant must be tested as a complete configuration, including its actual data and tools.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete scenarios visible in the evidence set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Looker MCP Server made the governed analytics assistant concrete</h3>
-      <p>If an agent can connect to semantic models and predefined metrics, it can help draft product or revenue analysis outside the BI tool while preserving trusted definitions. The key value is not raw SQL freedom, but safe access to governed metrics.</p>
-    </article><article class="comparison-card">
-      <h3>MLE-bench and RE-Bench pointed beyond code generation</h3>
-      <p>These benchmarks made it easier to picture agents that handle experiment design, result comparison, research, and documentation as one broader workflow. That implied the target user was no longer only the software engineer, but also the ML engineer and applied researcher.</p>
-    </article><article class="comparison-card">
-      <h3>GPT-5 for developers became a bridge into adjacent knowledge work</h3>
-      <p>Once a strong coding model is paired with tool use, it becomes much easier to extend into document understanding, diff review, and analysis memo drafting. The September signal was that coding assistants were beginning to pull nearby knowledge work into their orbit.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>It is no longer enough to evaluate a coding agent narrowly; teams need to control workflows that span code, data, and documents.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Prefer data access that goes through semantic layers or governed metric definitions.</li><li>Do not force code changes and analysis outputs through the same review loop without role separation.</li><li>Make the boundary between research tasks and deterministic engineering steps explicit.</li><li>Require evidence traces and source attribution across cross-functional workflows.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>Agents are moving beyond coding help into broader workflows that cross code, data, and documents.</p>
+<h2>Retain both the improvement and the materials to reproduce it</h2>
+<p>Consider a hypothetical demand forecast using past sales. Before delegation, define the training period, a simple baseline, and the evaluation metric. Keep final evaluation data separate from the data used repeatedly during tuning.</p>
+<p>The deliverable should include the data version, executed code, settings, and evaluation results, alongside predictions. Distinguish inability to read the data from successful training with poor accuracy. Reviewers need reproducible materials more than a statement claiming success.</p>
+<p>This makes saved work and added review effort visible. The useful decision is whether the agent produced a better result than the baseline in a form that can be checked, beyond merely making the experiment run automatically.</p>
 </section>
