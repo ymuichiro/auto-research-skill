@@ -1,30 +1,22 @@
 {
   "slug": "agent-security-becomes-a-shipping-gate",
   "date": "2026-03-23",
-  "titleJa": "AI agent の競争軸に security gate が入り始めた",
-  "titleEn": "Security gates are becoming part of the core comparison axis for AI agents",
-  "summaryJa": "2026年3月前半の OpenAI、Anthropic、Microsoft、AWS、Google Cloud の一次情報を横断すると、agent の競争軸は精度や orchestration だけではなく、prompt injection 耐性、tool policy、red teaming、approval、sandboxing をどこまで製品面に組み込めるかへ広がっている。公開資料から読み取れる収束点を整理し、secure code review、社内データ活用、ブラウザ操作、approval-heavy workflow の現実的な導入シナリオまで落とし込む。",
-  "summaryEn": "Across primary-source materials published and updated through March 2026 from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, the agent comparison axis is expanding beyond raw quality and orchestration into prompt-injection resilience, tool policy, red teaming, approval flows, and sandboxing. This briefing synthesizes that convergence and maps it into realistic deployment scenarios such as secure code review, internal-data workflows, browser automation, and approval-heavy operations.",
-  "seoDescriptionJa": "OpenAI、Anthropic、Microsoft、AWS、Google Cloud の一次情報から、AI agent の比較軸に security gate が入る流れを整理する。",
-  "seoDescriptionEn": "Using primary-source material from OpenAI, Anthropic, Microsoft, AWS, and Google Cloud, this piece explains why security gates now shape agent comparison.",
-  "teaserJa": "prompt injection 耐性、tool policy、approval、sandboxing が security gate になる流れを整理する。",
-  "teaserEn": "A concise look at how prompt-injection defenses, tool policy, approvals, and sandboxing are becoming shipping gates.",
+  "titleJa": "エージェント公開前に、外部の指示で何が実行されるかを試す",
+  "titleEn": "Before releasing an agent, test what external instructions can make it do",
+  "summaryJa": "プロンプトインジェクションの検出と、誘導された操作の阻止を分けて考える。OpenAIの送信確認、AWSのツール利用ポリシー、Anthropicの許可設計を比較し、正常処理と禁止操作の試験を提案する。",
+  "summaryEn": "Separate detecting prompt injection from stopping induced actions. Compare transmission checks, tool policies, and permissions, then test legitimate work and prohibited operations.",
+  "seoDescriptionJa": "OpenAI、AWS、Anthropicの公開資料から、プロンプトインジェクション対策の違いを比較。外部送信やツール実行を公開前に確かめる試験を提案する。",
+  "seoDescriptionEn": "Compare prompt-injection defenses from OpenAI, AWS, and Anthropic, then test tool execution and outbound transmission before releasing an agent.",
+  "teaserJa": "攻撃文を見抜くことと、誘導された操作を止めることは別。通信と実行記録まで確認する公開前試験を考える。",
+  "teaserEn": "Recognizing an attack and preventing its action are different outcomes. Check execution and transmission before release.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
     "Security",
     "Guardrails",
-    "Governance",
-    "Prompt Injection",
-    "Roundup"
+    "Prompt Injection"
   ],
   "publishedSources": [
-    {
-      "label": "OpenAI: Codex Security: now in research preview",
-      "url": "https://openai.com/index/codex-security-now-in-research-preview/",
-      "type": "official",
-      "publishedAt": "2026-03-06"
-    },
     {
       "label": "OpenAI: Designing AI agents to resist prompt injection",
       "url": "https://openai.com/index/designing-agents-to-resist-prompt-injection/",
@@ -32,131 +24,16 @@
       "publishedAt": "2026-03-11"
     },
     {
-      "label": "OpenAI: Understanding prompt injections: a frontier security challenge",
-      "url": "https://openai.com/index/prompt-injections",
-      "type": "official",
-      "publishedAt": "2025-11-07"
-    },
-    {
-      "label": "OpenAI: Introducing Trusted Access for Cyber",
-      "url": "https://openai.com/index/trusted-access-for-cyber/",
-      "type": "official",
-      "publishedAt": "2026-02-05"
-    },
-    {
-      "label": "OpenAI: Security on the path to AGI",
-      "url": "https://openai.com/index/security-on-the-path-to-agi/",
-      "type": "official",
-      "publishedAt": "2025-03-26"
-    },
-    {
-      "label": "OpenAI: The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions",
-      "url": "https://openai.com/index/the-instruction-hierarchy/",
-      "type": "official",
-      "publishedAt": "2024-04-19"
-    },
-    {
-      "label": "Anthropic: Our framework for developing safe and trustworthy agents",
-      "url": "https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents",
-      "type": "official",
-      "publishedAt": "2025-08-04"
-    },
-    {
-      "label": "Anthropic Docs: Tool use with Claude",
-      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/overview",
-      "type": "official"
-    },
-    {
-      "label": "Anthropic Docs: Computer use tool",
-      "url": "https://docs.anthropic.com/en/docs/build-with-claude/computer-use",
-      "type": "official"
-    },
-    {
-      "label": "Anthropic Docs: Using the Evaluation Tool",
-      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/eval-tool",
-      "type": "official"
-    },
-    {
-      "label": "Anthropic Docs: Reduce prompt leak",
-      "url": "https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/reduce-prompt-leak",
-      "type": "official"
-    },
-    {
-      "label": "Anthropic Docs: Claude Code security",
-      "url": "https://docs.anthropic.com/en/docs/claude-code/security",
-      "type": "official"
-    },
-    {
-      "label": "Anthropic Docs: MCP connector",
-      "url": "https://docs.anthropic.com/en/docs/agents-and-tools/mcp-connector",
-      "type": "official"
-    },
-    {
-      "label": "Microsoft Foundry: AI Red Teaming Agent (preview)",
-      "url": "https://learn.microsoft.com/en-us/azure/foundry/concepts/ai-red-teaming-agent",
-      "type": "official"
-    },
-    {
-      "label": "Microsoft Foundry: Run AI Red Teaming Agent locally (preview)",
-      "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/how-to/develop/run-scans-ai-red-teaming-agent",
-      "type": "official"
-    },
-    {
-      "label": "Microsoft Foundry: Prompt Shields in Microsoft Foundry",
-      "url": "https://learn.microsoft.com/en-us/azure/ai-foundry/openai/concepts/content-filter-prompt-shields?view=foundry-classic",
-      "type": "official"
-    },
-    {
-      "label": "AWS: Policy in Amazon Bedrock AgentCore is now generally available",
+      "label": "AWS: AgentCore Policy general availability",
       "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/",
       "type": "official",
       "publishedAt": "2026-03-03"
     },
     {
-      "label": "AWS Docs: Overview - Amazon Bedrock AgentCore",
-      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Detect prompt attacks with Amazon Bedrock Guardrails",
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-prompt-attack.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Implement safeguards for your application by associating a guardrail with your agent",
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-guardrail.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: How Amazon Bedrock Guardrails works",
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/guardrails-how.html",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Safety in Vertex AI",
-      "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/learn/safety-overview",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Safety and content filters",
-      "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/multimodal/configure-safety-filters",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Evaluate an agent",
-      "url": "https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/evaluate",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Access control",
-      "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/access-control",
-      "type": "official"
-    },
-    {
-      "label": "arXiv: Teams of LLM Agents can Exploit Zero-Day Vulnerabilities",
-      "url": "https://arxiv.org/abs/2406.01637",
-      "type": "paper",
-      "publishedAt": "2024-06-02"
+      "label": "Anthropic: Framework for safe and trustworthy agents",
+      "url": "https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents",
+      "type": "official",
+      "publishedAt": "2025-08-04"
     }
   ],
   "draft": false
