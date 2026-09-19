@@ -35,8 +35,8 @@
 - [x] 2026-03-26-agent-identity-becomes-an-auth-control-plane — 改稿/ビルド/公開完了 (2e4f261, Actions 35433439344 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-03-25-cowork-signals-the-execution-layer-of-work-ai — 改稿/ビルド/公開完了 (ee60f0c, Actions 35433587042 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-03-24-why-ai-products-converge-on-chat-ui — 改稿/ビルド/公開完了 (3d61e2d, Actions 35433715225 success, 日英HTTP 200 + 本文一致)
-- [x] 2026-03-23-agent-security-becomes-a-shipping-gate — 改稿/ビルド完了、公開照合待ち
-- [ ] 2026-03-21-enterprise-ai-agents-readiness
+- [x] 2026-03-23-agent-security-becomes-a-shipping-gate — 改稿/ビルド/公開完了 (e75061c, Actions 35433828105 success, 日英HTTP 200 + 本文一致)
+- [x] 2026-03-21-enterprise-ai-agents-readiness — 改稿/ビルド完了、公開照合待ち
 - [ ] 2026-03-01-agent-architecture-matters-more-than-model-novelty
 - [ ] 2026-02-01-control-planes-and-evals-set-the-pace
 - [ ] 2026-01-01-the-2025-signal-is-operational-boundaries
