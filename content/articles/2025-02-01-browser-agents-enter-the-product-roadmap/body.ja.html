@@ -1,76 +1,41 @@
-<section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>ブラウザ操作系エージェントは、研究テーマから製品ロードマップへ入り始める</h2>
-  <p>browser / computer use agent は、もはや遠い将来の話ではない。WebVoyager、VisualWebArena、OSWorld、Magentic-One、BrowserGym が environment task を前面に出し、Anthropic は computer use を研究記事で詳しく説明し、OpenAI は Operator を出し、Microsoft Research は AutoGen v0.4 で durable orchestration を整理している。UI と environment を相手にする agent を、実装計画の中に置ける条件がそろい始めている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">browser / computer use の変化に直結する source に限定した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">31件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる papers と official posts を整理した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3条件</p>
-      <p class="stat-title">前提になったこと</p>
-      <p class="stat-note">environment perception、durable orchestration、human boundary が同時に問われた。</p>
-    </article></div>
+<section class="section">
+<h2>ブラウザを操作できても、処理が完了したとは限らない</h2>
+<p>2025年1月23日、OpenAIはブラウザを操作するOperatorの研究プレビューを発表した。
+画面を見てクリックや文字入力を行い、利用者が頼んだ作業を進める仕組みだ。
+ただし、ボタンを押せることと、意図した処理を終えられることには隔たりがある。
+本稿では2025年2月1日時点の発表をもとに、操作後の確認と、人に引き継ぐ際の設計を考える。</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>browser agent は benchmark の主役級に上がった</h3>
-      <p>WebVoyager、VisualWebArena、BrowserGym は、ブラウザ上の multi-step task を評価の中心に据えた。これは、agent を chat product の延長で見るより、実際の UI を使う operator として考える方向が強まったことを意味する。</p>
-    </article><article class="comparison-card">
-      <h3>Anthropic と OpenAI は computer use を製品議論へ押し込んだ</h3>
-      <p>Anthropic の Developing computer use は perception、planning、action の難しさを公開し、OpenAI の Operator は browser task を consumer-facing product roadmap に載せた。computer use は research のみではなく product surface の候補になった。</p>
-    </article><article class="comparison-card">
-      <h3>durable orchestration が browser loop の前提になった</h3>
-      <p>AutoGen v0.4 や Magentic-One の流れを踏まえると、browser agent は 1 turn の推論だけでは成立しない。long-running state、planner / executor の分離、途中失敗からの recovery が重要になる。</p>
-    </article></div>
+<section class="section">
+<h2>発表された機能と、残された制約</h2>
+<p><a href="https://openai.com/index/introducing-operator/">Operatorの発表</a>では、スクリーンショットを読み取り、ブラウザ上でクリック、入力、スクロールを行う方法が説明されている。
+個々のウェブサービスに専用APIがなくても、画面を通じて操作できる点が特徴だ。
+公開当初は米国のPro利用者向けの研究プレビューであり、一般的な業務を無条件に任せられる製品として発表されたわけではない。</p>
+<p>OpenAIは、ログイン、支払い情報の入力、CAPTCHAでは利用者に操作を引き継ぐと説明した。
+注文やメール送信などの重要な操作の前に確認を求める設計も示している。
+これは製品の設計意図であり、あらゆる画面や操作で確認が正しく働くことの実証ではない。</p>
+<p>画面を使う方式には、観測上の制約もある。
+Anthropicの<a href="https://www.anthropic.com/research/developing-computer-use">2024年10月のcomputer use解説</a>は、連続した動画ではなくスクリーンショットを見ているため、短時間だけ表示される通知などを見逃し得ると説明している。
+操作できる対象が広がっても、画面の変化を常に捉えられるとは限らない。</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Web 調査とフォーム準備の補助</h3>
-      <ul class="bullet-list"><li>情報の参照、比較、フォーム入力の下準備など、read-heavy な browser task から入る。</li><li>submit 前に人が止められる設計なら、browser agent の価値を出しやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>QA と回帰確認の自動化補助</h3>
-      <ul class="bullet-list"><li>既存 UI の巡回、画面遷移確認、異常箇所の記録は、computer use 系 agent と相性がよい。</li><li>ただし brittle な操作が多いので durable orchestration が前提になる。</li></ul>
-    </article></div>
+<section class="section">
+<h2>フォーム送信では、クリックの後を確かめる</h2>
+<p>以下は設計を考えるための仮想例であり、製品の実績ではない。
+エージェントに資料請求フォームの入力を頼むとする。
+氏名と連絡先を入力して送信ボタンを押しても、必須項目のエラーが出ていれば請求は完了していない。
+処理中の画面が続く場合も、その場では成功か失敗かを判定できない。</p>
+<p>そこで、入力前の画面、送信した内容、送信後に確認できた状態を区別して記録する。
+完了画面が確認できた場合は、その根拠を利用者へ返す。
+確認できない場合は「送信操作は行ったが、受付完了は未確認」と伝える。
+同じボタンを再度押す前には、二重送信になる可能性を調べる必要がある。</p>
+<p>この確認方法は本稿の設計提案だ。
+実際のサイトで何を完了の根拠にできるかは、画面や受付履歴の仕様によって異なる。
+短く表示される通知だけを根拠にする場合は、見逃した後に確認できる別の手段があるかも検討したい。</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>一次情報から見える具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Operator は multi-step browser task を consumer workflow として見せた</h3>
-      <p>OpenAI の Operator は、Web 上での調査、候補比較、入力補助のような長めの task を product surface へ持ち込んだ。重要なのは browser click 自体ではなく、途中で確認を入れながら step を積み重ねる設計が成立し始めていたことだ。</p>
-    </article><article class="comparison-card">
-      <h3>Anthropic の computer use は GUI automation の難所を明文化した</h3>
-      <p>Anthropic は screenshot-based perception、UI state の変化、細かな action precision を難題として整理している。これは、browser agent の価値が万能自動化ではなく、情報収集や repeatable な手順を人の監督下で補助することにあると読み解ける。</p>
-    </article><article class="comparison-card">
-      <h3>AutoGen v0.4 と Magentic-One は planner / executor 型の実装像を具体化した</h3>
-      <p>planner が task を分解し、browser や tool を使う worker が実行し、最後に reviewer が確かめる構成は、research と product の両方で現実味を帯びてきた。2月時点の browser agent は、単独モデルの力試しというより orchestration design の題材だった。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>browser agent を現実的にする鍵は、クリック能力より durable state と human boundary をどう置くかにある。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>read-only な page navigation と irreversible action を分ける。</li><li>planner、executor、reviewer を分けるなら、handoff の state を保存する。</li><li>benchmark で良い結果が出ても、production では DOM 変化や login state への備えが必要になる。</li><li>computer use の rollout は narrow workflow から始め、full autonomy を急がない。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>browser agent は、durable orchestration と human oversight を前提に、研究テーマから製品計画へ入り始めている。</p>
+<section class="section">
+<h2>人への引き継ぎも、途中までの結果を残す</h2>
+<p>認証画面で人に交代するときは、単にブラウザを渡すだけでは足りない。
+どこまで入力済みか、送信は行ったか、何を確認できていないかを一緒に示せば、利用者は同じ操作を繰り返さずに続けやすくなる。</p>
+<p>試験では、正常に送信できる場合に加え、入力エラー、表示の遅延、途中の認証要求を用意するとよい。
+各条件で、処理の完了を確認できるか、判断できない状態を利用者に正しく渡せるかを見る。
+ブラウザ操作を製品へ組み込む際には、成功した一連のクリックだけでなく、この中断と再開の扱いまで確認することを提案する。</p>
 </section>

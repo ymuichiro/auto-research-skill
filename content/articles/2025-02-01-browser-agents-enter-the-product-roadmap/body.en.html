@@ -1,76 +1,21 @@
-<section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>Browser-oriented agents are moving from research themes into product roadmaps</h2>
-  <p>Browser and computer-use agents no longer look like distant speculation. WebVoyager, VisualWebArena, OSWorld, Magentic-One, and BrowserGym all foreground environment tasks. Anthropic explains computer use in detail, OpenAI launches Operator, and Microsoft Research uses AutoGen v0.4 to frame durable orchestration. The conditions for treating UI-facing agents as implementation candidates are starting to come together.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">The source set is limited to papers and official posts directly tied to browser and computer-use shifts.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">31</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3 conditions</p>
-      <p class="stat-title">What now mattered</p>
-      <p class="stat-note">Environment perception, durable orchestration, and human boundaries were all in play.</p>
-    </article></div>
+<section class="section">
+<h2>Operating a browser does not prove that a task is complete</h2>
+<p>On January 23, 2025, OpenAI announced Operator, a research preview that could use a browser through screenshots, clicks, and typing. Those capabilities leave a practical question: after an action, how does the system establish what actually happened? This article considers result verification and human handoff using announcements available by February 1, 2025.</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Browser agents became a first-class benchmark theme</h3>
-      <p>WebVoyager, VisualWebArena, and BrowserGym put multi-step browser tasks at the center of evaluation. That signaled a shift from treating agents as chat products toward thinking about them as operators acting inside real interfaces.</p>
-    </article><article class="comparison-card">
-      <h3>Anthropic and OpenAI pushed computer use into product discussion</h3>
-      <p>Anthropic's computer-use research described the perception, planning, and action challenges explicitly, while OpenAI's Operator put browser tasks onto a visible product roadmap. Computer use was becoming more than a research curiosity.</p>
-    </article><article class="comparison-card">
-      <h3>Durable orchestration looked like a prerequisite</h3>
-      <p>AutoGen v0.4 and Magentic-One made it harder to imagine browser agents as one-turn systems. Long-running state, planner-executor separation, and recovery from mid-task failure were becoming central implementation concerns.</p>
-    </article></div>
+<section class="section">
+<h2>Capabilities announced, and limits that remained</h2>
+<p>The <a href="https://openai.com/index/introducing-operator/">Operator announcement</a> describes reading screenshots and clicking, typing, and scrolling in a browser. This allows interaction through a website's interface without requiring a dedicated API for every service. At launch, access was a research preview for Pro users in the United States.</p>
+<p>OpenAI described handing control to the user for login, payment details, and CAPTCHAs, with confirmation before significant actions such as orders or email. These are stated design intentions, not evidence that confirmation works correctly for every interface and action.</p>
+<p>Observation also has limits. Anthropic's <a href="https://www.anthropic.com/research/developing-computer-use">October 2024 explanation of computer use</a> notes that successive screenshots, rather than continuous video, can miss short-lived events such as notifications. Access to more interfaces does not ensure that every change will be observed.</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Web research and form-preparation assistance</h3>
-      <ul class="bullet-list"><li>Read-heavy browser tasks such as gathering information, comparing options, and preparing forms were natural entry points.</li><li>The safer pattern was to keep a human confirmation step before submission.</li></ul>
-    </article><article class="comparison-card">
-      <h3>QA support and regression checking</h3>
-      <ul class="bullet-list"><li>Interface walkthroughs, navigation checks, and failure capture all fit computer-use agents reasonably well.</li><li>Because the workflows are brittle, durable orchestration becomes part of the value proposition.</li></ul>
-    </article></div>
+<section class="section">
+<h2>Verify what happens after a form submission</h2>
+<p>Consider a hypothetical request for an information pack, not a reported product result. An agent enters a name and contact details, then clicks Submit. A required-field error means the request has not completed. A loading screen leaves the outcome uncertain.</p>
+<p>One design approach is to distinguish the screen before the action, the submitted values, and the state observed afterward. When a completion screen is visible, report that evidence. Otherwise, say that submission was attempted but acceptance remains unconfirmed. Before clicking again, investigate whether a repeat could create a duplicate request.</p>
+<p>This is a design proposal. What counts as evidence depends on the site's interface and request history. If a brief notification is the only signal, check whether another mechanism can establish the outcome after that notification disappears.</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete scenarios already visible in the source set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Operator made multi-step browser tasks legible as a product workflow</h3>
-      <p>OpenAI's Operator pulled long browser tasks such as research, option comparison, and form assistance into a product surface. The interesting shift was not the click itself, but the idea that longer browser workflows could be staged and supervised rather than treated as one-shot automation.</p>
-    </article><article class="comparison-card">
-      <h3>Anthropic's computer-use research exposed the real difficulty of GUI work</h3>
-      <p>Anthropic focused on screenshot-based perception, changing UI state, and action precision. That implies the near-term value of browser agents was not full autonomy, but supervised help with information gathering and repeatable procedures.</p>
-    </article><article class="comparison-card">
-      <h3>AutoGen v0.4 and Magentic-One made planner-executor patterns look practical</h3>
-      <p>A planner that decomposes the task, a worker that uses the browser or tools, and a reviewer that verifies the result are becoming easier to picture across both research and product settings. Browser agents already look like an orchestration design problem as much as a model problem.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>The real key to browser agents is not click capability by itself, but durable state handling and a clear human boundary.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Separate read-only page navigation from irreversible actions.</li><li>If planner, executor, and reviewer roles are split, the handoff state needs to be persisted.</li><li>Strong benchmark performance still needs to be translated into production assumptions around DOM drift and login state.</li><li>Start with narrow, supervised workflows instead of racing toward full autonomy.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>Browser agents are entering product planning, but only alongside durable orchestration and explicit human oversight.</p>
+<section class="section">
+<h2>Hand over the partial result as well as the browser</h2>
+<p>When authentication requires a person, provide what has been entered, whether submission was attempted, and what remains unverified. That context helps the user continue without repeating actions.</p>
+<p>Tests should include validation errors, delayed screens, and authentication interruptions alongside successful submissions. In each case, check whether the system can establish completion or accurately communicate uncertainty. Before integrating browser operation into a product, evaluate interruption and resumption as well as successful sequences of clicks.</p>
 </section>
