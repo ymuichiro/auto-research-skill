@@ -1,14 +1,14 @@
 {
   "slug": "agent-identity-becomes-an-auth-control-plane",
   "date": "2026-03-26",
-  "titleJa": "AI エージェントの ID 管理は認証認可の統制基盤になり始めた",
-  "titleEn": "Agent identity is becoming the control plane for authentication and authorization",
-  "summaryJa": "Microsoft Entra Agent ID、Microsoft Purview、Amazon Bedrock AgentCore Identity / Policy、Amazon Bedrock Guardrails、Google Cloud Agent Identity、AI Protection、NVIDIA NeMo Guardrails、MCP/A2A、Okta/Auth0 の一次情報を横断すると、AI エージェントは単なるサービス アカウントではなく、固有 ID、ユーザー委任、プロトコル認証、統制を束ねた基盤として扱われ始めている。本稿はその収束点を整理し、各サービスがどの方向に属するか、対向サービスがどのように権限を与えるか、そしてプラットフォーム別にどのような導入像が現れているかを比較する。",
-  "summaryEn": "Across primary sources from Microsoft Entra Agent ID and Microsoft Purview, Amazon Bedrock AgentCore Identity and Policy, Amazon Bedrock Guardrails, Google Cloud Agent Identity and AI Protection, NVIDIA NeMo Guardrails and the NVIDIA safety recipe, MCP/A2A, Okta, and Auth0, agents are increasingly being treated not as generic service accounts but as a dedicated control plane that combines native identities, delegated authorization, protocol-layer trust, and governance. This briefing maps the main directions, places major services into those buckets, explains how downstream systems actually grant permissions to agents, and adds platform-specific deployment patterns.",
-  "seoDescriptionJa": "Microsoft、Amazon、Google、Okta/Auth0 などの一次情報から、agent identity が認証認可の統制基盤になる流れを読む。",
-  "seoDescriptionEn": "Across primary sources from Microsoft, Amazon, Google, Okta, and Auth0, this article explains why agent identity is becoming an auth control plane.",
-  "teaserJa": "固有ID、ユーザー委任、プロトコル認証、統制を束ねる agent identity の新しい役割を整理する。",
-  "teaserEn": "A short read on agent identity as the layer that joins native IDs, delegation, protocol trust, and governance.",
+  "titleJa": "エージェントのIDと、利用者の権限をどう分けるか",
+  "titleEn": "Separating agent identity from delegated user permissions",
+  "summaryJa": "固有IDの発行、利用者からの委任、接続先での権限確認は何が違うのか。MicrosoftとAWSの発表、MCPの認可仕様から、文書検索と外部送信の権限を設計する際の判断を整理する。",
+  "summaryEn": "Microsoft and AWS announcements and MCP authorization requirements show why agent identity, delegated user access, and downstream permission checks need separate decisions.",
+  "seoDescriptionJa": "エージェントIDと利用者の委任権限を区別し、MCPから外部APIへ接続する際のトークンとアクセス制御を、文書検索の例で解説する。",
+  "seoDescriptionEn": "Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.",
+  "teaserJa": "IDが分かることと、操作が許されることは別。文書検索と外部送信から、委任と権限判定を整理する。",
+  "teaserEn": "An identifiable agent still needs permission. Follow document search and external sending to distinguish identity, delegation, and enforcement.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,183 +20,18 @@
   ],
   "publishedSources": [
     {
-      "label": "Microsoft: What is Microsoft Entra Agent ID?",
-      "url": "https://learn.microsoft.com/en-us/entra/agent-id/identity-professional/microsoft-entra-agent-identities-for-ai-agents",
+      "label": "Microsoft: Build 2025 announcements",
+      "url": "https://blogs.microsoft.com/blog/2025/05/19/microsoft-build-2025-the-age-of-ai-agents-and-building-the-open-agentic-web/",
       "type": "official"
     },
     {
-      "label": "Microsoft: What is the Microsoft agent identity platform",
-      "url": "https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/what-is-agent-id-platform",
+      "label": "AWS: Introducing Amazon Bedrock AgentCore (July 16, 2025)",
+      "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/",
       "type": "official"
     },
     {
-      "label": "Microsoft: What is the Microsoft Entra Agent Registry?",
-      "url": "https://learn.microsoft.com/en-us/entra/agent-id/identity-platform/what-is-agent-registry",
-      "type": "official"
-    },
-    {
-      "label": "Microsoft: Configure user authentication for actions in Copilot Studio",
-      "url": "https://learn.microsoft.com/en-us/microsoft-copilot-studio/configure-enduser-authentication",
-      "type": "official"
-    },
-    {
-      "label": "Microsoft: Overview of Microsoft Agent 365",
-      "url": "https://learn.microsoft.com/en-us/microsoft-agent-365/overview",
-      "type": "official"
-    },
-    {
-      "label": "Microsoft Purview: Use Microsoft Purview to manage data security & compliance for AI agents",
-      "url": "https://learn.microsoft.com/en-us/purview/ai-agents",
-      "type": "official"
-    },
-    {
-      "label": "Microsoft Purview: Use Microsoft Purview to manage data security & compliance for Microsoft Agent 365",
-      "url": "https://learn.microsoft.com/en-us/purview/ai-agent-365",
-      "type": "official"
-    },
-    {
-      "label": "Microsoft Purview: Secure and govern Microsoft 365 Copilot agents",
-      "url": "https://learn.microsoft.com/en-us/purview/deploymentmodels/depmod-sc-agents-deployment",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Amazon Bedrock AgentCore overview",
-      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Features of AgentCore Identity",
-      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/key-features-and-benefits.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Understanding workload identities",
-      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/understanding-agent-identities.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Manage credential providers with AgentCore Identity",
-      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/identity-outbound-credential-provider.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Supported authentication patterns",
-      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/common-use-cases.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Policy in Amazon Bedrock AgentCore",
-      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Implement safeguards for your application by associating a guardrail with your agent",
-      "url": "https://docs.aws.amazon.com/bedrock/latest/userguide/agents-guardrail.html",
-      "type": "official"
-    },
-    {
-      "label": "AWS Docs: Amazon Bedrock policies in AWS Organizations",
-      "url": "https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_bedrock.html",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Identities for workloads",
-      "url": "https://docs.cloud.google.com/iam/docs/workload-identities",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Use agent identity with Vertex AI Agent Engine",
-      "url": "https://docs.cloud.google.com/agent-builder/agent-engine/agent-identity",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Manage access for deployed agents",
-      "url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/manage/access",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Google Cloud MCP servers overview",
-      "url": "https://docs.cloud.google.com/mcp/overview",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Authenticate to Google and Google Cloud MCP servers",
-      "url": "https://docs.cloud.google.com/mcp/authenticate-mcp",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: AI Protection overview",
-      "url": "https://docs.cloud.google.com/security-command-center/docs/ai-protection-overview",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Model Armor overview",
-      "url": "https://docs.cloud.google.com/security-command-center/docs/model-armor-overview",
-      "type": "official"
-    },
-    {
-      "label": "Google Cloud Docs: Agent Engine Threat Detection overview",
-      "url": "https://docs.cloud.google.com/security-command-center/docs/agent-engine-threat-detection-overview",
-      "type": "official"
-    },
-    {
-      "label": "NVIDIA Docs: Overview of NVIDIA NeMo Guardrails Library",
-      "url": "https://docs.nvidia.com/nemo/guardrails/latest/about/overview.html",
-      "type": "official"
-    },
-    {
-      "label": "NVIDIA Docs: Guardrail Types in NVIDIA NeMo Guardrails",
-      "url": "https://docs.nvidia.com/nemo/guardrails/latest/about/rail-types.html",
-      "type": "official"
-    },
-    {
-      "label": "NVIDIA Docs: Agentic Security in NVIDIA NeMo Guardrails",
-      "url": "https://docs.nvidia.com/nemo/guardrails/latest/configure-rails/guardrail-catalog/agentic-security.html",
-      "type": "official"
-    },
-    {
-      "label": "NVIDIA Technical Blog: Safeguard Agentic AI Systems with the NVIDIA Safety Recipe",
-      "url": "https://developer.nvidia.com/blog/safeguard-agentic-ai-systems-with-the-nvidia-safety-recipe/",
-      "type": "official"
-    },
-    {
-      "label": "Model Context Protocol: Authorization",
-      "url": "https://modelcontextprotocol.io/specification/2025-03-26/basic/authorization",
-      "type": "official"
-    },
-    {
-      "label": "Model Context Protocol: OAuth Client Credentials",
-      "url": "https://modelcontextprotocol.io/extensions/auth/oauth-client-credentials",
-      "type": "official"
-    },
-    {
-      "label": "Model Context Protocol: Enterprise-Managed Authorization",
-      "url": "https://modelcontextprotocol.io/extensions/auth/enterprise-managed-authorization",
-      "type": "official"
-    },
-    {
-      "label": "A2A Protocol: Specification overview",
-      "url": "https://a2a-protocol.org/latest/specification/",
-      "type": "official"
-    },
-    {
-      "label": "Auth0: Secure MCP with Auth0",
-      "url": "https://auth0.com/ai/docs/mcp/intro/overview",
-      "type": "official"
-    },
-    {
-      "label": "Auth0: Call your APIs on a user's behalf from MCP",
-      "url": "https://auth0.com/ai/docs/mcp/get-started/call-your-apis-on-users-behalf",
-      "type": "official"
-    },
-    {
-      "label": "Okta: Identify shadow AI agents using OAuth grants",
-      "url": "https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-identify-with-oauth.htm",
-      "type": "official"
-    },
-    {
-      "label": "Okta: Certify AI agents",
-      "url": "https://help.okta.com/oie/en-us/content/topics/ai-agents/ai-agent-access-cert.htm",
+      "label": "MCP 2025-11-25: Authorization",
+      "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
       "type": "official"
     }
   ],
