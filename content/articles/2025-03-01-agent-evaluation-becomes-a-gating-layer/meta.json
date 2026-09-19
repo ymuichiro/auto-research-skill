@@ -1,14 +1,14 @@
 {
   "slug": "agent-evaluation-becomes-a-gating-layer",
   "date": "2025-03-01",
-  "titleJa": "AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく",
-  "titleEn": "Agent evaluation is becoming a gating layer rather than an afterthought",
-  "summaryJa": "研究ベンチマークの増加と各社発表の流れにより、prototype agent と production candidate を分ける軸は、派手さよりも評価・再現性・監督へ移っている。",
-  "summaryEn": "The growing benchmark landscape and official platform messaging shift the dividing line between prototype agents and production candidates toward evaluation, reproducibility, and oversight.",
-  "seoDescriptionJa": "研究ベンチマークと各社発表をもとに、AIエージェント評価が導入前提のゲートへ変わる流れを整理する。",
-  "seoDescriptionEn": "Drawing on benchmarks and platform updates, this piece explains why agent evaluation is becoming a gating layer for production adoption.",
-  "teaserJa": "prototype と production を分ける軸が、派手さより評価・再現性・監督へ移る流れを短く読む。",
-  "teaserEn": "A quick read on why evaluation, reproducibility, and oversight now separate prototype agents from production candidates.",
+  "titleJa": "GAIAとOSWorldで考える、エージェント評価の完成条件",
+  "titleEn": "GAIA and OSWorld: define what counts as agent task completion",
+  "summaryJa": "正しい答えを返す課題と、アプリを操作して結果を保存する課題では採点対象が異なる。GAIAとOSWorldを手がかりに、締切登録の例で完成条件と原因調査を分ける。",
+  "summaryEn": "GAIA and OSWorld illustrate different evaluation targets. A calendar-entry example separates correct answers, saved outcomes, and evidence needed to debug failures.",
+  "seoDescriptionJa": "GAIAとOSWorldは何を評価するのか。締切を答える仕事と予定表へ登録する仕事を比べ、完成条件、初期状態、失敗の原因調査を解説。",
+  "seoDescriptionEn": "Compare GAIA and OSWorld evaluation targets, then define completion, initial conditions, and debugging evidence for a calendar-entry task.",
+  "teaserJa": "「登録しました」という返答と、正しい予定が保存されたことを分けて評価する。",
+  "teaserEn": "Evaluate the saved outcome separately from the agent’s statement that it finished.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,64 +18,16 @@
   ],
   "publishedSources": [
     {
-      "label": "AgentBench: Evaluating LLMs as Agents",
-      "url": "https://arxiv.org/abs/2308.03688",
-      "type": "paper",
-      "publishedAt": "2023-08-07"
-    },
-    {
-      "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
-      "url": "https://arxiv.org/abs/2310.06770",
-      "type": "paper",
-      "publishedAt": "2023-10-10"
-    },
-    {
       "label": "GAIA: a benchmark for General AI Assistants",
-      "url": "https://arxiv.org/abs/2311.12983",
+      "url": "https://arxiv.org/abs/2311.12983v1",
       "type": "paper",
       "publishedAt": "2023-11-21"
     },
     {
       "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
-      "url": "https://arxiv.org/abs/2404.07972",
+      "url": "https://arxiv.org/abs/2404.07972v1",
       "type": "paper",
       "publishedAt": "2024-04-11"
-    },
-    {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
-    },
-    {
-      "label": "Anthropic: Developing computer use",
-      "url": "https://www.anthropic.com/research/developing-computer-use",
-      "type": "official",
-      "publishedAt": "2024-10-22"
-    },
-    {
-      "label": "Anthropic: Building effective agents",
-      "url": "https://www.anthropic.com/engineering/building-effective-agents",
-      "type": "official",
-      "publishedAt": "2024-12-19"
-    },
-    {
-      "label": "Microsoft Research: AutoGen v0.4",
-      "url": "https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/",
-      "type": "official",
-      "publishedAt": "2025-01-17"
-    },
-    {
-      "label": "OpenAI: Introducing Operator",
-      "url": "https://openai.com/index/introducing-operator/",
-      "type": "official",
-      "publishedAt": "2025-01-23"
-    },
-    {
-      "label": "Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai",
-      "type": "official",
-      "publishedAt": "2025-01-24"
     }
   ],
   "draft": false

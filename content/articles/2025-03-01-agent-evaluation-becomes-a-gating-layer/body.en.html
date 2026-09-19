@@ -1,76 +1,22 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>Agent evaluation is becoming a gating layer rather than an afterthought</h2>
-  <p>The line between a prototype agent and a production candidate is shifting toward measurability. AgentBench, GAIA, SWE-bench, OSWorld, and BrowserGym expose different failure modes for different workflows, while Anthropic's posts on effective agents and computer use reinforce the need to separate observation and guardrails from the base model itself.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">The source set is limited to papers and official posts directly tied to evaluation, reproducibility, and oversight.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">31</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4 gates</p>
-      <p class="stat-title">What now mattered</p>
-      <p class="stat-note">Completion rate, reproducibility, traceability, and handoff criteria became the key filters.</p>
-    </article></div>
+<h2>Correct answers and completed actions need different evaluations</h2>
+<p>Answering a deadline question from a document differs from adding that deadline to a calendar. The first requires a correct date; the second also requires the correct destination and stored content. Decide what artifact or state counts as completion before choosing an agent evaluation.</p>
+<p>GAIA and OSWorld, available by March 2025, illustrate that distinction. This is a comparison of task definitions, not a ranking of their scores.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>More eval sets revealed different difficulty classes</h3>
-      <p>AgentBench covered tool-oriented tasks, GAIA focused on general assistant problems, SWE-bench measured issue resolution, and OSWorld tested desktop action. A single overall score was no longer enough; teams needed to understand failure modes by workflow.</p>
-    </article><article class="comparison-card">
-      <h3>Guardrails had to live outside the model</h3>
-      <p>Anthropic's posts on effective agents and computer use implied the same pattern: observation and intervention need to sit in a separate layer. A stronger model alone would not make a workflow production-ready without traces and escalation rules.</p>
-    </article><article class="comparison-card">
-      <h3>Narrower workflows were easier to ship</h3>
-      <p>The public evidence pointed toward bounded workflows such as support triage, research summarization, and issue routing rather than universal assistants. Ease of evaluation was starting to shape rollout speed directly.</p>
-    </article></div>
+<h2>Questions with tools and actions in an environment</h2>
+<p>The <a href="https://arxiv.org/abs/2311.12983v1">first GAIA paper</a> introduces questions requiring reasoning, browsing, multimodal handling, and tool use. Its questions and answers probe capabilities relevant to general assistants.</p>
+<p>The <a href="https://arxiv.org/abs/2404.07972v1">first OSWorld paper</a> covers real web and desktop applications and file operations. Tasks have initial-state configurations and execution-based evaluation scripts. The result is checked beyond the plausibility of a written response.</p>
+<p>A success rate on one benchmark cannot be read as a success rate on the other's work. Check how closely the environment and completion criteria match the intended delegation.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Research and briefing preparation</h3>
-      <ul class="bullet-list"><li>Agents could collect public materials, classify themes, and draft comparison tables or first-pass writeups.</li><li>These workflows were easier to evaluate when citation format and output structure were fixed in advance.</li></ul>
-    </article><article class="comparison-card">
-      <h3>First-line support triage</h3>
-      <ul class="bullet-list"><li>Agents could classify intent, retrieve FAQs, draft responses, and escalate only when necessary.</li><li>That made it easier to define a real shipping gate instead of a vague quality target.</li></ul>
-    </article></div>
+<h2>For calendar entry, inspect the saved event</h2>
+<p>Turn the deadline example into a hypothetical test. Supply a document with a date and time and a calendar with existing events. Define success as exactly one new event saved to the correct calendar at the specified date and time.</p>
+<p>A completion message is insufficient. Wrong calendars, shifted times, duplicate events, and unsaved drafts represent distinct failures. Decide beforehand whether missing time information should prompt a question.</p>
+<p>Record the document, initial data, application version, and permitted actions. Different calendar state or access rights can change the task. Reproducible conditions help determine whether a revision improved performance.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete differences between benchmark success and production readiness</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>SWE-bench made the gap between code generation and issue resolution explicit</h3>
-      <p>Understanding the issue, finding the relevant files, preparing a patch, and running the tests all have to work together before the task counts as complete. That suggests enterprises should evaluate coding agents on end-to-end issue handling, not snippet quality alone.</p>
-    </article><article class="comparison-card">
-      <h3>BrowserGym and OSWorld showed that environment shifts change the difficulty class</h3>
-      <p>An agent that performs well in browser tasks can still collapse on desktop tasks, and vice versa. The practical implication is that teams need to evaluate stability against the actual environment and permission model they plan to use.</p>
-    </article><article class="comparison-card">
-      <h3>Support triage is a clean example of a workflow that can be gated</h3>
-      <p>If the workflow is split into intent classification, evidence retrieval, draft response, and human escalation, failures become traceable. That makes it a good example of how to translate research-style evaluation into a production shipping gate.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>The important move is not comparing models in the abstract, but defining what counts as failure on the team’s own representative tasks.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Write down success, failure, and escalation criteria per representative task.</li><li>Preserve retrieval sources, tool calls, and handoffs in the trace.</li><li>Treat “return the case to a human” as a workflow rule, not a fallback excuse.</li><li>Use general benchmarks as context, but maintain a separate eval set for the organization’s own workflows.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>The real dividing line in agent adoption is shifting away from flashy capability and toward the ability to measure failure and define when to stop.</p>
+<h2>Separate grading evidence from debugging evidence</h2>
+<p>The final state can establish whether the event was saved correctly. Investigating whether the agent misread the document or selected the wrong day may require intermediate actions. Grading success and diagnosing failure use different information.</p>
+<p>For adoption decisions, retain failure categories and human corrections alongside aggregate scores. Use public benchmarks to understand candidates, then define completion for the actual work. A passed evaluation should communicate precisely what delegation it supports.</p>
 </section>

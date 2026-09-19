@@ -1,76 +1,39 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>AI エージェント評価は、あとから足す項目ではなく導入ゲートになっていく</h2>
-  <p>prototype agent と production candidate を分ける軸は、回答の面白さより評価可能性へ移っている。AgentBench、GAIA、SWE-bench、OSWorld、BrowserGym が task ごとに失敗の仕方を違う形で露出させ、Anthropic の effective agents や computer use の発信も、途中過程の観測と guardrail を切り離して考える必要性を補強している。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">評価・再現性・監督に直結する source に限定した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">31件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる一次情報のみを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4尺度</p>
-      <p class="stat-title">導入ゲート</p>
-      <p class="stat-note">完遂率、再現性、traceability、handoff 条件が主な判断軸になった。</p>
-    </article></div>
+<h2>正しい答えを返す評価と、操作の完了を確かめる評価</h2>
+<p>資料から締切日を答える仕事と、その締切をカレンダーへ登録する仕事では、完成の定義が異なる。
+前者は答えの日付を確かめればよいが、後者では登録先や保存内容も確認する必要がある。
+エージェントの評価を選ぶときには、まず何を成果として採点するかを決めたい。</p>
+<p>2025年3月時点で参照できるGAIAとOSWorldは、この違いを考える手がかりになる。
+本稿は両者の成績を順位付けするものではなく、評価課題と業務の完成条件を対応付けるための整理である。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>評価セットが増えるほど、task ごとの難しさが分解された</h3>
-      <p>AgentBench は多種の tool task を、GAIA は一般 assistant の実用問題を、SWE-bench は issue resolution を、OSWorld は desktop action を測った。ひとつの総合スコアではなく、workflow ごとの failure mode を見る必要があることがはっきりした。</p>
-    </article><article class="comparison-card">
-      <h3>guardrail は model の外側に置くべき論点になった</h3>
-      <p>Anthropic の Building effective agents と computer use 系の source は、途中観測と手前の制御を別レイヤーとして持つ必要を示した。高性能な model を選んでも、trace と escalation がなければ実務導入は難しい。</p>
-    </article><article class="comparison-card">
-      <h3>適用範囲を絞った team のほうが rollout しやすい</h3>
-      <p>当時の公開根拠を並べると、成功に近いのは万能 agent を目指す構成より、support triage、research summary、issue routing のような bounded workflow に agent をはめる構成だった。評価のしやすさが導入速度を決めている。</p>
-    </article></div>
+<h2>GAIAは道具を使って答える課題、OSWorldは環境で操作する課題を扱う</h2>
+<p><a href="https://arxiv.org/abs/2311.12983v1">GAIAの初版</a>は、推論、ウェブ閲覧、複数の情報形式の扱い、道具の利用を要する質問を用意した。
+質問と答えを持つ課題から、アシスタントとして必要な能力を調べる構成である。</p>
+<p><a href="https://arxiv.org/abs/2404.07972v1">OSWorldの初版</a>は、実際のウェブアプリやデスクトップアプリ、ファイル操作を含む課題を扱う。
+課題ごとに初期状態と評価用スクリプトを用意し、実行結果を検査する。
+答えの文章がもっともらしいかとは異なる方法で、操作の成果を確認している。</p>
+<p>この違いがあるため、一方の成功率をもう一方の仕事の成功率として読むことはできない。
+評価環境と完成条件が、自分たちの任せたい仕事にどれだけ近いかを確認する必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>リサーチ・ダイジェスト作成</h3>
-      <ul class="bullet-list"><li>公開資料の収集、分類、比較、初稿生成を行い、人が根拠を確認して仕上げる。</li><li>評価しやすいのは、引用形式や粒度をあらかじめ固定できる workflow である。</li></ul>
-    </article><article class="comparison-card">
-      <h3>問い合わせ一次切り分け</h3>
-      <ul class="bullet-list"><li>意図分類、FAQ 検索、回答案の下書き、必要時のエスカレーションを担う。</li><li>曖昧案件だけ人へ戻す条件を固定すれば、導入ゲートを作りやすい。</li></ul>
-    </article></div>
+<h2>締切の登録なら、保存された予定まで確かめる</h2>
+<p>冒頭の締切登録を、評価用の想定例として具体化する。
+入力資料には締切日と時刻、対象の予定表には既存の予定を用意する。
+期待する結果は、正しい予定表に、正しい日付と時刻で、新しい予定が一件保存されることとする。</p>
+<p>「登録しました」という返答だけでは成功にしない。
+別の予定表への保存、時刻のずれ、二重登録、未保存の下書きは、異なる失敗として扱う。
+資料に時刻がなければ、勝手に補わず質問することを期待するのかも、試行前に決めておく。</p>
+<p>同じ課題でも、予定表の初期状態や利用権限が変われば難しさは変わる。
+比較時には、資料、初期データ、アプリの版、使える操作を記録する。
+失敗を再現するときに条件を戻せることが、改善の判断に役立つ。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>ベンチマークが見せた具体的な失敗と成功の差</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>SWE-bench は『コード生成できる』と『issue を解ける』の差を明確にした</h3>
-      <p>issue を理解し、relevant file を探し、patch を作り、test を実行して初めて task completion になる。この差分があるため、社内でも code assistant を導入するなら snippet quality ではなく end-to-end issue handling を eval したほうがよいことが読み取れる。</p>
-    </article><article class="comparison-card">
-      <h3>BrowserGym と OSWorld は、環境が変わるだけで難易度が変わることを示した</h3>
-      <p>browser task で通る agent が desktop task では崩れる、あるいはその逆が起きうる。つまり『agent が得意か』ではなく、『どの environment と permission model に対して安定か』を測らないと、導入可否を誤る。</p>
-    </article><article class="comparison-card">
-      <h3>support triage のような bounded workflow は eval を設計しやすい</h3>
-      <p>意図分類、根拠文書の参照、回答案の下書き、human escalation の 4 step に分けると、どこで失敗したかを trace で追いやすい。これは research benchmark から production eval へ写しやすい実務例だった。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>重要なのは、model の新旧比較より、自社 task で何を failure と見なすかを先に定義することだ。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>代表 task ごとに success / failure / escalate の基準を先に文章化する。</li><li>途中の retrieval source、tool call、handoff を trace に残す。</li><li>『曖昧なら人へ返す』条件を業務設計として固定する。</li><li>general benchmark の数字は参考にしつつ、自社 workflow 用の mini eval を別に持つ。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent 導入の差は、『できることの派手さ』より『失敗を測り、止める条件を持てるか』で開いている。</p>
+<h2>採点に必要な結果と、原因調査に必要な記録を分ける</h2>
+<p>予定が正しく保存されたかは、最終状態から判定できる。
+一方、日付を読み違えたのか、画面で別の日を選んだのかは、途中の操作を調べないと分からない場合がある。
+成功の採点と失敗の原因調査は、使う情報が異なる。</p>
+<p>業務への導入判断では、平均点だけでなく、起きた失敗と人が修正した内容を残す。
+公開ベンチマークは候補を理解する資料として使い、実際の完成条件は業務に合わせて作る。
+その対応が明確なら、評価を通ったという説明が、何を任せられるという判断なのかも伝わる。</p>
 </section>
