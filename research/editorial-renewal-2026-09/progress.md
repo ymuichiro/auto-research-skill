@@ -32,8 +32,8 @@
 - [x] 2026-03-30-subagents-become-the-practical-unit-of-work-ai — 改稿/ビルド/公開完了 (01eefb6, Actions 33963519372 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-03-28-video-generation-ai-product-landscape — 改稿/ビルド/公開完了 (71b4765, Actions 35432941179 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-03-28-open-agent-protocol-stack — 改稿/ビルド/公開完了 (4a2db78, Actions 35433100333 success, 日英HTTP 200 + 本文一致)
-- [x] 2026-03-26-agent-identity-becomes-an-auth-control-plane — 改稿/ビルド完了、公開照合待ち
-- [ ] 2026-03-25-cowork-signals-the-execution-layer-of-work-ai
+- [x] 2026-03-26-agent-identity-becomes-an-auth-control-plane — 改稿/ビルド/公開完了 (2e4f261, Actions 35433439344 success, 日英HTTP 200 + 本文一致)
+- [x] 2026-03-25-cowork-signals-the-execution-layer-of-work-ai — 改稿/ビルド完了、公開照合待ち
 - [ ] 2026-03-24-why-ai-products-converge-on-chat-ui
 - [ ] 2026-03-23-agent-security-becomes-a-shipping-gate
 - [ ] 2026-03-21-enterprise-ai-agents-readiness

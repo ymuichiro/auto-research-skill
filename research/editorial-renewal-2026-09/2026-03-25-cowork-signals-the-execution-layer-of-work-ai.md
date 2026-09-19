@@ -1,0 +1,55 @@
+# 2026-03-25-cowork-signals-the-execution-layer-of-work-ai
+
+## 調査候補（旧稿の一次資料一覧）
+- Anthropic: Get started with Cowork: https://support.claude.com/en/articles/13345190-get-started-with-cowork
+- Anthropic: Use Cowork on Team and Enterprise plans: https://support.claude.com/en/articles/13455879-cowork-for-team-and-enterprise-plans
+- Anthropic: Use Cowork safely: https://support.claude.com/en/articles/13364135-using-cowork-safely
+- Anthropic: Use plugins in Cowork: https://support.claude.com/en/articles/13837440-use-plugins-in-cowork
+- Anthropic: What is the Claude Enterprise plan?: https://support.claude.com/en/articles/9797531-what-is-the-claude-enterprise-plan
+- Anthropic: Use Google Workspace connectors: https://support.claude.com/en/articles/10166901-use-google-workspace-connectors
+- Anthropic: Demystifying evals for AI agents: https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents
+- Anthropic: Computer use: https://docs.anthropic.com/en/docs/build-with-claude/computer-use
+- Microsoft: Copilot Cowork: A new way of getting work done: https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/
+- Microsoft: Powering Frontier Transformation with Copilot and agents: https://www.microsoft.com/en-us/microsoft-365/blog/2026/03/09/powering-frontier-transformation-with-copilot-and-agents/
+- Microsoft: Introducing the First Frontier Suite built on Intelligence + Trust: https://blogs.microsoft.com/blog/2026/03/09/introducing-the-first-frontier-suite-built-on-intelligence-trust/
+- Microsoft: Secure agentic AI for your Frontier Transformation: https://www.microsoft.com/en-us/security/blog/2026/03/09/secure-agentic-ai-for-your-frontier-transformation/
+- Microsoft: Microsoft Ignite 2025: Copilot and agents built to power the Frontier Firm: https://www.microsoft.com/en-us/microsoft-365/blog/2025/11/18/microsoft-ignite-2025-copilot-and-agents-built-to-power-the-frontier-firm/
+- Microsoft: Microsoft Copilot for Work: https://www.microsoft.com/en-us/microsoft-365/copilot/copilot-for-work
+- Microsoft: Introducing Agent 365 - the control plane for agents: https://www.microsoft.com/en/microsoft-agent-365
+- Google Cloud: What is Google Agentspace?: https://cloud.google.com/agentspace/docs
+- Google Cloud: Gemini Enterprise: Best of Google AI for Business: https://cloud.google.com/products/agentspace/
+- Google Cloud: AI agents are evolving with Google Agentspace: https://cloud.google.com/transform/ai-agents-evolving-with-google-agentspace
+- Google Cloud: Set up assistant actions: https://cloud.google.com/gemini/enterprise/docs/assistant-actions
+- Google Cloud: Use assistant actions: https://cloud.google.com/gemini/enterprise/docs/assistant-use-actions
+- Google Cloud: Connect a third-party data source: https://cloud.google.com/gemini/enterprise/docs/connect-third-party-data-source
+- Google Cloud: Introduction to connectors and data stores: https://cloud.google.com/gemini/enterprise/docs/introduction-to-connectors-and-data-stores
+- Slack: Use Agentforce in Slack: https://slack.com/help/articles/36218786859667-Use-Agentforce-in-Slack
+- Slack: Set up and manage Agentforce in Slack: https://slack.com/help/articles/36218109305875-Set-up-and-manage-Agentforce-in-Slack
+- Slack: Agentforce in Slack: Start Revolutionizing Work Today: https://slack.com/blog/news/agentforce-in-slack-enterprise-ai-use-cases
+- Slack: Bring Digital Labor to Every Team with Agentforce and Slack: https://slack.com/blog/news/digital-labor-for-every-team
+- Slack: Agentforce: Now powered by Slack Data and Slack Actions: https://slack.com/blog/news/agentforce-ai-slack-actions-data
+- Slack: Slack updates and changes: https://slack.com/help/articles/115004846068-Slack-updates-and-changes.
+- OpenAI: Introducing deep research: https://openai.com/index/introducing-deep-research/
+- OpenAI: Introducing Codex: https://openai.com/index/introducing-codex/
+- OpenAI: Introducing the Codex app: https://openai.com/index/introducing-the-codex-app/
+- OpenAI: Introducing GPT-5.3-Codex: https://openai.com/index/introducing-gpt-5-3-codex/
+- OpenAI: ChatGPT agent: https://help.openai.com/en/articles/11752874-chatgpt-agent
+- OpenAI: ChatGPT agent - release notes: https://help.openai.com/en/articles/11794368-chatgpt-agent-release-notes
+- OpenAI: Introducing Operator: https://openai.com/index/introducing-operator/
+- ReAct: Synergizing Reasoning and Acting in Language Models: https://arxiv.org/abs/2210.03629
+- Toolformer: Language Models Can Teach Themselves to Use Tools: https://arxiv.org/abs/2302.04761
+- WebArena: A Realistic Web Environment for Building Autonomous Agents: https://arxiv.org/abs/2307.13854
+- WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models: https://arxiv.org/abs/2401.13919
+- SWE-bench: Can Language Models Resolve Real-World GitHub Issues?: https://arxiv.org/abs/2310.06770
+- GAIA: a benchmark for General AI Assistants: https://arxiv.org/abs/2311.12983
+- OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments: https://arxiv.org/abs/2404.07972
+- tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains: https://arxiv.org/abs/2406.12045
+
+## 診断、論証、再確認
+- 旧稿: 五社の強み/戦略を一般化し、研究全体が会話から完遂へ移ったと断言。役割分類/年表/用途/結論が同じ主張を反復。
+- 問い: 会議準備をどの操作まで委任できるか。論旨: 読み取り、成果物保存、予定変更で確認対象が異なる。資料と予定の結果をそれぞれ検証。
+- Anthropic 1/12リリース履歴、2/24発表、Microsoft 3/9発表、評価1/9解説を採用。元のCowork発売URLは現在製品ページへ転送されるため採用しない。Microsoft記事の後付けGAバナーを当初の提供状況と混同せず、当初の限定preview/late March予定を明記。
+- 再読: Officeアドインの機能をCowork全般へ拡張しない。ベンダーの管理能力を優劣比較しない。試行課題は著者の提案と明示。日英の時制と条件を一致。
+- 追加候補: https://support.claude.com/en/articles/12138966-release-notes
+- 追加候補: https://claude.com/blog/cowork-plugins-across-enterprise
+- 追加候補: https://www.microsoft.com/en-us/copilot/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/
