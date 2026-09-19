@@ -1,14 +1,14 @@
 {
   "slug": "multi-agent-workflows-become-a-product-surface",
   "date": "2025-12-01",
-  "titleJa": "multi-agent workflow そのものが product surface になり始める",
-  "titleEn": "Multi-agent workflow is appearing as a configurable, observable product surface",
-  "summaryJa": "Foundry Agent Service の multi-agent workflows preview により、visual builder、YAML definition、templates、variables、observability、evaluators を備えた workflow 自体が product surface として見え始めている。",
-  "summaryEn": "The multi-agent workflows preview in Foundry Agent Service makes the workflow itself visible as a product surface, with a visual builder, YAML definitions, templates, variables, observability, and evaluators.",
-  "seoDescriptionJa": "Foundry Agent Service の preview を軸に、multi-agent workflow そのものが product surface になる流れを整理する。",
-  "seoDescriptionEn": "Anchored in the Foundry Agent Service preview, this article shows how multi-agent workflow itself is becoming a product surface.",
-  "teaserJa": "visual builder、YAML、observability、evaluators を備えた workflow 自体の product surface 化を整理する。",
-  "teaserEn": "A concise look at workflow itself becoming a configurable, observable product surface.",
+  "titleJa": "Foundryのワークフローで確認する、処理の分岐と承認条件",
+  "titleEn": "Reviewing workflow branches and approval conditions in Foundry",
+  "summaryJa": "Foundryの2025年11月公開プレビューを読み、図とYAML、変数、実行記録の役割を整理する。アカウント申請の想定例で、出力形式の検査と操作の承認を分けて考える。",
+  "summaryEn": "Foundry’s November 2025 preview exposes workflow definitions and execution details. An account-request example separates valid output types from authorization.",
+  "seoDescriptionJa": "Foundryワークフローの図・YAML・変数は何を確認しやすくするか。2025年11月の公開プレビューを、分岐、承認、実行記録の役割から解説。",
+  "seoDescriptionEn": "What Foundry’s November 2025 workflow preview exposes through diagrams, YAML, and traces—and why valid output types do not establish authorization.",
+  "teaserJa": "図にした処理を、実行してよい手順へ近づけるために確認すること。",
+  "teaserEn": "A workflow diagram is a starting point for reviewing branches, data, and approval.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,58 +19,16 @@
   ],
   "publishedSources": [
     {
-      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
-      "type": "paper",
-      "publishedAt": "2024-11-07"
-    },
-    {
-      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
-      "url": "https://arxiv.org/abs/2411.15114",
-      "type": "paper",
-      "publishedAt": "2024-11-22"
-    },
-    {
-      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
-      "type": "official",
-      "publishedAt": "2025-05-19"
-    },
-    {
-      "label": "OpenAI: Introducing GPT-5 for developers",
-      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
-      "type": "official",
-      "publishedAt": "2025-08-07"
-    },
-    {
-      "label": "Anthropic: Building agents with the Claude Agent SDK",
-      "url": "https://claude.com/blog/building-agents-with-the-claude-agent-sdk",
-      "type": "official",
-      "publishedAt": "2025-09-29"
-    },
-    {
-      "label": "Microsoft Azure: Agent Factory, designing the open agentic web stack",
-      "url": "https://azure.microsoft.com/en-us/blog/agent-factory-designing-the-open-agentic-web-stack/",
-      "type": "official",
-      "publishedAt": "2025-09-24"
-    },
-    {
-      "label": "Microsoft: Introducing Microsoft Agent Framework",
-      "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
-      "type": "official",
-      "publishedAt": "2025-10-01"
-    },
-    {
-      "label": "OpenAI: Introducing AgentKit",
-      "url": "https://openai.com/index/introducing-agentkit/",
-      "type": "official",
-      "publishedAt": "2025-10-06"
-    },
-    {
       "label": "Microsoft: Introducing multi-agent workflows in Foundry Agent Service",
       "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/",
       "type": "official",
       "publishedAt": "2025-11-25"
+    },
+    {
+      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+      "url": "https://arxiv.org/abs/2411.04468v1",
+      "type": "paper",
+      "publishedAt": "2024-11-07"
     }
   ],
   "draft": false

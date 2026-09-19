@@ -1,76 +1,38 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>multi-agent workflow 自体が、設定・監視・監査できる product surface として立ち上がり始める</h2>
-  <p>目立つのは、multi-agent orchestration が SDK の裏側に隠れた implementation detail ではなく、builder / YAML / observability / evaluation を備えた公開 surface に出てきていることだ。Microsoft Foundry の workflow preview は、graph を visual でも code でも扱い、versioning、variables、Power Fx、built-in evaluators を同じ面で見せている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">9件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">workflow surface を裏づける papers と official posts だけを掲載。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">20+</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">2025年12月1日以前に確認できる一次情報 URL のみを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">6機能</p>
-      <p class="stat-title">surface 化した要素</p>
-      <p class="stat-note">builder、YAML、template、variable、observability、evaluator が同じ製品面に並んだ。</p>
-    </article></div>
+<h2>ワークフローを図にすると、何を確認しやすくなるか</h2>
+<p>複数のエージェントをつないだ処理をレビューするとき、担当名だけを並べた図では足りない。
+前の担当から何を受け取り、どの条件で次へ進み、失敗時にどこへ戻るのかを読みたい。
+2025年11月に発表されたFoundry Agent Serviceのワークフローは、その処理定義を画面とYAMLで扱う公開プレビューだった。</p>
+<p>本稿では、画面上で編集できることが、業務の正しさを確認するうえでどこまで役立つかを考える。
+重要なのは、図が完成したことと、実行してよい手順が完成したことを区別することである。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>workflow graph が code artifact だけでなく shared design surface になった</h3>
-      <p>Foundry の preview は visual workflow builder と YAML definition の往復を前提にし、business 側と engineering 側が同じ graph を別の view で扱えるようにした。multi-agent orchestration が実装者の頭の中だけに閉じなくなる。</p>
-    </article><article class="comparison-card">
-      <h3>変数、schema、expression が orchestration を review 可能にした</h3>
-      <p>local variables、JSON schema output、Power Fx expressions、immutable versioning が出てきたことで、workflow は「prompt をつないだもの」ではなく、出力 contract と branch logic を持つ artifact になった。これが governance と review の前提になる。</p>
-    </article><article class="comparison-card">
-      <h3>observability と evaluators が graph 単位の運用品質を問うようになった</h3>
-      <p>granular tracing、built-in evaluators、custom evaluation logic、scheduled evaluation まで workflow surface に入ったことで、論点は「動くか」から「各 node と全体 flow をどう継続監視するか」へ移った。multi-agent は novelty より operations の勝負になっている。</p>
-    </article></div>
+<h2>図とYAMLは処理の定義を、実行記録は通った経路を示す</h2>
+<p><a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Microsoftの発表</a>は、視覚的な編集とYAMLの相互反映、変数、JSON Schemaによる出力形式、条件式、保存時の版管理を紹介した。
+これにより、エージェントの出力をどの後続処理へ渡すかを、定義として確認できる。</p>
+<p>一方、処理定義に分岐があっても、実際の入力でどちらへ進んだかは別の情報である。
+発表は分岐や変数の追跡も説明するが、初期の観測機能はワークフロー内の個々のエージェントを中心とする範囲だった。
+製品を試す際には、画面に図が出るかだけでなく、調べたい失敗を一つの実行として追えるかを確認したい。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>onboarding と case management</h3>
-      <ul class="bullet-list"><li>Foundry post は onboarding を例に、複数 step と human-in-the-loop を持つ flow を visual / YAML で扱う価値を示した。</li><li>情報収集、担当振り分け、確認、実行を graph として残せるのがポイントだった。</li></ul>
-    </article><article class="comparison-card">
-      <h3>financial approvals と IT service operations</h3>
-      <ul class="bullet-list"><li>financial approvals や IT service operations は、specialist agent と reviewer を分ける必要がある典型例として挙がる。</li><li>multi-agent workflow が product surface になると、承認経路や rollback path を仕様として持ちやすくなる。</li></ul>
-    </article></div>
+<h2>出力の型が正しくても、その操作が認められるとは限らない</h2>
+<p>例えば、社内アカウントの利用申請を処理する想定例を考える。
+最初の担当が申請から部署と必要な権限を抽出し、次の担当が確認用の説明を作り、人が承認した後に登録する。
+これは本稿の設計例であり、発表資料がこの詳細な実装を提供しているという意味ではない。</p>
+<p>部署名を文字列、承認結果を真偽値として受け渡せても、その値が正しいとは限らない。
+存在しない部署名も文字列にはなるし、エージェントが生成した「承認済み」は人の承認記録にはならない。
+型の検査に加えて、部署台帳との照合や、承認者と承認対象の確認が必要になる。</p>
+<p>レビューでは、抽出結果と承認記録を別の入力として扱うかを確かめる。
+承認後に権限の内容が変わった場合、その変更まで以前の承認で通してよいのかも決める。
+図や変数は、この問いを見える形にする道具であり、答えを自動的に与えるものではない。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>一次情報に現れていた具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>employee onboarding は multi-agent を業務フローとして見せる好例だった</h3>
-      <p>Foundry workflows post は onboarding を visual builder の代表例として扱っている。たとえば candidate / employee 情報の確認、必要書類の回収、manager approval、アカウント作成、最終通知といった step を graph に落とすと、specialist と reviewer の責務が可視化される。</p>
-    </article><article class="comparison-card">
-      <h3>financial approvals は variables と schema が効く領域だった</h3>
-      <p>workflow が variables、JSON schema output、Power Fx expressions を持つと、金額、部門、例外条件、承認結果を後段 node に安全に受け渡しやすい。これは multi-agent orchestration を chat 的な曖昧さから business process の artifact へ引き上げる。</p>
-    </article><article class="comparison-card">
-      <h3>IT service operations では trace と evaluator が運用品質を左右する</h3>
-      <p>IT service operations のような flow では、node ごとの input / output、variable update、branch path、tool call を追える granular tracing が重要になる。Foundry post が workflow 全体の observability と evaluators を強調したのは、この種の運用を想定しているからだ。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>multi-agent を増やすこと自体より、workflow graph をどれだけ review・version・evaluate できるかが実運用の分かれ目になっている。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>supervisor、specialist、reviewer の role を graph 上で明示し、権限差を残す。</li><li>variables と JSON schema を使って、node 間の handoff を自然言語の暗黙知にしない。</li><li>approval chain、rollback path、timeout handling を workflow 定義の中へ入れる。</li><li>observability は single agent trace だけでなく、end-to-end flow を見られるかで評価する。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>multi-agent workflow は、「高度な実装テクニック」から離れ、review、version、evaluation を伴う product surface として扱う段階に入り始めている。</p>
+<h2>計画を変える処理でも、固定する条件を残す</h2>
+<p>複数エージェントの動かし方は、あらかじめ並べた手順だけではない。
+<a href="https://arxiv.org/abs/2411.04468v1">Magentic-Oneの研究</a>は、統括役が進捗を見て計画を立て直し、ブラウザーやファイル、コードの担当へ指示する構成を示した。
+これは動的な計画の研究例であり、Foundryの画面機能との優劣比較ではない。</p>
+<p>申請内容の不足を調べる順序は変えられても、登録前の承認を省いてよいとは限らない。
+どの部分をエージェントの判断に任せ、どの条件を必ず満たす必要があるかを分けて定義する。
+そのうえで、承認前の登録、途中停止、入力の変更を試し、処理定義と実行結果が一致するかを確認する。
+ワークフローを見える形にする価値は、こうした具体的な検査につなげて初めて判断できる。</p>
 </section>

@@ -39,8 +39,8 @@
 - [x] 2026-03-21-enterprise-ai-agents-readiness — 改稿/ビルド/公開完了 (5ed5e16, Actions 35433940431 success, 日英HTTP 200 + 本文一致)
 - [x] 2026-03-01-agent-architecture-matters-more-than-model-novelty — 改稿/ビルド/公開完了 (c42c478, 日英HTTP 200 + 本文一致)
 - [x] 2026-02-01-control-planes-and-evals-set-the-pace — 改稿/ビルド/公開完了 (da3e58c, 日英HTTP 200 + 本文一致)
-- [x] 2026-01-01-the-2025-signal-is-operational-boundaries — 改稿/ビルド完了、公開照合待ち
-- [ ] 2025-12-01-multi-agent-workflows-become-a-product-surface
+- [x] 2026-01-01-the-2025-signal-is-operational-boundaries — 改稿/ビルド/公開完了 (f61e716, 日英HTTP 200 + 本文一致)
+- [x] 2025-12-01-multi-agent-workflows-become-a-product-surface — 改稿/ビルド完了、公開照合待ち
 - [ ] 2025-11-01-workflow-tooling-catches-up-with-agent-complexity
 - [ ] 2025-10-01-agent-sdks-expand-beyond-coding
 - [ ] 2025-09-01-coding-and-research-agents-broaden-the-scope
