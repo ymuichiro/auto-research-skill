@@ -1,19 +1,19 @@
-<section class="section">
+<section class="report-section">
 <h2>Separate tool-use methods from evidence of task completion</h2>
 <p>Search and calculation tools are useful building blocks for AI agents. A successful call, however, does not establish that the user's question has been answered. Looking at research available by January 1, 2025, ReAct and Toolformer address ways to use external information or functions, while WebArena provides an environment for evaluating completed web tasks.</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>How ReAct and Toolformer select actions</h2>
 <p><a href="https://arxiv.org/html/2210.03629v3">ReAct</a> combines language reasoning with actions and uses external observations in subsequent decisions. Its question-answering experiments include Wikipedia search, lookup within a page, and an action to finish with an answer. This lets the model obtain information during the task.</p>
 <p>The results are not uniformly positive. In the PaLM-540B comparison, ReAct outperformed chain-of-thought prompting on FEVER but underperformed it on HotpotQA. The paper analyzes unhelpful search results and repeated actions as failure modes. Adding retrieval does not therefore establish an improvement for every question.</p>
 <p><a href="https://arxiv.org/abs/2302.04761v1">Toolformer</a> studies learning which APIs to call, when to call them, which arguments to pass, and how to incorporate results into subsequent text generation. Its tools include a calculator, search, and translation. It addresses learning tool use rather than prescribing the same implementation procedure as ReAct.</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>WebArena evaluates the completed task</h2>
 <p>The <a href="https://arxiv.org/abs/2307.13854v1">first version of WebArena</a> provides working websites for e-commerce, forums, collaborative software development, and content management. Its tasks assess functional completion, providing an environment in which the outcome of a sequence of actions can be evaluated.</p>
 <p>The design implication drawn here is to assess tool calls separately from task success. A response from a search API establishes connectivity. Whether it contains the necessary information, and whether the final answer meets the user's conditions, still requires evaluation. Results in a research environment also cannot be treated as success rates for a company's own websites or workflows.</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>Define the answer conditions for internal document search</h2>
 <p>Consider a hypothetical question about a device's maintenance deadline. A search result about an older model does not support the answer, even if the API call succeeds. The deadline may depend on the exact model and contract.</p>
 <p>For this task, a proposed evaluation would require the correct model, applicable document version, and passage stating the deadline. It should also credit identifying missing evidence when the document or contract information is unavailable, rather than asserting a date. Compare the system with and without the tool on the same questions, recording answers that meet these conditions alongside time and call counts.</p>

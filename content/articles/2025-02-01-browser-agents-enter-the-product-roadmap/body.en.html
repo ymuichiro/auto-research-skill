@@ -1,20 +1,20 @@
-<section class="section">
+<section class="report-section">
 <h2>Operating a browser does not prove that a task is complete</h2>
 <p>On January 23, 2025, OpenAI announced Operator, a research preview that could use a browser through screenshots, clicks, and typing. Those capabilities leave a practical question: after an action, how does the system establish what actually happened? This article considers result verification and human handoff using announcements available by February 1, 2025.</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>Capabilities announced, and limits that remained</h2>
 <p>The <a href="https://openai.com/index/introducing-operator/">Operator announcement</a> describes reading screenshots and clicking, typing, and scrolling in a browser. This allows interaction through a website's interface without requiring a dedicated API for every service. At launch, access was a research preview for Pro users in the United States.</p>
 <p>OpenAI described handing control to the user for login, payment details, and CAPTCHAs, with confirmation before significant actions such as orders or email. These are stated design intentions, not evidence that confirmation works correctly for every interface and action.</p>
 <p>Observation also has limits. Anthropic's <a href="https://www.anthropic.com/research/developing-computer-use">October 2024 explanation of computer use</a> notes that successive screenshots, rather than continuous video, can miss short-lived events such as notifications. Access to more interfaces does not ensure that every change will be observed.</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>Verify what happens after a form submission</h2>
 <p>Consider a hypothetical request for an information pack, not a reported product result. An agent enters a name and contact details, then clicks Submit. A required-field error means the request has not completed. A loading screen leaves the outcome uncertain.</p>
 <p>One design approach is to distinguish the screen before the action, the submitted values, and the state observed afterward. When a completion screen is visible, report that evidence. Otherwise, say that submission was attempted but acceptance remains unconfirmed. Before clicking again, investigate whether a repeat could create a duplicate request.</p>
 <p>This is a design proposal. What counts as evidence depends on the site's interface and request history. If a brief notification is the only signal, check whether another mechanism can establish the outcome after that notification disappears.</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>Hand over the partial result as well as the browser</h2>
 <p>When authentication requires a person, provide what has been entered, whether submission was attempted, and what remains unverified. That context helps the user continue without repeating actions.</p>
 <p>Tests should include validation errors, delayed screens, and authentication interruptions alongside successful submissions. In each case, check whether the system can establish completion or accurately communicate uncertainty. Before integrating browser operation into a product, evaluate interruption and resumption as well as successful sequences of clicks.</p>
