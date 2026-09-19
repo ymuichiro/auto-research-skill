@@ -1,76 +1,21 @@
-<section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>AI agents are shifting from flashy demos toward measurable system design</h2>
-  <p>The center of gravity is moving away from prompt cleverness and toward tool use, environment interaction, and task completion. ReAct and Toolformer establish the reasoning-and-action foundation, while WebArena, SWE-bench, OSWorld, and BrowserGym ask how far agents can actually complete multi-step tasks in realistic environments. AWS, Google, and Anthropic are also pushing retrieval, tool use, and managed builders into product surfaces.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">Only papers and official docs / announcements tied directly to the argument are listed.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">28</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3 shifts</p>
-      <p class="stat-title">What changed</p>
-      <p class="stat-note">Tool use, environment tasks, and managed primitives all became more concrete.</p>
-    </article></div>
+<section class="section">
+<h2>Separate tool-use methods from evidence of task completion</h2>
+<p>Search and calculation tools are useful building blocks for AI agents. A successful call, however, does not establish that the user's question has been answered. Looking at research available by January 1, 2025, ReAct and Toolformer address ways to use external information or functions, while WebArena provides an environment for evaluating completed web tasks.</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Benchmarks showed that conversation quality alone was no longer enough</h3>
-      <p>WebArena and BrowserGym evaluated long web tasks, SWE-bench measured issue-to-patch-and-test workflows, and OSWorld expanded the frame to open-ended desktop tasks. Agent capability was starting to be measured by whether a system could complete multi-step work in an environment, not just produce a plausible answer.</p>
-    </article><article class="comparison-card">
-      <h3>Official platforms pushed tool use and retrieval into the product layer</h3>
-      <p>AWS Bedrock Agents, Google Vertex AI Agent Builder, and Anthropic's tool use launch all treated agents as system components connected to knowledge sources and external tools rather than as prompt templates. The practical comparison axis was already drifting toward orchestration.</p>
-    </article><article class="comparison-card">
-      <h3>The design question became “what do we measure?” rather than “what can it do?”</h3>
-      <p>Anthropic's Building effective agents reinforced the same pattern: the safer path was not a universal assistant, but a stack of bounded tasks with clear operating constraints. Early 2025 was already pointing toward measurable workflows instead of capability theater.</p>
-    </article></div>
+<section class="section">
+<h2>How ReAct and Toolformer select actions</h2>
+<p><a href="https://arxiv.org/html/2210.03629v3">ReAct</a> combines language reasoning with actions and uses external observations in subsequent decisions. Its question-answering experiments include Wikipedia search, lookup within a page, and an action to finish with an answer. This lets the model obtain information during the task.</p>
+<p>The results are not uniformly positive. In the PaLM-540B comparison, ReAct outperformed chain-of-thought prompting on FEVER but underperformed it on HotpotQA. The paper analyzes unhelpful search results and repeated actions as failure modes. Adding retrieval does not therefore establish an improvement for every question.</p>
+<p><a href="https://arxiv.org/abs/2302.04761v1">Toolformer</a> studies learning which APIs to call, when to call them, which arguments to pass, and how to incorporate results into subsequent text generation. Its tools include a calculator, search, and translation. It addresses learning tool use rather than prescribing the same implementation procedure as ReAct.</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Research and briefing preparation</h3>
-      <ul class="bullet-list"><li>Agents could gather public materials, cluster themes, and draft comparison tables or first-pass summaries.</li><li>If retrieval and citation rules were separated cleanly, humans could verify the work afterward.</li></ul>
-    </article><article class="comparison-card">
-      <h3>Support assistance with knowledge retrieval</h3>
-      <ul class="bullet-list"><li>Agents could pull FAQs, runbooks, and ticket history before drafting replies.</li><li>Tool use plus escalation rules made it easier to return only uncertain cases to a human.</li></ul>
-    </article></div>
+<section class="section">
+<h2>WebArena evaluates the completed task</h2>
+<p>The <a href="https://arxiv.org/abs/2307.13854v1">first version of WebArena</a> provides working websites for e-commerce, forums, collaborative software development, and content management. Its tasks assess functional completion, providing an environment in which the outcome of a sequence of actions can be evaluated.</p>
+<p>The design implication drawn here is to assess tool calls separately from task success. A response from a search API establishes connectivity. Whether it contains the necessary information, and whether the final answer meets the user's conditions, still requires evaluation. Results in a research environment also cannot be treated as success rates for a company's own websites or workflows.</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete scenarios already visible in the source set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>SWE-bench made issue-to-fix workflows tangible</h3>
-      <p>The benchmark showed that the real value of a coding agent was not suggesting a code snippet, but handling issue understanding, repository navigation, patch creation, and test execution as one task. That maps naturally to bounded production workflows such as bug triage or patch-candidate preparation.</p>
-    </article><article class="comparison-card">
-      <h3>WebArena and BrowserGym pointed to realistic browser work</h3>
-      <p>By evaluating storefront administration, CMS interaction, and GitLab-like task flows, these benchmarks pushed browser automation beyond research theater. The practical entry point for agent adoption looked less like open conversation and more like repetitive work inside existing interfaces.</p>
-    </article><article class="comparison-card">
-      <h3>AWS, Google, and Anthropic reinforced support-oriented starting points</h3>
-      <p>Bedrock Agents, Vertex AI Agent Builder, and Claude tool use all supported the same near-term pattern: assistants grounded in knowledge retrieval and API-backed actions. Support workflows, internal search, and document-based guidance were among the most realistic early deployment targets.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>The important question is not how impressive an agent can look, but how clearly a team can define and measure the tasks it should perform.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Start with 5 to 10 representative tasks such as FAQ response, research summarization, or issue triage and turn them into an eval set.</li><li>Keep tool calls and retrieval sources in the trace so humans can review failure causes.</li><li>For browser and desktop work, begin with read-heavy or low-risk workflows before open-ended action loops.</li><li>Even on managed platforms, separate knowledge sources from tool permissions early.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>The gap between agent systems depends less on flashy demos and more on how well teams can make bounded, tool-connected tasks measurable.</p>
+<section class="section">
+<h2>Define the answer conditions for internal document search</h2>
+<p>Consider a hypothetical question about a device's maintenance deadline. A search result about an older model does not support the answer, even if the API call succeeds. The deadline may depend on the exact model and contract.</p>
+<p>For this task, a proposed evaluation would require the correct model, applicable document version, and passage stating the deadline. It should also credit identifying missing evidence when the document or contract information is unavailable, rather than asserting a date. Compare the system with and without the tool on the same questions, recording answers that meet these conditions alongside time and call counts.</p>
+<p>That comparison can establish which questions benefit from retrieval. The proposal is to pair a mechanism for selecting actions with an evaluation of the result the user actually needs.</p>
 </section>

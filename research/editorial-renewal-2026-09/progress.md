@@ -50,8 +50,8 @@
 - [x] 2025-05-01-open-runtimes-and-managed-platforms-converge — 改稿/ビルド/公開完了 (1385aa3, 日英HTTP 200 + 本文一致)
 - [x] 2025-04-01-managed-agent-primitives-arrive-together — 改稿/ビルド/公開完了 (30f59a1, 日英HTTP 200 + 本文一致)
 - [x] 2025-03-01-agent-evaluation-becomes-a-gating-layer — 改稿/ビルド/公開完了 (13a28eb, 日英HTTP 200 + 本文一致)
-- [x] 2025-02-01-browser-agents-enter-the-product-roadmap — 改稿/ビルド完了、公開照合待ち
-- [ ] 2025-01-01-agents-shift-to-measurable-systems
+- [x] 2025-02-01-browser-agents-enter-the-product-roadmap — 改稿/ビルド/公開完了 (c5b30f6, 日英HTTP 200 + 本文一致)
+- [x] 2025-01-01-agents-shift-to-measurable-systems — 改稿/ビルド完了、公開照合待ち
 
 ## 共通作業
 - [ ] 読みやすさとSEOの実装/検証
