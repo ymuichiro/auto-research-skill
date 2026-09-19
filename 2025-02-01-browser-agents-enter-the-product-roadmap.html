@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる | Auto Research Digest</title>
-    <meta name="description" content="Operator、AutoGen v0.4、computer use 系の流れから、ブラウザ操作エージェントが研究テーマから製品ロードマップへ移る背景を整理する。">
+    <title>ブラウザ操作エージェントは、送信後の状態をどう確認するか | Auto Research Digest</title>
+    <meta name="description" content="Operatorの研究プレビューと画面観測の制約を確認。仮想のフォーム送信を例に、完了の根拠、二重送信、人への引き継ぎを整理する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる | Auto Research Digest">
-    <meta property="og:description" content="Operator、AutoGen v0.4、computer use 系の流れから、ブラウザ操作エージェントが研究テーマから製品ロードマップへ移る背景を整理する。">
+    <meta property="og:title" content="ブラウザ操作エージェントは、送信後の状態をどう確認するか | Auto Research Digest">
+    <meta property="og:description" content="Operatorの研究プレビューと画面観測の制約を確認。仮想のフォーム送信を例に、完了の根拠、二重送信、人への引き継ぎを整理する。">
     <meta property="og:url" content="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる">
+    <meta property="og:image:alt" content="ブラウザ操作エージェントは、送信後の状態をどう確認するか">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる | Auto Research Digest">
-    <meta name="twitter:description" content="Operator、AutoGen v0.4、computer use 系の流れから、ブラウザ操作エージェントが研究テーマから製品ロードマップへ移る背景を整理する。">
+    <meta name="twitter:title" content="ブラウザ操作エージェントは、送信後の状態をどう確認するか | Auto Research Digest">
+    <meta name="twitter:description" content="Operatorの研究プレビューと画面観測の制約を確認。仮想のフォーム送信を例に、完了の根拠、二重送信、人への引き継ぎを整理する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる">
+    <meta name="twitter:image:alt" content="ブラウザ操作エージェントは、送信後の状態をどう確認するか">
     <link rel="canonical" href="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-02-01-browser-agents-enter-the-product-roadmap.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-02-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-06T23:53:04+09:00">
+    <meta property="article:modified_time" content="2026-09-19T19:04:53+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Computer Use">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる","description":"Operator、AutoGen v0.4、computer use 系の流れから、ブラウザ操作エージェントが研究テーマから製品ロードマップへ移る背景を整理する。","datePublished":"2025-02-01T00:00:00+09:00","dateModified":"2026-05-06T23:53:04+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Computer Use, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる","item":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"ブラウザ操作エージェントは、送信後の状態をどう確認するか","description":"Operatorの研究プレビューと画面観測の制約を確認。仮想のフォーム送信を例に、完了の根拠、二重送信、人への引き継ぎを整理する。","datePublished":"2025-02-01T00:00:00+09:00","dateModified":"2026-09-19T19:04:53+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Computer Use, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"ブラウザ操作エージェントは、送信後の状態をどう確認するか","item":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる</h1>
-          <p class="hero-copy">Operator、AutoGen v0.4、computer use 系の研究と発表が重なり、ブラウザ操作や durable orchestration は近未来の話ではなく、製品計画の中で扱うテーマになっている。</p>
+          <h1 class="hero-title">ブラウザ操作エージェントは、送信後の状態をどう確認するか</h1>
+          <p class="hero-copy">Operatorの初期発表とcomputer useの制約から、フォーム送信後の確認と人への引き継ぎを考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-02-01">2025年2月1日</time>
-        <time class="mono-note" datetime="2026-05-06">最終更新 2026年5月6日</time>
+        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Evaluation</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%93%8D%E4%BD%9C%E7%B3%BB%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%8C%E3%80%81%E7%A0%94%E7%A9%B6%E3%83%86%E3%83%BC%E3%83%9E%E3%81%8B%E3%82%89%E8%A3%BD%E5%93%81%E3%83%AD%E3%83%BC%E3%83%89%E3%83%9E%E3%83%83%E3%83%97%E3%81%B8%E5%85%A5%E3%81%A3%E3%81%A6%E3%81%8F%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-02-01-browser-agents-enter-the-product-roadmap.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%93%8D%E4%BD%9C%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AF%E3%80%81%E9%80%81%E4%BF%A1%E5%BE%8C%E3%81%AE%E7%8A%B6%E6%85%8B%E3%82%92%E3%81%A9%E3%81%86%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-02-01-browser-agents-enter-the-product-roadmap.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる"
-      data-share-text="ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる"
+      data-share-title="ブラウザ操作エージェントは、送信後の状態をどう確認するか"
+      data-share-text="ブラウザ操作エージェントは、送信後の状態をどう確認するか"
       data-share-url="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="ブラウザ操作系エージェントが、研究テーマから製品ロードマップへ入ってくる"
+      data-share-title="ブラウザ操作エージェントは、送信後の状態をどう確認するか"
       data-share-url="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -123,81 +123,46 @@
     </button>
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
-    <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>ブラウザ操作系エージェントは、研究テーマから製品ロードマップへ入り始める</h2>
-  <p>browser / computer use agent は、もはや遠い将来の話ではない。WebVoyager、VisualWebArena、OSWorld、Magentic-One、BrowserGym が environment task を前面に出し、Anthropic は computer use を研究記事で詳しく説明し、OpenAI は Operator を出し、Microsoft Research は AutoGen v0.4 で durable orchestration を整理している。UI と environment を相手にする agent を、実装計画の中に置ける条件がそろい始めている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">10件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">browser / computer use の変化に直結する source に限定した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">31件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる papers と official posts を整理した。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">3条件</p>
-      <p class="stat-title">前提になったこと</p>
-      <p class="stat-note">environment perception、durable orchestration、human boundary が同時に問われた。</p>
-    </article></div>
+    <section class="article-body"><section class="section">
+<h2>ブラウザを操作できても、処理が完了したとは限らない</h2>
+<p>2025年1月23日、OpenAIはブラウザを操作するOperatorの研究プレビューを発表した。
+画面を見てクリックや文字入力を行い、利用者が頼んだ作業を進める仕組みだ。
+ただし、ボタンを押せることと、意図した処理を終えられることには隔たりがある。
+本稿では2025年2月1日時点の発表をもとに、操作後の確認と、人に引き継ぐ際の設計を考える。</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>browser agent は benchmark の主役級に上がった</h3>
-      <p>WebVoyager、VisualWebArena、BrowserGym は、ブラウザ上の multi-step task を評価の中心に据えた。これは、agent を chat product の延長で見るより、実際の UI を使う operator として考える方向が強まったことを意味する。</p>
-    </article><article class="comparison-card">
-      <h3>Anthropic と OpenAI は computer use を製品議論へ押し込んだ</h3>
-      <p>Anthropic の Developing computer use は perception、planning、action の難しさを公開し、OpenAI の Operator は browser task を consumer-facing product roadmap に載せた。computer use は research のみではなく product surface の候補になった。</p>
-    </article><article class="comparison-card">
-      <h3>durable orchestration が browser loop の前提になった</h3>
-      <p>AutoGen v0.4 や Magentic-One の流れを踏まえると、browser agent は 1 turn の推論だけでは成立しない。long-running state、planner / executor の分離、途中失敗からの recovery が重要になる。</p>
-    </article></div>
+<section class="section">
+<h2>発表された機能と、残された制約</h2>
+<p><a href="https://openai.com/index/introducing-operator/">Operatorの発表</a>では、スクリーンショットを読み取り、ブラウザ上でクリック、入力、スクロールを行う方法が説明されている。
+個々のウェブサービスに専用APIがなくても、画面を通じて操作できる点が特徴だ。
+公開当初は米国のPro利用者向けの研究プレビューであり、一般的な業務を無条件に任せられる製品として発表されたわけではない。</p>
+<p>OpenAIは、ログイン、支払い情報の入力、CAPTCHAでは利用者に操作を引き継ぐと説明した。
+注文やメール送信などの重要な操作の前に確認を求める設計も示している。
+これは製品の設計意図であり、あらゆる画面や操作で確認が正しく働くことの実証ではない。</p>
+<p>画面を使う方式には、観測上の制約もある。
+Anthropicの<a href="https://www.anthropic.com/research/developing-computer-use">2024年10月のcomputer use解説</a>は、連続した動画ではなくスクリーンショットを見ているため、短時間だけ表示される通知などを見逃し得ると説明している。
+操作できる対象が広がっても、画面の変化を常に捉えられるとは限らない。</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Web 調査とフォーム準備の補助</h3>
-      <ul class="bullet-list"><li>情報の参照、比較、フォーム入力の下準備など、read-heavy な browser task から入る。</li><li>submit 前に人が止められる設計なら、browser agent の価値を出しやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>QA と回帰確認の自動化補助</h3>
-      <ul class="bullet-list"><li>既存 UI の巡回、画面遷移確認、異常箇所の記録は、computer use 系 agent と相性がよい。</li><li>ただし brittle な操作が多いので durable orchestration が前提になる。</li></ul>
-    </article></div>
+<section class="section">
+<h2>フォーム送信では、クリックの後を確かめる</h2>
+<p>以下は設計を考えるための仮想例であり、製品の実績ではない。
+エージェントに資料請求フォームの入力を頼むとする。
+氏名と連絡先を入力して送信ボタンを押しても、必須項目のエラーが出ていれば請求は完了していない。
+処理中の画面が続く場合も、その場では成功か失敗かを判定できない。</p>
+<p>そこで、入力前の画面、送信した内容、送信後に確認できた状態を区別して記録する。
+完了画面が確認できた場合は、その根拠を利用者へ返す。
+確認できない場合は「送信操作は行ったが、受付完了は未確認」と伝える。
+同じボタンを再度押す前には、二重送信になる可能性を調べる必要がある。</p>
+<p>この確認方法は本稿の設計提案だ。
+実際のサイトで何を完了の根拠にできるかは、画面や受付履歴の仕様によって異なる。
+短く表示される通知だけを根拠にする場合は、見逃した後に確認できる別の手段があるかも検討したい。</p>
 </section>
-
-<section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>一次情報から見える具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Operator は multi-step browser task を consumer workflow として見せた</h3>
-      <p>OpenAI の Operator は、Web 上での調査、候補比較、入力補助のような長めの task を product surface へ持ち込んだ。重要なのは browser click 自体ではなく、途中で確認を入れながら step を積み重ねる設計が成立し始めていたことだ。</p>
-    </article><article class="comparison-card">
-      <h3>Anthropic の computer use は GUI automation の難所を明文化した</h3>
-      <p>Anthropic は screenshot-based perception、UI state の変化、細かな action precision を難題として整理している。これは、browser agent の価値が万能自動化ではなく、情報収集や repeatable な手順を人の監督下で補助することにあると読み解ける。</p>
-    </article><article class="comparison-card">
-      <h3>AutoGen v0.4 と Magentic-One は planner / executor 型の実装像を具体化した</h3>
-      <p>planner が task を分解し、browser や tool を使う worker が実行し、最後に reviewer が確かめる構成は、research と product の両方で現実味を帯びてきた。2月時点の browser agent は、単独モデルの力試しというより orchestration design の題材だった。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>browser agent を現実的にする鍵は、クリック能力より durable state と human boundary をどう置くかにある。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>read-only な page navigation と irreversible action を分ける。</li><li>planner、executor、reviewer を分けるなら、handoff の state を保存する。</li><li>benchmark で良い結果が出ても、production では DOM 変化や login state への備えが必要になる。</li><li>computer use の rollout は narrow workflow から始め、full autonomy を急がない。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>browser agent は、durable orchestration と human oversight を前提に、研究テーマから製品計画へ入り始めている。</p>
+<section class="section">
+<h2>人への引き継ぎも、途中までの結果を残す</h2>
+<p>認証画面で人に交代するときは、単にブラウザを渡すだけでは足りない。
+どこまで入力済みか、送信は行ったか、何を確認できていないかを一緒に示せば、利用者は同じ操作を繰り返さずに続けやすくなる。</p>
+<p>試験では、正常に送信できる場合に加え、入力エラー、表示の遅延、途中の認証要求を用意するとよい。
+各条件で、処理の完了を確認できるか、判断できない状態を利用者に正しく渡せるかを見る。
+ブラウザ操作を製品へ組み込む際には、成功した一連のクリックだけでなく、この中断と再開の扱いまで確認することを提案する。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -276,57 +241,7 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2401.13919" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年1月25日</span>
-              </div>
-              <p class="source-title">WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models</p>
-              <p class="source-url">https://arxiv.org/abs/2401.13919</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2401.13649" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年1月24日</span>
-              </div>
-              <p class="source-title">VisualWebArena: Evaluating Multimodal Agents on Realistic Visual Web Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2401.13649</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年4月11日</span>
-              </div>
-              <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
-              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2411.04468" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年11月7日</span>
-              </div>
-              <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2411.04468</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年12月6日</span>
-              </div>
-              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/research/developing-computer-use" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://www.anthropic.com/research/developing-computer-use" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
@@ -334,26 +249,6 @@
               </div>
               <p class="source-title">Anthropic: Developing computer use</p>
               <p class="source-url">https://www.anthropic.com/research/developing-computer-use</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年12月19日</span>
-              </div>
-              <p class="source-title">Anthropic: Building effective agents</p>
-              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月17日</span>
-              </div>
-              <p class="source-title">Microsoft Research: AutoGen v0.4</p>
-              <p class="source-url">https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
@@ -364,16 +259,6 @@
               </div>
               <p class="source-title">OpenAI: Introducing Operator</p>
               <p class="source-url">https://openai.com/index/introducing-operator/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月24日</span>
-              </div>
-              <p class="source-title">Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai</p>
             </div>
             <span class="source-action">開く</span>
           </a>
