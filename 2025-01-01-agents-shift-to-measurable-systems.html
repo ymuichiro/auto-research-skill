@@ -43,13 +43,13 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-01-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T19:07:07+09:00">
+    <meta property="article:modified_time" content="2026-09-19T19:08:18+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Benchmark">
     <meta property="article:tag" content="Tool Use">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントのツール利用と課題達成を、どう分けて評価するか","description":"ReAct、Toolformer、WebArenaを読み、ツールの選択方法と課題達成の評価を整理。社内資料検索の仮想例で、成功条件の決め方を考える。","datePublished":"2025-01-01T00:00:00+09:00","dateModified":"2026-09-19T19:07:07+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Benchmark, Tool Use","mainEntityOfPage":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントのツール利用と課題達成を、どう分けて評価するか","description":"ReAct、Toolformer、WebArenaを読み、ツールの選択方法と課題達成の評価を整理。社内資料検索の仮想例で、成功条件の決め方を考える。","datePublished":"2025-01-01T00:00:00+09:00","dateModified":"2026-09-19T19:08:18+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Benchmark, Tool Use","mainEntityOfPage":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントのツール利用と課題達成を、どう分けて評価するか","item":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -123,14 +123,14 @@
     </button>
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
-    <section class="article-body"><section class="section">
+    <section class="article-body"><section class="report-section">
 <h2>ツールを使う方法と、課題を達成したかの評価を分ける</h2>
 <p>検索や計算のツールを呼び出せることは、AIエージェントを作るための重要な要素だ。
 しかし、呼び出しが成功しても、利用者の問いに答えられたとは限らない。
 2025年1月1日時点で読めるReAct、Toolformer、WebArenaを、この違いから整理する。
 前の二つはモデルが外部の情報や機能をどう使うかを扱い、WebArenaはウェブ上の課題を最後まで達成できたかを測る環境を用意した。</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>ReActとToolformerが扱う、行動の選び方</h2>
 <p><a href="https://arxiv.org/html/2210.03629v3">ReAct</a>は、言語による推論と行動を組み合わせ、外部から得た観測を次の判断に使う方法を研究した。
 論文の質問応答実験では、Wikipediaの検索、ページ内の語句検索、回答の確定という操作を使う。
@@ -143,7 +143,7 @@ PaLM-540Bを使った比較では、ReActはFEVERでCoTを上回った一方、H
 対象には計算機、検索、翻訳などが含まれる。
 ReActと同じ実装手順を提案した研究ではなく、ツール利用をモデルへ学習させる問題を扱っている。</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>WebArenaが置いた、課題全体の採点</h2>
 <p><a href="https://arxiv.org/abs/2307.13854v1">WebArenaの初版</a>は、電子商取引、フォーラム、共同ソフトウェア開発、コンテンツ管理のウェブ環境を用意し、課題を機能的に達成したかを評価する。
 操作方法の提案に加えて、何をもって完了とするかを環境側で測るための研究だ。</p>
@@ -152,7 +152,7 @@ ReActと同じ実装手順を提案した研究ではなく、ツール利用を
 その結果が質問に必要な情報を含み、最終回答が利用者の条件を満たしたかは、さらに評価しなければならない。
 WebArenaのような研究環境の結果も、そのまま自社のサイトや業務での成功率には置き換えられない。</p>
 </section>
-<section class="section">
+<section class="report-section">
 <h2>社内資料検索なら、回答の条件を先に書く</h2>
 <p>以下は研究結果を説明するための仮想例だ。
 「この機器の保守期限を教えて」という問い合わせに、社内資料検索を使うとする。
