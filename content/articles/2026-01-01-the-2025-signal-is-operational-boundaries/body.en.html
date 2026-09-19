@@ -1,76 +1,21 @@
 <section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>The strongest signal across 2025 is the rise of explicit operational boundaries</h2>
-  <p>What 2025 makes clear is that the agent cycle looks less like a model race and more like a shift toward operational boundaries. A2A and MCP broaden interoperability, GPT-5 for developers and the Claude Agent SDK broaden work surfaces, and AgentKit, Agent Framework, and Foundry workflows thicken the control-plane and workflow layers. The core question of the year is how far work should be delegated to agents and where human review and policy should take over.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">Only papers and official launches that best represent the 2025 shift are listed.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">51</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">The pool includes only primary sources available for publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4 boundaries</p>
-      <p class="stat-title">What became explicit</p>
-      <p class="stat-note">Protocol, control plane, approval, and workflow surface emerged as core design boundaries.</p>
-    </article></div>
+<h2>Read the 2025 launches through delegated work and remaining responsibility</h2>
+<p>Connecting agents does not establish that a job can be delegated end to end. Teams still need to decide what information crosses the connection, which actions are allowed, and who checks the result. Several 2025 announcements supplied different tools for implementing those decisions.</p>
+<p>This retrospective examines the June A2A transfer, September Claude Agent SDK announcement, and November Foundry workflow preview. They do not measure annual adoption or success rates. They illustrate distinct responsibilities in communication, execution, and workflow management.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest year-long signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Protocols and interoperability changed the lock-in debate</h3>
-      <p>As A2A and MCP gained visibility, platform comparison stopped being only about the model or the hosting layer. Teams could increasingly imagine absorbing connector growth and vendor change at the architecture layer.</p>
-    </article><article class="comparison-card">
-      <h3>Control planes became a maturity signal</h3>
-      <p>AgentKit, Agent Framework, Foundry workflows, and the Claude Agent SDK all surfaced the same questions around sessions, policy, approval, traces, and versioning. Agent systems were looking less like model wrappers and more like operations software.</p>
-    </article><article class="comparison-card">
-      <h3>The winning pattern was bounded workflow accumulation</h3>
-      <p>Across the public evidence, successful deployment paths consistently looked like narrow, reviewable workflows rather than one universal assistant. The same pattern showed up in support, analysis, coding, and approval-heavy processes.</p>
-    </article></div>
+<h2>An open communication standard still needs a shared task contract</h2>
+<p>On <a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">June 23, 2025</a>, Google announced the transfer of the A2A specification, SDKs, and developer tools to a Linux Foundation project. The initiative for capability discovery and information exchange between agents moved into a multi-company governance structure.</p>
+<p>That transfer alone does not establish easy vendor migration. A notification that research is complete, for example, must distinguish full coverage from completion with unavailable sources. A common communication format and agreement about output meaning and quality require separate attention.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that looked sustainable across the year</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Persistent research desks</h3>
-      <ul class="bullet-list"><li>Agents could support weekly or monthly evidence gathering, comparison, drafting, and source verification.</li><li>Quality became easier to sustain when protocol and evaluation discipline were already in place.</li></ul>
-    </article><article class="comparison-card">
-      <h3>Exception handling in finance and operations</h3>
-      <ul class="bullet-list"><li>Agents fit especially well around exception cases and human-review queues rather than routine straight-through processing.</li><li>Bounded workflows plus approval chains consistently looked like the safer pattern.</li></ul>
-    </article></div>
+<h2>An execution SDK supports repeated research and revision</h2>
+<p>Anthropic's <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">September 29 announcement</a> renamed the Claude Code SDK to the Claude Agent SDK and described applying file and command tools beyond coding. Gathering information, acting, and checking work formed a reusable loop for activities including research.</p>
+<p>This offers a way to build document-reading, table-generation, and calculation workflows. Suggested uses are not evidence of widespread adoption. Developers must still decide which files are accessible, how calculations are checked, and when execution should stop.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete workload shapes visible across the 2025 source set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Research workflows expanded as bounded, evidence-preserving flows</h3>
-      <p>When BrowserGym-style environment evaluation, A2A / MCP interoperability, AgentKit builders and evals, and the Claude Agent SDK’s research loop are read together, research desks emerge as one of the clearest 2025 workloads. The real advantage came from traceability and evidence handling rather than abstract intelligence.</p>
-    </article><article class="comparison-card">
-      <h3>Coding, analysis, and approval became one architecture problem</h3>
-      <p>GPT-5 for developers, Agent Framework, and Foundry workflows make coding support, data-connected analysis, and financial approvals look less like separate products and more like one shared question about workflow surfaces and approval boundaries.</p>
-    </article><article class="comparison-card">
-      <h3>Operational boundaries accelerated rollout instead of slowing it down</h3>
-      <p>Once teams made review points, connector permissions, and deterministic steps explicit, narrow workflows became easier to ship. The 2025 signal was not that more constraints make delivery slower, but that clearer boundaries make delivery faster.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to re-check at the start of 2026</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>The important question is not how many pilots to add, but whether the organization has a reusable control plane and policy boundary.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Do not rebuild sessions, identity, approval, and traces separately for every PoC.</li><li>Compare vendors on protocol and workflow surface, not only on model quality.</li><li>Define bounded workflows as the unit of deployment.</li><li>Establish one review discipline that works across research, support, and coding.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>The core of agent adoption is shifting toward whether teams can define delegation, stopping points, and auditability in architecture and policy.</p>
+<h2>Saving a workflow does not define publication approval</h2>
+<p>Microsoft's <a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">November public preview</a> described visual and YAML workflow definitions, human-in-the-loop templates, and versions created on saving. These features make processing steps and changes inspectable.</p>
+<p>Consider a hypothetical research-publication workflow. A protocol could carry a request to another researcher; an SDK could retrieve material and prepare a draft; a workflow definition could manage the path from review to publication. A system need not adopt all three, but any adopted component should have a clear responsibility.</p>
+<p>A completed draft is not automatically ready to publish. The application must define conditions such as returning drafts with missing sources and publishing only the reviewed version. The design lesson from these announcements is to specify the artifacts being handed over and the conditions permitting action.</p>
 </section>
