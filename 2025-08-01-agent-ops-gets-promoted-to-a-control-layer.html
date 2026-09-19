@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AgentOps は補助機能ではなく control layer として扱われ始める | Auto Research Digest</title>
-    <meta name="description" content="Foundry、OpenAI、Google の発表をもとに、AgentOps が補助機能ではなく control layer として立ち上がる流れを整理する。">
+    <title>エージェント運用の確認点：実行記録・背景実行・復旧を分ける | Auto Research Digest</title>
+    <meta name="description" content="実行記録があれば安全に再試行できるのか。Agents SDKとResponses APIの発表を手がかりに、観測、背景実行、重複を防ぐ復旧を解説。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AgentOps は補助機能ではなく control layer として扱われ始める | Auto Research Digest">
-    <meta property="og:description" content="Foundry、OpenAI、Google の発表をもとに、AgentOps が補助機能ではなく control layer として立ち上がる流れを整理する。">
+    <meta property="og:title" content="エージェント運用の確認点：実行記録・背景実行・復旧を分ける | Auto Research Digest">
+    <meta property="og:description" content="実行記録があれば安全に再試行できるのか。Agents SDKとResponses APIの発表を手がかりに、観測、背景実行、重複を防ぐ復旧を解説。">
     <meta property="og:url" content="https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AgentOps は補助機能ではなく control layer として扱われ始める">
+    <meta property="og:image:alt" content="エージェント運用の確認点：実行記録・背景実行・復旧を分ける">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AgentOps は補助機能ではなく control layer として扱われ始める | Auto Research Digest">
-    <meta name="twitter:description" content="Foundry、OpenAI、Google の発表をもとに、AgentOps が補助機能ではなく control layer として立ち上がる流れを整理する。">
+    <meta name="twitter:title" content="エージェント運用の確認点：実行記録・背景実行・復旧を分ける | Auto Research Digest">
+    <meta name="twitter:description" content="実行記録があれば安全に再試行できるのか。Agents SDKとResponses APIの発表を手がかりに、観測、背景実行、重複を防ぐ復旧を解説。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AgentOps は補助機能ではなく control layer として扱われ始める">
+    <meta name="twitter:image:alt" content="エージェント運用の確認点：実行記録・背景実行・復旧を分ける">
     <link rel="canonical" href="https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-08-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-06T23:53:04+09:00">
+    <meta property="article:modified_time" content="2026-09-19T18:39:35+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="AgentOps">
     <meta property="article:tag" content="Observability">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AgentOps は補助機能ではなく control layer として扱われ始める","description":"Foundry、OpenAI、Google の発表をもとに、AgentOps が補助機能ではなく control layer として立ち上がる流れを整理する。","datePublished":"2025-08-01T00:00:00+09:00","dateModified":"2026-05-06T23:53:04+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, AgentOps, Observability","mainEntityOfPage":"https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AgentOps は補助機能ではなく control layer として扱われ始める","item":"https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"エージェント運用の確認点：実行記録・背景実行・復旧を分ける","description":"実行記録があれば安全に再試行できるのか。Agents SDKとResponses APIの発表を手がかりに、観測、背景実行、重複を防ぐ復旧を解説。","datePublished":"2025-08-01T00:00:00+09:00","dateModified":"2026-09-19T18:39:35+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, AgentOps, Observability","mainEntityOfPage":"https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"エージェント運用の確認点：実行記録・背景実行・復旧を分ける","item":"https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AgentOps は補助機能ではなく control layer として扱われ始める</h1>
-          <p class="hero-copy">Foundry・OpenAI・Google の発表を通じて、agent stack の競争は trace、review、observability、tool governance といった control layer へ移っている。</p>
+          <h1 class="hero-title">エージェント運用の確認点：実行記録・背景実行・復旧を分ける</h1>
+          <p class="hero-copy">Agents SDKの実行記録とResponses APIの背景実行から、運用機能の範囲を整理する。チケット作成後の通信断を例に、進行状況の取得と安全な再試行を分けて考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-08-01">2025年8月1日</time>
-        <time class="mono-note" datetime="2026-05-06">最終更新 2026年5月6日</time>
+        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AgentOps%20%E3%81%AF%E8%A3%9C%E5%8A%A9%E6%A9%9F%E8%83%BD%E3%81%A7%E3%81%AF%E3%81%AA%E3%81%8F%20control%20layer%20%E3%81%A8%E3%81%97%E3%81%A6%E6%89%B1%E3%82%8F%E3%82%8C%E5%A7%8B%E3%82%81%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E9%81%8B%E7%94%A8%E3%81%AE%E7%A2%BA%E8%AA%8D%E7%82%B9%EF%BC%9A%E5%AE%9F%E8%A1%8C%E8%A8%98%E9%8C%B2%E3%83%BB%E8%83%8C%E6%99%AF%E5%AE%9F%E8%A1%8C%E3%83%BB%E5%BE%A9%E6%97%A7%E3%82%92%E5%88%86%E3%81%91%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AgentOps は補助機能ではなく control layer として扱われ始める"
-      data-share-text="AgentOps は補助機能ではなく control layer として扱われ始める"
+      data-share-title="エージェント運用の確認点：実行記録・背景実行・復旧を分ける"
+      data-share-text="エージェント運用の確認点：実行記録・背景実行・復旧を分ける"
       data-share-url="https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AgentOps は補助機能ではなく control layer として扱われ始める"
+      data-share-title="エージェント運用の確認点：実行記録・背景実行・復旧を分ける"
       data-share-url="https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,80 +124,39 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>AgentOps は補助機能ではなく control layer として扱われ始める</h2>
-  <p>agent stack の競争は、『何ができるか』から『どう見え、どう止め、どうやり直せるか』へ移っている。Foundry 系の GA と Developer Essentials、OpenAI の Responses API 更新、Semantic Kernel orchestration、Google の MCP と A2A の発表を通して、trace、review、connector governance、run history が独立した control layer として見え始めている。</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8件</p>
-      <p class="stat-title">公開根拠</p>
-      <p class="stat-note">AgentOps と control layer の論点に直結する source のみに絞った。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">43件</p>
-      <p class="stat-title">調査母集団</p>
-      <p class="stat-note">公開日までに確認できる一次情報 URL だけを候補にした。</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4要件</p>
-      <p class="stat-title">control layer</p>
-      <p class="stat-note">trace、review、permission、recovery が主要条件になった。</p>
-    </article></div>
+<h2>実行が見えることと、失敗から戻せることを分ける</h2>
+<p>エージェントの処理が止まったとき、記録を見られることは調査の助けになる。
+しかし、その記録があるだけで、途中まで行った更新を取り消したり、安全に再実行したりできるわけではない。
+運用機能を比較するときは、観測、進行状況の取得、復旧を別々に確認したい。</p>
+<p>本稿では、2025年3月に発表されたAgents SDKの実行記録と、5月のResponses APIの背景実行を手がかりに、この違いを整理する。
+業界全体の競争軸が移ったという断定ではなく、機能を採用するときの読み方である。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>主要シグナル</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>observability が purchase criteria に近づいた</h3>
-      <p>Foundry 系の発表、Responses API、Semantic Kernel の流れを見ると、team が求めているのは新しい capability の追加だけでなく、trace と run history を見て改善できることだった。可観測性の有無が導入判断に効き始めている。</p>
-    </article><article class="comparison-card">
-      <h3>connector governance は model quality と別軸の差を作る</h3>
-      <p>MCP や A2A、enterprise connector が増えるほど、どの tool を誰が使え、どの action に review が必要かが大きな論点になる。AgentOps は model の外にある制御面の設計へ寄っている。</p>
-    </article><article class="comparison-card">
-      <h3>iteration 速度は運用能力で開きやすい</h3>
-      <p>RE-Bench や BrowserGym 系の示唆も含めると、同じ model を使っていても trace を読み改善を回せる team のほうが先へ進む。AgentOps は developer tooling であると同時に management discipline でもある。</p>
-    </article></div>
+<h2>実行記録は、どこまで進んだかを調べる材料になる</h2>
+<p>OpenAIの<a href="https://openai.com/index/new-tools-for-building-agents/">2025年3月のAgents SDK発表</a>は、エージェントの実行経路を可視化し、調査や改善に使う機能を紹介した。
+最終回答だけを見る場合に比べ、処理の途中を調べるための情報が増える。</p>
+<p>問い合わせへの誤回答なら、検索を行ったか、適切な資料を取得したか、資料を得た後で解釈を誤ったかを順に調べられる可能性がある。
+ただし、記録されていない接続先の処理まで分かるとは限らない。
+自分たちが調査したい失敗について、入力、ツールの結果、接続先の状態を関連付けられるかが確認点になる。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>現実味が高いユースケース</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>support case operations</h3>
-      <ul class="bullet-list"><li>問い合わせ分類、既知事例の参照、返信ドラフト作成、escalation 条件判定を行う。</li><li>trace があれば、誤分類や誤参照の原因をあとから追いやすい。</li></ul>
-    </article><article class="comparison-card">
-      <h3>IT 運用の診断補助</h3>
-      <ul class="bullet-list"><li>アラート、runbook、最近の変更情報をまとめ、原因候補と次アクションを整理する。</li><li>run history と replay が残れば、再発時の比較がしやすい。</li></ul>
-    </article></div>
+<h2>背景実行は、通信の待ち方を変える</h2>
+<p><a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">2025年5月のResponses API更新</a>は、長い処理を非同期で開始する背景実行を追加した。
+アプリケーションは状態を問い合わせたり、イベントの受信を開始したりして、進行を追う構成を取れる。</p>
+<p>これは、画面が長時間待つ処理を設計するうえで役立つ。
+ただし、任意の業務処理が自動的に復旧することや、接続先への更新が一度だけ行われることを保証する機能としては読めない。
+処理が完了したかを取得する仕組みと、副作用を含む業務の再実行は区別する必要がある。</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>公開根拠から見える具体シナリオ</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>support workflow では『なぜその回答になったか』の説明責任が重要になる</h3>
-      <p>FAQ retrieval と connector action を含む support flow では、答えの quality だけでなく、どの document と tool call に基づいたかが必要になる。trace と run history がないと、誤回答の修正が属人的になるため、AgentOps の価値が大きい。</p>
-    </article><article class="comparison-card">
-      <h3>database-connected assistant は permission と review の control layer が前提になる</h3>
-      <p>Google の MCP integrations や enterprise connector の文脈では、assistant が data source へ近づくほど review gate と permission scope が必要になる。ここで重要なのは、model が賢いかではなく、危険な action を止められるかだ。</p>
-    </article><article class="comparison-card">
-      <h3>A2A や orchestration が増えるほど end-to-end trace が重要になる</h3>
-      <p>複数 agent が分担する flow では、どの node で遅れたか、どの handoff で情報が欠けたかを追えることが改善速度を左右する。control layer の中心は、agent を増やすことではなく、複雑さを読めるようにすることだった。</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>設計・評価・運用で先に決めるべきこと</h2>
-  <div class="callout-panel">
-    <p class="callout-title">観測点</p>
-    <p>agent を導入する team に必要なのは、prompt の妙味より、trace を読み、review を回し、recovery path を持てる運用能力だ。</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>trace、session、tool call history を標準で保存する。</li><li>approval UI と review queue を運用基盤の一部として扱う。</li><li>failure class ごとに retry / rollback / human takeover の条件を決める。</li><li>connector が増えるほど、permission scope の棚卸しを定期運用にする。</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>結論</h2>
-  <p>agent platform の差は、『何ができるか』より『問題が起きたときにどう観測し、どう止め、どう復帰できるか』で測られている。</p>
+<h2>チケットを作成した直後の通信断で、復旧を試す</h2>
+<p>ここでは、エージェントが問い合わせ用のチケットを作り、その応答を受け取る前に通信が切れた場面を想定する。
+アプリケーション側に失敗と表示されても、接続先にはチケットが存在するかもしれない。
+同じ作成処理を繰り返すと、二重登録になる可能性がある。</p>
+<p>この場合の設計案は、同じ依頼を識別できる値を残し、接続先の状態を確認してから再試行を決めることだ。
+接続先が重複を防ぐ仕組みを提供しているなら、その契約に合わせる。
+結果が分からない場合には人へ戻すなど、成功とも失敗とも確定できない状態を扱う必要がある。</p>
+<p>この試行で、記録から原因を追えるか、利用者に現在の状態を伝えられるか、二重登録せずに完了へ進めるかを別々に確認する。
+運用機能の価値は、機能名の数より、具体的な失敗に対応できる範囲から判断したい。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -276,44 +235,14 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年11月22日</span>
-              </div>
-              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
-              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年12月6日</span>
-              </div>
-              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年5月19日</span>
+                <span class="mono-note">2025年3月11日</span>
               </div>
-              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
-              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年5月19日</span>
-              </div>
-              <p class="source-title">Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry</p>
-              <p class="source-url">https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/</p>
+              <p class="source-title">OpenAI: New tools for building agents</p>
+              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
@@ -324,36 +253,6 @@
               </div>
               <p class="source-title">OpenAI: New tools and features in the Responses API</p>
               <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年5月27日</span>
-              </div>
-              <p class="source-title">Microsoft: Semantic Kernel multi-agent orchestration</p>
-              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年6月4日</span>
-              </div>
-              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年6月23日</span>
-              </div>
-              <p class="source-title">Google Developers Blog: Google Cloud donates A2A to Linux Foundation</p>
-              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
             </div>
             <span class="source-action">開く</span>
           </a>

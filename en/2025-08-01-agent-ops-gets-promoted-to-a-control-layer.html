@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AgentOps is becoming a control layer rather than a helper feature | Auto Research Digest EN</title>
-    <meta name="description" content="Based on releases from Microsoft, OpenAI, and Google, this article shows how AgentOps is becoming a control layer rather than a helper feature.">
+    <title>Agent operations: distinguish traces, background execution, and recovery | Auto Research Digest EN</title>
+    <meta name="description" content="Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AgentOps is becoming a control layer rather than a helper feature | Auto Research Digest EN">
-    <meta property="og:description" content="Based on releases from Microsoft, OpenAI, and Google, this article shows how AgentOps is becoming a control layer rather than a helper feature.">
+    <meta property="og:title" content="Agent operations: distinguish traces, background execution, and recovery | Auto Research Digest EN">
+    <meta property="og:description" content="Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AgentOps is becoming a control layer rather than a helper feature">
+    <meta property="og:image:alt" content="Agent operations: distinguish traces, background execution, and recovery">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AgentOps is becoming a control layer rather than a helper feature | Auto Research Digest EN">
-    <meta name="twitter:description" content="Based on releases from Microsoft, OpenAI, and Google, this article shows how AgentOps is becoming a control layer rather than a helper feature.">
+    <meta name="twitter:title" content="Agent operations: distinguish traces, background execution, and recovery | Auto Research Digest EN">
+    <meta name="twitter:description" content="Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AgentOps is becoming a control layer rather than a helper feature">
+    <meta name="twitter:image:alt" content="Agent operations: distinguish traces, background execution, and recovery">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-08-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-05-06T23:53:04+09:00">
+    <meta property="article:modified_time" content="2026-09-19T18:39:35+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="AgentOps">
     <meta property="article:tag" content="Observability">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AgentOps is becoming a control layer rather than a helper feature","description":"Based on releases from Microsoft, OpenAI, and Google, this article shows how AgentOps is becoming a control layer rather than a helper feature.","datePublished":"2025-08-01T00:00:00+09:00","dateModified":"2026-05-06T23:53:04+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, AgentOps, Observability","mainEntityOfPage":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AgentOps is becoming a control layer rather than a helper feature","item":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent operations: distinguish traces, background execution, and recovery","description":"Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.","datePublished":"2025-08-01T00:00:00+09:00","dateModified":"2026-09-19T18:39:35+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, AgentOps, Observability","mainEntityOfPage":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent operations: distinguish traces, background execution, and recovery","item":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AgentOps is becoming a control layer rather than a helper feature</h1>
-          <p class="hero-copy">The spring-to-summer launch pattern across Microsoft, OpenAI, and Google shifts competition in the agent stack toward traces, reviews, observability, and tool governance as control layers.</p>
+          <h1 class="hero-title">Agent operations: distinguish traces, background execution, and recovery</h1>
+          <p class="hero-copy">Use Agents SDK tracing and Responses API background mode to distinguish visibility from recovery, with a ticket-creation failure illustrating retry risks.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-08-01">August 1, 2025</time>
-        <time class="mono-note" datetime="2026-05-06">Updated May 6, 2026</time>
+        <time class="mono-note" datetime="2026-09-19">Updated September 19, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AgentOps%20is%20becoming%20a%20control%20layer%20rather%20than%20a%20helper%20feature&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20operations%3A%20distinguish%20traces%2C%20background%20execution%2C%20and%20recovery&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="AgentOps is becoming a control layer rather than a helper feature"
-      data-share-text="AgentOps is becoming a control layer rather than a helper feature"
+      data-share-title="Agent operations: distinguish traces, background execution, and recovery"
+      data-share-text="Agent operations: distinguish traces, background execution, and recovery"
       data-share-url="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="AgentOps is becoming a control layer rather than a helper feature"
+      data-share-title="Agent operations: distinguish traces, background execution, and recovery"
       data-share-url="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -124,80 +124,25 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Signal Snapshot</p>
-  <h2>AgentOps is becoming a control layer rather than a helper feature</h2>
-  <p>The competition in agent platforms is shifting from “what can it do?” toward “how can we see it, stop it, and recover it?” Foundry GA and Developer Essentials, Responses API updates, Semantic Kernel orchestration, and Google’s MCP and A2A work all point to traceability, reviewability, connector governance, and run history as an emerging control layer.</p>
-  <div class="mt-6 grid gap-4 md:grid-cols-3"><article class="stat-card">
-      <p class="stat-value">8</p>
-      <p class="stat-title">Published evidence</p>
-      <p class="stat-note">The source set is limited to papers and official posts directly tied to AgentOps and control-layer design.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">43</p>
-      <p class="stat-title">Research pool</p>
-      <p class="stat-note">Candidate URLs were limited to primary sources available by publication.</p>
-    </article><article class="stat-card">
-      <p class="stat-value">4 requirements</p>
-      <p class="stat-title">Control layer</p>
-      <p class="stat-note">Trace, review, permission, and recovery became core requirements.</p>
-    </article></div>
+<h2>Visible execution and recoverable execution are different</h2>
+<p>Execution records help investigate an agent that stopped, but do not automatically undo partial updates or make retries safe. Observability, status retrieval, and recovery should be assessed separately.</p>
+<p>The March 2025 Agents SDK announcement and May Responses API background-mode release provide examples. This is a way to interpret operational features, not evidence of an industry-wide shift in buying criteria.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">What Stood Out</p>
-  <h2>The strongest signals</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Observability was becoming part of the purchase decision</h3>
-      <p>Across Foundry, Responses API, and Semantic Kernel, the value proposition was no longer only new capability. Teams increasingly needed to inspect traces and run history in order to improve the system. Observability was becoming part of the buying criteria.</p>
-    </article><article class="comparison-card">
-      <h3>Connector governance created a separate axis from model quality</h3>
-      <p>As MCP, A2A, and enterprise connectors spread, the important questions became who could call which tool and which actions required review. AgentOps was drifting toward the design of the control layer outside the model itself.</p>
-    </article><article class="comparison-card">
-      <h3>Iteration speed was increasingly determined by operational discipline</h3>
-      <p>Read together with RE-Bench and BrowserGym, the public evidence suggested that teams able to inspect traces and improve quickly would outpace teams relying on model choice alone. AgentOps was turning into both developer tooling and management discipline.</p>
-    </article></div>
+<h2>A trace provides material for investigating progress</h2>
+<p>OpenAI's <a href="https://openai.com/index/new-tools-for-building-agents/">March Agents SDK announcement</a> introduced visualization of execution traces for debugging and improvement. It adds information beyond the final answer.</p>
+<p>For an incorrect support response, a record may help distinguish missing search, retrieval of the wrong material, and misinterpretation after retrieval. It cannot reveal unrecorded processing in a connected service. Check whether the inputs, tool results, and external state needed for a relevant investigation can be associated.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Use Cases</p>
-  <h2>Use cases that look practical</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Support case operations</h3>
-      <ul class="bullet-list"><li>Agents can classify requests, retrieve prior cases, draft replies, and decide whether to escalate.</li><li>Trace data makes it much easier to investigate misclassification or evidence errors later.</li></ul>
-    </article><article class="comparison-card">
-      <h3>IT operations diagnostics</h3>
-      <ul class="bullet-list"><li>Agents can combine alerts, runbooks, and recent change history into likely causes and next actions.</li><li>Run history and replay make it easier to compare similar incidents over time.</li></ul>
-    </article></div>
+<h2>Background mode changes how an application waits</h2>
+<p>The <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">May Responses API update</a> added asynchronous background execution for longer tasks, with polling or streaming events to follow progress.</p>
+<p>This helps design long-running experiences. It should not be read as a guarantee that arbitrary business operations recover automatically or that external updates happen exactly once. Retrieving completion status and retrying a side-effecting operation are separate concerns.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Concrete Scenarios</p>
-  <h2>Concrete scenarios visible in the evidence set</h2>
-  <div class="comparison-grid mt-6"><article class="comparison-card">
-      <h3>Support workflows need explanation, not only output quality</h3>
-      <p>When a support flow combines FAQ retrieval and connector actions, the team needs to know which documents and tool calls produced the response. Without traces and run history, correcting errors becomes overly manual, which is why AgentOps mattered so much here.</p>
-    </article><article class="comparison-card">
-      <h3>Database-connected assistants require permission and review controls</h3>
-      <p>The MCP and enterprise-connector direction suggested that the closer assistants get to data systems, the more important permission scopes and review gates become. The decisive question was no longer whether the model was clever, but whether risky actions could be stopped cleanly.</p>
-    </article><article class="comparison-card">
-      <h3>As orchestration spreads, end-to-end traces become essential</h3>
-      <p>Once multiple agents share work, teams need to know which node stalled, which handoff lost information, and which tool call introduced the problem. The real center of the control layer was not adding more agents, but making the complexity inspectable.</p>
-    </article></div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Operating Implications</p>
-  <h2>What teams needed to decide early</h2>
-  <div class="callout-panel">
-    <p class="callout-title">Observation</p>
-    <p>The critical capability is not prompt cleverness, but the operational ability to read traces, run review loops, and preserve recovery paths.</p>
-  </div>
-  <ul class="bullet-list mt-6"><li>Persist traces, sessions, and tool-call history by default.</li><li>Treat approval UI and review queues as part of the platform, not as side tooling.</li><li>Define retry, rollback, and human-takeover rules by failure class.</li><li>As connectors expand, make permission-scope review a recurring operating task.</li></ul>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Key Takeaway</p>
-  <h2>Conclusion</h2>
-  <p>Platform differentiation is increasingly defined not by capability breadth alone, but by how well the system can be observed, stopped, and recovered.</p>
+<h2>Test a connection failure immediately after ticket creation</h2>
+<p>Imagine an agent creating a support ticket, then losing the connection before receiving the response. The application may show failure even though the ticket exists. Repeating creation could produce a duplicate.</p>
+<p>A possible design retains an identifier for the request and checks external state before deciding to retry. If the service provides duplicate-prevention behavior, follow its contract. Unknown outcomes need explicit handling, potentially including human review.</p>
+<p>Test separately whether the record explains the failure, the interface communicates the current status, and recovery avoids duplicate registration. Operational features are best assessed through the failures they can handle.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -276,44 +221,14 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">November 22, 2024</span>
-              </div>
-              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
-              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">December 6, 2024</span>
-              </div>
-              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">May 19, 2025</span>
+                <span class="mono-note">March 11, 2025</span>
               </div>
-              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
-              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">May 19, 2025</span>
-              </div>
-              <p class="source-title">Microsoft: Announcing developer essentials for agents and apps in Azure AI Foundry</p>
-              <p class="source-url">https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/</p>
+              <p class="source-title">OpenAI: New tools for building agents</p>
+              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
@@ -324,36 +239,6 @@
               </div>
               <p class="source-title">OpenAI: New tools and features in the Responses API</p>
               <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">May 27, 2025</span>
-              </div>
-              <p class="source-title">Microsoft: Semantic Kernel multi-agent orchestration</p>
-              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">June 4, 2025</span>
-              </div>
-              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">June 23, 2025</span>
-              </div>
-              <p class="source-title">Google Developers Blog: Google Cloud donates A2A to Linux Foundation</p>
-              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
             </div>
             <span class="source-action">Open</span>
           </a>
