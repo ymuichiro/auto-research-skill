@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:30:37 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 08:47:14 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -120,11 +120,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>動画生成AIはどこまで実用品になったのか、主要5製品の最新状況と技術の流れを整理する</title>
+      <title>動画生成AIを選ぶなら、参照素材と修正工程を比べたい</title>
       <link>https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>OpenAI、Google、Adobe、Runway、Luma を比較し、動画生成AIの用途別の強みと導入時の注意点を整理する。</description>
+      <pubDate>Sat, 19 Sep 2026 08:47:14 GMT</pubDate>
+      <description>Runway Gen-4、Google Flow・Veo 3、Adobe Fireflyの参照入力や編集機能を比較。生成後の修正まで含めて動画生成AIを評価する。</description>
       <category>AI Strategy</category>
     </item>
     <item>

@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 05 Sep 2026 11:30:37 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 08:47:14 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -120,11 +120,11 @@
       <category>AI Agents</category>
     </item>
     <item>
-      <title>How practical video generation AI has become: the latest product status and technology shifts across five major platforms</title>
+      <title>Choosing video AI by reference inputs and revision work</title>
       <link>https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html</guid>
-      <pubDate>Wed, 06 May 2026 14:53:04 GMT</pubDate>
-      <description>Comparing OpenAI, Google, Adobe, Runway, and Luma, this article maps where video generation AI is becoming practical and where limits still matter.</description>
+      <pubDate>Sat, 19 Sep 2026 08:47:14 GMT</pubDate>
+      <description>Compare reference inputs, audio, and editing in Runway, Google Flow, and Adobe Firefly, then test how well a generated clip can be revised.</description>
       <category>AI Strategy</category>
     </item>
     <item>
