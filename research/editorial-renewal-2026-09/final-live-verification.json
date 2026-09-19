@@ -1,0 +1,641 @@
+{
+  "checkedAt": "2026-09-19T10:09:49.131158+00:00",
+  "articleCount": 35,
+  "pageCount": 70,
+  "sitemapArticleUrls": 70,
+  "sitemapMissing": [],
+  "cssMatchesBuild": true,
+  "errors": [],
+  "pages": [
+    {
+      "path": "2025-01-01-agents-shift-to-measurable-systems.html",
+      "status": 200,
+      "bodySha256": "8ad5dfd0c747febe2dfb534b4f7f72ea95d4400f7cf2f61a802fec0a64dc4ff3",
+      "dateModified": "2026-09-19T19:08:18+09:00",
+      "title": "AIエージェントのツール利用と課題達成を、どう分けて評価するか | Auto Research Digest",
+      "description": "ReAct、Toolformer、WebArenaを読み、ツールの選択方法と課題達成の評価を整理。社内資料検索の仮想例で、成功条件の決め方を考える。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-01-01-agents-shift-to-measurable-systems.html",
+      "status": 200,
+      "bodySha256": "81804c77eb06cb155e0b13a1ae29c198feffc92db50564a0b67b47a9af679300",
+      "dateModified": "2026-09-19T19:08:18+09:00",
+      "title": "How to evaluate tool use and task completion in AI agents | Auto Research Digest EN",
+      "description": "Explore ReAct, Toolformer, and WebArena to distinguish tool-use methods from task success, with an internal document-search example.",
+      "errors": []
+    },
+    {
+      "path": "2025-02-01-browser-agents-enter-the-product-roadmap.html",
+      "status": 200,
+      "bodySha256": "386343d0bb1f1d1de84b2cf310300dfeab5b9a61178d03839ede7d4bcae785f8",
+      "dateModified": "2026-09-19T19:08:18+09:00",
+      "title": "ブラウザ操作エージェントは、送信後の状態をどう確認するか | Auto Research Digest",
+      "description": "Operatorの研究プレビューと画面観測の制約を確認。仮想のフォーム送信を例に、完了の根拠、二重送信、人への引き継ぎを整理する。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-02-01-browser-agents-enter-the-product-roadmap.html",
+      "status": 200,
+      "bodySha256": "2d43fee6e2de89e428d788c7b60fd1d48e64923f1139db8b14314651f77cfa71",
+      "dateModified": "2026-09-19T19:08:18+09:00",
+      "title": "How browser agents can verify what happened after an action | Auto Research Digest EN",
+      "description": "Examine Operator and screenshot-based computer use, with a hypothetical form submission illustrating outcome checks, duplicate actions, and human handoffs.",
+      "errors": []
+    },
+    {
+      "path": "2025-03-01-agent-evaluation-becomes-a-gating-layer.html",
+      "status": 200,
+      "bodySha256": "6246fa6f8d9bcf3c5e027785ed44c8fdddbf78534ef3c6ad2f9e14e5e58877e3",
+      "dateModified": "2026-09-19T19:00:32+09:00",
+      "title": "GAIAとOSWorldで考える、エージェント評価の完成条件 | Auto Research Digest",
+      "description": "GAIAとOSWorldは何を評価するのか。締切を答える仕事と予定表へ登録する仕事を比べ、完成条件、初期状態、失敗の原因調査を解説。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-03-01-agent-evaluation-becomes-a-gating-layer.html",
+      "status": 200,
+      "bodySha256": "f436e0e178b1bbc601e18cca27206c2f2ecb384ae06cc7f4e863ddb8abbb2205",
+      "dateModified": "2026-09-19T19:00:32+09:00",
+      "title": "GAIA and OSWorld: define what counts as agent task completion | Auto Research Digest EN",
+      "description": "Compare GAIA and OSWorld evaluation targets, then define completion, initial conditions, and debugging evidence for a calendar-entry task.",
+      "errors": []
+    },
+    {
+      "path": "2025-04-01-managed-agent-primitives-arrive-together.html",
+      "status": 200,
+      "bodySha256": "613e25f9c5b21588261228724255e54fd778221787d014d382aa6e9d4abf2ebf",
+      "dateModified": "2026-09-19T18:52:43+09:00",
+      "title": "Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる | Auto Research Digest",
+      "description": "Responses API、Agents SDK、Bedrockの2025年3月発表を比較。ツールの実行とエージェント間の調整、アプリ運用の責任範囲を整理する。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-04-01-managed-agent-primitives-arrive-together.html",
+      "status": 200,
+      "bodySha256": "8963950d1b58822b41d09cbe02ab18b27947a1e4459d6dd656e19082f3960f08",
+      "dateModified": "2026-09-19T18:52:43+09:00",
+      "title": "Responses API, Agents SDK, and Bedrock: compare what each manages | Auto Research Digest EN",
+      "description": "Compare the March 2025 Responses API, Agents SDK, and Bedrock collaboration launches by hosted tools, orchestration, and remaining operational responsibilities.",
+      "errors": []
+    },
+    {
+      "path": "2025-05-01-open-runtimes-and-managed-platforms-converge.html",
+      "status": 200,
+      "bodySha256": "f28f710cd33125e1860273085901218ca3370b25dd3e8c38715e583441d84034",
+      "dateModified": "2026-09-19T18:50:49+09:00",
+      "title": "エージェントの接続と実行確認を分ける：Bedrockの休暇申請例から | Auto Research Digest",
+      "description": "Bedrock Agentsのuser confirmationとreturn of controlの違いを解説。休暇申請の例で、接続・利用者確認・業務上の承認を分けて考える。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-05-01-open-runtimes-and-managed-platforms-converge.html",
+      "status": 200,
+      "bodySha256": "f059a3ad7d46bcf9f8c7650f47e181e72aa222ebb2bec6356ed96863ed63fac7",
+      "dateModified": "2026-09-19T18:50:49+09:00",
+      "title": "Separate agent connectivity from action confirmation: a Bedrock example | Auto Research Digest EN",
+      "description": "Understand Bedrock user confirmation and return of control, distinguishing connectivity, user consent, and organizational approval in a leave-request workflow.",
+      "errors": []
+    },
+    {
+      "path": "2025-06-01-multi-agent-design-turns-into-an-operating-model.html",
+      "status": 200,
+      "bodySha256": "8d3f96ad127ed3f43e7da51cb4398e68d965fd80f027a26be021152aa952b7a1",
+      "dateModified": "2026-09-19T18:49:02+09:00",
+      "title": "複数エージェントの分業設計：順序・受け渡し・終了条件を決める | Auto Research Digest",
+      "description": "複数エージェントをどう分担させるか。順次・並列・引き継ぎの違いを文章制作の例で説明し、根拠の受け渡しと終了条件を整理する。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html",
+      "status": 200,
+      "bodySha256": "4e2bc5b871e61dd5f52daaddf6fa1429f6e286a548a9ebf08f6dccf734828ba7",
+      "dateModified": "2026-09-19T18:49:02+09:00",
+      "title": "Designing multi-agent work: dependencies, handoffs, and stopping conditions | Auto Research Digest EN",
+      "description": "Design multi-agent workflows around task dependencies, evidence handoffs, and stopping rules, using writing and review as a concrete example.",
+      "errors": []
+    },
+    {
+      "path": "2025-07-01-interoperability-leaves-the-roadmap.html",
+      "status": 200,
+      "bodySha256": "cbd590887d8655fff62ba2775eccf176e5b97c8b11ce2f88f55171f701b65f09",
+      "dateModified": "2026-09-19T18:41:27+09:00",
+      "title": "MCPとA2Aで接続した後に確かめる、エージェントの交換可能性 | Auto Research Digest",
+      "description": "MCPやA2Aに対応すれば接続先を交換できるのか。2025年の発表をもとに、出力の意味、権限不足、失敗時の契約を確認する方法を解説。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-07-01-interoperability-leaves-the-roadmap.html",
+      "status": 200,
+      "bodySha256": "c2b65298544663aa1dfeafcc93b5ec3a30e83afbc616bb54666a4882f2592f61",
+      "dateModified": "2026-09-19T18:41:27+09:00",
+      "title": "After connecting with MCP and A2A, test whether components are replaceable | Auto Research Digest EN",
+      "description": "MCP and A2A support does not by itself establish interchangeability. Test output meaning, permissions, and failure behavior when replacing agent components.",
+      "errors": []
+    },
+    {
+      "path": "2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html",
+      "status": 200,
+      "bodySha256": "e94c2cb23c4cd9410668123f7b3c3c02103cf8c8ef04d78cdeca74020c27f860",
+      "dateModified": "2026-09-19T18:39:35+09:00",
+      "title": "エージェント運用の確認点：実行記録・背景実行・復旧を分ける | Auto Research Digest",
+      "description": "実行記録があれば安全に再試行できるのか。Agents SDKとResponses APIの発表を手がかりに、観測、背景実行、重複を防ぐ復旧を解説。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html",
+      "status": 200,
+      "bodySha256": "867768757960daeb887510175cc94880dee61e72f7a8485e8f4aabfad1e068d1",
+      "dateModified": "2026-09-19T18:39:35+09:00",
+      "title": "Agent operations: distinguish traces, background execution, and recovery | Auto Research Digest EN",
+      "description": "Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.",
+      "errors": []
+    },
+    {
+      "path": "2025-09-01-coding-and-research-agents-broaden-the-scope.html",
+      "status": 200,
+      "bodySha256": "51edb222eecbb9ebfda11747ff040f8c6350c301f5eed1ed51098bedf9f35ece",
+      "dateModified": "2026-09-19T18:37:33+09:00",
+      "title": "コード生成から実験支援へ：MLE-benchで読むエージェントの評価範囲 | Auto Research Digest",
+      "description": "コードが動くことと実験が成功することの違いを、MLE-benchとGPT-5の発表から解説。需要予測の例で、評価条件と再現用の記録を整理する。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-09-01-coding-and-research-agents-broaden-the-scope.html",
+      "status": 200,
+      "bodySha256": "2b646f91f3dc85212ca852afe816df7f9929b38d3854a41f16283f73fab2a4bb",
+      "dateModified": "2026-09-19T18:37:33+09:00",
+      "title": "From code generation to experiments: what MLE-bench evaluates | Auto Research Digest EN",
+      "description": "Understand MLE-bench’s evaluation scope and why coding capability alone does not establish experiment success, with a reproducible forecasting example.",
+      "errors": []
+    },
+    {
+      "path": "2025-10-01-agent-sdks-expand-beyond-coding.html",
+      "status": 200,
+      "bodySha256": "7c3d874fdbe55267f760e982938ecdf452de3447b02e21ddd1a71e3effdc95a1",
+      "dateModified": "2026-09-19T18:29:34+09:00",
+      "title": "Claude Agent SDKを集計・調査へ使う：実行と業務の正しさを分ける | Auto Research Digest",
+      "description": "Claude Agent SDKを集計や調査に使う際の確認点を解説。Looker MCPとの役割の違い、指標定義、計算結果の照合を月次レポートの例で整理。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-10-01-agent-sdks-expand-beyond-coding.html",
+      "status": 200,
+      "bodySha256": "a210b60f0bf39cef366894bd5d82e5e617267e893392f031d2b3b2894528e3b1",
+      "dateModified": "2026-09-19T18:29:34+09:00",
+      "title": "Claude Agent SDK beyond coding: separate execution from business correctness | Auto Research Digest EN",
+      "description": "Use a monthly-report example to distinguish the Claude Agent SDK’s execution loop, Looker MCP metric access, and checks for business correctness.",
+      "errors": []
+    },
+    {
+      "path": "2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html",
+      "status": 200,
+      "bodySha256": "59d9010a464a89f7e15db9d3bad7a310543111654e2285625b0d38e97175edd0",
+      "dateModified": "2026-09-19T18:27:43+09:00",
+      "title": "AgentKitとAgent Framework：エージェント開発のどこを任せるか | Auto Research Digest",
+      "description": "AgentKitとMicrosoft Agent Frameworkの2025年10月発表を比較。画面、接続、実行手順の役割と、試作後に残る統合作業を整理する。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html",
+      "status": 200,
+      "bodySha256": "2a065905951e8c2876c22522a0134c0dfada365d0f1576f5914c2eb90cea6e3a",
+      "dateModified": "2026-09-19T18:27:43+09:00",
+      "title": "AgentKit and Agent Framework: which development work do they handle? | Auto Research Digest EN",
+      "description": "Compare AgentKit and Microsoft Agent Framework as announced in October 2025: supplied interfaces, execution logic, availability, and remaining integration work.",
+      "errors": []
+    },
+    {
+      "path": "2025-12-01-multi-agent-workflows-become-a-product-surface.html",
+      "status": 200,
+      "bodySha256": "a4264f48a696cefedf8a0f6c650cff2c0f343430d36938504351c826fe172bc9",
+      "dateModified": "2026-09-19T18:25:54+09:00",
+      "title": "Foundryのワークフローで確認する、処理の分岐と承認条件 | Auto Research Digest",
+      "description": "Foundryワークフローの図・YAML・変数は何を確認しやすくするか。2025年11月の公開プレビューを、分岐、承認、実行記録の役割から解説。",
+      "errors": []
+    },
+    {
+      "path": "en/2025-12-01-multi-agent-workflows-become-a-product-surface.html",
+      "status": 200,
+      "bodySha256": "6a75da1d071dc9c8e5dd223afdd5202d133b642c2548c3899f583906359f7fa5",
+      "dateModified": "2026-09-19T18:25:54+09:00",
+      "title": "Reviewing workflow branches and approval conditions in Foundry | Auto Research Digest EN",
+      "description": "What Foundry’s November 2025 workflow preview exposes through diagrams, YAML, and traces—and why valid output types do not establish authorization.",
+      "errors": []
+    },
+    {
+      "path": "2026-01-01-the-2025-signal-is-operational-boundaries.html",
+      "status": 200,
+      "bodySha256": "aeb997ba73c5032670ec21cbf7dd1e484344bf2e2bc38d7aaa8ce6b4d783fe2b",
+      "dateModified": "2026-09-19T18:18:24+09:00",
+      "title": "2025年のエージェント開発を振り返る：接続・実行・確認の役割 | Auto Research Digest",
+      "description": "2025年のA2A、Claude Agent SDK、Foundryワークフローを、接続・実行・確認の役割から振り返る。規格や機能が担う範囲と残る設計課題を整理。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-01-01-the-2025-signal-is-operational-boundaries.html",
+      "status": 200,
+      "bodySha256": "58808bef8e8f3e7bf1971d393c7720cdad1d46f08cfb288a53404eb3c98510c6",
+      "dateModified": "2026-09-19T18:18:24+09:00",
+      "title": "Agent development in 2025: connecting, executing, and reviewing work | Auto Research Digest EN",
+      "description": "Review 2025 agent launches through A2A, the Claude Agent SDK, and Foundry workflows, separating communication, execution, and review responsibilities.",
+      "errors": []
+    },
+    {
+      "path": "2026-02-01-control-planes-and-evals-set-the-pace.html",
+      "status": 200,
+      "bodySha256": "7627d9ae97d5aa057de222e0f9889e0a4414cf70dabefde24582aed0311adaaa",
+      "dateModified": "2026-09-19T18:16:23+09:00",
+      "title": "エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る | Auto Research Digest",
+      "description": "エージェントの更新で既存の仕事を壊していないか。回帰評価、ワークフローの版管理、採点器の確認を、問い合わせ対応の例で解説。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-02-01-control-planes-and-evals-set-the-pace.html",
+      "status": 200,
+      "bodySha256": "75165125915edba01bb240e2c51b87f6415afb584f3ebdba1e5a9a439f7d23ff",
+      "dateModified": "2026-09-19T18:16:23+09:00",
+      "title": "Agent regression evaluation: check what an update fixes and breaks | Auto Research Digest EN",
+      "description": "Check agent updates with regression tests, workflow versions, and grader review. A support-routing example explains what to measure before release.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-01-agent-architecture-matters-more-than-model-novelty.html",
+      "status": 200,
+      "bodySha256": "4241acd286e8b2e230fc5e40daaa390d24fe9a31882bfc76a7f5a52e61992b97",
+      "dateModified": "2026-09-19T18:14:16+09:00",
+      "title": "エージェントの改善を測る：モデルと処理手順を分けて比較する | Auto Research Digest",
+      "description": "エージェントのモデル、検索手順、試行回数をどう比較するか。研究と開発ツールを手がかりに、時間・費用・実行条件をそろえる方法を解説。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html",
+      "status": 200,
+      "bodySha256": "4b4fc684b2c0ebdf7d3b508db1159573a42d0a0aa6d47b7cc67faee398e6375c",
+      "dateModified": "2026-09-19T18:14:16+09:00",
+      "title": "Measuring agent improvements: compare model and workflow changes | Auto Research Digest EN",
+      "description": "Compare agent model and workflow changes using consistent tasks, time budgets, and costs, with lessons from RE-Bench, BrowserGym, and AgentKit.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-21-enterprise-ai-agents-readiness.html",
+      "status": 200,
+      "bodySha256": "d75609c68c41570ddd06bf2efbe64d1738b8f09ec4522d0d86a15dca7aa2a7c5",
+      "dateModified": "2026-09-19T18:09:50+09:00",
+      "title": "AIエージェントの導入判断を、自社の完了条件で測る | Auto Research Digest",
+      "description": "AIエージェントの公開ベンチマークを自社の導入判断へつなぐ方法を解説。完了条件、例外、再試行、人への引き継ぎを具体的な業務で評価する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-21-enterprise-ai-agents-readiness.html",
+      "status": 200,
+      "bodySha256": "88fd9e7ec2f9a5a162a0a29159f61ceaed92794ae58edd3a424a1176f103278b",
+      "dateModified": "2026-09-19T18:09:50+09:00",
+      "title": "Evaluate agent readiness against the work your organization must complete | Auto Research Digest EN",
+      "description": "Translate public agent benchmarks into workflow-specific tests covering completion, exceptions, retries, escalation, and the cost of human review.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-23-agent-security-becomes-a-shipping-gate.html",
+      "status": 200,
+      "bodySha256": "f3adecb6ff82bb14a78d5c4de5912cfcc7539b3b7d606fa889ed1dd3adf0422b",
+      "dateModified": "2026-09-19T18:07:20+09:00",
+      "title": "エージェント公開前に、外部の指示で何が実行されるかを試す | Auto Research Digest",
+      "description": "OpenAI、AWS、Anthropicの公開資料から、プロンプトインジェクション対策の違いを比較。外部送信やツール実行を公開前に確かめる試験を提案する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-23-agent-security-becomes-a-shipping-gate.html",
+      "status": 200,
+      "bodySha256": "54ad9456dadb9c0579969f3157f813c31536a4d822642465385d372471229ee5",
+      "dateModified": "2026-09-19T18:07:20+09:00",
+      "title": "Before releasing an agent, test what external instructions can make it do | Auto Research Digest EN",
+      "description": "Compare prompt-injection defenses from OpenAI, AWS, and Anthropic, then test tool execution and outbound transmission before releasing an agent.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-24-why-ai-products-converge-on-chat-ui.html",
+      "status": 200,
+      "bodySha256": "b798ebf03aca656db5bb5c58014ff3631894a35be80fc6e55927fffce803330a",
+      "dateModified": "2026-09-19T18:04:48+09:00",
+      "title": "生成AIのチャットと編集画面は、どの作業を分担するのか | Auto Research Digest",
+      "description": "Gemini Canvas、Copilot Pages、Cocoaを例に、チャットで目的を伝えることと、編集画面で変更箇所を選ぶことの違いを解説する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-24-why-ai-products-converge-on-chat-ui.html",
+      "status": 200,
+      "bodySha256": "a786715e07fa87e45ae25473214152d9c0cd0ea68378fd966a3abf3ea4d39ffe",
+      "dateModified": "2026-09-19T18:04:48+09:00",
+      "title": "What chat and editing interfaces each contribute to AI work | Auto Research Digest EN",
+      "description": "Use Canvas, Pages, and Cocoa to compare conversational requests with direct selection, shared editing, and interactive plans in AI interfaces.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html",
+      "status": 200,
+      "bodySha256": "3211fba4e23976df36d5cee8df2035a21c79a314bf314ffa6d42bceefbce14e1",
+      "dateModified": "2026-09-19T18:01:57+09:00",
+      "title": "Coworkに会議準備を任せるとき、資料作成と予定変更を分けて考える | Auto Research Digest",
+      "description": "AnthropicとMicrosoftのCoworkを、会議資料作成と予定変更の違いから比較。複数アプリの作業を任せる際の確認点を解説する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html",
+      "status": 200,
+      "bodySha256": "d62a3741c8ffa895650b4f4a704d03e4d47f563af4ce12713f35fb8df004aa5c",
+      "dateModified": "2026-09-19T18:01:57+09:00",
+      "title": "Delegating meeting preparation to Cowork: drafts, calendar changes, and review | Auto Research Digest EN",
+      "description": "Compare Anthropic and Microsoft Cowork through meeting preparation, separating document creation, calendar approval, and checks of the saved results.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-26-agent-identity-becomes-an-auth-control-plane.html",
+      "status": 200,
+      "bodySha256": "034e23fdd4bbb72a75e976483d58b7c051d116854e97886d6419be4720ee6f79",
+      "dateModified": "2026-09-19T17:58:48+09:00",
+      "title": "エージェントのIDと、利用者の権限をどう分けるか | Auto Research Digest",
+      "description": "エージェントIDと利用者の委任権限を区別し、MCPから外部APIへ接続する際のトークンとアクセス制御を、文書検索の例で解説する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html",
+      "status": 200,
+      "bodySha256": "5961d96e7b98df99b2933b7eff8630e8dc3ec4c0802273410efb623fb9127af7",
+      "dateModified": "2026-09-19T17:58:48+09:00",
+      "title": "Separating agent identity from delegated user permissions | Auto Research Digest EN",
+      "description": "Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-28-open-agent-protocol-stack.html",
+      "status": 200,
+      "bodySha256": "c0b40efc7574fd0346f0bf36dad227e4b1426b302af0a9ebb8650137a5dcc543",
+      "dateModified": "2026-09-19T17:50:44+09:00",
+      "title": "MCP、A2A、AG-UIは何を受け渡すのか | Auto Research Digest",
+      "description": "MCP、A2A、AG-UIの違いを、ツール呼び出し、タスクの受け渡し、画面表示から比較。仕様の重なりと承認処理の設計を解説する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-28-open-agent-protocol-stack.html",
+      "status": 200,
+      "bodySha256": "442b252b13051ee1d791b4b0a1e4c418dfaa8309133d2527bebb19b47912c4ef",
+      "dateModified": "2026-09-19T17:50:44+09:00",
+      "title": "What MCP, A2A, and AG-UI actually exchange | Auto Research Digest EN",
+      "description": "Compare MCP, A2A, and AG-UI through tool calls, delegated tasks, and interface updates, including overlapping features and application approval checks.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-28-video-generation-ai-product-landscape.html",
+      "status": 200,
+      "bodySha256": "74bc7df811ffb3ed5c12b1683557c26e2e123dbaa4e1e5b052bf695db775c7ff",
+      "dateModified": "2026-09-19T17:47:14+09:00",
+      "title": "動画生成AIを選ぶなら、参照素材と修正工程を比べたい | Auto Research Digest",
+      "description": "Runway Gen-4、Google Flow・Veo 3、Adobe Fireflyの参照入力や編集機能を比較。生成後の修正まで含めて動画生成AIを評価する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-28-video-generation-ai-product-landscape.html",
+      "status": 200,
+      "bodySha256": "178c0b1e33a5771cb2ea29afe866f7b8c716ae0550531a5579a3581c409a950a",
+      "dateModified": "2026-09-19T17:47:14+09:00",
+      "title": "Choosing video AI by reference inputs and revision work | Auto Research Digest EN",
+      "description": "Compare reference inputs, audio, and editing in Runway, Google Flow, and Adobe Firefly, then test how well a generated clip can be revised.",
+      "errors": []
+    },
+    {
+      "path": "2026-03-30-subagents-become-the-practical-unit-of-work-ai.html",
+      "status": 200,
+      "bodySha256": "6cba61fbed44771c7f015cf07664e9a32c58c9c4cf67bb4bbe3bab43eba35fa2",
+      "dateModified": "2026-09-05T20:30:37+09:00",
+      "title": "AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか | Auto Research Digest",
+      "description": "subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html",
+      "status": 200,
+      "bodySha256": "0daf721f31efd430809a492430b5a52920a90b6ca46d7ae1a0f326bb5ceb482a",
+      "dateModified": "2026-09-05T20:30:37+09:00",
+      "title": "When to split AI work into subagents, and what they need to share | Auto Research Digest EN",
+      "description": "Decide whether subagents help by examining task dependencies, shared criteria, evidence handoffs, total cost, and comparison with a single agent.",
+      "errors": []
+    },
+    {
+      "path": "2026-04-06-voice-agents-become-operational-systems.html",
+      "status": 200,
+      "bodySha256": "bc94a0e246e74285c4f291732469e68c5c287c26ca8b9ac1995d6404fb71b7ad",
+      "dateModified": "2026-09-05T20:22:51+09:00",
+      "title": "音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか | Auto Research Digest",
+      "description": "音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-04-06-voice-agents-become-operational-systems.html",
+      "status": 200,
+      "bodySha256": "fedd9b3248d76abfd3ed158a7d9959ae44e270bd001d869b2d08bb480652e848",
+      "dateModified": "2026-09-05T20:22:51+09:00",
+      "title": "Handling corrections, interruptions, and saved results in voice booking agents | Auto Research Digest EN",
+      "description": "Speech interruption does not undo a booking save. Compare voice architectures and coordinate corrections, API state, and call testing.",
+      "errors": []
+    },
+    {
+      "path": "2026-04-08-agent-memory-shifts-to-layered-systems.html",
+      "status": 200,
+      "bodySha256": "4c40a2df12e7a2576ad4c67bfa67d921343a602fecb23960acaf2ea2b1c0f50d",
+      "dateModified": "2026-09-05T20:20:05+09:00",
+      "title": "AIエージェントの記憶を、検索・適用・更新に分けて設計する | Auto Research Digest",
+      "description": "AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-04-08-agent-memory-shifts-to-layered-systems.html",
+      "status": 200,
+      "bodySha256": "784209e883b5a5516dfff750b5b1901c07c9a829fb92f95b5b163df5c81f38f7",
+      "dateModified": "2026-09-05T20:20:05+09:00",
+      "title": "Designing agent memory for retrieval, applicability, and updates | Auto Research Digest EN",
+      "description": "Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.",
+      "errors": []
+    },
+    {
+      "path": "2026-04-13-coding-agents-become-supervised-runtime-systems.html",
+      "status": 200,
+      "bodySha256": "f9439f935cbd05f0a008f758a6f5c4bea0b1410a8c8922d03472457f5a53faf4",
+      "dateModified": "2026-09-05T20:17:01+09:00",
+      "title": "コーディングAIの計画・権限・差分・テストを、どう確認するか | Auto Research Digest",
+      "description": "コーディングAIの監督で混同しやすい計画承認、ブランチとVMの隔離、Verified署名、テスト結果を整理。各機能の保証範囲を確かめる。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-04-13-coding-agents-become-supervised-runtime-systems.html",
+      "status": 200,
+      "bodySha256": "2ef83f3a5aa4a8f0569fd34708c543ea2ac5726c5bba008085ef23f3a695ff57",
+      "dateModified": "2026-09-05T20:17:01+09:00",
+      "title": "Reviewing a coding agent: plans, permissions, diffs, and tests | Auto Research Digest EN",
+      "description": "Separate coding-agent plan review, branch and VM isolation, Verified signatures, and test evidence to understand what each check establishes.",
+      "errors": []
+    },
+    {
+      "path": "2026-04-20-agents-compete-on-work-continuity.html",
+      "status": 200,
+      "bodySha256": "dfe193a3789ee307a4512b736ff5022e1267de282bc04bf1e16af7281536c0b9",
+      "dateModified": "2026-09-05T20:14:20+09:00",
+      "title": "AIエージェントの作業を中断後に再開するため、何を保存するか | Auto Research Digest",
+      "description": "AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-04-20-agents-compete-on-work-continuity.html",
+      "status": 200,
+      "bodySha256": "cfe6cb389ad1d77c855eb35e44984ea705b6a365c87bb011f4bba6bd8e510544",
+      "dateModified": "2026-09-05T20:14:20+09:00",
+      "title": "What to preserve so an AI agent can resume interrupted work | Auto Research Digest EN",
+      "description": "Distinguish saved sessions from task recovery using Managed Agents and Google ADK: persistence, artifact versions, duplicate actions, and resumption checks.",
+      "errors": []
+    },
+    {
+      "path": "2026-04-27-agent-discovery-and-approval-shape-adoption.html",
+      "status": 200,
+      "bodySha256": "5dc003ce32347cb0cf06e99fcd6e44ade2cd47a70c60accffff6e4b05998473b",
+      "dateModified": "2026-09-05T20:11:52+09:00",
+      "title": "ストアで見つけたAIエージェントを、組織で使うまでの確認事項 | Auto Research Digest",
+      "description": "AIエージェントの掲載、接続、購入、組織への配布は別の手続き。一次資料と商談メモの例から、試用の権限・費用・更新・停止を整理する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-04-27-agent-discovery-and-approval-shape-adoption.html",
+      "status": 200,
+      "bodySha256": "79b86396e8e7495339a68eff287c812428532bdc672fd44fbed0a28b6c12253c",
+      "dateModified": "2026-09-05T20:11:52+09:00",
+      "title": "From an agent listing to an approved organizational trial | Auto Research Digest EN",
+      "description": "Separate agent discovery, connection, purchase, and distribution. Define permissions, costs, changes, and withdrawal for an organizational trial.",
+      "errors": []
+    },
+    {
+      "path": "2026-05-07-governed-agent-stacks-not-smarter-models.html",
+      "status": 200,
+      "bodySha256": "c381faf9121d7e3a90093a926afb1dca2467da8cad5f0f9ca0ee5a0909bcb666",
+      "dateModified": "2026-09-05T20:09:14+09:00",
+      "title": "AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか | Auto Research Digest",
+      "description": "AIエージェント基盤の機能一覧を、チケット更新の具体的な検証に置き換える。権限、承認、実行記録、評価、既存システムの責任分担を整理。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-05-07-governed-agent-stacks-not-smarter-models.html",
+      "status": 200,
+      "bodySha256": "8ddb2837f8e07f43570eaae25c0e013e4eab6f67205e46e9f6ffd8cac0873e62",
+      "dateModified": "2026-09-05T20:09:14+09:00",
+      "title": "How to compare permissions, approvals, and evaluation in agent platforms | Auto Research Digest EN",
+      "description": "Use a ticket-update task to compare agent platform permissions, approvals, traces, and evaluation, including responsibilities left to existing systems.",
+      "errors": []
+    },
+    {
+      "path": "2026-05-08-presentation-generation-becomes-artifact-workflow.html",
+      "status": 200,
+      "bodySha256": "f37259f86b50788b856ee49e20cff6217e2e534653321164dac1e5cf51f1db45",
+      "dateModified": "2026-09-05T20:06:46+09:00",
+      "title": "AIで作るプレゼン資料の編集可能性を、次の修正から考える | Auto Research Digest",
+      "description": "AI生成スライドの画像・SVG・グラフ要素を比較。PowerPointとGoogle Slidesの形式制約を踏まえ、次の修正で納品形式を評価する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-05-08-presentation-generation-becomes-artifact-workflow.html",
+      "status": 200,
+      "bodySha256": "fee59c68c6e04d33f4ccaa355b7717a76bac16778fc39847c01561317903bf07",
+      "dateModified": "2026-09-05T20:06:46+09:00",
+      "title": "Choosing editable formats for AI-generated presentations | Auto Research Digest EN",
+      "description": "Compare images, SVGs, and chart objects in AI-generated slides, then test the next revision in PowerPoint or Google Slides.",
+      "errors": []
+    },
+    {
+      "path": "2026-06-08-sales-agents-turn-notes-into-crm-actions.html",
+      "status": 200,
+      "bodySha256": "2f9b33da226a2d87cc276b6300192cdd74d4c2a3991ad5c6abc8402a86196646",
+      "dateModified": "2026-09-05T19:50:15+09:00",
+      "title": "営業AIのCRM更新：案件、根拠、競合の確認 | Auto Research Digest",
+      "description": "営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html",
+      "status": 200,
+      "bodySha256": "b2207471d5a8c3b7d24bb05a741afac432b401316ab3ac654dd9cb5424cf93a6",
+      "dateModified": "2026-09-05T19:50:15+09:00",
+      "title": "Sales AI CRM updates: check records, evidence, and conflicts | Auto Research Digest EN",
+      "description": "Check CRM update proposals from sales AI: opportunity matching, field evidence, changed records, and saved results, with product comparisons.",
+      "errors": []
+    },
+    {
+      "path": "2026-06-30-agents-operate-legacy-desktop-workflows.html",
+      "status": 200,
+      "bodySha256": "4d9fa73c4a0f6d843e67a6bbc577d4bb9521a9b32bc52ad69b8da82d7c3d0a29",
+      "dateModified": "2026-09-05T19:47:21+09:00",
+      "title": "APIなしの業務アプリをAIで操作する際の検証 | Auto Research Digest",
+      "description": "APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-06-30-agents-operate-legacy-desktop-workflows.html",
+      "status": 200,
+      "bodySha256": "903f184ca336e2bee9aff71227faf5512b7a8e3f5d1b9f0cb9dd5a13b085f9d7",
+      "dateModified": "2026-09-05T19:47:21+09:00",
+      "title": "Computer-use agents: verify data entry and saved results | Auto Research Digest EN",
+      "description": "Verify computer-use agents before and after Save. An invoice example covers duplicate prevention, managed desktops, and uncertain results.",
+      "errors": []
+    },
+    {
+      "path": "2026-07-11-agent-evaluation-measures-execution-path.html",
+      "status": 200,
+      "bodySha256": "04c88ad30fb0fd5ee221e27511db29e2c48b4aee10fb17676fffd0e61581119a",
+      "dateModified": "2026-09-05T19:44:30+09:00",
+      "title": "AIエージェント評価：実行記録で誤操作を見つける | Auto Research Digest",
+      "description": "予約変更の例で、AIエージェントの回答、承認順序、入力値、最終状態を別々に評価。トレースと合否判定の違い、正しい代替経路の扱いを解説する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-07-11-agent-evaluation-measures-execution-path.html",
+      "status": 200,
+      "bodySha256": "b36e4e84dbfc860a72f5f653c270a6572fad44ea7bdc222d35e55df822ab4cbf",
+      "dateModified": "2026-09-05T19:44:30+09:00",
+      "title": "AI agent evaluation with traces and final-state checks | Auto Research Digest EN",
+      "description": "Evaluate AI agents using booking traces, approval order, tool arguments, and saved state. Learn how to allow valid paths and detect regressions.",
+      "errors": []
+    },
+    {
+      "path": "2026-08-01-ai-collaboration-starts-with-first-artifact.html",
+      "status": 200,
+      "bodySha256": "f48b85766fa62b8c220a52e90ac257d0d8df2eff2a0c70a3ce8d98908de9162a",
+      "dateModified": "2026-09-05T19:41:11+09:00",
+      "title": "AIとの共同作業で質問と試作品を使い分ける | Auto Research Digest",
+      "description": "何を確認し、どんなAIの試作品を作ればよいか。研究の評価条件と記事構成の例から、要件確認、修正、事実確認を使い分ける。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-08-01-ai-collaboration-starts-with-first-artifact.html",
+      "status": 200,
+      "bodySha256": "93bd28e3047bcdad41e2ad87cfe4f1191aafc365b702921bb83e544da6e9d317",
+      "dateModified": "2026-09-05T19:41:11+09:00",
+      "title": "AI collaboration: clarification, prototypes, and verification | Auto Research Digest EN",
+      "description": "Use questions for missing requirements and prototypes for emerging preferences. Research and an outline example explain revision and verification.",
+      "errors": []
+    },
+    {
+      "path": "2026-08-12-beyond-ai-agents-hacw.html",
+      "status": 200,
+      "bodySha256": "21bac86a5d44f717a8edb0d09fa5fc81ce0988a13e54523269fdf60720a0a135",
+      "dateModified": "2026-09-05T19:26:33+09:00",
+      "title": "AIの承認を業務ルールへ変える条件とHACW | Auto Research Digest",
+      "description": "AIへの一回の承認を次回の業務ルールへ変える条件を、請求書の例で説明。判断記録、適用条件、例外テスト、ルールの承認と失効を整理する。",
+      "errors": []
+    },
+    {
+      "path": "en/2026-08-12-beyond-ai-agents-hacw.html",
+      "status": 200,
+      "bodySha256": "1ade1b787f9d6fe0883eebe2df4c43e43caa7afab4199282038f367c607005fe",
+      "dateModified": "2026-09-05T19:26:33+09:00",
+      "title": "Reusing human approvals in AI agent workflows | Auto Research Digest EN",
+      "description": "An invoice example explains when AI agents can reuse human approvals, with explicit conditions, exception tests, rule ownership, and expiry.",
+      "errors": []
+    }
+  ]
+}

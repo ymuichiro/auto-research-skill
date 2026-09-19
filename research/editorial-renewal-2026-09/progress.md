@@ -51,8 +51,8 @@
 - [x] 2025-04-01-managed-agent-primitives-arrive-together — 改稿/ビルド/公開完了 (30f59a1, 日英HTTP 200 + 本文一致)
 - [x] 2025-03-01-agent-evaluation-becomes-a-gating-layer — 改稿/ビルド/公開完了 (13a28eb, 日英HTTP 200 + 本文一致)
 - [x] 2025-02-01-browser-agents-enter-the-product-roadmap — 改稿/ビルド/公開完了 (c5b30f6, 日英HTTP 200 + 本文一致)
-- [x] 2025-01-01-agents-shift-to-measurable-systems — 改稿/ビルド完了、公開照合待ち
+- [x] 2025-01-01-agents-shift-to-measurable-systems — 改稿/ビルド/公開完了 (5ac2051, 表示補正 3e41a55, 日英HTTP 200 + 全本文一致)
 
 ## 共通作業
-- [ ] 読みやすさとSEOの実装/検証
-- [ ] 最終公開照合
+- [x] 読みやすさとSEOの実装/検証 — site-review.md参照
+- [x] 最終公開照合 — 2026-09-19、35記事70本文一致、HTTP 200、メタ情報正常。final-live-verification.json参照

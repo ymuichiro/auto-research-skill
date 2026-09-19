@@ -8,4 +8,17 @@ SEOの方針: 意味のあるタイトル/説明、主張直後の根拠、実�
 参考: https://developers.google.com/search/docs/fundamentals/creating-helpful-content
 参考: https://developers.google.com/search/docs/appearance/structured-data/article
 
-残り: 全記事改稿後のcanonical/hreflang/構造化データ/サイトマップ/リンク総合検査、公開CSS反映、Search Consoleの利用可否と現在の状態確認。
+## 最終検証（2026-09-19）
+
+- 35記事、日英70ページを本番URLから取得。すべてHTTP 200、ソースの全文と一致。canonical、ja/en/x-default hreflang、言語、H1数、検索タイトル、説明、NewsArticleの見出し/URL/公開日/改稿日/著者/画像を検査し、エラー0件。各ページの記録は final-live-verification.json。
+- 記事サイトマップ70 URLの欠落0件。生成された102 HTML内の内部リンク・アンカー・画像・スクリプト・スタイルシート参照3,978件に参照切れなし。ビルド標準検証もPASS。
+- 本番CSSはローカルビルドとバイト一致。最後の2記事のsectionクラス不整合を発見し、共通report-sectionに補正（3e41a55）。
+- 本番の日本語/英語記事を390pxで目視確認。本文16px、行高31.2px、ページ横幅390pxで横溢れなし。1280pxでは本文幅864px、横溢れなし。検証用viewportは解除。
+- 5記事にある短縮SEOタイトルは改稿後の内容に対応しており、本文タイトルとの差異は意図したものと確認。
+- Google公式のhelpful contentとArticle構造化データの資料を再確認。公開日と改稿日を分け、根拠と編集主体を表示。実際の検索順位や登録を、実装検査の成功とは扱わない。
+
+## Search Console
+
+2026-09-19に対象プロパティの画面を直接確認。インデックスレポートの最終更新日は2026-09-14で、登録済み0件、検出・未登録70件、クロール済み・未登録32件。これは今回の改稿完了前の集計であり、改稿の効果判定には使えない。
+
+sitemap.xmlを再送信し、送信/最終読込2026-09-19・成功の表示を確認。sitemap-articles.xmlも再送信し、送信/最終読込2026-09-19・成功・検出70件を確認。登録・順位の改善はGoogleの再クロールと判定待ちであり、完了を主張しない。
