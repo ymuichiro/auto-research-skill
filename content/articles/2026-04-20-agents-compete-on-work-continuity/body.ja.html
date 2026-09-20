@@ -7,6 +7,32 @@
 継続性が必要なタスクでは、回答の正確さに加え、再開後に同じ作業を繰り返さず、残りを進められるかを確かめたい。</p>
 </section>
 <section class="report-section">
+<h2>再開する作業に残す五つの状態</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>会話と判断の履歴</h3>
+<p>何を依頼され、どの理由で資料を採用したかを残す。すべてを次のモデル呼び出しへ渡すこととは別である。</p>
+</article>
+<article class="comparison-card">
+<h3>次に行う作業</h3>
+<p>未確認の項目と次の操作を残す。進捗の割合だけでは、どこから手を動かすかが分からない。</p>
+</article>
+<article class="comparison-card">
+<h3>進捗の根拠</h3>
+<p>比較表の第2版まで作成済み、2項目が未確認といった状態を残す。完了という短い表示を具体的な作業へ戻せるようにする。</p>
+</article>
+<article class="comparison-card">
+<h3>入力と成果物の版</h3>
+<p>採用した資料と対応する表や報告書の版を結ぶ。古い成果物を開いて再開する誤りを避ける。</p>
+</article>
+<article class="comparison-card">
+<h3>外部操作の結果</h3>
+<p>送信、更新、登録が未実行、成功、失敗、結果不明のどれかを残す。停止時に記録できなかった操作は、相手側の状態や操作IDと照合する。</p>
+</article>
+</div>
+<p>五つを別サービスへ必ず保存する必要はない。再開する担当が、何を読み、どこから続け、何を再確認するかを決められる形で結び付いていることが重要である。</p>
+</section>
+<section class="report-section">
 <h2>実行するプロセスと、復旧に使う記録を分ける</h2>
 <p>Anthropicの4月8日の<a href="https://www.anthropic.com/engineering/managed-agents">Managed Agents設計記事</a>は、セッションの記録、モデルを呼び出す処理、コードを動かす環境を分離した経緯を説明している。
 処理が落ちても外部に残るイベントログを読み直して再開する構成であり、保存されたセッションとモデルの文脈窓も区別している。</p>

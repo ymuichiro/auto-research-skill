@@ -4,6 +4,32 @@
 <p>Drawing on design material available by April 20, 2026, this article examines what to retain for work that spans interruptions. For such tasks, accuracy needs to be assessed together with whether a resumed run can advance the remaining work without unnecessarily repeating completed steps.</p>
 </section>
 <section class="report-section">
+<h2>Five states to preserve for resumption</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Conversation and decision history</h3>
+<p>Retain what was requested and why sources were selected. This is different from passing every record to the next model call.</p>
+</article>
+<article class="comparison-card">
+<h3>Next action</h3>
+<p>Retain unresolved items and the next operation. A progress percentage does not say where to resume work.</p>
+</article>
+<article class="comparison-card">
+<h3>Evidence for progress</h3>
+<p>Record that table version two exists and that two entries remain unverified. This makes a short completion display traceable to concrete work.</p>
+</article>
+<article class="comparison-card">
+<h3>Input and artifact versions</h3>
+<p>Connect selected sources to the corresponding table or report version, preventing resumption from an obsolete artifact.</p>
+</article>
+<article class="comparison-card">
+<h3>External-action result</h3>
+<p>Record whether a send, update, or registration was unexecuted, successful, failed, or uncertain. Reconcile an action not recorded before a stop with destination state or an operation ID.</p>
+</article>
+</div>
+<p>The five states need not each live in a separate service. They need to be connected so a resuming owner can decide what to read, where to continue, and what to verify again.</p>
+</section>
+<section class="report-section">
 <h2>Separate the running process from its recovery record</h2>
 <p>Anthropic's April 8 <a href="https://www.anthropic.com/engineering/managed-agents">Managed Agents architecture article</a> describes separating session records, the model-calling loop, and the code-execution environment. An external event log supports resumption after the loop fails. It also distinguishes the stored session from the model's context window.</p>
 <p>This does not mean passing the entire history into every model call. Retaining records and selecting information for the current decision are separate tasks. For a research report, one could retain the collection history while loading the selected sources, unresolved questions, and next action when resuming.</p>
