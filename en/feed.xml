@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:12:21 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 07:15:05 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -163,8 +163,8 @@
       <title>Evaluate agent readiness against the work your organization must complete</title>
       <link>https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</guid>
-      <pubDate>Sat, 19 Sep 2026 09:09:50 GMT</pubDate>
-      <description>Translate public agent benchmarks into workflow-specific tests covering completion, exceptions, retries, escalation, and the cost of human review.</description>
+      <pubDate>Sun, 20 Sep 2026 07:15:05 GMT</pubDate>
+      <description>Use public agent benchmarks to define workflow-specific completion, exceptions, retries, escalation, and review cost before rollout.</description>
       <category>AI Agents</category>
     </item>
   </channel>
