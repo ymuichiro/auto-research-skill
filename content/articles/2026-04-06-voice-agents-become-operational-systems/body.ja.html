@@ -8,6 +8,28 @@ AIの声は止まった。しかし、裏で予約を保存する処理は進ん
 声の自然さと業務の正確さの両方を、同じ通話で確認するための読み方である。</p>
 </section>
 <section class="report-section">
+<h2>一つの訂正を、四つの状態で追う</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>会話の状態</h3>
+<p>利用者が何日を希望し、どの候補を訂正したかを扱う。聞き直しや数字の誤認識は、この状態で明らかにする。</p>
+</article>
+<article class="comparison-card">
+<h3>音声再生の状態</h3>
+<p>読み上げを生成中か、端末に待機中の音声があるか、割り込み後に停止したかを扱う。会話の訂正を実際に聞こえる音へ反映する。</p>
+</article>
+<article class="comparison-card">
+<h3>予約保存の状態</h3>
+<p>候補の確認前、保存要求の送信後、保存済み、結果不明を区別する。音声を止めても、保存済みの予約は自動では戻らない。</p>
+</article>
+<article class="comparison-card">
+<h3>引き継ぎの状態</h3>
+<p>人へ渡す場合は、希望日時だけでなく、予約が未実行か、保存済みか、結果不明かを渡す。担当者が同じ変更を重ねないための情報になる。</p>
+</article>
+</div>
+<p>この状態分解は本稿の予約変更の設計例である。すべての音声応答に同じ四状態が必要という主張ではないが、外部操作を伴う通話では、話した内容だけで完了を判定しない理由を示す。</p>
+</section>
+<section class="report-section">
 <h2>音声を直接扱うか、途中のテキストを処理するか</h2>
 <p><a href="https://developers.openai.com/api/docs/guides/voice-agents">OpenAIの音声エージェントガイド</a>は、音声を直接入出力するspeech-to-speechと、音声認識・テキストでの推論・音声合成をつなぐ方式を区別している。
 前者は低遅延の会話、後者は各段階を明示的に制御する構成として説明される。</p>

@@ -4,6 +4,28 @@
 <p>Using booking changes as one concrete task, this article connects audio input, conversational corrections, and saved results. Material available by April 6, 2026 provides the architectural distinctions and testing ideas for evaluating conversational quality and task correctness within the same call.</p>
 </section>
 <section class="report-section">
+<h2>Follow one correction through four states</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Conversation state</h3>
+<p>Track which date the caller wants and which candidate was corrected. Clarifications and misheard digits become visible in this state.</p>
+</article>
+<article class="comparison-card">
+<h3>Playback state</h3>
+<p>Track whether speech is generating, audio is queued on the device, and playback stopped after interruption. This carries a correction into what the caller actually hears.</p>
+</article>
+<article class="comparison-card">
+<h3>Booking-save state</h3>
+<p>Separate pre-confirmation, save submitted, saved, and result unknown. Stopping speech does not automatically undo a saved booking.</p>
+</article>
+<article class="comparison-card">
+<h3>Handoff state</h3>
+<p>When transferring to a person, pass whether the request was unexecuted, saved, or uncertain as well as the requested date. That information helps avoid repeating the change.</p>
+</article>
+</div>
+<p>This state model is the article's booking-change example, not a requirement for every voice response. It explains why spoken text alone cannot establish completion for a call that invokes an external operation.</p>
+</section>
+<section class="report-section">
 <h2>Choose between direct audio and an explicit text stage</h2>
 <p><a href="https://developers.openai.com/api/docs/guides/voice-agents">OpenAI's voice-agent guide</a> distinguishes direct speech-to-speech sessions from a chain of transcription, text reasoning, and speech generation. It describes the former for low-latency conversation and the latter for explicit control over each stage.</p>
 <p>An intermediate text stage gives a booking workflow a place to inspect the recognized date before proceeding. Transcription can still be wrong; retaining text alone establishes neither correctness nor compliance with audit requirements. A direct-audio design can also structure and confirm booking details.</p>
