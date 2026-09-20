@@ -1,22 +1,45 @@
 <section class="report-section">
-<h2>Did fixing one failure break another task?</h2>
-<p>Imagine revising instructions to improve support-ticket routing, only to find the agent now answers questions it previously escalated. This hypothetical illustrates an update risk: success on the repaired case does not establish that existing behavior survived.</p>
-<p>Anthropic's January 2026 evaluation article and Microsoft's November 2025 Foundry workflow announcement offer ways to investigate such changes. They inform evaluation and workflow management; they do not establish a universal determinant of adoption speed or an industry-wide standard.</p>
+  <p class="section-kicker">The question before a change</p>
+  <h2>Did fixing a new inquiry break an established refund or escalation behavior?</h2>
+  <p>After revising its routing instructions, a support agent correctly handles complex questions about a new product but starts automatically answering return cases that it previously escalated to staff. This is a scenario from this article. Success on the repaired task does not establish that the behavior which had to remain survived.</p>
+  <p>This article asks what to compare and record before accepting a candidate change. Its conclusion is not a general rule that evaluation determines update speed. It is an operational observation: without a way to detect regressions, a team cannot safely judge the range affected by a change, so the range it can update becomes narrower.</p>
 </section>
+
 <section class="report-section">
-<h2>Separate new capabilities from behavior that must survive</h2>
-<p>Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">guide to agent evaluations</a> distinguishes capability tests, which target difficult tasks, from regression tests, which detect the loss of established abilities. Improvements on the former should be checked against the latter.</p>
-<p>In support, difficult questions about a new product serve a different purpose from routine guidance on an existing return policy. One average can hide deterioration in established work behind gains on new tasks. Identify the work that must remain reliable and report that group separately.</p>
-<p>When a question requires escalation, escalating should be a success condition. Optimizing automatic-answer rates alone can reward answering questions the agent should hand over. The measured action must match the business objective.</p>
+  <p class="section-kicker">The role of evaluation</p>
+  <h2>Separate tests that improve capability from tests that protect established work</h2>
+  <p><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic’s guide to agent evaluations</a> separates capability evaluation, which targets tasks an agent struggles with, from regression evaluation, which checks that work the agent used to handle has not deteriorated. The former looks for room to improve from a low pass rate; the latter preserves a near-complete pass rate and signals backsliding.</p>
+  <p>In support, correctly classifying a complex question about a new product can be a capability task. Established behavior—escalating an ambiguous return case, not calling a refund tool before identity verification, and stopping above an allowed refund amount—belongs in a regression suite. One average score can hide a dangerous automatic response or an incorrect tool call behind improved new-task classification.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>The capability question</h3>
+      <p>Can the candidate version route a previously difficult new-product inquiry using the necessary material? This task measures room for improvement.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The regression question</h3>
+      <p>Does the candidate retain escalation, identity verification, refund conditions, and safe stopping behavior that the current version already kept? This task measures whether an established promise has been broken.</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>Connect results to the workflow that actually ran</h2>
-<p>Microsoft's <a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundry workflow public-preview announcement</a> described immutable versions created on saving, together with tracing of branches and variables. It also qualified the initial observability scope as focused on individual agents within a workflow.</p>
-<p>An execution-history screen alone is insufficient. Associate each result with its model, instructions, branch conditions, question set, and grading criteria. Scores from different question sets are not directly interchangeable.</p>
-<p>For the routing example, inspect how the revised instructions affect return guidance and escalation. A failed trial's record may help distinguish incorrect classification from incorrect branching after a correct classification. Grading the result and investigating the path serve different purposes.</p>
+  <p class="section-kicker">Comparison card</p>
+  <h2>Run the candidate and current version against the same work, grading, and conditions</h2>
+  <p>A comparison card records at least the version of the evaluation suite; the input and success condition for each task; graders and rubrics; model and instructions; tools and branch conditions; execution environment; and the candidate or current workflow definition. Anthropic distinguishes a task, trial, grader, transcript, outcome, and evaluation suite. Keeping those elements linked before reducing them to one score makes it possible to investigate what actually changed.</p>
+  <p>Suppose a candidate improves new-product classification but fails to escalate return cases. Run both versions repeatedly against the same tasks and graders in an isolated environment. Model outputs can vary across trials, so one successful run is not enough to accept a change. If a team changes the task or grading rubric, it records a new baseline rather than comparing the resulting score directly with the old one.</p>
+  <p>The <a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundry workflows public preview</a> describes immutable versions on saving, traces for variables and branches, and evaluators. These can link a workflow definition with its run record. The preview’s initial observability focuses on individual Foundry agents within a workflow, however, so a displayed trace is not treated as a complete record of every external action.</p>
 </section>
+
 <section class="report-section">
-<h2>Check the grader before deciding to release</h2>
-<p>A rejected answer may be a valid alternative wording. Anthropic's guide also distinguishes the strengths and limitations of code, model, and human graders. A program can check a concrete stored state; judgments about explanation quality need calibration against human assessment.</p>
-<p>Review cases whose scores changed to distinguish a real regression from a grading problem. Then consider effects on established work, added cost, and human workload before releasing. An evaluation system does not by itself guarantee faster adoption, but it can make update decisions explainable and problematic changes easier to detect.</p>
+  <p class="section-kicker">Reading a failure</p>
+  <h2>Use both graders and traces to find why a score changed</h2>
+  <p>When a candidate fails a regression task, start with the outcome. Did it escalate the return case, call the refund tool only after identity verification, and avoid finalizing an action pending approval? The final outcome cannot establish the cause, so read the trace next: did it classify incorrectly, branch incorrectly after a correct classification, or select a disallowed tool?</p>
+  <p>Graders also need verification. A code grader can quickly and reproducibly check state or parameters, but may reject a valid alternative wording. A model grader can assess explanatory quality, but is non-deterministic and needs calibration against human evaluation. Anthropic recommends keeping a known solvable reference, checking that graders are configured correctly, and reading failure traces and grades. A falling score should not immediately be treated as agent deterioration.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Acceptance conditions</p>
+  <h2>Pass improvement, regression, and pending approval into one release decision</h2>
+  <p>A candidate change is not accepted only because its capability score rose. Check the established regression suite, tool side effects, latency or cost, the workload handed to people, and how pending approvals are handled against the purpose of the change. A team can set the condition that a candidate improving new-product inquiries is not released if it permits a refund before identity verification.</p>
+  <p>These are organization-defined conditions, not product defaults. The value of keeping evaluations, versions, and traces is not to release more changes faster. It is to explain which change affected which established promise and who accepted any exception.</p>
 </section>

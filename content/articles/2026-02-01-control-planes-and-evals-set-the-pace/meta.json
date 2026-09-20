@@ -1,14 +1,14 @@
 {
   "slug": "control-planes-and-evals-set-the-pace",
   "date": "2026-02-01",
-  "titleJa": "エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る",
-  "titleEn": "Agent regression evaluation: check what an update fixes and breaks",
-  "summaryJa": "エージェントの更新では、新しい課題の改善が既存業務の後退を隠すことがある。評価課題、処理手順の版、実行記録を対応付け、採点の誤りも確認する方法を考える。",
-  "summaryEn": "An agent update can improve new tasks while weakening established work. Connect evaluation sets, workflow versions, and traces, and check whether the grader is wrong.",
-  "seoDescriptionJa": "エージェントの更新で既存の仕事を壊していないか。回帰評価、ワークフローの版管理、採点器の確認を、問い合わせ対応の例で解説。",
-  "seoDescriptionEn": "Check agent updates with regression tests, workflow versions, and grader review. A support-routing example explains what to measure before release.",
-  "teaserJa": "新しい課題で点数が上がっても、以前できた仕事が残っているとは限らない。",
-  "teaserEn": "A higher score on new tasks can hide regressions in established work.",
+  "titleJa": "エージェントの変更を判断するために、何を比較し記録するか",
+  "titleEn": "What to compare and record before accepting an agent change",
+  "summaryJa": "新しい問い合わせで改善しても、既存の返金や引き継ぎを壊していないとは限らない。能力評価と回帰評価、処理定義と採点基準の版、実行トレース、承認条件を対応付けて、変更候補を判断する方法を整理する。",
+  "summaryEn": "An improvement on a new inquiry does not prove that established refund and escalation behavior survived. This article links capability and regression suites, versions of workflows and graders, execution traces, and approval conditions for deciding on a candidate change.",
+  "seoDescriptionJa": "エージェントの変更候補を、能力評価・回帰評価・採点器・実行トレース・承認条件でどう比較するかを問い合わせ対応の例で解説。",
+  "seoDescriptionEn": "How to compare an agent change with capability and regression tests, graders, traces, and approval conditions in a support scenario.",
+  "teaserJa": "新しい仕事の改善と、既存業務を壊していない確認は別の評価で行う。",
+  "teaserEn": "Improving a new task and preserving established work require different evaluation evidence.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -24,7 +24,7 @@
       "publishedAt": "2026-01-09"
     },
     {
-      "label": "Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service",
+      "label": "Microsoft: Introducing Multi-Agent Workflows in Foundry Agent Service",
       "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/",
       "type": "official",
       "publishedAt": "2025-11-25"
