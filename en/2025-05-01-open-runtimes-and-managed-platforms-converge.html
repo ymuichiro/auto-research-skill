@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Separate agent connectivity from action confirmation: a Bedrock example | Auto Research Digest EN</title>
-    <meta name="description" content="Understand Bedrock user confirmation and return of control, distinguishing connectivity, user consent, and organizational approval in a leave-request workflow.">
+    <title>How to separate open connectivity, managed execution, and approval design | Auto Research Digest EN</title>
+    <meta name="description" content="Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Separate agent connectivity from action confirmation: a Bedrock example | Auto Research Digest EN">
-    <meta property="og:description" content="Understand Bedrock user confirmation and return of control, distinguishing connectivity, user consent, and organizational approval in a leave-request workflow.">
+    <meta property="og:title" content="How to separate open connectivity, managed execution, and approval design | Auto Research Digest EN">
+    <meta property="og:description" content="Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Separate agent connectivity from action confirmation: a Bedrock example">
+    <meta property="og:image:alt" content="How to separate open connectivity, managed execution, and approval design">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Separate agent connectivity from action confirmation: a Bedrock example | Auto Research Digest EN">
-    <meta name="twitter:description" content="Understand Bedrock user confirmation and return of control, distinguishing connectivity, user consent, and organizational approval in a leave-request workflow.">
+    <meta name="twitter:title" content="How to separate open connectivity, managed execution, and approval design | Auto Research Digest EN">
+    <meta name="twitter:description" content="Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Separate agent connectivity from action confirmation: a Bedrock example">
+    <meta name="twitter:image:alt" content="How to separate open connectivity, managed execution, and approval design">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
@@ -43,15 +43,15 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-05-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:50:49+09:00">
+    <meta property="article:modified_time" content="2026-09-20T14:01:53+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Interoperability">
     <meta property="article:tag" content="Runtime">
     <meta property="article:tag" content="Approval">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Separate agent connectivity from action confirmation: a Bedrock example","description":"Understand Bedrock user confirmation and return of control, distinguishing connectivity, user consent, and organizational approval in a leave-request workflow.","datePublished":"2025-05-01T00:00:00+09:00","dateModified":"2026-09-19T18:50:49+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Interoperability, Runtime, Approval","mainEntityOfPage":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Separate agent connectivity from action confirmation: a Bedrock example","item":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"How to separate open connectivity, managed execution, and approval design","description":"Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.","datePublished":"2025-05-01T00:00:00+09:00","dateModified":"2026-09-20T14:01:53+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Interoperability, Runtime, Approval","mainEntityOfPage":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"How to separate open connectivity, managed execution, and approval design","item":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,8 +67,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Separate agent connectivity from action confirmation: a Bedrock example</h1>
-          <p class="hero-copy">Compare Bedrock user confirmation with return of control, separating API connectivity, user intent, managerial approval, and the stored outcome of a leave request.</p>
+          <h1 class="hero-title">How to separate open connectivity, managed execution, and approval design</h1>
+          <p class="hero-copy">Read spring 2025 material from OpenAI, AWS, Google, and Microsoft to separate protocol connectivity, hosted execution, and user or organizational approval as distinct responsibilities.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -76,12 +76,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-05-01">May 1, 2025</time>
-        <time class="mono-note" datetime="2026-09-19">Updated September 19, 2026</time>
+        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Runtime</span><span class="meta-chip">Approval</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Separate%20agent%20connectivity%20from%20action%20confirmation%3A%20a%20Bedrock%20example&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-05-01-open-runtimes-and-managed-platforms-converge.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=How%20to%20separate%20open%20connectivity%2C%20managed%20execution%2C%20and%20approval%20design&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-05-01-open-runtimes-and-managed-platforms-converge.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Separate agent connectivity from action confirmation: a Bedrock example"
-      data-share-text="Separate agent connectivity from action confirmation: a Bedrock example"
+      data-share-title="How to separate open connectivity, managed execution, and approval design"
+      data-share-text="How to separate open connectivity, managed execution, and approval design"
       data-share-url="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Separate agent connectivity from action confirmation: a Bedrock example"
+      data-share-title="How to separate open connectivity, managed execution, and approval design"
       data-share-url="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -125,24 +125,41 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>Choosing a connection and authorizing an action are separate</h2>
-<p>An agent may be able to call a leave-request API even when the user only wants to check their remaining allowance. Connectivity leaves an important question unanswered: should this operation execute?</p>
-<p>AWS's April 2025 implementation article illustrated that distinction with time-off requests. The same month's A2A announcement addressed communication between agents. This article separates that connection mechanism from application-level confirmation.</p>
+  <p class="section-kicker">Question</p>
+  <h2>What is lost when connection, execution, and approval are treated as one “agent feature”?</h2>
+  <p>Spring 2025 material from OpenAI, AWS, Google, and Microsoft appeared in different places: agent-building components, collaboration and human confirmation, multi-system agents and <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A</a>, and Semantic Kernel Agents. It did not describe one finished common platform. This article treats protocol connectivity, managed execution, and approval for a change as separate responsibilities. That separation makes clear what can be exchanged and what organizational judgment remains.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Connection</h3><p>Specify how tasks, tools, and artifacts move to another system, including the authentication scope.</p></article>
+    <article class="comparison-card"><h3>Execution</h3><p>Use models, tools, state, and coordination to progress work while retaining a record.</p></article>
+    <article class="comparison-card"><h3>Approval</h3><p>Decide who may authorize a change, what is checked, and where exceptions return.</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>Return a confirmation or return execution to the application</h2>
-<p>The <a href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/">April 9 AWS article</a> explains two mechanisms. User confirmation gives the application the proposed function and arguments so it can collect approval before proceeding. Return of control makes the application responsible for execution and permits additional handling, including parameter changes.</p>
-<p>The former fits a decision on a presented operation. The latter supports custom editing or processing in the application. Neither means every action requires the same interruption; place confirmation according to the workflow's authorized scope.</p>
+  <p class="section-kicker">Different responsibilities</p>
+  <h2>A2A and managed platforms address different layers of the same design</h2>
+  <p>Google’s A2A announcement proposed a protocol for agents to exchange tasks, state, and artifacts. It does not make connected systems share an execution platform or take responsibility for each other’s business policy. Google Cloud multi-system agents, AWS multi-agent collaboration, OpenAI agent-building tools, and Semantic Kernel Agents offer options for execution or coordination with distinct scopes and release states. They should not be placed on one maturity scale.</p>
+  <p>Research such as AutoGen, Magentic-One, and BrowserGym shows that multi-role or external-environment work needs observations, state, and completion conditions. A protocol makes it possible to call another participant; an execution platform makes progress possible. Neither decides whether customer data may be sent or a leave request may be approved.</p>
 </section>
+
 <section class="report-section">
-<h2>User confirmation is not necessarily organizational approval</h2>
-<p>Confirming the dates in a leave request can differ from a manager approving that request. The AWS user-confirmation mechanism does not establish that an organization's approval process is already implemented.</p>
-<p>A proposed application design would display the dates, duration, employee, and operation. Edited dates should become the subject of confirmation. A registered request awaiting review should not be shown as approved leave. These are design recommendations, not claims about every feature of the published sample.</p>
+  <p class="section-kicker">Approval boundary</p>
+  <h2>Bedrock confirmation and control return illustrate different responsibility for a change</h2>
+  <p><a href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/">AWS’s human-in-the-loop example</a> describes confirmation before an agent executes an action group and a path that returns control to an application. Confirmation checks whether a user wants an action; it does not automatically satisfy an organization’s approval rule or the authorization of an external system.</p>
+  <p>For a leave request, an available HR API, an employee’s confirmation, approval under a manager’s policy, and a stored HR record are four different states. Keeping them separate prevents an access failure, a user cancellation, pending approval, and failed persistence from collapsing into one generic failure.</p>
 </section>
+
 <section class="report-section">
-<h2>Delegation to another agent does not remove confirmation requirements</h2>
-<p>Google's <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A announcement</a> described client and remote agents exchanging capabilities, task status, and artifacts. Finding a suitable agent through such a connection does not establish user consent for its action.</p>
-<p>Test allowance-only questions, corrected requests, denied execution, and post-execution status separately. Whatever protocol or runtime is chosen, verify that the actual operation matches the content the user authorized. Separating connection and execution responsibility makes that comparison possible.</p>
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>Follow a leave request through connection, execution, approval, and update</h2>
+  <p>This is a design example. An agent checks leave balance and prepares a request. A2A or a tool contract specifies the role or API to call. Managed execution can retain the request, state, and response. User confirmation checks dates and reason. Managerial approval applies organizational policy. Only a verified HR-system record completes the update.</p>
+  <p>Each stage needs defined input, permission, result, and destination after failure. Changing a connection format does not transfer approval rules or storage consistency automatically. Keeping completion conditions stable across execution platforms makes later architecture changes easier to test.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Conclusion</p>
+  <h2>A shared design diagram should place responsibility boundaries, not product names, at its center</h2>
+  <p>The releases made more separate components for connection, execution, coordination, and confirmation available. Their value is not evidence that interoperability is complete. It is a way to separate connection contracts, execution records, and approval responsibility, then explicitly preserve the judgments that must remain with people and organizations.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -221,7 +238,67 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2411.04468" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">November 7, 2024</span>
+              </div>
+              <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
+              <p class="source-url">https://arxiv.org/abs/2411.04468</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">December 6, 2024</span>
+              </div>
+              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">January 14, 2025</span>
+              </div>
+              <p class="source-title">Microsoft Research: AutoGen v0.4</p>
+              <p class="source-url">https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">January 23, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing Operator</p>
+              <p class="source-url">https://openai.com/index/introducing-operator/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 11, 2025</span>
+              </div>
+              <p class="source-title">OpenAI: New tools for building agents</p>
+              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 10, 2025</span>
+              </div>
+              <p class="source-title">AWS: Amazon Bedrock announces general availability of multi-agent collaboration</p>
+              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
@@ -229,6 +306,16 @@
               </div>
               <p class="source-title">AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents</p>
               <p class="source-url">https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">April 9, 2025</span>
+              </div>
+              <p class="source-title">Google Cloud: Build and manage multi-system agents with Vertex AI</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
@@ -239,6 +326,26 @@
               </div>
               <p class="source-title">Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)</p>
               <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/news/Introducing-code-with-claude" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">April 3, 2025</span>
+              </div>
+              <p class="source-title">Anthropic: Introducing Code with Claude</p>
+              <p class="source-url">https://www.anthropic.com/news/Introducing-code-with-claude</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">April 4, 2025</span>
+              </div>
+              <p class="source-title">Microsoft: Semantic Kernel Agents are now generally available</p>
+              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/</p>
             </div>
             <span class="source-action">Open</span>
           </a>
