@@ -1,21 +1,41 @@
 <section class="report-section">
-<h2>Check what an agent platform actually manages</h2>
-<p>In March 2025, OpenAI announced the Responses API and Agents SDK, while AWS made Bedrock multi-agent collaboration generally available. Both supplied development components, but not identical operational responsibilities. Separate tool execution, agent coordination, and application operation when comparing them.</p>
-<p>This article examines those announcements at the time, asking what the service handles and what the application team runs.</p>
+  <p class="section-kicker">Question</p>
+  <h2>Which responsibilities does a managed agent platform assume, and which remain with an application?</h2>
+  <p><a href="https://openai.com/index/new-tools-for-building-agents/">OpenAI’s agent-building tools</a> and <a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">Amazon Bedrock multi-agent collaboration</a>, released in March 2025, presented tool execution and coordination between roles as service or SDK capabilities. They did not make vendor scopes identical. This article uses <a href="https://arxiv.org/abs/2308.08155">AutoGen</a> and <a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> as research context for role separation, then compares execution, coordination, and business responsibility.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Hosted execution</h3><p>Call tools for search, files, or screens while receiving part of an execution environment.</p></article>
+    <article class="comparison-card"><h3>Embedded coordination</h3><p>Compose roles, handoffs, input/output checks, and records inside an application.</p></article>
+    <article class="comparison-card"><h3>Business responsibility</h3><p>Define identity, data permissions, update rules, and approvals for exceptions outside the platform.</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>Hosted tools and an embedded SDK are different components</h2>
-<p>OpenAI's <a href="https://openai.com/index/new-tools-for-building-agents/">March 11 announcement</a> added web search, file search, and computer-use tools through the Responses API and separately introduced the open-source Agents SDK. The SDK addressed agent configuration, handoffs, input/output checks, and tracing.</p>
-<p>Using an SDK in an application does not establish that the provider manages its deployment, user authentication, or business-data storage. Distinguish API-provided tools from embedded orchestration and identify where each part of the application runs.</p>
+  <p class="section-kicker">Different product surfaces</p>
+  <h2>Tools, SDKs, and multi-agent coordination retain different scopes despite similar language</h2>
+  <p>OpenAI’s release placed Responses API tools for web search, file search, and computer use alongside its open-source Agents SDK. The former offers hosted tool-call options; the latter offers components for application-level agent settings, handoffs, guardrails, and traces. Using an SDK does not make the service manage application deployment, user authentication, business-data retention, or permission for external action.</p>
+  <p>Bedrock’s general availability release described a supervisor that divides work among collaborators and a mode that directly routes simple requests. Even when part of the division is service configuration, the user must still define role descriptions, the meaning of an external API, and treatment of misrouting. As <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> separates workflows from agents, the key design question is which path to fix, not simply whether a managed component exists.</p>
 </section>
+
 <section class="report-section">
-<h2>Bedrock supplied supervisor coordination as a service capability</h2>
-<p>AWS's <a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">March 10 announcement</a> described supervisor-led decomposition and a routing mode that sends simple requests directly to a specialist. Complex or unclear requests still trigger supervisor coordination.</p>
-<p>This makes part of the coordination configurable within the service. It does not guarantee correct routing from ambiguous role descriptions or define the meaning of a connected business API. General availability does not establish correctness for every application.</p>
+  <p class="section-kicker">Relation to research</p>
+  <h2>Use role separation to make responsibility traceable, not merely to add features</h2>
+  <p>AutoGen treats multi-agent conversation as an application-building framework, while Magentic-One studies coordination of roles for complex work. Neither proves the performance of a particular managed platform. They do make clear that if a planner, specialist, and integrator are introduced, each role needs defined inputs, outputs, failures, and completion conditions.</p>
+  <p><a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> and screen-operation material such as Operator show that work acting on an external environment needs an initial state and a completion condition. A backend API role and a browser-operation role both require defined permission boundaries and confirmation points before their external actions.</p>
 </section>
+
 <section class="report-section">
-<h2>Compare remaining implementation and operation on one workflow</h2>
-<p>Imagine internal support answering product-use questions and order-status requests. One needs document retrieval; the other needs an order API. Begin with one agent, then compare a specialist configuration on the same questions if division of work is justified.</p>
-<p>Check answer correctness, routing mistakes, and API failure behavior. Also record which runtime the team maintains, which records it can retrieve, and which settings it controls. Latency and usage cost can change when multiple agents participate.</p>
-<p>The practical lesson from these launches is to identify component responsibilities. A small workflow exposes what remains to implement and operate, making the reasons for managed features or application-controlled execution concrete.</p>
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>Use a support request about product usage and order status to identify work that remains</h2>
+  <p>This is a design example. Assign product-usage questions to a document-search role and order status to an order-API role. A platform can take on part of the tool execution and delegation. The application still decides how a customer is identified, which order may be read, what to say after an API failure, and whether an order change is permitted.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Results to test</h3><p>Check supporting evidence, routing to an incorrect role, API-failure handling, and the combined answer separately.</p></article>
+    <article class="comparison-card"><h3>Boundaries to record</h3><p>Retain execution environment, inputs and outputs, permission checks, traces, and any state returned to the user as unconfirmed.</p></article>
+    <article class="comparison-card"><h3>What people decide</h3><p>Define customer-data scope, approval for refunds or changes, escalation destination, and recovery from an incorrect action as business rules.</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Conclusion</p>
+  <h2>Compare responsibility boundaries, not feature counts</h2>
+  <p>The spring 2025 releases showed a growing choice of platforms for execution, tools, and coordination among roles. The practical conclusion is not that a platform manages everything. Separating hosted tools, application-embedded coordination, and the organization’s identity, policy, and approval responsibilities lets a team choose components according to the work for which it remains responsible.</p>
 </section>

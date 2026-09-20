@@ -1,35 +1,41 @@
 <section class="report-section">
-<h2>「エージェント基盤」が管理する範囲を確かめる</h2>
-<p>2025年3月、OpenAIはResponses APIとAgents SDKを発表し、AWSはBedrockのマルチエージェント連携を一般提供に進めた。
-どちらも開発のための部品を提供するが、同じ範囲の処理を預かるわけではない。
-ツールの実行、エージェント間の調整、アプリケーションの運用を分けると、比較しやすくなる。</p>
-<p>本稿は当時の二つの発表を扱う。
-発表された機能の数から完成度を順位付けせず、どこをサービスに任せ、何を自分たちで動かすかを確認する。</p>
+  <p class="section-kicker">問い</p>
+  <h2>マネージドなエージェント基盤は、どの責任を引き受け、何をアプリに残すのか</h2>
+  <p>2025年3月の <a href="https://openai.com/index/new-tools-for-building-agents/">OpenAI の agent-building tools</a> と <a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">Amazon Bedrock の multi-agent collaboration</a> は、ツール実行と担当間の調整をサービスや SDK の機能として見せた。これは各社の提供範囲が同一になったという意味ではない。本稿では、研究で扱われてきた担当分割を読む補助線として <a href="https://arxiv.org/abs/2308.08155">AutoGen</a> と <a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> を置き、実行、協調、業務責任を分けて比較する。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>ホストされた実行</h3><p>検索、ファイル、画面などの道具を呼び、実行環境の一部を提供する。</p></article>
+    <article class="comparison-card"><h3>組込みの協調</h3><p>アプリが担当、handoff、入力・出力の検査、記録を組み立てる。</p></article>
+    <article class="comparison-card"><h3>業務の責任</h3><p>本人性、データ権限、更新規則、例外時の承認は、基盤の外側で定義する。</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>ホスト型のツールと、アプリへ組み込むSDKは異なる</h2>
-<p>OpenAIの<a href="https://openai.com/index/new-tools-for-building-agents/">3月11日の発表</a>は、Responses APIにウェブ検索、ファイル検索、コンピューター操作の道具を追加し、別途オープンソースのAgents SDKを紹介した。
-SDKは、エージェントの設定、担当の引き継ぎ、入力や出力の検査、実行記録を扱う。</p>
-<p>ここで、APIが提供するツールと、開発者がアプリケーションへ組み込むSDKを混同しないようにしたい。
-SDKを使ったことだけで、アプリケーションの配備、利用者の認証、業務用データの保存までサービス側が管理すると判断することはできない。
-具体的な構成で、どの処理をどこで動かすかを確認する必要がある。</p>
+  <p class="section-kicker">提供面の違い</p>
+  <h2>道具、SDK、複数担当の調整は、似た名前でも預かる範囲が違う</h2>
+  <p>OpenAI の発表は、Responses API の Web search、file search、computer use と、オープンソースの Agents SDK を並べた。前者はホストされた道具を呼ぶ選択肢であり、後者はエージェント設定、handoff、guardrail、trace をアプリへ組み込むための部品である。SDK を使っても、アプリの配備、利用者認証、業務データの保持、外部操作の許可をサービス側が自動的に管理するわけではない。</p>
+  <p>Bedrock の一般提供は、supervisor が仕事を複数の collaborator に分ける構成と、単純な依頼を直接振り分ける構成を示した。分担の一部をサービス設定に置けても、担当の説明、外部 API の意味、誤った振り分けの扱いは利用側が決める。<a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> が workflow と agent を分けるのと同じく、管理された部品の有無より、どの経路を固定するかが設計上の問いになる。</p>
 </section>
+
 <section class="report-section">
-<h2>Bedrockは、統括役による分担をサービスの機能として提供した</h2>
-<p>AWSの<a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">3月10日の発表</a>は、統括エージェントが仕事を分解して各担当へ渡す構成と、単純な依頼を担当へ直接振り分けるモードを説明した。
-後者でも、複雑な依頼や意図が明確でない依頼では、統括役が複数の担当を調整する。</p>
-<p>これは、分担の一部をサービス設定として扱えるという違いである。
-ただし、担当の説明が曖昧なら振り分けが適切とは限らず、接続した業務APIの意味も利用側で定義する必要がある。
-一般提供という状態は、個別業務での回答や操作の正しさを保証するものではない。</p>
+  <p class="section-kicker">研究との対応</p>
+  <h2>担当分割は、機能を増やすためではなく、責任を追える形にするために使う</h2>
+  <p>AutoGen は複数エージェントの会話をアプリ構築の枠組みとして扱い、Magentic-One は複雑な仕事で役割を調整する構成を研究した。これらは特定のマネージド基盤の性能を証明しない。一方で、planner、専門担当、統合役という役割を置くなら、入力、出力、失敗、終了条件を担当ごとに決める必要があることを明らかにする。</p>
+  <p><a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> や Operator のような画面操作の資料は、外部環境へ作用する仕事には初期状態と完了条件が必要だと示す。バックエンド API を呼ぶ担当もブラウザを操作する担当も、外部作用の前に許可範囲と確認地点を持つ点では同じである。</p>
 </section>
+
 <section class="report-section">
-<h2>一つの問い合わせで、残る実装と運用を比較する</h2>
-<p>例えば、製品の使い方と注文状況を答える社内サポートを想定する。
-前者は文書検索、後者は注文APIへの照会が必要になる。
-まず一つのエージェントで両方を扱う構成を試し、分担が必要なら、同じ質問集で担当を分けた構成と比べる。</p>
-<p>比較では、回答の正しさ、誤った振り分け、APIが失敗した場合の応答を確認する。
-同時に、どの実行環境を自分たちで保守し、どの記録を取得でき、どの設定を変更できるかを残す。
-待ち時間や利用費用も、複数の担当を呼ぶ構成では変わり得る。</p>
-<p>二つの発表を読む価値は、「エージェント基盤がそろった」と結論することより、提供された部品の責任範囲を見分けることにある。
-小さな業務を通して残る作業を確かめると、マネージド機能を使う理由と、アプリ側で管理する理由をそれぞれ説明できる。</p>
+  <p class="section-kicker">想定例</p>
+  <h2>製品の使い方と注文状況を答える問い合わせで、残る仕事を確かめる</h2>
+  <p>以下は設計例である。製品の使い方は文書検索担当、注文状況は注文 API 担当に分ける。基盤に任せられるのは、道具の実行や担当への依頼の一部である。利用側は、誰が顧客を同定するか、どの注文を参照してよいか、API が失敗したときの回答、注文変更を許すかを定める。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>検査する結果</h3><p>回答の根拠、誤った担当への routing、API 失敗時の扱い、統合された回答を別々に確認する。</p></article>
+    <article class="comparison-card"><h3>記録する境界</h3><p>実行環境、入力と出力、権限確認、trace、利用者へ返した未確認状態を残す。</p></article>
+    <article class="comparison-card"><h3>人が決めること</h3><p>顧客情報の範囲、返金や変更の承認、エスカレーション先、誤操作の復旧を業務規則として定義する。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>比較すべきなのは機能数ではなく、責任境界である</h2>
+  <p>2025年春の発表は、実行、道具、複数担当の調整を選べる基盤が増えたことを示した。ここから導ける実務上の結論は、基盤が「すべてを管理する」と捉えないことだ。ホストされた道具、アプリへ埋め込む協調、組織が保持する認証・方針・承認を分ければ、どの部品を使うかを仕事の責任に沿って選べる。</p>
 </section>
