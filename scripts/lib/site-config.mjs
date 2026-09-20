@@ -59,8 +59,8 @@ export const siteConfig = {
     en: "Research Signal"
   },
   taglines: {
-    ja: "AIエージェントと生成AIを業務へ導入する前に、任せる仕事、根拠、評価、承認を一次情報から判断する。",
-    en: "Primary-source research for deciding what to delegate, evaluate, and approve before putting AI agents and generative AI into work."
+    ja: "AIエージェントと生成AIの業務導入を、一次情報から考える",
+    en: "Thinking about adopting AI agents and generative AI for work through primary sources."
   },
   nav: {
     ja: [
