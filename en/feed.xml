@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 08:37:13 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 08:42:28 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -27,8 +27,8 @@
       <title>Evaluating AI agent actions beyond the final answer</title>
       <link>https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</guid>
-      <pubDate>Sat, 05 Sep 2026 10:44:30 GMT</pubDate>
-      <description>Evaluate AI agents using booking traces, approval order, tool arguments, and saved state. Learn how to allow valid paths and detect regressions.</description>
+      <pubDate>Sun, 20 Sep 2026 08:42:28 GMT</pubDate>
+      <description>Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.</description>
       <category>AI Agents</category>
     </item>
     <item>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AI agent evaluation with traces and final-state checks | Auto Research Digest EN</title>
-    <meta name="description" content="Evaluate AI agents using booking traces, approval order, tool arguments, and saved state. Learn how to allow valid paths and detect regressions.">
+    <meta name="description" content="Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="AI agent evaluation with traces and final-state checks | Auto Research Digest EN">
-    <meta property="og:description" content="Evaluate AI agents using booking traces, approval order, tool arguments, and saved state. Learn how to allow valid paths and detect regressions.">
+    <meta property="og:description" content="Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.">
     <meta property="og:url" content="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="AI agent evaluation with traces and final-state checks">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI agent evaluation with traces and final-state checks | Auto Research Digest EN">
-    <meta name="twitter:description" content="Evaluate AI agents using booking traces, approval order, tool arguments, and saved state. Learn how to allow valid paths and detect regressions.">
+    <meta name="twitter:description" content="Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta name="twitter:image:alt" content="AI agent evaluation with traces and final-state checks">
     <link rel="canonical" href="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-07-11T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T19:44:30+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:42:28+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Evaluation">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Tool Use">
     <meta property="article:tag" content="Governance">
     <meta property="article:tag" content="LLM">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Evaluating AI agent actions beyond the final answer","description":"Evaluate AI agents using booking traces, approval order, tool arguments, and saved state. Learn how to allow valid paths and detect regressions.","datePublished":"2026-07-11T00:00:00+09:00","dateModified":"2026-09-05T19:44:30+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Evaluating AI agent actions beyond the final answer","description":"Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.","datePublished":"2026-07-11T00:00:00+09:00","dateModified":"2026-09-20T17:42:28+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Evaluating AI agent actions beyond the final answer","item":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">Evaluating AI agent actions beyond the final answer</h1>
-          <p class="hero-copy">Two booking agents can return the same correct answer while only one follows the approval rule. A hypothetical example separates event collection, argument and order checks, final-state verification, and regression evaluation.</p>
+          <p class="hero-copy">Two booking agents can return the same correct answer while only one follows the approval rule. A hypothetical example separates the task contract, execution order and arguments, and final state, then connects traces to acceptance and regression checks.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-07-11">July 11, 2026</time>
-        <time class="mono-note" datetime="2026-09-05">Updated September 5, 2026</time>
+        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
     </section>
@@ -136,6 +136,25 @@
 <p>Run B violates the service's approval order even though its answer and final state are correct. Detecting this requires a check of approval before saving in addition to response quality.</p>
 </section>
 <section class="report-section">
+<h2>Three contracts make the evaluation explicit</h2>
+<p>To judge the hypothetical case consistently, do not collapse what was requested, how it was executed, and what was saved into one aggregate score. This article records them as three separate contracts.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Task contract</h3>
+<p>Fix that a verified customer may change booking R42, that the new time and price must be presented, and that no other booking may change. Record the starting data, permitted operations, completion condition, and prohibited conditions here.</p>
+</article>
+<article class="comparison-card">
+<h3>Execution contract</h3>
+<p>Check the order of lookup, presentation, approval, and saving, and verify that the booking ID, time, and price in the approval match the save request. The run ID, tool calls, approval, save request, and result provide the needed evidence.</p>
+</article>
+<article class="comparison-card">
+<h3>Outcome contract</h3>
+<p>Use evaluation data to confirm that only booking R42 holds the approved values and no other booking changed. Grade the final response separately; missing records prove neither a pass nor the absence of a prohibited action.</p>
+</article>
+</div>
+<p>Separating the contracts catches an approval-order violation behind a natural answer while avoiding rejection of a different path that meets the same business conditions.</p>
+</section>
+<section class="report-section">
 <h2>Recording events and judging them are separate jobs</h2>
 <p>OpenAI Agents SDK tracing records events including generation, tool calls, handoffs, and guardrails. A separate rule must establish which recorded behavior fails. <a href="https://openai.github.io/openai-agents-python/tracing/">Tracing documentation</a></p>
 <p>For the booking case, connect the run ID, booking ID, lookup result, proposed change, approval target, save request, and save result. Pass the approval condition only when the approved content matches the saved content and approval precedes saving. Missing approval evidence should trigger investigation rather than an assumption of permission.</p>
@@ -149,10 +168,10 @@
 <p>Tool names alone also cannot detect a save directed to the wrong booking ID. Combine ordering checks with checks of arguments and saved state. When a model judges the usefulness of the response, do not allow a high aggregate score to cancel an explicitly detectable violation.</p>
 </section>
 <section class="report-section">
-<h2>Compare changes against the same cases</h2>
-<p>Include rejection, changed prices, missing permissions, and interrupted save responses alongside normal booking changes. For an interrupted response, check whether the agent resends before establishing if the first save succeeded. Run old and new versions with the same initial data to distinguish improved answers from worse actions.</p>
+<h2>Compare changes against the same cases; use production observation separately</h2>
+<p>For pre-change evaluation, include rejection, changed prices, missing permissions, and interrupted save responses alongside normal booking changes. Write the three contracts for every case, then run old and new versions with the same initial data and conditions to distinguish improved answers from worse actions. For an interrupted response, check whether the agent resends before establishing if the first save succeeded.</p>
 <p>Report response quality, saved state, prohibited actions, and missing evidence separately. Track latency and cost as additional measures. Repeat runs to test whether success depends on a fortunate attempt; τ-bench likewise distinguishes reliability across trials from success once.</p>
-<p>Convert new production failures into reviewed, anonymized reproduction cases. Passing the accumulated tests cannot guarantee safety in unrepresented situations. Connecting evaluation to execution records makes it possible to explain which business condition a particular change broke.</p>
+<p>Use production records to find failures absent from the evaluation set. Observation alone cannot replace a pass or fail judgement against a predefined business condition. Convert a new failure into a reviewed, anonymized reproduction case with an expected outcome. Passing the accumulated cases cannot guarantee safety in unrepresented situations, but this loop makes it possible to explain which condition a particular change broke.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">

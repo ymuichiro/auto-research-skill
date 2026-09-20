@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AIエージェント評価：実行記録で誤操作を見つける | Auto Research Digest</title>
-    <meta name="description" content="予約変更の例で、AIエージェントの回答、承認順序、入力値、最終状態を別々に評価。トレースと合否判定の違い、正しい代替経路の扱いを解説する。">
+    <meta name="description" content="予約変更の例で、AIエージェントの依頼条件、承認順序、入力値、最終状態を別々に評価。トレース、合否判定、正しい代替経路、回帰検出の役割を解説する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="AIエージェント評価：実行記録で誤操作を見つける | Auto Research Digest">
-    <meta property="og:description" content="予約変更の例で、AIエージェントの回答、承認順序、入力値、最終状態を別々に評価。トレースと合否判定の違い、正しい代替経路の扱いを解説する。">
+    <meta property="og:description" content="予約変更の例で、AIエージェントの依頼条件、承認順序、入力値、最終状態を別々に評価。トレース、合否判定、正しい代替経路、回帰検出の役割を解説する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="AIエージェント評価：実行記録で誤操作を見つける">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AIエージェント評価：実行記録で誤操作を見つける | Auto Research Digest">
-    <meta name="twitter:description" content="予約変更の例で、AIエージェントの回答、承認順序、入力値、最終状態を別々に評価。トレースと合否判定の違い、正しい代替経路の扱いを解説する。">
+    <meta name="twitter:description" content="予約変更の例で、AIエージェントの依頼条件、承認順序、入力値、最終状態を別々に評価。トレース、合否判定、正しい代替経路、回帰検出の役割を解説する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta name="twitter:image:alt" content="AIエージェント評価：実行記録で誤操作を見つける">
     <link rel="canonical" href="https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html">
@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-07-11T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T19:44:30+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:42:28+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Evaluation">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Tool Use">
     <meta property="article:tag" content="Governance">
     <meta property="article:tag" content="LLM">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの誤操作を、回答と実行記録から評価する","description":"予約変更の例で、AIエージェントの回答、承認順序、入力値、最終状態を別々に評価。トレースと合否判定の違い、正しい代替経路の扱いを解説する。","datePublished":"2026-07-11T00:00:00+09:00","dateModified":"2026-09-05T19:44:30+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの誤操作を、回答と実行記録から評価する","description":"予約変更の例で、AIエージェントの依頼条件、承認順序、入力値、最終状態を別々に評価。トレース、合否判定、正しい代替経路、回帰検出の役割を解説する。","datePublished":"2026-07-11T00:00:00+09:00","dateModified":"2026-09-20T17:42:28+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの誤操作を、回答と実行記録から評価する","item":"https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">AIエージェントの誤操作を、回答と実行記録から評価する</h1>
-          <p class="hero-copy">同じ予約変更の回答を返しても、承認より先に保存した実行は不合格になる。予約変更の想定例を使い、トレースの取得、入力値と順序の判定、最終状態の照合を分け、変更前後の回帰を検出する方法を説明する。</p>
+          <p class="hero-copy">同じ予約変更の回答を返しても、承認より先に保存した実行は不合格になる。予約変更の想定例で、依頼の条件、実行順序と入力値、最終状態の三つを分け、トレースを合否判定と回帰検出へ結び付ける方法を説明する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-07-11">2026年7月11日</time>
-        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
     </section>
@@ -140,6 +140,29 @@
 この違いを検出するには、「よい回答」の採点に加えて、承認と保存の前後関係を判定しなければならない。</p>
 </section>
 <section class="report-section">
+<h2>評価で分ける三つの契約</h2>
+<p>この想定例で合否を一貫して判定するには、何を依頼されたか、どのように実行したか、何が保存されたかを一つの総合点へ混ぜない。
+本稿では、それぞれを次の三つの契約として記述する。</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>依頼の契約</h3>
+<p>本人確認済みの利用者が予約R42を変更できること、新しい日時と料金を提示すること、別の予約を変更してはならないことを固定する。
+評価の開始データ、許可された操作、完了条件と禁止条件をここに書く。</p>
+</article>
+<article class="comparison-card">
+<h3>実行の契約</h3>
+<p>照会、変更内容の提示、承認、保存の順を検査し、承認の対象と保存要求の予約ID、日時、料金が一致するかを確かめる。
+実行ID、道具の呼び出し、承認、保存要求と結果が、その判断に必要な証拠になる。</p>
+</article>
+<article class="comparison-card">
+<h3>結果の契約</h3>
+<p>予約R42だけが承認された値へ更新され、別の予約が変わっていないことを評価用データで照合する。
+最終回答の内容は別に採点し、記録が欠ける場合は合格とも禁止操作なしとも扱わない。</p>
+</article>
+</div>
+<p>三つを分ける目的は、回答が自然でも承認順序を破った実行を見逃さず、反対に同じ業務条件を満たす別経路を不必要に不合格にしないことにある。</p>
+</section>
+<section class="report-section">
 <h2>記録する機能と、合否を決める規則</h2>
 <p>OpenAI Agents SDKのトレースは、生成、道具の呼び出し、引き継ぎ、ガードレールなどの実行イベントを記録する。
 その記録を使って何を不合格にするかは、別に定める必要がある。<a href="https://openai.github.io/openai-agents-python/tracing/">トレースの仕様</a></p>
@@ -164,17 +187,18 @@
 文章の有用性をモデルで採点する場合も、このような明示的に判定できる違反を総合点で相殺しない。</p>
 </section>
 <section class="report-section">
-<h2>変更前後を同じケースで比べる</h2>
-<p>評価セットには通常の変更だけでなく、利用者が拒否する場合、料金が変わる場合、権限がない場合、保存の応答が途切れる場合を入れる。
-応答が途切れた例では、保存済みか不明なまま再送していないかを見る。
-同じ初期データと条件で変更前後を試せば、回答が改善した一方で操作が悪化したケースを分けて確認できる。</p>
+<h2>変更前後を同じケースで比べ、本番観測は別に扱う</h2>
+<p>変更前後を比べる事前評価では、通常の変更だけでなく、利用者が拒否する場合、料金が変わる場合、権限がない場合、保存の応答が途切れる場合を入れる。
+各ケースに三つの契約を記し、同じ初期データと条件で実行すれば、回答が改善した一方で操作が悪化したケースを分けて確認できる。
+保存の応答が途切れる例では、保存済みか不明なまま再送していないかを検査する。</p>
 <p>評価結果には、回答の合否、保存結果、禁止操作、証拠不足を別々に残す。
 遅延や費用はさらに別の指標として測る。
 実行を複数回試し、一度だけ成功した経路に依存していないかも確認する。
 τ-benchも、複数試行での信頼性を一回の成功とは区別して評価している。</p>
-<p>本番で新しい失敗が見つかったら、必要なデータを匿名化した再現ケースを評価セットへ加える。
-ただし、評価セットに合格したことは、未収集の状況でも安全だという保証にはならない。
-実行記録を評価へつなぐ意味は、特定の変更がどの業務条件を破ったかを説明できるようにすることにある。</p>
+<p>本番の実行記録は、評価セットにない失敗を見つけるために使う。
+観測だけでは、あらかじめ定めた業務条件に対する合否判定の代わりにならない。
+新しい失敗が見つかったら、必要なデータを匿名化した再現ケースと期待結果を評価セットへ加える。
+評価セットに合格しても未収集の状況で安全だとは保証できないが、この循環によって、特定の変更がどの条件を破ったかを説明できる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
