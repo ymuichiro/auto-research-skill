@@ -3,10 +3,10 @@
   "date": "2026-03-21",
   "titleJa": "AIエージェントの導入判断を、自社の完了条件で測る",
   "titleEn": "Evaluate agent readiness against the work your organization must complete",
-  "summaryJa": "SWE-benchとτ-benchの課題設定から、公開評価を自社の導入判断へつなぐ方法を考える。配送先変更を想定し、例外処理、繰り返しの安定性、人への引き継ぎ、費用を固定手順の処理と比較する。",
-  "summaryEn": "Use SWE-bench and τ-bench as examples of task design, then evaluate an internal address-change workflow for completion, exceptions, consistency, and human review costs.",
-  "seoDescriptionJa": "AIエージェントの公開ベンチマークを自社の導入判断へつなぐ方法を解説。完了条件、例外、再試行、人への引き継ぎを具体的な業務で評価する。",
-  "seoDescriptionEn": "Translate public agent benchmarks into workflow-specific tests covering completion, exceptions, retries, escalation, and the cost of human review.",
+  "summaryJa": "SWE-bench、τ-bench、WebArenaが検証する仕事の型を手がかりに、限定試行と組織横断の運用に必要な条件を分ける。配送先変更を例に、例外、再試行、人への引き継ぎ、費用を固定手順の処理と比較する。",
+  "summaryEn": "Use the task shapes in SWE-bench, τ-bench, and WebArena to separate the conditions for a limited trial from those for cross-organizational operation, then test an address-change workflow for exceptions, retries, escalation, and review cost.",
+  "seoDescriptionJa": "AIエージェントの導入判断で、公開評価が検証する仕事の型と、自社で測る完了条件、例外、再試行、人への引き継ぎを整理する。",
+  "seoDescriptionEn": "Use public agent benchmarks to define workflow-specific completion, exceptions, retries, escalation, and review cost before rollout.",
   "teaserJa": "高い評価を自社での成功率に読み替えない。完了条件と例外を定め、単純な処理との違いを測る。",
   "teaserEn": "A benchmark score is a starting point. Define completion and exceptions, then compare the agent with a simpler workflow.",
   "category": "AI Agents",
@@ -27,6 +27,11 @@
     {
       "label": "τ-bench (v1)",
       "url": "https://arxiv.org/abs/2406.12045v1",
+      "type": "paper"
+    },
+    {
+      "label": "WebArena (v1)",
+      "url": "https://arxiv.org/abs/2307.13854v1",
       "type": "paper"
     },
     {

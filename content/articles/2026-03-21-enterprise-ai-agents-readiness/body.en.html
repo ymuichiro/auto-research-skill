@@ -4,10 +4,46 @@
 <p>SWE-bench and τ-bench illustrate different ways to define such tasks. Model capability remains part of the comparison. Deployment decisions also require measuring what the model and its actual tools accomplish together.</p>
 </section>
 <section class="report-section">
+<h2>Task shapes public benchmarks test, and the conditions a rollout must add</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Code repair</h3>
+<p>SWE-bench asks a system to produce a change from an issue and a codebase, then checks the result with tests. Its completion condition is an altered artifact, not a plausible explanation.</p>
+</article>
+<article class="comparison-card">
+<h3>Stateful customer support</h3>
+<p>τ-bench combines a user conversation, domain APIs, rules, and a final database state. It checks the state after action and consistency over repeated trials, rather than the conversation alone.</p>
+</article>
+<article class="comparison-card">
+<h3>Stateful interface operation</h3>
+<p>The <a href="https://arxiv.org/abs/2307.13854v1">first WebArena paper</a> constructs tasks in an environment of multiple websites and their states. Its question is whether the environment reaches the required state, not whether one on-screen action occurred.</p>
+</article>
+<article class="comparison-card">
+<h3>What an internal decision adds</h3>
+<p>Who is requesting the action, which writes are permitted, who receives an exception, and what can be verified later are not determined by these public evaluations. Define them for the boundary of the intended work.</p>
+</article>
+</div>
+<p>These three evaluations do not decide which work is already suitable for enterprise deployment. Their transferable method is to specify inputs, actions, and final states for each kind of work before comparing systems.</p>
+</section>
+<section class="report-section">
 <h2>Code repair and customer support have different definitions of completion</h2>
 <p>The <a href="https://arxiv.org/abs/2310.06770v1">first SWE-bench paper</a> constructs code-repair tasks from real GitHub issues and corresponding changes. The input includes a codebase and issue description; the requested outcome is a code change rather than just an explanation. That is relevant to selecting a code-repair system, but does not simultaneously measure customer clarification or internal approval procedures.</p>
 <p><a href="https://arxiv.org/abs/2406.12045v1">τ-bench</a> combines model-simulated user conversations, domain APIs, and business rules. It compares the final database state with the target state and evaluates reliability across multiple trials. Separating a claim of completion from the actual result is a useful method to carry into business evaluation.</p>
 <p>Performance with a simulated user in a prepared environment is not performance with a company's customers and production APIs. Borrow the method of specifying inputs, permitted actions, and completion criteria rather than directly adopting the reported success rate as an expectation.</p>
+</section>
+<section class="report-section">
+<h2>Separate the conditions for a limited trial from those for cross-organizational operation</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Limited trial</h3>
+<p>Limit the scope to one workflow and a small group of owners, and use an environment that cannot alter production data. Write down ordinary completion, requests that must be refused, exceptions requiring handoff, and retry handling before testing, then record each result.</p>
+</article>
+<article class="comparison-card">
+<h3>Cross-organizational operation</h3>
+<p>Before extending the scope, establish requester verification, role-appropriate permissions, audit of writes, recovery after failure, and re-evaluation when rules or connections change. This is the article's design judgment; passing a public benchmark does not guarantee these conditions.</p>
+</article>
+</div>
+<p>Readiness depends on whether the boundary of delegated work matches the necessary controls, not on the number of checked features. A trial that works within one scope does not establish the same conditions for another department or exception set.</p>
 </section>
 <section class="report-section">
 <h2>Test address changes through ordinary and exceptional cases</h2>
