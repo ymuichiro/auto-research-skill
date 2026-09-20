@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jev, decision APIs, and when not to use an LLM | Auto Research Digest EN</title>
+    <meta name="description" content="A practical comparison of Jev, fine-tuned classifiers, generative LLMs, and Structured Outputs. Covers evaluation, thresholds, human review, and deterministic controls.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="ja_JP">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="Jev, decision APIs, and when not to use an LLM | Auto Research Digest EN">
+    <meta property="og:description" content="A practical comparison of Jev, fine-tuned classifiers, generative LLMs, and Structured Outputs. Covers evaluation, thresholds, human review, and deterministic controls.">
+    <meta property="og:url" content="https://research.notelligent.app/en/2026-09-21-jev-decision-api.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:image:alt" content="Jev, decision APIs, and when not to use an LLM">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Jev, decision APIs, and when not to use an LLM | Auto Research Digest EN">
+    <meta name="twitter:description" content="A practical comparison of Jev, fine-tuned classifiers, generative LLMs, and Structured Outputs. Covers evaluation, thresholds, human review, and deterministic controls.">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
+    <meta name="twitter:image:alt" content="Jev, decision APIs, and when not to use an LLM">
+    <link rel="canonical" href="https://research.notelligent.app/en/2026-09-21-jev-decision-api.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-09-21-jev-decision-api.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-09-21-jev-decision-api.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-09-21-jev-decision-api.html">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:published_time" content="2026-09-21T00:00:00+09:00">
+    <meta property="article:modified_time" content="2026-09-21T01:01:07+09:00">
+    <meta property="article:section" content="AI Strategy">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="Classification">
+    <meta property="article:tag" content="AI Architecture">
+    <meta property="article:tag" content="Evaluation">
+    <meta property="article:tag" content="AI Agent">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Will LLMs replace every if statement? Jev and the case for a decision API","description":"A practical comparison of Jev, fine-tuned classifiers, generative LLMs, and Structured Outputs. Covers evaluation, thresholds, human review, and deterministic controls.","datePublished":"2026-09-21T00:00:00+09:00","dateModified":"2026-09-21T01:01:07+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, Classification, AI Architecture, Evaluation, AI Agent","mainEntityOfPage":"https://research.notelligent.app/en/2026-09-21-jev-decision-api.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-09-21-jev-decision-api.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/en/topics/ai-strategy/"},{"@type":"ListItem","position":4,"name":"Will LLMs replace every if statement? Jev and the case for a decision API","item":"https://research.notelligent.app/en/2026-09-21-jev-decision-api.html"}],"inLanguage":"en"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/en/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <a class="lang-switch" href="/2026-09-21-jev-decision-api.html">日本語</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">Will LLMs replace every if statement? Jev and the case for a decision API</h1>
+          <p class="hero-copy">Jev is TypeSafe AI&#39;s decision model for closed choices and probabilities. This article compares it with fine-tuned classifiers, generative LLMs, and Structured Outputs, then defines the conditions for putting ambiguous judgments safely into software.</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-strategy/">AI Strategy</a>
+        <time class="mono-note" datetime="2026-09-21">September 21, 2026</time>
+        
+      </div>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">Classification</span><span class="meta-chip">AI Architecture</span><span class="meta-chip">Evaluation</span><span class="meta-chip">AI Agent</span></div>
+    </section>
+    <section class="article-share" aria-label="Share article">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Will%20LLMs%20replace%20every%20if%20statement%3F%20Jev%20and%20the%20case%20for%20a%20decision%20API&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-09-21-jev-decision-api.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Open share menu"
+      data-native-share
+      data-share-title="Will LLMs replace every if statement? Jev and the case for a decision API"
+      data-share-text="Will LLMs replace every if statement? Jev and the case for a decision API"
+      data-share-url="https://research.notelligent.app/en/2026-09-21-jev-decision-api.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="Copy article title and link"
+      data-copy-share
+      data-state="idle"
+      data-share-title="Will LLMs replace every if statement? Jev and the case for a decision API"
+      data-share-url="https://research.notelligent.app/en/2026-09-21-jev-decision-api.html"
+      data-copy-label-default="Copy article title and link"
+      data-copy-label-success="Copied"
+      data-copy-status-success="Copied"
+      data-copy-status-error="Copy failed"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+<h2>Why call an LLM when no one needs prose?</h2>
+<p>“Is this message a refund request?” “Does this contract contain an auto-renewal clause?” “Should this transaction go to human review?”</p>
+<p>These are ordinary questions for business software.</p>
+<p>The system needs a decision that branches the next step, not an explanation or a proposal.</p>
+<p>Yet implementations often pass the question to a general-purpose LLM, ask it for prose or JSON, and use the result to decide what happens next.</p>
+<p>That is not always excessive.</p>
+<p>A generative model is appropriate when the system must explain a case, ask for missing information, or handle exceptions in language.</p>
+<p>But when it only needs to choose from a closed set, a different question remains: why use a text-generation model when no one needs text?</p>
+<p>Jev, released in early access by TypeSafe AI on September 15, 2026, starts from that question. <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe AI's announcement</a> says that Jev takes a state and typed questions, then returns a choice, score, or truth value with structured probabilities rather than prose.</p>
+<p>This article calls the layer it proposes a <strong>decision API</strong>.</p>
+<p>That is not an established industry category.</p>
+<p>It is this article's term for a component that reads natural language but returns a decision from an application-defined answer space, separate from models that generate, calculate, or execute.</p>
+</section>
+<section class="report-section">
+<h2>Fine-tuned classifiers and general LLMs left a practical gap</h2>
+<p>It would oversimplify history to say that BERT and LLMs were the only choices.</p>
+<p>Zero-shot text classification has long been researched, and a 2019 benchmark evaluated classification without task-specific labelled data. <a href="https://aclanthology.org/D19-1404/">Yin et al.</a></p>
+<p>Even so, production designs have often chosen between two work patterns.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Fine-tuned classifier</h3>
+<p>Define labels, collect and annotate data, evaluate, then deploy. BERT showed how a pretrained representation plus a task-specific output layer can be fine-tuned for downstream work. <a href="https://arxiv.org/abs/1810.04805">The BERT paper</a></p>
+</article>
+<article class="comparison-card">
+<h3>General-purpose generative LLM</h3>
+<p>Answer a new question from instructions at call time. It can combine generation, explanation, and reasoning across conditions in one call, but even a bare judgment becomes a call to a generative model.</p>
+</article>
+<article class="comparison-card">
+<h3>Jev's decision API</h3>
+<p>Send a state and closed questions; receive a choice, score, or truth value with probabilities. The application constrains the model's freedom to a defined decision space.</p>
+</article>
+</div>
+<p>This is not a performance ranking.</p>
+<p>Handwritten rules still fit exact conditions; generative work still needs a generative model; and a trained model can remain the best choice where it is accurate enough.</p>
+<p>Jev's move is not to declare either extreme smarter. It treats a distinct kind of branch as its own call: one that must read natural language but does not need to return open-ended language.</p>
+</section>
+<section class="report-section">
+<h2>Jev receives closed decisions through three primitives</h2>
+<p>Jev's HTTP API accepts application state and a map of questions, then returns one answer per question. <a href="https://docs.typesafe.ai/api">API reference</a></p>
+<p>The application chooses each question identifier; the model receives the question, candidate options, and criteria.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Choice</h3>
+<p>Select one defined option. It fits a decision such as routing a message to refunds, technical support, or sales, and returns a probability for every option plus confidence. <a href="https://docs.typesafe.ai/primitives/choice">Choice reference</a></p>
+</article>
+<article class="comparison-card">
+<h3>Score</h3>
+<p>Assess a state on a predefined ordered rubric. It fits judgments with order between options, such as severity or urgency. <a href="https://docs.typesafe.ai/primitives/score">Score reference</a></p>
+</article>
+<article class="comparison-card">
+<h3>Noul</h3>
+<p>Ask a yes-or-no question and receive the probability that it is true. It fits a binary judgment such as whether a message asks for a refund. <a href="https://docs.typesafe.ai/primitives/noul">Noul reference</a></p>
+</article>
+</div>
+<p>Viewed only at this level, the system naturally resembles a classifier.</p>
+<p>But the application can supply the answer space and criteria at call time.</p>
+<p>Changing today's taxonomy from <code>refund / support / sales</code> to tomorrow's taxonomy with <code>abuse</code> becomes a change to questions and evaluation cases, rather than automatically the start of retraining.</p>
+<p>That mutability makes Jev look less like a fixed classifier and more like a product that moves part of classifier construction into an API.</p>
+</section>
+<section class="report-section">
+<h2>Structured Outputs competes on more than output shape</h2>
+<p>The objection that a low-cost LLM with Structured Outputs can return the required JSON is correct.</p>
+<p>OpenAI Structured Outputs conforms model output to a developer-supplied JSON Schema, which is powerful when an application must not receive malformed output. <a href="https://openai.com/index/introducing-structured-outputs-in-the-api/">OpenAI's announcement</a></p>
+<p>Format alone, therefore, cannot justify choosing Jev.</p>
+<p>Schema-valid JSON and a decision that is correct about the world are different properties.</p>
+<p>The two paths are clearer when separated this way.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Generative LLM with Structured Outputs</h3>
+<p>Use a general model as a response system with a prescribed shape. If explanation, exception handling, extraction, or reasoning is needed, they can share one model call.</p>
+</article>
+<article class="comparison-card">
+<h3>Jev</h3>
+<p>Make a closed judgment the API contract from the start, returning probabilities and confidence for its options. It cannot be used to generate the explanatory prose.</p>
+</article>
+</div>
+<p>TypeSafe contrasts sequential LLM generation with Jev's parallel evaluation of many questions against the same state. <a href="https://docs.typesafe.ai/introduction">Introduction</a></p>
+<p>Its workflow evaluation also assumes decomposed questions and control by code. <a href="https://evals.typesafe.ai/">Workflow evals</a></p>
+<p>That evaluation uses a vendor-authored harness and consensus labels from external models.</p>
+<p>TypeSafe notes the possible bias from the people who created the harness, so its speed and cost claims cannot stand in for an independent accuracy comparison.</p>
+<p>Jev need not be chosen because it is “smarter.”</p>
+<p>It has a design fit when the system wants to give up generative freedom and treat candidates and probabilities as first-class inputs to software.</p>
+</section>
+<section class="report-section">
+<h2>Removing task-specific training does not remove decision design or evaluation</h2>
+<p>Calling Jev a classifier that works without training is an effective shorthand.</p>
+<p>The adopting company need not begin with a task-specific weight update.</p>
+<p>But it would be wrong to read that as “write a requirement and call the API, and classification is done.”</p>
+<p>The responsibility of classification moves into application-defined labels, criteria, thresholds, and exceptions; it does not disappear.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Changing a fine-tuned classifier</h3>
+<p>Turn requirements into label definitions, collect and annotate data, train and evaluate, then deploy. A new label changes that machine-learning workflow.</p>
+</article>
+<article class="comparison-card">
+<h3>Changing a decision API</h3>
+<p>Turn requirements into questions and criteria, build evaluation cases for ordinary and boundary inputs, then specify action thresholds and human handoffs. A new label changes the questions, evaluation, and branching rules.</p>
+</article>
+</div>
+<p>The second path does not eliminate machine-learning operations.</p>
+<p>It can remove task-specific data collection and retraining as a prerequisite for the first deployment.</p>
+<p>In exchange, someone must define what belongs in <code>abuse</code>, which misclassifications are unacceptable, and which answers must go to a person, with those decisions traceable in code and evaluation records.</p>
+<p>Probability is not an automation permit, either.</p>
+<p>Neural-network probabilities can be miscalibrated, and calibration is not a guarantee that an individual answer is right. <a href="https://arxiv.org/abs/1706.04599">Guo et al.</a></p>
+<p>TypeSafe's documentation makes the same distinction: calibration is a property across groups of predictions, not a guarantee for one answer. <a href="https://docs.typesafe.ai/concepts/system-one">System One reference</a></p>
+</section>
+<section class="report-section">
+<h2>Probability feeds an if statement; it does not replace one</h2>
+<p>A decision API should not connect a model result directly to an external action.</p>
+<p>Refunds, identity checks, transfers, and publication carry different costs of error, so they need different evidence and action conditions.</p>
+<p>In this hypothetical routing example, the model proposes a queue while the program checks required records, confidence, and permissions in sequence.</p>
+<pre><code>if missing_required_record(ticket):
+    route_to_human(ticket)
+elif decision.confidence &lt; ROUTING_THRESHOLD:
+    route_to_human(ticket)
+elif decision.choice == "refund":
+    open_refund_review(ticket)
+else:
+    route_to_support_queue(ticket, decision.choice)
+</code></pre>
+<p>This is a design example, not a deployment report.</p>
+<p>The model reads the message.</p>
+<p>The program decides what may proceed automatically and what returns for review.</p>
+<p>TypeSafe likewise illustrates routing a request to deterministic code, a specialist LLM, or a person, sending low confidence or high complexity back to a human. <a href="https://docs.typesafe.ai/patterns/intent-routing">Intent routing reference</a></p>
+<p>For high-risk actions, a plausible classification is less important than branches that can stop, deterministic checks before the action, and an auditable record.</p>
+<p>With that division of responsibility, AI is not a free agent at the center of the application. It becomes a fuzzy if statement invoked many times inside the program.</p>
+</section>
+<section class="report-section">
+<h2>Define the stopping conditions before measuring accuracy</h2>
+<p>Jev's type safety does not guarantee semantic safety.</p>
+<p>The public documentation for Jev 1.13 lists numerical calculation, date comparison, multi-step indirection, long inputs with irrelevant material, and adversarial content as failure modes. Text generation is also out of scope. <a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13">Known limits of Jev 1.13</a></p>
+<p>The comparison for an adoption decision is therefore not Jev alone.</p>
+<p>Handwritten rules, an existing fine-tuned classifier, a general LLM with Structured Outputs, and human review must be compared against the same evaluation set.</p>
+<ul>
+<li>Include out-of-scope, contradictory, ambiguous, and adversarial inputs alongside ordinary cases.</li>
+<li>Measure separately the cost of approving an incorrect case and the cost of sending too many cases to people.</li>
+<li>Audit high-confidence answers by sample; when errors appear, update the question, criteria, threshold, or rule.</li>
+<li>Because a model update can change answers, pin versions when thresholds have been tuned and re-evaluate on change. <a href="https://docs.typesafe.ai/models">Models reference</a></li>
+</ul>
+<p>Research on selective classification has long addressed the trade-off between error risk and the share of cases a system decides automatically. <a href="https://arxiv.org/abs/1705.08500">Geifman and El-Yaniv</a></p>
+<p>Jev's probabilities and confidence may make that trade-off easier to implement.</p>
+<p>The appropriate threshold and scope, however, are not choices a product can set uniformly.</p>
+</section>
+<section class="report-section">
+<h2>The durable question is whether decisions become software components</h2>
+<p>It is too early to know whether Jev itself will win over the long term.</p>
+<p>Immediately after an early-access release, the vendor's evaluation is not an independent comparison across general LLMs, existing classifiers, and business data.</p>
+<p>Yet schema-constrained LLM output, zero-shot classification, and confidence-based rejection already existed as separate techniques.</p>
+<p>Jev puts them into a product contract: read state, return closed decisions and probabilities, and let code determine action.</p>
+<p>If that contract takes hold, AI will enter not only chat interfaces and autonomous agents, but also small branches for routing a request, judging a document, estimating risk, and sending a case back for confirmation.</p>
+<p>Jev is interesting not because it makes one model universal.</p>
+<p>It gives a design home to work that is lighter than generative AI and less fixed than a conventional classifier: a decision API.</p>
+</section>
+</section>
+    <section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Strategy</span>
+      <span class="mono-note">Articles: 4</span>
+      <a class="text-link" href="/en/topics/ai-strategy/">Open topic hub</a>
+    </div>
+  </section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-08-12-beyond-ai-agents-hacw.html" aria-label="HACW: when can a human approval become a rule for future agent tasks?">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-08-12">August 12, 2026</time>
+      </div>
+      <h3 class="article-card-title">HACW: when can a human approval become a rule for future agent tasks?</h3>
+      <p class="article-card-copy">An invoice example separates remembered decisions from permission to act on the next task.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">HACW</span><span class="meta-chip">AI Workspace</span><span class="meta-chip">Orchestration</span><span class="meta-chip">AI Governance</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 4</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-24-why-ai-products-converge-on-chat-ui.html" aria-label="What chat and editing interfaces each contribute to AI work">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-03-24">March 24, 2026</time>
+      </div>
+      <h3 class="article-card-title">What chat and editing interfaces each contribute to AI work</h3>
+      <p class="article-card-copy">Describing a goal and selecting a passage solve different problems. Compare conversation, editing, and shared plans.</p>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Chat Interface</span><span class="meta-chip">Product Design</span><span class="meta-chip">Workflow</span><span class="meta-chip">UX</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 3</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="Evaluating AI agent actions beyond the final answer">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-07-11">July 11, 2026</time>
+      </div>
+      <h3 class="article-card-title">Evaluating AI agent actions beyond the final answer</h3>
+      <p class="article-card-copy">The same correct answer can conceal an unapproved write. Check events, arguments, and final state separately.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 3</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">Published evidence</p>
+        <h2 class="panel-title">Published evidence</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">September 15, 2026</span>
+              </div>
+              <p class="source-title">TypeSafe AI: Introducing System One Models &amp; Jev</p>
+              <p class="source-url">https://typesafe.ai/blog/introducing-system-one-models-and-jev</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">TypeSafe AI Docs: Introduction</p>
+              <p class="source-url">https://docs.typesafe.ai/introduction</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.typesafe.ai/concepts/system-one" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">TypeSafe AI Docs: System One</p>
+              <p class="source-url">https://docs.typesafe.ai/concepts/system-one</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.typesafe.ai/api" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">TypeSafe AI Docs: API reference</p>
+              <p class="source-url">https://docs.typesafe.ai/api</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.typesafe.ai/confidence" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">TypeSafe AI Docs: Confidence</p>
+              <p class="source-url">https://docs.typesafe.ai/confidence</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.typesafe.ai/patterns/intent-routing" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">TypeSafe AI Docs: Intent routing</p>
+              <p class="source-url">https://docs.typesafe.ai/patterns/intent-routing</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.typesafe.ai/model-jaggedness/jev-1.13" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">September 17, 2026</span>
+              </div>
+              <p class="source-title">TypeSafe AI Docs: Jev 1.13 jaggedness</p>
+              <p class="source-url">https://docs.typesafe.ai/model-jaggedness/jev-1.13</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://docs.typesafe.ai/models" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">TypeSafe AI Docs: Models</p>
+              <p class="source-url">https://docs.typesafe.ai/models</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://evals.typesafe.ai/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">TypeSafe AI: Workflow evals</p>
+              <p class="source-url">https://evals.typesafe.ai/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-structured-outputs-in-the-api/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">August 6, 2024</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing Structured Outputs in the API</p>
+              <p class="source-url">https://openai.com/index/introducing-structured-outputs-in-the-api/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">October 11, 2018</span>
+              </div>
+              <p class="source-title">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</p>
+              <p class="source-url">https://arxiv.org/abs/1810.04805</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aclanthology.org/D19-1404/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">November 1, 2019</span>
+              </div>
+              <p class="source-title">Benchmarking Zero-shot Text Classification: Datasets, Evaluation and Entailment Approach</p>
+              <p class="source-url">https://aclanthology.org/D19-1404/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/1706.04599" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">June 14, 2017</span>
+              </div>
+              <p class="source-title">On Calibration of Modern Neural Networks</p>
+              <p class="source-url">https://arxiv.org/abs/1706.04599</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/1705.08500" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">May 23, 2017</span>
+              </div>
+              <p class="source-title">Selective Classification for Deep Neural Networks</p>
+              <p class="source-url">https://arxiv.org/abs/1705.08500</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a>
+    </div>
+  </section>
+    <section class="panel-block article-authorship">
+    <div>
+      <p class="section-kicker">Editorial review</p>
+      <h2 class="panel-title">How this briefing is reviewed</h2>
+    </div>
+    <div>
+      <p class="panel-copy">Auto Research Digest Editorial Desk checks the published evidence directly and separates confirmed facts, interpretations drawn from comparisons, and unresolved questions.</p>
+      <div class="mt-4 flex flex-wrap gap-x-5 gap-y-3">
+        <a class="text-link" href="/en/about.html">About this publication</a>
+        <a class="text-link" href="/en/editorial-policy.html">Editorial policy</a>
+      </div>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <div class="footer-meta">
+          <a class="footer-brand" href="/en/">AR / Auto Research Digest</a>
+          <p class="footer-copy">Thinking about adopting AI agents and generative AI for work through primary sources.</p>
+        </div>
+        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a><a class="footer-link" href="/en/sitemap.html">Sitemap</a><a class="footer-link" href="/en/about.html">About</a><a class="footer-link" href="/en/editorial-policy.html">Editorial Policy</a><a class="footer-link" href="/en/contact.html">Contact</a><a class="footer-link" href="/en/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/en/terms.html">Terms</a><a class="footer-link" href="/en/disclaimer.html">Disclaimer</a><a class="footer-link" href="/en/advertising-policy.html">Advertising Policy</a></nav>
+      </footer>
+    </div>
+  </body>
+</html>

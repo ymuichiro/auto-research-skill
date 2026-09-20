@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 08:54:45 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 16:01:07 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Will LLMs replace every if statement? Jev and the case for a decision API</title>
+      <link>https://research.notelligent.app/en/2026-09-21-jev-decision-api.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-09-21-jev-decision-api.html</guid>
+      <pubDate>Sun, 20 Sep 2026 16:01:07 GMT</pubDate>
+      <description>A practical comparison of Jev, fine-tuned classifiers, generative LLMs, and Structured Outputs. Covers evaluation, thresholds, human review, and deterministic controls.</description>
+      <category>AI Strategy</category>
+    </item>
     <item>
       <title>HACW: when can a human approval become a rule for future agent tasks?</title>
       <link>https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</link>
@@ -157,14 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
       <pubDate>Sun, 20 Sep 2026 07:17:34 GMT</pubDate>
       <description>Design pre-release agent tests that distinguish prompt-injection detection, tool-call authorization, and containment of outbound transmission.</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>Evaluate agent readiness against the work your organization must complete</title>
-      <link>https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:15:05 GMT</pubDate>
-      <description>Use public agent benchmarks to define workflow-specific completion, exceptions, retries, escalation, and review cost before rollout.</description>
       <category>AI Agents</category>
     </item>
   </channel>
