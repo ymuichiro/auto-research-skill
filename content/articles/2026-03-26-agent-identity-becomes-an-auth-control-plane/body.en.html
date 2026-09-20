@@ -4,6 +4,28 @@
 <p>At <a href="https://blogs.microsoft.com/blog/2025/05/19/microsoft-build-2025-the-age-of-ai-agents-and-building-the-open-agentic-web/">Build 2025</a>, Microsoft introduced an Entra Agent ID preview that assigns unique identities to agents created in Copilot Studio or Azure AI Foundry. Making agents visible as managed identities is useful. Issuing an identity, however, does not by itself determine appropriate resources and operations.</p>
 </section>
 <section class="report-section">
+<h2>Put four separate questions between document search and external sending</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Which agent executed?</h3>
+<p>Identify the executing agent as a unit for suspension and investigation. This makes the acting software traceable.</p>
+</article>
+<article class="comparison-card">
+<h3>For whom is it acting?</h3>
+<p>Separate delegated search of a user's documents from an administratively defined recurring job. They can require different credentials and scopes.</p>
+</article>
+<article class="comparison-card">
+<h3>What does each target permit?</h3>
+<p>Authorize search, retrieval, and sending separately in the document store, delivery system, and calendar. Do not turn authentication at the entrance into downstream permission.</p>
+</article>
+<article class="comparison-card">
+<h3>What can be explained later?</h3>
+<p>Record the user, executing agent, connection, and permitted or refused action together. This is a record for verification and governance, not another source of permission.</p>
+</article>
+</div>
+<p>These are design distinctions used in this article, not a demand to place all information in one token. The goal is to explain which layer makes which decision for every connection.</p>
+</section>
+<section class="report-section">
 <h2>Scheduled work and user-delegated access need different permission decisions</h2>
 <p>A nightly job that writes a report to a fixed location differs from a search that must return only documents its user can read. One possible design gives the first a dedicated workload permission and makes the second reflect the user's access. This is a design example, not a claim that every platform implements these paths identically.</p>
 <p><a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/">AWS's AgentCore announcement</a> describes Identity supporting access to external services on behalf of users or with pre-authorized consent. That distinction is a reason to establish whether a connection serves delegated user activity or an ongoing, administratively defined job before configuring its credentials.</p>
@@ -18,5 +40,5 @@
 <section class="report-section">
 <h2>Test access decisions separately from generated-content checks</h2>
 <p>Checking a summary for problematic language differs from deciding whether the underlying document may be read. Content inspection does not replace access control. Conversely, permission to retrieve a document does not establish that its summary is accurate or its destination is appropriate.</p>
-<p>For a proposed document-search and external-send workflow, test both a request for an inaccessible document and an attempt to send an accessible document to an unauthorized destination. Identify which component refuses each operation and whether its records link the user to the executing agent. Explaining those two tests provides better evidence of an effective permission design than adding more identity product names.</p>
+<p>For a proposed document-search and external-send workflow, test both a request for an inaccessible document and an attempt to send an accessible document to an unauthorized destination. Identify which component refuses each operation and whether its records link the user, executing agent, and connection. Explaining those two tests provides better evidence of an effective permission design than adding more identity product names.</p>
 </section>
