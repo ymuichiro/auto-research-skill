@@ -9,6 +9,25 @@
 <p>Run B violates the service's approval order even though its answer and final state are correct. Detecting this requires a check of approval before saving in addition to response quality.</p>
 </section>
 <section class="report-section">
+<h2>Three contracts make the evaluation explicit</h2>
+<p>To judge the hypothetical case consistently, do not collapse what was requested, how it was executed, and what was saved into one aggregate score. This article records them as three separate contracts.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Task contract</h3>
+<p>Fix that a verified customer may change booking R42, that the new time and price must be presented, and that no other booking may change. Record the starting data, permitted operations, completion condition, and prohibited conditions here.</p>
+</article>
+<article class="comparison-card">
+<h3>Execution contract</h3>
+<p>Check the order of lookup, presentation, approval, and saving, and verify that the booking ID, time, and price in the approval match the save request. The run ID, tool calls, approval, save request, and result provide the needed evidence.</p>
+</article>
+<article class="comparison-card">
+<h3>Outcome contract</h3>
+<p>Use evaluation data to confirm that only booking R42 holds the approved values and no other booking changed. Grade the final response separately; missing records prove neither a pass nor the absence of a prohibited action.</p>
+</article>
+</div>
+<p>Separating the contracts catches an approval-order violation behind a natural answer while avoiding rejection of a different path that meets the same business conditions.</p>
+</section>
+<section class="report-section">
 <h2>Recording events and judging them are separate jobs</h2>
 <p>OpenAI Agents SDK tracing records events including generation, tool calls, handoffs, and guardrails. A separate rule must establish which recorded behavior fails. <a href="https://openai.github.io/openai-agents-python/tracing/">Tracing documentation</a></p>
 <p>For the booking case, connect the run ID, booking ID, lookup result, proposed change, approval target, save request, and save result. Pass the approval condition only when the approved content matches the saved content and approval precedes saving. Missing approval evidence should trigger investigation rather than an assumption of permission.</p>
@@ -22,8 +41,8 @@
 <p>Tool names alone also cannot detect a save directed to the wrong booking ID. Combine ordering checks with checks of arguments and saved state. When a model judges the usefulness of the response, do not allow a high aggregate score to cancel an explicitly detectable violation.</p>
 </section>
 <section class="report-section">
-<h2>Compare changes against the same cases</h2>
-<p>Include rejection, changed prices, missing permissions, and interrupted save responses alongside normal booking changes. For an interrupted response, check whether the agent resends before establishing if the first save succeeded. Run old and new versions with the same initial data to distinguish improved answers from worse actions.</p>
+<h2>Compare changes against the same cases; use production observation separately</h2>
+<p>For pre-change evaluation, include rejection, changed prices, missing permissions, and interrupted save responses alongside normal booking changes. Write the three contracts for every case, then run old and new versions with the same initial data and conditions to distinguish improved answers from worse actions. For an interrupted response, check whether the agent resends before establishing if the first save succeeded.</p>
 <p>Report response quality, saved state, prohibited actions, and missing evidence separately. Track latency and cost as additional measures. Repeat runs to test whether success depends on a fortunate attempt; τ-bench likewise distinguishes reliability across trials from success once.</p>
-<p>Convert new production failures into reviewed, anonymized reproduction cases. Passing the accumulated tests cannot guarantee safety in unrepresented situations. Connecting evaluation to execution records makes it possible to explain which business condition a particular change broke.</p>
+<p>Use production records to find failures absent from the evaluation set. Observation alone cannot replace a pass or fail judgement against a predefined business condition. Convert a new failure into a reviewed, anonymized reproduction case with an expected outcome. Passing the accumulated cases cannot guarantee safety in unrepresented situations, but this loop makes it possible to explain which condition a particular change broke.</p>
 </section>
