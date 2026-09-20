@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 08:30:14 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 08:37:13 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -35,7 +35,7 @@
       <title>Verifying AI data entry and saves in applications without APIs</title>
       <link>https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html</guid>
-      <pubDate>Sat, 05 Sep 2026 10:47:21 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 08:37:13 GMT</pubDate>
       <description>Verify computer-use agents before and after Save. An invoice example covers duplicate prevention, managed desktops, and uncertain results.</description>
       <category>AI Workflows</category>
     </item>

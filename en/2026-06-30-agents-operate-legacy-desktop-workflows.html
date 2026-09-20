@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-06-30T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T19:47:21+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:37:13+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Computer Use">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Human Approval">
     <meta property="article:tag" content="Legacy Systems">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Verifying AI data entry and saves in applications without APIs","description":"Verify computer-use agents before and after Save. An invoice example covers duplicate prevention, managed desktops, and uncertain results.","datePublished":"2026-06-30T00:00:00+09:00","dateModified":"2026-09-05T19:47:21+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Verifying AI data entry and saves in applications without APIs","description":"Verify computer-use agents before and after Save. An invoice example covers duplicate prevention, managed desktops, and uncertain results.","datePublished":"2026-06-30T00:00:00+09:00","dateModified":"2026-09-20T17:37:13+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/en/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"Verifying AI data entry and saves in applications without APIs","item":"https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">Verifying AI data entry and saves in applications without APIs</h1>
-          <p class="hero-copy">An agent that can click Save still needs to establish whether the write succeeded. A hypothetical invoice workflow connects managed desktops, independent checks, and safe handling of uncertain save results.</p>
+          <p class="hero-copy">An agent that can click Save still needs to establish whether the write succeeded. A hypothetical invoice workflow checks target identity, entered values, post-save results, and stops when the result is uncertain.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-workflows/">AI Workflows</a>
         <time class="mono-note" datetime="2026-06-30">June 30, 2026</time>
-        <time class="mono-note" datetime="2026-09-05">Updated September 5, 2026</time>
+        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
     </section>
@@ -129,6 +129,19 @@
 <h2>When a save leaves the screen unresponsive</h2>
 <p>An application without an API can still be a candidate for automation through screen reading, field selection, and button clicks. Anthropic's October 2024 computer-use announcement describes looking at screens, moving the cursor, clicking, and typing, while identifying the capability as experimental and error-prone. <a href="https://www.anthropic.com/news/3-5-models-and-computer-use">Anthropic announcement</a></p>
 <p>Entering data is only part of the task. If the screen freezes after Save, did the operation succeed? Repeating it without knowing can create a duplicate record. This article uses hypothetical invoice entry to examine checks before and after saving.</p>
+</section>
+<section class="report-section">
+<h2>Seven checks before unattended invoice entry</h2>
+<div class="comparison-grid">
+<article class="comparison-card"><h3>Identify the target</h3><p>Establish one invoice from supplier and invoice number.</p></article>
+<article class="comparison-card"><h3>Look for duplicates</h3><p>Check whether the same invoice already exists before saving.</p></article>
+<article class="comparison-card"><h3>Reconcile entered values</h3><p>Compare supplier, number, and amount with the invoice.</p></article>
+<article class="comparison-card"><h3>Authorize the save</h3><p>For the initial trial, define who reviews the differences before saving.</p></article>
+<article class="comparison-card"><h3>Independently inspect the result</h3><p>Reopen the record or use a report to compare number, supplier, and amount.</p></article>
+<article class="comparison-card"><h3>Stop on an uncertain result</h3><p>On a freeze or disconnect, do not resave unconditionally; return to search and reconciliation.</p></article>
+<article class="comparison-card"><h3>Hand over to a person</h3><p>Pass the last screen, entered values, and uncertainty about the save for a person to decide.</p></article>
+</div>
+<p>These are seven proposed acceptance checks for invoice entry, not a requirement that every computer-use task follow the same order. When the target application lacks independent save verification, retain human review for that constraint.</p>
 </section>
 <section class="report-section">
 <h2>What a managed desktop contributes</h2>

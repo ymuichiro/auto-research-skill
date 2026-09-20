@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-06-30T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T19:47:21+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:37:13+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Computer Use">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Human Approval">
     <meta property="article:tag" content="Legacy Systems">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"APIのない業務アプリで、AIの入力と保存結果を確かめる","description":"APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。","datePublished":"2026-06-30T00:00:00+09:00","dateModified":"2026-09-05T19:47:21+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"APIのない業務アプリで、AIの入力と保存結果を確かめる","description":"APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。","datePublished":"2026-06-30T00:00:00+09:00","dateModified":"2026-09-20T17:37:13+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"APIのない業務アプリで、AIの入力と保存結果を確かめる","item":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">APIのない業務アプリで、AIの入力と保存結果を確かめる</h1>
-          <p class="hero-copy">画面を操作できても、保存が成功したか分からなければ再試行で重複を作る恐れがある。請求書入力の想定例を通じ、管理された実行環境、入力前後の照合、保存応答が不明なときの停止を説明する。</p>
+          <p class="hero-copy">画面を操作できても、保存が成功したか分からなければ再試行で重複を作る恐れがある。請求書入力の想定例で、対象特定、入力照合、保存後の検査、応答不明時の停止を確認する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
         <time class="mono-note" datetime="2026-06-30">2026年6月30日</time>
-        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
     </section>
@@ -133,6 +133,19 @@ Anthropicが2024年10月に公開したcomputer useも、画面を見る、カ�
 保存後に画面が固まった場合、保存は成功したのか、それとも再入力が必要なのか。
 判断できないまま同じ操作を繰り返すと、伝票を二重に作る可能性がある。
 本稿では請求書入力を想定例に、保存の前後を確認できる単位で画面操作を設計する方法を考える。</p>
+</section>
+<section class="report-section">
+<h2>請求書入力を無人で進める前の七つの確認</h2>
+<div class="comparison-grid">
+<article class="comparison-card"><h3>対象を一意に決める</h3><p>取引先と請求番号から、入力対象を特定できる。</p></article>
+<article class="comparison-card"><h3>重複を探す</h3><p>保存前に同じ請求が登録済みでないかを確認できる。</p></article>
+<article class="comparison-card"><h3>入力値を照合する</h3><p>取引先、番号、金額を請求書と比較できる。</p></article>
+<article class="comparison-card"><h3>保存を許可する</h3><p>最初の試行では、誰が保存前の差分を確認するか決める。</p></article>
+<article class="comparison-card"><h3>保存結果を独立に検査する</h3><p>作成済み伝票や帳票で、番号、取引先、金額を開き直して確認する。</p></article>
+<article class="comparison-card"><h3>不明な結果で停止する</h3><p>画面停止や通信切断では無条件に再保存せず、検索と照合へ戻る。</p></article>
+<article class="comparison-card"><h3>人へ引き継ぐ</h3><p>最後に見た画面、入力値、保存の有無が不明な点を渡して判断を引き継ぐ。</p></article>
+</div>
+<p>これは請求書入力の受入条件として提案する七項目であり、すべての画面操作へ同じ順序を強制するものではない。対象アプリが独立した保存検査を持たない場合は、その制約を前提に人の確認を残す。</p>
 </section>
 <section class="report-section">
 <h2>管理された作業環境が担う部分</h2>
