@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reviewing workflow branches and approval conditions in Foundry | Auto Research Digest EN</title>
-    <meta name="description" content="What Foundry’s November 2025 workflow preview exposes through diagrams, YAML, and traces—and why valid output types do not establish authorization.">
+    <title>Foundry workflows separate definition, execution, evaluation, and approval | Auto Research Digest EN</title>
+    <meta name="description" content="Foundry multi-agent workflows: diagrams and YAML define paths, traces record execution, evaluators assess behavior, and approval remains separate.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Reviewing workflow branches and approval conditions in Foundry | Auto Research Digest EN">
-    <meta property="og:description" content="What Foundry’s November 2025 workflow preview exposes through diagrams, YAML, and traces—and why valid output types do not establish authorization.">
+    <meta property="og:title" content="Foundry workflows separate definition, execution, evaluation, and approval | Auto Research Digest EN">
+    <meta property="og:description" content="Foundry multi-agent workflows: diagrams and YAML define paths, traces record execution, evaluators assess behavior, and approval remains separate.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Reviewing workflow branches and approval conditions in Foundry">
+    <meta property="og:image:alt" content="Foundry workflows separate definition, execution, evaluation, and approval">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Reviewing workflow branches and approval conditions in Foundry | Auto Research Digest EN">
-    <meta name="twitter:description" content="What Foundry’s November 2025 workflow preview exposes through diagrams, YAML, and traces—and why valid output types do not establish authorization.">
+    <meta name="twitter:title" content="Foundry workflows separate definition, execution, evaluation, and approval | Auto Research Digest EN">
+    <meta name="twitter:description" content="Foundry multi-agent workflows: diagrams and YAML define paths, traces record execution, evaluators assess behavior, and approval remains separate.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Reviewing workflow branches and approval conditions in Foundry">
+    <meta name="twitter:image:alt" content="Foundry workflows separate definition, execution, evaluation, and approval">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html">
@@ -43,15 +43,15 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-12-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:25:54+09:00">
+    <meta property="article:modified_time" content="2026-09-20T14:36:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Multi-Agent">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Reviewing workflow branches and approval conditions in Foundry","description":"What Foundry’s November 2025 workflow preview exposes through diagrams, YAML, and traces—and why valid output types do not establish authorization.","datePublished":"2025-12-01T00:00:00+09:00","dateModified":"2026-09-19T18:25:54+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Multi-Agent, Workflow, Governance","mainEntityOfPage":"https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Reviewing workflow branches and approval conditions in Foundry","item":"https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Foundry workflows separate definition, execution, evaluation, and approval","description":"Foundry multi-agent workflows: diagrams and YAML define paths, traces record execution, evaluators assess behavior, and approval remains separate.","datePublished":"2025-12-01T00:00:00+09:00","dateModified":"2026-09-20T14:36:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Multi-Agent, Workflow, Governance","mainEntityOfPage":"https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Foundry workflows separate definition, execution, evaluation, and approval","item":"https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,8 +67,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Reviewing workflow branches and approval conditions in Foundry</h1>
-          <p class="hero-copy">Foundry’s November 2025 preview exposes workflow definitions and execution details. An account-request example separates valid output types from authorization.</p>
+          <h1 class="hero-title">Foundry workflows separate definition, execution, evaluation, and approval</h1>
+          <p class="hero-copy">Foundry Agent Service’s November 2025 public preview offers components for defining multi-agent paths in diagrams and YAML, tracing runs and variables, and evaluating work. An account-request scenario shows why those four artifacts support different decisions.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -76,12 +76,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-12-01">December 1, 2025</time>
-        <time class="mono-note" datetime="2026-09-19">Updated September 19, 2026</time>
+        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Governance</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Reviewing%20workflow%20branches%20and%20approval%20conditions%20in%20Foundry&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-12-01-multi-agent-workflows-become-a-product-surface.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Foundry%20workflows%20separate%20definition%2C%20execution%2C%20evaluation%2C%20and%20approval&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-12-01-multi-agent-workflows-become-a-product-surface.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Reviewing workflow branches and approval conditions in Foundry"
-      data-share-text="Reviewing workflow branches and approval conditions in Foundry"
+      data-share-title="Foundry workflows separate definition, execution, evaluation, and approval"
+      data-share-text="Foundry workflows separate definition, execution, evaluation, and approval"
       data-share-url="https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Reviewing workflow branches and approval conditions in Foundry"
+      data-share-title="Foundry workflows separate definition, execution, evaluation, and approval"
       data-share-url="https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -125,25 +125,49 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>What does a visible workflow make easier to review?</h2>
-<p>A diagram listing agent roles is insufficient for reviewing a multi-agent process. Reviewers need to know what each step receives, which conditions permit progress, and what happens after failure. Foundry Agent Service's November 2025 public preview exposed workflow definitions through visual and YAML editing.</p>
-<p>The question is how far that visibility helps establish correct business behavior. A finished diagram and a process that is ready to execute are different milestones.</p>
+  <p class="section-kicker">Question</p>
+  <h2>When a multi-agent path becomes visible, who can decide what?</h2>
+  <p>A diagram that connects agent roles with arrows is not enough to review a multi-agent process. A reviewer needs to distinguish what a step receives, which condition selects a branch, which input reaches the next step, and where a failed run stops. <a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundry Agent Service’s multi-agent workflows</a>, announced as a public preview in November 2025, presented components for defining such paths in diagrams and YAML, tracing runs, and evaluating work.</p>
+  <p>The article’s argument is that making a workflow visible does not itself prove business correctness or authorization. A path definition, the record of a path actually taken, an evaluation of the result, and authorization for an external action are separate artifacts, even when they refer to one another. An account-request scenario separates the decisions each artifact supports.</p>
 </section>
+
 <section class="report-section">
-<h2>The definition shows possible paths; the trace shows the path taken</h2>
-<p><a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Microsoft's announcement</a> described synchronized visual and YAML views, variables, JSON Schema outputs, expressions, and saved versions. These expose how outputs feed subsequent processing.</p>
-<p>A branch in the definition does not establish which path an actual input followed. The announcement also described tracing branches and variables, while qualifying initial observability as focused on individual agents within a workflow. A practical trial should establish whether a relevant failure can be followed through one execution, beyond displaying its diagram.</p>
+  <p class="section-kicker">Scope of the public preview</p>
+  <h2>Diagrams and YAML define possible paths; run records show the path taken</h2>
+  <p>Microsoft’s announcement describes synchronized visual editing and YAML definitions. A workflow is represented by nodes and connections, can store agent output in local variables for later steps, and supports structured JSON Schema output, Power Fx expressions for conditions and transformations, and immutable versions on every save. A diagram and its YAML definition let reviewers inspect which input may reach which step and which branches are intended.</p>
+  <p>A run record answers a different question. The announcement says a team can trace agent calls, inputs and outputs, variable assignments, and the branch path taken step by step. That can show whether a particular input followed the expected branch and at which value it stopped. The initial release’s observability, however, focuses on individual Foundry agents within the workflow. Displaying a path does not establish that every external system state can be traced.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>The decision supported by a definition</h3>
+      <p>It lets a team review intended steps, input and output shapes, branches, variables, and versions. A definition states that a path is possible; it is not evidence that the path was executed.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The decision supported by a run record</h3>
+      <p>It lets a team investigate activated nodes, variable updates, branches, and stopping points for one input. A record alone does not establish that an input was factual or that an external action was appropriate.</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>A correctly typed output is not authorization</h2>
-<p>Consider a hypothetical internal account request. One agent extracts the department and requested permissions, another prepares an explanation, and registration follows human approval. This is a design example, not a claim that the announcement supplied this implementation.</p>
-<p>A department string and an approval boolean can have valid types while containing incorrect values. A nonexistent department is still a string; an agent-generated approval flag is not a human approval record. Directory checks and verification of the approver and approved action are separate requirements.</p>
-<p>A review should check whether extracted information and approval records enter the process separately. It should also define what happens if requested permissions change after approval. Diagrams and variables make these questions visible; they do not answer them automatically.</p>
+  <p class="section-kicker">Scenario</p>
+  <h2>Treat definition, execution, evaluation, and approval as four artifacts in an account request</h2>
+  <p>This is a scenario from this article. An employee requests a work account. The first step extracts a department, required roles, and an expiry date from the request into an agreed JSON form. The second step checks those values against a department directory and a role catalog, branching to a request for more information when data is missing or a combination is disallowed. The third sends an application including the check results to an administrator. Only after approval does a separate registration step create the account.</p>
+  <p>In this flow, the diagram or YAML is the first artifact. It fixes the path through extraction, checking, a request for more information, administrator review, and registration, along with the fields passed between steps. The second artifact is the run record for one request. It can show that a missing department name sent the run to the more-information branch and which role-catalog version was consulted. The third artifact is the evaluation result. Using the built-in evaluators named in the announcement or an evaluator created by the organization, the team can check whether department, role, and expiry date meet required forms and whether it allowed a combination that violates a rule.</p>
+  <p>The fourth artifact, approval, is a separate record of who allowed which role for whom and until when. A boolean produced by an agent or a schema-valid “approved” string is not an approval record. The organization must decide whether the original approval can be reused when a role or expiry date changes after approval. This is not a default Foundry request flow or a reported deployment. It illustrates how to separate use of the documented definition, trace, and evaluation components.</p>
 </section>
+
 <section class="report-section">
-<h2>Adaptive plans still need explicit constraints</h2>
-<p>Multi-agent execution need not follow only a predetermined sequence. The <a href="https://arxiv.org/abs/2411.04468v1">Magentic-One research</a> describes an orchestrator that tracks progress, replans, and directs browser, file, and coding agents. This is an example of adaptive planning, not a performance comparison with Foundry's editing features.</p>
-<p>An agent may vary how it investigates missing information without being allowed to skip approval before registration. Define which decisions are flexible and which conditions must hold. Then test premature registration, interruption, and changed inputs against the definition. The value of a visible workflow depends on whether it supports these concrete checks.</p>
+  <p class="section-kicker">Evaluation and constraints</p>
+  <h2>Type checks and evaluators do not replace approval</h2>
+  <p>JSON Schema can make the shape of values exchanged between steps consistent. It can check that a department is a string, roles are an array, and an expiry date has a date format. A nonexistent department can still be a string, and a role combination can violate policy while satisfying its type. Built-in and custom evaluators are material for assessing quality, safety, and organization-specific rules; they do not automatically replace the decision of the organization’s authorized approver.</p>
+  <p>Trials should therefore include more than successful requests: an unknown department, a registration request before administrator approval, a request whose role changes after approval, and a run that fails while consulting an external directory. Check separately that the definition stops as expected, the run record makes the cause traceable, the evaluation identifies the violated rule, and the registration step does not run without an approval record.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Relation to adaptive planning</p>
+  <h2>Changing the order of investigation does not remove fixed conditions</h2>
+  <p><a href="https://arxiv.org/abs/2411.04468v1">Magentic-One</a> describes a research system in which an orchestrator tracks progress, replans to recover from errors, and assigns browser, file, and code work to specialized agents. It is a research example showing that a multi-agent system need not follow only a predetermined sequence. It is not a performance comparison with Foundry’s preview features or a claim that the implementations are the same.</p>
+  <p>A system may change the order in which it investigates missing information in an account request. The conditions that necessary checks and administrator approval must hold before registration do not change. Separating flexible investigation and follow-up work from approval, recordkeeping, and stop conditions that must remain is the prerequisite for connecting a visible workflow to business operations.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -228,7 +252,7 @@
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">November 25, 2025</span>
               </div>
-              <p class="source-title">Microsoft: Introducing multi-agent workflows in Foundry Agent Service</p>
+              <p class="source-title">Microsoft: Introducing Multi-Agent Workflows in Foundry Agent Service</p>
               <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/</p>
             </div>
             <span class="source-action">Open</span>
