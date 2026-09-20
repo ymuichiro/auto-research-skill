@@ -1,21 +1,46 @@
 <section class="report-section">
-<h2>Read the 2025 launches through delegated work and remaining responsibility</h2>
-<p>Connecting agents does not establish that a job can be delegated end to end. Teams still need to decide what information crosses the connection, which actions are allowed, and who checks the result. Several 2025 announcements supplied different tools for implementing those decisions.</p>
-<p>This retrospective examines the June A2A transfer, September Claude Agent SDK announcement, and November Foundry workflow preview. They do not measure annual adoption or success rates. They illustrate distinct responsibilities in communication, execution, and workflow management.</p>
+  <p class="section-kicker">A lens on 2025</p>
+  <h2>Which responsibilities do connection, execution, and review take on?</h2>
+  <p>In 2025, public materials appeared for handing work between agents, embedding an execution loop in an application, and defining and evaluating multi-step work. Taken together, they make more visible not only what an agent can do, but also where a request’s meaning, the history of execution, and responsibility for an external result belong.</p>
+  <p>This is not a measurement of 2025 adoption rates or an industry-wide competitive shift. It reads three public materials—the June transfer of A2A to the Agent2Agent project, the September Claude Agent SDK announcement, and Foundry Agent Service’s November multi-agent-workflows preview—as components that address different responsibilities. The article’s interpretation is that explicitly designing these boundaries is a prerequisite for deciding what portion of work to delegate.</p>
 </section>
+
 <section class="report-section">
-<h2>An open communication standard still needs a shared task contract</h2>
-<p>On <a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">June 23, 2025</a>, Google announced the transfer of the A2A specification, SDKs, and developer tools to a Linux Foundation project. The initiative for capability discovery and information exchange between agents moved into a multi-company governance structure.</p>
-<p>That transfer alone does not establish easy vendor migration. A notification that research is complete, for example, must distinguish full coverage from completion with unavailable sources. A common communication format and agreement about output meaning and quality require separate attention.</p>
+  <p class="section-kicker">Three public materials</p>
+  <h2>Handing work off, iterating execution, and reviewing a path are separate problems</h2>
+  <p>The <a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">June 23, 2025 A2A announcement</a> said Google would transfer the specification, SDKs, and developer tools to the Linux Foundation’s Agent2Agent project. A2A aims to provide a common communication mechanism through which distinct agents can discover capabilities, exchange information, and coordinate work. It addresses the connection boundary: who has which capability, and in what form a request or result can pass between them.</p>
+  <p>The <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">September 29 Claude Agent SDK announcement</a> describes an execution loop that gathers context, acts, verifies work, and repeats. It combines files, commands, tools, and subagents so one worker can change its procedure after intermediate observations. It addresses the execution boundary: how a worker progresses with permitted tools and which result feeds the next iteration.</p>
+  <p>The <a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">November 25 Foundry workflows announcement</a> presented diagram and YAML path definitions, variables, saved versions, execution tracing, and evaluators as a public preview. These are components for reviewing which steps run in which order, which input selects a branch, and what to evaluate. The three materials are neither a linear product generation nor equivalent choices with the same maturity.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>The connection boundary visible through A2A</h3>
+      <p>It is a communication mechanism for common discovery, requests, and results. A protocol alone does not define what a business-complete state means or who accepts the received artifact.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>The execution and review boundaries visible through SDKs and workflows</h3>
+      <p>An SDK can embed a worker’s iteration, while a workflow handles paths, run records, and evaluation. The application and organization decide which tools are allowed and which records support a publication decision.</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>An execution SDK supports repeated research and revision</h2>
-<p>Anthropic's <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">September 29 announcement</a> renamed the Claude Code SDK to the Claude Agent SDK and described applying file and command tools beyond coding. Gathering information, acting, and checking work formed a reusable loop for activities including research.</p>
-<p>This offers a way to build document-reading, table-generation, and calculation workflows. Suggested uses are not evidence of widespread adoption. Developers must still decide which files are accessible, how calculations are checked, and when execution should stop.</p>
+  <p class="section-kicker">Scenario</p>
+  <h2>From a research request to publication, divide responsibility across four records</h2>
+  <p>This is a scenario from this article. An editor asks for a sourced draft on how a proposed regulation could affect domestic retailers. The request sent to the researcher includes the country, time period, permitted kinds of primary material, output format, and the condition to return an item as unverified when sources cannot be found. When work passes to another agent, a mechanism such as A2A could carry that request and its result. A received state, however, is not evidence that every required source was examined.</p>
+  <p>The research worker then reads permitted material, records dates and cited passages, compares them with claims in the draft, and searches again when support is missing. The loop described by Claude Agent SDK is material for composing that retrieve, act, and verify path. The business rules remain outside the SDK: which source qualifies as primary evidence, when an unavailable source stops the work, and who confirms generated prose.</p>
+  <p>Finally, a workflow definition such as Foundry’s can make the path through research, fact review, editing, and publication review visible, along with the draft, evidence list, and unresolved items passed at each step. A run record shows which branch one article followed; an evaluation checks items such as the presence and format of citations. Publication approval is a fourth, separate record. Only when an editor has reviewed the evidence list, unresolved items, and version should the publishing action run. This scenario is not a recommendation to adopt all three products together or a reported deployment.</p>
 </section>
+
 <section class="report-section">
-<h2>Saving a workflow does not define publication approval</h2>
-<p>Microsoft's <a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">November public preview</a> described visual and YAML workflow definitions, human-in-the-loop templates, and versions created on saving. These features make processing steps and changes inspectable.</p>
-<p>Consider a hypothetical research-publication workflow. A protocol could carry a request to another researcher; an SDK could retrieve material and prepare a draft; a workflow definition could manage the path from review to publication. A system need not adopt all three, but any adopted component should have a clear responsibility.</p>
-<p>A completed draft is not automatically ready to publish. The application must define conditions such as returning drafts with missing sources and publishing only the reviewed version. The design lesson from these announcements is to specify the artifacts being handed over and the conditions permitting action.</p>
+  <p class="section-kicker">What completion means</p>
+  <h2>Completion is a combination of contract, execution, review, and approval—not a communication state</h2>
+  <p>In this scenario, the request contract defines what counts as research work. The execution record shows which material was read, where a gap appeared, and which draft resulted. The evaluation result supplies evidence against the stated format and citation conditions. The approval record shows who accepted which version for publication. Reducing all four to “complete” confuses a successful handoff, a generated draft, a passed check, and external publication.</p>
+  <p>The separation is not solely a way to limit agent autonomy. It makes it possible to know which record supports stopping for missing material, returning only fact review for correction, or identifying a published version. This article interprets the distinct 2025 announcements as exposing components for designing that separation across connection, execution, and review.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Conditions where this does not apply</p>
+  <h2>Not every job needs all three components</h2>
+  <p>When one worker creates a short draft without handing work to another agent, cross-agent communication such as A2A is unnecessary. A fixed calculation that runs once may be better served by an ordinary program than an SDK designed for a long iteration. An internal note that is not published may not need a publication-approval path.</p>
+  <p>These public materials describe functions and goals; they do not measure the success of an operating model that combines protocol, execution loop, and workflow evaluation. The design question is not how many components to adopt. It is where an actual job will put the request’s meaning, permission, stopping condition, and final responsibility.</p>
 </section>

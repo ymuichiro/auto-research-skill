@@ -1,14 +1,14 @@
 {
   "slug": "the-2025-signal-is-operational-boundaries",
   "date": "2026-01-01",
-  "titleJa": "2025年のエージェント開発を振り返る：接続・実行・確認の役割",
-  "titleEn": "Agent development in 2025: connecting, executing, and reviewing work",
-  "summaryJa": "A2Aの移管、Claude Agent SDK、Foundryワークフローを振り返る。接続規格と実行機能が増える中で、成果物の意味や公開条件を誰が決めるのかを整理する。",
-  "summaryEn": "A retrospective on A2A, the Claude Agent SDK, and Foundry workflows: what each adds, and which decisions about outputs and permitted actions remain with developers.",
-  "seoDescriptionJa": "2025年のA2A、Claude Agent SDK、Foundryワークフローを、接続・実行・確認の役割から振り返る。規格や機能が担う範囲と残る設計課題を整理。",
-  "seoDescriptionEn": "Review 2025 agent launches through A2A, the Claude Agent SDK, and Foundry workflows, separating communication, execution, and review responsibilities.",
-  "teaserJa": "接続できることと、仕事を最後まで任せられること。その間に残る設計を振り返る。",
-  "teaserEn": "What remains to design after agents can connect, execute tools, and save workflows?",
+  "titleJa": "2025年のエージェント開発で見えた、接続・実行・確認の責任境界",
+  "titleEn": "The responsibility boundaries visible in 2025 agent development",
+  "summaryJa": "A2A、Claude Agent SDK、Foundryワークフローは、仕事の受け渡し、実行の反復、経路の定義と評価に異なる部品を示した。調査記事の想定例で、依頼の意味、実行記録、公開承認がどこに残るかを整理する。",
+  "summaryEn": "A2A, Claude Agent SDK, and Foundry workflows expose different components for handing off work, iterating execution, and defining and evaluating paths. A research-publication scenario locates the meaning of a request, execution record, and publication approval.",
+  "seoDescriptionJa": "2025年のA2A、Claude Agent SDK、Foundryワークフローを、仕事の受け渡し・実行・確認で異なる責任境界として整理する。",
+  "seoDescriptionEn": "A2A, Claude Agent SDK, and Foundry workflows reveal separate responsibility boundaries for handoffs, execution, and review.",
+  "teaserJa": "接続、実行、確認の部品が増えても、依頼の意味と公開責任は自動で決まらない。",
+  "teaserEn": "More components for connection, execution, and review do not automatically define task meaning or publication responsibility.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -30,7 +30,7 @@
       "publishedAt": "2025-09-29"
     },
     {
-      "label": "Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service",
+      "label": "Microsoft: Introducing Multi-Agent Workflows in Foundry Agent Service",
       "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/",
       "type": "official",
       "publishedAt": "2025-11-25"
