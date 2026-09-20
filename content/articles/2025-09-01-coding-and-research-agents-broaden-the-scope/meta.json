@@ -1,14 +1,14 @@
 {
   "slug": "coding-and-research-agents-broaden-the-scope",
   "date": "2025-09-01",
-  "titleJa": "コード生成から実験支援へ：MLE-benchで読むエージェントの評価範囲",
-  "titleEn": "From code generation to experiments: what MLE-bench evaluates",
-  "summaryJa": "MLE-benchの課題とGPT-5の開発者向け発表を分けて読み、実験支援をどう評価するかを考える。需要予測の想定例で、成果の確認と再現に必要な記録を整理する。",
-  "summaryEn": "Separate MLE-bench’s task scope from GPT-5’s developer announcement, then use a demand-forecasting example to define verifiable experiment outcomes.",
-  "seoDescriptionJa": "コードが動くことと実験が成功することの違いを、MLE-benchとGPT-5の発表から解説。需要予測の例で、評価条件と再現用の記録を整理する。",
-  "seoDescriptionEn": "Understand MLE-bench’s evaluation scope and why coding capability alone does not establish experiment success, with a reproducible forecasting example.",
-  "teaserJa": "実行できるコードの先に、比較条件と再現できる実験結果を求める。",
-  "teaserEn": "An experiment needs comparable results and reproducible materials, beyond executable code.",
+  "titleJa": "コーディングの先で、実験仕事をどう評価するか",
+  "titleEn": "How to evaluate experiment work beyond code generation",
+  "summaryJa": "MLE-bench、RE-Bench、Looker MCP、GPT-5の資料を手がかりに、データ準備、学習、評価、記録を含む実験仕事を、コード作成と区別して評価する方法を考える。",
+  "summaryEn": "Use MLE-bench, RE-Bench, Looker MCP, and GPT-5 material to distinguish experiment work with data preparation, training, evaluation, and records from code creation alone.",
+  "seoDescriptionJa": "MLE-benchなどを基に、実験支援で必要なデータ・条件・結果・再現記録を整理し、実行可能なコードと検証可能な実験を分ける。",
+  "seoDescriptionEn": "Use MLE-bench to separate executable code from a verifiable experiment with data, conditions, results, and reproducibility records.",
+  "teaserJa": "実験はコードだけで完結しない。データ、条件、評価、結果を同じ記録で確かめる。",
+  "teaserEn": "An experiment is more than code: data, conditions, evaluation, and results must be recorded together.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,9 +19,27 @@
   "publishedSources": [
     {
       "label": "MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering",
-      "url": "https://arxiv.org/abs/2410.07095v1",
+      "url": "https://arxiv.org/abs/2410.07095",
       "type": "paper",
       "publishedAt": "2024-10-09"
+    },
+    {
+      "label": "Agent S: An Open Agentic Framework that Uses Computers Like a Human",
+      "url": "https://arxiv.org/abs/2410.08164",
+      "type": "paper",
+      "publishedAt": "2024-10-10"
+    },
+    {
+      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
+      "url": "https://arxiv.org/abs/2411.15114",
+      "type": "paper",
+      "publishedAt": "2024-11-22"
+    },
+    {
+      "label": "Google Cloud: Introducing Looker MCP Server",
+      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/",
+      "type": "official",
+      "publishedAt": "2025-08-08"
     },
     {
       "label": "OpenAI: Introducing GPT-5 for developers",

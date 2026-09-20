@@ -1,21 +1,29 @@
 <section class="report-section">
-<h2>From writing code to delegating an experiment</h2>
-<p>Executable code does not finish a machine-learning experiment. Data preparation, method selection, training, and evaluation must connect to an explanation of what improved. Delegating that work requires completion criteria beyond code generation.</p>
-<p>MLE-bench and the GPT-5 developer announcement, both available by September 2025, help separate what can be evaluated from what remains to verify. They are not interchangeable rows in one leaderboard.</p>
+  <p class="section-kicker">Question</p>
+  <h2>What distinguishes executable code from a verifiable experiment?</h2>
+  <p><a href="https://arxiv.org/abs/2410.07095">MLE-bench</a> gives machine-learning agents work that includes data, implementation, training, evaluation, and submission. That is a different evaluation target from generating code line by line. <a href="https://arxiv.org/abs/2411.15114">RE-Bench</a> and <a href="https://arxiv.org/abs/2410.08164">Agent S</a> also address longer work involving environments, tools, and research outcomes. This article does not claim that coding support automatically includes research support. It asks what must be recorded and compared when an agent contributes to an experiment.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Data</h3><p>Identify input data, retrieval time, preprocessing, and splits.</p></article>
+    <article class="comparison-card"><h3>Execution conditions</h3><p>Retain code, dependencies, model, configuration, and compute context for comparison.</p></article>
+    <article class="comparison-card"><h3>Results and judgment</h3><p>Record metrics, baselines, failures, and reasons not to adopt a result.</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>MLE-bench includes data preparation and training</h2>
-<p>The <a href="https://arxiv.org/abs/2410.07095v1">first version of MLE-bench</a> uses 75 Kaggle competitions to evaluate work including dataset preparation, model training, and experimentation, with human baselines drawn from public leaderboards. Its task scope differs from writing an individual function.</p>
-<p>Improving a competition metric does not establish readiness for a live service. Latency, updating procedures, and data-use conditions need application-specific checks. Reported results also belong to model-and-scaffold combinations, not arbitrary models.</p>
+  <p class="section-kicker">Scope of the sources</p>
+  <h2>Do not confuse developer features with the evaluation scope of experimental tasks</h2>
+  <p>GPT-5 for developers is product material for development work; MLE-bench evaluates machine-learning engineering tasks. The former does not establish the latter’s benchmark result or experimental reproducibility. Looker MCP Server documents an option for connecting to defined semantic models and metrics. It illustrates a data boundary for preserving metric meaning, not a guarantee that any analysis conclusion is correct.</p>
 </section>
+
 <section class="report-section">
-<h2>Better tool use still needs an end-to-end experiment test</h2>
-<p>OpenAI's <a href="https://openai.com/index/introducing-gpt-5-for-developers/">August 7, 2025 announcement</a> presented GPT-5 coding evaluations and capabilities involving sequences of tool calls. These are relevant ingredients for editing code, receiving execution results, and taking another step.</p>
-<p>That announcement does not establish a particular GPT-5 result on MLE-bench. Tasks, environments, and time limits differ. An experiment assistant must be tested as a complete configuration, including its actual data and tools.</p>
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>For demand forecasting, make the experiment record—not proposed code—the deliverable</h2>
+  <p>This is a design example. An agent proposes a demand-forecasting model. The evaluation records data range and version, missing-data treatment, training and validation split, features, hyperparameters, baseline, metric, and random seed. Running code is insufficient when the training range changes, future data leaks in, no baseline is used, or the result cannot be reproduced.</p>
+  <p>Store a result with the data and conditions that produced it. A metric that does not improve is still a comparable result. A person decides statistical validity, business usefulness, and the need for further validation. This keeps the agent’s role limited to experiment proposals and recordkeeping assistance.</p>
 </section>
+
 <section class="report-section">
-<h2>Retain both the improvement and the materials to reproduce it</h2>
-<p>Consider a hypothetical demand forecast using past sales. Before delegation, define the training period, a simple baseline, and the evaluation metric. Keep final evaluation data separate from the data used repeatedly during tuning.</p>
-<p>The deliverable should include the data version, executed code, settings, and evaluation results, alongside predictions. Distinguish inability to read the data from successful training with poor accuracy. Reviewers need reproducible materials more than a statement claiming success.</p>
-<p>This makes saved work and added review effort visible. The useful decision is whether the agent produced a better result than the baseline in a form that can be checked, beyond merely making the experiment run automatically.</p>
+  <p class="section-kicker">Conclusion</p>
+  <h2>Broader research and data work needs more reproducible units of judgment</h2>
+  <p>Experiment work beyond coding includes data, environment, evaluation, and interpretation. The material shows that such work can be explicitly evaluated and composed. The proposal is not to discard code evaluation: add a record connecting code, data, conditions, results, and evidence so that reproducible experiments and human decisions remain visible.</p>
 </section>
