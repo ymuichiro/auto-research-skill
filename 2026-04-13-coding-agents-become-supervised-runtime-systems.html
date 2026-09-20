@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-04-13T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T20:17:01+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:21:26+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Coding Agent">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Runtime">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="DevOps">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"コーディングAIの計画・権限・差分・テストを、どう確認するか","description":"コーディングAIの監督で混同しやすい計画承認、ブランチとVMの隔離、Verified署名、テスト結果を整理。各機能の保証範囲を確かめる。","datePublished":"2026-04-13T00:00:00+09:00","dateModified":"2026-09-05T20:17:01+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Coding Agent, Software Engineering, Runtime, Workflow, DevOps","mainEntityOfPage":"https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"コーディングAIの計画・権限・差分・テストを、どう確認するか","description":"コーディングAIの監督で混同しやすい計画承認、ブランチとVMの隔離、Verified署名、テスト結果を整理。各機能の保証範囲を確かめる。","datePublished":"2026-04-13T00:00:00+09:00","dateModified":"2026-09-20T17:21:26+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Coding Agent, Software Engineering, Runtime, Workflow, DevOps","mainEntityOfPage":"https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"コーディングAIの計画・権限・差分・テストを、どう確認するか","item":"https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">コーディングAIの計画・権限・差分・テストを、どう確認するか</h1>
-          <p class="hero-copy">Julesの計画とVM、GitHubの署名検証、Anthropicの実験を手掛かりに、コード修正を受け入れる際の確認を役割ごとに分ける。</p>
+          <p class="hero-copy">Julesの計画とVM、GitHubの署名検証、Anthropicの実験を手掛かりに、計画、実行環境、差分、試験、受入の確認を役割ごとに分ける。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-04-13">2026年4月13日</time>
-        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
     </section>
@@ -133,6 +133,31 @@
 <p>例として、一覧画面の並び順を直すタスクを想定する。
 担当者は表示処理の修正を期待していたのに、エージェントがデータベースの構造変更を計画したなら、実装前に方向を直す価値がある。
 ただし、この確認方法がすべての小さな変更に必要だとは限らない。作業範囲と、間違った場合の影響に応じて決める。</p>
+</section>
+<section class="report-section">
+<h2>修正を受け入れるための確認は、一つのチェックではない</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>計画</h3>
+<p>何を変え、何を変えないかを確認する。依頼外のデータベース変更を計画段階で戻すための情報である。</p>
+</article>
+<article class="comparison-card">
+<h3>実行環境と権限</h3>
+<p>どのファイル、認証情報、ネットワークに触れられるかを確認する。ブランチ名やVMの存在だけから、外部操作が防がれるとは判断しない。</p>
+</article>
+<article class="comparison-card">
+<h3>差分と出所</h3>
+<p>変更が依頼範囲に収まるかを読み、必要なら署名で出所を確認する。署名は変更内容の正しさを代わりに判定しない。</p>
+</article>
+<article class="comparison-card">
+<h3>試験の記録</h3>
+<p>実行したテスト、対象の版、結果、未実行の理由と環境条件を残す。通ったという通知だけで、確認済みの範囲を広げない。</p>
+</article>
+<article class="comparison-card">
+<h3>受入判断</h3>
+<p>不具合の再現が解消し、関連する確認が通り、残る不確実性を把握したうえで反映する。これは前の四つを受け取る担当者の判断である。</p>
+</article>
+</div>
 </section>
 <section class="report-section">
 <h2>計画を読めることと、実行を止めることを区別する</h2>
