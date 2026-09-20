@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AgentKitとAgent Framework：エージェント開発のどこを任せるか | Auto Research Digest</title>
-    <meta name="description" content="AgentKitとMicrosoft Agent Frameworkの2025年10月発表を比較。画面、接続、実行手順の役割と、試作後に残る統合作業を整理する。">
+    <title>Agent開発ツールで減る実装と、製品側に残る設計 | Auto Research Digest</title>
+    <meta name="description" content="AgentKit、Microsoft Agent Framework、Claude Agent SDKを比較し、提供される画面・実行・評価と製品側に残る設計を整理する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AgentKitとAgent Framework：エージェント開発のどこを任せるか | Auto Research Digest">
-    <meta property="og:description" content="AgentKitとMicrosoft Agent Frameworkの2025年10月発表を比較。画面、接続、実行手順の役割と、試作後に残る統合作業を整理する。">
+    <meta property="og:title" content="Agent開発ツールで減る実装と、製品側に残る設計 | Auto Research Digest">
+    <meta property="og:description" content="AgentKit、Microsoft Agent Framework、Claude Agent SDKを比較し、提供される画面・実行・評価と製品側に残る設計を整理する。">
     <meta property="og:url" content="https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AgentKitとAgent Framework：エージェント開発のどこを任せるか">
+    <meta property="og:image:alt" content="Agent開発ツールで減る実装と、製品側に残る設計">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AgentKitとAgent Framework：エージェント開発のどこを任せるか | Auto Research Digest">
-    <meta name="twitter:description" content="AgentKitとMicrosoft Agent Frameworkの2025年10月発表を比較。画面、接続、実行手順の役割と、試作後に残る統合作業を整理する。">
+    <meta name="twitter:title" content="Agent開発ツールで減る実装と、製品側に残る設計 | Auto Research Digest">
+    <meta name="twitter:description" content="AgentKit、Microsoft Agent Framework、Claude Agent SDKを比較し、提供される画面・実行・評価と製品側に残る設計を整理する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AgentKitとAgent Framework：エージェント開発のどこを任せるか">
+    <meta name="twitter:image:alt" content="Agent開発ツールで減る実装と、製品側に残る設計">
     <link rel="canonical" href="https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html">
@@ -43,15 +43,15 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-11-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:27:43+09:00">
+    <meta property="article:modified_time" content="2026-09-20T14:27:42+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Runtime">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AgentKitとAgent Framework：エージェント開発のどこを任せるか","description":"AgentKitとMicrosoft Agent Frameworkの2025年10月発表を比較。画面、接続、実行手順の役割と、試作後に残る統合作業を整理する。","datePublished":"2025-11-01T00:00:00+09:00","dateModified":"2026-09-19T18:27:43+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Workflow, Runtime, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AgentKitとAgent Framework：エージェント開発のどこを任せるか","item":"https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent開発ツールで減る実装と、製品側に残る設計","description":"AgentKit、Microsoft Agent Framework、Claude Agent SDKを比較し、提供される画面・実行・評価と製品側に残る設計を整理する。","datePublished":"2025-11-01T00:00:00+09:00","dateModified":"2026-09-20T14:27:42+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Workflow, Runtime, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent開発ツールで減る実装と、製品側に残る設計","item":"https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,8 +67,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AgentKitとAgent Framework：エージェント開発のどこを任せるか</h1>
-          <p class="hero-copy">2025年10月の発表を、画面・接続・実行手順のどこを提供するかで比較する。試作の速さと、実際の製品へ組み込むために残る作業を分けて考える。</p>
+          <h1 class="hero-title">Agent開発ツールで減る実装と、製品側に残る設計</h1>
+          <p class="hero-copy">AgentKit、Microsoft Agent Framework、Claude Agent SDKは、画面、手順定義、実行、評価をそれぞれ異なる範囲で提供する。顧客対応の想定例を通じ、道具が減らす実装と、顧客同定・権限・業務規則として製品側に残る設計を分ける。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -76,12 +76,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-11-01">2025年11月1日</time>
-        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AgentKit%E3%81%A8Agent%20Framework%EF%BC%9A%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E9%96%8B%E7%99%BA%E3%81%AE%E3%81%A9%E3%81%93%E3%82%92%E4%BB%BB%E3%81%9B%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%E9%96%8B%E7%99%BA%E3%83%84%E3%83%BC%E3%83%AB%E3%81%A7%E6%B8%9B%E3%82%8B%E5%AE%9F%E8%A3%85%E3%81%A8%E3%80%81%E8%A3%BD%E5%93%81%E5%81%B4%E3%81%AB%E6%AE%8B%E3%82%8B%E8%A8%AD%E8%A8%88&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AgentKitとAgent Framework：エージェント開発のどこを任せるか"
-      data-share-text="AgentKitとAgent Framework：エージェント開発のどこを任せるか"
+      data-share-title="Agent開発ツールで減る実装と、製品側に残る設計"
+      data-share-text="Agent開発ツールで減る実装と、製品側に残る設計"
       data-share-url="https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AgentKitとAgent Framework：エージェント開発のどこを任せるか"
+      data-share-title="Agent開発ツールで減る実装と、製品側に残る設計"
       data-share-url="https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -125,36 +125,50 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>エージェント開発ツールは、どの作業を肩代わりするのか</h2>
-<p>エージェントを製品に組み込むときには、モデルを呼ぶ処理以外にも、利用者の画面、外部データとの接続、実行手順、評価が必要になる。
-2025年10月のAgentKitとMicrosoft Agent Frameworkの発表は、その一部をまとめて提供する二つの異なる方法を示した。
-比較したいのは機能の総数ではなく、自分たちが作る部分と、提供側に任せる部分である。</p>
-<p>本稿は2025年11月時点の発表内容を扱う。
-製品群として提供された機能と、アプリケーションへ組み込むSDKを、同じ完成度の製品として順位付けしない。</p>
+  <p class="section-kicker">比較の起点</p>
+  <h2>Agent開発ツールは、どの実装を減らし、どの設計を残すのか</h2>
+  <p>エージェントを製品に組み込むには、モデルを呼ぶコードだけでなく、利用者が操作する画面、外部データとの接続、途中経過の扱い、評価、障害時の表示が要る。2025年10月に公開されたAgentKit、Microsoft Agent Framework、Claude Agent SDKは、これらを同じ形では提供しない。既成の画面と視覚的な手順定義を含めるもの、SDKと実行環境を中心にするもの、コードから反復を組み込むものがある。</p>
+  <p>本稿の結論は、道具が減らす実装量だけを比べても選定できない、ということだ。既存アプリに何があり、誰を利用者と認め、どのデータを参照でき、どの操作で人の承認を求めるかによって、残る作業が変わる。製品名や機能数ではなく、「どの境界を提供側へ任せ、どの境界を製品側に残すか」で三つの発表を読む。</p>
 </section>
+
 <section class="report-section">
-<h2>画面まで用意する製品群と、コードで組み込む実行基盤</h2>
-<p>OpenAIの<a href="https://openai.com/index/introducing-agentkit/">AgentKit発表</a>では、処理手順を編集するAgent Builder、接続を管理するConnector Registry、チャット画面を組み込むChatKitが紹介された。
-発表時点で提供状態は一律ではなく、Agent Builderはベータ、Connector Registryは対象を限ったベータ展開だった。</p>
-<p>Microsoftの<a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Agent Framework発表</a>は、Semantic KernelとAutoGenの考え方を組み合わせたオープンソースのSDKと実行基盤を説明する。
-事前に決めた手順と、モデルが次の処理を選ぶ構成の両方を扱う。
-一方、Foundryとの実行基盤の共有やMicrosoft 365側との統合には、今後の方向として書かれた部分もある。</p>
-<p>この違いから、試作時に確認する点も変わる。
-既成の画面を利用するなら、必要な操作を表示できるか、利用者の認証と結び付けられるかを試す。
-コードへ組み込むなら、既存アプリケーションの状態管理や障害処理とどう接続するかを確認する。
-発表に同じ「エージェント」という語があっても、導入後に残る作業は同じではない。</p>
+  <p class="section-kicker">提供範囲</p>
+  <h2>画面・手順定義・実行ループは、別々の形で提供される</h2>
+  <p><a href="https://openai.com/index/introducing-agentkit/">OpenAIのAgentKit発表</a>は、視覚的な手順定義と版管理のためのAgent Builder、接続を管理するConnector Registry、製品へ埋め込むチャット画面のChatKit、データセットとトレース評価を含むEvals機能をまとめて示した。公開時の提供状態は一律ではなく、ChatKitと新しいEvals機能は一般提供、Agent Builderはベータ、Connector Registryは対象を限ったベータだった。ここで減らせるのは、手順を描く画面、埋め込みチャット、評価を始めるための基盤の一部である。</p>
+  <p><a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Microsoft Agent Frameworkの発表</a>は、オープンソースのSDKと実行環境として、道具との接続、決められた手順とモデル主導のオーケストレーション、可観測性、人による承認を説明する。これは、既存アプリへ実行を埋め込み、処理経路をコードやワークフローとして制御したい場合の部品に当たる。発表中のMicrosoft 365や共有実行環境との統合には将来計画も含まれており、公開済みの機能と同一視しない。</p>
+  <p><a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDKの発表</a>は、文脈を集め、行動し、検証して繰り返す実行ループ、ファイルとコマンド、サブエージェント、長い処理での文脈圧縮を説明する。既成の業務画面を提供するというより、アプリが必要な道具と規則を渡して反復を組み込むための部品である。三者の機能範囲は重なる部分があっても、同じ製品種別ではない。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>道具が担える部分</h3>
+      <p>手順の下書きと版管理、接続設定、チャット画面、反復実行、途中経過の観測、評価を始める枠組みである。どの範囲までを一つの製品が担うかは、発表ごとに異なる。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>製品側に残る部分</h3>
+      <p>顧客を識別する根拠、役割ごとのデータ権限、返金などの業務規則、既存画面での説明、保存先の契約、失敗時の責任者は、利用する製品に合わせてアプリ側が決める。</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>一つの問い合わせを、画面から保存結果まで通して比べる</h2>
-<p>例えば、利用者が問い合わせを送り、担当者向けの下書きが保存される小さな機能を想定する。
-比較用の試作では、同じ問い合わせと同じ参照資料を使う。
-画面の表示、資料の取得、下書きの保存、取得に失敗した場合の表示までを通して確認する。</p>
-<p>その際、ツールが提供した部分と、自分たちで追加したコードを記録する。
-画面を短時間で作れても、利用者ごとのデータ制限や保存先との接続に多くの作業が残れば、そこが導入の見積もりに効く。
-逆に既存画面がある場合には、新しいチャット画面より、処理を呼び出す仕組みの方が役立つこともある。</p>
-<p>AgentKitの発表には、短時間で試作した顧客の紹介もある。
-しかし、その時間を自社の完成までの時間として使うことはできない。
-試作で省けた作業、残った統合作業、品質を確かめる作業を分けて見積もることで、開発ツールを採用する理由が具体的になる。</p>
+  <p class="section-kicker">想定例</p>
+  <h2>顧客対応では、下書きを作る処理と返金を認める処理を分ける</h2>
+  <p>ここからは本稿の想定例である。既存のサポート画面に、返品遅延への問い合わせから返信案を作るエージェントを追加する。画面に入力された顧客IDとログイン中の担当者を、既存の認証基盤で照合する。次にエージェントは、許可された範囲の注文、配送、過去の対応記録を取得し、返品規約と照らした返信案を作る。資料を取得できない場合や顧客IDが一致しない場合は、推測した下書きを保存せず、担当者へ引き継ぐ。</p>
+  <p>Agent Builderを使う場合、問い合わせ分類、資料取得、下書き作成、確認依頼という経路を視覚的に定義し、試行結果を評価へ回せる。ChatKitを使う場合、対話画面を埋め込む作業を短くできる。しかし、どの既存アカウントを顧客として扱うか、返金可能な金額と条件をどの規約から読むか、下書きと確定済み回答を画面上でどう区別するかは、これらの部品の外に残る。</p>
+  <p>Microsoft Agent FrameworkやClaude Agent SDKを既存のバックエンドへ組み込む場合も同じである。前者のワークフローや人の承認機能、後者の反復と検証の仕組みは、照会と下書きの流れを構成する助けになる。だが、返金を実行する道具をいつ許可し、誰の承認を待ち、失敗や重複処理をどの記録で調べるかは、業務の責任境界として別に設計する必要がある。この例は製品の既定動作や導入実績ではない。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">評価の位置</p>
+  <h2>試作の速さと、完成した製品の品質確認を混同しない</h2>
+  <p>AgentKitの発表には、短時間で手順を作った企業の紹介がある。これは視覚的な手順定義や既成コンポーネントが、試作の一部を短縮し得る例である。その所要時間を、別の組織が顧客データ、規約、監査、既存画面まで統合して公開する時間として読むことはできない。</p>
+  <p>上の顧客対応例なら、評価は少なくとも三つに分かれる。問い合わせに合う資料を取得したか、規約に沿った下書きになったか、権限外の顧客情報や未承認の返金操作を出さなかったかである。AgentKitのトレース評価、Agent Frameworkの可観測性、Claude Agent SDKでの検証ループは、それぞれこの確認を実装する材料になる。どれを使っても、受け入れ条件と失敗時の停止条件を自社のデータ契約から定義しなければ、評価の意味は定まらない。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">選定の基準</p>
+  <h2>残る設計は、道具の不足ではなく業務固有の責任である</h2>
+  <p>既存アプリに顧客画面、認証、権限判定、監査記録があるなら、必要なのは新しいチャット画面より、そこへ実行ループを安全に接続する部品かもしれない。まだ利用者画面も評価の仕組みもない試作では、手順定義、埋め込み画面、評価をまとめて扱える道具が有効な場合がある。この違いは優劣ではなく、どの部分が未実装かによる。</p>
+  <p>開発道具を選ぶ前に、提供される画面、接続、実行、観測、評価を一つずつ書き出し、製品側に残す顧客同定、権限、業務規則、保存、承認と対応させたい。道具が複雑な実装を減らしても、製品の正しさを引き受ける境界までは引き受けない。この対応関係を明らかにすることが、発表の機能一覧を実際の開発判断へ変える。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -241,6 +255,16 @@
               </div>
               <p class="source-title">OpenAI: Introducing AgentKit</p>
               <p class="source-url">https://openai.com/index/introducing-agentkit/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年9月29日</span>
+              </div>
+              <p class="source-title">Anthropic: Building agents with the Claude Agent SDK</p>
+              <p class="source-url">https://claude.com/blog/building-agents-with-the-claude-agent-sdk</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/" target="_blank" rel="noopener noreferrer">
