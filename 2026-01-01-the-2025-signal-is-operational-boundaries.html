@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>2025年のエージェント開発を振り返る：接続・実行・確認の役割 | Auto Research Digest</title>
-    <meta name="description" content="2025年のA2A、Claude Agent SDK、Foundryワークフローを、接続・実行・確認の役割から振り返る。規格や機能が担う範囲と残る設計課題を整理。">
+    <title>2025年のエージェント開発で見えた、接続・実行・確認の責任境界 | Auto Research Digest</title>
+    <meta name="description" content="2025年のA2A、Claude Agent SDK、Foundryワークフローを、仕事の受け渡し・実行・確認で異なる責任境界として整理する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="2025年のエージェント開発を振り返る：接続・実行・確認の役割 | Auto Research Digest">
-    <meta property="og:description" content="2025年のA2A、Claude Agent SDK、Foundryワークフローを、接続・実行・確認の役割から振り返る。規格や機能が担う範囲と残る設計課題を整理。">
+    <meta property="og:title" content="2025年のエージェント開発で見えた、接続・実行・確認の責任境界 | Auto Research Digest">
+    <meta property="og:description" content="2025年のA2A、Claude Agent SDK、Foundryワークフローを、仕事の受け渡し・実行・確認で異なる責任境界として整理する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="2025年のエージェント開発を振り返る：接続・実行・確認の役割">
+    <meta property="og:image:alt" content="2025年のエージェント開発で見えた、接続・実行・確認の責任境界">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="2025年のエージェント開発を振り返る：接続・実行・確認の役割 | Auto Research Digest">
-    <meta name="twitter:description" content="2025年のA2A、Claude Agent SDK、Foundryワークフローを、接続・実行・確認の役割から振り返る。規格や機能が担う範囲と残る設計課題を整理。">
+    <meta name="twitter:title" content="2025年のエージェント開発で見えた、接続・実行・確認の責任境界 | Auto Research Digest">
+    <meta name="twitter:description" content="2025年のA2A、Claude Agent SDK、Foundryワークフローを、仕事の受け渡し・実行・確認で異なる責任境界として整理する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="2025年のエージェント開発を振り返る：接続・実行・確認の役割">
+    <meta name="twitter:image:alt" content="2025年のエージェント開発で見えた、接続・実行・確認の責任境界">
     <link rel="canonical" href="https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-01-01-the-2025-signal-is-operational-boundaries.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-01-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:18:24+09:00">
+    <meta property="article:modified_time" content="2026-09-20T14:40:26+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Operations">
     <meta property="article:tag" content="Strategy">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"2025年のエージェント開発を振り返る：接続・実行・確認の役割","description":"2025年のA2A、Claude Agent SDK、Foundryワークフローを、接続・実行・確認の役割から振り返る。規格や機能が担う範囲と残る設計課題を整理。","datePublished":"2026-01-01T00:00:00+09:00","dateModified":"2026-09-19T18:18:24+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Operations, Strategy","mainEntityOfPage":"https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"2025年のエージェント開発を振り返る：接続・実行・確認の役割","item":"https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"2025年のエージェント開発で見えた、接続・実行・確認の責任境界","description":"2025年のA2A、Claude Agent SDK、Foundryワークフローを、仕事の受け渡し・実行・確認で異なる責任境界として整理する。","datePublished":"2026-01-01T00:00:00+09:00","dateModified":"2026-09-20T14:40:26+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Operations, Strategy","mainEntityOfPage":"https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"2025年のエージェント開発で見えた、接続・実行・確認の責任境界","item":"https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">2025年のエージェント開発を振り返る：接続・実行・確認の役割</h1>
-          <p class="hero-copy">A2Aの移管、Claude Agent SDK、Foundryワークフローを振り返る。接続規格と実行機能が増える中で、成果物の意味や公開条件を誰が決めるのかを整理する。</p>
+          <h1 class="hero-title">2025年のエージェント開発で見えた、接続・実行・確認の責任境界</h1>
+          <p class="hero-copy">A2A、Claude Agent SDK、Foundryワークフローは、仕事の受け渡し、実行の反復、経路の定義と評価に異なる部品を示した。調査記事の想定例で、依頼の意味、実行記録、公開承認がどこに残るかを整理する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-01-01">2026年1月1日</time>
-        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Operations</span><span class="meta-chip">Strategy</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=2025%E5%B9%B4%E3%81%AE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E9%96%8B%E7%99%BA%E3%82%92%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8B%EF%BC%9A%E6%8E%A5%E7%B6%9A%E3%83%BB%E5%AE%9F%E8%A1%8C%E3%83%BB%E7%A2%BA%E8%AA%8D%E3%81%AE%E5%BD%B9%E5%89%B2&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-01-01-the-2025-signal-is-operational-boundaries.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=2025%E5%B9%B4%E3%81%AE%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E9%96%8B%E7%99%BA%E3%81%A7%E8%A6%8B%E3%81%88%E3%81%9F%E3%80%81%E6%8E%A5%E7%B6%9A%E3%83%BB%E5%AE%9F%E8%A1%8C%E3%83%BB%E7%A2%BA%E8%AA%8D%E3%81%AE%E8%B2%AC%E4%BB%BB%E5%A2%83%E7%95%8C&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-01-01-the-2025-signal-is-operational-boundaries.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="2025年のエージェント開発を振り返る：接続・実行・確認の役割"
-      data-share-text="2025年のエージェント開発を振り返る：接続・実行・確認の役割"
+      data-share-title="2025年のエージェント開発で見えた、接続・実行・確認の責任境界"
+      data-share-text="2025年のエージェント開発で見えた、接続・実行・確認の責任境界"
       data-share-url="https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="2025年のエージェント開発を振り返る：接続・実行・確認の役割"
+      data-share-title="2025年のエージェント開発で見えた、接続・実行・確認の責任境界"
       data-share-url="https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,40 +124,50 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>2025年の発表を、任せる仕事と残る責任から読む</h2>
-<p>エージェント同士を接続できることと、仕事を最後まで任せられることは同じではない。
-接続先が見つかっても、渡す情報、実行を認める操作、結果を確認する担当は決める必要がある。
-2025年の発表を振り返ると、これらを実装する道具が、それぞれ異なる形で増えたことが分かる。</p>
-<p>本稿では、6月のA2Aの移管、9月のClaude Agent SDK、11月のFoundryワークフローを取り上げる。
-年全体の普及率や成功率を測る資料ではない。
-接続規格、処理を実行するSDK、処理手順を管理する機能を区別し、どの責任が開発側に残るかを読むための三例である。</p>
+  <p class="section-kicker">2025年を読む軸</p>
+  <h2>接続、実行、確認は、仕事のどの責任を受け持つのか</h2>
+  <p>2025年には、エージェント同士の受け渡し、アプリに埋め込む実行ループ、複数工程の定義と評価を扱う公開資料が現れた。これらを並べると、エージェントが何をできるかだけでなく、依頼の意味、実行の経過、外部へ出す結果の責任をどこに置くかが設計対象として見えてくる。</p>
+  <p>本稿は、2025年の採用率や業界全体の競争軸を測るものではない。6月のA2Aプロジェクトへの移管、9月のClaude Agent SDK、11月のFoundry Agent Serviceの複数エージェントワークフローという三つの公開資料を、異なる責任を扱う部品として読む。本稿の解釈は、こうした境界を明示して設計することが、仕事を任せる範囲を判断する前提になる、という点にある。</p>
 </section>
+
 <section class="report-section">
-<h2>接続規格が開かれても、仕事の意味はそろえる必要がある</h2>
-<p>Googleは<a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">2025年6月23日</a>、A2Aの仕様、SDK、開発用ツールをLinux Foundationのプロジェクトへ移すと発表した。
-異なるエージェントの能力発見や情報交換を共通化する取り組みを、複数社が参加する運営へ移した出来事である。</p>
-<p>この移管だけで、ベンダーの変更が容易になったとは言えない。
-例えば「調査完了」という通知を受けても、全対象を調べたのか、一部の資料が取得できなかったのかは、仕事の契約として伝える必要がある。
-共通の通信方式と、出力の意味や品質に関する合意は、別に確認したい。</p>
+  <p class="section-kicker">三つの公開資料</p>
+  <h2>仕事の受け渡し、反復実行、経路の確認は別の問題である</h2>
+  <p><a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">2025年6月23日のA2Aに関する発表</a>では、Googleが仕様、SDK、開発用ツールをLinux FoundationのAgent2Agentプロジェクトへ移すと説明した。A2Aは、異なるエージェントが能力を見つけ、情報を交換し、作業を協調するための共通の通信方式を目指す。この資料が扱うのは、誰がどんな能力を持ち、どの形式で依頼や結果を渡せるかという接続の境界である。</p>
+  <p><a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">9月29日のClaude Agent SDKの発表</a>は、文脈を集め、行動し、検証して繰り返す実行ループを説明する。ファイルやコマンド、道具、サブエージェントを組み合わせて、途中の観測に応じて作業を変える部品である。この資料が扱うのは、許可された道具を使って一つの担当がどう仕事を進め、どの結果を次の反復へ渡すかという実行の境界である。</p>
+  <p><a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">11月25日のFoundryワークフローの発表</a>は、図とYAMLによる経路定義、変数、保存時の版、実行経路の追跡、評価器を公開プレビューとして示した。これは、複数工程がどの順で実行され、どの入力で分岐し、どこを評価するかをレビューするための部品である。三つは連続した製品世代や同じ完成度の選択肢ではない。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>A2Aが見せる接続の境界</h3>
+      <p>発見、依頼、結果の受け渡しを共通化するための通信方式である。「完了」という状態が業務上何を意味するか、受け取った成果物を誰が承認するかは、通信方式だけでは決まらない。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>SDKとワークフローが見せる実行・確認の境界</h3>
+      <p>SDKは担当の反復を組み込み、ワークフローは経路・実行記録・評価を扱う。どの道具を許可し、どの記録を公開判断の根拠にするかは、アプリと組織が定義する。</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>実行用SDKは、調べて作り直す処理を組み立てる</h2>
-<p>Anthropicの<a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">2025年9月29日の説明</a>は、Claude Code SDKをClaude Agent SDKへ改称し、ファイル操作やコマンド実行をコーディング以外へ使う考え方を示した。
-情報を集め、処理し、結果を確かめる反復を、調査などへ応用するという説明である。</p>
-<p>こうしたSDKは、調査資料を読み、表を作り、計算をやり直す構成を作る手がかりになる。
-ただし、紹介された用途が広く定着したという証拠ではない。
-どのファイルを読ませるか、生成した計算結果を何と照合するか、どこで処理を終えるかは、用途に合わせて設計する必要がある。</p>
+  <p class="section-kicker">想定例</p>
+  <h2>調査記事の依頼から公開まで、責任を四つの記録に分ける</h2>
+  <p>ここからは本稿の想定例である。編集者が「新しい規制案が国内の小売事業者へ与える影響を調べ、根拠付きの下書きを作る」と依頼する。まず調査担当へ渡す依頼には、対象国、対象期間、参照してよい一次資料の種類、成果物の形式、資料が見つからない場合に未確認として返す条件を含める。別のエージェントへ仕事を渡す場合、A2Aのような通信方式は依頼と結果を受け渡す手段になり得る。しかし、依頼を受け取ったという状態は、指定された資料をすべて確認したという事実ではない。</p>
+  <p>次に調査担当の実行ループは、許可された資料を読み、日付と引用箇所を記録し、下書きの主張と照合して不足があれば再検索する。Claude Agent SDKが説明する反復は、このような取得、行動、検証の経路を構成する材料になる。ただし、どの資料を一次資料と認めるか、取得不能をいつ停止として扱うか、生成した文を誰が確認するかは、SDKの外に置く業務規則である。</p>
+  <p>最後に、Foundryのようなワークフロー定義では、調査、事実確認、編集、公開判断の経路と、各段階で渡す下書き・根拠一覧・未解決事項を見える形にする。実行記録は、特定の記事でどの分岐を通ったかを示し、評価は引用の有無や形式などを検査する。公開承認は第四の別記録である。編集者が根拠一覧、未解決事項、版を確認して承認したときだけ、公開処理が走るようにする。この例は三つの製品を一体で導入する提案や、既存の導入実績ではない。</p>
 </section>
+
 <section class="report-section">
-<h2>処理手順を保存しても、公開の判断は別に設計する</h2>
-<p>Microsoftの<a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">2025年11月の公開プレビュー</a>は、視覚的な編集とYAMLによる処理定義、人が関与するテンプレート、保存時の版管理を紹介した。
-実行する処理を図や定義として残し、変更を追える形にする機能である。</p>
-<p>ここで、調査記事を作る想定例を考える。
-接続規格は別の調査担当へ依頼するために、SDKは資料の取得と下書き作成に、処理定義は確認後に公開へ進む手順の管理に使える。
-三つすべてを導入する必要はないが、採用するなら各部分の役割を明らかにしたい。</p>
-<p>下書きが完成したことを、公開してよいことと同一視しない。
-出典が欠けた場合には差し戻す、確認済みの版だけ公開する、といった条件は作成側で定義する。
-2025年の発表から得られる設計上の示唆は、道具の名前をそろえることより、受け渡す成果物と実行を認める条件を具体化することにある。</p>
+  <p class="section-kicker">完了の意味</p>
+  <h2>「完了」は通信状態ではなく、契約・実行・確認・承認の組み合わせで決まる</h2>
+  <p>この想定例で、依頼の契約は何を調べる仕事と見なすかを決める。実行記録は、どの資料を読み、どこで不足が見つかり、どの下書きが作られたかを示す。評価結果は、定めた形式や引用条件に照らした確認材料になる。承認記録は、誰がどの版を公開してよいと判断したかを示す。四つを同じ「完了」という語で済ませると、通信成功、下書き生成、検査通過、外部公開を取り違える。</p>
+  <p>この分離は、エージェントの自律性を小さくするためだけのものではない。資料不足で止める、事実確認だけ差し戻す、公開済みの版を特定するといった操作を、どの記録に基づいて行うかが分かるようになる。本稿では、2025年の異なる発表が、こうした分離を設計するための接続・実行・確認の部品を見せた、と解釈する。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">成り立たない条件</p>
+  <h2>すべての仕事に三つの部品を重ねる必要はない</h2>
+  <p>単一の担当が短い下書きを作るだけで、他のエージェントへ仕事を渡さないなら、A2Aのような越境通信は不要である。決まった計算を一度実行するだけなら、長い反復を行うSDKより通常のプログラムが適する場合もある。公開が伴わない内部メモでは、公開承認用の経路を持たないこともあり得る。</p>
+  <p>また、公開資料はそれぞれの機能や目標を説明するもので、通信方式、実行ループ、ワークフロー評価を組み合わせた運用の成功を測定したものではない。設計上の論点は、部品を多く採用することではなく、実際の仕事でどこに依頼の意味、許可、停止、最終責任を置くかを明文化することである。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -262,7 +272,7 @@
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2025年11月25日</span>
               </div>
-              <p class="source-title">Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service</p>
+              <p class="source-title">Microsoft: Introducing Multi-Agent Workflows in Foundry Agent Service</p>
               <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/</p>
             </div>
             <span class="source-action">開く</span>
