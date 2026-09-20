@@ -1,20 +1,37 @@
 <section class="report-section">
-<h2>Choosing a connection and authorizing an action are separate</h2>
-<p>An agent may be able to call a leave-request API even when the user only wants to check their remaining allowance. Connectivity leaves an important question unanswered: should this operation execute?</p>
-<p>AWS's April 2025 implementation article illustrated that distinction with time-off requests. The same month's A2A announcement addressed communication between agents. This article separates that connection mechanism from application-level confirmation.</p>
+  <p class="section-kicker">Question</p>
+  <h2>What is lost when connection, execution, and approval are treated as one “agent feature”?</h2>
+  <p>Spring 2025 material from OpenAI, AWS, Google, and Microsoft appeared in different places: agent-building components, collaboration and human confirmation, multi-system agents and <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A</a>, and Semantic Kernel Agents. It did not describe one finished common platform. This article treats protocol connectivity, managed execution, and approval for a change as separate responsibilities. That separation makes clear what can be exchanged and what organizational judgment remains.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Connection</h3><p>Specify how tasks, tools, and artifacts move to another system, including the authentication scope.</p></article>
+    <article class="comparison-card"><h3>Execution</h3><p>Use models, tools, state, and coordination to progress work while retaining a record.</p></article>
+    <article class="comparison-card"><h3>Approval</h3><p>Decide who may authorize a change, what is checked, and where exceptions return.</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>Return a confirmation or return execution to the application</h2>
-<p>The <a href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/">April 9 AWS article</a> explains two mechanisms. User confirmation gives the application the proposed function and arguments so it can collect approval before proceeding. Return of control makes the application responsible for execution and permits additional handling, including parameter changes.</p>
-<p>The former fits a decision on a presented operation. The latter supports custom editing or processing in the application. Neither means every action requires the same interruption; place confirmation according to the workflow's authorized scope.</p>
+  <p class="section-kicker">Different responsibilities</p>
+  <h2>A2A and managed platforms address different layers of the same design</h2>
+  <p>Google’s A2A announcement proposed a protocol for agents to exchange tasks, state, and artifacts. It does not make connected systems share an execution platform or take responsibility for each other’s business policy. Google Cloud multi-system agents, AWS multi-agent collaboration, OpenAI agent-building tools, and Semantic Kernel Agents offer options for execution or coordination with distinct scopes and release states. They should not be placed on one maturity scale.</p>
+  <p>Research such as AutoGen, Magentic-One, and BrowserGym shows that multi-role or external-environment work needs observations, state, and completion conditions. A protocol makes it possible to call another participant; an execution platform makes progress possible. Neither decides whether customer data may be sent or a leave request may be approved.</p>
 </section>
+
 <section class="report-section">
-<h2>User confirmation is not necessarily organizational approval</h2>
-<p>Confirming the dates in a leave request can differ from a manager approving that request. The AWS user-confirmation mechanism does not establish that an organization's approval process is already implemented.</p>
-<p>A proposed application design would display the dates, duration, employee, and operation. Edited dates should become the subject of confirmation. A registered request awaiting review should not be shown as approved leave. These are design recommendations, not claims about every feature of the published sample.</p>
+  <p class="section-kicker">Approval boundary</p>
+  <h2>Bedrock confirmation and control return illustrate different responsibility for a change</h2>
+  <p><a href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/">AWS’s human-in-the-loop example</a> describes confirmation before an agent executes an action group and a path that returns control to an application. Confirmation checks whether a user wants an action; it does not automatically satisfy an organization’s approval rule or the authorization of an external system.</p>
+  <p>For a leave request, an available HR API, an employee’s confirmation, approval under a manager’s policy, and a stored HR record are four different states. Keeping them separate prevents an access failure, a user cancellation, pending approval, and failed persistence from collapsing into one generic failure.</p>
 </section>
+
 <section class="report-section">
-<h2>Delegation to another agent does not remove confirmation requirements</h2>
-<p>Google's <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A announcement</a> described client and remote agents exchanging capabilities, task status, and artifacts. Finding a suitable agent through such a connection does not establish user consent for its action.</p>
-<p>Test allowance-only questions, corrected requests, denied execution, and post-execution status separately. Whatever protocol or runtime is chosen, verify that the actual operation matches the content the user authorized. Separating connection and execution responsibility makes that comparison possible.</p>
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>Follow a leave request through connection, execution, approval, and update</h2>
+  <p>This is a design example. An agent checks leave balance and prepares a request. A2A or a tool contract specifies the role or API to call. Managed execution can retain the request, state, and response. User confirmation checks dates and reason. Managerial approval applies organizational policy. Only a verified HR-system record completes the update.</p>
+  <p>Each stage needs defined input, permission, result, and destination after failure. Changing a connection format does not transfer approval rules or storage consistency automatically. Keeping completion conditions stable across execution platforms makes later architecture changes easier to test.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Conclusion</p>
+  <h2>A shared design diagram should place responsibility boundaries, not product names, at its center</h2>
+  <p>The releases made more separate components for connection, execution, coordination, and confirmation available. Their value is not evidence that interoperability is complete. It is a way to separate connection contracts, execution records, and approval responsibility, then explicitly preserve the judgments that must remain with people and organizations.</p>
 </section>
