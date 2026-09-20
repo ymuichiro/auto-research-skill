@@ -5,6 +5,33 @@
 <p>This article proposes that missing process: record a human decision, test the conditions under which it can be reused, and activate only rules approved by an accountable owner. We call this design proposal a Human-Agent Collaboration Workspace (HACW). It is a working hypothesis, not an established standard or a product category with demonstrated benefits.</p>
 </section>
 <section class="report-section">
+<h2>Five roles in the HACW design</h2>
+<p>In this article, HACW is a design proposal for retaining goals, constraints, artifacts, evidence, checks, and human decisions as records the next task can reference. These five roles do not prescribe a product architecture or separate agents for every task. They make explicit who owns each decision and which part, if any, may be automated.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Accountable owner</h3>
+<p>Sets the goal, constraints, and acceptance conditions, and accepts responsibility for a process that meets them. Automation can advance only where applicability conditions are explicit.</p>
+</article>
+<article class="comparison-card">
+<h3>Coordination</h3>
+<p>Records task breakdown, handoffs, and completion conditions. A process can be repeated only when both assignment and completion judgement are clear.</p>
+</article>
+<article class="comparison-card">
+<h3>Specialized work</h3>
+<p>Performs a bounded task and returns the inputs, tools, evidence, and result used. That work can be delegated when permissions, inputs and outputs, and accessible records are constrained.</p>
+</article>
+<article class="comparison-card">
+<h3>Evaluation</h3>
+<p>Checks the artifact, execution path, and safety conditions, separating ordinary cases from exceptions. A judgement without reproducible grading rules is not evidence for automating the decision.</p>
+</article>
+<article class="comparison-card">
+<h3>Memory and records</h3>
+<p>Retains evidence, versions, changes, and decision rationale so prior candidates remain traceable. Records without retention, correction, and deletion rules do not become future execution authority by themselves.</p>
+</article>
+</div>
+<p>This is not a feature list for existing products. It states this article's design claim: reusing a human decision needs responsibility and testing to turn a record into a conditional execution rule; searching prior conversations is insufficient.</p>
+</section>
+<section class="report-section">
 <h2>A decision record and an execution rule answer different questions</h2>
 <p>A decision record explains why an action was approved. An execution rule specifies which conditions a new request must meet, whose authority applies, and which action is permitted. Finding a previous decision does not answer all of those questions.</p>
 <p>The OpenAI Agents SDK can interrupt a tool call and resume after approval or rejection. This controls an operation in a running task. <a href="https://openai.github.io/openai-agents-python/human_in_the_loop/">Approval documentation</a> AWS AgentCore Policy evaluates tool access through Gateway against rules outside the agent's code. <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html">Policy documentation</a></p>
@@ -30,5 +57,5 @@
 <section class="report-section">
 <h2>Test whether reuse saves work without increasing errors</h2>
 <p>Begin with the agent proposing a rule while people continue making the decisions. Record agreement, incorrectly permitted candidates, missed exceptions, and review time. Use those results to choose the automation scope, retaining sample review and rule withdrawal after deployment.</p>
-<p>Fewer approval requests offer little benefit if rule authoring and maintenance consume more time than they save. Rare negotiations and rapidly changing conditions may be better served by keeping past decisions as reference material. The test of HACW is whether decisions with checkable applicability can pass into subsequent work without increasing misapplication.</p>
+<p>Fewer approval requests offer little benefit if rule authoring and maintenance consume more time than they save. Rare negotiations and rapidly changing conditions may be better served by keeping past decisions as reference material. The test of HACW is whether decisions whose goal, constraints, evidence, checks, and owner remain traceable can pass into subsequent work without increasing misapplication.</p>
 </section>
