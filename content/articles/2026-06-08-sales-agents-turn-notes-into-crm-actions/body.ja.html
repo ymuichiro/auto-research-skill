@@ -7,6 +7,36 @@ AIが何を読み取ったかに加え、どの顧客と案件に対応し、ど
 これは営業AI全般の価値を一つの指標で評価する提案ではなく、CRM更新を任せる範囲を決めるための整理である。</p>
 </section>
 <section class="report-section">
+<h2>候補から保存結果まで、六つの確認をつなぐ</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>1. 会議メモから抽出する</h3>
+<p>顧客の発言、営業側の見込み、合意済みの条件を分けて候補化する。読み取れた文を、確定したCRM値と同一視しない。</p>
+</article>
+<article class="comparison-card">
+<h3>2. 案件を照合する</h3>
+<p>参加者、議題、時期から候補の案件を絞る。同じ顧客に複数案件があれば、一意に決められないことを記録する。</p>
+</article>
+<article class="comparison-card">
+<h3>3. 項目ごとの根拠を添える</h3>
+<p>成約予定日、金額、次の行動などに対応する発言を示し、根拠がない推定を未確定として返す。</p>
+</article>
+<article class="comparison-card">
+<h3>4. 現在値と競合を確認する</h3>
+<p>提案を作った後にCRMが更新されていないか照合する。条件付き更新を使える場合は、古い値に基づく書き込みを検出する。</p>
+</article>
+<article class="comparison-card">
+<h3>5. 承認する変更を確定する</h3>
+<p>担当者が対象案件、現在値、提案値、根拠を見て選ぶ。候補表示の承認を、無関係な項目までの書き込み許可に広げない。</p>
+</article>
+<article class="comparison-card">
+<h3>6. 保存結果を照合する</h3>
+<p>実際に保存された項目と承認内容を比べる。通信エラーでは成功と決めず、更新先の状態を確認する。</p>
+</article>
+</div>
+<p>この六段階は本稿の会議メモからCRMを更新する想定例であり、すべての製品が同じ画面や手順を提供するという比較ではない。</p>
+</section>
+<section class="report-section">
 <h2>製品が扱う記録は同じではない</h2>
 <p>AWS Partner Central agentsの2026年5月15日の発表は、会議メモ、提案書、通話記録などから情報を抽出し、顧客情報の補完や不足項目の改善提案を経て案件を作成する機能を説明する。
 対象はPartner Centralの案件作成である。<a href="https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/">AWSの発表</a></p>
