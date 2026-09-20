@@ -8,6 +8,28 @@
 この一往復を候補の基盤で動かせば、機能一覧にある「統制」や「評価」が、実際のどの操作を扱うのかを確かめられる。</p>
 </section>
 <section class="report-section">
+<h2>チケット更新で確かめる四つの制御面</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>身元</h3>
+<p>どの利用者とエージェントが依頼を始めたかを追えるようにする。実行の出所を記録する面であり、更新を許す判断そのものではない。</p>
+</article>
+<article class="comparison-card">
+<h3>権限と承認</h3>
+<p>その利用者が対象チケットを読めるか、更新前に誰が内容を確認するかを定める。読み取りの許可と書き込みの承認を分ける。</p>
+</article>
+<article class="comparison-card">
+<h3>実行</h3>
+<p>承認された部署、本文、チケットの版だけを更新し、途中で変わった対象や中断を扱う。基盤、業務API、アプリケーションのどこで強制するかを確認する。</p>
+</article>
+<article class="comparison-card">
+<h3>観測と評価</h3>
+<p>分類の誤り、承認を飛ばした更新、外部APIの失敗を別々に記録し採点する。実行後の評価は、実行前の拒否を代替しない。</p>
+</article>
+</div>
+<p>これは候補の基盤へ同じ四機能が備わるという主張ではない。どの面を既存のチケットシステムで担い、どこを新たに実装するかを比べるための分解である。</p>
+</section>
+<section class="report-section">
 <h2>発表が示すのは、実行以外にも用意された機能である</h2>
 <p>Googleは4月22日の<a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform発表</a>で、開発・拡張・統制・最適化を並べ、実行環境に加えてIdentity、Registry、Gateway、評価と観測の機能を説明した。
 これは、エージェントの作成後に必要になる管理機能も製品の範囲として示した例である。

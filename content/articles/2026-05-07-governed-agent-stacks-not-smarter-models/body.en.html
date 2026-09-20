@@ -4,6 +4,28 @@
 <p>Consider a hypothetical system that reads an internal inquiry, proposes a department, and updates a ticket after human review. Running this complete task on a candidate platform makes it possible to identify which actual operations its governance and evaluation features cover.</p>
 </section>
 <section class="report-section">
+<h2>Four control planes to test in a ticket update</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Identity</h3>
+<p>Make the user and agent that began a request traceable. This records the origin of execution; it does not itself decide that an update is permitted.</p>
+</article>
+<article class="comparison-card">
+<h3>Permissions and approval</h3>
+<p>Determine whether the user may read the target ticket and who reviews it before update. Keep read permission separate from approval to write.</p>
+</article>
+<article class="comparison-card">
+<h3>Execution</h3>
+<p>Update only the approved department, content, and ticket version, and handle a target that changes or a run that stops. Check whether the platform, business API, or application enforces this.</p>
+</article>
+<article class="comparison-card">
+<h3>Observation and evaluation</h3>
+<p>Record and score incorrect classification, an update that bypassed approval, and an external API failure separately. Post-execution evaluation does not replace pre-execution refusal.</p>
+</article>
+</div>
+<p>This is a decomposition for comparing what the existing ticket system handles and what needs implementation, not a claim that every candidate platform includes the same four functions.</p>
+</section>
+<section class="report-section">
 <h2>Announcements describe functions surrounding execution</h2>
 <p>Google's April 22 <a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform announcement</a> groups building, scaling, governing, and optimizing, describing identity, registry, gateway, evaluation, and observability alongside the runtime. It illustrates management functions being presented as part of a platform's scope. Listing those functions does not prove that the same controls extend into a customer's existing systems.</p>
 <p>AWS's March 31 <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">AgentCore Evaluations general-availability announcement</a> distinguishes online scoring of sampled production traces from on-demand testing of changes. This provides a concrete mechanism for assessing operational quality. Scoring a run and rejecting an inappropriate update before execution still serve different purposes.</p>
