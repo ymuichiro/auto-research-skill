@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agent operations: distinguish traces, background execution, and recovery | Auto Research Digest EN</title>
-    <meta name="description" content="Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.">
+    <title>Why AgentOps becomes a control layer for execution | Auto Research Digest EN</title>
+    <meta name="description" content="Explain AgentOps through traces, review, permissions, and recovery, separating visible execution history from safe recovery.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Agent operations: distinguish traces, background execution, and recovery | Auto Research Digest EN">
-    <meta property="og:description" content="Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.">
+    <meta property="og:title" content="Why AgentOps becomes a control layer for execution | Auto Research Digest EN">
+    <meta property="og:description" content="Explain AgentOps through traces, review, permissions, and recovery, separating visible execution history from safe recovery.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Agent operations: distinguish traces, background execution, and recovery">
+    <meta property="og:image:alt" content="Why AgentOps becomes a control layer for execution">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Agent operations: distinguish traces, background execution, and recovery | Auto Research Digest EN">
-    <meta name="twitter:description" content="Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.">
+    <meta name="twitter:title" content="Why AgentOps becomes a control layer for execution | Auto Research Digest EN">
+    <meta name="twitter:description" content="Explain AgentOps through traces, review, permissions, and recovery, separating visible execution history from safe recovery.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Agent operations: distinguish traces, background execution, and recovery">
+    <meta name="twitter:image:alt" content="Why AgentOps becomes a control layer for execution">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-08-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:39:35+09:00">
+    <meta property="article:modified_time" content="2026-09-20T14:08:59+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="AgentOps">
     <meta property="article:tag" content="Observability">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent operations: distinguish traces, background execution, and recovery","description":"Distinguish agent traces, asynchronous execution, and recovery. A ticket-creation example shows why visible failures do not automatically make retries safe.","datePublished":"2025-08-01T00:00:00+09:00","dateModified":"2026-09-19T18:39:35+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, AgentOps, Observability","mainEntityOfPage":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent operations: distinguish traces, background execution, and recovery","item":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Why AgentOps becomes a control layer for execution","description":"Explain AgentOps through traces, review, permissions, and recovery, separating visible execution history from safe recovery.","datePublished":"2025-08-01T00:00:00+09:00","dateModified":"2026-09-20T14:08:59+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, AgentOps, Observability","mainEntityOfPage":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Why AgentOps becomes a control layer for execution","item":"https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Agent operations: distinguish traces, background execution, and recovery</h1>
-          <p class="hero-copy">Use Agents SDK tracing and Responses API background mode to distinguish visibility from recovery, with a ticket-creation failure illustrating retry risks.</p>
+          <h1 class="hero-title">Why AgentOps becomes a control layer for execution</h1>
+          <p class="hero-copy">Use Foundry, Responses API, Semantic Kernel, and connection-protocol material to define traces, review, permissions, and recovery as a control layer for observing, stopping, and improving agent execution.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-08-01">August 1, 2025</time>
-        <time class="mono-note" datetime="2026-09-19">Updated September 19, 2026</time>
+        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20operations%3A%20distinguish%20traces%2C%20background%20execution%2C%20and%20recovery&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Why%20AgentOps%20becomes%20a%20control%20layer%20for%20execution&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Agent operations: distinguish traces, background execution, and recovery"
-      data-share-text="Agent operations: distinguish traces, background execution, and recovery"
+      data-share-title="Why AgentOps becomes a control layer for execution"
+      data-share-text="Why AgentOps becomes a control layer for execution"
       data-share-url="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Agent operations: distinguish traces, background execution, and recovery"
+      data-share-title="Why AgentOps becomes a control layer for execution"
       data-share-url="https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -124,25 +124,34 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>Visible execution and recoverable execution are different</h2>
-<p>Execution records help investigate an agent that stopped, but do not automatically undo partial updates or make retries safe. Observability, status retrieval, and recovery should be assessed separately.</p>
-<p>The March 2025 Agents SDK announcement and May Responses API background-mode release provide examples. This is a way to interpret operational features, not evidence of an industry-wide shift in buying criteria.</p>
+  <p class="section-kicker">Question</p>
+  <h2>Why does visible execution history not mean that recovery is safe?</h2>
+  <p>As an agent uses tools, outside data, and several roles, its outcome is insufficient without an account of its path. Azure AI Foundry, <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">Responses API</a>, Semantic Kernel, and MCP/A2A material document components for traces, sessions, run history, connections, and permissions. This article calls the surface used to observe, review, stop, and improve execution AgentOps. A trace does not prove that an external action happened exactly once or that retrying it is safe.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Observe</h3><p>Retain inputs, tool calls, state, outputs, and failures.</p></article>
+    <article class="comparison-card"><h3>Control</h3><p>Define who may use a connection and which actions require review or approval.</p></article>
+    <article class="comparison-card"><h3>Recover</h3><p>Choose retry, cancellation, or human handoff after reconciling external state.</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>A trace provides material for investigating progress</h2>
-<p>OpenAI's <a href="https://openai.com/index/new-tools-for-building-agents/">March Agents SDK announcement</a> introduced visualization of execution traces for debugging and improvement. It adds information beyond the final answer.</p>
-<p>For an incorrect support response, a record may help distinguish missing search, retrieval of the wrong material, and misinterpretation after retrieval. It cannot reveal unrecorded processing in a connected service. Check whether the inputs, tool results, and external state needed for a relevant investigation can be associated.</p>
+  <p class="section-kicker">Scope of the material</p>
+  <h2>Tracing and orchestration create records for investigating a failure</h2>
+  <p>Foundry agent services and Semantic Kernel orchestration are examples of platforms for roles, tools, and execution. Responses API background mode offers a way to inspect a long-running operation after it begins. MCP data connections and A2A task lifecycles add contracts for more connections and states. These materials document capability and configuration; they do not establish that an organization can recover safely.</p>
+  <p><a href="https://arxiv.org/abs/2411.15114">RE-Bench</a> and <a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> evaluate outcomes influenced by environments, time, and tools. The design implication is not to attribute every failure immediately to a model. Records must make it possible to investigate input, environment, authority, and execution path.</p>
 </section>
+
 <section class="report-section">
-<h2>Background mode changes how an application waits</h2>
-<p>The <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">May Responses API update</a> added asynchronous background execution for longer tasks, with polling or streaming events to follow progress.</p>
-<p>This helps design long-running experiences. It should not be read as a guarantee that arbitrary business operations recover automatically or that external updates happen exactly once. Retrieving completion status and retrying a side-effecting operation are separate concerns.</p>
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>Decide whether a ticket can be retried safely after a connection loss</h2>
+  <p>This is a design example. An agent loses connection while creating a customer ticket. A trace saying that it called the creation API leaves the result indeterminate. The request may not have arrived; a ticket may have been created but its response lost; or an existing ticket may have matched the same input. History alone may not distinguish these cases.</p>
+  <p>Recovery first reconciles external state with an identifier or idempotency key. Do not retry if a ticket exists. Retry only when nonexistence can be confirmed. If reconciliation is impossible, hand a person the indeterminate state, input content, and last verified external state. A trace supports this judgment; it does not replace reconciliation, duplicate prevention, or permission checks.</p>
 </section>
+
 <section class="report-section">
-<h2>Test a connection failure immediately after ticket creation</h2>
-<p>Imagine an agent creating a support ticket, then losing the connection before receiving the response. The application may show failure even though the ticket exists. Repeating creation could produce a duplicate.</p>
-<p>A possible design retains an identifier for the request and checks external state before deciding to retry. If the service provides duplicate-prevention behavior, follow its contract. Unknown outcomes need explicit handling, potentially including human review.</p>
-<p>Test separately whether the record explains the failure, the interface communicates the current status, and recovery avoids duplicate registration. Operational features are best assessed through the failures they can handle.</p>
+  <p class="section-kicker">Conclusion</p>
+  <h2>AgentOps makes recovery decisions evidence-based; it does not automate recovery by itself</h2>
+  <p>The control layer described here puts traces, review, permissions, and recovery outside a model. With more connections and roles, a team must know not only what actions occurred but what remains indeterminate. Defining reconciliation, retry, cancellation, and human handoff for each failure type, then retaining the records those decisions require, is a condition for operating agents.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -221,14 +230,34 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">November 22, 2024</span>
+              </div>
+              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
+              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">December 6, 2024</span>
+              </div>
+              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">March 11, 2025</span>
+                <span class="mono-note">May 19, 2025</span>
               </div>
-              <p class="source-title">OpenAI: New tools for building agents</p>
-              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
+              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
+              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
@@ -239,6 +268,36 @@
               </div>
               <p class="source-title">OpenAI: New tools and features in the Responses API</p>
               <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">May 27, 2025</span>
+              </div>
+              <p class="source-title">Microsoft: Semantic Kernel multi-agent orchestration</p>
+              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">June 5, 2025</span>
+              </div>
+              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">June 23, 2025</span>
+              </div>
+              <p class="source-title">Google Developers Blog: Google Cloud donates A2A to Linux Foundation</p>
+              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
             </div>
             <span class="source-action">Open</span>
           </a>
