@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:15:05 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 07:17:34 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -155,8 +155,8 @@
       <title>Before releasing an agent, test what external instructions can make it do</title>
       <link>https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
-      <pubDate>Sat, 19 Sep 2026 09:07:20 GMT</pubDate>
-      <description>Compare prompt-injection defenses from OpenAI, AWS, and Anthropic, then test tool execution and outbound transmission before releasing an agent.</description>
+      <pubDate>Sun, 20 Sep 2026 07:17:34 GMT</pubDate>
+      <description>Design pre-release agent tests that distinguish prompt-injection detection, tool-call authorization, and containment of outbound transmission.</description>
       <category>AI Agents</category>
     </item>
     <item>

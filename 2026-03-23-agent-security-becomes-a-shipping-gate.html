@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>エージェント公開前に、外部の指示で何が実行されるかを試す | Auto Research Digest</title>
-    <meta name="description" content="OpenAI、AWS、Anthropicの公開資料から、プロンプトインジェクション対策の違いを比較。外部送信やツール実行を公開前に確かめる試験を提案する。">
+    <meta name="description" content="プロンプトインジェクションの検出、ツール実行の認可、通信の封じ込めを分け、外部送信を含むエージェントの公開前試験を設計する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="エージェント公開前に、外部の指示で何が実行されるかを試す | Auto Research Digest">
-    <meta property="og:description" content="OpenAI、AWS、Anthropicの公開資料から、プロンプトインジェクション対策の違いを比較。外部送信やツール実行を公開前に確かめる試験を提案する。">
+    <meta property="og:description" content="プロンプトインジェクションの検出、ツール実行の認可、通信の封じ込めを分け、外部送信を含むエージェントの公開前試験を設計する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="エージェント公開前に、外部の指示で何が実行されるかを試す">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="エージェント公開前に、外部の指示で何が実行されるかを試す | Auto Research Digest">
-    <meta name="twitter:description" content="OpenAI、AWS、Anthropicの公開資料から、プロンプトインジェクション対策の違いを比較。外部送信やツール実行を公開前に確かめる試験を提案する。">
+    <meta name="twitter:description" content="プロンプトインジェクションの検出、ツール実行の認可、通信の封じ込めを分け、外部送信を含むエージェントの公開前試験を設計する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta name="twitter:image:alt" content="エージェント公開前に、外部の指示で何が実行されるかを試す">
     <link rel="canonical" href="https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html">
@@ -43,13 +43,13 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-03-23T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:07:20+09:00">
+    <meta property="article:modified_time" content="2026-09-20T16:17:34+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Security">
     <meta property="article:tag" content="Guardrails">
     <meta property="article:tag" content="Prompt Injection">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"エージェント公開前に、外部の指示で何が実行されるかを試す","description":"OpenAI、AWS、Anthropicの公開資料から、プロンプトインジェクション対策の違いを比較。外部送信やツール実行を公開前に確かめる試験を提案する。","datePublished":"2026-03-23T00:00:00+09:00","dateModified":"2026-09-19T18:07:20+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Security, Guardrails, Prompt Injection","mainEntityOfPage":"https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"エージェント公開前に、外部の指示で何が実行されるかを試す","description":"プロンプトインジェクションの検出、ツール実行の認可、通信の封じ込めを分け、外部送信を含むエージェントの公開前試験を設計する。","datePublished":"2026-03-23T00:00:00+09:00","dateModified":"2026-09-20T16:17:34+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Security, Guardrails, Prompt Injection","mainEntityOfPage":"https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"エージェント公開前に、外部の指示で何が実行されるかを試す","item":"https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -67,7 +67,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">エージェント公開前に、外部の指示で何が実行されるかを試す</h1>
-          <p class="hero-copy">プロンプトインジェクションの検出と、誘導された操作の阻止を分けて考える。OpenAIの送信確認、AWSのツール利用ポリシー、Anthropicの許可設計を比較し、正常処理と禁止操作の試験を提案する。</p>
+          <p class="hero-copy">外部文書の不正指示を検出できたか、誘導されたツール実行を認可しなかったか、通信を封じ込めたかを分けて測る。OpenAI、AWS、Anthropicの公開資料を手がかりに、メール要約の公開前試験を組み立てる。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,7 +75,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-03-23">2026年3月23日</time>
-        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Security</span><span class="meta-chip">Guardrails</span><span class="meta-chip">Prompt Injection</span></div>
     </section>
@@ -150,16 +150,40 @@ AgentCore Gatewayを通るツール呼び出しに対し、エージェントの
 どの操作を事前に許可し、どの変更を個別に確認するかを決めたうえで、その設定どおりに実行されるかを試す。</p>
 </section>
 <section class="report-section">
+<h2>検出、認可、封じ込めは別々に確かめる</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>不正指示の検出</h3>
+<p>外部メールや添付文書に、利用者の依頼と無関係な送信指示が含まれると識別できたかを見る。検出できなくても操作を止められる構成はあり、検出だけで外部への影響を判断しない。</p>
+</article>
+<article class="comparison-card">
+<h3>ツール実行の認可</h3>
+<p>送信や更新のツール呼び出しが、誰の依頼として、どの入力と宛先なら許されるかを確かめる。Gatewayを通る呼び出しにルールを適用するAgentCore Policyは、この位置で働く例である。</p>
+</article>
+<article class="comparison-card">
+<h3>通信と実行の封じ込め</h3>
+<p>拒否された後に実際の通信や別のツール経路が残っていないかを記録で確かめる。許可する情報、接続先、実行環境を狭めることは、検出率とは別の被害範囲の制御である。</p>
+</article>
+<article class="comparison-card">
+<h3>人の確認</h3>
+<p>確認を入れる場合は、利用者が宛先、送る内容、変更の効果を判断できる必要がある。承認の有無と、承認後に表示した範囲だけを実行したかも別に記録する。</p>
+</article>
+</div>
+<p>この四つは本稿で用いる試験上の分類であり、特定製品が全てを満たすという比較表ではない。一つの防御機能の有無から、別の位置での強制や封じ込めまで推定しないことが要点である。</p>
+</section>
+<section class="report-section">
 <h2>公開判断に使える試験は、許可と拒否の両方を確かめる</h2>
 <p>メール要約を試すなら、まず普通のメールを要約できることを確認する。
 次に、外部送信を促す文章をメール本文に入れ、モデルの返答だけでなく、通信とツールの実行記録を見る。
 これは本稿が提案する試験であり、各社の防御を同じ条件で比較した実測結果ではない。</p>
 <ul class="bullet-list">
 <li>許可された要約を作れるか。安全な処理まで過剰に止めていないか。</li>
-<li>依頼していない送信を試みた場合、送信前に止まり、対象の情報が外へ出ていないか。</li>
+<li>依頼していない送信を試みた場合、どの検出、認可、または確認で止まり、対象の情報が外へ出ていないか。</li>
 <li>人の確認を求めた場合、拒否すると止まり、承認した場合も示された宛先と内容だけが送られるか。</li>
+<li>送信ツールを拒否しても、別の通信手段や保存先を経由した同等の操作が残っていないか。</li>
 </ul>
-<p>拒否したという文章だけでは、外部通信が起きなかった証拠にはならない。
+<p>試験用のメールには本番の機密情報を使わず、送信先も管理下の検証用宛先にする。
+拒否したという文章だけでは、外部通信が起きなかった証拠にはならない。
 逆に、攻撃を説明する返答を出せなくても、実行側が許可範囲を守っているかは別に測れる。
 試験にはモデルと接続先、権限設定を記録し、変更後も同じ課題を再実行できるようにする。</p>
 <p>こうした結果は、ある構成を公開する判断の材料にはなるが、未知の攻撃まで防げる保証ではない。
