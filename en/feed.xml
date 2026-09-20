@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:24:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 07:26:54 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -139,8 +139,8 @@
       <title>Delegating meeting preparation to Cowork: drafts, calendar changes, and review</title>
       <link>https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</guid>
-      <pubDate>Sat, 19 Sep 2026 09:01:57 GMT</pubDate>
-      <description>Compare Anthropic and Microsoft Cowork through meeting preparation, separating document creation, calendar approval, and checks of the saved results.</description>
+      <pubDate>Sun, 20 Sep 2026 07:26:54 GMT</pubDate>
+      <description>Separate reading, draft saving, and calendar or delivery changes when delegating meeting preparation to Cowork, then design checks for each stage.</description>
       <category>AI Agents</category>
     </item>
     <item>

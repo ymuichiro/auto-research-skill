@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:24:51 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 07:26:54 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -139,8 +139,8 @@
       <title>Coworkに会議準備を任せるとき、資料作成と予定変更を分けて考える</title>
       <link>https://research.notelligent.app/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</guid>
-      <pubDate>Sat, 19 Sep 2026 09:01:57 GMT</pubDate>
-      <description>AnthropicとMicrosoftのCoworkを、会議資料作成と予定変更の違いから比較。複数アプリの作業を任せる際の確認点を解説する。</description>
+      <pubDate>Sun, 20 Sep 2026 07:26:54 GMT</pubDate>
+      <description>Coworkで会議準備を任せるとき、資料の読み取り、下書き保存、予定や送信の変更を分け、段階ごとの確認点を設計する。</description>
       <category>AI Agents</category>
     </item>
     <item>
