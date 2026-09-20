@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-04-20T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T20:14:20+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:23:15+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Automation">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Observability">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Background Work">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの作業を中断後に再開するため、何を保存するか","description":"AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。","datePublished":"2026-04-20T00:00:00+09:00","dateModified":"2026-09-05T20:14:20+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Automation, Sessions, Observability, Workflow, Background Work","mainEntityOfPage":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの作業を中断後に再開するため、何を保存するか","description":"AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。","datePublished":"2026-04-20T00:00:00+09:00","dateModified":"2026-09-20T17:23:15+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Automation, Sessions, Observability, Workflow, Background Work","mainEntityOfPage":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの作業を中断後に再開するため、何を保存するか","item":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">AIエージェントの作業を中断後に再開するため、何を保存するか</h1>
-          <p class="hero-copy">調査報告の想定例で、会話履歴、進捗、成果物の版、外部操作の結果を区別し、中断後の再開に必要な確認を整理する。</p>
+          <p class="hero-copy">調査報告の想定例で、会話履歴、次の作業、進捗、成果物の版、外部操作の結果を区別し、中断後の再開に必要な確認を整理する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-04-20">2026年4月20日</time>
-        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Automation</span><span class="meta-chip">Sessions</span><span class="meta-chip">Observability</span><span class="meta-chip">Workflow</span><span class="meta-chip">Background Work</span></div>
     </section>
@@ -132,6 +132,32 @@
 この想定例が示すのは、会話の保存と、仕事の再開に必要な情報の保存には違いがあるということだ。</p>
 <p>本稿では、2026年4月20日までの設計資料を手掛かりに、停止後も続ける仕事で残すものを考える。
 継続性が必要なタスクでは、回答の正確さに加え、再開後に同じ作業を繰り返さず、残りを進められるかを確かめたい。</p>
+</section>
+<section class="report-section">
+<h2>再開する作業に残す五つの状態</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>会話と判断の履歴</h3>
+<p>何を依頼され、どの理由で資料を採用したかを残す。すべてを次のモデル呼び出しへ渡すこととは別である。</p>
+</article>
+<article class="comparison-card">
+<h3>次に行う作業</h3>
+<p>未確認の項目と次の操作を残す。進捗の割合だけでは、どこから手を動かすかが分からない。</p>
+</article>
+<article class="comparison-card">
+<h3>進捗の根拠</h3>
+<p>比較表の第2版まで作成済み、2項目が未確認といった状態を残す。完了という短い表示を具体的な作業へ戻せるようにする。</p>
+</article>
+<article class="comparison-card">
+<h3>入力と成果物の版</h3>
+<p>採用した資料と対応する表や報告書の版を結ぶ。古い成果物を開いて再開する誤りを避ける。</p>
+</article>
+<article class="comparison-card">
+<h3>外部操作の結果</h3>
+<p>送信、更新、登録が未実行、成功、失敗、結果不明のどれかを残す。停止時に記録できなかった操作は、相手側の状態や操作IDと照合する。</p>
+</article>
+</div>
+<p>五つを別サービスへ必ず保存する必要はない。再開する担当が、何を読み、どこから続け、何を再確認するかを決められる形で結び付いていることが重要である。</p>
 </section>
 <section class="report-section">
 <h2>実行するプロセスと、復旧に使う記録を分ける</h2>
