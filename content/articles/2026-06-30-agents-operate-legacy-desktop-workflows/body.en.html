@@ -4,6 +4,19 @@
 <p>Entering data is only part of the task. If the screen freezes after Save, did the operation succeed? Repeating it without knowing can create a duplicate record. This article uses hypothetical invoice entry to examine checks before and after saving.</p>
 </section>
 <section class="report-section">
+<h2>Seven checks before unattended invoice entry</h2>
+<div class="comparison-grid">
+<article class="comparison-card"><h3>Identify the target</h3><p>Establish one invoice from supplier and invoice number.</p></article>
+<article class="comparison-card"><h3>Look for duplicates</h3><p>Check whether the same invoice already exists before saving.</p></article>
+<article class="comparison-card"><h3>Reconcile entered values</h3><p>Compare supplier, number, and amount with the invoice.</p></article>
+<article class="comparison-card"><h3>Authorize the save</h3><p>For the initial trial, define who reviews the differences before saving.</p></article>
+<article class="comparison-card"><h3>Independently inspect the result</h3><p>Reopen the record or use a report to compare number, supplier, and amount.</p></article>
+<article class="comparison-card"><h3>Stop on an uncertain result</h3><p>On a freeze or disconnect, do not resave unconditionally; return to search and reconciliation.</p></article>
+<article class="comparison-card"><h3>Hand over to a person</h3><p>Pass the last screen, entered values, and uncertainty about the save for a person to decide.</p></article>
+</div>
+<p>These are seven proposed acceptance checks for invoice entry, not a requirement that every computer-use task follow the same order. When the target application lacks independent save verification, retain human review for that constraint.</p>
+</section>
+<section class="report-section">
 <h2>What a managed desktop contributes</h2>
 <p>AWS announced general availability of Amazon WorkSpaces for AI agents on June 30, 2026. It provides managed desktops with identity controls and network isolation, and describes visibility into activity and the ability to revoke access during a session. <a href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/">AWS announcement</a></p>
 <p>These controls manage where an agent operates and what it can access. They do not guarantee accurate invoice extraction or recognition of a successful save. An administrator can restrict applications and destinations while a business owner defines the target invoice and completion conditions. Environment controls and result verification perform different jobs.</p>
