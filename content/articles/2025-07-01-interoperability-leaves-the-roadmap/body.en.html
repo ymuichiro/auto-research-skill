@@ -1,21 +1,30 @@
 <section class="report-section">
-<h2>What becomes easier to replace when connections share a standard?</h2>
-<p>Common interfaces can reduce repeated communication work when an agent changes providers or tools. The spring and summer 2025 A2A announcements and Responses API remote MCP support expanded those options.</p>
-<p>Protocol support alone does not make connected components interchangeable. Output meaning, permissions, and failure behavior still need checking. Communication compatibility and business-level substitutability are separate questions.</p>
+  <p class="section-kicker">Question</p>
+  <h2>What does interoperability actually make exchangeable?</h2>
+  <p>A2A, MCP, and OpenAPI releases in spring and summer 2025 made particular forms of connection testable. <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A</a> addresses tasks, state, and artifacts exchanged between agents; MCP addresses connections to tools and data; OpenAPI describes operations. Their availability does not mean a connected participant is interchangeable in business terms. This article separates connection compatibility from interchangeability of output meaning, authentication scope, failure behavior, and approval responsibility.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>What connection exchanges</h3><p>Tools and resources, tasks and artifacts and status, or operation inputs and outputs.</p></article>
+    <article class="comparison-card"><h3>What connection does not exchange</h3><p>Whose authority is used, what an output means, and who approves a consequential change must be defined separately.</p></article>
+    <article class="comparison-card"><h3>What to test</h3><p>Compare output schemas, authorization scope, timeouts, retries, and treatment of indeterminate state before and after a replacement.</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>A2A and remote MCP addressed different connections</h2>
-<p>Google's <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">April A2A announcement</a> described Agent Cards, task status, and returned artifacts. The <a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">June announcement</a> transferred the specification and related tooling into a Linux Foundation project. That changed governance; it was not a compatibility test across every implementation.</p>
-<p>OpenAI's <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">May Responses API update</a> added access to tools exposed by remote MCP servers. Where the A2A announcement focused on delegated tasks and status exchange, this release supplied an API route to external tools. These are announced purposes, not rules about whether the connected implementation can itself contain AI.</p>
+  <p class="section-kicker">Role of the published material</p>
+  <h2>A2A, MCP, and managed platforms address distinct connection surfaces</h2>
+  <p>The A2A announcement and its Linux Foundation donation treat agent cards, capability discovery, and long task lifecycles as open coordination concerns. Google Cloud MCP database integrations give a concrete tool and data connection case. Responses API remote MCP and Azure AI Foundry A2A/MCP/OpenAPI support offer options for combining managed execution and open connection formats.</p>
+  <p>These materials document formats and available scope. They do not prove compatible business outcomes, compliance with an organization’s security requirements, or equal performance between products. Evaluations such as <a href="https://arxiv.org/abs/2406.12045">tau-bench</a>, which include tools, a user, and state, remind us that a shared interface still requires separate checks of final work state.</p>
 </section>
+
 <section class="report-section">
-<h2>Replace a search component using the same requests</h2>
-<p>Imagine replacing a component that searches internal documents. Both implementations may connect successfully, but one might return full passages while the other returns summaries. Downstream answer generation then receives different evidence. Specify how sources, passages, and incomplete coverage are returned.</p>
-<p>Test the same questions and documents, including no matching material, denied access, and interrupted responses. An empty result interpreted as no match produces a different answer from an empty result interpreted as search failure.</p>
-<p>These business-level tests complement protocol checks. Record communication work saved and extra transformation or validation required, making the actual migration benefit measurable.</p>
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>Compare output and failure contracts before replacing a search role</h2>
+  <p>This is a design example. A search role called through A2A is replaced with another provider. Sending a task and receiving an artifact may work, yet one provider may return source URLs and document versions while the other returns prose only. One may report missing user permission while another returns an empty result. The conditions under which a user concludes “not found” have changed.</p>
+  <p>On identical inputs, compare output schema, evidence, authorization failure, timeout, retry, and audit record. If external delivery or data updates are involved, the user or organizational approval point must also remain explicit. Treat communication success as insufficient; test whether completion conditions remain intact.</p>
 </section>
+
 <section class="report-section">
-<h2>Retain the handoff contract, beyond the protocol name</h2>
-<p>Document request inputs, returned artifacts, permission failures, and stopping conditions. Test candidate implementations against that contract using the same tasks.</p>
-<p>The announcements through June 2025 establish broader connection options and shared development structures. Whether a particular organization reduces migration cost or improves reliability must be measured on its connected workflow.</p>
+  <p class="section-kicker">Conclusion</p>
+  <h2>Making interoperability a design premise means documenting the responsibilities that cannot be exchanged</h2>
+  <p>Public specifications made connection to other agents and tools more testable. This does not mean interoperability is complete. Authentication, data meaning, responsibility after failure, and approval rules remain contracts of an application and organization. Comparing those contracts as well as the connection format is what makes a future replacement practical.</p>
 </section>

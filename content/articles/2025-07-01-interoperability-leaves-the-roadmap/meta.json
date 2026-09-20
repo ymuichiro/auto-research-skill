@@ -1,14 +1,14 @@
 {
   "slug": "interoperability-leaves-the-roadmap",
   "date": "2025-07-01",
-  "titleJa": "MCPとA2Aで接続した後に確かめる、エージェントの交換可能性",
-  "titleEn": "After connecting with MCP and A2A, test whether components are replaceable",
-  "summaryJa": "2025年春から夏のMCPとA2Aの発表を読み、接続方式の共通化と業務上の交換可能性を区別する。検索担当を交換する例で、出力、権限、失敗の扱いを確認する。",
-  "summaryEn": "Distinguish common connectivity from replaceable components using the 2025 MCP and A2A announcements, with a search-provider example covering outputs and failures.",
-  "seoDescriptionJa": "MCPやA2Aに対応すれば接続先を交換できるのか。2025年の発表をもとに、出力の意味、権限不足、失敗時の契約を確認する方法を解説。",
-  "seoDescriptionEn": "MCP and A2A support does not by itself establish interchangeability. Test output meaning, permissions, and failure behavior when replacing agent components.",
-  "teaserJa": "通信方式が共通でも、返される根拠や失敗の意味まで同じとは限らない。",
-  "teaserEn": "Shared communication formats still need compatible output and failure contracts.",
+  "titleJa": "相互運用は、何を交換できる状態を指すのか",
+  "titleEn": "What does agent interoperability actually make exchangeable?",
+  "summaryJa": "A2A、MCP、OpenAPIを手がかりに、道具・データ、他エージェントへの委譲、実行中の状態をどう交換できるかと、認証・出力契約・業務責任として残るものを整理する。",
+  "summaryEn": "Use A2A, MCP, and OpenAPI to separate exchangeable tools, data, delegation, and task state from the authentication, output contracts, and business responsibility that remain.",
+  "seoDescriptionJa": "A2A、MCP、OpenAPIが交換する対象を整理し、接続可能性と、認証・出力・失敗時の業務契約が一致することを区別する。",
+  "seoDescriptionEn": "Explain what A2A, MCP, and OpenAPI exchange, separating connection compatibility from compatible authentication, outputs, and failure contracts.",
+  "teaserJa": "接続形式が共通でも、出力の意味、認証、承認、失敗処理は自動でそろわない。",
+  "teaserEn": "Shared formats do not automatically align output meaning, authentication, approval, or failure handling.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,22 +19,58 @@
   ],
   "publishedSources": [
     {
-      "label": "Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)",
-      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
-      "type": "official",
-      "publishedAt": "2025-04-09"
+      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "url": "https://arxiv.org/abs/2406.12045",
+      "type": "paper",
+      "publishedAt": "2024-06-17"
     },
     {
-      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
-      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "OpenAI: New tools for building agents",
+      "url": "https://openai.com/index/new-tools-for-building-agents/",
       "type": "official",
-      "publishedAt": "2025-06-23"
+      "publishedAt": "2025-03-11"
     },
     {
       "label": "OpenAI: New tools and features in the Responses API",
       "url": "https://openai.com/index/new-tools-and-features-in-the-responses-api/",
       "type": "official",
       "publishedAt": "2025-05-21"
+    },
+    {
+      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
+      "type": "official",
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "type": "official",
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
+      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
+      "type": "official",
+      "publishedAt": "2025-05-19"
+    },
+    {
+      "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
+      "type": "official",
+      "publishedAt": "2025-06-05"
+    },
+    {
+      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
+      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
+      "type": "official",
+      "publishedAt": "2025-06-23"
     }
   ],
   "draft": false
