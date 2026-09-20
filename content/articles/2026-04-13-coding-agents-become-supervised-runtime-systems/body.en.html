@@ -4,6 +4,31 @@
 <p>Consider a hypothetical task to fix sorting on a list page. If the engineer expects a display-layer change but the agent plans a database schema change, correcting the direction before implementation is valuable. That does not make the same review necessary for every small edit. The task's scope and the consequences of a mistake should guide the choice.</p>
 </section>
 <section class="report-section">
+<h2>Accepting a fix requires more than one check</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Plan</h3>
+<p>Check what will change and what will not. This is the information needed to return an out-of-scope database change before implementation.</p>
+</article>
+<article class="comparison-card">
+<h3>Execution environment and permissions</h3>
+<p>Check accessible files, credentials, and networks. A branch name or the presence of a VM does not itself establish that external operations are prevented.</p>
+</article>
+<article class="comparison-card">
+<h3>Diff and origin</h3>
+<p>Read whether the change remains in scope and, when needed, verify its origin through a signature. A signature does not decide whether the change is correct.</p>
+</article>
+<article class="comparison-card">
+<h3>Test record</h3>
+<p>Retain executed tests, the revision, results, omitted-check reasons, and environment conditions. A passing notification does not expand the verified scope by itself.</p>
+</article>
+<article class="comparison-card">
+<h3>Acceptance decision</h3>
+<p>Apply the change after the original defect is resolved, relevant checks pass, and remaining uncertainty is understood. This is a decision by the owner receiving the earlier evidence.</p>
+</article>
+</div>
+</section>
+<section class="report-section">
 <h2>Reading a plan and preventing execution are different controls</h2>
 <p><a href="https://jules.google/docs/review-plan/">Jules' plan-review documentation</a> describes showing a plan before code changes and accepting user feedback. It also describes timed automatic approval. The presence of a review screen therefore does not establish that execution always waits for explicit human approval.</p>
 <p>If database changes are outside the sorting task's scope, inspect whether the execution environment can reach production, as well as stating the constraint in the request. An opportunity for human review and an enforced restriction serve different functions. Product settings and behavior can change, so test the stopping condition in the configuration actually used.</p>

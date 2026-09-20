@@ -8,6 +8,31 @@
 ただし、この確認方法がすべての小さな変更に必要だとは限らない。作業範囲と、間違った場合の影響に応じて決める。</p>
 </section>
 <section class="report-section">
+<h2>修正を受け入れるための確認は、一つのチェックではない</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>計画</h3>
+<p>何を変え、何を変えないかを確認する。依頼外のデータベース変更を計画段階で戻すための情報である。</p>
+</article>
+<article class="comparison-card">
+<h3>実行環境と権限</h3>
+<p>どのファイル、認証情報、ネットワークに触れられるかを確認する。ブランチ名やVMの存在だけから、外部操作が防がれるとは判断しない。</p>
+</article>
+<article class="comparison-card">
+<h3>差分と出所</h3>
+<p>変更が依頼範囲に収まるかを読み、必要なら署名で出所を確認する。署名は変更内容の正しさを代わりに判定しない。</p>
+</article>
+<article class="comparison-card">
+<h3>試験の記録</h3>
+<p>実行したテスト、対象の版、結果、未実行の理由と環境条件を残す。通ったという通知だけで、確認済みの範囲を広げない。</p>
+</article>
+<article class="comparison-card">
+<h3>受入判断</h3>
+<p>不具合の再現が解消し、関連する確認が通り、残る不確実性を把握したうえで反映する。これは前の四つを受け取る担当者の判断である。</p>
+</article>
+</div>
+</section>
+<section class="report-section">
 <h2>計画を読めることと、実行を止めることを区別する</h2>
 <p><a href="https://jules.google/docs/review-plan/">Julesの計画レビューの説明</a>では、コードを書く前に計画を提示し、利用者がフィードバックできる。
 一方で、ページには時間経過による自動承認の説明もある。
