@@ -11,6 +11,29 @@
 <p>Our design inference is to make misunderstanding discoverable while the relevant stage remains editable. The useful intermediate object depends on the task: an article outline, objects and layout for an image, or tests expressing expected code behavior.</p>
 </section>
 <section class="report-section">
+<h2>Choose the next action from facts and preferences</h2>
+<p>To choose between a question and a prototype, this article separates whether factual conditions are already known from whether a preference can be judged without an artifact. This is a working classification for deciding what a requester and an agent should do next, not a shared research metric.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Known facts, decidable preference</h3>
+<p>When an input format, output format, and correct result are fixed, execution and testing matter more than repeated prototypes. For example, move fixed table columns into another format and compare the result with its acceptance conditions.</p>
+</article>
+<article class="comparison-card">
+<h3>Missing facts, decidable preference</h3>
+<p>Ask first when a code runtime, input data, or error behavior is undecided. More visual alternatives do not create a testable requirement while the target API or failure handling remains an assumption.</p>
+</article>
+<article class="comparison-card">
+<h3>Known facts, preference needs an artifact</h3>
+<p>Even with a reader, citation conditions, and facts fixed, an article's explanatory order may become clear only after reviewing an outline. Show an editable intermediate object to make the requested change specific.</p>
+</article>
+<article class="comparison-card">
+<h3>Both facts and preferences are unsettled</h3>
+<p>First clarify the subject, constraints, and way to check them, then make a small prototype. Satisfaction with that prototype does not prove product capability, numbers, or citations; check verifiable facts separately with sources or tests.</p>
+</article>
+</div>
+<p>Tests that express expected behavior can be a prototype for code, while an outline can be a prototype for an article. Conditions absent from a test and facts asserted in an outline each require separate evidence.</p>
+</section>
+<section class="report-section">
 <h2>A hypothetical revision of an article outline</h2>
 <p>Consider a request for an article on AI adoption that nontechnical readers can follow. The agent returns an outline beginning with product names. Without reading a full draft, the requester can identify the problem: the article should first explain which job it helps improve.</p>
 <p>The next instruction might be: “Open with a salesperson updating records after a meeting. Keep the product comparison, but explain the comparison criteria before naming products.” The agent revises only the outline and opening. Once the connection between the example and comparison is clear, the requester can commission the full text.</p>
