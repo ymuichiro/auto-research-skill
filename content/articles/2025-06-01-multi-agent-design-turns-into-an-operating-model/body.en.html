@@ -1,21 +1,30 @@
 <section class="report-section">
-<h2>Before splitting the work, check its dependencies</h2>
-<p>Assigning separate agents to research, writing, and review does not automatically create effective collaboration. Writing depends on research, while style checking and source verification may proceed independently from the same draft. Those dependencies determine the execution pattern.</p>
-<p>Semantic Kernel's May 2025 announcement exposed several such patterns through an SDK. The useful design question is what each stage receives and when the job is complete.</p>
+  <p class="section-kicker">Question</p>
+  <h2>Why should multi-agent work be designed as an operating model rather than a role diagram?</h2>
+  <p>Adding roles does not create coordination. A system needs dependencies on earlier work, inputs and evidence passed in a handoff, someone to integrate and verify results, and conditions to stop or return work to a person. Azure AI Foundry Agent Service, Responses API updates, and <a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernel orchestration</a> in May 2025 treated such components as implementation and operational concerns. This article uses “operating model” to mean a design that makes work reproducible, auditable, and stoppable, not a set of role names.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Dependencies</h3><p>Separate work that can run in parallel from work that must wait for earlier evidence.</p></article>
+    <article class="comparison-card"><h3>Handoffs</h3><p>Pass inputs, sources, unresolved points, and permission scope, not a summary alone.</p></article>
+    <article class="comparison-card"><h3>Integration and stopping</h3><p>Decide who checks conflicts and what counts as completion, return, or human handoff.</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>Sequential, concurrent, and handoff patterns wait for different things</h2>
-<p>The <a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernel article</a> describes sequential output passing, concurrent independent work followed by aggregation, and context-dependent handoffs. These are implementation choices, not evidence that one fits every task.</p>
-<p>Consider a hypothetical writing workflow. Drafting follows completed research. Independent style and source checks can run together, with revision waiting for both. A specialist handoff needs another decision: does responsibility transfer, or does the original agent resume after receiving advice?</p>
+  <p class="section-kicker">Scope of the published material</p>
+  <h2>Coordination features enable role separation; they do not guarantee sound operation</h2>
+  <p>Azure AI Foundry material, Responses API updates, and Semantic Kernel orchestration document components for agents, tools, execution records, and flows across roles. Google multi-system agents and A2A address work handed to another system. They do not establish that an organization’s roles, permissions, and quality criteria already exist.</p>
+  <p><a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> and <a href="https://arxiv.org/abs/2406.12045">tau-bench</a> show that work involving several tools, roles, or a user has meaningful intermediate paths as well as outcomes. Their benchmarks should not be substituted for an organization’s performance; they support the design implication that dependencies, state, and user negotiation must be evaluated.</p>
 </section>
+
 <section class="report-section">
-<h2>Pass evidence to the reviewer, not just conclusions</h2>
-<p>If a researcher returns only a claim that a product is fastest, the reviewer must reconstruct the comparison. Passing the source, relevant passage, measurement conditions, and unresolved questions makes verification specific. Short handoffs should not discard necessary evidence.</p>
-<p>Revision can also continue indefinitely if reviewers keep requesting changes. Distinguish mandatory factual corrections, optional wording suggestions, and decisions requiring a person. Define termination conditions. Creating multiple roles does not itself implement stopping rules or permission separation.</p>
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>For a research report, define what passes between collection, writing, and review</h2>
+  <p>This is a design example. A collection role returns primary-source URLs, publication dates, relevant passages, and unresolved points. A writing role drafts from that evidence; a review role checks the relation of claims to sources, outdated material, and speculative language. Collection can run in parallel, but a conclusion waits for evidence. A review finding that evidence is insufficient returns work to collection rather than ending it.</p>
+  <p>A short summary alone is insufficient for this flow. Pass sources, citable facts, author interpretation, and unresolved conditions separately. An integrator resolves conflicts and a person makes the final publication decision. For a small report that one role can finish, the cost of handoffs outweighs the benefit, so it should remain a single-role task.</p>
 </section>
+
 <section class="report-section">
-<h2>Measure the benefit alongside coordination cost</h2>
-<p>Anthropic's <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> recommends beginning with simpler approaches and adding complexity when needed. A single agent that drafts and reviews is a useful baseline here.</p>
-<p>Using the same inputs, compare factual errors corrected, missing evidence, time, and usage cost. Parallel work still waits for slow branches, and incomplete handoffs can cause repeated research. Include the human correction burden in the result.</p>
-<p>Choose a division of labor around work with definable inputs, outputs, and verification, rather than role names alone. That makes the choice of an SDK orchestration pattern explainable.</p>
+  <p class="section-kicker">Conclusion</p>
+  <h2>The value of multiple agents lies in being able to stop and inspect work, not in the number of workers</h2>
+  <p>Making a role design an operating model means recording dependencies, handoffs, integration, and stopping conditions, rather than merely parallelizing steps. Platforms can help implement this. Quality, authority, approval, and responsibility for exceptions remain with the application and organization. Start with a single-role baseline, then add roles only where division improves time, error handling, or supervision.</p>
 </section>
