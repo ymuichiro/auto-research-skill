@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる | Auto Research Digest</title>
-    <meta name="description" content="Responses API、Agents SDK、Bedrockの2025年3月発表を比較。ツールの実行とエージェント間の調整、アプリ運用の責任範囲を整理する。">
+    <title>マネージドなエージェント基盤は、何をアプリに残すのか | Auto Research Digest</title>
+    <meta name="description" content="2025年4月時点のOpenAI・AWS・複数エージェント研究を基に、マネージド基盤の実行、協調、アプリ側に残る認証・業務規則・監督を整理する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる | Auto Research Digest">
-    <meta property="og:description" content="Responses API、Agents SDK、Bedrockの2025年3月発表を比較。ツールの実行とエージェント間の調整、アプリ運用の責任範囲を整理する。">
+    <meta property="og:title" content="マネージドなエージェント基盤は、何をアプリに残すのか | Auto Research Digest">
+    <meta property="og:description" content="2025年4月時点のOpenAI・AWS・複数エージェント研究を基に、マネージド基盤の実行、協調、アプリ側に残る認証・業務規則・監督を整理する。">
     <meta property="og:url" content="https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる">
+    <meta property="og:image:alt" content="マネージドなエージェント基盤は、何をアプリに残すのか">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる | Auto Research Digest">
-    <meta name="twitter:description" content="Responses API、Agents SDK、Bedrockの2025年3月発表を比較。ツールの実行とエージェント間の調整、アプリ運用の責任範囲を整理する。">
+    <meta name="twitter:title" content="マネージドなエージェント基盤は、何をアプリに残すのか | Auto Research Digest">
+    <meta name="twitter:description" content="2025年4月時点のOpenAI・AWS・複数エージェント研究を基に、マネージド基盤の実行、協調、アプリ側に残る認証・業務規則・監督を整理する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる">
+    <meta name="twitter:image:alt" content="マネージドなエージェント基盤は、何をアプリに残すのか">
     <link rel="canonical" href="https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-04-01-managed-agent-primitives-arrive-together.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-04-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:52:43+09:00">
+    <meta property="article:modified_time" content="2026-09-20T13:59:13+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Platform">
     <meta property="article:tag" content="Multi-Agent">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる","description":"Responses API、Agents SDK、Bedrockの2025年3月発表を比較。ツールの実行とエージェント間の調整、アプリ運用の責任範囲を整理する。","datePublished":"2025-04-01T00:00:00+09:00","dateModified":"2026-09-19T18:52:43+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Platform, Multi-Agent","mainEntityOfPage":"https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる","item":"https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"マネージドなエージェント基盤は、何をアプリに残すのか","description":"2025年4月時点のOpenAI・AWS・複数エージェント研究を基に、マネージド基盤の実行、協調、アプリ側に残る認証・業務規則・監督を整理する。","datePublished":"2025-04-01T00:00:00+09:00","dateModified":"2026-09-20T13:59:13+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Platform, Multi-Agent","mainEntityOfPage":"https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"マネージドなエージェント基盤は、何をアプリに残すのか","item":"https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる</h1>
-          <p class="hero-copy">2025年3月のOpenAIとAWSの発表を、ツール実行、担当の調整、アプリ運用の範囲から読む。ホスト型機能とSDKを区別し、一つの問い合わせで残る作業を確かめる。</p>
+          <h1 class="hero-title">マネージドなエージェント基盤は、何をアプリに残すのか</h1>
+          <p class="hero-copy">OpenAI、AWS、AutoGen、Magentic-Oneの資料を比べ、ホストされたツール実行、アプリに組み込む協調、複数担当の調整で、誰がどの責任を持つかを整理する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-04-01">2025年4月1日</time>
-        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Platform</span><span class="meta-chip">Multi-Agent</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Responses%20API%E3%83%BBAgents%20SDK%E3%83%BBBedrock%EF%BC%9A%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E5%9F%BA%E7%9B%A4%E3%81%AE%E7%AE%A1%E7%90%86%E7%AF%84%E5%9B%B2%E3%82%92%E6%AF%94%E3%81%B9%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-04-01-managed-agent-primitives-arrive-together.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%83%9E%E3%83%8D%E3%83%BC%E3%82%B8%E3%83%89%E3%81%AA%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E5%9F%BA%E7%9B%A4%E3%81%AF%E3%80%81%E4%BD%95%E3%82%92%E3%82%A2%E3%83%97%E3%83%AA%E3%81%AB%E6%AE%8B%E3%81%99%E3%81%AE%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-04-01-managed-agent-primitives-arrive-together.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる"
-      data-share-text="Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる"
+      data-share-title="マネージドなエージェント基盤は、何をアプリに残すのか"
+      data-share-text="マネージドなエージェント基盤は、何をアプリに残すのか"
       data-share-url="https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="Responses API・Agents SDK・Bedrock：エージェント基盤の管理範囲を比べる"
+      data-share-title="マネージドなエージェント基盤は、何をアプリに残すのか"
       data-share-url="https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,39 +124,45 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>「エージェント基盤」が管理する範囲を確かめる</h2>
-<p>2025年3月、OpenAIはResponses APIとAgents SDKを発表し、AWSはBedrockのマルチエージェント連携を一般提供に進めた。
-どちらも開発のための部品を提供するが、同じ範囲の処理を預かるわけではない。
-ツールの実行、エージェント間の調整、アプリケーションの運用を分けると、比較しやすくなる。</p>
-<p>本稿は当時の二つの発表を扱う。
-発表された機能の数から完成度を順位付けせず、どこをサービスに任せ、何を自分たちで動かすかを確認する。</p>
+  <p class="section-kicker">問い</p>
+  <h2>マネージドなエージェント基盤は、どの責任を引き受け、何をアプリに残すのか</h2>
+  <p>2025年3月の <a href="https://openai.com/index/new-tools-for-building-agents/">OpenAI の agent-building tools</a> と <a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">Amazon Bedrock の multi-agent collaboration</a> は、ツール実行と担当間の調整をサービスや SDK の機能として見せた。これは各社の提供範囲が同一になったという意味ではない。本稿では、研究で扱われてきた担当分割を読む補助線として <a href="https://arxiv.org/abs/2308.08155">AutoGen</a> と <a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> を置き、実行、協調、業務責任を分けて比較する。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>ホストされた実行</h3><p>検索、ファイル、画面などの道具を呼び、実行環境の一部を提供する。</p></article>
+    <article class="comparison-card"><h3>組込みの協調</h3><p>アプリが担当、handoff、入力・出力の検査、記録を組み立てる。</p></article>
+    <article class="comparison-card"><h3>業務の責任</h3><p>本人性、データ権限、更新規則、例外時の承認は、基盤の外側で定義する。</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>ホスト型のツールと、アプリへ組み込むSDKは異なる</h2>
-<p>OpenAIの<a href="https://openai.com/index/new-tools-for-building-agents/">3月11日の発表</a>は、Responses APIにウェブ検索、ファイル検索、コンピューター操作の道具を追加し、別途オープンソースのAgents SDKを紹介した。
-SDKは、エージェントの設定、担当の引き継ぎ、入力や出力の検査、実行記録を扱う。</p>
-<p>ここで、APIが提供するツールと、開発者がアプリケーションへ組み込むSDKを混同しないようにしたい。
-SDKを使ったことだけで、アプリケーションの配備、利用者の認証、業務用データの保存までサービス側が管理すると判断することはできない。
-具体的な構成で、どの処理をどこで動かすかを確認する必要がある。</p>
+  <p class="section-kicker">提供面の違い</p>
+  <h2>道具、SDK、複数担当の調整は、似た名前でも預かる範囲が違う</h2>
+  <p>OpenAI の発表は、Responses API の Web search、file search、computer use と、オープンソースの Agents SDK を並べた。前者はホストされた道具を呼ぶ選択肢であり、後者はエージェント設定、handoff、guardrail、trace をアプリへ組み込むための部品である。SDK を使っても、アプリの配備、利用者認証、業務データの保持、外部操作の許可をサービス側が自動的に管理するわけではない。</p>
+  <p>Bedrock の一般提供は、supervisor が仕事を複数の collaborator に分ける構成と、単純な依頼を直接振り分ける構成を示した。分担の一部をサービス設定に置けても、担当の説明、外部 API の意味、誤った振り分けの扱いは利用側が決める。<a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> が workflow と agent を分けるのと同じく、管理された部品の有無より、どの経路を固定するかが設計上の問いになる。</p>
 </section>
+
 <section class="report-section">
-<h2>Bedrockは、統括役による分担をサービスの機能として提供した</h2>
-<p>AWSの<a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">3月10日の発表</a>は、統括エージェントが仕事を分解して各担当へ渡す構成と、単純な依頼を担当へ直接振り分けるモードを説明した。
-後者でも、複雑な依頼や意図が明確でない依頼では、統括役が複数の担当を調整する。</p>
-<p>これは、分担の一部をサービス設定として扱えるという違いである。
-ただし、担当の説明が曖昧なら振り分けが適切とは限らず、接続した業務APIの意味も利用側で定義する必要がある。
-一般提供という状態は、個別業務での回答や操作の正しさを保証するものではない。</p>
+  <p class="section-kicker">研究との対応</p>
+  <h2>担当分割は、機能を増やすためではなく、責任を追える形にするために使う</h2>
+  <p>AutoGen は複数エージェントの会話をアプリ構築の枠組みとして扱い、Magentic-One は複雑な仕事で役割を調整する構成を研究した。これらは特定のマネージド基盤の性能を証明しない。一方で、planner、専門担当、統合役という役割を置くなら、入力、出力、失敗、終了条件を担当ごとに決める必要があることを明らかにする。</p>
+  <p><a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> や Operator のような画面操作の資料は、外部環境へ作用する仕事には初期状態と完了条件が必要だと示す。バックエンド API を呼ぶ担当もブラウザを操作する担当も、外部作用の前に許可範囲と確認地点を持つ点では同じである。</p>
 </section>
+
 <section class="report-section">
-<h2>一つの問い合わせで、残る実装と運用を比較する</h2>
-<p>例えば、製品の使い方と注文状況を答える社内サポートを想定する。
-前者は文書検索、後者は注文APIへの照会が必要になる。
-まず一つのエージェントで両方を扱う構成を試し、分担が必要なら、同じ質問集で担当を分けた構成と比べる。</p>
-<p>比較では、回答の正しさ、誤った振り分け、APIが失敗した場合の応答を確認する。
-同時に、どの実行環境を自分たちで保守し、どの記録を取得でき、どの設定を変更できるかを残す。
-待ち時間や利用費用も、複数の担当を呼ぶ構成では変わり得る。</p>
-<p>二つの発表を読む価値は、「エージェント基盤がそろった」と結論することより、提供された部品の責任範囲を見分けることにある。
-小さな業務を通して残る作業を確かめると、マネージド機能を使う理由と、アプリ側で管理する理由をそれぞれ説明できる。</p>
+  <p class="section-kicker">想定例</p>
+  <h2>製品の使い方と注文状況を答える問い合わせで、残る仕事を確かめる</h2>
+  <p>以下は設計例である。製品の使い方は文書検索担当、注文状況は注文 API 担当に分ける。基盤に任せられるのは、道具の実行や担当への依頼の一部である。利用側は、誰が顧客を同定するか、どの注文を参照してよいか、API が失敗したときの回答、注文変更を許すかを定める。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>検査する結果</h3><p>回答の根拠、誤った担当への routing、API 失敗時の扱い、統合された回答を別々に確認する。</p></article>
+    <article class="comparison-card"><h3>記録する境界</h3><p>実行環境、入力と出力、権限確認、trace、利用者へ返した未確認状態を残す。</p></article>
+    <article class="comparison-card"><h3>人が決めること</h3><p>顧客情報の範囲、返金や変更の承認、エスカレーション先、誤操作の復旧を業務規則として定義する。</p></article>
+  </div>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結論</p>
+  <h2>比較すべきなのは機能数ではなく、責任境界である</h2>
+  <p>2025年春の発表は、実行、道具、複数担当の調整を選べる基盤が増えたことを示した。ここから導ける実務上の結論は、基盤が「すべてを管理する」と捉えないことだ。ホストされた道具、アプリへ埋め込む協調、組織が保持する認証・方針・承認を分ければ、どの部品を使うかを仕事の責任に沿って選べる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -235,7 +241,67 @@ SDKを使ったことだけで、アプリケーションの配備、利用者�
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2308.08155" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2023年8月15日</span>
+              </div>
+              <p class="source-title">AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation</p>
+              <p class="source-url">https://arxiv.org/abs/2308.08155</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2411.04468" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年11月7日</span>
+              </div>
+              <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
+              <p class="source-url">https://arxiv.org/abs/2411.04468</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年12月6日</span>
+              </div>
+              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年12月19日</span>
+              </div>
+              <p class="source-title">Anthropic: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年1月23日</span>
+              </div>
+              <p class="source-title">OpenAI: Introducing Operator</p>
+              <p class="source-url">https://openai.com/index/introducing-operator/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年1月24日</span>
+              </div>
+              <p class="source-title">Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
