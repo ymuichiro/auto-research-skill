@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AIエージェントのツール利用と課題達成を、どう分けて評価するか | Auto Research Digest</title>
-    <meta name="description" content="ReAct、Toolformer、WebArenaを読み、ツールの選択方法と課題達成の評価を整理。社内資料検索の仮想例で、成功条件の決め方を考える。">
+    <title>AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか | Auto Research Digest</title>
+    <meta name="description" content="2025年初頭までのAIエージェント研究と公式資料を基に、ツール使用、環境操作、最終状態を分けて測る仕事設計を解説する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AIエージェントのツール利用と課題達成を、どう分けて評価するか | Auto Research Digest">
-    <meta property="og:description" content="ReAct、Toolformer、WebArenaを読み、ツールの選択方法と課題達成の評価を整理。社内資料検索の仮想例で、成功条件の決め方を考える。">
+    <meta property="og:title" content="AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか | Auto Research Digest">
+    <meta property="og:description" content="2025年初頭までのAIエージェント研究と公式資料を基に、ツール使用、環境操作、最終状態を分けて測る仕事設計を解説する。">
     <meta property="og:url" content="https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AIエージェントのツール利用と課題達成を、どう分けて評価するか">
+    <meta property="og:image:alt" content="AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIエージェントのツール利用と課題達成を、どう分けて評価するか | Auto Research Digest">
-    <meta name="twitter:description" content="ReAct、Toolformer、WebArenaを読み、ツールの選択方法と課題達成の評価を整理。社内資料検索の仮想例で、成功条件の決め方を考える。">
+    <meta name="twitter:title" content="AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか | Auto Research Digest">
+    <meta name="twitter:description" content="2025年初頭までのAIエージェント研究と公式資料を基に、ツール使用、環境操作、最終状態を分けて測る仕事設計を解説する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AIエージェントのツール利用と課題達成を、どう分けて評価するか">
+    <meta name="twitter:image:alt" content="AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか">
     <link rel="canonical" href="https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-01-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T19:08:18+09:00">
+    <meta property="article:modified_time" content="2026-09-20T13:43:25+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Benchmark">
     <meta property="article:tag" content="Tool Use">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントのツール利用と課題達成を、どう分けて評価するか","description":"ReAct、Toolformer、WebArenaを読み、ツールの選択方法と課題達成の評価を整理。社内資料検索の仮想例で、成功条件の決め方を考える。","datePublished":"2025-01-01T00:00:00+09:00","dateModified":"2026-09-19T19:08:18+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Benchmark, Tool Use","mainEntityOfPage":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントのツール利用と課題達成を、どう分けて評価するか","item":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか","description":"2025年初頭までのAIエージェント研究と公式資料を基に、ツール使用、環境操作、最終状態を分けて測る仕事設計を解説する。","datePublished":"2025-01-01T00:00:00+09:00","dateModified":"2026-09-20T13:43:25+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Benchmark, Tool Use","mainEntityOfPage":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか","item":"https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AIエージェントのツール利用と課題達成を、どう分けて評価するか</h1>
-          <p class="hero-copy">ReAct、Toolformer、WebArenaが扱う問題を分け、ツール接続の成功と利用者の課題達成をどう評価するか考える。</p>
+          <h1 class="hero-title">AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか</h1>
+          <p class="hero-copy">ReAct、Toolformer、WebArena、SWE-bench、OSWorldを比較し、AIエージェントを「道具を呼べるか」ではなく、環境内の仕事をどの条件で終えられるかで評価する理由を整理する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-01-01">2025年1月1日</time>
-        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Tool Use</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E3%83%84%E3%83%BC%E3%83%AB%E5%88%A9%E7%94%A8%E3%81%A8%E8%AA%B2%E9%A1%8C%E9%81%94%E6%88%90%E3%82%92%E3%80%81%E3%81%A9%E3%81%86%E5%88%86%E3%81%91%E3%81%A6%E8%A9%95%E4%BE%A1%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-01-01-agents-shift-to-measurable-systems.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%AF%94%E8%BC%83%E3%81%AF%E3%80%81%E3%81%AA%E3%81%9C%E6%B8%AC%E5%AE%9A%E5%8F%AF%E8%83%BD%E3%81%AA%E4%BB%95%E4%BA%8B%E3%81%AE%E8%A8%AD%E8%A8%88%E3%81%B8%E5%90%91%E3%81%8B%E3%81%A3%E3%81%9F%E3%81%AE%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-01-01-agents-shift-to-measurable-systems.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AIエージェントのツール利用と課題達成を、どう分けて評価するか"
-      data-share-text="AIエージェントのツール利用と課題達成を、どう分けて評価するか"
+      data-share-title="AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか"
+      data-share-text="AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか"
       data-share-url="https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AIエージェントのツール利用と課題達成を、どう分けて評価するか"
+      data-share-title="AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか"
       data-share-url="https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,45 +124,77 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>ツールを使う方法と、課題を達成したかの評価を分ける</h2>
-<p>検索や計算のツールを呼び出せることは、AIエージェントを作るための重要な要素だ。
-しかし、呼び出しが成功しても、利用者の問いに答えられたとは限らない。
-2025年1月1日時点で読めるReAct、Toolformer、WebArenaを、この違いから整理する。
-前の二つはモデルが外部の情報や機能をどう使うかを扱い、WebArenaはウェブ上の課題を最後まで達成できたかを測る環境を用意した。</p>
+  <p class="section-kicker">問い</p>
+  <h2>AIエージェントは、なぜ「道具を使える」だけでは比較できないのか</h2>
+  <p>2025年1月1日までに公開された研究を読むと、AIエージェントの評価対象は、単発の応答や API 呼び出しだけでは収まらなくなっていた。<a href="https://arxiv.org/abs/2210.03629">ReAct</a> と <a href="https://arxiv.org/abs/2302.04761">Toolformer</a> は外部情報や API を行動に組み込む方法を扱い、<a href="https://arxiv.org/abs/2307.13854">WebArena</a>、<a href="https://arxiv.org/abs/2310.06770">SWE-bench</a>、<a href="https://arxiv.org/abs/2404.07972">OSWorld</a> は、環境の中で仕事を最後まで終えたかを測った。本稿の結論は、これらの資料が「市場全体が移行した」と証明するというものではない。ツール、環境、完了条件を結び付けて測るための部品が、比較可能な形でそろってきた、という設計上の観察である。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>行動を選ぶ</h3>
+      <p>必要な情報を取りに行くか、どの API にどの引数を渡すかを決める。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>環境を変える</h3>
+      <p>画面、リポジトリ、データの状態を読み、複数の操作を順に実行する。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>終わったことを確かめる</h3>
+      <p>最終状態、根拠、許可されない副作用を、仕事ごとの条件で判定する。</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>ReActとToolformerが扱う、行動の選び方</h2>
-<p><a href="https://arxiv.org/html/2210.03629v3">ReAct</a>は、言語による推論と行動を組み合わせ、外部から得た観測を次の判断に使う方法を研究した。
-論文の質問応答実験では、Wikipediaの検索、ページ内の語句検索、回答の確定という操作を使う。
-モデルが最初から答えを知っていることを前提にせず、途中で情報を取得できる構成だ。</p>
-<p>ただし、論文は一様な改善を報告しているわけではない。
-PaLM-540Bを使った比較では、ReActはFEVERでCoTを上回った一方、HotpotQAでは下回った。
-検索から有用な情報を得られないことや、同じ行動を繰り返すことも失敗要因として分析されている。
-外部検索を追加するだけで、あらゆる質問への回答が改善するとは読めない。</p>
-<p><a href="https://arxiv.org/abs/2302.04761v1">Toolformer</a>は、どのAPIをいつ呼び、どの引数を渡し、結果を後続の文章生成にどう取り込むかを学習する方法を示した。
-対象には計算機、検索、翻訳などが含まれる。
-ReActと同じ実装手順を提案した研究ではなく、ツール利用をモデルへ学習させる問題を扱っている。</p>
+  <p class="section-kicker">行動の設計</p>
+  <h2>ReAct と Toolformer は、同じ「ツール利用」を別の角度から扱った</h2>
+  <p>ReAct は、推論の記述と task-specific action を交互に生成し、観測を次の判断へ使う枠組みを示した。質問応答の例では、Wikipedia の検索、ページ内検索、回答の確定という操作が連なる。ここで確認できるのは、モデルが途中で外部情報を取り込めることと、その過程を人が読める軌跡として残せることである。論文が扱うのは特定のベンチマーク上の比較であり、外部検索を足せばあらゆる問いへの回答が改善するとまでは言えない。</p>
+  <p>Toolformer は、どの API をいつ呼ぶか、どの引数を渡すか、戻り値を後続の生成へどう取り込むかを自己教師ありで学ぶ方法を提案した。計算機、質問応答、検索、翻訳、カレンダーが対象に含まれる。これは ReAct の実装手順を置き換える資料ではない。前者が推論と観測の往復を、後者が API 呼び出しを学習へ取り込む問題を扱うため、両者を同じ成功指標へ縮約しない方がよい。</p>
+  <div class="callout-panel">
+    <p class="callout-title">ここで確認できる事実</p>
+    <p>ツール呼び出しの設計には、選択、引数、観測の利用という別々の問題がある。呼び出しが成功した事実は、後続の仕事が完了した証拠ではない。</p>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>WebArenaが置いた、課題全体の採点</h2>
-<p><a href="https://arxiv.org/abs/2307.13854v1">WebArenaの初版</a>は、電子商取引、フォーラム、共同ソフトウェア開発、コンテンツ管理のウェブ環境を用意し、課題を機能的に達成したかを評価する。
-操作方法の提案に加えて、何をもって完了とするかを環境側で測るための研究だ。</p>
-<p>ここから得られる本稿の設計上の示唆は、ツール呼び出しと課題達成を別々に確認することだ。
-検索APIが応答したことは接続の確認になる。
-その結果が質問に必要な情報を含み、最終回答が利用者の条件を満たしたかは、さらに評価しなければならない。
-WebArenaのような研究環境の結果も、そのまま自社のサイトや業務での成功率には置き換えられない。</p>
+  <p class="section-kicker">完了条件</p>
+  <h2>環境ベンチマークは、回答ではなく最終状態を採点対象にした</h2>
+  <p>WebArena は、電子商取引、フォーラム、共同ソフトウェア開発、コンテンツ管理の機能する Web 環境で、長い操作列の機能的な完了を測る。2024年4月の版で論文が報告した比較では、GPT-4 を基にした最良のエージェントは end-to-end task success 14.41%、人は 78.24% だった。この数値は WebArena の環境、タスク、当時のベースラインに限られる。自社サイトの自動化成功率や、現在のモデルの性能として転用してはならない。</p>
+  <p>SWE-bench は、12 の Python リポジトリにまたがる 2,294 件の実際の GitHub issue と対応する pull request から、コードベースと issue 説明を渡し、修正を行わせる。ここでの仕事はコード片を提案することではなく、問題を読み、関係するファイルを変更し、テストで最終状態を確かめることに近い。OSWorld は、Ubuntu、Windows、macOS を含む実コンピュータ環境に 369 のタスクを置き、初期状態の設定と実行ベースの評価スクリプトを用意した。論文での最良モデルの 12.24% と人の 72.36% という比較も、GUI の位置合わせや操作知識を含む、その環境固有の測定である。</p>
+  <p><a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> の公開版は、複数の Web エージェントベンチマークを共通の観測・行動空間で扱い、実験管理をそろえることを目指した。これらの研究が共通して示すのは、エージェントの働きを見るには、入力文だけでなく、初期状態、許可された操作、完了の判定器を明示する必要がある、という点である。</p>
 </section>
+
 <section class="report-section">
-<h2>社内資料検索なら、回答の条件を先に書く</h2>
-<p>以下は研究結果を説明するための仮想例だ。
-「この機器の保守期限を教えて」という問い合わせに、社内資料検索を使うとする。
-検索できた資料が旧型の機器向けなら、API呼び出しは成功していても回答の根拠には使えない。
-同じ機器名でも、型番や契約によって期限が変わる場合がある。</p>
-<p>この課題では、対象の型番、適用する資料の版、期限の記載箇所を回答条件として定めることを提案する。
-資料が見つからない場合や、契約情報が不足する場合は、期限を断定せず不足を伝えることも評価に含める。
-ツールを追加した構成と追加前の構成に同じ問い合わせを与え、条件を満たす回答が増えたか、必要な時間や呼び出し回数はどう変わったかを比べる。</p>
-<p>この比較があれば、検索機能を備えたという説明から、どの条件の問い合わせに役立ったかという判断へ進める。
-行動を選ぶ仕組みと、利用者が必要とする結果を測る仕組みをそろえることが、本稿の提案である。</p>
+  <p class="section-kicker">製品面</p>
+  <h2>公式の構築機能は、測定そのものではなく、仕事境界を実装する部品を提供した</h2>
+  <p>2024年の <a href="https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/">Amazon Bedrock Agents</a> の更新は、action group、構成の簡略化、アプリケーションへの制御返却、Infrastructure as Code を含んだ。<a href="https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder">Vertex AI Agent Builder</a> や、Claude の <a href="https://www.anthropic.com/news/tool-use-ga">tool use</a> も、知識ソースや外部機能と接続するアプリケーションを構成する選択肢を示した。これらは、利用者の仕事が正しく終わることをベンダー資料だけで保証するものではない。</p>
+  <p>ただし、構成要素が製品面に現れたことで、評価する仕事境界を実装に落とし込みやすくなった。たとえば、どの API を許すか、結果をアプリへ戻す場所はどこか、どの情報源を参照するかを、モデルへの指示だけでなく構成として置ける。<a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> が区別する workflow と agent という設計上の分類も、万能な自律性を前提にせず、仕事に合わせて制御の強さを選ぶための参考になる。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">具体化</p>
+  <h2>「社内資料から保守期限を答える」仕事なら、採点表を先に作る</h2>
+  <p>以下は研究成果を実務へ読み替えるための想定例である。利用者が「この機器の保守期限を教えて」と尋ね、エージェントが社内文書検索を使うとする。検索 API が応答しただけでは足りない。旧型機種の資料を返していれば、操作は成功していても根拠は誤っている。型番や契約によって期限が変わるなら、もっともらしい日付を生成することも完了ではない。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>入力と許可操作</h3>
+      <p>機器の型番、契約識別子、検索可能な文書リポジトリを定める。外部送信や契約変更はこの仕事に含めない。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>完了の根拠</h3>
+      <p>適用できる文書の版、期限を記す箇所、契約との対応を回答に添える。根拠不足なら「不明」と返すことも正しい結果に含める。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>比較する記録</h3>
+      <p>同じ問い合わせ群に対し、条件を満たした回答、根拠の取り違え、時間、呼び出し回数を記録する。単純な API 成功率とは別に集計する。</p>
+    </article>
+  </div>
+  <p>この採点表は特定の研究のスコアを自社へ持ち込むものではない。WebArena などが行うように、仕事の初期状態と最終状態を自分たちの条件で明文化するための設計例である。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">設計上の結論</p>
+  <h2>測定可能な仕事は、デモを小さくするためではなく、失敗を読めるようにするために必要だ</h2>
+  <p>2025年初頭の研究と製品資料から得られるもっとも実用的な示唆は、エージェントを「できることの一覧」で比較しないことだ。道具の選択、環境内の操作、最終状態の三つを分けると、検索が誤った資料を選んだのか、操作が途中で止まったのか、採点条件が曖昧なのかを区別できる。本稿では、この区別を測定可能なシステム設計と呼ぶ。</p>
+  <p>一方で、ベンチマークの成功率や製品の提供機能を、そのまま自組織の業務成果へ一般化することはできない。最初に扱う仕事は、参照範囲と最終状態を定義しやすく、外部副作用が小さいものに絞る。その上で、失敗の記録を使って許可操作や採点条件を更新することが、派手なデモを運用可能な仕事へ変える手順になる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -241,14 +273,14 @@ WebArenaのような研究環境の結果も、そのまま自社のサイトや
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/html/2210.03629v3" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
-                <span class="mono-note">2023年3月10日</span>
+                <span class="mono-note">2022年10月6日</span>
               </div>
-              <p class="source-title">ReAct: Synergizing Reasoning and Acting in Language Models (v3)</p>
-              <p class="source-url">https://arxiv.org/html/2210.03629v3</p>
+              <p class="source-title">ReAct: Synergizing Reasoning and Acting in Language Models</p>
+              <p class="source-url">https://arxiv.org/abs/2210.03629</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://arxiv.org/abs/2302.04761v1" target="_blank" rel="noopener noreferrer">
@@ -261,14 +293,84 @@ WebArenaのような研究環境の結果も、そのまま自社のサイトや
               <p class="source-url">https://arxiv.org/abs/2302.04761v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2307.13854v1" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2307.13854" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2023年7月25日</span>
               </div>
               <p class="source-title">WebArena: A Realistic Web Environment for Building Autonomous Agents</p>
-              <p class="source-url">https://arxiv.org/abs/2307.13854v1</p>
+              <p class="source-url">https://arxiv.org/abs/2307.13854</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2023年10月10日</span>
+              </div>
+              <p class="source-title">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
+              <p class="source-url">https://arxiv.org/abs/2310.06770</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年4月11日</span>
+              </div>
+              <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
+              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年12月6日</span>
+              </div>
+              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年4月23日</span>
+              </div>
+              <p class="source-title">AWS: Agents for Amazon Bedrock simplified creation and configuration</p>
+              <p class="source-url">https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年4月9日</span>
+              </div>
+              <p class="source-title">Google Cloud: Build generative AI experiences with Vertex AI Agent Builder</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/news/tool-use-ga" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年5月30日</span>
+              </div>
+              <p class="source-title">Anthropic: Claude can now use tools</p>
+              <p class="source-url">https://www.anthropic.com/news/tool-use-ga</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年12月19日</span>
+              </div>
+              <p class="source-title">Anthropic: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
             </div>
             <span class="source-action">開く</span>
           </a>
