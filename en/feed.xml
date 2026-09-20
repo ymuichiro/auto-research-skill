@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 08:08:44 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 08:10:27 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -107,7 +107,7 @@
       <title>When to split AI work into subagents, and what they need to share</title>
       <link>https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
-      <pubDate>Sat, 05 Sep 2026 11:30:37 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 08:10:27 GMT</pubDate>
       <description>Decide whether subagents help by examining task dependencies, shared criteria, evidence handoffs, total cost, and comparison with a single agent.</description>
       <category>AI Agents</category>
     </item>

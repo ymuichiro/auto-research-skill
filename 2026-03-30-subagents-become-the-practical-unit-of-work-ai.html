@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-03-30T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T20:30:37+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:10:27+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Subagents">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Orchestration">
     <meta property="article:tag" content="LLM">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか","description":"subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。","datePublished":"2026-03-30T00:00:00+09:00","dateModified":"2026-09-05T20:30:37+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Subagents, Multi-Agent, Workflow, Orchestration, LLM","mainEntityOfPage":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか","description":"subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。","datePublished":"2026-03-30T00:00:00+09:00","dateModified":"2026-09-20T17:10:27+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Subagents, Multi-Agent, Workflow, Orchestration, LLM","mainEntityOfPage":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか","item":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか</h1>
-          <p class="hero-copy">三製品の調査を例に、小型モデルへの委任、並列化、結果統合を区別し、単一担当との品質・時間・費用の比較方法を考える。</p>
+          <p class="hero-copy">三製品の調査を例に、委任、並列化、根拠の受け渡し、結果統合、最終承認を分け、単一担当との品質・時間・費用の比較方法を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-03-30">2026年3月30日</time>
-        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
     </section>
@@ -133,6 +133,28 @@
 <p>下位エージェント（subagent）は、主担当から限定した仕事を受け取るエージェントである。
 本稿では、2026年3月30日までの発表と設計資料から、何を分けると利点があり、何を分けると受け渡しの負担が増すかを考える。
 以下の製品比較は説明のための想定例である。</p>
+</section>
+<section class="report-section">
+<h2>分担の前に、入力、返り値、統合、承認を決める</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>委任する調査</h3>
+<p>製品ごとに、同じ利用目的、対象の版、比較項目、根拠URLを渡す。独立に調べられる仕事だけを並列に置く。</p>
+</article>
+<article class="comparison-card">
+<h3>返してもらう根拠</h3>
+<p>結論だけでなく、確認した事実、出典、不明な点を返す。後で主担当が原資料へ戻れる形にする。</p>
+</article>
+<article class="comparison-card">
+<h3>統合する判断</h3>
+<p>同じ条件で比較できるか、食い違いを解消する追加調査が必要かを主担当が判断する。多数決で事実を決めない。</p>
+</article>
+<article class="comparison-card">
+<h3>最終承認</h3>
+<p>公開、外部送信、共有ファイルの更新は、統合後に一つの担当者または明示した承認手順へ戻す。役割名だけで書き込み権限を与えない。</p>
+</article>
+</div>
+<p>この順番を決めずに担当数だけを増やすと、並列に得た結果を比べられず、統合の待ち時間と修正が増えうる。</p>
 </section>
 <section class="report-section">
 <h2>小型モデルへの委任と、並列化の効果を分ける</h2>
