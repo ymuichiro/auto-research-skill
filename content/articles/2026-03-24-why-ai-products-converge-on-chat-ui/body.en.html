@@ -4,6 +4,24 @@
 <p>That distinction is useful when designing AI interfaces. My interpretation is that conversation can express goals and exceptions while direct manipulation identifies the object or passage to change. The product announcements below do not establish that chat is the cheapest interface to build or the easiest for every task.</p>
 </section>
 <section class="report-section">
+<h2>Split the work of producing one report across three surfaces</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Conversation starts the request</h3>
+<p>It conveys a goal, reader, and exceptions, as in “make this a customer-facing report and place the conclusion first.” It is a place to refine conditions after seeing a draft, not necessarily to identify an exact edit target.</p>
+</article>
+<article class="comparison-card">
+<h3>The artifact surface revises and shares</h3>
+<p>A user selects the second paragraph, requests a shorter version, and passes the chosen draft to a collaborator. The relevant state is which text changed and whether both people see the same version.</p>
+</article>
+<article class="comparison-card">
+<h3>A plan or queue surface monitors and approves</h3>
+<p>It exposes collection, drafting, review, and delivery as steps, so a user can stop or approve the still-pending delivery. Cocoa's plan editing is one example of making an intermediate unit of work visible.</p>
+</article>
+</div>
+<p>This division is the article's design example, not a claim that the three products provide the same interface. The necessary surface changes with whether the work concerns an artifact, a plan, or an external change.</p>
+</section>
+<section class="report-section">
 <h2>Canvas selects the passage; Pages keeps a shared editing target</h2>
 <p>Google's <a href="https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/">Canvas announcement</a> shows highlighting a paragraph and requesting a change in concision or tone. Language describes the change while selection identifies its target. The document remains an editing surface instead of being only another response to read in a conversation.</p>
 <p>Microsoft's <a href="https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/">Copilot Pages announcement</a> describes retaining AI-generated content so people can edit, add to, and share it. The relevant distinction is a common editing target that persists as conversation continues. In a hypothetical team proposal, contributors could collect changes on the same page instead of explaining which response should count as the latest draft.</p>
@@ -17,6 +35,6 @@
 <section class="report-section">
 <h2>Add an interface where revisions actually happen</h2>
 <p>A short definition or one-off consultation may work well with answers and corrections in the conversation itself. A separate editor is not automatically necessary. Revising one passage in a long document, jointly updating a draft, or changing an intermediate plan creates a clearer reason to keep the target visible.</p>
-<p>A small evaluation task could ask a user to revise one paragraph and hand the latest document to a colleague. Count explanations needed to identify the target, check for changes elsewhere, and verify that the recipient opens the same version. This is a proposed test, not a measured comparison of the products above.</p>
+<p>A small evaluation task could ask a user to state a report's purpose in conversation, revise one paragraph, and hand the latest document to a colleague. If external delivery can wait for approval, separately check the revision and the sending operation. Count explanations needed to identify the target, check for changes elsewhere, verify that the recipient opens the same version, and check whether an unapproved delivery can be stopped. This is a proposed test, not a measured comparison of the products above.</p>
 <p>Start with what users need to see and change. That separates work for which a conversation is sufficient from work that benefits from selection, editing, and sharing controls. Judge those additions by whether they make the intended revision and its result easier to verify.</p>
 </section>
