@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 08:12:17 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 08:14:05 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -91,7 +91,7 @@
       <title>Designing agent memory for retrieval, applicability, and updates</title>
       <link>https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html</guid>
-      <pubDate>Sat, 05 Sep 2026 11:20:05 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 08:14:05 GMT</pubDate>
       <description>Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.</description>
       <category>AI Agents</category>
     </item>

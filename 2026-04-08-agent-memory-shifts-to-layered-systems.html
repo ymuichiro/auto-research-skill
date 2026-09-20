@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-04-08T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T20:20:05+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:14:05+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Memory">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Multi-Agent">
     <meta property="article:tag" content="RAG">
     <meta property="article:tag" content="Workflow">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの記憶を、検索・適用・更新に分けて設計する","description":"AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。","datePublished":"2026-04-08T00:00:00+09:00","dateModified":"2026-09-05T20:20:05+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Memory, Long-Term Memory, Multi-Agent, RAG, Workflow","mainEntityOfPage":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの記憶を、検索・適用・更新に分けて設計する","description":"AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。","datePublished":"2026-04-08T00:00:00+09:00","dateModified":"2026-09-20T17:14:05+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Memory, Long-Term Memory, Multi-Agent, RAG, Workflow","mainEntityOfPage":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの記憶を、検索・適用・更新に分けて設計する","item":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">AIエージェントの記憶を、検索・適用・更新に分けて設計する</h1>
-          <p class="hero-copy">過去の好みと今回の指示が違う想定例から、記憶の範囲、訂正、共有更新の競合を整理。LangGraph、Letta、LongMemEvalを具体的な根拠として読む。</p>
+          <p class="hero-copy">過去の好みと今回の指示が違う想定例から、現在の依頼、長期の好み、組織規則、共有メモの範囲と更新を整理。LangGraph、Letta、LongMemEvalを具体的な根拠として読む。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-04-08">2026年4月8日</time>
-        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </section>
@@ -133,6 +133,28 @@
 <p>問題は、思い出した内容が合っているかだけではない。
 誰についての情報か、いつの判断か、今の作業にも適用するかを決める必要がある。
 本稿は、2026年4月8日までの研究と実装資料を手掛かりに、記憶の検索、適用、更新を分けて考える。</p>
+</section>
+<section class="report-section">
+<h2>同じ「記憶」にしない四つの記録</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>今回の依頼</h3>
+<p>この資料だけを詳しくする、といった現在の明示的な指示である。会話の中で直ちに適用し、長期の好みより優先する。</p>
+</article>
+<article class="comparison-card">
+<h3>将来にも使う好み</h3>
+<p>「今後は詳しい説明を基本にする」のように、本人が継続する意図を示した記録である。出所、対象者、適用開始時点を残す。</p>
+</article>
+<article class="comparison-card">
+<h3>組織の規則</h3>
+<p>社内向け資料では用語集を使う、といった正式な規則である。個人の好みと同じ形式で保存できても、適用範囲と更新者は異なる。</p>
+</article>
+<article class="comparison-card">
+<h3>共有する作業メモ</h3>
+<p>期限、担当、未解決事項など、複数の担当が更新する記録である。検索条件に加え、書き込み方法と競合時の扱いを決める。</p>
+</article>
+</div>
+<p>この分類は保存技術の選択ではなく、適用条件と更新責任の違いを取り戻すための設計例である。同じデータベースや検索方式を使っても、これらを区別して記録できる。</p>
 </section>
 <section class="report-section">
 <h2>検索方式と、記憶の適用範囲は別に選べる</h2>
