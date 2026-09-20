@@ -1,0 +1,96 @@
+{
+  "slug": "jev-decision-api",
+  "date": "2026-09-21",
+  "titleJa": "LLMはすべてのif文を置き換えるのか。Jevが切り出す「判断API」",
+  "titleEn": "Will LLMs replace every if statement? Jev and the case for a decision API",
+  "summaryJa": "Jevは、閉じた選択肢と確率を返すTypeSafe AIの判断モデルである。BERT、生成LLM、Structured Outputsとの違いを整理し、曖昧な判断を安全にソフトウェアへ組み込む条件を考える。",
+  "summaryEn": "Jev is TypeSafe AI's decision model for closed choices and probabilities. This article compares it with fine-tuned classifiers, generative LLMs, and Structured Outputs, then defines the conditions for putting ambiguous judgments safely into software.",
+  "seoTitleJa": "Jevが狙う「判断API」とLLMの使い分け",
+  "seoTitleEn": "Jev, decision APIs, and when not to use an LLM",
+  "seoDescriptionJa": "JevをBERT、生成LLM、Structured Outputsと比較。確率を返す判断APIを安全に導入するための評価、閾値、人手確認、規則の分担を整理する。",
+  "seoDescriptionEn": "A practical comparison of Jev, fine-tuned classifiers, generative LLMs, and Structured Outputs. Covers evaluation, thresholds, human review, and deterministic controls.",
+  "teaserJa": "Jevは「学習不要の分類器」なのか。判断をAPI化する製品設計と、その安全な導入条件を考える。",
+  "teaserEn": "Is Jev a classifier without training? A closer look at decision APIs and their conditions for safe adoption.",
+  "category": "AI Strategy",
+  "tags": ["LLM", "Classification", "AI Architecture", "Evaluation", "AI Agent"],
+  "publishedSources": [
+    {
+      "label": "TypeSafe AI: Introducing System One Models & Jev",
+      "url": "https://typesafe.ai/blog/introducing-system-one-models-and-jev",
+      "type": "official",
+      "publishedAt": "2026-09-15"
+    },
+    {
+      "label": "TypeSafe AI Docs: Introduction",
+      "url": "https://docs.typesafe.ai/introduction",
+      "type": "official"
+    },
+    {
+      "label": "TypeSafe AI Docs: System One",
+      "url": "https://docs.typesafe.ai/concepts/system-one",
+      "type": "official"
+    },
+    {
+      "label": "TypeSafe AI Docs: API reference",
+      "url": "https://docs.typesafe.ai/api",
+      "type": "official"
+    },
+    {
+      "label": "TypeSafe AI Docs: Confidence",
+      "url": "https://docs.typesafe.ai/confidence",
+      "type": "official"
+    },
+    {
+      "label": "TypeSafe AI Docs: Intent routing",
+      "url": "https://docs.typesafe.ai/patterns/intent-routing",
+      "type": "official"
+    },
+    {
+      "label": "TypeSafe AI Docs: Jev 1.13 jaggedness",
+      "url": "https://docs.typesafe.ai/model-jaggedness/jev-1.13",
+      "type": "official",
+      "publishedAt": "2026-09-17"
+    },
+    {
+      "label": "TypeSafe AI Docs: Models",
+      "url": "https://docs.typesafe.ai/models",
+      "type": "official"
+    },
+    {
+      "label": "TypeSafe AI: Workflow evals",
+      "url": "https://evals.typesafe.ai/",
+      "type": "official"
+    },
+    {
+      "label": "OpenAI: Introducing Structured Outputs in the API",
+      "url": "https://openai.com/index/introducing-structured-outputs-in-the-api/",
+      "type": "official",
+      "publishedAt": "2024-08-06"
+    },
+    {
+      "label": "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding",
+      "url": "https://arxiv.org/abs/1810.04805",
+      "type": "paper",
+      "publishedAt": "2018-10-11"
+    },
+    {
+      "label": "Benchmarking Zero-shot Text Classification: Datasets, Evaluation and Entailment Approach",
+      "url": "https://aclanthology.org/D19-1404/",
+      "type": "paper",
+      "publishedAt": "2019-11-01"
+    },
+    {
+      "label": "On Calibration of Modern Neural Networks",
+      "url": "https://arxiv.org/abs/1706.04599",
+      "type": "paper",
+      "publishedAt": "2017-06-14"
+    },
+    {
+      "label": "Selective Classification for Deep Neural Networks",
+      "url": "https://arxiv.org/abs/1705.08500",
+      "type": "paper",
+      "publishedAt": "2017-05-23"
+    }
+  ],
+  "draft": false
+}

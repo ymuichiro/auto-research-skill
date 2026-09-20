@@ -1,0 +1,154 @@
+<section class="report-section">
+<h2>Why call an LLM when no one needs prose?</h2>
+<p>“Is this message a refund request?” “Does this contract contain an auto-renewal clause?” “Should this transaction go to human review?”</p>
+<p>These are ordinary questions for business software.</p>
+<p>The system needs a decision that branches the next step, not an explanation or a proposal.</p>
+<p>Yet implementations often pass the question to a general-purpose LLM, ask it for prose or JSON, and use the result to decide what happens next.</p>
+<p>That is not always excessive.</p>
+<p>A generative model is appropriate when the system must explain a case, ask for missing information, or handle exceptions in language.</p>
+<p>But when it only needs to choose from a closed set, a different question remains: why use a text-generation model when no one needs text?</p>
+<p>Jev, released in early access by TypeSafe AI on September 15, 2026, starts from that question. <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe AI's announcement</a> says that Jev takes a state and typed questions, then returns a choice, score, or truth value with structured probabilities rather than prose.</p>
+<p>This article calls the layer it proposes a <strong>decision API</strong>.</p>
+<p>That is not an established industry category.</p>
+<p>It is this article's term for a component that reads natural language but returns a decision from an application-defined answer space, separate from models that generate, calculate, or execute.</p>
+</section>
+<section class="report-section">
+<h2>Fine-tuned classifiers and general LLMs left a practical gap</h2>
+<p>It would oversimplify history to say that BERT and LLMs were the only choices.</p>
+<p>Zero-shot text classification has long been researched, and a 2019 benchmark evaluated classification without task-specific labelled data. <a href="https://aclanthology.org/D19-1404/">Yin et al.</a></p>
+<p>Even so, production designs have often chosen between two work patterns.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Fine-tuned classifier</h3>
+<p>Define labels, collect and annotate data, evaluate, then deploy. BERT showed how a pretrained representation plus a task-specific output layer can be fine-tuned for downstream work. <a href="https://arxiv.org/abs/1810.04805">The BERT paper</a></p>
+</article>
+<article class="comparison-card">
+<h3>General-purpose generative LLM</h3>
+<p>Answer a new question from instructions at call time. It can combine generation, explanation, and reasoning across conditions in one call, but even a bare judgment becomes a call to a generative model.</p>
+</article>
+<article class="comparison-card">
+<h3>Jev's decision API</h3>
+<p>Send a state and closed questions; receive a choice, score, or truth value with probabilities. The application constrains the model's freedom to a defined decision space.</p>
+</article>
+</div>
+<p>This is not a performance ranking.</p>
+<p>Handwritten rules still fit exact conditions; generative work still needs a generative model; and a trained model can remain the best choice where it is accurate enough.</p>
+<p>Jev's move is not to declare either extreme smarter. It treats a distinct kind of branch as its own call: one that must read natural language but does not need to return open-ended language.</p>
+</section>
+<section class="report-section">
+<h2>Jev receives closed decisions through three primitives</h2>
+<p>Jev's HTTP API accepts application state and a map of questions, then returns one answer per question. <a href="https://docs.typesafe.ai/api">API reference</a></p>
+<p>The application chooses each question identifier; the model receives the question, candidate options, and criteria.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Choice</h3>
+<p>Select one defined option. It fits a decision such as routing a message to refunds, technical support, or sales, and returns a probability for every option plus confidence. <a href="https://docs.typesafe.ai/primitives/choice">Choice reference</a></p>
+</article>
+<article class="comparison-card">
+<h3>Score</h3>
+<p>Assess a state on a predefined ordered rubric. It fits judgments with order between options, such as severity or urgency. <a href="https://docs.typesafe.ai/primitives/score">Score reference</a></p>
+</article>
+<article class="comparison-card">
+<h3>Noul</h3>
+<p>Ask a yes-or-no question and receive the probability that it is true. It fits a binary judgment such as whether a message asks for a refund. <a href="https://docs.typesafe.ai/primitives/noul">Noul reference</a></p>
+</article>
+</div>
+<p>Viewed only at this level, the system naturally resembles a classifier.</p>
+<p>But the application can supply the answer space and criteria at call time.</p>
+<p>Changing today's taxonomy from <code>refund / support / sales</code> to tomorrow's taxonomy with <code>abuse</code> becomes a change to questions and evaluation cases, rather than automatically the start of retraining.</p>
+<p>That mutability makes Jev look less like a fixed classifier and more like a product that moves part of classifier construction into an API.</p>
+</section>
+<section class="report-section">
+<h2>Structured Outputs competes on more than output shape</h2>
+<p>The objection that a low-cost LLM with Structured Outputs can return the required JSON is correct.</p>
+<p>OpenAI Structured Outputs conforms model output to a developer-supplied JSON Schema, which is powerful when an application must not receive malformed output. <a href="https://openai.com/index/introducing-structured-outputs-in-the-api/">OpenAI's announcement</a></p>
+<p>Format alone, therefore, cannot justify choosing Jev.</p>
+<p>Schema-valid JSON and a decision that is correct about the world are different properties.</p>
+<p>The two paths are clearer when separated this way.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Generative LLM with Structured Outputs</h3>
+<p>Use a general model as a response system with a prescribed shape. If explanation, exception handling, extraction, or reasoning is needed, they can share one model call.</p>
+</article>
+<article class="comparison-card">
+<h3>Jev</h3>
+<p>Make a closed judgment the API contract from the start, returning probabilities and confidence for its options. It cannot be used to generate the explanatory prose.</p>
+</article>
+</div>
+<p>TypeSafe contrasts sequential LLM generation with Jev's parallel evaluation of many questions against the same state. <a href="https://docs.typesafe.ai/introduction">Introduction</a></p>
+<p>Its workflow evaluation also assumes decomposed questions and control by code. <a href="https://evals.typesafe.ai/">Workflow evals</a></p>
+<p>That evaluation uses a vendor-authored harness and consensus labels from external models.</p>
+<p>TypeSafe notes the possible bias from the people who created the harness, so its speed and cost claims cannot stand in for an independent accuracy comparison.</p>
+<p>Jev need not be chosen because it is “smarter.”</p>
+<p>It has a design fit when the system wants to give up generative freedom and treat candidates and probabilities as first-class inputs to software.</p>
+</section>
+<section class="report-section">
+<h2>Removing task-specific training does not remove decision design or evaluation</h2>
+<p>Calling Jev a classifier that works without training is an effective shorthand.</p>
+<p>The adopting company need not begin with a task-specific weight update.</p>
+<p>But it would be wrong to read that as “write a requirement and call the API, and classification is done.”</p>
+<p>The responsibility of classification moves into application-defined labels, criteria, thresholds, and exceptions; it does not disappear.</p>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Changing a fine-tuned classifier</h3>
+<p>Turn requirements into label definitions, collect and annotate data, train and evaluate, then deploy. A new label changes that machine-learning workflow.</p>
+</article>
+<article class="comparison-card">
+<h3>Changing a decision API</h3>
+<p>Turn requirements into questions and criteria, build evaluation cases for ordinary and boundary inputs, then specify action thresholds and human handoffs. A new label changes the questions, evaluation, and branching rules.</p>
+</article>
+</div>
+<p>The second path does not eliminate machine-learning operations.</p>
+<p>It can remove task-specific data collection and retraining as a prerequisite for the first deployment.</p>
+<p>In exchange, someone must define what belongs in <code>abuse</code>, which misclassifications are unacceptable, and which answers must go to a person, with those decisions traceable in code and evaluation records.</p>
+<p>Probability is not an automation permit, either.</p>
+<p>Neural-network probabilities can be miscalibrated, and calibration is not a guarantee that an individual answer is right. <a href="https://arxiv.org/abs/1706.04599">Guo et al.</a></p>
+<p>TypeSafe's documentation makes the same distinction: calibration is a property across groups of predictions, not a guarantee for one answer. <a href="https://docs.typesafe.ai/concepts/system-one">System One reference</a></p>
+</section>
+<section class="report-section">
+<h2>Probability feeds an if statement; it does not replace one</h2>
+<p>A decision API should not connect a model result directly to an external action.</p>
+<p>Refunds, identity checks, transfers, and publication carry different costs of error, so they need different evidence and action conditions.</p>
+<p>In this hypothetical routing example, the model proposes a queue while the program checks required records, confidence, and permissions in sequence.</p>
+<pre><code>if missing_required_record(ticket):
+    route_to_human(ticket)
+elif decision.confidence &lt; ROUTING_THRESHOLD:
+    route_to_human(ticket)
+elif decision.choice == "refund":
+    open_refund_review(ticket)
+else:
+    route_to_support_queue(ticket, decision.choice)
+</code></pre>
+<p>This is a design example, not a deployment report.</p>
+<p>The model reads the message.</p>
+<p>The program decides what may proceed automatically and what returns for review.</p>
+<p>TypeSafe likewise illustrates routing a request to deterministic code, a specialist LLM, or a person, sending low confidence or high complexity back to a human. <a href="https://docs.typesafe.ai/patterns/intent-routing">Intent routing reference</a></p>
+<p>For high-risk actions, a plausible classification is less important than branches that can stop, deterministic checks before the action, and an auditable record.</p>
+<p>With that division of responsibility, AI is not a free agent at the center of the application. It becomes a fuzzy if statement invoked many times inside the program.</p>
+</section>
+<section class="report-section">
+<h2>Define the stopping conditions before measuring accuracy</h2>
+<p>Jev's type safety does not guarantee semantic safety.</p>
+<p>The public documentation for Jev 1.13 lists numerical calculation, date comparison, multi-step indirection, long inputs with irrelevant material, and adversarial content as failure modes. Text generation is also out of scope. <a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13">Known limits of Jev 1.13</a></p>
+<p>The comparison for an adoption decision is therefore not Jev alone.</p>
+<p>Handwritten rules, an existing fine-tuned classifier, a general LLM with Structured Outputs, and human review must be compared against the same evaluation set.</p>
+<ul>
+<li>Include out-of-scope, contradictory, ambiguous, and adversarial inputs alongside ordinary cases.</li>
+<li>Measure separately the cost of approving an incorrect case and the cost of sending too many cases to people.</li>
+<li>Audit high-confidence answers by sample; when errors appear, update the question, criteria, threshold, or rule.</li>
+<li>Because a model update can change answers, pin versions when thresholds have been tuned and re-evaluate on change. <a href="https://docs.typesafe.ai/models">Models reference</a></li>
+</ul>
+<p>Research on selective classification has long addressed the trade-off between error risk and the share of cases a system decides automatically. <a href="https://arxiv.org/abs/1705.08500">Geifman and El-Yaniv</a></p>
+<p>Jev's probabilities and confidence may make that trade-off easier to implement.</p>
+<p>The appropriate threshold and scope, however, are not choices a product can set uniformly.</p>
+</section>
+<section class="report-section">
+<h2>The durable question is whether decisions become software components</h2>
+<p>It is too early to know whether Jev itself will win over the long term.</p>
+<p>Immediately after an early-access release, the vendor's evaluation is not an independent comparison across general LLMs, existing classifiers, and business data.</p>
+<p>Yet schema-constrained LLM output, zero-shot classification, and confidence-based rejection already existed as separate techniques.</p>
+<p>Jev puts them into a product contract: read state, return closed decisions and probabilities, and let code determine action.</p>
+<p>If that contract takes hold, AI will enter not only chat interfaces and autonomous agents, but also small branches for routing a request, judging a document, estimating risk, and sending a case back for confirmation.</p>
+<p>Jev is interesting not because it makes one model universal.</p>
+<p>It gives a design home to work that is lighter than generative AI and less fixed than a conventional classifier: a decision API.</p>
+</section>
