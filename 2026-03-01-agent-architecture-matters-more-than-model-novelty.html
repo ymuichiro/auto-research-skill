@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>エージェントの改善を測る：モデルと処理手順を分けて比較する | Auto Research Digest</title>
-    <meta name="description" content="エージェントのモデル、検索手順、試行回数をどう比較するか。研究と開発ツールを手がかりに、時間・費用・実行条件をそろえる方法を解説。">
+    <title>エージェントの比較で、モデル以外に固定すべき条件 | Auto Research Digest</title>
+    <meta name="description" content="エージェント比較でモデル以外に固定すべき道具、観測範囲、時間予算、再試行、採点条件を、RE-BenchとBrowserGymから整理する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="エージェントの改善を測る：モデルと処理手順を分けて比較する | Auto Research Digest">
-    <meta property="og:description" content="エージェントのモデル、検索手順、試行回数をどう比較するか。研究と開発ツールを手がかりに、時間・費用・実行条件をそろえる方法を解説。">
+    <meta property="og:title" content="エージェントの比較で、モデル以外に固定すべき条件 | Auto Research Digest">
+    <meta property="og:description" content="エージェント比較でモデル以外に固定すべき道具、観測範囲、時間予算、再試行、採点条件を、RE-BenchとBrowserGymから整理する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="エージェントの改善を測る：モデルと処理手順を分けて比較する">
+    <meta property="og:image:alt" content="エージェントの比較で、モデル以外に固定すべき条件">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="エージェントの改善を測る：モデルと処理手順を分けて比較する | Auto Research Digest">
-    <meta name="twitter:description" content="エージェントのモデル、検索手順、試行回数をどう比較するか。研究と開発ツールを手がかりに、時間・費用・実行条件をそろえる方法を解説。">
+    <meta name="twitter:title" content="エージェントの比較で、モデル以外に固定すべき条件 | Auto Research Digest">
+    <meta name="twitter:description" content="エージェント比較でモデル以外に固定すべき道具、観測範囲、時間予算、再試行、採点条件を、RE-BenchとBrowserGymから整理する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="エージェントの改善を測る：モデルと処理手順を分けて比較する">
+    <meta name="twitter:image:alt" content="エージェントの比較で、モデル以外に固定すべき条件">
     <link rel="canonical" href="https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-03-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:14:16+09:00">
+    <meta property="article:modified_time" content="2026-09-20T16:12:21+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Architecture">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"エージェントの改善を測る：モデルと処理手順を分けて比較する","description":"エージェントのモデル、検索手順、試行回数をどう比較するか。研究と開発ツールを手がかりに、時間・費用・実行条件をそろえる方法を解説。","datePublished":"2026-03-01T00:00:00+09:00","dateModified":"2026-09-19T18:14:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Architecture, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"エージェントの改善を測る：モデルと処理手順を分けて比較する","item":"https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"エージェントの比較で、モデル以外に固定すべき条件","description":"エージェント比較でモデル以外に固定すべき道具、観測範囲、時間予算、再試行、採点条件を、RE-BenchとBrowserGymから整理する。","datePublished":"2026-03-01T00:00:00+09:00","dateModified":"2026-09-20T16:12:21+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Architecture, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"エージェントの比較で、モデル以外に固定すべき条件","item":"https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">エージェントの改善を測る：モデルと処理手順を分けて比較する</h1>
-          <p class="hero-copy">モデル変更と検索や再試行の追加を同時に行うと、改善の理由を区別できない。RE-Bench、BrowserGym、AgentKitから、時間と実行条件をそろえる比較方法を考える。</p>
+          <h1 class="hero-title">エージェントの比較で、モデル以外に固定すべき条件</h1>
+          <p class="hero-copy">モデル、道具、観測範囲、時間予算、再試行、採点条件を同時に変えると、改善理由を区別できない。RE-Bench、BrowserGym、AgentKitを手がかりに、何を固定し何を記録するかを整理する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-03-01">2026年3月1日</time>
-        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Architecture</span><span class="meta-chip">Governance</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%94%B9%E5%96%84%E3%82%92%E6%B8%AC%E3%82%8B%EF%BC%9A%E3%83%A2%E3%83%87%E3%83%AB%E3%81%A8%E5%87%A6%E7%90%86%E6%89%8B%E9%A0%86%E3%82%92%E5%88%86%E3%81%91%E3%81%A6%E6%AF%94%E8%BC%83%E3%81%99%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-01-agent-architecture-matters-more-than-model-novelty.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E6%AF%94%E8%BC%83%E3%81%A7%E3%80%81%E3%83%A2%E3%83%87%E3%83%AB%E4%BB%A5%E5%A4%96%E3%81%AB%E5%9B%BA%E5%AE%9A%E3%81%99%E3%81%B9%E3%81%8D%E6%9D%A1%E4%BB%B6&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-01-agent-architecture-matters-more-than-model-novelty.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="エージェントの改善を測る：モデルと処理手順を分けて比較する"
-      data-share-text="エージェントの改善を測る：モデルと処理手順を分けて比較する"
+      data-share-title="エージェントの比較で、モデル以外に固定すべき条件"
+      data-share-text="エージェントの比較で、モデル以外に固定すべき条件"
       data-share-url="https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="エージェントの改善を測る：モデルと処理手順を分けて比較する"
+      data-share-title="エージェントの比較で、モデル以外に固定すべき条件"
       data-share-url="https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -131,6 +131,16 @@
 <p>2026年3月時点で参照できる研究と開発ツールから、本稿では比較条件のそろえ方を考える。
 「設計の方がモデルより重要」と一般化する根拠は十分ではない。
 問いたいのは、同じ仕事に対して、どの変更がどの費用で改善をもたらしたかである。</p>
+<div class="comparison-grid mt-6">
+<article class="comparison-card">
+<h3>固定する条件</h3>
+<p>評価課題、資料や画面の版、観測できる情報、許可する道具、総時間、再試行と採点基準をそろえる。これらが異なれば、モデルだけの比較にはならない。</p>
+</article>
+<article class="comparison-card">
+<h3>一度に変える条件</h3>
+<p>まずモデルだけ、次に検索や再試行などの手順だけを変え、最後に組み合わせる。組み合わせの結果は、片方ずつの結果から推定しない。</p>
+</article>
+</div>
 </section>
 <section class="report-section">
 <h2>時間の上限を変えると、比較結果も変わる</h2>
