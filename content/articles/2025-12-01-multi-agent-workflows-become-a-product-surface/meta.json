@@ -1,14 +1,14 @@
 {
   "slug": "multi-agent-workflows-become-a-product-surface",
   "date": "2025-12-01",
-  "titleJa": "Foundryのワークフローで確認する、処理の分岐と承認条件",
-  "titleEn": "Reviewing workflow branches and approval conditions in Foundry",
-  "summaryJa": "Foundryの2025年11月公開プレビューを読み、図とYAML、変数、実行記録の役割を整理する。アカウント申請の想定例で、出力形式の検査と操作の承認を分けて考える。",
-  "summaryEn": "Foundry’s November 2025 preview exposes workflow definitions and execution details. An account-request example separates valid output types from authorization.",
-  "seoDescriptionJa": "Foundryワークフローの図・YAML・変数は何を確認しやすくするか。2025年11月の公開プレビューを、分岐、承認、実行記録の役割から解説。",
-  "seoDescriptionEn": "What Foundry’s November 2025 workflow preview exposes through diagrams, YAML, and traces—and why valid output types do not establish authorization.",
-  "teaserJa": "図にした処理を、実行してよい手順へ近づけるために確認すること。",
-  "teaserEn": "A workflow diagram is a starting point for reviewing branches, data, and approval.",
+  "titleJa": "Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認",
+  "titleEn": "Foundry workflows separate definition, execution, evaluation, and approval",
+  "summaryJa": "Foundry Agent Serviceの2025年11月公開プレビューは、複数エージェントの経路を図とYAMLで定義し、実行経路と変数を追い、評価器を使う部品を示した。アカウント申請の想定例で、これら四つの成果物が別の判断を支える理由を整理する。",
+  "summaryEn": "Foundry Agent Service’s November 2025 public preview offers components for defining multi-agent paths in diagrams and YAML, tracing runs and variables, and evaluating work. An account-request scenario shows why those four artifacts support different decisions.",
+  "seoDescriptionJa": "Foundryの複数エージェントワークフローを、図とYAMLの定義、実行経路、評価、承認が支える別々の判断から整理する。",
+  "seoDescriptionEn": "Foundry multi-agent workflows: diagrams and YAML define paths, traces record execution, evaluators assess behavior, and approval remains separate.",
+  "teaserJa": "図を作ること、実行を追うこと、品質を評価すること、操作を承認することは別の作業である。",
+  "teaserEn": "Defining a path, tracing a run, evaluating behavior, and authorizing an action are separate tasks.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,7 +19,7 @@
   ],
   "publishedSources": [
     {
-      "label": "Microsoft: Introducing multi-agent workflows in Foundry Agent Service",
+      "label": "Microsoft: Introducing Multi-Agent Workflows in Foundry Agent Service",
       "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/",
       "type": "official",
       "publishedAt": "2025-11-25"
