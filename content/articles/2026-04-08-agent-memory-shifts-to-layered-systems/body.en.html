@@ -4,6 +4,28 @@
 <p>Correct recall is only part of the problem. The system also needs to determine whose information it is, when it applied, and whether it governs the current task. Drawing on research and implementation material available by April 8, 2026, this article separates retrieving, applying, and updating memory.</p>
 </section>
 <section class="report-section">
+<h2>Four records that should not become one kind of “memory”</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Current request</h3>
+<p>This is an explicit instruction for the present document, such as making this one explanation detailed. Apply it immediately in the conversation and give it priority over a durable preference.</p>
+</article>
+<article class="comparison-card">
+<h3>Durable preference</h3>
+<p>This is a stated continuing intention, such as making detailed explanations the default from now on. Retain its source, subject, and effective time.</p>
+</article>
+<article class="comparison-card">
+<h3>Organizational rule</h3>
+<p>This is a formal rule, such as using a glossary in internal documents. It can share a storage format with a personal preference while having different scope and authorized updaters.</p>
+</article>
+<article class="comparison-card">
+<h3>Shared work note</h3>
+<p>This records deadlines, owners, and unresolved matters that several people may update. It needs defined write operations and conflict treatment as well as retrieval conditions.</p>
+</article>
+</div>
+<p>This is a design distinction for restoring applicability and update responsibility, not a choice among storage technologies. One database or retrieval method can still record the four categories separately.</p>
+</section>
+<section class="report-section">
 <h2>Retrieval methods and memory scope are separate choices</h2>
 <p>Vector retrieval and short-term, long-term, or shared memory are not competing alternatives. Vector retrieval finds semantically related candidates. Duration and sharing describe other dimensions that can coexist with it. File-backed records can also be indexed, so storage format should be distinguished from retrieval method.</p>
 <p><a href="https://docs.langchain.com/oss/python/langgraph/add-memory">LangGraph documentation</a> separates conversation tracking within a thread from user or application information spanning conversations; its long-term store example uses a user-specific namespace. This illustrates choosing scope before searching. A namespace label alone is not access control: the application must establish that the caller may read that scope.</p>
