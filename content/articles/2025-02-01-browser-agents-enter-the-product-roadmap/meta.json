@@ -1,14 +1,14 @@
 {
   "slug": "browser-agents-enter-the-product-roadmap",
   "date": "2025-02-01",
-  "titleJa": "ブラウザ操作エージェントは、送信後の状態をどう確認するか",
-  "titleEn": "How browser agents can verify what happened after an action",
-  "summaryJa": "Operatorの初期発表とcomputer useの制約から、フォーム送信後の確認と人への引き継ぎを考える。",
-  "summaryEn": "Operator and early computer-use limitations show why browser actions need outcome checks and explicit human handoffs.",
-  "seoDescriptionJa": "Operatorの研究プレビューと画面観測の制約を確認。仮想のフォーム送信を例に、完了の根拠、二重送信、人への引き継ぎを整理する。",
-  "seoDescriptionEn": "Examine Operator and screenshot-based computer use, with a hypothetical form submission illustrating outcome checks, duplicate actions, and human handoffs.",
-  "teaserJa": "クリック後に何が起きたか。画面操作の完了確認と、人へ渡すべき途中経過を考える。",
-  "teaserEn": "A click is only an action. Explore outcome checks and the context a person needs when taking over.",
+  "titleJa": "ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか",
+  "titleEn": "What to design before putting browser agents on a product roadmap",
+  "summaryJa": "WebVoyager、VisualWebArena、OSWorld、Operator、AutoGen v0.4を比較し、ブラウザ操作を製品計画に置く際の環境、状態、確認、人への引き継ぎを整理する。",
+  "summaryEn": "Compare WebVoyager, VisualWebArena, OSWorld, Operator, and AutoGen v0.4 to define the environment, state, confirmation, and human handoff needed before planning a browser agent product.",
+  "seoDescriptionJa": "2025年2月時点のブラウザ操作研究と製品発表を基に、computer useを計画する際の完了条件、状態管理、承認、引き継ぎを整理する。",
+  "seoDescriptionEn": "Using browser-agent research and product releases available in February 2025, this article defines completion, state, approval, and handoff conditions for computer use.",
+  "teaserJa": "画面をクリックできることは、製品化の条件ではない。ブラウザ操作を計画するための状態・確認・引き継ぎを考える。",
+  "teaserEn": "Clicking a screen is not a product plan. Define state, confirmation, and handoff for browser-agent work.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,16 +18,64 @@
   ],
   "publishedSources": [
     {
-      "label": "Anthropic: Developing computer use",
+      "label": "WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models",
+      "url": "https://arxiv.org/abs/2401.13919",
+      "type": "paper",
+      "publishedAt": "2024-01-25"
+    },
+    {
+      "label": "VisualWebArena: Evaluating Multimodal Agents on Realistic Visual Web Tasks",
+      "url": "https://arxiv.org/abs/2401.13649",
+      "type": "paper",
+      "publishedAt": "2024-01-24"
+    },
+    {
+      "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+      "url": "https://arxiv.org/abs/2404.07972",
+      "type": "paper",
+      "publishedAt": "2024-04-11"
+    },
+    {
+      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+      "url": "https://arxiv.org/abs/2411.04468",
+      "type": "paper",
+      "publishedAt": "2024-11-07"
+    },
+    {
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "Anthropic: Developing a computer use model",
       "url": "https://www.anthropic.com/research/developing-computer-use",
       "type": "official",
       "publishedAt": "2024-10-22"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
+    },
+    {
+      "label": "Microsoft Research: AutoGen v0.4",
+      "url": "https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/",
+      "type": "official",
+      "publishedAt": "2025-01-14"
     },
     {
       "label": "OpenAI: Introducing Operator",
       "url": "https://openai.com/index/introducing-operator/",
       "type": "official",
       "publishedAt": "2025-01-23"
+    },
+    {
+      "label": "Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai",
+      "type": "official",
+      "publishedAt": "2025-01-24"
     }
   ],
   "draft": false

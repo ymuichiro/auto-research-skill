@@ -1,21 +1,70 @@
 <section class="report-section">
-<h2>Operating a browser does not prove that a task is complete</h2>
-<p>On January 23, 2025, OpenAI announced Operator, a research preview that could use a browser through screenshots, clicks, and typing. Those capabilities leave a practical question: after an action, how does the system establish what actually happened? This article considers result verification and human handoff using announcements available by February 1, 2025.</p>
+  <p class="section-kicker">Question</p>
+  <h2>What did browser-agent research make concrete for product planning?</h2>
+  <p>Browser and computer-use research and product releases available by February 1, 2025 do not make the ability to click a screen evidence of a finished product. <a href="https://arxiv.org/abs/2401.13919">WebVoyager</a>, <a href="https://arxiv.org/abs/2401.13649">VisualWebArena</a>, and <a href="https://arxiv.org/abs/2404.07972">OSWorld</a> provide environments for measuring screen perception and completion over several actions. <a href="https://openai.com/index/introducing-operator/">Operator</a>, <a href="https://www.anthropic.com/research/developing-computer-use">Anthropic’s computer use</a>, and <a href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/">AutoGen v0.4</a> put screen interaction, returning control to a user, and handling state and observability into product and implementation discussions. This article reads that as a clearer set of conditions for a product roadmap, not as proof of universal adoption.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Read an environment</h3>
+      <p>Understand a current location that includes visual layout, screen transitions, and login state, not only a DOM.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Preserve a long-running process</h3>
+      <p>Pass an interrupted action, a wait, or a failure to the next run or person with its state intact.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Let a person finalize</h3>
+      <p>Decide in advance which points, such as authentication, payment, or submission, return to a user.</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>Capabilities announced, and limits that remained</h2>
-<p>The <a href="https://openai.com/index/introducing-operator/">Operator announcement</a> describes reading screenshots and clicking, typing, and scrolling in a browser. This allows interaction through a website's interface without requiring a dedicated API for every service. At launch, access was a research preview for Pro users in the United States.</p>
-<p>OpenAI described handing control to the user for login, payment details, and CAPTCHAs, with confirmation before significant actions such as orders or email. These are stated design intentions, not evidence that confirmation works correctly for every interface and action.</p>
-<p>Observation also has limits. Anthropic's <a href="https://www.anthropic.com/research/developing-computer-use">October 2024 explanation of computer use</a> notes that successive screenshots, rather than continuous video, can miss short-lived events such as notifications. Access to more interfaces does not ensure that every change will be observed.</p>
+  <p class="section-kicker">Problems separated by research</p>
+  <h2>A web or computer task is not complete merely because an agent has seen a screen</h2>
+  <p>WebVoyager studies an end-to-end web agent using large multimodal models. VisualWebArena evaluates visually grounded web tasks that cannot be solved from text alone and requires an agent to read image and text inputs and operate websites in line with a user’s goal. Together, they show that a browser task can make visual screen content part of the input.</p>
+  <p>OSWorld provides 369 tasks across real web and desktop applications, file I/O, and workflows spanning applications on Ubuntu, Windows, and macOS, with initial-state configuration and execution-based evaluators. The gap it reports between its best model and human performance belongs to its specific environment, models, and scripts. Even so, it makes clear that computer-use comparison needs to assess the final state reached from an initial state, rather than just record clicks.</p>
+  <p><a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> aimed to put web-agent benchmarks under shared observation and action spaces and to make experiment management more consistent. Research-environment results cannot be substituted for success on a customer-facing or internal system. The method of specifying initial state, visible observations, permitted actions, and a completion checker can, however, carry into product planning.</p>
 </section>
+
 <section class="report-section">
-<h2>Verify what happens after a form submission</h2>
-<p>Consider a hypothetical request for an information pack, not a reported product result. An agent enters a name and contact details, then clicks Submit. A required-field error means the request has not completed. A loading screen leaves the outcome uncertain.</p>
-<p>One design approach is to distinguish the screen before the action, the submitted values, and the state observed afterward. When a completion screen is visible, report that evidence. Otherwise, say that submission was attempted but acceptance remains unconfirmed. Before clicking again, investigate whether a repeat could create a duplicate request.</p>
-<p>This is a design proposal. What counts as evidence depends on the site's interface and request history. If a brief notification is the only signal, check whether another mechanism can establish the outcome after that notification disappears.</p>
+  <p class="section-kicker">Product boundaries</p>
+  <h2>Operator and computer use showed both a broad action surface and limited supervision conditions</h2>
+  <p>On January 23, 2025, OpenAI introduced Operator as a U.S. Pro research preview that could use screenshots to type, click, and scroll in a browser. It demonstrated the possibility of interacting with interfaces without custom APIs, while documenting takeover for login, payment information, and CAPTCHAs, as well as user confirmations before consequential actions such as submitting an order or sending email. The availability and control policy at launch cannot be extended into proof that all web actions finish safely.</p>
+  <p>Anthropic’s October 2024 computer-use article similarly explains screen interaction through screenshots, cursor movement, and clicks. It explicitly notes that a flipbook-like view, rather than continuous video, can miss transient notifications or actions, and that speed and accuracy remained limited. These constraints explain why planning a screen agent requires treatment of missed states, waiting, and mistaken actions, rather than evaluation only of a successful demonstration.</p>
+  <p><a href="https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai">Google Cloud’s January 2025 Vertex AI overview</a> also treated agent construction as a platform option. The reasonable conclusion is that several releases put browser and computer use into implementation planning; it is not that their delivery models or deployment outcomes were identical.</p>
 </section>
+
 <section class="report-section">
-<h2>Hand over the partial result as well as the browser</h2>
-<p>When authentication requires a person, provide what has been entered, whether submission was attempted, and what remains unverified. That context helps the user continue without repeating actions.</p>
-<p>Tests should include validation errors, delayed screens, and authentication interruptions alongside successful submissions. In each case, check whether the system can establish completion or accurately communicate uncertainty. Before integrating browser operation into a product, evaluate interruption and resumption as well as successful sequences of clicks.</p>
+  <p class="section-kicker">Continuing a process</p>
+  <h2>Turn one browser action into a process that can be resumed</h2>
+  <p>A browser job can encounter waiting, authentication, broken presentation, and a risk of duplicate execution. <a href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/">AutoGen v0.4</a> documented asynchronous messaging, event-driven long-running agents, message tracing, and debugging. It is not a browser-agent product specification, but it is a useful implementation reference for retaining state and observations across a long process.</p>
+  <p><a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> studies a general multi-agent system for complex tasks. Even when browser operation, information gathering, planning, and integration are divided into roles, adding roles does not solve the handoff problem. A handoff needs to retain the screen observed, fields entered, whether submission was attempted, and who must decide next. The workflow-versus-agent distinction in <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> is also useful when choosing between a prescribed path and an open action range.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>For a request-information form, separate the states before and after submission from the judgment handed to a person</h2>
+  <p>This is a hypothetical test target, not a product result. An agent enters a name and contact details into a request-information form. Clicking submit does not complete the request if a required-field error, a slow acceptance process, or an authentication request follows. If a confirmation surface appears only briefly, screenshot-based observation can miss it.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Decide before execution</h3>
+      <p>Specify fields the agent may enter, fields it may not enter, whether submission is irreversible, and the point at which user confirmation is required.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Retain after execution</h3>
+      <p>Record a summary of entered values, the time submission was attempted, the screen state that was observed, and what could not be confirmed.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Hand off to a person</h3>
+      <p>Report “submission was attempted but acceptance is unconfirmed,” rather than “submitted.” A person checks for duplicates before any retry.</p>
+    </article>
+  </div>
+  <p>A test set should include normal submission, input errors, delay, authentication, and interruption. For each condition, test whether final state can be verified with evidence and whether an indeterminate state can be handed to a person correctly.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Answer for a product roadmap</p>
+  <h2>The unit to put on a roadmap is not “a browser feature,” but a job that can be supervised</h2>
+  <p>The February 2025 material argues against planning a browser agent as universal UI automation. Research exposes environment, vision, and final state; product previews expose takeover, confirmation, and limits; implementation frameworks expose state, tracing, and resumption. Only when these are combined for one job can a team design what to delegate, where to stop, and who decides what follows.</p>
+  <p>Begin with stages such as reading, comparison, and preparing input, where side effects are limited and a user can review the final result. For work involving state changes, authentication, or submission, evaluate not only success rate but whether an unconfirmed state is safely handed over. Starting with work that meets those conditions is a practical way to turn a research theme into a product plan.</p>
 </section>
