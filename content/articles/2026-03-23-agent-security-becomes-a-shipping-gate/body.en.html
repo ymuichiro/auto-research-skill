@@ -12,13 +12,36 @@
 <p><a href="https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents">Anthropic's framework for safe agents</a> discusses stopping or redirecting work and granting persistent permission for trusted routine actions. Human confirmation therefore need not occur at the same frequency for every operation. Specify pre-authorized actions and changes requiring individual review, then test that the configured distinction holds.</p>
 </section>
 <section class="report-section">
+<h2>Test detection, authorization, and containment separately</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Detection of an untrusted instruction</h3>
+<p>Check whether an external email or attachment containing a transmission instruction unrelated to the user's request is recognized as such. A system may still stop an action when it misses detection, so detection alone does not establish external impact.</p>
+</article>
+<article class="comparison-card">
+<h3>Authorization of a tool call</h3>
+<p>Check which requester, input, and destination permit a sending or update tool call. AgentCore Policy is an example of a control at this point for calls that pass through its Gateway.</p>
+</article>
+<article class="comparison-card">
+<h3>Containment of transmission and execution</h3>
+<p>After a refusal, inspect records for an actual transmission or an alternative tool path. Limiting information, destinations, and the execution environment controls the range of impact separately from detection rate.</p>
+</article>
+<article class="comparison-card">
+<h3>Human confirmation</h3>
+<p>When review is required, the user needs to judge the destination, content, and effect of the change. Record both the approval decision and whether execution after approval stayed within the displayed scope.</p>
+</article>
+</div>
+<p>These are test categories used in this article, not a comparison claiming that a particular product satisfies them all. Do not infer enforcement or containment at one point from the presence of a defense feature at another.</p>
+</section>
+<section class="report-section">
 <h2>Release tests should verify permitted work and prohibited actions</h2>
 <p>For an email-summary workflow, first check that ordinary email can be summarized. Then place a request for external transmission in the message and inspect network and tool records as well as the response. This is a proposed test, not a measured comparison of the vendors' defenses.</p>
 <ul class="bullet-list">
 <li>Does permitted summarization complete without unnecessarily blocking safe work?</li>
-<li>If an unrequested transmission is attempted, does it stop before the information leaves?</li>
+<li>If an unrequested transmission is attempted, which detection, authorization, or confirmation point stops it, and does it stop before the information leaves?</li>
 <li>If review is requested, does rejection stop execution, and does approval permit only the displayed destination and content?</li>
+<li>After a sending tool is refused, does an equivalent operation remain through another communication path or destination?</li>
 </ul>
-<p>A written refusal does not prove that no transmission occurred. Conversely, the execution system's adherence to permissions can be measured separately from whether the agent explains the attack. Record the model, connections, and permission settings so the same tasks can be rerun after changes.</p>
+<p>Use no production secrets in the test email, and use a controlled test destination. A written refusal does not prove that no transmission occurred. Conversely, the execution system's adherence to permissions can be measured separately from whether the agent explains the attack. Record the model, connections, and permission settings so the same tasks can be rerun after changes.</p>
 <p>The results can support releasing a particular configuration, but cannot guarantee resistance to unknown attacks. Bound the information and actions available, then verify that legitimate work completes and prohibited operations stop within that scope. Make observed enforcement, rather than a count of safety features, part of the release decision.</p>
 </section>
