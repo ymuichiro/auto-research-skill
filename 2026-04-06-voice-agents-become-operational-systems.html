@@ -43,7 +43,7 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-04-06T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-05T20:22:51+09:00">
+    <meta property="article:modified_time" content="2026-09-20T17:12:17+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="Voice AI">
     <meta property="article:tag" content="Realtime">
@@ -51,7 +51,7 @@
     <meta property="article:tag" content="Contact Center">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Generative AI">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか","description":"音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。","datePublished":"2026-04-06T00:00:00+09:00","dateModified":"2026-09-05T20:22:51+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"Voice AI, Realtime, Speech-to-Speech, Contact Center, AI Agent, Generative AI","mainEntityOfPage":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか","description":"音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。","datePublished":"2026-04-06T00:00:00+09:00","dateModified":"2026-09-20T17:12:17+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"Voice AI, Realtime, Speech-to-Speech, Contact Center, AI Agent, Generative AI","mainEntityOfPage":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか","item":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
@@ -69,7 +69,7 @@
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか</h1>
-          <p class="hero-copy">予約変更の想定例から、音声の方式選択、再生停止とAPI操作の違い、シミュレーションと実音声での検証を説明する。</p>
+          <p class="hero-copy">予約変更の想定例から、音声の方式選択、会話・再生・保存・引き継ぎの状態、シミュレーションと実音声での検証を説明する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -77,7 +77,7 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-04-06">2026年4月6日</time>
-        <time class="mono-note" datetime="2026-09-05">最終更新 2026年9月5日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
     </section>
@@ -133,6 +133,28 @@ AIの声は止まった。しかし、裏で予約を保存する処理は進ん
 <p>本稿では予約変更を一つの題材に、音声の入力、会話の訂正、実際の保存をどう結び付けるかを考える。
 2026年4月6日までの公開資料を基に、方式の違いと試験の観点を整理する。
 声の自然さと業務の正確さの両方を、同じ通話で確認するための読み方である。</p>
+</section>
+<section class="report-section">
+<h2>一つの訂正を、四つの状態で追う</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>会話の状態</h3>
+<p>利用者が何日を希望し、どの候補を訂正したかを扱う。聞き直しや数字の誤認識は、この状態で明らかにする。</p>
+</article>
+<article class="comparison-card">
+<h3>音声再生の状態</h3>
+<p>読み上げを生成中か、端末に待機中の音声があるか、割り込み後に停止したかを扱う。会話の訂正を実際に聞こえる音へ反映する。</p>
+</article>
+<article class="comparison-card">
+<h3>予約保存の状態</h3>
+<p>候補の確認前、保存要求の送信後、保存済み、結果不明を区別する。音声を止めても、保存済みの予約は自動では戻らない。</p>
+</article>
+<article class="comparison-card">
+<h3>引き継ぎの状態</h3>
+<p>人へ渡す場合は、希望日時だけでなく、予約が未実行か、保存済みか、結果不明かを渡す。担当者が同じ変更を重ねないための情報になる。</p>
+</article>
+</div>
+<p>この状態分解は本稿の予約変更の設計例である。すべての音声応答に同じ四状態が必要という主張ではないが、外部操作を伴う通話では、話した内容だけで完了を判定しない理由を示す。</p>
 </section>
 <section class="report-section">
 <h2>音声を直接扱うか、途中のテキストを処理するか</h2>
