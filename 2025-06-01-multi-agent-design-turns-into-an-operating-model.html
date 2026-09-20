@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>複数エージェントの分業設計：順序・受け渡し・終了条件を決める | Auto Research Digest</title>
-    <meta name="description" content="複数エージェントをどう分担させるか。順次・並列・引き継ぎの違いを文章制作の例で説明し、根拠の受け渡しと終了条件を整理する。">
+    <title>複数エージェントの設計は、どう運用モデルになるのか | Auto Research Digest</title>
+    <meta name="description" content="複数エージェントを図解で終わらせず、依存関係、handoff、検証、終了条件を持つ運用モデルとして設計する方法を整理する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="複数エージェントの分業設計：順序・受け渡し・終了条件を決める | Auto Research Digest">
-    <meta property="og:description" content="複数エージェントをどう分担させるか。順次・並列・引き継ぎの違いを文章制作の例で説明し、根拠の受け渡しと終了条件を整理する。">
+    <meta property="og:title" content="複数エージェントの設計は、どう運用モデルになるのか | Auto Research Digest">
+    <meta property="og:description" content="複数エージェントを図解で終わらせず、依存関係、handoff、検証、終了条件を持つ運用モデルとして設計する方法を整理する。">
     <meta property="og:url" content="https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="複数エージェントの分業設計：順序・受け渡し・終了条件を決める">
+    <meta property="og:image:alt" content="複数エージェントの設計は、どう運用モデルになるのか">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="複数エージェントの分業設計：順序・受け渡し・終了条件を決める | Auto Research Digest">
-    <meta name="twitter:description" content="複数エージェントをどう分担させるか。順次・並列・引き継ぎの違いを文章制作の例で説明し、根拠の受け渡しと終了条件を整理する。">
+    <meta name="twitter:title" content="複数エージェントの設計は、どう運用モデルになるのか | Auto Research Digest">
+    <meta name="twitter:description" content="複数エージェントを図解で終わらせず、依存関係、handoff、検証、終了条件を持つ運用モデルとして設計する方法を整理する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="複数エージェントの分業設計：順序・受け渡し・終了条件を決める">
+    <meta name="twitter:image:alt" content="複数エージェントの設計は、どう運用モデルになるのか">
     <link rel="canonical" href="https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2025-06-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:49:02+09:00">
+    <meta property="article:modified_time" content="2026-09-20T14:04:20+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Orchestration">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"複数エージェントの分業設計：順序・受け渡し・終了条件を決める","description":"複数エージェントをどう分担させるか。順次・並列・引き継ぎの違いを文章制作の例で説明し、根拠の受け渡しと終了条件を整理する。","datePublished":"2025-06-01T00:00:00+09:00","dateModified":"2026-09-19T18:49:02+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Orchestration, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"複数エージェントの分業設計：順序・受け渡し・終了条件を決める","item":"https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"複数エージェントの設計は、どう運用モデルになるのか","description":"複数エージェントを図解で終わらせず、依存関係、handoff、検証、終了条件を持つ運用モデルとして設計する方法を整理する。","datePublished":"2025-06-01T00:00:00+09:00","dateModified":"2026-09-20T14:04:20+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Orchestration, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"複数エージェントの設計は、どう運用モデルになるのか","item":"https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">複数エージェントの分業設計：順序・受け渡し・終了条件を決める</h1>
-          <p class="hero-copy">Semantic Kernelの実行パターンを手がかりに、文章制作の分業を考える。順次と並列の違い、根拠の受け渡し、確認を終える条件を具体化し、単一エージェントと比較する。</p>
+          <h1 class="hero-title">複数エージェントの設計は、どう運用モデルになるのか</h1>
+          <p class="hero-copy">Azure AI Foundry、Responses API、Semantic Kernelの資料を基に、依存関係、受け渡す根拠、検証、終了条件を持つ複数エージェントの仕事設計を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-06-01">2025年6月1日</time>
-        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E8%A4%87%E6%95%B0%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E5%88%86%E6%A5%AD%E8%A8%AD%E8%A8%88%EF%BC%9A%E9%A0%86%E5%BA%8F%E3%83%BB%E5%8F%97%E3%81%91%E6%B8%A1%E3%81%97%E3%83%BB%E7%B5%82%E4%BA%86%E6%9D%A1%E4%BB%B6%E3%82%92%E6%B1%BA%E3%82%81%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-06-01-multi-agent-design-turns-into-an-operating-model.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E8%A4%87%E6%95%B0%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%AD%E8%A8%88%E3%81%AF%E3%80%81%E3%81%A9%E3%81%86%E9%81%8B%E7%94%A8%E3%83%A2%E3%83%87%E3%83%AB%E3%81%AB%E3%81%AA%E3%82%8B%E3%81%AE%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-06-01-multi-agent-design-turns-into-an-operating-model.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="複数エージェントの分業設計：順序・受け渡し・終了条件を決める"
-      data-share-text="複数エージェントの分業設計：順序・受け渡し・終了条件を決める"
+      data-share-title="複数エージェントの設計は、どう運用モデルになるのか"
+      data-share-text="複数エージェントの設計は、どう運用モデルになるのか"
       data-share-url="https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="複数エージェントの分業設計：順序・受け渡し・終了条件を決める"
+      data-share-title="複数エージェントの設計は、どう運用モデルになるのか"
       data-share-url="https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,40 +124,34 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>仕事を分ける前に、前の結果が必要かを確かめる</h2>
-<p>調査、執筆、確認にエージェントを一体ずつ置いても、それだけでは良い分業にならない。
-執筆には調査結果が必要だが、表記の確認と出典の照合は同じ下書きから別々に進められる場合がある。
-仕事同士の依存関係によって、順番に実行するか、並列に実行するかが変わる。</p>
-<p>2025年5月のSemantic Kernelの発表は、こうした複数の実行パターンをSDKから扱う方法を紹介した。
-本稿では、役割の数を増やす話から離れ、結果の受け渡しと完了条件をどう決めるかを考える。</p>
+  <p class="section-kicker">問い</p>
+  <h2>複数エージェントを、なぜ役割の図ではなく運用モデルとして設計するのか</h2>
+  <p>担当を増やすだけでは協調にならない。前工程への依存、handoff で渡す入力と根拠、統合して検証する担当、終了または人へ戻す条件が必要になる。2025年5月の Azure AI Foundry Agent Service、Responses API、<a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernel の orchestration</a> は、こうした部品を実装や運用の対象として扱った。本稿では「運用モデル」を、役割名ではなく、仕事を再現・監査・停止できるようにする設計と呼ぶ。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>依存関係</h3><p>何が揃うまで次へ進めないか。並列にできる工程と、前の根拠を待つ工程を分ける。</p></article>
+    <article class="comparison-card"><h3>handoff</h3><p>要約だけでなく、入力、出典、未解決点、許可範囲を次の担当へ渡す。</p></article>
+    <article class="comparison-card"><h3>統合と終了</h3><p>誰が矛盾を検査し、何を完了、差し戻し、人への引き継ぎとするかを決める。</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>順次、並列、引き継ぎでは、後段が待つものが違う</h2>
-<p><a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernelの解説</a>は、前の出力を次へ渡す順次処理、独立に処理して結果を集める並列処理、状況に応じて担当を移す引き継ぎを説明する。
-これらは実行方法の選択肢であり、どれが自分たちの仕事に合うかは別に判断する。</p>
-<p>以下は文章制作を例にした設計案である。
-調査結果から下書きを作る工程なら、調査が終わってから執筆へ進む。
-同じ下書きの表記と出典を別々に調べるなら、両方の確認結果が返るまで修正の判断を待つ。
-一方、特定分野の知識が必要な質問だけ専門担当へ送るなら、元の担当がその後も続けるのか、責任ごと移るのかを決める。</p>
+  <p class="section-kicker">公開資料が示す範囲</p>
+  <h2>協調機能は、役割分担を可能にするが、正しい運用を保証しない</h2>
+  <p>Azure AI Foundry の一般提供と developer 向け資料、OpenAI の Responses API 更新、Semantic Kernel の orchestration は、エージェント、道具、実行履歴、複数担当の流れを構成する機能を示した。Google の multi-system agents と A2A は、他システムの担当へ仕事を渡す設計を扱う。これらは、組織固有の役割、権限、品質基準がすでに定義済みであることを意味しない。</p>
+  <p><a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> や <a href="https://arxiv.org/abs/2406.12045">tau-bench</a> は、複数の道具・担当・利用者とのやり取りを含む仕事で、結果だけでなく途中経路が問題になることを示す。ベンチマークを自社の性能へ転用せず、依存、状態、利用者との交渉を含む評価が必要だという設計上の示唆として扱う。</p>
 </section>
+
 <section class="report-section">
-<h2>確認担当には、結論だけでなく根拠を渡す</h2>
-<p>調査担当が「この製品は最も速い」とだけ返した場合、確認担当は比較条件を調べ直す必要がある。
-資料名、該当箇所、測定条件、分からなかった点を一緒に渡せば、何を検証すべきかが具体的になる。
-受け渡しを短くすることと、必要な根拠を失うことは区別したい。</p>
-<p>また、確認担当が指摘を返し続けると、執筆との往復が終わらない可能性がある。
-必ず直す誤り、任意の表現提案、人へ戻す判断を分け、どの状態で終了するかを定める。
-複数の役割を作ること自体は、停止条件や権限の分離を実装したことにはならない。</p>
+  <p class="section-kicker">想定例</p>
+  <h2>調査報告を作るなら、収集・執筆・確認の間に何を渡すかを決める</h2>
+  <p>以下は設計例である。収集担当は一次資料の URL、公開日、該当箇所、未確認点を返す。執筆担当はそれを根拠に下書きを作り、確認担当は主張と出典の対応、古い資料、推測表現を検査する。資料収集は並列化できるが、結論の作成は根拠がそろうまで待つ。確認で根拠が不足すれば、終了ではなく収集担当へ差し戻す。</p>
+  <p>この流れでは、短い要約を渡すだけでは不足する。出典、引用可能な事実、執筆者の解釈、未解決条件を区別して渡す。統合役は矛盾を選び直し、公開前に人が最終判断する。単一の担当で十分な小さな報告では、handoff のコストが利益を上回るため、分割しない方がよい。</p>
 </section>
+
 <section class="report-section">
-<h2>分業による改善と、受け渡しの負担を一緒に測る</h2>
-<p>Anthropicの<a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>は、まず単純な方法を試し、必要な場合に複雑さを加える方針を勧めている。
-この文章制作の例でも、一つのエージェントで作成と確認を行う構成を比較対象にできる。</p>
-<p>同じ資料と依頼で、修正できた事実誤り、根拠の欠落、所要時間、利用費用を比べる。
-並列化しても一方の確認が遅ければ全体は待つし、受け渡しを誤れば再調査が増える。
-最終的に人が直した量も含めて、分けた工程に効果があったかを判断する。</p>
-<p>分業の単位は、担当名から決めるより、入力、出力、確認方法を定義できる仕事から選びたい。
-その単位が明確なら、SDKの実行パターンを選ぶ理由も説明できる。</p>
+  <p class="section-kicker">結論</p>
+  <h2>複数エージェントの価値は worker 数ではなく、仕事を止めて検査できることにある</h2>
+  <p>複数担当の設計を運用モデルにするとは、どの工程を並列化するかより、依存、handoff、統合、終了条件を記録できるようにすることだ。基盤はその実装を助ける。品質、権限、承認、例外時の責任は利用側が定める。まず単一担当の基準を作り、分割で時間、誤り、監督が改善する工程だけを増やすことが現実的な出発点になる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -236,7 +230,67 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年6月17日</span>
+              </div>
+              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</p>
+              <p class="source-url">https://arxiv.org/abs/2406.12045</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2411.04468" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年11月7日</span>
+              </div>
+              <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
+              <p class="source-url">https://arxiv.org/abs/2411.04468</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年4月9日</span>
+              </div>
+              <p class="source-title">Google Cloud: Build and manage multi-system agents with Vertex AI</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年4月9日</span>
+              </div>
+              <p class="source-title">Google Developers Blog: A2A, a new era of agent interoperability</p>
+              <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月19日</span>
+              </div>
+              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
+              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月21日</span>
+              </div>
+              <p class="source-title">OpenAI: New tools and features in the Responses API</p>
+              <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
