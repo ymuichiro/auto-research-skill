@@ -1,14 +1,14 @@
 {
   "slug": "agents-shift-to-measurable-systems",
   "date": "2025-01-01",
-  "titleJa": "AIエージェントのツール利用と課題達成を、どう分けて評価するか",
-  "titleEn": "How to evaluate tool use and task completion in AI agents",
-  "summaryJa": "ReAct、Toolformer、WebArenaが扱う問題を分け、ツール接続の成功と利用者の課題達成をどう評価するか考える。",
-  "summaryEn": "Distinguish the questions addressed by ReAct, Toolformer, and WebArena, then evaluate tool calls separately from the result a user needs.",
-  "seoDescriptionJa": "ReAct、Toolformer、WebArenaを読み、ツールの選択方法と課題達成の評価を整理。社内資料検索の仮想例で、成功条件の決め方を考える。",
-  "seoDescriptionEn": "Explore ReAct, Toolformer, and WebArena to distinguish tool-use methods from task success, with an internal document-search example.",
-  "teaserJa": "検索APIが応答しても、正しい回答とは限らない。研究の違いと、課題に即した成功条件を整理する。",
-  "teaserEn": "A successful API call is not a complete answer. Define task success using lessons from ReAct, Toolformer, and WebArena.",
+  "titleJa": "AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか",
+  "titleEn": "Why AI-agent comparison turned to measurable work design",
+  "summaryJa": "ReAct、Toolformer、WebArena、SWE-bench、OSWorldを比較し、AIエージェントを「道具を呼べるか」ではなく、環境内の仕事をどの条件で終えられるかで評価する理由を整理する。",
+  "summaryEn": "Compare ReAct, Toolformer, WebArena, SWE-bench, and OSWorld to show why agent evaluation needs conditions for completing work in an environment, not just evidence of a tool call.",
+  "seoDescriptionJa": "2025年初頭までのAIエージェント研究と公式資料を基に、ツール使用、環境操作、最終状態を分けて測る仕事設計を解説する。",
+  "seoDescriptionEn": "Using agent research and product documentation available by early 2025, this article maps separate measures for tool use, environment actions, and final task state.",
+  "teaserJa": "APIが応答しても、仕事が終わったとは限らない。研究ベンチマークが示した「測定可能な仕事」の設計をたどる。",
+  "teaserEn": "An API response does not prove that work is complete. Trace how agent benchmarks made task conditions measurable.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,10 +18,10 @@
   ],
   "publishedSources": [
     {
-      "label": "ReAct: Synergizing Reasoning and Acting in Language Models (v3)",
-      "url": "https://arxiv.org/html/2210.03629v3",
+      "label": "ReAct: Synergizing Reasoning and Acting in Language Models",
+      "url": "https://arxiv.org/abs/2210.03629",
       "type": "paper",
-      "publishedAt": "2023-03-10"
+      "publishedAt": "2022-10-06"
     },
     {
       "label": "Toolformer: Language Models Can Teach Themselves to Use Tools",
@@ -31,9 +31,51 @@
     },
     {
       "label": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
-      "url": "https://arxiv.org/abs/2307.13854v1",
+      "url": "https://arxiv.org/abs/2307.13854",
       "type": "paper",
       "publishedAt": "2023-07-25"
+    },
+    {
+      "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
+      "url": "https://arxiv.org/abs/2310.06770",
+      "type": "paper",
+      "publishedAt": "2023-10-10"
+    },
+    {
+      "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
+      "url": "https://arxiv.org/abs/2404.07972",
+      "type": "paper",
+      "publishedAt": "2024-04-11"
+    },
+    {
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/abs/2412.05467",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "AWS: Agents for Amazon Bedrock simplified creation and configuration",
+      "url": "https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/",
+      "type": "official",
+      "publishedAt": "2024-04-23"
+    },
+    {
+      "label": "Google Cloud: Build generative AI experiences with Vertex AI Agent Builder",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder",
+      "type": "official",
+      "publishedAt": "2024-04-09"
+    },
+    {
+      "label": "Anthropic: Claude can now use tools",
+      "url": "https://www.anthropic.com/news/tool-use-ga",
+      "type": "official",
+      "publishedAt": "2024-05-30"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
     }
   ],
   "draft": false

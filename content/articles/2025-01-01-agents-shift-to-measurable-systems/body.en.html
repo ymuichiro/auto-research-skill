@@ -1,21 +1,73 @@
 <section class="report-section">
-<h2>Separate tool-use methods from evidence of task completion</h2>
-<p>Search and calculation tools are useful building blocks for AI agents. A successful call, however, does not establish that the user's question has been answered. Looking at research available by January 1, 2025, ReAct and Toolformer address ways to use external information or functions, while WebArena provides an environment for evaluating completed web tasks.</p>
+  <p class="section-kicker">Question</p>
+  <h2>Why can’t an AI agent be compared merely by whether it can use a tool?</h2>
+  <p>Research published by January 1, 2025 had made a tool call or a one-shot response an insufficient unit of evaluation. <a href="https://arxiv.org/abs/2210.03629">ReAct</a> and <a href="https://arxiv.org/abs/2302.04761">Toolformer</a> study ways to incorporate outside information and APIs into action. <a href="https://arxiv.org/abs/2307.13854">WebArena</a>, <a href="https://arxiv.org/abs/2310.06770">SWE-bench</a>, and <a href="https://arxiv.org/abs/2404.07972">OSWorld</a> evaluate whether work is completed inside an environment. This does not prove that an entire market had changed at once. It does show a set of components for measuring tools, environments, and completion conditions in comparable forms.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Select an action</h3>
+      <p>Decide whether to retrieve information and which API and arguments to use.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Change an environment</h3>
+      <p>Read the state of a screen, repository, or dataset, then execute several actions in sequence.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Verify completion</h3>
+      <p>Judge final state, supporting evidence, and disallowed side effects against conditions for a specific job.</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>How ReAct and Toolformer select actions</h2>
-<p><a href="https://arxiv.org/html/2210.03629v3">ReAct</a> combines language reasoning with actions and uses external observations in subsequent decisions. Its question-answering experiments include Wikipedia search, lookup within a page, and an action to finish with an answer. This lets the model obtain information during the task.</p>
-<p>The results are not uniformly positive. In the PaLM-540B comparison, ReAct outperformed chain-of-thought prompting on FEVER but underperformed it on HotpotQA. The paper analyzes unhelpful search results and repeated actions as failure modes. Adding retrieval does not therefore establish an improvement for every question.</p>
-<p><a href="https://arxiv.org/abs/2302.04761v1">Toolformer</a> studies learning which APIs to call, when to call them, which arguments to pass, and how to incorporate results into subsequent text generation. Its tools include a calculator, search, and translation. It addresses learning tool use rather than prescribing the same implementation procedure as ReAct.</p>
+  <p class="section-kicker">Action design</p>
+  <h2>ReAct and Toolformer approach the same phrase, “tool use,” from different directions</h2>
+  <p>ReAct interleaves reasoning traces with task-specific actions and uses observations in later decisions. Its question-answering examples sequence Wikipedia search, lookup within a page, and an action that commits to an answer. The paper establishes that a model can acquire outside information during a task and leave a trajectory that a person can inspect. It evaluates particular benchmarks; it does not establish that adding external search improves every kind of question.</p>
+  <p>Toolformer proposes a self-supervised method for learning which API to call, when to call it, which arguments to pass, and how to incorporate a result into later generation. Its tools include a calculator, question answering, search, translation, and a calendar. It is not a replacement implementation recipe for ReAct. ReAct addresses the loop between reasoning and observation, while Toolformer addresses incorporating API calls into training. Reducing both to one success metric would hide that difference.</p>
+  <div class="callout-panel">
+    <p class="callout-title">What the sources establish</p>
+    <p>Tool-use design contains separate questions about selection, arguments, and use of an observation. A successful call is not evidence that the subsequent work is complete.</p>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>WebArena evaluates the completed task</h2>
-<p>The <a href="https://arxiv.org/abs/2307.13854v1">first version of WebArena</a> provides working websites for e-commerce, forums, collaborative software development, and content management. Its tasks assess functional completion, providing an environment in which the outcome of a sequence of actions can be evaluated.</p>
-<p>The design implication drawn here is to assess tool calls separately from task success. A response from a search API establishes connectivity. Whether it contains the necessary information, and whether the final answer meets the user's conditions, still requires evaluation. Results in a research environment also cannot be treated as success rates for a company's own websites or workflows.</p>
+  <p class="section-kicker">Completion conditions</p>
+  <h2>Environment benchmarks made final state, rather than an answer alone, the object of evaluation</h2>
+  <p>WebArena provides functioning web environments for e-commerce, forums, collaborative software development, and content management, then evaluates functional completion over long action sequences. In the April 2024 version of the paper, its best GPT-4-based agent reached 14.41% end-to-end task success while humans reached 78.24%. Those values belong to WebArena’s environment, tasks, and baseline at that time. They cannot be reused as a success rate for a company’s website automation or as a statement about current models.</p>
+  <p>SWE-bench supplies a codebase and issue description for 2,294 real GitHub issues and their corresponding pull requests across 12 Python repositories. The work resembles reading a problem, changing related files, and checking the final state with tests, rather than proposing a code fragment. OSWorld places 369 tasks in real computer environments spanning Ubuntu, Windows, and macOS, with initial-state configuration and execution-based evaluation scripts. Its reported comparison of 12.24% for the best model and 72.36% for humans is likewise an environment-specific measure that includes GUI grounding and operational knowledge.</p>
+  <p>The public version of <a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> aimed to put several web-agent benchmarks under shared observation and action spaces and to make experiment management more consistent. Across these efforts, the common lesson is that evaluating an agent requires more than an input prompt: the initial state, permitted actions, and completion checker must be explicit.</p>
 </section>
+
 <section class="report-section">
-<h2>Define the answer conditions for internal document search</h2>
-<p>Consider a hypothetical question about a device's maintenance deadline. A search result about an older model does not support the answer, even if the API call succeeds. The deadline may depend on the exact model and contract.</p>
-<p>For this task, a proposed evaluation would require the correct model, applicable document version, and passage stating the deadline. It should also credit identifying missing evidence when the document or contract information is unavailable, rather than asserting a date. Compare the system with and without the tool on the same questions, recording answers that meet these conditions alongside time and call counts.</p>
-<p>That comparison can establish which questions benefit from retrieval. The proposal is to pair a mechanism for selecting actions with an evaluation of the result the user actually needs.</p>
+  <p class="section-kicker">Product surface</p>
+  <h2>Official building features supplied components for implementing a work boundary, not measurement by themselves</h2>
+  <p>The 2024 update to <a href="https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/">Amazon Bedrock Agents</a> included action groups, simplified configuration, return of control to an invoking application, and Infrastructure as Code. <a href="https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder">Vertex AI Agent Builder</a> and Claude <a href="https://www.anthropic.com/news/tool-use-ga">tool use</a> likewise documented options for composing applications that connect knowledge sources and external functions. Vendor documentation alone does not guarantee that a user’s work has been completed correctly.</p>
+  <p>These components can nevertheless make a chosen work boundary easier to implement. A team can specify allowed APIs, the point at which control returns to its application, and the sources that may be consulted as configuration rather than only as model instructions. The distinction between workflows and agents in <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> is also a useful design reference for choosing a degree of control that fits the work, instead of presuming universal autonomy.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Make it concrete</p>
+  <h2>For “find the maintenance deadline in internal documents,” write the scorecard first</h2>
+  <p>The following is a hypothetical application of the research, not a reported deployment. A user asks for a device’s maintenance deadline and an agent searches internal documents. An API response is insufficient. A document for an older model is the wrong evidence even if the operation succeeded. If the deadline depends on model number or contract, generating a plausible date is not completion either.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Inputs and permitted actions</h3>
+      <p>Specify a model number, contract identifier, and searchable document repositories. Do not include external delivery or contract changes in this job.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Evidence of completion</h3>
+      <p>Return the applicable document version, the passage stating the deadline, and its correspondence to the contract. Treat “unknown because evidence is missing” as a correct outcome when appropriate.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Records to compare</h3>
+      <p>On the same set of questions, record answers meeting the conditions, evidence mismatches, time, and call count. Aggregate these separately from raw API success.</p>
+    </article>
+  </div>
+  <p>This scorecard does not import a research benchmark score into an organization. It is a design example for spelling out local initial and final states, as environment benchmarks do for their own tasks.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Design conclusion</p>
+  <h2>Measurable work is needed to make failures legible, not to make a demo smaller</h2>
+  <p>The most useful implication of the early-2025 research and product material is to avoid comparing agents through a list of apparent capabilities. Separating tool selection, actions in an environment, and final state makes it possible to tell whether a search chose the wrong document, an operation stopped partway through, or the completion condition was vague. This article calls that separation measurable system design.</p>
+  <p>A benchmark success rate or a documented product feature still cannot be generalized directly into an organization’s business outcome. Start with work whose source boundary and final state are easy to specify and whose external side effects are limited. Then use recorded failures to revise permitted actions and completion conditions. That is how a striking demo can become work that an organization can operate.</p>
 </section>
