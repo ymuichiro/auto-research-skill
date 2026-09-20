@@ -1,21 +1,46 @@
 <section class="report-section">
-<h2>Using a coding loop for analysis and research</h2>
-<p>Reading files, writing a procedure, running it, and revising the result can support CSV analysis and document research as well as software development. Anthropic's September 2025 renaming of the Claude Code SDK to the Claude Agent SDK described that broader application.</p>
-<p>Execution tools do not supply the business definition of a correct result. This article separates the SDK's work loop from Looker MCP Server's access to defined metrics. They address different problems rather than replacing one another.</p>
+  <p class="section-kicker">Question</p>
+  <h2>What becomes reusable when an agent SDK enters a general workflow?</h2>
+  <p>The <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDK announcement</a> describes the machinery used in Claude Code as components that can also support agents for research, document creation, and customer support. Its core is a loop: gather context, use tools to act, verify the result, and choose the next action. A broader name and a list of use cases do not show that these workflows are widely adopted or that they automatically produce a business-correct result.</p>
+  <p>In this article, bringing an agent SDK into a general workflow means treating its execution loop and tool connections as reusable application components, rather than using it only for code generation. It does not decide what counts as revenue, who may see data, or when a result may be finalized outside the organization. A monthly-report scenario separates responsibility for controlling execution from responsibility for accepting a result as business-correct.</p>
 </section>
+
 <section class="report-section">
-<h2>The SDK supports repeated collection, action, and checking</h2>
-<p>The <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDK article</a> describes applying file and command tools to activities such as research and support, organized around gathering information, acting, and checking work. A broader name does not establish success rates for those uses.</p>
-<p>For a hypothetical monthly report, an agent could read a CSV, generate aggregation code, and inspect the output before revising it. Valid syntax is only an initial check. The reporting period, missing values, duplicate rows, and currency handling must also match the requirements.</p>
+  <p class="section-kicker">Documented capability</p>
+  <h2>Claude Agent SDK supplies the structure for repeated work</h2>
+  <p>Anthropic describes an SDK agent working through a “gather context → take action → verify work → repeat” loop. It can combine file search and editing, command execution, and external tools. Subagents can support parallel work and isolated context, while a compaction feature summarizes context for longer-running work.</p>
+  <p>That makes it easier to embed work that changes its procedure after intermediate observations, rather than returning one answer for one input. It does not supply the reporting period, a definition of revenue net of returns, a user’s role, or the approver of a final report. The first group is documented product capability; the second is a set of rules the organization implementing the workflow must define.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Control points the SDK provides to an application</h3>
+      <p>It provides components for gathering context, calling tools, repeating work, dividing work among subagents, and checking results. The application still implements what enters each stage and which tools are allowed.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Business rules left to the application and organization</h3>
+      <p>The SDK’s use cases do not determine which data definition to use, how to handle values outside a user’s authority, when contradictory results must stop, or who must confirm an external result.</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>Generated code should not invent the revenue definition</h2>
-<p>Google's <a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server">Looker MCP Server announcement</a> describes AI querying Looker's semantic layer, with Looker generating SQL. The semantic layer defines metrics and aggregation rules in advance, offering agents a route to existing business definitions.</p>
-<p>If revenue is defined net of returns, summing a CSV amount column may produce a different result. Even with an established metric, the selected period and filters must match the question. Connectivity does not guarantee correct interpretation.</p>
+  <p class="section-kicker">Connecting to data definitions</p>
+  <h2>Being able to run a calculation does not define what revenue means</h2>
+  <p>The <a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server">Looker MCP Server announcement</a> describes AI applications connecting to Looker’s semantic layer to refer to predefined metrics and access controls. Its stated arrangement is that the AI queries Looker and Looker generates the SQL, rather than the AI improvising SQL. The connection therefore provides a route for linking the word “revenue” to an existing definition.</p>
+  <p>Connection still does not make an interpretation of the request correct. For an instruction to report “this month’s revenue,” the organization must match the request’s purpose to a defined metric: recognized revenue net of returns, order value, or billed value, for example. Checking whether the selected metric, reporting period, and filters fit the request remains separate work from calling the tool.</p>
+  <p>Google’s <a href="https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox">Firestore MCP Toolbox announcement</a> similarly presents tools for an agent to query and update data and validate security rules. Its retail-application story is a vendor-provided hypothetical example, not a deployment case. What it makes concrete is that tool connectivity can extend beyond reading into updates and rule checks, so execution permission and final business judgment need separate design.</p>
 </section>
+
 <section class="report-section">
-<h2>Check both the calculation and its meaning on one report</h2>
-<p>For this example, prepare a verified aggregation for the same period and compare the agent's result. Investigate differences in source data, metric selection, filtering, and calculation. Producing the artifact and defining acceptance conditions are separate tasks.</p>
-<p>An initial trial could use read-only inputs and save generated files elsewhere. Define whether missing evidence causes a stop or an explicitly unverified result. These are proposed test conditions, not descriptions of either product's defaults.</p>
-<p>The value of using an SDK beyond coding is not established by the number of suggested applications. Check how reliably it can retrieve, calculate, and verify one artifact, then decide which tools and human checks that work needs.</p>
+  <p class="section-kicker">Scenario</p>
+  <h2>For a monthly report, keep the value, definition version, and approval in one record</h2>
+  <p>This is a design scenario from this article. An accounting team asks for a report of domestic revenue for September. The application uses the Claude Agent SDK loop to extract the period and region from the request and retrieves candidate metrics through Looker MCP. Its output records more than the amount: it also records the metric name, the definition version consulted, period, regional filter, and retrieval time.</p>
+  <p>The application then compares the definition version with the updated date and approved reporting rules. If the request assumes an older definition or the meaning of the question does not match the metric, it does not distribute the amount as a final result. It stops with the mismatch and missing information. Only after the conditions hold does it pass a draft to the designated reviewer; the reviewer’s approval makes it an external report. This stopping and approval behavior is proposed application control, not a default behavior of either product.</p>
+  <p>With that record, a later question about the figure can be investigated through the definition, input, filter, and confirmation path, rather than through model wording alone. The reusable value of an SDK lies less in adding names of possible use cases than in composing retrieval, calculation, and checking into one execution path.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Keeping the boundary</p>
+  <h2>An SDK can widen execution without removing business correctness from the application</h2>
+  <p>The <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Microsoft Agent Framework announcement</a>, published on the same day, also describes an SDK and runtime together, including product features for connections, orchestration, observability, and human approval. It is one example of how “SDK” can refer to more than a small code-assistance library. Its feature list does not establish that every SDK has the same controls or that adoption has become widespread.</p>
+  <p>When selecting an SDK, the useful question is not only whether it can serve use cases beyond coding. It is where the team will reuse the execution loop and where it will keep business definitions, authorization, records, and approval. Making execution a general component does not remove the evidence and accountable person needed to accept an artifact as business-correct. Where that division is designed first, an SDK can become an execution component for work beyond code generation.</p>
 </section>
