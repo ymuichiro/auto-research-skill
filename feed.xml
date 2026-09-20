@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:28:50 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 08:06:19 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -115,8 +115,8 @@
       <title>MCP、A2A、AG-UIは何を受け渡すのか</title>
       <link>https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html</guid>
-      <pubDate>Sat, 19 Sep 2026 08:50:44 GMT</pubDate>
-      <description>MCP、A2A、AG-UIの違いを、ツール呼び出し、タスクの受け渡し、画面表示から比較。仕様の重なりと承認処理の設計を解説する。</description>
+      <pubDate>Sun, 20 Sep 2026 08:06:19 GMT</pubDate>
+      <description>返金処理を例に、MCP、A2A、AG-UIが接続、委任、画面表示で何を受け渡すかを整理し、承認と実行をアプリケーション側で設計する。</description>
       <category>AI Agents</category>
     </item>
     <item>
