@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:17:34 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 07:24:51 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -147,8 +147,8 @@
       <title>What chat and editing interfaces each contribute to AI work</title>
       <link>https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html</guid>
-      <pubDate>Sat, 19 Sep 2026 09:04:48 GMT</pubDate>
-      <description>Use Canvas, Pages, and Cocoa to compare conversational requests with direct selection, shared editing, and interactive plans in AI interfaces.</description>
+      <pubDate>Sun, 20 Sep 2026 07:24:51 GMT</pubDate>
+      <description>Use Canvas, Pages, and Cocoa to decide where an AI interface should place requests, direct artifact editing, plan review, and approval.</description>
       <category>AI Strategy</category>
     </item>
     <item>
