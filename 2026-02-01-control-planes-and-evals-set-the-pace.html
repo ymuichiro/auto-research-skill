@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る | Auto Research Digest</title>
-    <meta name="description" content="エージェントの更新で既存の仕事を壊していないか。回帰評価、ワークフローの版管理、採点器の確認を、問い合わせ対応の例で解説。">
+    <title>エージェントの変更を判断するために、何を比較し記録するか | Auto Research Digest</title>
+    <meta name="description" content="エージェントの変更候補を、能力評価・回帰評価・採点器・実行トレース・承認条件でどう比較するかを問い合わせ対応の例で解説。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る | Auto Research Digest">
-    <meta property="og:description" content="エージェントの更新で既存の仕事を壊していないか。回帰評価、ワークフローの版管理、採点器の確認を、問い合わせ対応の例で解説。">
+    <meta property="og:title" content="エージェントの変更を判断するために、何を比較し記録するか | Auto Research Digest">
+    <meta property="og:description" content="エージェントの変更候補を、能力評価・回帰評価・採点器・実行トレース・承認条件でどう比較するかを問い合わせ対応の例で解説。">
     <meta property="og:url" content="https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る">
+    <meta property="og:image:alt" content="エージェントの変更を判断するために、何を比較し記録するか">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る | Auto Research Digest">
-    <meta name="twitter:description" content="エージェントの更新で既存の仕事を壊していないか。回帰評価、ワークフローの版管理、採点器の確認を、問い合わせ対応の例で解説。">
+    <meta name="twitter:title" content="エージェントの変更を判断するために、何を比較し記録するか | Auto Research Digest">
+    <meta name="twitter:description" content="エージェントの変更候補を、能力評価・回帰評価・採点器・実行トレース・承認条件でどう比較するかを問い合わせ対応の例で解説。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る">
+    <meta name="twitter:image:alt" content="エージェントの変更を判断するために、何を比較し記録するか">
     <link rel="canonical" href="https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html">
@@ -43,14 +43,14 @@
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
     <meta property="article:published_time" content="2026-02-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-19T18:16:23+09:00">
+    <meta property="article:modified_time" content="2026-09-20T14:43:53+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Evaluation">
     <meta property="article:tag" content="Control Plane">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る","description":"エージェントの更新で既存の仕事を壊していないか。回帰評価、ワークフローの版管理、採点器の確認を、問い合わせ対応の例で解説。","datePublished":"2026-02-01T00:00:00+09:00","dateModified":"2026-09-19T18:16:23+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Evaluation, Control Plane","mainEntityOfPage":"https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る","item":"https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"エージェントの変更を判断するために、何を比較し記録するか","description":"エージェントの変更候補を、能力評価・回帰評価・採点器・実行トレース・承認条件でどう比較するかを問い合わせ対応の例で解説。","datePublished":"2026-02-01T00:00:00+09:00","dateModified":"2026-09-20T14:43:53+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Evaluation, Control Plane","mainEntityOfPage":"https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"エージェントの変更を判断するために、何を比較し記録するか","item":"https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,8 +66,8 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る</h1>
-          <p class="hero-copy">エージェントの更新では、新しい課題の改善が既存業務の後退を隠すことがある。評価課題、処理手順の版、実行記録を対応付け、採点の誤りも確認する方法を考える。</p>
+          <h1 class="hero-title">エージェントの変更を判断するために、何を比較し記録するか</h1>
+          <p class="hero-copy">新しい問い合わせで改善しても、既存の返金や引き継ぎを壊していないとは限らない。能力評価と回帰評価、処理定義と採点基準の版、実行トレース、承認条件を対応付けて、変更候補を判断する方法を整理する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
@@ -75,12 +75,12 @@
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-02-01">2026年2月1日</time>
-        <time class="mono-note" datetime="2026-09-19">最終更新 2026年9月19日</time>
+        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Control Plane</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E6%9B%B4%E6%96%B0%E3%81%AE%E5%9B%9E%E5%B8%B0%E8%A9%95%E4%BE%A1%EF%BC%9A%E7%9B%B4%E3%81%97%E3%81%9F%E4%BB%95%E4%BA%8B%E3%81%A8%E5%A3%8A%E3%82%8C%E3%81%9F%E4%BB%95%E4%BA%8B%E3%82%92%E5%88%86%E3%81%91%E3%81%A6%E8%A6%8B%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-02-01-control-planes-and-evals-set-the-pace.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E5%A4%89%E6%9B%B4%E3%82%92%E5%88%A4%E6%96%AD%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%81%AB%E3%80%81%E4%BD%95%E3%82%92%E6%AF%94%E8%BC%83%E3%81%97%E8%A8%98%E9%8C%B2%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-02-01-control-planes-and-evals-set-the-pace.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る"
-      data-share-text="エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る"
+      data-share-title="エージェントの変更を判断するために、何を比較し記録するか"
+      data-share-text="エージェントの変更を判断するために、何を比較し記録するか"
       data-share-url="https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="エージェント更新の回帰評価：直した仕事と壊れた仕事を分けて見る"
+      data-share-title="エージェントの変更を判断するために、何を比較し記録するか"
       data-share-url="https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,44 +124,49 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>一つの失敗を直して、別の仕事を壊していないか</h2>
-<p>問い合わせを正しく振り分けるために指示を直したところ、以前は人へ引き継いでいた相談まで自動回答するようになった。
-これは想定例だが、エージェントを更新するときに確認したい問題を示している。
-修正対象の成功だけでなく、維持すべき動作が残っているかを確かめる必要がある。</p>
-<p>本稿では、2026年1月のAnthropicの評価記事と、2025年11月のFoundryワークフロー発表から、その確認を繰り返す方法を考える。
-両資料は評価と処理手順を管理する手がかりになる。
-ただし、導入速度を決める唯一の条件や、すべての企業が採用した標準を示すものではない。</p>
+  <p class="section-kicker">変更前に問うこと</p>
+  <h2>新しい問い合わせを直して、既存の返金や引き継ぎを壊していないか</h2>
+  <p>問い合わせ分類の指示を変えた結果、新商品の複雑な質問には適切に答えられるようになったが、以前は担当者へ引き継いでいた返品相談にも自動回答するようになった。これは本稿の想定例である。修正した課題での成功だけでは、維持すべき既存の動作まで残ったとは分からない。</p>
+  <p>本稿では、変更候補を受け入れる前に何を比較し、何を記録すべきかを扱う。結論は「評価が更新速度を決める」という一般則ではない。回帰を検出できない環境では、変更が影響する範囲を安全に判断できないため、更新できる範囲が狭くなるという運用上の見立てである。</p>
 </section>
+
 <section class="report-section">
-<h2>新しい能力を探す課題と、失ってはいけない課題を分ける</h2>
-<p>Anthropicの<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">エージェント評価の解説</a>は、まだ苦手な課題で能力を測る評価と、以前できた仕事の後退を検出する回帰評価を区別する。
-前者の成績を伸ばすときも、後者を同時に確認するという考え方だ。</p>
-<p>問い合わせ対応なら、新商品の複雑な質問を解く課題と、既存商品の返品条件を正しく案内する課題では役割が異なる。
-両方を一つの平均点にすると、新しい課題の改善が既存業務の悪化を隠しかねない。
-どの業務を維持する必要があるかを決め、その課題群の成績を別に表示したい。</p>
-<p>さらに、引き継ぎが必要な質問には、引き継ぐこと自体を成功条件として設定する。
-自動回答率だけを上げる目標では、答えられない質問に答える構成が有利になってしまう。
-評価する行為と業務上の目的を合わせることが先に必要だ。</p>
+  <p class="section-kicker">評価の役割</p>
+  <h2>能力を伸ばす評価と、失ってはいけない仕事を守る評価を分ける</h2>
+  <p><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropicの評価解説</a>は、苦手な課題を対象に能力の伸びを測る評価と、以前できた仕事が後退していないかを調べる回帰評価を分ける。前者は低い合格率から改善の余地を探し、後者はほぼ完全に近い合格率を維持して後退を知らせる、という役割の違いがある。</p>
+  <p>問い合わせ対応なら、新商品の複雑な質問を正しく分類する課題は能力評価に置ける。一方、返品条件が曖昧な相談を担当者へ引き継ぐ、本人確認前に返金道具を呼ばない、返金額の条件を越えたときに停止する、といった既存の振る舞いは回帰評価に置く。一つの平均点では、新しい分類の改善が危険な自動応答や誤った道具呼び出しを隠し得る。</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>能力評価の質問</h3>
+      <p>候補版は、これまで苦手だった新商品の問い合わせを、必要な資料を用いて適切な分類へ導けるか。改善の余地を測るための課題である。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>回帰評価の質問</h3>
+      <p>現行版で守れていた引き継ぎ、本人確認、返金条件、失敗時の停止が候補版でも残るか。既存の約束を壊していないかを測る課題である。</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>評価結果を、実際に使った処理手順へ結び付ける</h2>
-<p>Microsoftの<a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundryワークフローの公開プレビュー発表</a>では、保存ごとに変更不能な版を作る機能と、分岐や変数を追跡する機能が説明された。
-初期リリースの観測はワークフロー内の個々のエージェントを中心とする、という範囲も記されている。</p>
-<p>こうした機能を使う場合も、画面に実行履歴があるだけでは十分ではない。
-どのモデル、指示、分岐条件を使い、どの質問集と採点基準で評価したかを対応付ける。
-質問集を変えた後の点数と、変更前の点数をそのまま比較しないためである。</p>
-<p>冒頭の例なら、振り分けの指示を変えた版で、返品案内と人への引き継ぎがどう変わったかを調べる。
-失敗した試行の記録を読むと、分類を誤ったのか、正しい分類の後で分岐を誤ったのかを切り分けられる場合がある。
-結果の採点と途中経過の調査は、異なる役割を持つ。</p>
+  <p class="section-kicker">比較票</p>
+  <h2>候補版と現行版を、同じ仕事・採点・実行条件で並べる</h2>
+  <p>比較票には、少なくとも評価課題の版、各課題の入力と成功条件、採点器と基準、モデルと指示、道具と分岐条件、実行環境、候補版または現行版の処理定義を記録する。Anthropicはタスク、試行、採点器、トレース、最終状態、評価スイートを別々に定義している。これらを一つの「スコア」に潰す前に対応付けることで、何が変わった結果なのかを調べられる。</p>
+  <p>例えば候補版が新商品の分類を改善し、返品相談の引き継ぎを失敗したとする。同じ評価課題、同じ採点基準、隔離された状態の環境で現行版と候補版を複数回走らせる。モデル出力は試行ごとに変わるため、単発の成功だけで受け入れない。評価課題や採点基準を途中で変えた場合は、以前の結果と直接比較せず、新しい基準として記録する。</p>
+  <p><a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundryワークフローの公開プレビュー</a>は、保存ごとの不変版、変数・分岐の追跡、評価器を説明する。こうした機能は処理定義と実行記録を結び付ける材料になる。ただし、初期の観測はワークフロー内の個々のFoundryエージェントが中心であるため、画面にトレースがあることを外部操作すべての完全な証跡と扱わない。</p>
 </section>
+
 <section class="report-section">
-<h2>採点の誤りも、更新判断の前に確認する</h2>
-<p>評価で落ちた回答が、実は別の正しい言い方だった可能性もある。
-Anthropicの解説も、コード、モデル、人による採点にはそれぞれ得意不得意があると整理している。
-登録の有無のような状態はプログラムで確認し、説明の適切さのように判断を伴う部分は、人の評価と突き合わせながら扱う。</p>
-<p>更新時には、点数が変わった課題を読み、実際の後退か、採点基準の問題かを調べる。
-そのうえで、既存業務への影響、追加費用、人の対応量を見て公開を判断する。
-評価基盤を置くだけで導入が速くなるとは言えないが、何を根拠に更新したかを説明し、問題のある変更を見つける助けにはなる。</p>
+  <p class="section-kicker">失敗を読む</p>
+  <h2>点数が変わった理由を、採点器とトレースの両方から確かめる</h2>
+  <p>候補版が回帰評価で落ちたとき、まず確認するのは最終状態である。返品相談が正しく担当者へ引き継がれたか、本人確認の後にだけ返金処理が走ったか、承認待ちの案件が外部へ確定していないかを、状態として検査する。結果だけでは原因を決められないため、次にトレースを読み、分類を誤ったのか、分類後の分岐を誤ったのか、許可されない道具を選んだのかを分ける。</p>
+  <p>採点器も検査対象である。コードによる採点は状態やパラメータを速く再現可能に確認できる一方、正しい別表現を落とすことがある。モデルによる採点は説明の質などを扱えるが、非決定的で、人の評価との較正が必要である。Anthropicは、解ける参照解を用意し、採点器が正しく設定されているかを確かめ、失敗時のトレースと採点結果を読むことを勧める。点数の低下を即座にエージェントの劣化と決めない理由がここにある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">受け入れの条件</p>
+  <h2>改善、回帰、承認待ちを同じリリース判断へ渡す</h2>
+  <p>更新候補を受け入れる条件は、能力評価が上がったことだけにしない。既存の回帰スイート、道具の副作用、処理時間や費用、人の引き継ぎ量、承認待ちの扱いを、変更の目的と照らして確認する。たとえば、新商品の問い合わせで改善しても、本人確認前の返金を許すようになった候補は公開しないという条件を置ける。</p>
+  <p>この条件は製品の既定値ではなく、利用者と業務規則に応じて組織が定める。評価・版・トレースを持つ価値は、より多くの変更を急いで公開することではない。どの変更がどの既存の約束に影響し、誰がその例外を受け入れたかを説明できるようにすることにある。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -256,7 +261,7 @@ Anthropicの解説も、コード、モデル、人による採点にはそれ�
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2025年11月25日</span>
               </div>
-              <p class="source-title">Microsoft: Introducing multi-agent workflows in Azure AI Foundry Agent Service</p>
+              <p class="source-title">Microsoft: Introducing Multi-Agent Workflows in Foundry Agent Service</p>
               <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/</p>
             </div>
             <span class="source-action">開く</span>
