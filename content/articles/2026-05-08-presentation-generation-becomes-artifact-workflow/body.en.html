@@ -4,6 +4,28 @@
 <p>Keeping the title as text and the chart as a chart object with data allows separate update steps. My proposal is to decide who will revise which elements, and in which application, before choosing a generation service. Testing the next revision alongside the initial appearance provides a more useful way to judge the delivery format.</p>
 </section>
 <section class="report-section">
+<h2>Treat the deck as an artifact from request through acceptance</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Decompose the request</h3>
+<p>Separate fixed brand elements from numbers, charts, and notes that change next week. Include the editor and receiving application among the request conditions.</p>
+</article>
+<article class="comparison-card">
+<h3>Choose the generated format</h3>
+<p>Decide which parts remain background images, SVGs, text, or chart objects. A matching appearance can still lead to different possible next edits.</p>
+</article>
+<article class="comparison-card">
+<h3>Perform the next revision</h3>
+<p>Change one value, update a chart, and correct a note. Check whether the owner needs to return to the generation environment or can edit in the receiving application.</p>
+</article>
+<article class="comparison-card">
+<h3>Confirm acceptance</h3>
+<p>Open it in PowerPoint or Google Slides and inspect wrapping, placement, values, and charts. Separate successful file generation from successful editing by the recipient.</p>
+</article>
+</div>
+<p>This does not mean images are always the wrong choice. A deck can use an image for decoration that will not change and separate elements for information that will.</p>
+</section>
+<section class="report-section">
 <h2>Images, SVGs, and slide objects offer different edits</h2>
 <p>A background illustration may work perfectly well as one image. Baking frequently changing amounts and notes into that background, however, makes a text correction require image rework. A slide can separate fixed decoration from information that will change.</p>
 <p>An SVG can preserve sharp outlines when enlarged, but that does not turn its contents into PowerPoint text or chart objects. Microsoft's documentation distinguishes resizing or recoloring a whole SVG from converting it to shapes to edit individual parts; conversion also has environment requirements. The <a href="https://support.microsoft.com/en-us/office/graphics-visuals/edit-svg-images-in-microsoft-365">SVG editing guide</a> is a reason to test the required edit in the recipient's application.</p>
