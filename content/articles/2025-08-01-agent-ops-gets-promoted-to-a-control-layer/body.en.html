@@ -1,21 +1,30 @@
 <section class="report-section">
-<h2>Visible execution and recoverable execution are different</h2>
-<p>Execution records help investigate an agent that stopped, but do not automatically undo partial updates or make retries safe. Observability, status retrieval, and recovery should be assessed separately.</p>
-<p>The March 2025 Agents SDK announcement and May Responses API background-mode release provide examples. This is a way to interpret operational features, not evidence of an industry-wide shift in buying criteria.</p>
+  <p class="section-kicker">Question</p>
+  <h2>Why does visible execution history not mean that recovery is safe?</h2>
+  <p>As an agent uses tools, outside data, and several roles, its outcome is insufficient without an account of its path. Azure AI Foundry, <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">Responses API</a>, Semantic Kernel, and MCP/A2A material document components for traces, sessions, run history, connections, and permissions. This article calls the surface used to observe, review, stop, and improve execution AgentOps. A trace does not prove that an external action happened exactly once or that retrying it is safe.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card"><h3>Observe</h3><p>Retain inputs, tool calls, state, outputs, and failures.</p></article>
+    <article class="comparison-card"><h3>Control</h3><p>Define who may use a connection and which actions require review or approval.</p></article>
+    <article class="comparison-card"><h3>Recover</h3><p>Choose retry, cancellation, or human handoff after reconciling external state.</p></article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>A trace provides material for investigating progress</h2>
-<p>OpenAI's <a href="https://openai.com/index/new-tools-for-building-agents/">March Agents SDK announcement</a> introduced visualization of execution traces for debugging and improvement. It adds information beyond the final answer.</p>
-<p>For an incorrect support response, a record may help distinguish missing search, retrieval of the wrong material, and misinterpretation after retrieval. It cannot reveal unrecorded processing in a connected service. Check whether the inputs, tool results, and external state needed for a relevant investigation can be associated.</p>
+  <p class="section-kicker">Scope of the material</p>
+  <h2>Tracing and orchestration create records for investigating a failure</h2>
+  <p>Foundry agent services and Semantic Kernel orchestration are examples of platforms for roles, tools, and execution. Responses API background mode offers a way to inspect a long-running operation after it begins. MCP data connections and A2A task lifecycles add contracts for more connections and states. These materials document capability and configuration; they do not establish that an organization can recover safely.</p>
+  <p><a href="https://arxiv.org/abs/2411.15114">RE-Bench</a> and <a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> evaluate outcomes influenced by environments, time, and tools. The design implication is not to attribute every failure immediately to a model. Records must make it possible to investigate input, environment, authority, and execution path.</p>
 </section>
+
 <section class="report-section">
-<h2>Background mode changes how an application waits</h2>
-<p>The <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">May Responses API update</a> added asynchronous background execution for longer tasks, with polling or streaming events to follow progress.</p>
-<p>This helps design long-running experiences. It should not be read as a guarantee that arbitrary business operations recover automatically or that external updates happen exactly once. Retrieving completion status and retrying a side-effecting operation are separate concerns.</p>
+  <p class="section-kicker">Hypothetical example</p>
+  <h2>Decide whether a ticket can be retried safely after a connection loss</h2>
+  <p>This is a design example. An agent loses connection while creating a customer ticket. A trace saying that it called the creation API leaves the result indeterminate. The request may not have arrived; a ticket may have been created but its response lost; or an existing ticket may have matched the same input. History alone may not distinguish these cases.</p>
+  <p>Recovery first reconciles external state with an identifier or idempotency key. Do not retry if a ticket exists. Retry only when nonexistence can be confirmed. If reconciliation is impossible, hand a person the indeterminate state, input content, and last verified external state. A trace supports this judgment; it does not replace reconciliation, duplicate prevention, or permission checks.</p>
 </section>
+
 <section class="report-section">
-<h2>Test a connection failure immediately after ticket creation</h2>
-<p>Imagine an agent creating a support ticket, then losing the connection before receiving the response. The application may show failure even though the ticket exists. Repeating creation could produce a duplicate.</p>
-<p>A possible design retains an identifier for the request and checks external state before deciding to retry. If the service provides duplicate-prevention behavior, follow its contract. Unknown outcomes need explicit handling, potentially including human review.</p>
-<p>Test separately whether the record explains the failure, the interface communicates the current status, and recovery avoids duplicate registration. Operational features are best assessed through the failures they can handle.</p>
+  <p class="section-kicker">Conclusion</p>
+  <h2>AgentOps makes recovery decisions evidence-based; it does not automate recovery by itself</h2>
+  <p>The control layer described here puts traces, review, permissions, and recovery outside a model. With more connections and roles, a team must know not only what actions occurred but what remains indeterminate. Defining reconciliation, retry, cancellation, and human handoff for each failure type, then retaining the records those decisions require, is a condition for operating agents.</p>
 </section>
