@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 08:25:02 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 08:26:38 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -59,7 +59,7 @@
       <title>How to compare permissions, approvals, and evaluation in agent platforms</title>
       <link>https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html</guid>
-      <pubDate>Sat, 05 Sep 2026 11:09:14 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 08:26:38 GMT</pubDate>
       <description>Use a ticket-update task to compare agent platform permissions, approvals, traces, and evaluation, including responsibilities left to existing systems.</description>
       <category>AI Agents</category>
     </item>
