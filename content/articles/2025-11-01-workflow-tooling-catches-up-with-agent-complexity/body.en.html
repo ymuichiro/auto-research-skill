@@ -1,17 +1,46 @@
 <section class="report-section">
-<h2>Which development work does an agent toolkit take over?</h2>
-<p>Embedding an agent in a product involves a user interface, data connections, execution logic, and evaluation. The October 2025 AgentKit and Microsoft Agent Framework announcements offered different ways to supply parts of that work. The useful comparison is what the provider handles and what the application team still builds.</p>
-<p>This article examines the announcements as of November 2025. A product suite and an embeddable SDK are not interchangeable products to rank by feature count.</p>
+  <p class="section-kicker">Starting comparison</p>
+  <h2>Which implementation work do agent-development toolkits remove, and which design do they leave behind?</h2>
+  <p>Putting an agent into a product requires more than code that calls a model. It needs an interface for users, connections to external data, treatment of intermediate work, evaluation, and a failure state. AgentKit, Microsoft Agent Framework, and Claude Agent SDK, released in October 2025, do not supply those parts in the same form. One includes a supplied interface and visual workflow definition; another centers on an SDK and runtime; another lets an application compose an iterative loop in code.</p>
+  <p>This article's conclusion is that saved implementation work alone cannot determine the choice. Remaining work changes with what the existing application already has, who counts as a user, which data they may see, and which actions require human approval. The useful comparison is which boundary is delegated to the toolkit and which remains in the product, rather than a count of product names or features.</p>
 </section>
+
 <section class="report-section">
-<h2>A product suite with UI components versus an embedded runtime</h2>
-<p>OpenAI's <a href="https://openai.com/index/introducing-agentkit/">AgentKit announcement</a> introduced Agent Builder for workflow editing, Connector Registry for managing connections, and ChatKit for embedded chat interfaces. Availability differed: Agent Builder launched in beta, while Connector Registry began a limited beta rollout.</p>
-<p>Microsoft's <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Agent Framework announcement</a> described an open-source SDK and runtime combining ideas from Semantic Kernel and AutoGen. It addressed both predetermined workflows and model-directed orchestration. Some integration with Microsoft 365 and a shared Foundry runtime was described as a future direction.</p>
-<p>These differences change what a prototype should test. With a supplied interface, check whether it presents the required actions and integrates with user authentication. With embedded execution code, check integration with the application's state and failure handling. The same agent label does not imply the same remaining implementation work.</p>
+  <p class="section-kicker">Supplied boundaries</p>
+  <h2>Interfaces, workflow definition, and execution loops arrive in different forms</h2>
+  <p><a href="https://openai.com/index/introducing-agentkit/">OpenAI’s AgentKit announcement</a> introduced Agent Builder for visual workflow definition and versioning, Connector Registry for managing connections, ChatKit for embedding a chat interface, and Evals features including datasets and trace grading. Availability was not uniform at launch: ChatKit and the new Evals capabilities were generally available, Agent Builder was in beta, and Connector Registry was in beta for a limited set of customers. The supplied value is part of the foundation for drawing workflows, embedding chat, and beginning evaluation.</p>
+  <p>The <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Microsoft Agent Framework announcement</a> describes an open-source SDK and runtime for tool connections, predetermined workflows and model-directed orchestration, observability, and human approval. These are components for teams that want to embed execution in an existing application and control its path in code or workflows. Its discussion of integration with Microsoft 365 and a shared runtime also includes future plans, which should not be treated as already available features.</p>
+  <p>The <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDK announcement</a> describes an execution loop that gathers context, acts, verifies work, and repeats, along with files and commands, subagents, and context compaction for longer runs. Rather than providing a prebuilt business interface, it supplies components with which an application passes in the tools and rules needed for a loop. The three offerings overlap, but they are not the same kind of product.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>What a toolkit can take on</h3>
+      <p>It can provide a starting structure for workflow drafting and versioning, connection setup, chat interfaces, repeated execution, observation of intermediate work, and evaluation. Each announcement covers a different portion of that range.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>What remains with the product</h3>
+      <p>The application still determines evidence for customer identity, role-specific data permission, business rules for refunds, explanations in the existing interface, storage contracts, and the responsible person when a process fails.</p>
+    </article>
+  </div>
 </section>
+
 <section class="report-section">
-<h2>Compare one request from the interface to the saved result</h2>
-<p>Imagine a small feature that accepts a support question and saves a draft for a staff member. Use the same request and reference material in each prototype. Check the interface, retrieval, saved draft, and behavior when retrieval fails.</p>
-<p>Record which parts the toolkit supplied and which required custom code. Rapid interface construction may leave substantial work on per-user data access and storage integration. If the product already has an interface, an embedded execution mechanism may be more useful than another chat component.</p>
-<p>AgentKit's announcement includes customers describing short prototype timelines. Those timelines do not establish how long another organization's finished application will take. Estimate saved implementation work, remaining integration, and quality verification separately to make the adoption decision concrete.</p>
+  <p class="section-kicker">Scenario</p>
+  <h2>In customer support, separate drafting a reply from authorizing a refund</h2>
+  <p>This is a scenario from this article. An existing support interface gains an agent that drafts a reply to a customer whose return is delayed. The application matches the customer ID in the interface with the signed-in staff member through its existing identity system. The agent then retrieves only permitted orders, delivery data, and past support records, and drafts a reply against the return policy. When it cannot retrieve evidence or the customer ID does not match, it does not save a speculative draft and hands the case to staff.</p>
+  <p>With Agent Builder, the team could visually define classification, retrieval, drafting, and a request for confirmation, then send trial results into evaluation. With ChatKit, it could shorten the work of embedding a conversational surface. Those components do not determine which existing account is the customer, which policy sets refundable amounts and conditions, or how the interface distinguishes a draft from a final response.</p>
+  <p>The same is true when Microsoft Agent Framework or Claude Agent SDK is embedded in an existing backend. The former’s workflow and human-approval features and the latter’s repeat-and-verify machinery can help compose the retrieval and drafting path. The team must separately design when a refund-execution tool is allowed, whose approval it awaits, and which record will investigate a failure or a duplicate action. This scenario is neither a product default nor a reported deployment.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Where evaluation belongs</p>
+  <h2>Do not confuse rapid prototyping with verification of the finished product</h2>
+  <p>The AgentKit announcement includes organizations that built workflows quickly. These are examples of how visual workflow definition and prebuilt components can shorten part of a prototype. They do not establish the time another organization needs to integrate customer data, policy, audit, and an existing interface before release.</p>
+  <p>For the support scenario, evaluation separates into at least three checks: whether the agent retrieved material relevant to the question, drafted a response consistent with policy, and avoided exposing customer data outside the staff member’s authority or attempting an unapproved refund. AgentKit’s trace grading, Agent Framework’s observability, and Claude Agent SDK’s verification loop can each contribute to implementing these checks. None gives an evaluation meaning until the team defines acceptance and stop conditions from its own data contracts.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Selection criterion</p>
+  <h2>Remaining design is a business-specific responsibility, not a toolkit defect</h2>
+  <p>If an existing application already has a customer interface, authentication, authorization decisions, and audit records, a component that safely connects an execution loop may be more useful than another chat interface. For a prototype without either a user interface or an evaluation mechanism, a toolkit that addresses workflow definition, embedded interaction, and evaluation together may be useful. This is not a ranking: it depends on which parts remain unimplemented.</p>
+  <p>Before selecting a development toolkit, list the supplied interface, connections, execution, observation, and evaluation one by one, then pair them with the customer identity, permission, business rules, storage, and approval that the product retains. A toolkit can reduce complex implementation work without taking responsibility for the boundary that makes a product correct. Making those boundaries explicit turns a feature list into a development decision.</p>
 </section>

@@ -1,14 +1,14 @@
 {
   "slug": "workflow-tooling-catches-up-with-agent-complexity",
   "date": "2025-11-01",
-  "titleJa": "AgentKitとAgent Framework：エージェント開発のどこを任せるか",
-  "titleEn": "AgentKit and Agent Framework: which development work do they handle?",
-  "summaryJa": "2025年10月の発表を、画面・接続・実行手順のどこを提供するかで比較する。試作の速さと、実際の製品へ組み込むために残る作業を分けて考える。",
-  "summaryEn": "Compare the October 2025 announcements by the interface, connections, and execution work they supply, while separating prototype speed from remaining integration.",
-  "seoDescriptionJa": "AgentKitとMicrosoft Agent Frameworkの2025年10月発表を比較。画面、接続、実行手順の役割と、試作後に残る統合作業を整理する。",
-  "seoDescriptionEn": "Compare AgentKit and Microsoft Agent Framework as announced in October 2025: supplied interfaces, execution logic, availability, and remaining integration work.",
-  "teaserJa": "機能の数より、作らずに済む部分と自分たちで統合する部分を確かめる。",
-  "teaserEn": "Compare supplied components and remaining integration, not just feature counts.",
+  "titleJa": "Agent開発ツールで減る実装と、製品側に残る設計",
+  "titleEn": "What agent-development toolkits remove—and what the product must still design",
+  "summaryJa": "AgentKit、Microsoft Agent Framework、Claude Agent SDKは、画面、手順定義、実行、評価をそれぞれ異なる範囲で提供する。顧客対応の想定例を通じ、道具が減らす実装と、顧客同定・権限・業務規則として製品側に残る設計を分ける。",
+  "summaryEn": "AgentKit, Microsoft Agent Framework, and Claude Agent SDK provide interfaces, workflow definition, execution, and evaluation at different boundaries. A support scenario separates the work they remove from product-owned customer identity, permissions, and business rules.",
+  "seoDescriptionJa": "AgentKit、Microsoft Agent Framework、Claude Agent SDKを比較し、提供される画面・実行・評価と製品側に残る設計を整理する。",
+  "seoDescriptionEn": "Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK by supplied UI, execution, evaluation, and product-owned design.",
+  "teaserJa": "開発道具を選ぶ前に、作らずに済む部分と業務固有の設計を分けて確認する。",
+  "teaserEn": "Before choosing a toolkit, separate supplied components from the business-specific design that remains.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -23,6 +23,12 @@
       "url": "https://openai.com/index/introducing-agentkit/",
       "type": "official",
       "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "Anthropic: Building agents with the Claude Agent SDK",
+      "url": "https://claude.com/blog/building-agents-with-the-claude-agent-sdk",
+      "type": "official",
+      "publishedAt": "2025-09-29"
     },
     {
       "label": "Microsoft: Introducing Microsoft Agent Framework",
