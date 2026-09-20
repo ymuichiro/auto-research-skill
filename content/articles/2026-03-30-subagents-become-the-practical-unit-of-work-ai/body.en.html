@@ -4,6 +4,28 @@
 <p>A subagent receives a bounded task from a lead agent. Using announcements and design material available by March 30, 2026, this article considers when that division helps and when it adds handoff costs. The product-comparison task below is hypothetical.</p>
 </section>
 <section class="report-section">
+<h2>Decide inputs, returns, synthesis, and approval before splitting work</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>Delegated research</h3>
+<p>Give each product task the same use case, version, comparison fields, and source URLs. Parallelize only work that can be investigated independently.</p>
+</article>
+<article class="comparison-card">
+<h3>Evidence returned</h3>
+<p>Return verified facts, sources, and unresolved questions rather than a conclusion alone, so the lead can return to the original material later.</p>
+</article>
+<article class="comparison-card">
+<h3>Synthesis decision</h3>
+<p>The lead decides whether results are comparable and whether a conflict needs more research. Do not decide facts by a majority of agent summaries.</p>
+</article>
+<article class="comparison-card">
+<h3>Final approval</h3>
+<p>Return publication, external sending, and shared-file updates to one owner or an explicit approval step after synthesis. A role label does not itself grant write permission.</p>
+</article>
+</div>
+<p>Adding agents before setting this sequence can produce parallel results that cannot be compared, along with extra integration waits and rework.</p>
+</section>
+<section class="report-section">
 <h2>Separate smaller-model delegation from parallel execution</h2>
 <p>OpenAI's March 17 <a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">GPT-5.4 mini and nano announcement</a> describes a larger model handling planning and synthesis while mini performs narrower work such as code exploration. This is a concrete use of task-specific model selection. Choosing a smaller model and running tasks concurrently are separate decisions; delegation can also be sequential.</p>
 <p>Anthropic's <a href="https://www.anthropic.com/engineering/multi-agent-research-system">June 2025 research-system article</a> reports benefits from exploring independent directions while noting difficulties with heavily interdependent work. In its data, multi-agent systems used about 15 times the tokens of ordinary chats. That comparison is with chats, not single-agent systems. It is not a universal cost multiplier, but it challenges the claim that delegation necessarily costs less.</p>
