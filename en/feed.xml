@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:26:54 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 07:28:50 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>When can a human approval become a rule for future agent tasks?</title>
@@ -131,7 +131,7 @@
       <title>Separating agent identity from delegated user permissions</title>
       <link>https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
-      <pubDate>Sat, 19 Sep 2026 08:58:48 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 07:28:50 GMT</pubDate>
       <description>Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.</description>
       <category>AI Agents</category>
     </item>

@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 20 Sep 2026 07:26:54 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 20 Sep 2026 07:28:50 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>人の承認を次回の自動処理に再利用するには何が必要か</title>
@@ -131,7 +131,7 @@
       <title>エージェントのIDと、利用者の権限をどう分けるか</title>
       <link>https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
-      <pubDate>Sat, 19 Sep 2026 08:58:48 GMT</pubDate>
+      <pubDate>Sun, 20 Sep 2026 07:28:50 GMT</pubDate>
       <description>エージェントIDと利用者の委任権限を区別し、MCPから外部APIへ接続する際のトークンとアクセス制御を、文書検索の例で解説する。</description>
       <category>AI Agents</category>
     </item>
