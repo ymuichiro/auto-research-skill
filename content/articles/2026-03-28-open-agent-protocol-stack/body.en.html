@@ -4,6 +4,28 @@
 <p>That does not mean installing all three automatically produces coordinated agents with correctly enforced human approval. This article compares three interactions: calling a tool, requesting work from another agent, and updating a user interface. These are useful design categories, not three mutually exclusive layers mandated by the specifications.</p>
 </section>
 <section class="report-section">
+<h2>What each recipient receives in a refund workflow</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>MCP: connect to invoice data</h3>
+<p>The requesting agent searches invoice numbers or contract conditions. It exchanges search criteria and tool results, rather than a decision that a refund is permitted.</p>
+</article>
+<article class="comparison-card">
+<h3>A2A: request an investigation</h3>
+<p>An invoice or policy specialist receives an investigation task, additional required input, progress, and an artifact. This represents the exchange where the recipient needs to be another agent.</p>
+</article>
+<article class="comparison-card">
+<h3>AG-UI: update the user</h3>
+<p>The application receives that research is in progress, the amount found, and why confirmation is required. Being displayed does not mean that a refund was authorized.</p>
+</article>
+<article class="comparison-card">
+<h3>The application: bind approval to execution</h3>
+<p>It verifies who approved which invoice, amount, and destination, and ties that approval to the refund API call. It also defines rejection, expiry, and a user leaving the screen.</p>
+</article>
+</div>
+<p>This is a hypothetical use of the specifications, not a claim that a refund service needs all three connections. A small workflow may need only search and its existing interface.</p>
+</section>
+<section class="report-section">
 <h2>MCP tool calls and A2A task exchanges</h2>
 <p><a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCP's tool specification</a> defines listing available tools, describing their arguments, invoking them, and returning results. An invoice-search tool, for example, accepts search criteria and returns matches. Its implementation could itself use AI, so the presence of an AI system on the other end does not distinguish MCP from A2A.</p>
 <p>The <a href="https://a2a-protocol.org/v0.3.0/specification/">A2A 0.3.0 specification</a> describes capabilities through an Agent Card and exchanges task status and artifacts. Its states include <code>input-required</code>. Those interactions matter when a separate agent investigates an invoice, requests missing information during the work, and returns its findings.</p>

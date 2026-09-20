@@ -8,6 +8,28 @@
 これは設計を整理するための区分であり、仕様が重なりのない三層を定めているという主張ではない。</p>
 </section>
 <section class="report-section">
+<h2>返金処理で、どの相手に何を渡すか</h2>
+<div class="comparison-grid">
+<article class="comparison-card">
+<h3>MCP: 請求情報へ接続する</h3>
+<p>依頼を受けたエージェントが、請求書番号や契約条件を検索する。渡すのは検索条件とツールの結果であり、返金の可否そのものではない。</p>
+</article>
+<article class="comparison-card">
+<h3>A2A: 調査を依頼する</h3>
+<p>請求内容や例外規定を調べる担当へ、調査課題、追加で必要な入力、進捗、成果物を渡す。相手がエージェントである必要がある場合のやり取りを表す。</p>
+</article>
+<article class="comparison-card">
+<h3>AG-UI: 利用者へ状況を示す</h3>
+<p>調査中であること、見つかった金額、確認が必要な理由をアプリケーション画面へ送る。表示されたことは、返金が認可されたことを意味しない。</p>
+</article>
+<article class="comparison-card">
+<h3>アプリケーション: 承認と実行を結ぶ</h3>
+<p>誰が、どの請求、金額、宛先を承認し、その承認がどの返金API呼び出しに対応するかを確かめる。拒否、期限切れ、画面離脱の扱いもここで決める。</p>
+</article>
+</div>
+<p>これは仕様の利用例としての想定であり、返金サービスがこれら三つの接続を必要とするという意味ではない。小さな処理なら、検索と既存の画面だけで足りることもある。</p>
+</section>
+<section class="report-section">
 <h2>MCPのツール呼び出しと、A2Aのタスクの受け渡し</h2>
 <p><a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCPのツール仕様</a>は、利用可能なツールの一覧、引数の形式、呼び出し、結果の返却を定める。
 たとえば請求書検索のツールなら、依頼側は検索条件を渡し、結果を受け取る。
