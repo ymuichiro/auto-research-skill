@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Designing agent memory for retrieval, applicability, and updates | Auto Research Digest EN</title>
-    <meta name="description" content="Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.">
+    <title>Agent memory design: why correct recall can still lead to the wrong decision | Auto Research Digest EN</title>
+    <meta name="description" content="Compare agent memory beyond RAG: working state, durable preferences, shared updates, and forgetting, drawing on LangGraph, Letta, MemGPT, and LongMemEval.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Designing agent memory for retrieval, applicability, and updates | Auto Research Digest EN">
-    <meta property="og:description" content="Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.">
+    <meta property="og:title" content="Agent memory design: why correct recall can still lead to the wrong decision | Auto Research Digest EN">
+    <meta property="og:description" content="Compare agent memory beyond RAG: working state, durable preferences, shared updates, and forgetting, drawing on LangGraph, Letta, MemGPT, and LongMemEval.">
     <meta property="og:url" content="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Designing agent memory for retrieval, applicability, and updates">
+    <meta property="og:image:alt" content="Agent memory design: why correct recall can still lead to the wrong decision">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Designing agent memory for retrieval, applicability, and updates | Auto Research Digest EN">
-    <meta name="twitter:description" content="Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.">
+    <meta name="twitter:title" content="Agent memory design: why correct recall can still lead to the wrong decision | Auto Research Digest EN">
+    <meta name="twitter:description" content="Compare agent memory beyond RAG: working state, durable preferences, shared updates, and forgetting, drawing on LangGraph, Letta, MemGPT, and LongMemEval.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Designing agent memory for retrieval, applicability, and updates">
+    <meta name="twitter:image:alt" content="Agent memory design: why correct recall can still lead to the wrong decision">
     <link rel="canonical" href="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-04-08T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:14:05+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Memory">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Multi-Agent">
     <meta property="article:tag" content="RAG">
     <meta property="article:tag" content="Workflow">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Designing agent memory for retrieval, applicability, and updates","description":"Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.","datePublished":"2026-04-08T00:00:00+09:00","dateModified":"2026-09-20T17:14:05+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Memory, Long-Term Memory, Multi-Agent, RAG, Workflow","mainEntityOfPage":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Designing agent memory for retrieval, applicability, and updates","item":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent memory design: why correct recall can still lead to the wrong decision","description":"Compare agent memory beyond RAG: working state, durable preferences, shared updates, and forgetting, drawing on LangGraph, Letta, MemGPT, and LongMemEval.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Memory, Long-Term Memory, Multi-Agent, RAG, Workflow","mainEntityOfPage":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent memory design: why correct recall can still lead to the wrong decision","item":"https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Designing agent memory for retrieval, applicability, and updates</h1>
-          <p class="hero-copy">Use conflicting preferences and requests to examine current instructions, durable preferences, organizational rules, and shared notes through LangGraph, Letta, and LongMemEval.</p>
+          <h1 class="hero-title">Agent memory design: why correct recall can still lead to the wrong decision</h1>
+          <p class="hero-copy">Correct recall can still apply an old preference to the wrong task. Compare working state, durable preferences, and shared records through retrieval, correction, summarization, and forgetting to design memory for the next task.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-04-08">April 8, 2026</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2026-04-08">Research cutoff April 8, 2026</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Designing%20agent%20memory%20for%20retrieval%2C%20applicability%2C%20and%20updates&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-04-08-agent-memory-shifts-to-layered-systems.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20memory%20design%3A%20why%20correct%20recall%20can%20still%20lead%20to%20the%20wrong%20decision&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-04-08-agent-memory-shifts-to-layered-systems.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Designing agent memory for retrieval, applicability, and updates"
-      data-share-text="Designing agent memory for retrieval, applicability, and updates"
+      data-share-title="Agent memory design: why correct recall can still lead to the wrong decision"
+      data-share-text="Agent memory design: why correct recall can still lead to the wrong decision"
       data-share-url="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Designing agent memory for retrieval, applicability, and updates"
+      data-share-title="Agent memory design: why correct recall can still lead to the wrong decision"
       data-share-url="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -126,54 +126,73 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>Remembering a preference can still produce the wrong response</h2>
-<p>Suppose a writing assistant remembers that a user prefers brief explanations. Today the user asks for a detailed introduction for new employees. Retrieving the old preference correctly but prioritizing it over today's explicit request produces an unhelpful document. This is a hypothetical example for examining memory design.</p>
-<p>Correct recall is only part of the problem. The system also needs to determine whose information it is, when it applied, and whether it governs the current task. Drawing on research and implementation material available by April 8, 2026, this article separates retrieving, applying, and updating memory.</p>
+<h2>An assistant can remember a preference and still miss the request</h2>
+<p>Repeating the same preferences to a writing assistant makes every task harder to start. If it carries “keep explanations brief” into tomorrow's work, memory seems useful. But suppose you now request a detailed introduction for new employees and the assistant still produces a short summary. It has remembered correctly and delivered the wrong document. This is a hypothetical example for examining memory design.</p>
+<p>Better retrieval alone cannot repair this failure. Previous preferences, current instructions, and organizational rules need different applicability conditions. The system also needs to decide what to update when a preference changes and when to stop using an old summary. Otherwise, a helpful record from yesterday can become a source of error today.</p>
+<p>Drawing on implementations and research published by April 8, 2026, this article distinguishes finding information from keeping it fit to inform a decision. Conversation state, durable preferences, and shared records differ in how they are read, who updates them, and how long they remain useful. Preserving these distinctions matters more than adding physical stores.</p>
 </section>
 <section class="report-section">
-<h2>Four records that should not become one kind of “memory”</h2>
+<h2>Finding information and applying it to work are different decisions</h2>
+<p><a href="https://arxiv.org/abs/2005.11401v1">Retrieval-augmented generation</a> supplies a model with information retrieved from outside its immediate input. Similar retrieval can be applied to conversations and personal records. But reading a product specification and applying a user's previous preference require different checks.</p>
+<p>A retrieved note saying “keep explanations brief” may simply be a relevant match. Its source and conditions must establish whose preference it is, which documents it concerned, and whether it still applies. Treating semantic similarity as instruction priority risks giving a closely matching but outdated preference too much influence.</p>
+<p>Vector retrieval, structured records, graphs, and readable files should therefore be compared as different choices. Vector retrieval finds candidates; structured records make fields explicit; graphs represent relationships; files provide a storage and editing format. Files can be indexed, and graph results can enter a conversation. Ranking these as interchangeable alternatives obscures whether the problem is retrieval or updating.</p>
+</section>
+<section class="report-section">
+<h2>Separate conversation state from information for the next conversation</h2>
+<p>The <a href="https://www.langchain.com/blog/langgraph-v0-2">LangGraph v0.2 announcement</a> describes checkpoints that save state at execution steps, supporting continuation after an interruption. Its <a href="https://www.langchain.com/blog/launching-long-term-memory-support-in-langgraph">long-term memory announcement</a> describes storing, retrieving, and searching documents across conversations, with namespaces for users and organizations. Resuming interrupted work and carrying knowledge into another task serve different purposes.</p>
+<p>The headings and unfinished paragraphs of the current document belong to its working state. They need not become instructions for a different document next month. An explicitly continuing preference, however, may remain useful after this conversation ends. Distinguishing records by purpose as well as duration clarifies what should be loaded.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Current request</h3>
-<p>This is an explicit instruction for the present document, such as making this one explanation detailed. Apply it immediately in the conversation and give it priority over a durable preference.</p>
-</article>
-<article class="comparison-card">
-<h3>Durable preference</h3>
-<p>This is a stated continuing intention, such as making detailed explanations the default from now on. Retain its source, subject, and effective time.</p>
-</article>
-<article class="comparison-card">
-<h3>Organizational rule</h3>
-<p>This is a formal rule, such as using a glossary in internal documents. It can share a storage format with a personal preference while having different scope and authorized updaters.</p>
-</article>
-<article class="comparison-card">
-<h3>Shared work note</h3>
-<p>This records deadlines, owners, and unresolved matters that several people may update. It needs defined write operations and conflict treatment as well as retrieval conditions.</p>
-</article>
+<article class="comparison-card"><h3>Current working state</h3><p>Retain the request, intermediate decisions, progress, and artifact version. Apply them to this task, checking external saved results when resuming.</p></article>
+<article class="comparison-card"><h3>Durable personal memory</h3><p>Retain preferences and facts intended to continue. Record their subject, source, applicable tasks, and corrections.</p></article>
+<article class="comparison-card"><h3>Formal organizational rules</h3><p>Manage terminology, approval conditions, and retention periods. Separate their authorized updaters and authority from personal preferences.</p></article>
+<article class="comparison-card"><h3>Shared work records</h3><p>Pass on owners, deadlines, evidence, and unresolved matters. Define who updates which fields and how conflicting changes are handled.</p></article>
 </div>
-<p>This is a design distinction for restoring applicability and update responsibility, not a choice among storage technologies. One database or retrieval method can still record the four categories separately.</p>
+<p>These four categories are this article's design example, not a requirement for four databases. One store can distinguish them through record types and applicability conditions. A namespace organizes information but does not itself authorize access. The application still needs to check whether the caller may read or change the record.</p>
 </section>
 <section class="report-section">
-<h2>Retrieval methods and memory scope are separate choices</h2>
-<p>Vector retrieval and short-term, long-term, or shared memory are not competing alternatives. Vector retrieval finds semantically related candidates. Duration and sharing describe other dimensions that can coexist with it. File-backed records can also be indexed, so storage format should be distinguished from retrieval method.</p>
-<p><a href="https://docs.langchain.com/oss/python/langgraph/add-memory">LangGraph documentation</a> separates conversation tracking within a thread from user or application information spanning conversations; its long-term store example uses a user-specific namespace. This illustrates choosing scope before searching. A namespace label alone is not access control: the application must establish that the caller may read that scope.</p>
-<p>For the document example, distinguish the user's preference, the current request, and formal organizational writing rules. These distinctions can be represented with subjects, sources, and applicability conditions even inside one database. Adding physical stores is not itself the objective.</p>
+<h2>Summarizing a record makes its omissions important</h2>
+<p>Sending every conversation into every request can appear to avoid selection work. Yet more input places current conditions alongside older instructions. Reducing that input through summarization introduces another question: can subjects or time limits be dropped without changing the meaning?</p>
+<p>Research on processing memory reaches beyond adding retrieval. <a href="https://arxiv.org/abs/2304.03442v1">Generative Agents</a> synthesizes higher-level reflections from experience to support planning; its evaluation concerns believable behavior in a simulated environment, rather than business record correctness. <a href="https://arxiv.org/abs/2310.08560v1">MemGPT</a> examines moving information between memory tiers inside and outside limited context, using document analysis and multi-session conversation tasks.</p>
+<p>The distinction I draw from these approaches is between preserving a record and producing information for the model to use. Keeping the original statement for verification and a summary for use allows an incorrect summary to be checked against its source. This adds storage and processing, however. A short, one-off consultation may be simpler to handle with the current conversation alone.</p>
+<p>Compressing the opening preference into “prefers brief explanations” could lose its document type or exceptions. “Keep routine progress reports brief, but explain background in material for new employees” provides more information for applicability. This is a hypothetical illustration of how retained conditions affect a decision, not a measured summarization result.</p>
 </section>
 <section class="report-section">
-<h2>Apply corrections before background memory processing finishes</h2>
-<p>A correction such as “make detailed explanations my default from now on” differs from a request for one document. If it is stored, its continuing scope should be retained. Inferring a permanent preference from one ambiguous action could affect unrelated future work.</p>
-<p>I recommend applying explicit corrections to the active task immediately and preventing later background summaries from overriding them. Record source statements, update targets, and effective times instead of ranking facts solely by storage time. A summary created today from yesterday's conversation can contain information older than today's correction.</p>
-<p>A graph representation still needs such update rules. Making a relationship explicit does not establish that it is correct or remains valid. Compare graphs, vector retrieval, and structured records using the same update tasks and cost conditions.</p>
+<h2>Graphs and files address different updating needs</h2>
+<p><a href="https://arxiv.org/abs/2502.12110v1">A-MEM</a> proposes attributed memory notes, links between related memories, and updates to existing memories as new information arrives. The <a href="https://arxiv.org/abs/2501.13956v1">Zep paper</a> describes integrating conversation and business information in a temporal knowledge graph. Both examine organizing relationships between records in addition to retrieving stored entries.</p>
+<p>Relationships and time information can help distinguish changes of account owner or earlier and current conditions. Incorrectly extracted entities or relationships can still produce an incorrect decision even in a well-organized graph. Compare the work of creating, correcting, and invalidating relationships with reading original records. Different models, tasks, and baselines prevent a universal ranking from these papers.</p>
+<p><a href="https://www.letta.com/blog/context-repositories/">Letta Code's Context Repositories announcement</a> presents another property: local memory files, Git versioning, and progressive loading of content. Readable changes can matter when people need to inspect which guidance was edited. Git history nevertheless cannot establish that the revised content is true.</p>
+<p>Tracing customer-contract relationships and correcting development conventions may therefore prioritize different affordances. The former may need relationships and effective times; the latter may need inspectable diffs. Starting with who corrects what helps choose the necessary complexity before choosing a format.</p>
 </section>
 <section class="report-section">
-<h2>Shared memory introduces write conflicts as well as retrieval problems</h2>
-<p>When several agents edit one project note, an update can be lost. <a href="https://docs.letta.com/v1-sdk/memory/shared-memory">Letta's shared-memory documentation</a> distinguishes appending, targeted replacement, and full rewrites, identifying last-writer-wins behavior for concurrent full rewrites. This is a property of those update operations, not evidence that shared memory always fails.</p>
-<p>For example, agent A corrects a deadline while agent B adds an owner to an old copy and saves the whole note, erasing A's change. In this hypothetical case, compare targeted edits, version checks before saving, or one owner for full rewrites. Better retrieval cannot recover an update lost during storage.</p>
+<h2>Do not let an old summary overwrite a correction</h2>
+<p>“Make this document detailed” and “make detailed explanations my default from now on” change different scopes. Inferring a lasting preference from a single request could make the next short report unnecessarily long. Treating a lasting correction as temporary makes the user repeat it tomorrow.</p>
+<p>I recommend separating candidate memories extracted from statements from records applied to future work. Preserve the original statement and subject in the candidate, and promote information when its continuing intent is established. Apply an explicit correction to the active task immediately, without waiting for long-term memory processing. Later consolidation must not reverse it with an older conversation summary.</p>
+<p>A summary produced tonight from yesterday's conversation has today's storage time, but its contents precede a correction received this morning. Ranking facts by storage time alone lets delayed processing of an older preference win. This is why statement time, effective time, and storage time should be distinguished.</p>
+<p>Whether to erase the previous record also depends on its purpose. Current suggestions may use the new preference while an explanation of the change still needs the earlier statement. Separating exclusion from active retrieval and deletion of history avoids conflating those requirements.</p>
 </section>
 <section class="report-section">
-<h2>Test remembered facts, corrections, and abstention separately</h2>
-<p><a href="https://arxiv.org/abs/2410.10813v2">LongMemEval</a> evaluates extraction, multi-session reasoning, temporal reasoning, knowledge updates, and abstention. It offers a research example of evaluating memory beyond finding a related record. Its categories do not establish a universally best memory architecture for individual business tasks.</p>
-<p>For the writing assistant, test a question about the previous preference, a one-off conflicting request, a lasting correction, and a preference never stated. Inspect what was saved and retrieved and which condition was applied, alongside the answer. Check whether the assistant can ask when information is missing and avoid saving a guess as fact.</p>
-<p>The number of examples in public documentation cannot establish which design is most prevalent, cheapest, or most accurate. Before adding memory mechanisms, identify the failure being corrected. Missed retrieval, stale applicability, incorrect storage, and lost concurrent updates require different repairs.</p>
+<h2>Define read access and write access separately for shared memory</h2>
+<p><a href="https://www.letta.com/blog/memory-blocks/">Letta's technical explanation of memory blocks</a> describes blocks shared by multiple agents and distinguishes agent-editable content from read-only content. This supports designs that align the information agents consult without granting every participant the same update rights. Sharing information does not establish that concurrent updates preserve its meaning.</p>
+<p>Consider researcher A correcting a deadline while researcher B adds an owner to an older copy and saves the whole note. In an implementation that replaces the entire record with the later save, A's correction disappears. This is a hypothetical consequence of that write model, not a claim that a particular product always behaves this way. Better retrieval cannot read back a correction lost at storage time.</p>
+<p>Targeted field edits, version checks before saving, and a designated owner for full rewrites each impose different costs. Even separately stored fields can require joint review when a deadline and an approval condition are related. A single owner simplifies coordination but can add waiting. Compare which updates may run together and where people or other processes resolve conflicts, alongside retrieval performance.</p>
+</section>
+<section class="report-section">
+<h2>Make forgetting something the user can verify</h2>
+<p>As memory becomes more useful, users need to understand what remains and what influenced an answer. <a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">ChatGPT's memory announcement</a> describes inspecting, deleting, and disabling memory, explaining that deleting a conversation does not delete separately saved memories. This provides a product example of treating conversation history and durable memory as distinct objects.</p>
+<p>An application needs to decide what a request to forget covers: stop using a record, remove a saved preference, delete the original conversation, or remove information from shared records. These operations differ. Recreating a deleted summary from a retained old conversation could restore memory against the user's intention. Check the deletion target and the conditions preventing later consolidation from reusing it.</p>
+<p>Work that requires history need not mix formal records with personal preferences. Defining correction and deletion rights for each information type creates options for preserving work records while giving users control. Assuming that more retained information always means more usefulness cannot settle that choice.</p>
+</section>
+<section class="report-section">
+<h2>Evaluate memory beyond retrieval accuracy</h2>
+<p><a href="https://aclanthology.org/2024.acl-long.747/">LoCoMo</a> includes conversations averaging 600 turns and spanning up to 32 sessions, evaluating question answering, event summarization, and multimodal dialogue. It examines information separated across a long conversation. This cautions against inferring sustained conversational quality from a short, isolated query.</p>
+<p><a href="https://arxiv.org/abs/2410.10813v2">LongMemEval v2</a> uses 500 questions and separates extraction, multi-session reasoning, temporal reasoning, knowledge updates, and abstention. I use these categories to distinguish answering an old fact from avoiding it after a correction. They do not establish a best memory method for a particular business task.</p>
+<p>For the writing assistant, separate a query about the previous preference, a one-off detailed request, a lasting correction, and a preference never stated. Add concurrent updates for shared notes and reuse after deletion for forgetting. Inspect candidate memories, accepted records, retrieved content, and applied conditions alongside the answer to locate the failed stage.</p>
+<p>Costs extend beyond the input used to answer. Include extraction, summarization, relationship generation, update checks, deletion propagation, and people's time correcting records. With the same task and model, compare conversation-only handling, added retrieval, and added updating or sharing rules. This can reveal which additional processing actually addresses the failure.</p>
+</section>
+<section class="report-section">
+<h2>Build memory that helps with the next task</h2>
+<p>When the user returns tomorrow, the assistant should remember the previous preference while following the current explicit request. A changed preference should remain corrected, and an unstated condition can be clarified by asking. Supporting this interaction requires both finding relevant records and keeping them fit to apply.</p>
+<p>Before choosing a memory method, I recommend identifying whether the failure is missed retrieval, stale applicability, incorrect storage, a lost update, or reuse after deletion. Distinguish working state, continuing preferences, formal rules, and shared records accordingly, then add the required retrieval, updating, and forgetting processes. The aim is for users to avoid repeating the same explanation while having changed decisions treated as changed.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -195,49 +214,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="Reviewing a coding agent: plans, permissions, diffs, and tests">
+      <a class="article-card " href="/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="Delegate one bug to a coding agent: from plan to a reviewable repair">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-13">April 13, 2026</time>
+        <time class="mono-note" datetime="2026-04-13">Research cutoff April 13, 2026</time>
       </div>
-      <h3 class="article-card-title">Reviewing a coding agent: plans, permissions, diffs, and tests</h3>
-      <p class="article-card-copy">Understand what a readable plan, a verified signature, and passing tests each establish.</p>
+      <h3 class="article-card-title">Delegate one bug to a coding agent: from plan to a reviewable repair</h3>
+      <p class="article-card-copy">After a passing-test notification, what does the engineer still need to investigate?</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 13</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-04-06-voice-agents-become-operational-systems.html" aria-label="Handling corrections, interruptions, and saved results in voice booking agents">
+  </a><a class="article-card " href="/en/2026-04-06-voice-agents-become-operational-systems.html" aria-label="Compare voice booking agents through corrections, interruption, and completion">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-06">April 6, 2026</time>
+        <time class="mono-note" datetime="2026-04-06">Research cutoff April 6, 2026</time>
       </div>
-      <h3 class="article-card-title">Handling corrections, interruptions, and saved results in voice booking agents</h3>
-      <p class="article-card-copy">Carry a caller’s correction through playback and the actual booking result.</p>
+      <h3 class="article-card-title">Compare voice booking agents through corrections, interruption, and completion</h3>
+      <p class="article-card-copy">After “another day,” track what is heard, what is saved, and what the next person knows.</p>
       <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 9</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="When to split AI work into subagents, and what they need to share">
+  </a><a class="article-card " href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="Delegating to subagents: turn completed research into usable decisions">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-30">March 30, 2026</time>
+        <time class="mono-note" datetime="2026-03-30">Research cutoff March 30, 2026</time>
       </div>
-      <h3 class="article-card-title">When to split AI work into subagents, and what they need to share</h3>
-      <p class="article-card-copy">Separate independent research from dependent steps before choosing a subagent structure.</p>
+      <h3 class="article-card-title">Delegating to subagents: turn completed research into usable decisions</h3>
+      <p class="article-card-copy">Define inputs, independent scope, and evidence returned before adding investigators.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 8</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -252,33 +271,123 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://docs.langchain.com/oss/python/langgraph/add-memory" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2005.11401v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">May 22, 2020</span>
               </div>
-              <p class="source-title">LangGraph: Memory</p>
-              <p class="source-url">https://docs.langchain.com/oss/python/langgraph/add-memory</p>
+              <p class="source-title">Retrieval-Augmented Generation (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2005.11401v1</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://docs.letta.com/v1-sdk/memory/shared-memory" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.langchain.com/blog/langgraph-v0-2" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
+                <span class="mono-note">August 7, 2024</span>
+              </div>
+              <p class="source-title">LangGraph v0.2 checkpoints</p>
+              <p class="source-url">https://www.langchain.com/blog/langgraph-v0-2</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.langchain.com/blog/launching-long-term-memory-support-in-langgraph" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">October 8, 2024</span>
+              </div>
+              <p class="source-title">LangGraph long-term memory announcement</p>
+              <p class="source-url">https://www.langchain.com/blog/launching-long-term-memory-support-in-langgraph</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2304.03442v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">April 7, 2023</span>
+              </div>
+              <p class="source-title">Generative Agents (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2304.03442v1</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.08560v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">October 12, 2023</span>
+              </div>
+              <p class="source-title">MemGPT (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2310.08560v1</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2502.12110v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">February 17, 2025</span>
+              </div>
+              <p class="source-title">A-MEM (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2502.12110v1</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2501.13956v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">January 20, 2025</span>
+              </div>
+              <p class="source-title">Zep (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2501.13956v1</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.letta.com/blog/context-repositories/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">February 12, 2026</span>
+              </div>
+              <p class="source-title">Letta Code Context Repositories</p>
+              <p class="source-url">https://www.letta.com/blog/context-repositories/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.letta.com/blog/memory-blocks/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">May 14, 2025</span>
+              </div>
+              <p class="source-title">Letta memory blocks technical explanation</p>
+              <p class="source-url">https://www.letta.com/blog/memory-blocks/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/memory-and-new-controls-for-chatgpt/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">February 13, 2024</span>
+              </div>
+              <p class="source-title">ChatGPT memory and controls</p>
+              <p class="source-url">https://openai.com/index/memory-and-new-controls-for-chatgpt/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aclanthology.org/2024.acl-long.747/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
                 
               </div>
-              <p class="source-title">Letta: Shared memory</p>
-              <p class="source-url">https://docs.letta.com/v1-sdk/memory/shared-memory</p>
+              <p class="source-title">LoCoMo (ACL 2024)</p>
+              <p class="source-url">https://aclanthology.org/2024.acl-long.747/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://arxiv.org/abs/2410.10813v2" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
-                
+                <span class="mono-note">March 4, 2025</span>
               </div>
-              <p class="source-title">LongMemEval (v2, March 2025)</p>
+              <p class="source-title">LongMemEval (v2)</p>
               <p class="source-url">https://arxiv.org/abs/2410.10813v2</p>
             </div>
             <span class="source-action">Open</span>

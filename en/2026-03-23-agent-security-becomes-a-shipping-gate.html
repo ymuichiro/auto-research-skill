@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Before releasing an agent, test what external instructions can make it do | Auto Research Digest EN</title>
-    <meta name="description" content="Design pre-release agent tests that distinguish prompt-injection detection, tool-call authorization, and containment of outbound transmission.">
+    <title>Agent security: trace external instructions through to execution | Auto Research Digest EN</title>
+    <meta name="description" content="Evaluate agent security through prompt-injection detection, authorization, communication limits, human review, and tests of permitted and prohibited actions.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Before releasing an agent, test what external instructions can make it do | Auto Research Digest EN">
-    <meta property="og:description" content="Design pre-release agent tests that distinguish prompt-injection detection, tool-call authorization, and containment of outbound transmission.">
+    <meta property="og:title" content="Agent security: trace external instructions through to execution | Auto Research Digest EN">
+    <meta property="og:description" content="Evaluate agent security through prompt-injection detection, authorization, communication limits, human review, and tests of permitted and prohibited actions.">
     <meta property="og:url" content="https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Before releasing an agent, test what external instructions can make it do">
+    <meta property="og:image:alt" content="Agent security: trace external instructions through to execution">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Before releasing an agent, test what external instructions can make it do | Auto Research Digest EN">
-    <meta name="twitter:description" content="Design pre-release agent tests that distinguish prompt-injection detection, tool-call authorization, and containment of outbound transmission.">
+    <meta name="twitter:title" content="Agent security: trace external instructions through to execution | Auto Research Digest EN">
+    <meta name="twitter:description" content="Evaluate agent security through prompt-injection detection, authorization, communication limits, human review, and tests of permitted and prohibited actions.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Before releasing an agent, test what external instructions can make it do">
+    <meta name="twitter:image:alt" content="Agent security: trace external instructions through to execution">
     <link rel="canonical" href="https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html">
@@ -42,15 +42,14 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-03-23T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T16:17:34+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Security">
     <meta property="article:tag" content="Guardrails">
     <meta property="article:tag" content="Prompt Injection">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Before releasing an agent, test what external instructions can make it do","description":"Design pre-release agent tests that distinguish prompt-injection detection, tool-call authorization, and containment of outbound transmission.","datePublished":"2026-03-23T00:00:00+09:00","dateModified":"2026-09-20T16:17:34+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Security, Guardrails, Prompt Injection","mainEntityOfPage":"https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Before releasing an agent, test what external instructions can make it do","item":"https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent security: trace external instructions through to execution","description":"Evaluate agent security through prompt-injection detection, authorization, communication limits, human review, and tests of permitted and prohibited actions.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Security, Guardrails, Prompt Injection","mainEntityOfPage":"https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent security: trace external instructions through to execution","item":"https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,21 +65,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Before releasing an agent, test what external instructions can make it do</h1>
-          <p class="hero-copy">Measure separately whether an external instruction was detected, an induced tool call was unauthorized, and transmission was contained. OpenAI, AWS, and Anthropic sources inform a pre-release test for email summarization.</p>
+          <h1 class="hero-title">Agent security: trace external instructions through to execution</h1>
+          <p class="hero-copy">Compare transmission checks, AgentCore Policy, permission design, and AgentDojo research. An email-summary scenario separates detection, authorization, communication, human review, and code validation to define release tests.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-03-23">March 23, 2026</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2026-03-23">Research cutoff March 23, 2026</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Security</span><span class="meta-chip">Guardrails</span><span class="meta-chip">Prompt Injection</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Before%20releasing%20an%20agent%2C%20test%20what%20external%20instructions%20can%20make%20it%20do&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-03-23-agent-security-becomes-a-shipping-gate.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20security%3A%20trace%20external%20instructions%20through%20to%20execution&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-03-23-agent-security-becomes-a-shipping-gate.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Before releasing an agent, test what external instructions can make it do"
-      data-share-text="Before releasing an agent, test what external instructions can make it do"
+      data-share-title="Agent security: trace external instructions through to execution"
+      data-share-text="Agent security: trace external instructions through to execution"
       data-share-url="https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Before releasing an agent, test what external instructions can make it do"
+      data-share-title="Agent security: trace external instructions through to execution"
       data-share-url="https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -124,51 +124,82 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>How external text can become an instruction to act</h2>
-<p>Imagine an email-summary agent executing a sentence in the email that asks it to send information to a website “for verification.” Content it was supposed to read has become a reason to use a tool. This is a hypothetical illustration of the mechanism, not a claim that every agent follows such instructions.</p>
-<p>OpenAI's <a href="https://openai.com/index/designing-agents-to-resist-prompt-injection/">March 11 explanation</a> treats prompt injection through external content as a problem resembling social engineering. Its defensive objective extends beyond identifying suspicious text to constraining where information can be sent even if the agent is influenced.</p>
-<p>That distinction supports evaluating two separate outcomes before release: whether the agent recognizes an attack and whether the induced action can actually execute. Define which work may continue and which operations must stop according to the application's permitted scope.</p>
+  <p class="section-kicker">What to verify before release</p>
+  <h2>Has permission to read email turned into permission to send information?</h2>
+  <p>An agent is asked to summarize an email, but also executes a sentence asking it to send information elsewhere “for verification.” Content it was meant to read has become a reason to use a tool. This is a hypothetical illustration of prompt injection: an attempt through external content to induce actions outside the user's request. It does not claim that every agent follows the instruction.</p>
+  <p>The example crosses two boundaries: whose instruction the email content represents, and what the agent may execute on the user's behalf. Recognizing suspicious text and blocking a transmission despite manipulation act at different points.</p>
+  <p>This article compares public material from OpenAI, AWS, and Anthropic with AgentDojo research. Its conclusion is to make actual actions and communications, alongside completion of permitted work, part of release criteria. Following which information moves under which authority is more useful than counting safety features.</p>
 </section>
+
 <section class="report-section">
-<h2>Transmission checks, tool policies, and human approval act at different points</h2>
-<p>OpenAI describes Safe Url as detecting potential transmission of conversation information to third parties and either requesting confirmation with the relevant information or blocking it. This concerns information leaving the system, not correcting every mistaken inference. When confirmation is requested, users need to understand what will go where.</p>
-<p><a href="https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/">AgentCore Policy, announced generally available on March 3</a>, controls a different point. Rules outside the agent's code evaluate tool access and inputs for calls passing through AgentCore Gateway. A model may select a call while the policy still refuses its execution.</p>
-<p>The same rules do not automatically cover a separate API connection bypassing the Gateway. Blocking an email tool does not establish containment if another communication path can send the same information. Verify which actions pass through the check and which other paths remain in the actual deployment.</p>
-<p><a href="https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents">Anthropic's framework for safe agents</a> discusses stopping or redirecting work and granting persistent permission for trusted routine actions. Human confirmation therefore need not occur at the same frequency for every operation. Specify pre-authorized actions and changes requiring individual review, then test that the configured distinction holds.</p>
+  <p class="section-kicker">Documents and instructions</p>
+  <h2>Business-like instructions still need to match the user's request</h2>
+  <p><a href="https://openai.com/index/designing-agents-to-resist-prompt-injection/">OpenAI's March 11 explanation</a> treats manipulation through external content as a problem resembling social engineering. Its email example goes beyond telling the agent to ignore previous instructions: it disguises collection and external transmission as authorized business verification. This is a vendor-described attack example, not a reproduction performed for this article.</p>
+  <p>An email's claim that an action is authorized does not itself supply the user's permission. Material to summarize and a request delegating execution need to remain distinguishable. When an attack looks like a continuation of the job, check whether the agent expands its authority because it regards the action as necessary for completion.</p>
+  <p>Removing every sentence written as an instruction would also damage ordinary work. An email may contain “please reply by Friday,” which belongs in the summary. Telling the reader about that request differs from replying on their behalf. The system needs to treat external instructions as content without promoting them to execution authority.</p>
+  <p>The entry point should also follow the actual job. If it reads attachments and search results, their returned content belongs in the assessment. Establish who can change each input and which tools it can subsequently influence. Adding information sources does not also grant permission to act.</p>
 </section>
+
 <section class="report-section">
-<h2>Test detection, authorization, and containment separately</h2>
-<div class="comparison-grid">
-<article class="comparison-card">
-<h3>Detection of an untrusted instruction</h3>
-<p>Check whether an external email or attachment containing a transmission instruction unrelated to the user's request is recognized as such. A system may still stop an action when it misses detection, so detection alone does not establish external impact.</p>
-</article>
-<article class="comparison-card">
-<h3>Authorization of a tool call</h3>
-<p>Check which requester, input, and destination permit a sending or update tool call. AgentCore Policy is an example of a control at this point for calls that pass through its Gateway.</p>
-</article>
-<article class="comparison-card">
-<h3>Containment of transmission and execution</h3>
-<p>After a refusal, inspect records for an actual transmission or an alternative tool path. Limiting information, destinations, and the execution environment controls the range of impact separately from detection rate.</p>
-</article>
-<article class="comparison-card">
-<h3>Human confirmation</h3>
-<p>When review is required, the user needs to judge the destination, content, and effect of the change. Record both the approval decision and whether execution after approval stayed within the displayed scope.</p>
-</article>
-</div>
-<p>These are test categories used in this article, not a comparison claiming that a particular product satisfies them all. Do not infer enforcement or containment at one point from the presence of a defense feature at another.</p>
+  <p class="section-kicker">Where defenses operate</p>
+  <h2>Detection, execution permission, and communication limits have different effects</h2>
+  <p>OpenAI describes Safe Url as checking potential transmission of conversation information to a third party, then showing the information for confirmation or blocking transmission. Link navigation can also carry information, so an apparently read-oriented operation is not automatically safe. This product mitigation concerns transmission; it does not correct every mistaken judgment.</p>
+  <p><a href="https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/">AgentCore Policy, generally available from March 3</a>, evaluates tool access and inputs outside agent code. A Gateway with associated policies evaluates calls to allow or deny access. Even when a model selects a transmission, configured rules can refuse that call at this point.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Content detection</h3>
+      <p>Was external text identified as an untrusted instruction? A response saying it was recognized does not establish that the action stopped.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Execution restrictions</h3>
+      <p>Are the tool, input, and destination permitted? Check whether another communication path can still release the same information.</p>
+    </article>
+  </div>
+  <p>This distinction is the article's analysis, not a ranking of vendor defenses under matched conditions. A separate connection bypassing the Gateway, or another unrestricted communication method, cannot be assumed to receive the same policy protection. Refusal of a sending tool and absence of outbound information require separate checks.</p>
+  <p>An isolated execution environment likewise needs inspection of permitted communications and data access. Its name alone does not establish which information and destinations remain available. Remove sending authority and access to information unnecessary for summarization, then examine the remaining paths. This narrows what manipulation could trigger even when recognition fails.</p>
 </section>
+
 <section class="report-section">
-<h2>Release tests should verify permitted work and prohibited actions</h2>
-<p>For an email-summary workflow, first check that ordinary email can be summarized. Then place a request for external transmission in the message and inspect network and tool records as well as the response. This is a proposed test, not a measured comparison of the vendors' defenses.</p>
-<ul class="bullet-list">
-<li>Does permitted summarization complete without unnecessarily blocking safe work?</li>
-<li>If an unrequested transmission is attempted, which detection, authorization, or confirmation point stops it, and does it stop before the information leaves?</li>
-<li>If review is requested, does rejection stop execution, and does approval permit only the displayed destination and content?</li>
-<li>After a sending tool is refused, does an equivalent operation remain through another communication path or destination?</li>
-</ul>
-<p>Use no production secrets in the test email, and use a controlled test destination. A written refusal does not prove that no transmission occurred. Conversely, the execution system's adherence to permissions can be measured separately from whether the agent explains the attack. Record the model, connections, and permission settings so the same tasks can be rerun after changes.</p>
-<p>The results can support releasing a particular configuration, but cannot guarantee resistance to unknown attacks. Bound the information and actions available, then verify that legitimate work completes and prohibited operations stop within that scope. Make observed enforcement, rather than a count of safety features, part of the release decision.</p>
+  <p class="section-kicker">Comparison conditions from research</p>
+  <h2>A defense that stops attacks may also stop useful work</h2>
+  <p>The <a href="https://arxiv.org/html/2406.13352v1">first AgentDojo paper</a> uses environments containing dummy emails, calendar entries, and documents. It defines user and attacker goals separately and evaluates resulting state. Its metrics distinguish ordinary task completion, completion under attack without adversarial effects, and achievement of the attacker's goal. This is neither measurement on production email nor a comprehensive comparison of current products.</p>
+  <p>A tool-filtering defense in the paper selects necessary tools before observing untrusted data. Removing a sending tool from a read-only job restricts a transmission attack. It has limits when legitimate work and attacks need the same tools, or required tools depend on intermediate results. Reducing the tool set therefore has different effects across tasks.</p>
+  <p>For the hypothetical summary job, a read-only configuration is a useful comparator. If the user also asks to send a summary to a colleague, removing all transmission would leave the job unfinished. Bound the recipient and content, and test summary-only requests separately from those authorizing transmission.</p>
+  <p>A low attack success rate alone does not explain its cause. A configuration that fails ordinary requests may also lack the ability to execute an attacker's goal. Reading normal and attacked outcomes together helps distinguish protection of useful work from simply stopping processing. Passing this comparison still leaves unknown attacks unproven.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Human confirmation</p>
+  <h2>Give the reviewer enough information to judge the recipient and content</h2>
+  <p><a href="https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents">Anthropic's framework for safe agents</a> describes human stopping and redirection, alongside persistent permission for trusted routine work. It does not prescribe the same confirmation frequency for every operation. Define pre-authorized work and actions requiring an individual decision, then test that execution preserves the distinction.</p>
+  <p>In this article's scenario, a prompt saying only “send?” is incomplete. Show the recipient, content, and request that justify transmission. If the full email or an attachment is added after approval of a displayed summary, approval and execution concern different material. Test that a changed recipient or content cannot reuse the earlier approval.</p>
+  <p>More confirmations do not automatically make a defense stronger. If employees must reinvestigate recipients and documents each time, review is expensive. Present the necessary evidence and changes, and verify that rejection stops execution. Count confirmation events separately from whether the reviewer can make an informed decision.</p>
+  <p>Stopping also does not retrieve information already sent. A confirmation placed after transmission cannot prevent that transmission. The presence of an approval interface does not establish its ordering; compare confirmation and execution records.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Testing before release</p>
+  <h2>Compare normal work, manipulation, and authorized transmission</h2>
+  <p>The following is a proposed test, not measured results for the vendors' products. Prepare dummy email without production secrets and a controlled test destination. First summarize ordinary messages, checking that a request to reply in the email can be reported without the agent sending a reply on its own.</p>
+  <p>Next, add text encouraging transmission the user did not request. Test the message body and attachments or search results actually read during the job. Connect the response, tool request, permission decision, communications, and saved results. Distinguish recognition of an untrusted instruction from inability to execute because permission was absent.</p>
+  <p>Test authorized transmission separately. Can the confirmed summary reach the specified colleague? Does a changed recipient or content stop execution, and does rejection prevent it? After an induced request is refused, check whether another tool or link releases the same information. A written refusal is not evidence of absent communication.</p>
+  <p>Record the requests and attacks tested, model, connections, and permission and restriction settings. A retrieval failure that prevented exposure to attack text should not be counted as successful detection. Separate unfinished normal work, induced action requests, actual prohibited actions, and human review burden. Repeat matched trials and check unused examples with different wording.</p>
+  <p>Blocking an ordinary email through a false alarm differs from stopping an unauthorized transmission while continuing the summary. Inspecting which work stopped helps choose the next change: detection tuning, sending permissions, or handoff explanation. An average safety score should not hide where failure occurred.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Safety of the implementation</p>
+  <h2>Prompt-injection defenses and code vulnerability review are also distinct</h2>
+  <p>Execution restrictions leave their implementation to inspect. <a href="https://openai.com/index/codex-security-now-in-research-preview/">Codex Security's March 6 research-preview announcement</a> describes generating an editable threat model from a repository, validating vulnerability candidates, and proposing fixes. Where possible, it uses sandboxed validation. This is a vendor product description, not proof that every defect in any codebase will be found.</p>
+  <p>A threat model identifies what to protect, what the system trusts, and where influence can enter. For the summary scenario, defining a transmission prohibition differs from finding a path that bypasses it or code that checks the destination incorrectly. Recognizing an injected instruction does not repair an authorization defect in a tool.</p>
+  <p>After a proposed fix, check that prohibited actions stop and permitted processing still works. This article values evidence a reviewer can assess and understandable change impact over report volume. Resistance to manipulation, execution policies, and implementation validation support each other, but success in one does not establish completion of the others.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">The release decision</p>
+  <h2>Provide useful work within the permitted execution scope</h2>
+  <p>Before releasing the opening summary workflow, verify that it produces the needed summary without converting external content into permission or sending information unasked. A use case delegating transmission adds conditions for the permitted recipient and content, which then need their own tests. The same feature names do not transfer a safety result when available information and actions differ.</p>
+  <p>This verification does not guarantee protection against every unknown attack. New connections, communication methods, and shared information require revisiting how external influence can reach execution. Offer the scope within which normal and prohibited outcomes can be explained, and narrow it for repair when problems appear. That connects security verification to the conditions under which users can delegate useful work.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -190,49 +221,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-03-24-why-ai-products-converge-on-chat-ui.html" aria-label="What chat and editing interfaces each contribute to AI work">
+      <a class="article-card " href="/en/2026-03-24-why-ai-products-converge-on-chat-ui.html" aria-label="AI chat UI: when to add an editor or a visible plan">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Strategy</span>
-        <time class="mono-note" datetime="2026-03-24">March 24, 2026</time>
+        <time class="mono-note" datetime="2026-03-24">Research cutoff March 24, 2026</time>
       </div>
-      <h3 class="article-card-title">What chat and editing interfaces each contribute to AI work</h3>
-      <p class="article-card-copy">Describing a goal and selecting a passage solve different problems. Compare conversation, editing, and shared plans.</p>
+      <h3 class="article-card-title">AI chat UI: when to add an editor or a visible plan</h3>
+      <p class="article-card-copy">A conversational request and a precise edit solve different problems. Compare drafts, shared versions, editable plans, and recurring forms.</p>
       <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Chat Interface</span><span class="meta-chip">Product Design</span><span class="meta-chip">Workflow</span><span class="meta-chip">UX</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 10</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="Evaluate agent readiness against the work your organization must complete">
+  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="Enterprise AI agents: define the job and who takes it back">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-21">March 21, 2026</time>
+        <time class="mono-note" datetime="2026-03-21">Research cutoff March 21, 2026</time>
       </div>
-      <h3 class="article-card-title">Evaluate agent readiness against the work your organization must complete</h3>
-      <p class="article-card-copy">A benchmark score is a starting point. Define completion and exceptions, then compare the agent with a simpler workflow.</p>
+      <h3 class="article-card-title">Enterprise AI agents: define the job and who takes it back</h3>
+      <p class="article-card-copy">A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p>
       <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Use Case</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 6</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Delegating meeting preparation to Cowork: drafts, calendar changes, and review">
+  </a><a class="article-card " href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Meeting preparation with Cowork: connecting evidence, analysis, and action">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-25">March 25, 2026</time>
+        <time class="mono-note" datetime="2026-03-25">Research cutoff March 25, 2026</time>
       </div>
-      <h3 class="article-card-title">Delegating meeting preparation to Cowork: drafts, calendar changes, and review</h3>
-      <p class="article-card-copy">Meeting preparation can include drafts and calendar changes. Define the review points for each before delegating the whole task.</p>
+      <h3 class="article-card-title">Meeting preparation with Cowork: connecting evidence, analysis, and action</h3>
+      <p class="article-card-copy">From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Cowork</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">Workflow</span><span class="meta-chip">Productivity</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 5</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -263,8 +294,18 @@
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">March 3, 2026</span>
               </div>
-              <p class="source-title">AWS: AgentCore Policy general availability</p>
+              <p class="source-title">AWS: Policy in Amazon Bedrock AgentCore is now generally available</p>
               <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/html/2406.13352v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">June 19, 2024</span>
+              </div>
+              <p class="source-title">AgentDojo: A Dynamic Environment to Evaluate Attacks and Defenses for LLM Agents (v1)</p>
+              <p class="source-url">https://arxiv.org/html/2406.13352v1</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents" target="_blank" rel="noopener noreferrer">
@@ -273,8 +314,18 @@
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">August 4, 2025</span>
               </div>
-              <p class="source-title">Anthropic: Framework for safe and trustworthy agents</p>
+              <p class="source-title">Anthropic: Our framework for developing safe and trustworthy agents</p>
               <p class="source-url">https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/codex-security-now-in-research-preview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 6, 2026</span>
+              </div>
+              <p class="source-title">OpenAI: Codex Security, now in research preview</p>
+              <p class="source-url">https://openai.com/index/codex-security-now-in-research-preview/</p>
             </div>
             <span class="source-action">Open</span>
           </a>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか | Auto Research Digest</title>
-    <meta name="description" content="2025年2月時点のブラウザ操作研究と製品発表を基に、computer useを計画する際の完了条件、状態管理、承認、引き継ぎを整理する。">
+    <title>ブラウザ操作エージェント APIのない画面で仕事を引き継ぐ | Auto Research Digest</title>
+    <meta name="description" content="ブラウザ操作AIはAPIのない画面で何を任せられるのか。Operator、WebVoyagerなどから、視覚、完了確認、再開と利用者の負担を比較する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか | Auto Research Digest">
-    <meta property="og:description" content="2025年2月時点のブラウザ操作研究と製品発表を基に、computer useを計画する際の完了条件、状態管理、承認、引き継ぎを整理する。">
+    <meta property="og:title" content="ブラウザ操作エージェント APIのない画面で仕事を引き継ぐ | Auto Research Digest">
+    <meta property="og:description" content="ブラウザ操作AIはAPIのない画面で何を任せられるのか。Operator、WebVoyagerなどから、視覚、完了確認、再開と利用者の負担を比較する。">
     <meta property="og:url" content="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか">
+    <meta property="og:image:alt" content="ブラウザ操作エージェント APIのない画面で仕事を引き継ぐ">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか | Auto Research Digest">
-    <meta name="twitter:description" content="2025年2月時点のブラウザ操作研究と製品発表を基に、computer useを計画する際の完了条件、状態管理、承認、引き継ぎを整理する。">
+    <meta name="twitter:title" content="ブラウザ操作エージェント APIのない画面で仕事を引き継ぐ | Auto Research Digest">
+    <meta name="twitter:description" content="ブラウザ操作AIはAPIのない画面で何を任せられるのか。Operator、WebVoyagerなどから、視覚、完了確認、再開と利用者の負担を比較する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか">
+    <meta name="twitter:image:alt" content="ブラウザ操作エージェント APIのない画面で仕事を引き継ぐ">
     <link rel="canonical" href="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-02-01-browser-agents-enter-the-product-roadmap.html">
@@ -42,15 +42,14 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-02-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T13:47:37+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Computer Use">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか","description":"2025年2月時点のブラウザ操作研究と製品発表を基に、computer useを計画する際の完了条件、状態管理、承認、引き継ぎを整理する。","datePublished":"2025-02-01T00:00:00+09:00","dateModified":"2026-09-20T13:47:37+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Computer Use, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか","item":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ","description":"ブラウザ操作AIはAPIのない画面で何を任せられるのか。Operator、WebVoyagerなどから、視覚、完了確認、再開と利用者の負担を比較する。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Computer Use, Evaluation","mainEntityOfPage":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ","item":"https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,21 +65,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか</h1>
-          <p class="hero-copy">WebVoyager、VisualWebArena、OSWorld、Operator、AutoGen v0.4を比較し、ブラウザ操作を製品計画に置く際の環境、状態、確認、人への引き継ぎを整理する。</p>
+          <h1 class="hero-title">ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ</h1>
+          <p class="hero-copy">Operatorと画面操作研究から、APIのないサイトへ仕事を広げる利点と、受付結果の確認、人への引き継ぎ、修正負担の関係を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-02-01">2025年2月1日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2025-02-01">調査対象日 2025年2月1日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Evaluation</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%93%8D%E4%BD%9C%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%82%92%E8%A3%BD%E5%93%81%E8%A8%88%E7%94%BB%E3%81%B8%E5%85%A5%E3%82%8C%E3%82%8B%E5%89%8D%E3%81%AB%E3%80%81%E4%BD%95%E3%82%92%E8%A8%AD%E8%A8%88%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-02-01-browser-agents-enter-the-product-roadmap.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%83%96%E3%83%A9%E3%82%A6%E3%82%B6%E6%93%8D%E4%BD%9C%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%80%80API%E3%81%AE%E3%81%AA%E3%81%84%E7%94%BB%E9%9D%A2%E3%81%A7%E4%BB%95%E4%BA%8B%E3%82%92%E5%BC%95%E3%81%8D%E7%B6%99%E3%81%90&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-02-01-browser-agents-enter-the-product-roadmap.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか"
-      data-share-text="ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか"
+      data-share-title="ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ"
+      data-share-text="ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ"
       data-share-url="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか"
+      data-share-title="ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ"
       data-share-url="https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,74 +124,147 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">問い</p>
-  <h2>ブラウザを操作する研究は、製品計画のどこを具体化したのか</h2>
-  <p>2025年2月1日までに公開された browser / computer use の研究と製品発表は、画面をクリックできることをそのまま製品化の証拠にするものではない。<a href="https://arxiv.org/abs/2401.13919">WebVoyager</a>、<a href="https://arxiv.org/abs/2401.13649">VisualWebArena</a>、<a href="https://arxiv.org/abs/2404.07972">OSWorld</a> は、画面の知覚と複数操作の完了を測る環境を示した。<a href="https://openai.com/index/introducing-operator/">Operator</a>、<a href="https://www.anthropic.com/research/developing-computer-use">Anthropic の computer use</a>、<a href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/">AutoGen v0.4</a> は、画面操作、利用者への制御返却、状態と観測の扱いを製品・実装の論点にした。本稿ではこれを「導入が一般化した」という意味ではなく、製品ロードマップで検討すべき条件が具体的になった、という意味で読む。</p>
+  <p class="section-kicker">画面の向こうにある仕事</p>
+  <h2>取引先のフォームを、いつまで人が埋め続けるのか</h2>
+  <p>取引先のポータルで製品資料を請求する仕事を考える。
+これは以下の設計を説明する想定例である。
+社名、担当者、対象製品を入力し、途中の確認画面を通って送信する。
+自社の顧客管理システムには情報がそろっていても、相手のサイトに連携用のAPIがなければ、人が画面を開いて転記する工程が残る。</p>
+  <p>ブラウザ操作エージェントは、この工程を任せられる可能性を開く。
+<a href="https://openai.com/index/introducing-operator/">OpenAIが1月23日に発表したOperator</a>は、専用APIを用意せず、スクリーンショットを見て入力、クリック、スクロールする仕組みを示した。
+提供は米国のPro利用者向け研究プレビューであり、あらゆるサイトで仕事を終えられるという実証ではない。
+それでも、連携先がAPIを提供するまで待つ、という製品計画の制約を変える提案として読める。</p>
+  <p>ただし、操作できる画面が増えるほど、そこで起きたことを確かめる仕事も増える。
+送信ボタンを押した後にエラーが出たのか、受付が遅いだけなのか、既に送信されたのか。
+本稿の判断は、ブラウザエージェントを計画する際には、操作先の広さと、一件を確実に終えるための負担を一緒に比較する必要がある、というものだ。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">操作方法の比較</p>
+  <h2>API、画面の構造、画像は、それぞれ違う手掛かりを渡す</h2>
+  <p>連携APIがあり、対象データと受付結果を直接扱える仕事では、その経路を使う価値がある。
+画面の配置が変わっても同じ項目を送れるからだ。
+ただし、APIがあることだけで権限、入力内容、結果の正しさまで保証されるわけではない。
+一方、画面操作は既存の利用者向け機能を使えるが、表示内容から操作対象と結果を読み取る必要がある。
+これは接続先を増やす利点と引き換えに増える処理である。</p>
+  <p><a href="https://arxiv.org/html/2401.13919v1">WebVoyagerの原版</a>は、その読み取りを画像だけに任せてはいない。
+Webページの構造から操作可能な要素を抽出し、スクリーンショット上に番号付きの枠を重ねる。
+モデルには画面と補助テキストを渡し、選んだ番号に対してクリックや入力を行う。
+視覚で位置を理解することと、構造から操作対象を特定することを組み合わせた実装だ。</p>
+  <p>この違いは選択を変える。
+項目名がはっきりした入力欄なら、Webページの構造やアクセシビリティ情報を使う方法が候補になる。
+画像の内容や見た目の配置が判断材料なら、テキストだけでは条件を落とす可能性がある。
+どれか一つを万能な入口にせず、対象画面に何の手掛かりがあるかから選ぶ方がよい。</p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>環境を読む</h3>
-      <p>DOM だけでなく、視覚的な配置、画面遷移、ログイン状態を含む現在地を理解する。</p>
+      <h3>連携API</h3>
+      <p>項目と結果を直接扱える場合に有効。必要な機能と権限がAPIで提供されているかを確かめる。</p>
     </article>
     <article class="comparison-card">
-      <h3>長い処理を保つ</h3>
-      <p>途中で止まった操作、待機、失敗を、次の担当者または次の実行へ渡す。</p>
+      <h3>画面内の構造</h3>
+      <p>入力欄やボタンの意味を使う。画像の意味や構造に載らない表示は別の観測で補う。</p>
     </article>
     <article class="comparison-card">
-      <h3>人が確定する</h3>
-      <p>認証、支払い、送信などの局面で、何を人に戻すかをあらかじめ決める。</p>
+      <h3>画面の画像</h3>
+      <p>見た目も判断に含められる。位置の読み違いと、観測の間に消える表示を検査する。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">研究が分けた問題</p>
-  <h2>Web タスクとコンピュータ操作は、画面を見れば終わる仕事ではない</h2>
-  <p>WebVoyager は、大規模マルチモーダルモデルを使う end-to-end の Web エージェントを研究対象にした。VisualWebArena は、テキストだけでは解けない視覚的に根拠づけられた Web タスクを評価し、画像とテキストを読み、利用者の目的に沿ってサイトを操作する条件を置いた。両者は、ブラウザを使う仕事で画面の見た目が入力の一部になることを示す。</p>
-  <p>OSWorld は、Ubuntu、Windows、macOS 上の実 Web・デスクトップアプリ、ファイル I/O、複数アプリにまたがる 369 タスクを、初期状態の設定と実行ベースの評価器とともに提示した。研究で報告された最良モデルの成功率と人の成功率の差は、特定の環境・モデル・評価スクリプトでの比較である。それでも、画面操作を比較するには「何をクリックしたか」ではなく「初期状態からどの最終状態に到達したか」を測る必要がある、という点は明確になる。</p>
-  <p><a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> は複数の Web エージェントベンチマークを共通の観測・行動空間で扱い、実験管理をそろえることを目指した。こうした研究環境の結果を、実際の顧客サイトや社内システムの成功率に置き換えることはできない。しかし、タスクの初期状態、見える観測、許す操作、完了判定を先に書くという方法は、製品計画にも移せる。</p>
+  <p class="section-kicker">視覚が必要な課題</p>
+  <h2>「同じ商品を選ぶ」には、名前だけでは足りないことがある</h2>
+  <p><a href="https://arxiv.org/html/2401.13649v1">VisualWebArenaの原版</a>は、画像とテキストの理解が必要な910課題を、分類広告、買い物、Redditの三つのWeb環境に用意した。
+再現可能な環境で、利用者の指示を読み、見た目に根拠のある対象を選び、操作する能力を測る。
+一般のサイトで自由に動けるかを測る試験とは、環境の作り方が違う。</p>
+  <p>例えば、名前が似た複数の商品から、渡された写真に合う形を選ぶ場面を考える。
+これは研究の課題設定が持つ意味を説明する例である。
+文字を正しく読み、ボタンも正しく押せても、選ぶ対象の条件が画像にしかなければ仕事を取り違える。
+視覚を使う意義は、クリックの手段を増やすことに加え、利用者が指定した条件を失わずに扱うことにある。</p>
+  <p>ただし、画像を読めるモデルでも、似た配置の取り違いや小さな違いの見落としは残る。
+WebVoyagerの失敗分析も、隣接する要素の混同や、二つの観測の微妙な変化を認識できない問題を挙げる。
+「画像入力を追加した」という仕様だけで、対象を選ぶ精度まで判断することはできない。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">製品の境界</p>
-  <h2>Operator と computer use は、広い操作面と限定された監督条件を同時に示した</h2>
-  <p>OpenAI は2025年1月23日、スクリーンショットを見て、入力、クリック、スクロールを行うブラウザエージェント Operator を、米国の Pro 利用者向け研究プレビューとして発表した。専用 API がない画面でも操作できる可能性を示す一方、ログイン、支払い情報、CAPTCHA では利用者への takeover を求め、注文送信やメール送信などの重要操作の前には確認を求める設計を説明した。発表時点の提供範囲と制御方針を、すべての Web 操作が安全に完了する実証へ広げてはならない。</p>
-  <p>Anthropic の2024年10月の解説も、computer use は画面をスクリーンショットとして読み、カーソル移動やクリックを行うと説明する。同記事は、画面を連続動画ではなく「flipbook」のように観測するため、短時間だけ現れる通知や操作を見逃しうること、速度や正確さに課題が残ることを明記した。これらの制約は、画面操作を任せるかどうかを、成功したデモではなく、見逃し・待機・誤操作を扱えるかで判断する理由になる。</p>
-  <p><a href="https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai">Google Cloud の2025年1月の Vertex AI 概要</a>も、エージェント構築をプラットフォーム上の選択肢として扱った。ここから言えるのは、複数の発表が browser / computer use を実装計画の対象にしたことであり、特定の提供形態や導入成果が同じであることではない。</p>
+  <p class="section-kicker">研究結果を読む</p>
+  <h2>対応するサイトの数と、完了できた仕事の割合を分ける</h2>
+  <p>WebVoyagerの原版は、15サイトから集めた課題で55.7%の成功率を報告した。
+モデルはGPT-4のvision preview、ブラウザの大きさは1024×768、探索は最大15操作という条件である。
+この値はその構成の結果であり、Operatorの成功率でも、自社フォームの見込みでもない。
+複数のサイトで動いたことと、その各仕事を安定して終えられることは、別の説明を必要とする。</p>
+  <p><a href="https://arxiv.org/abs/2412.05467v1">BrowserGymの原版</a>は、Webエージェントの複数の評価環境を共通の観測・行動形式で扱い、実験管理をそろえる仕組みを示す。
+評価の条件を追いやすくする基盤であり、異なる課題の得点をそのまま同じ尺度にするものではない。
+製品で使うサイト、見える情報、操作の上限が違えば、改めてその仕事を試す必要がある。</p>
+  <p>対象がブラウザの外へ広がる場合も同じだ。
+<a href="https://arxiv.org/abs/2404.07972v1">OSWorldの原版</a>は、Webやデスクトップアプリ、ファイル操作などの369課題と、初期状態の設定、実行結果を判定する仕組みを提示した。
+Ubuntu、Windows、macOSへの対応は、全OSで同じ成功率が得られるという意味ではない。
+ブラウザからファイル保存や別アプリへ移るなら、その境界も製品の対象範囲として測る必要がある。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">処理の継続</p>
-  <h2>ブラウザの一回の操作を、再開できる処理に変える</h2>
-  <p>画面を動かす仕事では、待機、認証、表示の崩れ、二重実行の恐れが途中で生じる。<a href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/">AutoGen v0.4</a> は、非同期メッセージ、event-driven な長期実行、メッセージ追跡とデバッグを備える設計を提示した。これはブラウザエージェント専用の製品仕様ではないが、長い処理で状態と観測を残す実装上の参考になる。</p>
-  <p><a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> は、複雑なタスクを解く一般的な複数エージェント構成を研究した。ブラウザ担当、情報収集、計画、統合を役割として分ける場合でも、担当を増やすこと自体が解決ではない。どの画面を見たか、何を入力したか、送信は済んだか、次に誰が判断するかを handoff の内容として残す必要がある。<a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> が区別する workflow と agent の考え方も、自由に操作させる範囲と定めた経路を通す範囲を選ぶ際の助けになる。</p>
+  <p class="section-kicker">見えなかった結果</p>
+  <h2>送信した後、エージェントは何を見ているのか</h2>
+  <p>画面を操作するエージェントは、操作と観測を繰り返す。
+その間に起きたことを全て見ているとは限らない。
+<a href="https://www.anthropic.com/research/developing-computer-use">Anthropicの2024年10月22日の解説</a>は、連続した動画ではなくスクリーンショットをつなげて読むため、短時間だけ現れる通知や動作を見逃しうると説明する。
+速度や誤操作にも課題が残るという記述は、成功したデモの外にある条件を示している。</p>
+  <p>冒頭の資料請求で、送信後の画面が変わらなかった場合を考える。
+エージェントには、受付が遅いのか、入力エラーが出たのか、確認通知を見落としたのか、まだ区別できない。
+「変化が見えないので再送する」と決めると、既に受け付けられた請求を重ねる可能性がある。
+観測が不足している状態を、送信が失敗した状態へ置き換えてはいけない。</p>
+  <p>私が製品に求めるのは、この不明確さを利用者が読める形で残すことだ。
+受付番号、継続して見える完了画面、利用者が確認できる受信記録など、仕事に応じた根拠があるかを確かめる。
+ない場合には、試みた時刻と確認できた範囲を示す。
+何も言わずにやり直すより、利用者が再送すべきかを判断する材料を渡せる。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">想定例</p>
-  <h2>資料請求フォームでは、送信前後の状態と引き継ぐ判断を別にする</h2>
-  <p>以下は製品の実績ではなく、ロードマップ上の検査対象を説明する想定例である。エージェントが資料請求フォームに氏名と連絡先を入力する。送信ボタンを押せても、必須項目のエラー、遅い受付処理、認証要求が出れば、請求は完了していない。確認画面が短く表示されただけなら、スクリーンショット観測では見逃す可能性もある。</p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>実行前に決める</h3>
-      <p>入力してよい項目、禁止する項目、送信が不可逆な操作に当たるか、利用者の確認を求める地点を定める。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>実行後に残す</h3>
-      <p>入力値の要約、送信を試みた時刻、確認できた画面状態、確認できなかった点を記録する。</p>
-    </article>
-    <article class="comparison-card">
-      <h3>人へ渡す</h3>
-      <p>「送信済み」ではなく、「送信操作は実行したが受付完了は未確認」のように状態を渡す。再送前には二重送信の確認を人が行う。</p>
-    </article>
-  </div>
-  <p>検査では、正常送信だけでなく、入力エラー、遅延、認証、途中離脱を用意する。各条件で、最終状態を根拠付きで確認できるか、判断不能な状態を人へ正しく渡せるかを測る。</p>
+  <p class="section-kicker">人へ戻す時点</p>
+  <h2>画面を渡すだけでは、仕事は引き継げない</h2>
+  <p>Operatorの発表は、ログイン、支払い情報、CAPTCHAなどで利用者に操作を戻し、注文やメールの送信などの前に確認を求める設計を説明した。
+人の判断を組み込む具体的な製品仕様であり、どの画面でも誤操作を防げるという保証ではない。
+別の製品を作る際には、その仕事で誰が何を確認できるかを設計し直す必要がある。</p>
+  <p>資料請求の途中で認証が必要になった場合、利用者はログインした後に、何のためにこの画面を開いたのかを思い出すことになる。
+目的、入力済みの項目、送信の有無が分かれば、そのまま続きを任せやすい。
+画面だけ戻され、最初から説明し直すなら、転記を減らした代わりに別の負担を増やしている。</p>
+  <p>このため、人の関与を「最後に確認する一回」と数えるだけでは足りない。
+何回呼び戻されたかに加え、そのたびに何を調べ直し、何を入力し直したかを見る。
+これは本稿が提案する評価の観点であり、既存製品で負担が減ったという測定結果ではない。
+人に戻す機能の存在と、引き継ぎの使いやすさを分けて確かめたい。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">製品計画への答え</p>
-  <h2>ロードマップに入れる単位は、「ブラウザを使う機能」ではなく、監督できる仕事である</h2>
-  <p>2025年2月時点の資料から得られる答えは、ブラウザエージェントを万能な UI 自動化として計画しないことだ。研究は環境・視覚・最終状態を、製品プレビューは takeover・確認・制約を、実装基盤は状態・追跡・再開を別々に見せた。これらを一つの仕事に重ねることで、初めて何を任せ、どこで止め、誰が続きを判断するかを設計できる。</p>
-  <p>最初の対象は、読む、比較する、入力を準備するなど、外部副作用が小さく、利用者が最終結果を確認できる工程に絞る。画面の変化、認証、最終送信を含む仕事では、成功率だけでなく未確認状態を安全に引き渡せたかを評価する。この条件を満たす仕事から始めることが、研究テーマを製品計画へ変える現実的な方法になる。</p>
+  <p class="section-kicker">続きの処理を支える</p>
+  <h2>通信と進捗の記録は、受付済みの証拠とは別に持つ</h2>
+  <p><a href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/">1月14日に発表されたAutoGen v0.4</a>は、非同期メッセージ、処理の出来事に応じて動く構成、メッセージ追跡やデバッグを提示した。
+進捗の保存と復元、停止した処理の再開も説明されている。
+これらは長い処理を組むための部品だが、外部サイトが請求を受け付けたかまで自動的に確定するものではない。</p>
+  <p><a href="https://arxiv.org/html/2411.04468v1">Magentic-Oneの原版</a>では、統括役が二つの台帳を使う。
+一方に事実、推測、計画を置き、もう一方に進捗と担当への指示を置く。
+進まなくなった場合には計画を見直し、ブラウザ、ファイル、コードなどを扱う担当へ仕事を割り振る。
+これは複雑な課題に対する研究実装であり、全てのブラウザ業務に同じ人数や構成が必要だという根拠ではない。</p>
+  <p>資料請求にこの考え方を使うなら、「送信操作を実行した」という記録と、「受付番号を確認した」という根拠を分ける。
+途中から再開する処理も、前者しかない状態で再送してよいと決めない。
+担当を増やすより先に、次の担当がどの記録を確定した事実として使えるかを定義する。
+記録が残ることと、その記録が外部の結果を正しく表していることは別だからだ。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">製品計画に置く単位</p>
+  <h2>利用者が続きを調べ直さずに済む仕事から組み込む</h2>
+  <p><a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>は、あらかじめ定めた経路で進む処理と、モデルが次の手段を選ぶエージェントを区別する。
+ブラウザでも、決まったフォームへの入力まで全て自由な判断にする必要はない。
+安定した経路は定め、画面や条件が変わる場所で観測と判断を使う、という組み合わせが考えられる。
+閲覧と比較だけで目的を満たすなら、送信まで対象に加える理由もない。</p>
+  <p>製品計画では、一つの具体的な仕事を通して比べたい。
+資料請求なら、入力の準備、認証後の再開、送信結果の確認までを試す。
+正常な場合だけでなく、必須項目のエラー、遅延、短い通知、途中離脱を含め、完了できた割合と利用者の修正時間を分けて記録する。
+対応できるサイトが増えても、一件ごとに人が画面を見直す時間が増えるなら、その負担を含めて採用を判断する。</p>
+  <p>ブラウザ操作が持つ価値は、既存のソフトウェアと利用者の目的をつなぐ範囲を広げることにある。
+その価値を使える製品にするには、どこまで操作し、何を確かめ、分からない結果をどう渡すかが必要になる。
+利用者が状況を調べ直さずに続きを選べる仕事を一つずつ増やす。
+それが、画面操作の可能性を日々の仕事へ移すための現実的な道筋だ。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -213,49 +286,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2025-03-01-agent-evaluation-becomes-a-gating-layer.html" aria-label="AIエージェントの評価は、配備判断を何で支えるのか">
+      <a class="article-card " href="/2025-03-01-agent-evaluation-becomes-a-gating-layer.html" aria-label="AIエージェントの評価　平均点が上がっても配備を見送る理由">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-03-01">2025年3月1日</time>
+        <time class="mono-note" datetime="2025-03-01">調査対象日 2025年3月1日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの評価は、配備判断を何で支えるのか</h3>
-      <p class="article-card-copy">評価は合否を自動化する装置ではない。何を任せられるかを説明するための、回答・実行・安全性の検査を考える。</p>
+      <h3 class="article-card-title">AIエージェントの評価　平均点が上がっても配備を見送る理由</h3>
+      <p class="article-card-copy">平均点の改善だけでは、通してよい更新は分からない。繰り返しの失敗、採点条件、人の修正負担まで評価を読む。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 10</span>
+      <span class="mono-note">根拠数: 9</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2025-01-01-agents-shift-to-measurable-systems.html" aria-label="AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか">
+  </a><a class="article-card " href="/2025-01-01-agents-shift-to-measurable-systems.html" aria-label="AIエージェントの評価　道具の成功と仕事の完了を分ける">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-01-01">2025年1月1日</time>
+        <time class="mono-note" datetime="2025-01-01">調査対象日 2025年1月1日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか</h3>
-      <p class="article-card-copy">APIが応答しても、仕事が終わったとは限らない。研究ベンチマークが示した「測定可能な仕事」の設計をたどる。</p>
+      <h3 class="article-card-title">AIエージェントの評価　道具の成功と仕事の完了を分ける</h3>
+      <p class="article-card-copy">検索の成功を、利用者が知りたかったことの成功と取り違えない。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Tool Use</span></div>
     </div>
     <div class="article-card-foot">
       <span class="mono-note">根拠数: 10</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-02-01-control-planes-and-evals-set-the-pace.html" aria-label="エージェントの変更を判断するために、何を比較し記録するか">
+  </a><a class="article-card " href="/2026-02-01-control-planes-and-evals-set-the-pace.html" aria-label="エージェントの更新で、改善と後退をどう見分けるか">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-02-01">2026年2月1日</time>
+        <time class="mono-note" datetime="2026-02-01">調査対象日 2026年2月1日</time>
       </div>
-      <h3 class="article-card-title">エージェントの変更を判断するために、何を比較し記録するか</h3>
-      <p class="article-card-copy">新しい仕事の改善と、既存業務を壊していない確認は別の評価で行う。</p>
+      <h3 class="article-card-title">エージェントの更新で、改善と後退をどう見分けるか</h3>
+      <p class="article-card-copy">新しい質問に答えられても、以前の引き継ぎが残ったとは限らない。変更の受け入れを何で判断するか。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Control Plane</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 2</span>
+      <span class="mono-note">根拠数: 5</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -270,54 +343,54 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2401.13919" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/html/2401.13919v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年1月25日</span>
               </div>
               <p class="source-title">WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models</p>
-              <p class="source-url">https://arxiv.org/abs/2401.13919</p>
+              <p class="source-url">https://arxiv.org/html/2401.13919v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2401.13649" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/html/2401.13649v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年1月24日</span>
               </div>
               <p class="source-title">VisualWebArena: Evaluating Multimodal Agents on Realistic Visual Web Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2401.13649</p>
+              <p class="source-url">https://arxiv.org/html/2401.13649v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年4月11日</span>
               </div>
               <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
-              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
+              <p class="source-url">https://arxiv.org/abs/2404.07972v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2411.04468" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/html/2411.04468v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年11月7日</span>
               </div>
               <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2411.04468</p>
+              <p class="source-url">https://arxiv.org/html/2411.04468v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年12月6日</span>
               </div>
               <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467v1</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://www.anthropic.com/research/developing-computer-use" target="_blank" rel="noopener noreferrer">
@@ -358,16 +431,6 @@
               </div>
               <p class="source-title">OpenAI: Introducing Operator</p>
               <p class="source-url">https://openai.com/index/introducing-operator/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月24日</span>
-              </div>
-              <p class="source-title">Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai</p>
             </div>
             <span class="source-action">開く</span>
           </a>

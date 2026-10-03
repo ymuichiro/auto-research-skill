@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How to separate open connectivity, managed execution, and approval design | Auto Research Digest EN</title>
-    <meta name="description" content="Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.">
+    <title>A2A handover: what must travel with an agent request | Auto Research Digest EN</title>
+    <meta name="description" content="Compare A2A tasks, ADK deployment, and Bedrock confirmation to show how agent handover preserves intent, revalidates edits, and reports approval status.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="How to separate open connectivity, managed execution, and approval design | Auto Research Digest EN">
-    <meta property="og:description" content="Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.">
+    <meta property="og:title" content="A2A handover: what must travel with an agent request | Auto Research Digest EN">
+    <meta property="og:description" content="Compare A2A tasks, ADK deployment, and Bedrock confirmation to show how agent handover preserves intent, revalidates edits, and reports approval status.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="How to separate open connectivity, managed execution, and approval design">
+    <meta property="og:image:alt" content="A2A handover: what must travel with an agent request">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How to separate open connectivity, managed execution, and approval design | Auto Research Digest EN">
-    <meta name="twitter:description" content="Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.">
+    <meta name="twitter:title" content="A2A handover: what must travel with an agent request | Auto Research Digest EN">
+    <meta name="twitter:description" content="Compare A2A tasks, ADK deployment, and Bedrock confirmation to show how agent handover preserves intent, revalidates edits, and reports approval status.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="How to separate open connectivity, managed execution, and approval design">
+    <meta name="twitter:image:alt" content="A2A handover: what must travel with an agent request">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html">
@@ -42,16 +42,15 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-05-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T14:01:53+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Interoperability">
     <meta property="article:tag" content="Runtime">
     <meta property="article:tag" content="Approval">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"How to separate open connectivity, managed execution, and approval design","description":"Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.","datePublished":"2025-05-01T00:00:00+09:00","dateModified":"2026-09-20T14:01:53+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Interoperability, Runtime, Approval","mainEntityOfPage":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"How to separate open connectivity, managed execution, and approval design","item":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"A2A handover: what must travel with an agent request","description":"Compare A2A tasks, ADK deployment, and Bedrock confirmation to show how agent handover preserves intent, revalidates edits, and reports approval status.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Interoperability, Runtime, Approval","mainEntityOfPage":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"A2A handover: what must travel with an agent request","item":"https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,21 +66,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">How to separate open connectivity, managed execution, and approval design</h1>
-          <p class="hero-copy">Read spring 2025 material from OpenAI, AWS, Google, and Microsoft to separate protocol connectivity, hosted execution, and user or organizational approval as distinct responsibilities.</p>
+          <h1 class="hero-title">A2A handover: what must travel with an agent request</h1>
+          <p class="hero-copy">Compare A2A, ADK and Agent Engine, Semantic Kernel Agents, and Bedrock leave requests to examine how intent, validation, and progress travel across systems.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-05-01">May 1, 2025</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2025-05-01">Research cutoff May 1, 2025</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Runtime</span><span class="meta-chip">Approval</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=How%20to%20separate%20open%20connectivity%2C%20managed%20execution%2C%20and%20approval%20design&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-05-01-open-runtimes-and-managed-platforms-converge.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=A2A%20handover%3A%20what%20must%20travel%20with%20an%20agent%20request&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-05-01-open-runtimes-and-managed-platforms-converge.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="How to separate open connectivity, managed execution, and approval design"
-      data-share-text="How to separate open connectivity, managed execution, and approval design"
+      data-share-title="A2A handover: what must travel with an agent request"
+      data-share-text="A2A handover: what must travel with an agent request"
       data-share-url="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="How to separate open connectivity, managed execution, and approval design"
+      data-share-title="A2A handover: what must travel with an agent request"
       data-share-url="https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -125,41 +125,67 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>What is lost when connection, execution, and approval are treated as one “agent feature”?</h2>
-  <p>Spring 2025 material from OpenAI, AWS, Google, and Microsoft appeared in different places: agent-building components, collaboration and human confirmation, multi-system agents and <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A</a>, and Semantic Kernel Agents. It did not describe one finished common platform. This article treats protocol connectivity, managed execution, and approval for a change as separate responsibilities. That separation makes clear what can be exchanged and what organizational judgment remains.</p>
+  <p class="section-kicker">Handing over a request</p>
+  <h2>Connected specialists can still leave users unsure where the job went</h2>
+  <p>“I would like three days off next month.” An internal assistant checks the balance and prepares the request. The employee still needs to distinguish a draft, a request sent to a manager, and approved leave. This is a hypothetical design combining several systems. More participants can return answers, yet if those distinctions disappear, the employee must reopen the HR system to find out what happened.</p>
+  <p>Google’s April 9 announcement of <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">Agent2Agent (A2A)</a> proposes a way to delegate work to agents on different platforms. Its Vertex AI announcement on the same day presents a development framework and a managed execution environment. Together with Semantic Kernel Agents becoming generally available and AWS’s implementation of human confirmation, these releases make combinations of development, connectivity, deployment, and review more concrete.</p>
+  <p>My conclusion is that making components easier to combine becomes useful handover only when the meaning of the request and its completion conditions travel with it. Calling a participant, following its response, and confirming a change each help. Deciding who revalidates the work when the user changes their intent connects those capabilities to a useful service.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Delegating work</p>
+  <h2>A2A covers the progress of a request as well as how to call another agent</h2>
+  <p>The A2A announcement describes client and remote agents exchanging capabilities, tasks, messages, and artifacts. An Agent Card advertises what a participant can do. A task may finish quickly or continue over a longer period, including human participation, while its status is communicated. Results return as artifacts. This expands the design question from receiving a single API response to entrusting work to another participant and following its progress.</p>
+  <p>Google illustrates the proposal with candidate sourcing. An agent takes a user’s requirements, asks specialists to find candidates, presents suggestions, and can then proceed to interview scheduling. This is an illustrated use case, not a measured reduction in recruitment time. The useful distinction is that a list of candidates and a request to arrange interviews are different jobs performed by different participants.</p>
+  <p>Applied to the leave-request scenario, a completed balance lookup does not mean the application is complete. The calling application must connect the remote participant’s definition of completion to what it displays. A format for transporting progress still leaves the work of aligning the meanings of a draft request and an approved record.</p>
+  <p>The announcement releases a draft specification and says a production-ready version is planned later in the year. The breadth of partner participation shows interest in common connectivity; it does not demonstrate dependable handover between every product. Adoption requires checking the particular implementation and the receiving system’s support.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Tools and participants</p>
+  <h2>MCP data connections can work alongside A2A delegation</h2>
+  <p>A connection to a tool differs from asking another participant to carry out a job. Anthropic’s <a href="https://www.anthropic.com/news/model-context-protocol">Model Context Protocol (MCP) announcement</a> describes servers exposing data and business tools to connected AI applications. The A2A announcement positions its protocol as complementary to MCP and describes collaboration without requiring participants to share the same tools or memory.</p>
+  <p>In the leave-request scenario, the assistant could call a balance-reading tool or ask an HR agent to prepare an application. That HR agent could itself use an MCP tool internally. The name of the connection method does not determine which component checks the number of days or stores the record.</p>
+  <p>The caller supplies information the participant needs and checks returned results against its own business conditions. It also defines access scope and what may cross an organizational boundary. The point is to distinguish implementation that a common connection format can remove from implementation still needed to align business meaning.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Development and deployment</p>
+  <h2>An open framework does not determine a single execution destination</h2>
+  <p><a href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai">Google’s Vertex AI announcement</a> makes that distinction concrete. Agent Development Kit (ADK) is an open-source framework for building agents. Released in Python, it describes local debugging and deployment choices including Cloud Run, Kubernetes, and Vertex AI. Agent Engine is presented as a service that manages deployment and execution infrastructure.</p>
+  <p>This combination separates code defining behavior from management of the environment running it. Portable code, however, does not make destination authentication, stored conversations, and monitoring configuration equally portable. Google describes reducing the burden of moving from development to deployment; the announcement alone does not establish a team’s migration effort. Comparing execution destinations requires checking which parts of the request and result survive the move.</p>
+  <p>The April 4 <a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/">Semantic Kernel Agents announcement</a> also needs to be read with framework and execution destination separated. The core Agent API becomes generally available in .NET 1.45 and Python 1.27, with Microsoft explaining its confidence in API quality and ongoing maintenance. The post includes connections to other platforms, but an SDK is not itself a managed execution service. General availability should not be extended automatically to the quality of every new collaboration feature or destination shown.</p>
+  <p>Both announcements offer ways to combine development frameworks with managed services. API stability, where behavior is defined, and what is managed after deployment are separate comparisons. The relevant choice is how independently a team can change the parts it needs to change.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Changes during human review</p>
+  <h2>Execution after confirmation still needs a place to repeat validation</h2>
+  <p><a href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/">AWS’s implementation of human confirmation</a> makes this issue concrete through a leave-request example. Reading balances and listing previous requests proceed automatically in that example. Creating, updating, and canceling requests modify the database and therefore require confirmation before execution. The interface presents the function and its parameters.</p>
+  <p>Simple user confirmation asks whether to approve or reject the proposed operation. Return of control instead passes operation information back to the application, which takes responsibility for executing it. In AWS’s example, an employee notices that the selected start date is a Sunday and edits the date in a form. Review can therefore include correcting an error, rather than only confirming the interpreted intent.</p>
+  <p>Editable input also makes earlier validation insufficient. The same post describes an employee with five days remaining changing a three-day request to 100 days. Final validation and enforcement take place at the API. An agent checking the original input does not establish that the edited request remains valid.</p>
+  <p>Return of control adds application work: an editing interface and execution handling must be implemented. Detailed editing is not always necessary; a clear operation may need only approval or rejection. Choosing how a person participates requires deciding where to pause and who validates the resulting input afterward.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">A hypothetical multi-system design</p>
+  <h2>Carry user confirmation, managerial approval, and stored results separately</h2>
+  <p>Starting from AWS’s example, consider a design where managerial approval belongs to another system. This extension is my hypothetical design, not a reported implementation. An internal assistant reads the balance and asks an HR participant to prepare a draft. If the employee changes the dates, the final input is validated, the request is stored, and the interface shows that managerial approval is pending.</p>
+  <p>User confirmation does not mean the manager has approved the leave. A delayed managerial response does not necessarily mean delegation failed. Keeping a request identifier, its current stage, and the next required decision lets the employee wait without submitting another application. After approval arrives, the stored result is checked before reporting approved leave.</p>
+  <p>This design distinguishes connection failure, user rejection, pending approval, and failed persistence. Re-executing work that is merely waiting could create a duplicate request in another system. A2A’s progress communication and a confirmation mechanism that permits edits are components for expressing these distinctions. Duplicate prevention and business rules still need implementation and verification in the application.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">When combinations help</p>
+  <h2>Common connectivity matters when the necessary participant works elsewhere</h2>
+  <p>Multiple agents are not needed for every job. If an application only calls a fixed HR API, a direct connection may reduce the number of points to check. Anthropic’s <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> likewise recommends starting with the simplest structure that fits the problem and adding complexity when needed.</p>
+  <p>Common connectivity becomes more valuable when participants run on different platforms, responses take time, and artifacts or human input must move between them during execution. Even then, verification should follow one request from acceptance to the stored result. Add edited input, waiting for a remote response, and a broken connection to normal cases, then check where work can resume.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Connection</h3><p>Specify how tasks, tools, and artifacts move to another system, including the authentication scope.</p></article>
-    <article class="comparison-card"><h3>Execution</h3><p>Use models, tools, state, and coordination to progress work while retaining a record.</p></article>
-    <article class="comparison-card"><h3>Approval</h3><p>Decide who may authorize a change, what is checked, and where exceptions return.</p></article>
+    <article class="comparison-card"><h3>Check the connection</h3><p>Verify accepted requests, returned progress and artifacts, and information required for authentication.</p></article>
+    <article class="comparison-card"><h3>Validate after changes</h3><p>Identify which API rechecks business conditions after human edits and which final input is stored.</p></article>
+    <article class="comparison-card"><h3>Explain progress to the user</h3><p>Distinguish drafts, pending approval, and approved leave so the user knows whether to resubmit or wait.</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Different responsibilities</p>
-  <h2>A2A and managed platforms address different layers of the same design</h2>
-  <p>Google’s A2A announcement proposed a protocol for agents to exchange tasks, state, and artifacts. It does not make connected systems share an execution platform or take responsibility for each other’s business policy. Google Cloud multi-system agents, AWS multi-agent collaboration, OpenAI agent-building tools, and Semantic Kernel Agents offer options for execution or coordination with distinct scopes and release states. They should not be placed on one maturity scale.</p>
-  <p>Research such as AutoGen, Magentic-One, and BrowserGym shows that multi-role or external-environment work needs observations, state, and completion conditions. A protocol makes it possible to call another participant; an execution platform makes progress possible. Neither decides whether customer data may be sent or a leave request may be approved.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Approval boundary</p>
-  <h2>Bedrock confirmation and control return illustrate different responsibility for a change</h2>
-  <p><a href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/">AWS’s human-in-the-loop example</a> describes confirmation before an agent executes an action group and a path that returns control to an application. Confirmation checks whether a user wants an action; it does not automatically satisfy an organization’s approval rule or the authorization of an external system.</p>
-  <p>For a leave request, an available HR API, an employee’s confirmation, approval under a manager’s policy, and a stored HR record are four different states. Keeping them separate prevents an access failure, a user cancellation, pending approval, and failed persistence from collapsing into one generic failure.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Hypothetical example</p>
-  <h2>Follow a leave request through connection, execution, approval, and update</h2>
-  <p>This is a design example. An agent checks leave balance and prepares a request. A2A or a tool contract specifies the role or API to call. Managed execution can retain the request, state, and response. User confirmation checks dates and reason. Managerial approval applies organizational policy. Only a verified HR-system record completes the update.</p>
-  <p>Each stage needs defined input, permission, result, and destination after failure. Changing a connection format does not transfer approval rules or storage consistency automatically. Keeping completion conditions stable across execution platforms makes later architecture changes easier to test.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>A shared design diagram should place responsibility boundaries, not product names, at its center</h2>
-  <p>The releases made more separate components for connection, execution, coordination, and confirmation available. Their value is not evidence that interoperability is complete. It is a way to separate connection contracts, execution records, and approval responsibility, then explicitly preserve the judgments that must remain with people and organizations.</p>
+  <p>April’s announcements provide a path for combining different development and execution choices. Their value reaches people who need to know how far a request has progressed. Freedom to choose connection formats and execution environments becomes useful when the design preserves intent and results throughout the handover.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -181,49 +207,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html" aria-label="How multi-agent design becomes an operating model">
+      <a class="article-card " href="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html" aria-label="Multi-agent research: dividing work that leads to one usable report">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-06-01">June 1, 2025</time>
+        <time class="mono-note" datetime="2025-06-01">Research cutoff June 1, 2025</time>
       </div>
-      <h3 class="article-card-title">How multi-agent design becomes an operating model</h3>
-      <p class="article-card-copy">Before adding roles, define dependencies, evidence handoffs, an integrator, and a stopping condition.</p>
+      <h3 class="article-card-title">Multi-agent research: dividing work that leads to one usable report</h3>
+      <p class="article-card-copy">Faster collection can leave more checking to the user. Choose division from the dependencies needed to finish the report.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 8</span>
+      <span class="mono-note">Sources: 6</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2025-04-01-managed-agent-primitives-arrive-together.html" aria-label="What do managed agent platforms still leave to an application?">
+  </a><a class="article-card " href="/en/2025-04-01-managed-agent-primitives-arrive-together.html" aria-label="OpenAI and Bedrock: what work to delegate to an agent platform">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-04-01">April 1, 2025</time>
+        <time class="mono-note" datetime="2025-04-01">Research cutoff April 1, 2025</time>
       </div>
-      <h3 class="article-card-title">What do managed agent platforms still leave to an application?</h3>
-      <p class="article-card-copy">Managed features do not erase responsibility. Compare execution, coordination, identity, and business-rule boundaries.</p>
+      <h3 class="article-card-title">OpenAI and Bedrock: what work to delegate to an agent platform</h3>
+      <p class="article-card-copy">Connecting tools and specialists still leaves work to finish. Compare what the platform executes with what the application must supply.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Platform</span><span class="meta-chip">Multi-Agent</span></div>
     </div>
     <div class="article-card-foot">
       <span class="mono-note">Sources: 8</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="What agent-development toolkits remove—and what the product must still design">
+  </a><a class="article-card " href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="AgentKit and agent toolkits: from quick prototypes to verified releases">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-11-01">November 1, 2025</time>
+        <time class="mono-note" datetime="2025-11-01">Research cutoff November 1, 2025</time>
       </div>
-      <h3 class="article-card-title">What agent-development toolkits remove—and what the product must still design</h3>
-      <p class="article-card-copy">Before choosing a toolkit, separate supplied components from the business-specific design that remains.</p>
+      <h3 class="article-card-title">AgentKit and agent toolkits: from quick prototypes to verified releases</h3>
+      <p class="article-card-copy">Saving a workflow does not ensure that its policy source and interface reflect the same change.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 4</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -238,84 +264,34 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2411.04468" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">November 7, 2024</span>
-              </div>
-              <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2411.04468</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">December 6, 2024</span>
-              </div>
-              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://www.anthropic.com/news/model-context-protocol" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">January 14, 2025</span>
+                <span class="mono-note">November 25, 2024</span>
               </div>
-              <p class="source-title">Microsoft Research: AutoGen v0.4</p>
-              <p class="source-url">https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/</p>
+              <p class="source-title">Anthropic: Introducing the Model Context Protocol</p>
+              <p class="source-url">https://www.anthropic.com/news/model-context-protocol</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">January 23, 2025</span>
+                <span class="mono-note">December 19, 2024</span>
               </div>
-              <p class="source-title">OpenAI: Introducing Operator</p>
-              <p class="source-url">https://openai.com/index/introducing-operator/</p>
+              <p class="source-title">Anthropic: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">March 11, 2025</span>
+                <span class="mono-note">April 4, 2025</span>
               </div>
-              <p class="source-title">OpenAI: New tools for building agents</p>
-              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">March 10, 2025</span>
-              </div>
-              <p class="source-title">AWS: Amazon Bedrock announces general availability of multi-agent collaboration</p>
-              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">April 9, 2025</span>
-              </div>
-              <p class="source-title">AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents</p>
-              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">April 9, 2025</span>
-              </div>
-              <p class="source-title">Google Cloud: Build and manage multi-system agents with Vertex AI</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
+              <p class="source-title">Microsoft: Semantic Kernel Agents are now Generally Available</p>
+              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
@@ -328,24 +304,24 @@
               <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://www.anthropic.com/news/Introducing-code-with-claude" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">April 3, 2025</span>
+                <span class="mono-note">April 9, 2025</span>
               </div>
-              <p class="source-title">Anthropic: Introducing Code with Claude</p>
-              <p class="source-url">https://www.anthropic.com/news/Introducing-code-with-claude</p>
+              <p class="source-title">Google Cloud: Vertex AI offers new ways to build and manage multi-agent systems</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">April 4, 2025</span>
+                <span class="mono-note">April 9, 2025</span>
               </div>
-              <p class="source-title">Microsoft: Semantic Kernel Agents are now generally available</p>
-              <p class="source-url">https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/</p>
+              <p class="source-title">AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents</p>
+              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/</p>
             </div>
             <span class="source-action">Open</span>
           </a>

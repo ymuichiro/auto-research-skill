@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか | Auto Research Digest</title>
-    <meta name="description" content="音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。">
+    <title>音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ | Auto Research Digest</title>
+    <meta name="description" content="音声AIの訂正と割り込みを、実際の予約結果まで追う。音声直接型と分割型、電話接続、再開、人への引き継ぎ、実音声の試験を分析。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか | Auto Research Digest">
-    <meta property="og:description" content="音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。">
+    <meta property="og:title" content="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ | Auto Research Digest">
+    <meta property="og:description" content="音声AIの訂正と割り込みを、実際の予約結果まで追う。音声直接型と分割型、電話接続、再開、人への引き継ぎ、実音声の試験を分析。">
     <meta property="og:url" content="https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか">
+    <meta property="og:image:alt" content="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか | Auto Research Digest">
-    <meta name="twitter:description" content="音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。">
+    <meta name="twitter:title" content="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ | Auto Research Digest">
+    <meta name="twitter:description" content="音声AIの訂正と割り込みを、実際の予約結果まで追う。音声直接型と分割型、電話接続、再開、人への引き継ぎ、実音声の試験を分析。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか">
+    <meta name="twitter:image:alt" content="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ">
     <link rel="canonical" href="https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-06-voice-agents-become-operational-systems.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-04-06T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:12:17+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="Voice AI">
     <meta property="article:tag" content="Realtime">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Contact Center">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Generative AI">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか","description":"音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。","datePublished":"2026-04-06T00:00:00+09:00","dateModified":"2026-09-20T17:12:17+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"Voice AI, Realtime, Speech-to-Speech, Contact Center, AI Agent, Generative AI","mainEntityOfPage":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか","item":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ","description":"音声AIの訂正と割り込みを、実際の予約結果まで追う。音声直接型と分割型、電話接続、再開、人への引き継ぎ、実音声の試験を分析。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"Voice AI, Realtime, Speech-to-Speech, Contact Center, AI Agent, Generative AI","mainEntityOfPage":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ","item":"https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか</h1>
-          <p class="hero-copy">予約変更の想定例から、音声の方式選択、会話・再生・保存・引き継ぎの状態、シミュレーションと実音声での検証を説明する。</p>
+          <h1 class="hero-title">音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ</h1>
+          <p class="hero-copy">OpenAI、Google、Microsoft、AWSの音声設計を、予約変更の通話から比較する。音声の方式、再生停止、外部処理、電話接続、再開、試験を追い、利用者が聞いた案内と保存された日時が一致する条件を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-04-06">2026年4月6日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2026-04-06">調査対象日 2026年4月6日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E9%9F%B3%E5%A3%B0AI%E3%81%AE%E4%BA%88%E7%B4%84%E5%A4%89%E6%9B%B4%E3%81%A7%E3%80%81%E8%81%9E%E3%81%8D%E7%9B%B4%E3%81%97%E3%83%BB%E5%89%B2%E3%82%8A%E8%BE%BC%E3%81%BF%E3%83%BB%E4%BF%9D%E5%AD%98%E7%B5%90%E6%9E%9C%E3%82%92%E3%81%A9%E3%81%86%E6%89%B1%E3%81%86%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-04-06-voice-agents-become-operational-systems.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E9%9F%B3%E5%A3%B0AI%E3%81%AE%E4%BA%88%E7%B4%84%E5%A4%89%E6%9B%B4%E3%82%92%E3%80%81%E9%80%9A%E8%A9%B1%E3%81%AE%E6%9C%80%E5%BE%8C%E3%81%BE%E3%81%A7%E6%AF%94%E3%81%B9%E3%82%8B%EF%BC%9A%E8%A8%82%E6%AD%A3%E3%83%BB%E5%89%B2%E3%82%8A%E8%BE%BC%E3%81%BF%E3%83%BB%E4%BF%9D%E5%AD%98%E3%83%BB%E5%BC%95%E3%81%8D%E7%B6%99%E3%81%8E&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-04-06-voice-agents-become-operational-systems.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか"
-      data-share-text="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか"
+      data-share-title="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ"
+      data-share-text="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ"
       data-share-url="https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか"
+      data-share-title="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ"
       data-share-url="https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,68 +126,136 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>「やっぱり別の日に」が、予約処理に間に合うか</h2>
-<p>音声AIが予約日時を読み上げている途中で、利用者が「やっぱり別の日に」と言ったとする。
-AIの声は止まった。しかし、裏で予約を保存する処理は進んでいた。
-これは設計上の問題を説明する想定例である。発話の割り込みと、業務操作の取り消しは、別々に扱う必要がある。</p>
-<p>本稿では予約変更を一つの題材に、音声の入力、会話の訂正、実際の保存をどう結び付けるかを考える。
-2026年4月6日までの公開資料を基に、方式の違いと試験の観点を整理する。
-声の自然さと業務の正確さの両方を、同じ通話で確認するための読み方である。</p>
+<h2>声が止まった後に、予約はどうなったか</h2>
+<p>音声AIが予約の候補を読み上げている途中で、利用者が「やっぱり別の日に」と言う。
+AIの声は止まったが、裏では最初の日時を保存する処理が進んでいた。
+もう一度希望を伝えると、別の変更要求も送られる。
+これは設計を考える想定例である。
+利用者が知りたいのは、AIが割り込みに反応したかだけでなく、結局どの日で予約されたかだ。</p>
+<p>本稿は2026年4月6日までのOpenAI、Google、Microsoft、AWSの公表資料を、予約変更の通話から読む。
+声の自然さ、応答を待つ時間、訂正、外部処理、電話接続、引き継ぎを一つの仕事として比較する。
+各社のデモや評価結果を、この予約業務の成功率へ読み替えるものではない。</p>
+<p>私の判断は、音声AIを、利用者が希望を伝え直しても、聞いた案内と実際の結果が一致するところまで評価する、というものだ。
+滑らかな声や速い返答には価値がある。
+その価値を仕事へつなぐには、会話の途中で何を確認し、処理がどこまで進み、人へ何を渡すかを決める必要がある。</p>
+</section>
+<section class="report-section">
+<h2>音声を直接扱うか、文字を経由するか</h2>
+<p>音声認識で文字にし、テキストの処理を経て音声合成へ渡す方式は、各段階をつないで構成する。
+OpenAIの<a href="https://openai.com/index/introducing-our-next-generation-audio-models/">2025年3月の音声モデル発表</a>は、既存のテキスト型エージェントへ音声認識と音声合成を加える使い方を示す。
+予約の文章処理がすでにあるなら、それを再利用する道になる。
+認識した日時を次へ渡す前に確認する場所も作れる。</p>
+<p>一方、同社の<a href="https://openai.com/index/introducing-gpt-realtime/">2025年8月のRealtime APIの一般提供</a>は、単一モデルが音声を直接処理し生成する構成を説明する。
+同社は、遅延を減らし、声の微妙な表現を保つ利点を挙げる。
+ただし、どちらを使っても予約内容の確認は必要であり、文字が残るだけで正確さを保証できない。
+音声を直接扱う方式でも、候補を明確な項目へ整理して確認する設計はできる。</p>
+<p>統合APIという名称も、内部がすべて同じ方式であることを意味しない。
+Microsoftの<a href="https://github.com/MicrosoftDocs/azure-ai-docs/blob/70ac2961db604c2fb30995d0ce5e6b8cdc47920c/articles/ai-services/speech-service/voice-live.md">4月6日時点のVoice Live文書</a>は、音声、推論、音声合成を一つの入口へまとめ、音声を直接扱うモデルと、音声認識・合成を組み合わせるテキストモデルの両方を示す。
+開発者が接続する入口と、会話を処理する内部の方式を分けて比較したい。</p>
+<p>方式の選択では、既存処理を再利用したいか、認識した語を途中で検査したいか、応答の抑揚をどこまで指定したいかを確かめる。
+その上で同じ予約課題を通し、応答が聞こえるまでの時間、日時の誤り、訂正後の保存を比べる。
+方式名だけから、一方が常に安全、一方が常に自然と決めることはできない。</p>
+</section>
+<section class="report-section">
+<h2>速く答える前に、話し終わりを扱う</h2>
+<p>Googleは3月26日に<a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/">Gemini 3.1 Flash Liveを発表した</a>。
+開発者向けのLive APIではプレビューとして提供し、音声の調子の理解や、割り込み・ためらいを含む指示への対応を改善したと説明する。
+モデルの改善は比較材料になるが、実際の予約変更を完了した率の測定ではない。
+利用者向けアプリでの提供と、開発者向けAPIの条件も分けて読む必要がある。</p>
+<p>予約日時を「来週の……木曜日」と言う間に、短い沈黙が入ることがある。
+発話を検出する仕組みがその間を終了と扱えば、利用者が続ける前に返答してしまう。
+反対に、長く待ち過ぎると、聞こえているか不安になる。
+想定例では、発話終了を待つ長さだけでなく、どこで聞き直すかも会話の設計に入る。</p>
+<p>「聞き取れました」という応答は、日時を確定したこととは違う。
+私なら、月日、時間、対象の予約を復唱し、曖昧な部分だけを聞き直す。
+全情報を毎回言い直してもらう方法では、認識の誤りを直すたびに利用者の負担が増える。
+応答速度は、会話が正しい条件へ戻るまでの時間と一緒に見たい。</p>
+</section>
+<section class="report-section">
+<h2>生成を止め、再生を止め、処理結果を確かめる</h2>
+<p><a href="https://github.com/googleapis/python-genai/blob/cc4d0b919c06436bfebd0d7dc1217826f22a36b7/google/genai/types.py">4月6日時点のGoogle GenAI SDKの定義</a>は、モデルへの割り込みを受けた場合、リアルタイムに再生しているクライアントが音声を止め、待機中の音声を空にする手掛かりを示す。
+サーバーが生成をやめても、端末側に残った音声を流し続ければ、利用者にはAIが話し続けているように聞こえる。
+生成終了と、相手に聞こえた音声の終了を同一視できない。</p>
+<p>同じ定義には、指定したツール呼び出しを取り消す通知もある。
+副作用があればクライアントが元に戻すことを試み得る、という記述であり、保存された予約が自動的に戻る保証ではない。
+まだ送っていない変更案と、送信済みの保存要求と、保存完了を別に扱う理由になる。</p>
+<p>Microsoftの<a href="https://github.com/MicrosoftDocs/azure-ai-docs/blob/70ac2961db604c2fb30995d0ce5e6b8cdc47920c/articles/ai-services/speech-service/how-to-voice-live-function-calling.md">同時点のVoice Liveの関数呼び出し例</a>も、アプリケーションが引数を受け、外部処理を行い、対応する呼び出しへ結果を返す構成を示す。
+音声会話の便利な入口があっても、業務の結果をつなぐ処理は残る。
+本稿でこれらのコードを実行したわけではなく、予約の取消を検証した例でもない。</p>
+<p>想定通話では、訂正が入ったら古い候補の読み上げを止め、どの予約案への確認だったかを更新する。
+保存要求が送られた後なら、その結果を照合してから次の変更へ進む。
+遅れて届いた古い結果を新しい希望への成功として読まず、結果が不明な段階では「変更しました」と言わない。
+利用者が理解できる案内と、実行側の記録をそろえる部分が必要だ。</p>
 </section>
 <section class="report-section">
 <h2>一つの訂正を、四つの状態で追う</h2>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>会話の状態</h3>
-<p>利用者が何日を希望し、どの候補を訂正したかを扱う。聞き直しや数字の誤認識は、この状態で明らかにする。</p>
-</article>
-<article class="comparison-card">
-<h3>音声再生の状態</h3>
-<p>読み上げを生成中か、端末に待機中の音声があるか、割り込み後に停止したかを扱う。会話の訂正を実際に聞こえる音へ反映する。</p>
-</article>
-<article class="comparison-card">
-<h3>予約保存の状態</h3>
-<p>候補の確認前、保存要求の送信後、保存済み、結果不明を区別する。音声を止めても、保存済みの予約は自動では戻らない。</p>
-</article>
-<article class="comparison-card">
-<h3>引き継ぎの状態</h3>
-<p>人へ渡す場合は、希望日時だけでなく、予約が未実行か、保存済みか、結果不明かを渡す。担当者が同じ変更を重ねないための情報になる。</p>
-</article>
+<article class="comparison-card"><h3>希望と確認</h3><p>希望日時、対象の予約、確認した候補を結び付ける。言い直しが入ったら、古い候補への確認を新しい候補へ使い回さない。</p></article>
+<article class="comparison-card"><h3>聞こえている音</h3><p>生成中、再生待ち、再生中、停止を区別する。音声を生成した記録だけから、利用者が案内を最後まで聞いたとは決めない。</p></article>
+<article class="comparison-card"><h3>実際の保存</h3><p>変更前、要求送信後、保存済み、結果不明を分ける。保存済みなら、次の変更や取消が必要かを業務の規則で判断する。</p></article>
+<article class="comparison-card"><h3>次の担当への引き継ぎ</h3><p>希望に加え、どこまで処理したか、何が不明かを渡す。人が同じ操作を重ねたり、説明を最初から求めたりしないための情報を残す。</p></article>
 </div>
-<p>この状態分解は本稿の予約変更の設計例である。すべての音声応答に同じ四状態が必要という主張ではないが、外部操作を伴う通話では、話した内容だけで完了を判定しない理由を示す。</p>
+<p>これは予約変更を説明する本稿の整理だ。
+四つの製品やエージェントを導入する要件ではない。
+日時を案内するだけの通話と、保存を伴う通話では、必要な確認が違う。
+業務を持たない短い音声応答へ、すべての状態を一律に追加する提案でもない。</p>
+<p>また、会話中に返答できることと、ツールの結果が出たことは違う。
+OpenAIのRealtime発表は、長い関数呼び出しの結果を待ちながら会話を続ける機能を説明する。
+想定例なら「空き枠を確認しています」と話すことはできても、確認前に空き枠や変更の成功を断定してはいけない。
+待つ理由を伝える応答にも、結果との整合が要る。</p>
 </section>
 <section class="report-section">
-<h2>音声を直接扱うか、途中のテキストを処理するか</h2>
-<p><a href="https://developers.openai.com/api/docs/guides/voice-agents">OpenAIの音声エージェントガイド</a>は、音声を直接入出力するspeech-to-speechと、音声認識・テキストでの推論・音声合成をつなぐ方式を区別している。
-前者は低遅延の会話、後者は各段階を明示的に制御する構成として説明される。</p>
-<p>予約変更でテキストを中間に置けば、認識した日時を確認してから次の処理へ渡す場所を作りやすい。
-ただし、文字起こし自体が間違う場合はある。テキストが残るだけで、正確さや監査要件を満たすとは言えない。
-音声を直接扱う方式でも、確定した予約内容を構造化して確認する設計は可能である。</p>
-<p>したがって、片方を一律に安全、もう片方を一律に自然と決めるのではなく、同じ予約課題で比べたい。
-利用者が話し終えてから応答が聞こえるまでの待ち時間と、日時の取り違え、訂正後の保存結果をそれぞれ見る。
-既存のテキスト処理を再利用したいかどうかも、方式選択の条件になる。</p>
+<h2>電話の入口と、使える声を別に比較する</h2>
+<p>同じ音声モデルを使っても、ブラウザーのマイクと電話回線では、入力や接続の条件が異なる。
+OpenAIのRealtime一般提供には、SIPによる電話網や構内電話設備への接続が含まれる。
+接続できることは業務完了率の証明ではないが、利用者が新しいアプリを開かず電話で依頼する経路を設計できる。</p>
+<p>Amazon Connectの3月の更新も、音声の種類を分けて読む必要がある。
+<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-adds-generative-text-to-speech-voices/">3月17日の発表</a>は生成音声合成の声と地域を拡張し、<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-london-europe-region/">3月18日の発表</a>は音声から音声へ応答する機能をロンドン地域へ広げ、新しい声を追加した。
+音声合成で使える地域や声を、別の会話方式でもすべて使えると考えてはいけない。</p>
+<p>日本語の予約窓口なら、選んだモデル、入力言語、出力の声、提供地域、実際の電話経路をそろえて確認する。
+多言語対応という説明だけから、住所、日時、英数字の聞き取りが各言語で同じ精度になるとは言えない。
+声や回線を変えるときも、同じ訂正や復唱が成立するかを試したい。</p>
 </section>
 <section class="report-section">
-<h2>音声再生の停止と、保存処理の状態を同期する</h2>
-<p><a href="https://ai.google.dev/gemini-api/docs/live-api/capabilities">Google Live APIの説明</a>は、発話検出による割り込み時に生成を止める動作と、アプリ側で再生を止め、待機中の音声を消す処理を示している。
-サーバーの生成が止まっても、端末にたまった音声を流し続ければ、利用者には話し続けているように聞こえる。</p>
-<p>ここに予約APIを加えると、もう一つ状態が増える。
-割り込みを受けた時点で、まだ候補を読み上げているのか、保存要求を送ったのか、保存完了まで確認できたのかを区別する。
-すでに保存済みなら、新しい日時への変更や取消手順が必要であり、音声を止めても保存は巻き戻らない。</p>
-<p>私なら、復唱した候補と利用者が確認した候補を結び付け、訂正が入った時点で古い候補を未確定に戻す。
-保存要求後の訂正では結果を照合し、処理状況に合う案内を返す。
-返答を急ぐあまり、保存結果が分からない段階で「変更しました」と言わないことが重要になる。</p>
+<h2>再接続と、人へ渡すときの説明を残す</h2>
+<p>長い通話や切断後の再接続には、会話を続けるための状態が要る。
+Google GenAI SDKは、再開用の情報と、その時点で再開可能かを示す定義を持つ。
+ツールの実行や生成中などには再開できない場合があり、以前の情報で戻すと一部が失われ得るとも説明する。
+すべての時点を同じ条件で復元できるとは考えられない。</p>
+<p>予約変更で切断した場合、会話の続きへ戻れたことを理由に保存要求をもう一度送らない。
+業務側の記録から、送った要求と現在の予約を照合する。
+利用者には「変更済み」「まだ実行していない」「結果を確認中」を、確認できた範囲で伝える。
+再接続の仕組みと予約の重複防止は、別々に実装して結び付ける必要がある。</p>
+<p>人へ引き継ぐなら、希望日時、確認できた内容、未解決の点、保存の状態を短く渡す。
+全文の文字起こしを渡すだけでは、担当者が処理済みかを探し直すことになる。
+逆に要約だけで日時や対象の予約が抜ければ、利用者がもう一度説明する。
+引き継ぎに必要な情報を残し、記録を見られる範囲と保存期間も業務に合わせて決めたい。</p>
+<p>滑らかに話すことから、利用者本人であることや、変更する権限を推定しない。
+その確認は予約業務の手続きで扱う。
+音声AIで受付を進める価値は、人へ回す件数の少なさだけでなく、回した後に利用者と担当者が続きから進めることにもある。</p>
 </section>
 <section class="report-section">
-<h2>会話の分岐と、実際に聞こえる音を試す</h2>
-<p>AWSの2026年2月2日の<a href="https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-connect-provides-apis-test-simulate-voice-interactions/">Amazon Connect発表</a>は、用件、期待する応答、営業時間外などの条件を指定して音声対話をシミュレーションするAPIを説明している。
-同じ条件を繰り返して分岐を確かめる仕組みとして参考になる。</p>
-<p>予約の試験には、言い直し、長めの間、同時発話、数字の聞き違い、APIの遅延、保存直後の切断を含めたい。
-返答文だけでなく、保存された日時と、利用者が実際に聞いた案内が一致するかを確かめる。
-シミュレーションに加えて、想定する端末、回線、話者、騒音の条件で音声を通し、再生停止や聞き取りも確認する。</p>
-<p>人へ引き継ぐ場合は、聞き取った希望だけでなく、保存済みか、結果不明か、未実行かを渡す。
-そうすれば、担当者が同じ変更をもう一度行うのを避けやすい。
-音声モデルの選択と並行して、この通話で何が確定したのかを一貫して扱うことが、予約変更を完了させるための設計課題である。</p>
+<h2>分岐の試験と、実際に聞こえる音の試験</h2>
+<p>AWSの<a href="https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-connect-provides-apis-test-simulate-voice-interactions/">2月2日のAmazon Connect発表</a>は、用件、期待する応答、営業時間外や待ち行列などの条件を指定して音声対話をシミュレーションするAPIを示す。
+変更時に同じ試験を繰り返し、開発・公開の手順へ組み込める仕組みだ。
+会話の分岐を確認する根拠になるが、実端末や回線での聞き取りを確かめた証拠ではない。</p>
+<p>予約の試験では、長い間、言い直し、同時発話、数字の聞き違い、APIの遅延、保存直後の切断を含める。
+返答文だけでなく、利用者が実際に聞いた案内と、保存された日時が一致したかを見る。
+想定する端末、話者、回線、騒音でも音声を通し、停止の遅れや聞き直しを確認する。
+音声が一度きれいに出たことだけでは、この通話の成功を判定できない。</p>
+<p>方式を比較するなら、同じ依頼と音声条件で、応答開始までの時間、誤った日時、訂正の回数、予約結果、人への引き継ぎ後の修正を記録する。
+平均の応答速度に加え、遅い応答や、速く誤って処理したケースを分ける。
+プロンプト、モデル、声、接続経路を変えたら影響するケースを再確認する。
+これは本稿の試験案であり、各社を実測した順位ではない。</p>
+</section>
+<section class="report-section">
+<h2>利用者が、何が済んだか分かる通話へ</h2>
+<p>音声を使う利点は、画面へ入力し直さず、その場で希望を伝え、言い直せることにある。
+その利点を保つには、訂正を受けた後の案内と処理を同じ希望へ合わせたい。
+声を止める機能、会話を続ける機能、予約を保存する処理をつなぐ設計が、利用者の不安や説明のやり直しに関わる。</p>
+<p>まず予約変更のような一つの業務で、通常の通話と訂正・切断を通し、聞いた案内と実際の結果を確かめる。
+声の滑らかさと待ち時間を評価しながら、必要な確認や引き継ぎを省かない。
+利用者が「何が済み、何がまだか」を理解できるところまでを、音声エージェントの完成条件にしたい。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -209,49 +277,49 @@ AIの声は止まった。しかし、裏で予約を保存する処理は進ん
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントの記憶を、検索・適用・更新に分けて設計する">
+      <a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントのメモリ設計　正しい検索が誤った判断になる理由">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-08">2026年4月8日</time>
+        <time class="mono-note" datetime="2026-04-08">調査対象日 2026年4月8日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの記憶を、検索・適用・更新に分けて設計する</h3>
-      <p class="article-card-copy">正しく思い出しても誤る理由を、条件の適用と記憶の更新から考える。</p>
+      <h3 class="article-card-title">AIエージェントのメモリ設計　正しい検索が誤った判断になる理由</h3>
+      <p class="article-card-copy">正しく思い出すだけでは足りない。変わった希望を更新し、次の仕事で使う条件まで考える。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 12</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか">
+  </a><a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-30">2026年3月30日</time>
+        <time class="mono-note" datetime="2026-03-30">調査対象日 2026年3月30日</time>
       </div>
-      <h3 class="article-card-title">AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか</h3>
-      <p class="article-card-copy">並列に調べられる仕事と、前の結果を待つ仕事を分けて委任を考える。</p>
+      <h3 class="article-card-title">AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ</h3>
+      <p class="article-card-copy">担当を増やす前に、何を受け取り、どこまで調べ、何を返せば比較が進むかを決める。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIの計画・権限・差分・テストを、どう確認するか">
+  </a><a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-13">2026年4月13日</time>
+        <time class="mono-note" datetime="2026-04-13">調査対象日 2026年4月13日</time>
       </div>
-      <h3 class="article-card-title">コーディングAIの計画・権限・差分・テストを、どう確認するか</h3>
-      <p class="article-card-copy">計画が読める、署名がある、テストが通る。それぞれが確認する範囲を分ける。</p>
+      <h3 class="article-card-title">コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで</h3>
+      <p class="article-card-copy">テスト成功の通知を受けた後、担当者は何を調べ直すのか。任せた修正を引き取るまでを見る。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 13</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -266,33 +334,93 @@ AIの声は止まった。しかし、裏で予約を保存する処理は進ん
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://developers.openai.com/api/docs/guides/voice-agents" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://openai.com/index/introducing-our-next-generation-audio-models/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2025年3月20日</span>
               </div>
-              <p class="source-title">OpenAI: Voice agents</p>
-              <p class="source-url">https://developers.openai.com/api/docs/guides/voice-agents</p>
+              <p class="source-title">OpenAI: next-generation audio models</p>
+              <p class="source-url">https://openai.com/index/introducing-our-next-generation-audio-models/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://ai.google.dev/gemini-api/docs/live-api/capabilities" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-realtime/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2025年8月28日</span>
               </div>
-              <p class="source-title">Google: Live API capabilities</p>
-              <p class="source-url">https://ai.google.dev/gemini-api/docs/live-api/capabilities</p>
+              <p class="source-title">OpenAI: gpt-realtime and production Realtime API updates</p>
+              <p class="source-url">https://openai.com/index/introducing-gpt-realtime/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月26日</span>
+              </div>
+              <p class="source-title">Google: Gemini 3.1 Flash Live</p>
+              <p class="source-url">https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/MicrosoftDocs/azure-ai-docs/blob/70ac2961db604c2fb30995d0ce5e6b8cdc47920c/articles/ai-services/speech-service/voice-live.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月6日</span>
+              </div>
+              <p class="source-title">Microsoft: Voice Live overview, April 6 snapshot</p>
+              <p class="source-url">https://github.com/MicrosoftDocs/azure-ai-docs/blob/70ac2961db604c2fb30995d0ce5e6b8cdc47920c/articles/ai-services/speech-service/voice-live.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/googleapis/python-genai/blob/cc4d0b919c06436bfebd0d7dc1217826f22a36b7/google/genai/types.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月6日</span>
+              </div>
+              <p class="source-title">Google GenAI SDK: Live events and session state, April 6 snapshot</p>
+              <p class="source-url">https://github.com/googleapis/python-genai/blob/cc4d0b919c06436bfebd0d7dc1217826f22a36b7/google/genai/types.py</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/MicrosoftDocs/azure-ai-docs/blob/70ac2961db604c2fb30995d0ce5e6b8cdc47920c/articles/ai-services/speech-service/how-to-voice-live-function-calling.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月6日</span>
+              </div>
+              <p class="source-title">Microsoft: Voice Live function calling, April 6 snapshot</p>
+              <p class="source-url">https://github.com/MicrosoftDocs/azure-ai-docs/blob/70ac2961db604c2fb30995d0ce5e6b8cdc47920c/articles/ai-services/speech-service/how-to-voice-live-function-calling.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-adds-generative-text-to-speech-voices/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月17日</span>
+              </div>
+              <p class="source-title">AWS: Connect generative TTS voices and regions</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-adds-generative-text-to-speech-voices/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-london-europe-region/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月18日</span>
+              </div>
+              <p class="source-title">AWS: Connect speech-to-speech London region and voices</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-london-europe-region/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-connect-provides-apis-test-simulate-voice-interactions/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年2月2日</span>
               </div>
-              <p class="source-title">AWS: APIs to test and simulate voice interactions (February 2026)</p>
+              <p class="source-title">AWS: Connect APIs to test and simulate voice interactions</p>
               <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-connect-provides-apis-test-simulate-voice-interactions/</p>
             </div>
             <span class="source-action">開く</span>

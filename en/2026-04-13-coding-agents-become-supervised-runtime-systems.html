@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reviewing a coding agent: plans, permissions, diffs, and tests | Auto Research Digest EN</title>
-    <meta name="description" content="Separate coding-agent plan review, branch and VM isolation, Verified signatures, and test evidence to understand what each check establishes.">
+    <title>Delegate one bug to a coding agent: from plan to a reviewable repair | Auto Research Digest EN</title>
+    <meta name="description" content="Compare coding agents through one bug: plans, execution environments, permissions, diffs, tests, remote intervention, and the engineer’s review effort.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Reviewing a coding agent: plans, permissions, diffs, and tests | Auto Research Digest EN">
-    <meta property="og:description" content="Separate coding-agent plan review, branch and VM isolation, Verified signatures, and test evidence to understand what each check establishes.">
+    <meta property="og:title" content="Delegate one bug to a coding agent: from plan to a reviewable repair | Auto Research Digest EN">
+    <meta property="og:description" content="Compare coding agents through one bug: plans, execution environments, permissions, diffs, tests, remote intervention, and the engineer’s review effort.">
     <meta property="og:url" content="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Reviewing a coding agent: plans, permissions, diffs, and tests">
+    <meta property="og:image:alt" content="Delegate one bug to a coding agent: from plan to a reviewable repair">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Reviewing a coding agent: plans, permissions, diffs, and tests | Auto Research Digest EN">
-    <meta name="twitter:description" content="Separate coding-agent plan review, branch and VM isolation, Verified signatures, and test evidence to understand what each check establishes.">
+    <meta name="twitter:title" content="Delegate one bug to a coding agent: from plan to a reviewable repair | Auto Research Digest EN">
+    <meta name="twitter:description" content="Compare coding agents through one bug: plans, execution environments, permissions, diffs, tests, remote intervention, and the engineer’s review effort.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Reviewing a coding agent: plans, permissions, diffs, and tests">
+    <meta name="twitter:image:alt" content="Delegate one bug to a coding agent: from plan to a reviewable repair">
     <link rel="canonical" href="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-04-13T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:21:26+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Coding Agent">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Runtime">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="DevOps">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Reviewing a coding agent: plans, permissions, diffs, and tests","description":"Separate coding-agent plan review, branch and VM isolation, Verified signatures, and test evidence to understand what each check establishes.","datePublished":"2026-04-13T00:00:00+09:00","dateModified":"2026-09-20T17:21:26+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Coding Agent, Software Engineering, Runtime, Workflow, DevOps","mainEntityOfPage":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Reviewing a coding agent: plans, permissions, diffs, and tests","item":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Delegate one bug to a coding agent: from plan to a reviewable repair","description":"Compare coding agents through one bug: plans, execution environments, permissions, diffs, tests, remote intervention, and the engineer’s review effort.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Coding Agent, Software Engineering, Runtime, Workflow, DevOps","mainEntityOfPage":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Delegate one bug to a coding agent: from plan to a reviewable repair","item":"https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Reviewing a coding agent: plans, permissions, diffs, and tests</h1>
-          <p class="hero-copy">Use Jules planning and VM documentation, GitHub signature verification, and Anthropic experiments to separate plan, environment, diff, test, and acceptance checks for an agent-written fix.</p>
+          <h1 class="hero-title">Delegate one bug to a coding agent: from plan to a reviewable repair</h1>
+          <p class="hero-copy">Read Codex, Claude Code, Copilot, Jules, and AWS through one sorting bug. Compare interactive and background execution, plans, permissions, evaluators, diffs, and intervention through the work an engineer can accept.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-04-13">April 13, 2026</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2026-04-13">Research cutoff April 13, 2026</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Reviewing%20a%20coding%20agent%3A%20plans%2C%20permissions%2C%20diffs%2C%20and%20tests&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-04-13-coding-agents-become-supervised-runtime-systems.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Delegate%20one%20bug%20to%20a%20coding%20agent%3A%20from%20plan%20to%20a%20reviewable%20repair&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-04-13-coding-agents-become-supervised-runtime-systems.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Reviewing a coding agent: plans, permissions, diffs, and tests"
-      data-share-text="Reviewing a coding agent: plans, permissions, diffs, and tests"
+      data-share-title="Delegate one bug to a coding agent: from plan to a reviewable repair"
+      data-share-text="Delegate one bug to a coding agent: from plan to a reviewable repair"
       data-share-url="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Reviewing a coding agent: plans, permissions, diffs, and tests"
+      data-share-title="Delegate one bug to a coding agent: from plan to a reviewable repair"
       data-share-url="https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -126,51 +126,73 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>What should a reviewer check when delegating a fix?</h2>
-<p>A coding agent may install dependencies, run tests, and create commits as well as propose code. In that setting, supervision needs a more precise meaning than receiving a completion notification. This article separates opportunities to correct a plan, limits on executable actions, and validation of the returned change.</p>
-<p>Consider a hypothetical task to fix sorting on a list page. If the engineer expects a display-layer change but the agent plans a database schema change, correcting the direction before implementation is valuable. That does not make the same review necessary for every small edit. The task's scope and the consequences of a mistake should guide the choice.</p>
+<h2>You delegated one bug</h2>
+<p>Reloading a list changes the order of rows with the same timestamp. An engineer delegates the fix to a coding agent and returns to other work, then receives a large diff including a database schema change. This is a hypothetical design example. A passing-test notification leaves work behind if the engineer must investigate why the change was necessary and how it resolved the original defect.</p>
+<p>This article follows that task through investigation, planning, execution, intervention, and acceptance using material published by OpenAI, Anthropic, GitHub, Google, and AWS by April 13, 2026. It does not rank products measured on the same task. Alongside code-generation capability, compare what progresses while the engineer is away and what can be decided on return.</p>
+<p>My judgment is to assess repair capability together with the design that makes the work usable by its owner. Connecting opportunities to redirect work, visible execution boundaries, and evidence that the change answers the request can support broader delegation. Running for a long time is not itself evidence that the job is resolved.</p>
 </section>
 <section class="report-section">
-<h2>Accepting a fix requires more than one check</h2>
+<h2>Interactive repairs and work that progresses while you are away</h2>
+<p>OpenAI's <a href="https://openai.com/index/introducing-the-codex-app/">February 2 Codex app announcement</a> presents project-organized tasks, diff review, and worktrees that provide separate working copies. Its interface helps people oversee multiple tasks and return where needed. It also describes skills for extending procedures, without establishing that every task in the app executes in the cloud.</p>
+<p>The <a href="https://openai.com/index/introducing-gpt-5-3-codex-spark/">February 12 Codex-Spark announcement</a> introduces a research preview for iterating on targeted changes interactively. Its default working style does not run tests automatically unless requested. Rapid editing and returning a verified fix need separate assessment.</p>
+<p>Google's <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/jules/">May 2025 Jules announcement</a> describes cloning code into a cloud VM, working asynchronously, and returning plans and diffs. Its <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/">August public launch</a> also describes reusing previous environment setups. Product-managed preparation provides a comparison with interactive work on the engineer's machine.</p>
+<p>For one localized list change checked immediately on screen, short interactive exchanges remain a candidate. Background execution may help when investigation, dependency installation, and relevant tests take longer. Include waiting and rework if the environment cannot subsequently be reproduced and validation must start again.</p>
+</section>
+<section class="report-section">
+<h2>Plans need enough detail to judge the size of a change</h2>
+<p><a href="https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/">GitHub's April 1 update</a> describes Copilot cloud agent working on a branch without creating a PR and producing a plan before code when requested. People can approve or amend the approach, inspect the diff, and then create a PR. Research-only sessions also separate completing an investigation from publishing code.</p>
+<p>In the hypothetical task, reproduce ordering with equal timestamps and investigate presentation logic versus ordering during retrieval. If existing identifiers can resolve ties, ask why a schema change is needed. Do not exclude a necessary database-query change; connect the cause with the proposed scope.</p>
+<p>“Fix sorting and test it” gives little basis for recognizing an excessive change. Reproduction conditions, affected areas, and a definition of success help the engineer redirect implementation before it begins. Jules also describes changing plans before and during execution, but visibility alone does not establish mandatory explicit approval in every configuration. Check start and stop conditions in the configuration actually used.</p>
+</section>
+<section class="report-section">
+<h2>Separate branch history from executable access</h2>
+<p>A Git branch separates change history. A worktree creates another working copy, and a VM separates the place commands execute. Collapsing them into “isolation” encourages assuming that separate history also prevents network or credential use. Supplying production credentials requires separately examining paths to external services.</p>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/claude-code-auto-mode">March 25 auto mode explanation</a> describes warnings for retrieved content and a classifier for executable actions. Allowlisted operations and edits within the project can bypass that classifier. Model judgments retain errors; this is not a fixed boundary applying the same inspection to every operation.</p>
+<p>The Codex app announcement also describes configurable sandboxing and permissions. For the list repair, consider repository and test-environment access separately from authority to change production data. Writing “do not change the schema,” reviewing a plan, and restricting connectivity serve different purposes. Inspect the relevant files, destinations, and operations concretely.</p>
+</section>
+<section class="report-section">
+<h2>Give verification a running application and criteria</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">March 24 long-running development report</a> separates planner, generator, and evaluator roles, agreeing on completion criteria for chunks before implementation. The evaluator exercises the application through Playwright and reports defects such as rectangle filling affecting only drag endpoints. This concretely distinguishes a function existing in code from its being usable on screen.</p>
+<p>Compared runs also differ in duration, cost, and the feature scope expanded by planning. The report does not measure three roles making every repair cheaper, faster, and more accurate. A separate evaluator can still miss a mistake if both roles adopt the same incorrect specification.</p>
+<p>For the list repair, define expected behavior with equal timestamps, reloads, page navigation, and existing sorting controls. Exercise the screen with fixed data alongside code inspection. Whether one test suffices or another person or evaluator is needed depends on change scope and the consequences of missed errors.</p>
+<p>When dividing investigation, implementation, and verification among specialized agents, return more than short conclusions: include revision, reproduction conditions, executed checks, and unknowns. A test passing on another working copy does not establish the integrated diff passes. Recheck what the combined change affects and include handoff effort when judging specialization.</p>
+</section>
+<section class="report-section">
+<h2>The receiving engineer has five different questions</h2>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Plan</h3>
-<p>Check what will change and what will not. This is the information needed to return an out-of-scope database change before implementation.</p>
-</article>
-<article class="comparison-card">
-<h3>Execution environment and permissions</h3>
-<p>Check accessible files, credentials, and networks. A branch name or the presence of a VM does not itself establish that external operations are prevented.</p>
-</article>
-<article class="comparison-card">
-<h3>Diff and origin</h3>
-<p>Read whether the change remains in scope and, when needed, verify its origin through a signature. A signature does not decide whether the change is correct.</p>
-</article>
-<article class="comparison-card">
-<h3>Test record</h3>
-<p>Retain executed tests, the revision, results, omitted-check reasons, and environment conditions. A passing notification does not expand the verified scope by itself.</p>
-</article>
-<article class="comparison-card">
-<h3>Acceptance decision</h3>
-<p>Apply the change after the original defect is resolved, relevant checks pass, and remaining uncertainty is understood. This is a decision by the owner receiving the earlier evidence.</p>
-</article>
+<article class="comparison-card"><h3>Cause and plan</h3><p>Under what conditions was the bug reproduced, and why is the change necessary? Ask for reasons when scope extends beyond the request.</p></article>
+<article class="comparison-card"><h3>Environment and authority</h3><p>Which revision, dependencies, resources, and destinations were used? Inspect working-copy separation separately from restrictions on external operations.</p></article>
+<article class="comparison-card"><h3>Diff and origin</h3><p>What changed, and with whom is the record associated? Establishing origin leaves the content decision to be made.</p></article>
+<article class="comparison-card"><h3>Behavior and tests</h3><p>Does the original bug disappear, and do related features pass? Distinguish completed checks from checks that could not run.</p></article>
+<article class="comparison-card"><h3>Acceptance and remaining work</h3><p>What can be applied, and who continues what? Keep implementation, review, and publication distinct from a single completion notification.</p></article>
 </div>
+<p>This is the article's organization of the evidence an engineer needs, not five guarantees automatically supplied by a product. Even a small change can briefly show the original defect and checked outcome. The purpose is to make decision-relevant information findable, rather than require reading every log.</p>
+<p>GitHub's <a href="https://github.blog/changelog/2024-11-12-persistent-commit-signature-verification-now-in-public-preview/">persistent signature-verification announcement</a> describes retaining verification records associated with commits. A Verified badge does not decide whether list ordering is correct. Diff and behavior review remain necessary after checking origin.</p>
+<p>Its <a href="https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster/">April 10 Copilot update</a> describes parallel CodeQL, dependency vulnerability checks, secret scanning, and code review, claiming 20% shorter validation time. This concerns its validation tools, not a measured 20% reduction across implementation and human review. These checks and the list's expected-behavior test detect different problems.</p>
 </section>
 <section class="report-section">
-<h2>Reading a plan and preventing execution are different controls</h2>
-<p><a href="https://jules.google/docs/review-plan/">Jules' plan-review documentation</a> describes showing a plan before code changes and accepting user feedback. It also describes timed automatic approval. The presence of a review screen therefore does not establish that execution always waits for explicit human approval.</p>
-<p>If database changes are outside the sorting task's scope, inspect whether the execution environment can reach production, as well as stating the constraint in the request. An opportunity for human review and an enforced restriction serve different functions. Product settings and behavior can change, so test the stopping condition in the configuration actually used.</p>
+<h2>Returning to work differs from reversing execution</h2>
+<p>The <a href="https://github.blog/changelog/2026-04-01-github-mobile-stay-in-flow-with-a-refreshed-copilot-tab-and-native-session-logs/">April 1 GitHub Mobile update</a> covers session logs, PR creation and review, and stopping execution. The <a href="https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/">April 13 CLI remote-control public preview</a> supports messages and permission decisions from another device for a session running on the original machine. Their availability conditions differ; remote control does not relocate execution to the cloud.</p>
+<p>If investigation turns toward a schema change in the hypothetical task, the engineer can ask why and adjust scope. Stopping does not establish that completed file changes or external operations were reversed. Inspect progress and remaining work before deciding how to continue.</p>
+<p>Reopening a session, resuming conversation, and restoring work in another execution environment are also different capabilities. Check revision, amended plan, and incomplete tests before continuing. Remote supervision gains value from reaching relevant evidence at the right point, rather than from notification volume.</p>
 </section>
 <section class="report-section">
-<h2>Branches, virtual machines, and signatures provide different guarantees</h2>
-<p>A Git branch separates change history; it does not isolate the files a command can read or the networks it can reach. <a href="https://jules.google/docs/environment">Jules' environment documentation</a> describes a short-lived VM for cloning repositories, installing dependencies, and running tests. Branch separation and execution-environment separation should not be collapsed into one claim of isolation.</p>
-<p>A VM or container may still modify external services through credentials supplied to it. Inspect the accessible files, credentials, and destinations as well as the execution location. Where required, separate authority to create a fix in a test environment from authority to deploy it to production.</p>
-<p>A Verified commit badge answers another question. <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification">GitHub's signature documentation</a> describes cryptographic verification of the signature. The badge does not establish that the sorting fix is correct or sufficiently tested. Reviewing the diff and behavior remains necessary after checking its origin.</p>
+<h2>Operational investigation changes what a diff means</h2>
+<p>AWS's <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/">March 31 DevOps Agent general availability announcement</a> describes investigating problems across observability, runbooks, code, CI/CD, and deployment information. This extends product support for examining operational events before proposing a code repair. The article does not measure fully autonomous incident response or shorter recovery time.</p>
+<p>If the list defect appeared immediately after deployment, dependencies, configuration, and retrieved-data conditions may deserve investigation alongside changed code. Temporal proximity alone does not establish causation. Pass observations leading to a repair candidate separately from unverified hypotheses.</p>
+<p>The engineer needs more than “the database is the cause.” Knowing which logs and revision were inspected, what was reproduced, and which proposed change can be tested enables the next action. Broader operational access also requires separating investigative reads from authority to change shared systems.</p>
 </section>
 <section class="report-section">
-<h2>Report execution conditions alongside test results</h2>
-<p>Environment configuration also affects performance evaluation. In its February 5, 2026 <a href="https://www.anthropic.com/engineering/infrastructure-noise">experiment report</a>, Anthropic held the Claude model, harness, and Terminal-Bench 2.0 task set constant while changing resources. Success differed by six percentage points between strict limits and an uncapped configuration. This is a result under the reported conditions, not a universal effect across models or business tasks.</p>
-<p>For an internal fix, distinguish incorrect code from failed dependency installation or insufficient memory. Recording the tests, revision, results, and reasons for omitted checks lets a reviewer identify the verified scope. A statement that testing is complete does not convey that scope by itself.</p>
-<p>For the sorting example, reproduce the original defect, run relevant existing checks, and inspect whether the diff stays within the requested scope. Plans, permissions, signatures, and tests answer different questions. Keeping those questions distinct helps the engineer combine the checks needed to accept an agent's work.</p>
+<h2>Compare through acceptance in the same repository</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/infrastructure-noise">February 5 experiment report</a> compares six resource configurations with the same Claude model, harness, and Terminal-Bench 2.0 tasks. Success differs by six percentage points between strict limits and uncapped resources. Its explanation includes fewer infrastructure failures and enabling more resource-intensive strategies. The magnitude cannot be transferred to every model or internal repair task.</p>
+<p>For an internal trial, match defect, repository revision, dependencies, time and spending caps, and executable permissions. Record investigation, plan intervention, diff review, and repeated validation alongside turnaround time. Include corrections and failed dependency installation rather than selecting only a successful demonstration.</p>
+<p>To compare models, match execution environments and procedures where possible. To select products, also record differences in setup and intervention, evaluating total time and acceptable outcomes. Mixing these questions prevents attributing a single score solely to model quality.</p>
+<p>For the hypothetical list repair, acceptance requires the original defect no longer reproducing, related checks passing, and understanding remaining uncertainty. Test names, revision, results, and reasons for unexecuted checks show the verified scope. This is a trial proposal, not results from testing every product under these conditions.</p>
+</section>
+<section class="report-section">
+<h2>Let the engineer take over from the right point</h2>
+<p>Public material shows planning, execution environments, diffs, intervention, and behavioral verification being incorporated alongside code generation. I read these as designs for delegating work under human supervision. This does not imply identical guarantees across products or that model repair capability has become unimportant.</p>
+<p>Delegate one defect, correct direction when needed, and receive the change with supporting evidence. Broaden delegation from the scope where that sequence works. A coding agent's value includes letting the engineer choose what to accept and what to continue without restarting the entire investigation.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -192,49 +214,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-04-20-agents-compete-on-work-continuity.html" aria-label="What to preserve so an AI agent can resume interrupted work">
+      <a class="article-card " href="/en/2026-04-20-agents-compete-on-work-continuity.html" aria-label="Carry an agent’s work into tomorrow: memory, artifacts, and recovery">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-20">April 20, 2026</time>
+        <time class="mono-note" datetime="2026-04-20">Research cutoff April 20, 2026</time>
       </div>
-      <h3 class="article-card-title">What to preserve so an AI agent can resume interrupted work</h3>
-      <p class="article-card-copy">Preserve the progress and files a task needs, then test what happens when execution stops.</p>
+      <h3 class="article-card-title">Carry an agent’s work into tomorrow: memory, artifacts, and recovery</h3>
+      <p class="article-card-copy">Carry forward usable work and its rationale, while checking what changed overnight.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Automation</span><span class="meta-chip">Sessions</span><span class="meta-chip">Observability</span><span class="meta-chip">Workflow</span><span class="meta-chip">Background Work</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 8</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="Designing agent memory for retrieval, applicability, and updates">
+  </a><a class="article-card " href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="Agent memory design: why correct recall can still lead to the wrong decision">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-08">April 8, 2026</time>
+        <time class="mono-note" datetime="2026-04-08">Research cutoff April 8, 2026</time>
       </div>
-      <h3 class="article-card-title">Designing agent memory for retrieval, applicability, and updates</h3>
-      <p class="article-card-copy">Correct recall can still lead to a wrong answer when applicability and updates are mishandled.</p>
+      <h3 class="article-card-title">Agent memory design: why correct recall can still lead to the wrong decision</h3>
+      <p class="article-card-copy">Useful memory must preserve corrections and applicability, not just retrieve the right record.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 12</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="What agent-development toolkits remove—and what the product must still design">
+  </a><a class="article-card " href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="AgentKit and agent toolkits: from quick prototypes to verified releases">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-11-01">November 1, 2025</time>
+        <time class="mono-note" datetime="2025-11-01">Research cutoff November 1, 2025</time>
       </div>
-      <h3 class="article-card-title">What agent-development toolkits remove—and what the product must still design</h3>
-      <p class="article-card-copy">Before choosing a toolkit, separate supplied components from the business-specific design that remains.</p>
+      <h3 class="article-card-title">AgentKit and agent toolkits: from quick prototypes to verified releases</h3>
+      <p class="article-card-copy">Saving a workflow does not ensure that its policy source and interface reflect the same change.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 4</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -249,44 +271,134 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://www.anthropic.com/engineering/infrastructure-noise" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://openai.com/index/introducing-the-codex-app/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">February 2, 2026</span>
               </div>
-              <p class="source-title">Anthropic Engineering: Quantifying infrastructure noise in agentic coding evals</p>
+              <p class="source-title">OpenAI: Introducing the Codex app</p>
+              <p class="source-url">https://openai.com/index/introducing-the-codex-app/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-5-3-codex-spark/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">February 12, 2026</span>
+              </div>
+              <p class="source-title">OpenAI: GPT-5.3-Codex-Spark</p>
+              <p class="source-url">https://openai.com/index/introducing-gpt-5-3-codex-spark/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/harness-design-long-running-apps" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 24, 2026</span>
+              </div>
+              <p class="source-title">Anthropic: Harness design for long-running application development</p>
+              <p class="source-url">https://www.anthropic.com/engineering/harness-design-long-running-apps</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/claude-code-auto-mode" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 25, 2026</span>
+              </div>
+              <p class="source-title">Anthropic: Claude Code auto mode</p>
+              <p class="source-url">https://www.anthropic.com/engineering/claude-code-auto-mode</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/infrastructure-noise" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">February 5, 2026</span>
+              </div>
+              <p class="source-title">Anthropic: Quantifying infrastructure noise in agentic coding evals</p>
               <p class="source-url">https://www.anthropic.com/engineering/infrastructure-noise</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://jules.google/docs/review-plan/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">April 1, 2026</span>
               </div>
-              <p class="source-title">Jules docs: Reviewing plans and giving feedback</p>
-              <p class="source-url">https://jules.google/docs/review-plan/</p>
+              <p class="source-title">GitHub: Research, plan, and code with Copilot cloud agent</p>
+              <p class="source-url">https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://jules.google/docs/environment" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">April 10, 2026</span>
               </div>
-              <p class="source-title">Jules docs: Environment setup</p>
-              <p class="source-url">https://jules.google/docs/environment</p>
+              <p class="source-title">GitHub: Parallel validation tools</p>
+              <p class="source-url">https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster/</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.blog/changelog/2026-04-01-github-mobile-stay-in-flow-with-a-refreshed-copilot-tab-and-native-session-logs/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">April 1, 2026</span>
               </div>
-              <p class="source-title">GitHub: About commit signature verification</p>
-              <p class="source-url">https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification</p>
+              <p class="source-title">GitHub Mobile: Copilot tab and native session logs</p>
+              <p class="source-url">https://github.blog/changelog/2026-04-01-github-mobile-stay-in-flow-with-a-refreshed-copilot-tab-and-native-session-logs/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/jules/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">May 20, 2025</span>
+              </div>
+              <p class="source-title">Google: Jules public beta</p>
+              <p class="source-url">https://blog.google/innovation-and-ai/models-and-research/google-labs/jules/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">August 6, 2025</span>
+              </div>
+              <p class="source-title">Google: Jules out of beta</p>
+              <p class="source-url">https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 31, 2026</span>
+              </div>
+              <p class="source-title">AWS: DevOps Agent generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.blog/changelog/2024-11-12-persistent-commit-signature-verification-now-in-public-preview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">November 13, 2024</span>
+              </div>
+              <p class="source-title">GitHub: Persistent commit signature verification preview</p>
+              <p class="source-url">https://github.blog/changelog/2024-11-12-persistent-commit-signature-verification-now-in-public-preview/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">April 13, 2026</span>
+              </div>
+              <p class="source-title">GitHub: Remote control CLI sessions public preview</p>
+              <p class="source-url">https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/</p>
             </div>
             <span class="source-action">Open</span>
           </a>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AIエージェントの評価は、配備判断を何で支えるのか | Auto Research Digest</title>
-    <meta name="description" content="2025年3月時点のエージェント評価研究を基に、試作から配備判断へ進むための回答・実行・安全性・引き継ぎの検査設計を整理する。">
+    <title>AIエージェントの評価 平均点が上がっても配備を見送る理由 | Auto Research Digest</title>
+    <meta name="description" content="AIエージェントの評価を配備判断にどう使うか。平均成功率、繰り返しの安定性、採点の誤り、重大な失敗と利用者の修正負担を比較する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AIエージェントの評価は、配備判断を何で支えるのか | Auto Research Digest">
-    <meta property="og:description" content="2025年3月時点のエージェント評価研究を基に、試作から配備判断へ進むための回答・実行・安全性・引き継ぎの検査設計を整理する。">
+    <meta property="og:title" content="AIエージェントの評価 平均点が上がっても配備を見送る理由 | Auto Research Digest">
+    <meta property="og:description" content="AIエージェントの評価を配備判断にどう使うか。平均成功率、繰り返しの安定性、採点の誤り、重大な失敗と利用者の修正負担を比較する。">
     <meta property="og:url" content="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AIエージェントの評価は、配備判断を何で支えるのか">
+    <meta property="og:image:alt" content="AIエージェントの評価 平均点が上がっても配備を見送る理由">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIエージェントの評価は、配備判断を何で支えるのか | Auto Research Digest">
-    <meta name="twitter:description" content="2025年3月時点のエージェント評価研究を基に、試作から配備判断へ進むための回答・実行・安全性・引き継ぎの検査設計を整理する。">
+    <meta name="twitter:title" content="AIエージェントの評価 平均点が上がっても配備を見送る理由 | Auto Research Digest">
+    <meta name="twitter:description" content="AIエージェントの評価を配備判断にどう使うか。平均成功率、繰り返しの安定性、採点の誤り、重大な失敗と利用者の修正負担を比較する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AIエージェントの評価は、配備判断を何で支えるのか">
+    <meta name="twitter:image:alt" content="AIエージェントの評価 平均点が上がっても配備を見送る理由">
     <link rel="canonical" href="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-03-01-agent-evaluation-becomes-a-gating-layer.html">
@@ -42,15 +42,14 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-03-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T13:55:55+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Evaluation">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの評価は、配備判断を何で支えるのか","description":"2025年3月時点のエージェント評価研究を基に、試作から配備判断へ進むための回答・実行・安全性・引き継ぎの検査設計を整理する。","datePublished":"2025-03-01T00:00:00+09:00","dateModified":"2026-09-20T13:55:55+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Evaluation, Governance","mainEntityOfPage":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの評価は、配備判断を何で支えるのか","item":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの評価　平均点が上がっても配備を見送る理由","description":"AIエージェントの評価を配備判断にどう使うか。平均成功率、繰り返しの安定性、採点の誤り、重大な失敗と利用者の修正負担を比較する。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Evaluation, Governance","mainEntityOfPage":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの評価　平均点が上がっても配備を見送る理由","item":"https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,21 +65,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AIエージェントの評価は、配備判断を何で支えるのか</h1>
-          <p class="hero-copy">AgentBench、GAIA、SWE-bench、OSWorldを比較し、回答、環境内の最終状態、危険な副作用、人への引き継ぎを分けて検査する評価設計を考える。</p>
+          <h1 class="hero-title">AIエージェントの評価　平均点が上がっても配備を見送る理由</h1>
+          <p class="hero-copy">τ-benchの繰り返し評価、SWE-bench Verifiedの採点点検、SWE-Lancerの実務課題から、平均点を配備判断へつなぐ条件を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-03-01">2025年3月1日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2025-03-01">調査対象日 2025年3月1日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Governance</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A9%95%E4%BE%A1%E3%81%AF%E3%80%81%E9%85%8D%E5%82%99%E5%88%A4%E6%96%AD%E3%82%92%E4%BD%95%E3%81%A7%E6%94%AF%E3%81%88%E3%82%8B%E3%81%AE%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-03-01-agent-evaluation-becomes-a-gating-layer.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A9%95%E4%BE%A1%E3%80%80%E5%B9%B3%E5%9D%87%E7%82%B9%E3%81%8C%E4%B8%8A%E3%81%8C%E3%81%A3%E3%81%A6%E3%82%82%E9%85%8D%E5%82%99%E3%82%92%E8%A6%8B%E9%80%81%E3%82%8B%E7%90%86%E7%94%B1&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-03-01-agent-evaluation-becomes-a-gating-layer.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AIエージェントの評価は、配備判断を何で支えるのか"
-      data-share-text="AIエージェントの評価は、配備判断を何で支えるのか"
+      data-share-title="AIエージェントの評価　平均点が上がっても配備を見送る理由"
+      data-share-text="AIエージェントの評価　平均点が上がっても配備を見送る理由"
       data-share-url="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AIエージェントの評価は、配備判断を何で支えるのか"
+      data-share-title="AIエージェントの評価　平均点が上がっても配備を見送る理由"
       data-share-url="https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,48 +124,142 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">問い</p>
-  <h2>試作を配備候補として扱う前に、何を評価すればよいのか</h2>
-  <p>AIエージェントの評価を「導入ゲート」と呼ぶとき、評価が配備を自動的に決めるという意味ではない。回答、環境内で変わった最終状態、許可されない副作用、人への引き継ぎを分けて検査し、何を任せられるかを説明できる状態を指す。<a href="https://arxiv.org/abs/2308.03688">AgentBench</a>、<a href="https://arxiv.org/abs/2311.12983">GAIA</a>、<a href="https://arxiv.org/abs/2310.06770">SWE-bench</a>、<a href="https://arxiv.org/abs/2404.07972">OSWorld</a> は、異なる仕事が異なる完了条件を持つことを見せた。本稿では、それを一つの総合点にせず、配備判断に必要な検査の組合せとして読む。</p>
+  <p class="section-kicker">更新を通す前に</p>
+  <h2>平均点が上がったのに、利用者は安心して任せられない</h2>
+  <p>資料から締切を読み、予定表へ登録するエージェントを考える。
+これは評価設計を説明する想定例である。
+新しいモデルは多くの資料を読めるようになり、全体の成功率も改善した。
+ところが、別のタイムゾーンの締切をずらして保存する失敗や、途中で再試行して同じ予定を二件作る失敗が残る。
+この更新を、平均点が上がったという理由で配備してよいだろうか。</p>
+  <p>利用者が困るのは、全体の点数ではなく、自分の締切を逃すことや、どちらの予定が正しいかを調べ直すことだ。
+私の判断は、評価を配備に使うには、改善した能力と、許容できない失敗を分けて説明する必要がある、というものになる。
+公開ベンチマークの点数だけから、全ての業務に使える合格点を導くことはできない。</p>
+  <p>そのためには、エージェントが何をしたかだけでなく、採点が何を正解にしたのかも読む必要がある。
+課題を一度解けること、同じ条件で繰り返し解けること、利用者が手直しせずに使えることは、それぞれ違う問いだからだ。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">点数の対象</p>
+  <h2>公開評価は、任せたい仕事との距離を測る手掛かりになる</h2>
+  <p><a href="https://arxiv.org/abs/2308.03688v1">AgentBenchの原版</a>は、8種類の対話的な環境で推論と意思決定を評価した。
+<a href="https://arxiv.org/abs/2311.12983v1">GAIAの原版</a>は、推論、画像などの入力、Web閲覧、道具の利用を組み合わせる466問を作った。
+前者は環境での複数段階の行動を、後者は複数の情報から答えへ到達する力を扱う。
+どちらも、予定表へ正しい時刻を一件だけ保存するという自社の条件を、そのまま採点しているわけではない。</p>
+  <p><a href="https://arxiv.org/abs/2404.07972v1">OSWorldの原版</a>は、Webやデスクトップアプリ、ファイル操作などの369課題に、初期状態と実行結果の判定を用意した。
+このような環境の評価は、説明のもっともらしさから、実際に残った状態へ目を向ける助けになる。
+ただし、公開課題でできた操作が、別のアプリの版や権限でもできるとは限らない。</p>
+  <p>公開評価の使い方は、総合点で候補を並べることに尽きない。
+自社の仕事に必要な能力が試験に含まれるか、含まれない条件は何かを調べる。
+予定表なら、資料の読み取りだけでなく、対象の予定表、タイムゾーン、重複の扱いを確認する。
+試験の範囲を知ることで、別に検査する必要がある部分が見えてくる。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">繰り返したときの差</p>
+  <h2>八回のうち一回成功することと、八回とも成功することは違う</h2>
+  <p><a href="https://arxiv.org/html/2406.12045v1">τ-benchの原版</a>は、小売と航空の業務を模した環境で、エージェントにAPIと業務ルールを与え、言語モデルが演じる利用者との対話を試した。
+会話後のデータベースを期待する状態と比較して採点する。
+本物の顧客による導入試験ではなく、対話、道具、ルールを一緒に検査する研究環境である。</p>
+  <p>同論文は、複数回の試行で少なくとも一回成功する指標pass@kと、全ての試行が成功する確率を課題全体で平均する指標pass^kを区別する。
+小売の実験では、GPT-4oがAPI呼出しを選ぶ構成の平均成功率が60%を超える一方、8回全て成功するpass^8は25%未満まで下がると報告した。
+同じ課題でも対話の生成に揺らぎがあるため、一回の成功だけでは安定して扱えるとは言えない。</p>
+  <p>この二つは、使いたい仕事によって意味が変わる。
+複数の下書きから人が一つを選ぶなら、どれか使えるものが得られる能力には価値がある。
+既存の予定表を変更する仕事では、成功するまで何度も保存し、後から良い結果を選ぶことはできない。
+繰り返しの検査では同じ初期状態に戻し、成功だけでなく、重複や途中で残った変更も調べる必要がある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">取り戻せない失敗</p>
+  <h2>丁寧な応答の陰で、次の操作を失うことがある</h2>
+  <p>τ-benchの付録には、利用者が同じ注文の二つの商品を交換したい場面で、一注文の交換は一回だけというルールを忘れ、一品を先に交換してしまう例がある。
+本来は必要な情報を集め、二品を一度の操作で扱う必要があった。
+最初の操作が動いても、残った要望を実行できなくなる。
+この失敗は、口調が丁寧か、道具を呼べたかだけでは見えない。</p>
+  <p>予定表の想定例でも、資料を正しく読むことと、既存の予定を壊さないことは分けて検査したい。
+読み取りが改善して平均点が上がっても、登録先を取り違えたり、重複を増やしたりすれば、利用者の負担は減らない。
+一件の重大な失敗を、別の簡単な課題の成功で相殺してよいかを、配備前に決める必要がある。</p>
+  <p>私は、許容しない変更が観測された更新は、平均点と切り離して原因を調べるべきだと考える。
+一方、評価中にその失敗が出なかったことは、今後も起きない証明にはならない。
+どの条件を何回試し、どこは未検査なのかまで記録することで、配備を認める範囲を狭く説明できる。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">採点側の点検</p>
+  <h2>低い点数が、エージェントの誤りとは限らない</h2>
+  <p><a href="https://openai.com/index/introducing-swe-bench-verified/">SWE-bench Verifiedの発表</a>は、評価そのものを点検する必要を示す。
+OpenAIは、問題文の条件不足、正しい解決まで拒むほど具体的なテスト、実行環境の設定不良を挙げ、開発者による選別を経た500課題を公開した。
+点数を信じる前に、要求、判定器、環境を確かめるという論点である。</p>
+  <p>同発表の例では、ライブラリの引数が使われていないという問題に対し、テストが特定の警告と、その正確な文言を要求していた。
+エージェントへ渡す問題文にその条件がなければ、合理的な修正でも不合格になりうる。
+これは、採点器が厳しければ信頼できる、という単純な関係を崩す具体例だ。
+人が確認した課題も、全ての品質を漏れなく測る保証にはならない。</p>
+  <p>予定表への登録を採点するときも同様だ。
+同じ瞬間を別のタイムゾーン表記で保存した結果を、文字列が違うという理由だけで誤りにしていないか。
+逆に、日時の説明が正しければ、別の予定表へ保存した結果まで合格にしていないか。
+正しい変更を拒む判定と、誤った変更を通す判定の両方を点検したい。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">実務に近い課題でも</p>
+  <h2>過去の報酬を付けても、導入効果がそのまま分かるわけではない</h2>
+  <p><a href="https://arxiv.org/html/2502.12115v1">SWE-Lancerの原版</a>は、Upworkの1,400件を超えるソフトウェア開発課題を集め、過去の実際の支払額を合計100万ドルとして扱った。
+実装の課題は経験のある開発者が三重に確認した一連の動作試験で採点し、管理の課題は技術提案から選んだ案を元の担当者の選択と比較する。
+コードを書く力と、案を選ぶ判断を別の形で測る研究である。</p>
+  <p>この設計は、抽象的な問題数より仕事の内容を読みやすくする。
+ただし、過去の支払額はAIが実際に稼いだ収益ではない。
+担当者の選択に一致したことも、その提案が全ての条件で最適だったという証明ではない。
+経済的な意味を考えるなら、検査が測った成果と、運用時の費用や人の確認時間を分ける必要がある。</p>
+  <p>予定表の仕事なら、一件の自動登録だけを便益と数えない。
+利用者が日時や登録先を確認し、重複を消し、必要なら資料を読み直す時間も含めて比べる。
+人が直接登録する方法や、日時を抽出して人が保存する方法より負担が減るか。
+その比較があって初めて、エージェントに任せる範囲を増やす理由になる。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">更新を比較する設計</p>
+  <h2>条件をそろえ、点数と原因を別に残す</h2>
+  <p><a href="https://arxiv.org/abs/2412.05467v1">BrowserGymの原版</a>は、複数のWeb評価環境を共通の観測・行動形式で扱う仕組みを示した。
+<a href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/">AutoGen v0.4</a>は、メッセージ追跡やデバッグなどを提示した。
+実験の条件をそろえることと、失敗した処理を追うことは、配備判断の説明を支える。
+ただし、記録が詳しくても、正しい登録日時の定義は別に必要だ。</p>
+  <p>予定表の検査では、資料、既存の予定、権限、タイムゾーン、アプリの版をそろえて旧構成と新構成を比べる。
+一度に複数の条件を変えると、改善や悪化をどの変更へ戻すべきか分かりにくい。
+完了数とは別に、参照した資料、読み取った日時、登録先、送信した引数、保存後の状態を残す。
+資料の誤読と、時刻変換の誤りと、保存先の取り違えを区別できる記録にする。</p>
+  <p>調整に使った課題だけで良い結果が出ても、新しい資料で使えるかは未確認である。
+従来の失敗を再検査する組と、調整に使わなかった課題を試す組を分ける。
+さらに、時刻が欠けた資料や権限がない予定表では、確認や保留を正しい結果として定める。
+全ての仕事を人へ返す方式との違いが分かるよう、必要な保留と不要な引き戻しも別々に数える。</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>回答の契約</h3><p>必要な根拠を使い、分からない情報を推測で埋めず、利用者に必要な形で返せるか。</p></article>
-    <article class="comparison-card"><h3>実行の契約</h3><p>初期状態から、許可された操作で、期待する最終状態へ到達したか。</p></article>
-    <article class="comparison-card"><h3>監督の契約</h3><p>危険な操作を止め、不確実な状態を根拠とともに人へ渡せるか。</p></article>
+    <article class="comparison-card">
+      <h3>完了と残った変更</h3>
+      <p>正しい予定を一件保存できたか。重複、登録先の誤り、途中の変更は別に記録する。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>条件ごとの安定性</h3>
+      <p>資料や権限の条件を分け、初期状態を戻して繰り返す。平均に隠れる失敗を読む。</p>
+    </article>
+    <article class="comparison-card">
+      <h3>利用者に戻った負担</h3>
+      <p>必要な確認と不要な引き戻しを分ける。調べ直しと修正にかかった時間も比べる。</p>
+    </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">ベンチマークが測るもの</p>
-  <h2>「答えられる」と「環境で終えられる」は別の検査になる</h2>
-  <p>GAIA は、推論、マルチモーダル入力、Web 閲覧、道具利用を要する実世界風の質問を置く。初版は466問を用意し、人の回答率と plugin を備えた GPT-4 の比較を報告した。ここで中心になるのは、複数の情報を集めて最終回答を導けるかである。AgentBench も、複数の環境や道具を使うエージェントを評価するため、仕事の種類ごとに成績が異なることを扱った。</p>
-  <p>SWE-bench は、実際の GitHub issue と対応する pull request をもとに、コードベースを変更して問題を解く課題を作った。OSWorld は、実 Web・デスクトップアプリ、ファイル操作、複数アプリにわたるタスクを、初期状態と実行ベースの評価スクリプトとともに置いた。どちらも、もっともらしい説明ではなく、変更後のリポジトリや画面状態を確かめる。<a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> がベンチマークごとの観測・行動空間をそろえようとしたことも、比較には環境の条件が要ることを示す。</p>
-  <p>これらの数値を自社の配備可否へそのまま転用することはできない。役割は、評価対象を分ける語彙を与えることにある。資料探索の正しさを測るテスト、画面に保存された結果を測るテスト、許されない外部操作を測るテストは、同じ採点器にしない方が失敗を読める。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">観測と統制</p>
-  <h2>トレースや確認機能は、平均点の代わりではなく、失敗の説明を支える</h2>
-  <p>Anthropic の computer use は、スクリーンショット観測が短時間の通知を見逃しうること、速度と正確さに制約が残ることを説明した。Operator の発表は、ログイン、支払い情報、CAPTCHA での takeover と、注文・メール送信前の確認を説明した。これらは、画面操作の成功率ではなく、どこで人が介入する設計かを記述する資料である。</p>
-  <p>AutoGen v0.4 は、非同期メッセージ、event-driven の長期実行、メッセージ追跡、デバッグを備えるとした。<a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> は、定めた経路を通す workflow と、モデルが道具の使い方を決める agent を区別する。こうした機能や設計分類は、製品の安全性や有効性を単独で証明しない。それでも、失敗の原因、停止地点、引き継いだ判断を後から確認するための情報を何として残すかを考える材料になる。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">評価カード</p>
-  <h2>締切を予定表へ登録するなら、答え・保存状態・操作経路を別に採点する</h2>
-  <p>以下は業務用の評価設計を説明する想定例である。資料には締切日と時刻を、予定表には既存の予定と利用権限を用意する。期待する仕事は、資料から正しい日時を読み、正しい予定表へ一件だけ保存し、必要なら確認を求めることとする。</p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>回答</h3><p>資料に時刻がないなら勝手に補わず、確認を求める。日時と根拠の箇所を対応付ける。</p></article>
-    <article class="comparison-card"><h3>最終状態</h3><p>対象の予定表に正しい日時で一件だけ保存されたかを、画面または API の状態で検査する。別の予定表、時刻ずれ、下書き、二重登録は別の失敗にする。</p></article>
-    <article class="comparison-card"><h3>経路と安全性</h3><p>読み取った資料、使った操作、確認要求、失敗時の状態を記録する。権限がない、または保存結果が未確認なら、人への handoff を正しい結果に含める。</p></article>
-  </div>
-  <p>初期データ、予定表の版、許可操作、タイムゾーンが違えば難しさも変わる。改善比較ではそれらの条件を固定し、結果の点数と原因調査用の軌跡を別々に保存する。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">配備判断への答え</p>
-  <h2>評価は合否の一数値ではなく、任せる境界を説明するための証拠になる</h2>
-  <p>本稿の「ゲート」は、公開ベンチマークに合格したから配備する、という一段の判定ではない。代表的な仕事について、どの回答を正解とし、どの最終状態を確認し、どの副作用を禁止し、どの状態を人へ渡すかをあらかじめ定めることを指す。そこまで定めれば、試作で生じた失敗を、モデル、道具、環境、採点条件のどこに戻すべきかを議論できる。</p>
-  <p>最初の配備候補には、代表例を少数に絞り、回答、実行、監督の三契約を別々に検査する。平均点が上がっても、古い代表例で危険な副作用が増えたなら、変更は通さない。このように評価を更新の記録と結び付けることが、派手な試作と監督できる仕事を分ける実務的な境界になる。</p>
+  <p class="section-kicker">配備を判断するために</p>
+  <h2>何を任せるかと、何が起きたら更新を止めるかを対にする</h2>
+  <p><a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a>は、必要に応じて複雑さを増やし、定めた経路を通す処理と、モデルに判断を委ねる処理を選ぶ考え方を示す。
+評価の結果、自由な再試行が重複を増やすなら、入力を準備する範囲へ戻す選択もある。
+配備はエージェント全体を一度に認める判断ではなく、検査した仕事と条件に対して行える。</p>
+  <p>本稿が提案する導入条件は、成功率の目標だけを置くことではない。
+対象の仕事、繰り返し検査、許容しない失敗、保留すべき条件、利用者の負担を先に定め、更新後も同じ基準で比べることだ。
+十分な試行数や合格水準は、失敗したときの影響と確認できた範囲から決める。
+少数の成功例だけで、長期の安定性まで宣言することはできない。</p>
+  <p>点数が上がったことを、利用者が安心して任せられることへつなぐには、何が改善し、どの失敗が残り、誰がそれを直すのかを示す必要がある。
+評価をその説明に使えば、進歩を認めながら、通してはいけない更新も選べる。
+配備を支えるのは、点数の高さに加えて、点数の外に残る仕事を読めることだ。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -187,49 +281,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2025-04-01-managed-agent-primitives-arrive-together.html" aria-label="マネージドなエージェント基盤は、何をアプリに残すのか">
+      <a class="article-card " href="/2025-04-01-managed-agent-primitives-arrive-together.html" aria-label="OpenAIとBedrockで比べる、エージェント基盤に任せる仕事">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-04-01">2025年4月1日</time>
+        <time class="mono-note" datetime="2025-04-01">調査対象日 2025年4月1日</time>
       </div>
-      <h3 class="article-card-title">マネージドなエージェント基盤は、何をアプリに残すのか</h3>
-      <p class="article-card-copy">マネージド機能は責任を消さない。実行、協調、認証、業務判断の境界を比べる。</p>
+      <h3 class="article-card-title">OpenAIとBedrockで比べる、エージェント基盤に任せる仕事</h3>
+      <p class="article-card-copy">道具と担当をつないでも、依頼を終える仕事は残る。基盤が何を実行し、アプリが何を補うかを比べる。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Platform</span><span class="meta-chip">Multi-Agent</span></div>
     </div>
     <div class="article-card-foot">
       <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2025-02-01-browser-agents-enter-the-product-roadmap.html" aria-label="ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか">
+  </a><a class="article-card " href="/2025-02-01-browser-agents-enter-the-product-roadmap.html" aria-label="ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-02-01">2025年2月1日</time>
+        <time class="mono-note" datetime="2025-02-01">調査対象日 2025年2月1日</time>
       </div>
-      <h3 class="article-card-title">ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか</h3>
-      <p class="article-card-copy">画面をクリックできることは、製品化の条件ではない。ブラウザ操作を計画するための状態・確認・引き継ぎを考える。</p>
+      <h3 class="article-card-title">ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ</h3>
+      <p class="article-card-copy">使える画面が増えるほど、そこで起きたことを確かめる仕事も増える。操作の広さと、引き継ぐ負担を一緒に考える。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 10</span>
+      <span class="mono-note">根拠数: 9</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="AIエージェントの誤操作を、回答と実行記録から評価する">
+  </a><a class="article-card " href="/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="AIエージェント評価を、仕事の直し方につなげる">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-07-11">2026年7月11日</time>
+        <time class="mono-note" datetime="2026-07-11">調査対象日 2026年7月11日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの誤操作を、回答と実行記録から評価する</h3>
-      <p class="article-card-copy">同じ正しい回答でも、承認前に保存した実行は不合格になる。その違いを判定する記録と規則を示す。</p>
+      <h3 class="article-card-title">AIエージェント評価を、仕事の直し方につなげる</h3>
+      <p class="article-card-copy">得点が上がったとき、仕事の何がよくなったのか。実行記録から修正する場所を選ぶ。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 7</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -244,64 +338,44 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2308.03688" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2308.03688v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2023年8月7日</span>
               </div>
               <p class="source-title">AgentBench: Evaluating LLMs as Agents</p>
-              <p class="source-url">https://arxiv.org/abs/2308.03688</p>
+              <p class="source-url">https://arxiv.org/abs/2308.03688v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2023年10月10日</span>
-              </div>
-              <p class="source-title">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
-              <p class="source-url">https://arxiv.org/abs/2310.06770</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2311.12983" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2311.12983v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2023年11月21日</span>
               </div>
               <p class="source-title">GAIA: a benchmark for General AI Assistants</p>
-              <p class="source-url">https://arxiv.org/abs/2311.12983</p>
+              <p class="source-url">https://arxiv.org/abs/2311.12983v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年4月11日</span>
               </div>
               <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
-              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
+              <p class="source-url">https://arxiv.org/abs/2404.07972v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年12月6日</span>
               </div>
               <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/research/developing-computer-use" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2024年10月22日</span>
-              </div>
-              <p class="source-title">Anthropic: Developing a computer use model</p>
-              <p class="source-url">https://www.anthropic.com/research/developing-computer-use</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467v1</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
@@ -324,24 +398,34 @@
               <p class="source-url">https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-operator/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/html/2406.12045v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月23日</span>
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年6月17日</span>
               </div>
-              <p class="source-title">OpenAI: Introducing Operator</p>
-              <p class="source-url">https://openai.com/index/introducing-operator/</p>
+              <p class="source-title">τ-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</p>
+              <p class="source-url">https://arxiv.org/html/2406.12045v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://openai.com/index/introducing-swe-bench-verified/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年1月24日</span>
+                <span class="mono-note">2024年8月13日</span>
               </div>
-              <p class="source-title">Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai</p>
+              <p class="source-title">OpenAI: Introducing SWE-bench Verified</p>
+              <p class="source-url">https://openai.com/index/introducing-swe-bench-verified/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/html/2502.12115v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2025年2月17日</span>
+              </div>
+              <p class="source-title">SWE-Lancer: Can Frontier LLMs Earn $1 Million from Real-World Freelance Software Engineering?</p>
+              <p class="source-url">https://arxiv.org/html/2502.12115v1</p>
             </div>
             <span class="source-action">開く</span>
           </a>

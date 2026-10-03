@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>What agent-development toolkits remove—and what the product must still design | Auto Research Digest EN</title>
-    <meta name="description" content="Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK by supplied UI, execution, evaluation, and product-owned design.">
+    <title>AgentKit and agent toolkits: from quick prototypes to verified releases | Auto Research Digest EN</title>
+    <meta name="description" content="Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK through prototype speed, policy changes, workflow versions, interfaces, and evaluation.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="What agent-development toolkits remove—and what the product must still design | Auto Research Digest EN">
-    <meta property="og:description" content="Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK by supplied UI, execution, evaluation, and product-owned design.">
+    <meta property="og:title" content="AgentKit and agent toolkits: from quick prototypes to verified releases | Auto Research Digest EN">
+    <meta property="og:description" content="Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK through prototype speed, policy changes, workflow versions, interfaces, and evaluation.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="What agent-development toolkits remove—and what the product must still design">
+    <meta property="og:image:alt" content="AgentKit and agent toolkits: from quick prototypes to verified releases">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="What agent-development toolkits remove—and what the product must still design | Auto Research Digest EN">
-    <meta name="twitter:description" content="Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK by supplied UI, execution, evaluation, and product-owned design.">
+    <meta name="twitter:title" content="AgentKit and agent toolkits: from quick prototypes to verified releases | Auto Research Digest EN">
+    <meta name="twitter:description" content="Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK through prototype speed, policy changes, workflow versions, interfaces, and evaluation.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="What agent-development toolkits remove—and what the product must still design">
+    <meta name="twitter:image:alt" content="AgentKit and agent toolkits: from quick prototypes to verified releases">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html">
@@ -42,16 +42,15 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-11-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T14:27:42+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Runtime">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"What agent-development toolkits remove—and what the product must still design","description":"Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK by supplied UI, execution, evaluation, and product-owned design.","datePublished":"2025-11-01T00:00:00+09:00","dateModified":"2026-09-20T14:27:42+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Workflow, Runtime, Evaluation","mainEntityOfPage":"https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"What agent-development toolkits remove—and what the product must still design","item":"https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AgentKit and agent toolkits: from quick prototypes to verified releases","description":"Compare AgentKit, Microsoft Agent Framework, and Claude Agent SDK through prototype speed, policy changes, workflow versions, interfaces, and evaluation.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Workflow, Runtime, Evaluation","mainEntityOfPage":"https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AgentKit and agent toolkits: from quick prototypes to verified releases","item":"https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,21 +66,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">What agent-development toolkits remove—and what the product must still design</h1>
-          <p class="hero-copy">AgentKit, Microsoft Agent Framework, and Claude Agent SDK provide interfaces, workflow definition, execution, and evaluation at different boundaries. A support scenario separates the work they remove from product-owned customer identity, permissions, and business rules.</p>
+          <h1 class="hero-title">AgentKit and agent toolkits: from quick prototypes to verified releases</h1>
+          <p class="hero-copy">AgentKit, Microsoft Agent Framework, and Claude Agent SDK remove different implementation work. A return-policy change shows why prototype speed and product consistency need separate checks across workflows, connections, business material, and interfaces.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-11-01">November 1, 2025</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2025-11-01">Research cutoff November 1, 2025</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=What%20agent-development%20toolkits%20remove%E2%80%94and%20what%20the%20product%20must%20still%20design&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AgentKit%20and%20agent%20toolkits%3A%20from%20quick%20prototypes%20to%20verified%20releases&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="What agent-development toolkits remove—and what the product must still design"
-      data-share-text="What agent-development toolkits remove—and what the product must still design"
+      data-share-title="AgentKit and agent toolkits: from quick prototypes to verified releases"
+      data-share-text="AgentKit and agent toolkits: from quick prototypes to verified releases"
       data-share-url="https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="What agent-development toolkits remove—and what the product must still design"
+      data-share-title="AgentKit and agent toolkits: from quick prototypes to verified releases"
       data-share-url="https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -125,50 +125,76 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Starting comparison</p>
-  <h2>Which implementation work do agent-development toolkits remove, and which design do they leave behind?</h2>
-  <p>Putting an agent into a product requires more than code that calls a model. It needs an interface for users, connections to external data, treatment of intermediate work, evaluation, and a failure state. AgentKit, Microsoft Agent Framework, and Claude Agent SDK, released in October 2025, do not supply those parts in the same form. One includes a supplied interface and visual workflow definition; another centers on an SDK and runtime; another lets an application compose an iterative loop in code.</p>
-  <p>This article's conclusion is that saved implementation work alone cannot determine the choice. Remaining work changes with what the existing application already has, who counts as a user, which data they may see, and which actions require human approval. The useful comparison is which boundary is delegated to the toolkit and which remains in the product, rather than a count of product names or features.</p>
+  <p class="section-kicker">Question</p>
+  <h2>What remains after the workflow connects on screen?</h2>
+  <p>Classify a customer’s question, retrieve the order, and draft a reply. A developer connects these steps on a canvas, and the prototype answers its first question. The day after the return policy changes, however, the interface shows the new deadline while the draft uses the old one. In this scenario, building an agent and delivering a consistent product change are different problems.</p>
+  <p>The October 6 <a href="https://openai.com/index/introducing-agentkit/">AgentKit announcement</a> brings together workflow creation, connection management, embedded interfaces, and evaluation. LY Corporation reports creating and running its first multi-agent workflow in under two hours. This vendor-published customer statement is not a controlled measurement of total development effort, including integration with existing customer data and policy.</p>
+  <p>Rapid prototypes have value: business staff can identify missing or incorrect steps before waiting for a finished product. Release still requires the workflow, connections, business rules, and interface to reflect the same change. My judgment is to choose which implementation work the tools can remove while verifying those relationships as part of one product change.</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Supplied boundaries</p>
-  <h2>Interfaces, workflow definition, and execution loops arrive in different forms</h2>
-  <p><a href="https://openai.com/index/introducing-agentkit/">OpenAI’s AgentKit announcement</a> introduced Agent Builder for visual workflow definition and versioning, Connector Registry for managing connections, ChatKit for embedding a chat interface, and Evals features including datasets and trace grading. Availability was not uniform at launch: ChatKit and the new Evals capabilities were generally available, Agent Builder was in beta, and Connector Registry was in beta for a limited set of customers. The supplied value is part of the foundation for drawing workflows, embedding chat, and beginning evaluation.</p>
-  <p>The <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Microsoft Agent Framework announcement</a> describes an open-source SDK and runtime for tool connections, predetermined workflows and model-directed orchestration, observability, and human approval. These are components for teams that want to embed execution in an existing application and control its path in code or workflows. Its discussion of integration with Microsoft 365 and a shared runtime also includes future plans, which should not be treated as already available features.</p>
-  <p>The <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDK announcement</a> describes an execution loop that gathers context, acts, verifies work, and repeats, along with files and commands, subagents, and context compaction for longer runs. Rather than providing a prebuilt business interface, it supplies components with which an application passes in the tools and rules needed for a loop. The three offerings overlap, but they are not the same kind of product.</p>
+  <p class="section-kicker">Supplied components</p>
+  <h2>Tools for drawing workflows and SDKs for embedding execution</h2>
+  <p>Within AgentKit, Agent Builder supplies visual workflow definition, previews, and versioning. Connector Registry centralizes connections; ChatKit supplies embedded chat with streaming and conversation management. Evaluation adds datasets and trace grading, which assesses execution paths. Each removes different implementation work, making a combined feature count a weak selection criterion.</p>
+  <p>Availability differs too. The announcement makes ChatKit and new evaluation features generally available, Agent Builder beta, and Connector Registry a limited beta. Organizations with different access cannot simply choose the same setup. The standalone Workflows API and deployment to ChatGPT are plans, rather than default capabilities.</p>
+  <p>The comparison includes <a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Microsoft Agent Framework</a>, announced October 1 as an open-source SDK and runtime. It describes business-logic-driven workflows alongside model-directed execution. The September 29 <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDK explanation</a> describes a gather-act-verify loop with files and commands. Both inform choices for embedding execution in an existing application; neither necessarily has the same product composition as AgentKit.</p>
+  <p>The comparison shows visual composition alongside code-based integration. Microsoft’s planned integrations cannot all be treated as an existing shared foundation, nor can Claude’s use cases be treated as business success rates. Compare the supplied scope against the version and availability being considered.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Interface integration</p>
+  <h2>Displaying a conversation does not establish whose order it concerns</h2>
+  <p>Consider adding reply drafting to an existing support interface. A staff member opens a customer’s page to investigate a delayed return. The application checks whether the signed-in staff member is permitted to handle that customer before retrieving the corresponding orders and delivery records. It connects staff and customer through existing authorization and account assignments; it does not equate their IDs.</p>
+  <p>Agent Builder can help visualize classification, retrieval, and drafting. ChatKit can remove part of the work of displaying a conversation. Yet embedding the interface does not establish whether a customer ID typed into it may be trusted for retrieval. Conditions that the server verifies about the customer and user must govern the actual query.</p>
+  <p>Display states carry business meaning too. “Draft prepared,” “sent to customer,” and “refund completed” describe different events. Streaming generated text alone cannot express those distinctions. Unless the application ties the display to actual operation results, staff may mistake an unsent draft for a delivered reply. This is an integration check proposed here, not a report that a particular toolkit necessarily makes that display error.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Scope of a change</p>
+  <h2>A new return deadline changes more than the workflow</h2>
+  <p>Suppose an approved return deadline changes from 14 to 30 days. Business staff register the new policy, and developers update the drafting instructions. If the connected source still returns an old policy copy, a normally executed workflow can produce an outdated answer. Even with the right policy, a fixed interface message still saying 14 days creates a contradiction for users.</p>
+  <p>Workflow versioning therefore does not by itself make the product’s judgment reproducible. Check which policy, connection settings, model instructions, and interface explanation accompanied the saved workflow. An external policy update or connection change can alter the conditions of the result without changing the workflow version. Recording those relationships remains product-development work.</p>
+  <p>There is no need to move everything into one product at once. If policy remains in an existing system, make its consulted version identifiable. If the interface remains in the existing application, check the meaning of its display when the workflow changes. Delegating more work to a toolkit requires clearer exchanges with the parts left outside it.</p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>What a toolkit can take on</h3>
-      <p>It can provide a starting structure for workflow drafting and versioning, connection setup, chat interfaces, repeated execution, observation of intermediate work, and evaluation. Each announcement covers a different portion of that range.</p>
+      <h3>Implementation a toolkit can remove</h3>
+      <p>Workflow editing, preview runs, embedded conversations, execution components, and evaluation infrastructure. Compare how well they fill gaps in the existing application.</p>
     </article>
     <article class="comparison-card">
-      <h3>What remains with the product</h3>
-      <p>The application still determines evidence for customer identity, role-specific data permission, business rules for refunds, explanations in the existing interface, storage contracts, and the responsible person when a process fails.</p>
+      <h3>Relationships to verify in a change</h3>
+      <p>Staff access to customers, policy versions, connection settings, drafting instructions, and completion displays. Check that they express the same business conditions.</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Scenario</p>
-  <h2>In customer support, separate drafting a reply from authorizing a refund</h2>
-  <p>This is a scenario from this article. An existing support interface gains an agent that drafts a reply to a customer whose return is delayed. The application matches the customer ID in the interface with the signed-in staff member through its existing identity system. The agent then retrieves only permitted orders, delivery data, and past support records, and drafts a reply against the return policy. When it cannot retrieve evidence or the customer ID does not match, it does not save a speculative draft and hands the case to staff.</p>
-  <p>With Agent Builder, the team could visually define classification, retrieval, drafting, and a request for confirmation, then send trial results into evaluation. With ChatKit, it could shorten the work of embedding a conversational surface. Those components do not determine which existing account is the customer, which policy sets refundable amounts and conditions, or how the interface distinguishes a draft from a final response.</p>
-  <p>The same is true when Microsoft Agent Framework or Claude Agent SDK is embedded in an existing backend. The former’s workflow and human-approval features and the latter’s repeat-and-verify machinery can help compose the retrieval and drafting path. The team must separately design when a refund-execution tool is allowed, whose approval it awaits, and which record will investigate a failure or a duplicate action. This scenario is neither a product default nor a reported deployment.</p>
+  <p class="section-kicker">Different evaluations</p>
+  <h2>Inspect the path and verify the outcome</h2>
+  <p>Finding these mismatches requires both the execution path and final result. AgentKit’s trace grading contributes information about intermediate calls and decisions. However, a criterion that only rewards retrieving policy and drafting a reply can miss an outdated policy. Outcome checks should separately establish that the right customer and policy were used, with a deadline and amount matching the expected conditions.</p>
+  <p>Anthropic’s <a href="https://www.anthropic.com/engineering/writing-tools-for-agents">tool-evaluation explanation</a> pairs realistic tasks with verifiable outcomes and examines time, call counts, consumption, and errors alongside accuracy. It also discusses held-out tasks. This helps distinguish improving performance from fitting only the examples used during improvement.</p>
+  <p>For this scenario, prepare returns within 14 days, between 14 and 30 days, and beyond 30 days. Business staff should define expected outcomes in advance, accounting for the policy’s effective date and product conditions as well as the deadline. Include another customer’s order, unavailable policy, and missing delivery records to compare when the system answers and when it stops. Testing old and new instructions against the same inputs and reference material makes the effect of the change easier to assess.</p>
+  <p>Model-based grading can help identify candidate errors. Yet customer matches and amounts directly checkable against existing data need not depend solely on a judgment from the same generation model. After selecting evaluation infrastructure, the actual policy and operation results still need to determine what counts as correct.</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Where evaluation belongs</p>
-  <h2>Do not confuse rapid prototyping with verification of the finished product</h2>
-  <p>The AgentKit announcement includes organizations that built workflows quickly. These are examples of how visual workflow definition and prebuilt components can shorten part of a prototype. They do not establish the time another organization needs to integrate customer data, policy, audit, and an existing interface before release.</p>
-  <p>For the support scenario, evaluation separates into at least three checks: whether the agent retrieved material relevant to the question, drafted a response consistent with policy, and avoided exposing customer data outside the staff member’s authority or attempting an unapproved refund. AgentKit’s trace grading, Agent Framework’s observability, and Claude Agent SDK’s verification loop can each contribute to implementing these checks. None gives an evaluation meaning until the team defines acceptance and stop conditions from its own data contracts.</p>
+  <p class="section-kicker">Human work</p>
+  <h2>A shared diagram does not ensure a shared understanding</h2>
+  <p>A visual workflow gives business staff and developers a shared object for discussion. A box called “answer customer,” for example, might mean drafting to one person and sending to another. Agreement on its label is insufficient. Examining inputs, consulted policy, outputs, and external actions can expose that difference.</p>
+  <p>A review interface needs more than the diagram. Show which customer and order are involved, which policy informed the judgment, and what has not yet been executed. If material cannot be retrieved, hand over the gap rather than filling it with prose to complete the draft. Include the effort required to read records when measuring whether faster prototyping translates into faster operations.</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">Selection criterion</p>
-  <h2>Remaining design is a business-specific responsibility, not a toolkit defect</h2>
-  <p>If an existing application already has a customer interface, authentication, authorization decisions, and audit records, a component that safely connects an execution loop may be more useful than another chat interface. For a prototype without either a user interface or an evaluation mechanism, a toolkit that addresses workflow definition, embedded interaction, and evaluation together may be useful. This is not a ranking: it depends on which parts remain unimplemented.</p>
-  <p>Before selecting a development toolkit, list the supplied interface, connections, execution, observation, and evaluation one by one, then pair them with the customer identity, permission, business rules, storage, and approval that the product retains. A toolkit can reduce complex implementation work without taking responsibility for the boundary that makes a product correct. Making those boundaries explicit turns a feature list into a development decision.</p>
+  <p class="section-kicker">Selection</p>
+  <h2>The existing application changes which tools are useful</h2>
+  <p>A prototype without an interface, workflow management, or evaluation infrastructure may benefit from a toolkit supplying several components together. A product with customer pages, authentication, and audit records may instead benefit from an SDK that connects execution to them. Adding another conversation interface is not always the largest implementation saving.</p>
+  <p>Selection should consider both work removed and work added for integration, migration, and verification. A quick demonstration inside the toolkit may still require substantial work to pass user conditions and operation results into an existing application. Comparing the same support prototype through drafting, policy changes, retrieval failures, and interface updates exposes differences hidden by feature lists.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Judgment</p>
+  <h2>Use faster creation to make time for verifying changes</h2>
+  <p>Tools supplying workflows, interfaces, execution, and evaluation can shorten the path to a first working example. Judging completion solely by that speed can leave policy and display mismatches inside the product. Before release, verify the diagram together with the material it uses and the result it communicates to users.</p>
+  <p>I would consider both how quickly a team can create a candidate and what it can verify after business conditions change. Use the room gained during prototyping for the people involved to examine concrete errors and changes. When that happens, the value of development tooling extends from a convenient builder into the work of continuing to improve a product.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -190,49 +216,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html" aria-label="Foundry workflows separate definition, execution, evaluation, and approval">
+      <a class="article-card " href="/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html" aria-label="Foundry multi-agent workflows: passing values with evidence">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-12-01">December 1, 2025</time>
+        <time class="mono-note" datetime="2025-12-01">Research cutoff December 1, 2025</time>
       </div>
-      <h3 class="article-card-title">Foundry workflows separate definition, execution, evaluation, and approval</h3>
-      <p class="article-card-copy">Defining a path, tracing a run, evaluating behavior, and authorizing an action are separate tasks.</p>
+      <h3 class="article-card-title">Foundry multi-agent workflows: passing values with evidence</h3>
+      <p class="article-card-copy">A well-formed value need not be a fact the next agent may trust.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 2</span>
+      <span class="mono-note">Sources: 3</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2025-10-01-agent-sdks-expand-beyond-coding.html" aria-label="Where business definitions belong when agent SDKs enter general workflows">
+  </a><a class="article-card " href="/en/2025-10-01-agent-sdks-expand-beyond-coding.html" aria-label="Agent SDKs in business workflows: adaptive steps, fixed conditions">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-10-01">October 1, 2025</time>
+        <time class="mono-note" datetime="2025-10-01">Research cutoff October 1, 2025</time>
       </div>
-      <h3 class="article-card-title">Where business definitions belong when agent SDKs enter general workflows</h3>
-      <p class="article-card-copy">A reusable execution loop does not define a business-correct result or its approval conditions.</p>
+      <h3 class="article-card-title">Agent SDKs in business workflows: adaptive steps, fixed conditions</h3>
+      <p class="article-card-copy">Allowing an AI to explore does not require letting it change revenue definitions or submission conditions.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">SDK</span><span class="meta-chip">MCP</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 6</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="How to compare permissions, approvals, and evaluation in agent platforms">
+  </a><a class="article-card " href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="What an agent platform takes responsibility for: five approaches to one business task">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-05-07">May 7, 2026</time>
+        <time class="mono-note" datetime="2026-05-07">Research cutoff May 7, 2026</time>
       </div>
-      <h3 class="article-card-title">How to compare permissions, approvals, and evaluation in agent platforms</h3>
-      <p class="article-card-copy">Test permissions and approvals through a complete ticket-update task.</p>
+      <h3 class="article-card-title">What an agent platform takes responsibility for: five approaches to one business task</h3>
+      <p class="article-card-copy">Compare useful answers with responsibility for complete tasks and maintenance.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 11</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -257,6 +283,16 @@
               <p class="source-url">https://openai.com/index/introducing-agentkit/</p>
             </div>
             <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">October 1, 2025</span>
+              </div>
+              <p class="source-title">Microsoft: Introducing Microsoft Agent Framework</p>
+              <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/</p>
+            </div>
+            <span class="source-action">Open</span>
           </a><a class="source-row" href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
@@ -267,14 +303,14 @@
               <p class="source-url">https://claude.com/blog/building-agents-with-the-claude-agent-sdk</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/writing-tools-for-agents" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">October 1, 2025</span>
+                <span class="mono-note">September 11, 2025</span>
               </div>
-              <p class="source-title">Microsoft: Introducing Microsoft Agent Framework</p>
-              <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/</p>
+              <p class="source-title">Anthropic: Writing effective tools for agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/writing-tools-for-agents</p>
             </div>
             <span class="source-action">Open</span>
           </a>

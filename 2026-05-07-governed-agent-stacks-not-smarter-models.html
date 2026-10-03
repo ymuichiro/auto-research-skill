@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか | Auto Research Digest</title>
-    <meta name="description" content="AIエージェント基盤の機能一覧を、チケット更新の具体的な検証に置き換える。権限、承認、実行記録、評価、既存システムの責任分担を整理。">
+    <title>AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる | Auto Research Digest</title>
+    <meta name="description" content="AIエージェント基盤の五社比較。SDK、長時間実行、固定手順、権限、登録、評価を一件のチケット業務へ当てはめ、利用側に残る責任を考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか | Auto Research Digest">
-    <meta property="og:description" content="AIエージェント基盤の機能一覧を、チケット更新の具体的な検証に置き換える。権限、承認、実行記録、評価、既存システムの責任分担を整理。">
+    <meta property="og:title" content="AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる | Auto Research Digest">
+    <meta property="og:description" content="AIエージェント基盤の五社比較。SDK、長時間実行、固定手順、権限、登録、評価を一件のチケット業務へ当てはめ、利用側に残る責任を考える。">
     <meta property="og:url" content="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか">
+    <meta property="og:image:alt" content="AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか | Auto Research Digest">
-    <meta name="twitter:description" content="AIエージェント基盤の機能一覧を、チケット更新の具体的な検証に置き換える。権限、承認、実行記録、評価、既存システムの責任分担を整理。">
+    <meta name="twitter:title" content="AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる | Auto Research Digest">
+    <meta name="twitter:description" content="AIエージェント基盤の五社比較。SDK、長時間実行、固定手順、権限、登録、評価を一件のチケット業務へ当てはめ、利用側に残る責任を考える。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか">
+    <meta name="twitter:image:alt" content="AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる">
     <link rel="canonical" href="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-05-07T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:26:38+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Governance">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Evaluation">
     <meta property="article:tag" content="Enterprise AI">
     <meta property="article:tag" content="MCP">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか","description":"AIエージェント基盤の機能一覧を、チケット更新の具体的な検証に置き換える。権限、承認、実行記録、評価、既存システムの責任分担を整理。","datePublished":"2026-05-07T00:00:00+09:00","dateModified":"2026-09-20T17:26:38+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Governance, Runtime, Evaluation, Enterprise AI, MCP","mainEntityOfPage":"https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか","item":"https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる","description":"AIエージェント基盤の五社比較。SDK、長時間実行、固定手順、権限、登録、評価を一件のチケット業務へ当てはめ、利用側に残る責任を考える。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Governance, Runtime, Evaluation, Enterprise AI, MCP","mainEntityOfPage":"https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる","item":"https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか</h1>
-          <p class="hero-copy">GoogleとAWSの発表を起点に、社内チケット更新の想定例で、身元、権限、実行、観測と評価を分け、基盤・接続先・開発チームが担う処理を切り分ける。</p>
+          <h1 class="hero-title">AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる</h1>
+          <p class="hero-copy">OpenAI、Anthropic、Microsoft、Google、AWSのSDKと管理サービスを比較。問い合わせからチケット保存までを想定し、実行、許可、評価、保守を誰が担うかで選択を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-05-07">2026年5月7日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2026-05-07">調査対象日 2026年5月7日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E5%9F%BA%E7%9B%A4%E3%82%92%E9%81%B8%E3%81%B6%E3%81%A8%E3%81%8D%E3%80%81%E6%A8%A9%E9%99%90%E3%83%BB%E6%89%BF%E8%AA%8D%E3%83%BB%E8%A9%95%E4%BE%A1%E3%82%92%E3%81%A9%E3%81%86%E7%A2%BA%E3%81%8B%E3%82%81%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-05-07-governed-agent-stacks-not-smarter-models.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E5%9F%BA%E7%9B%A4%E3%81%AF%E4%BD%95%E3%82%92%E5%BC%95%E3%81%8D%E5%8F%97%E3%81%91%E3%82%8B%E3%81%8B%EF%BC%9A%E4%BA%94%E7%A4%BE%E3%82%92%E4%B8%80%E4%BB%B6%E3%81%AE%E6%A5%AD%E5%8B%99%E3%81%A7%E6%AF%94%E3%81%B9%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-05-07-governed-agent-stacks-not-smarter-models.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか"
-      data-share-text="AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか"
+      data-share-title="AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる"
+      data-share-text="AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる"
       data-share-url="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか"
+      data-share-title="AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる"
       data-share-url="https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,67 +126,145 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>エージェント基盤を、業務の一往復で比較する</h2>
-<p>エージェントを部署に配るとき、モデルの回答精度に加えて確認したいことがある。
-誰の権限でデータを読み、更新前にどこで承認を取り、失敗した処理をどう調べるかである。
-本稿は2026年5月7日までの発表を基に、こうした確認を基盤選定に組み込む方法を考える。
-製品資料だけから、モデル性能の重要性が下がったことや、市場全体が一つの方式に収束したことまでは言えない。</p>
-<p>比較対象を具体化するため、社内の問い合わせを読み、担当部署を提案し、人の確認後にチケットを更新する仕組みを想定する。
-この一往復を候補の基盤で動かせば、機能一覧にある「統制」や「評価」が、実際のどの操作を扱うのかを確かめられる。</p>
+<h2>便利な回答を、一件の仕事として任せられるか</h2>
+<p>社内の問い合わせを読み、担当部署を提案するAIは作れた。
+ところが、確認した内容がチケットへ保存されたか分からず、担当者が画面を開いて調べ直している。
+ここで不足しているのは文章の上手さか、保存処理か、それとも確認後の引き継ぎか。
+基盤選びでは、この違いが問われる。</p>
+<p>これは仕組みを考えるための想定例であり、特定企業の導入結果ではない。
+2026年5月7日までのOpenAI、Anthropic、Microsoft、Google、AWSの一次情報を比較すると、モデルを呼び出すSDKから、実行、権限、登録、評価を管理するサービスまで、提供される範囲に違いが見える。
+同じ「エージェント基盤」でも、買うものと開発するものは揃っていない。</p>
+<p>私が重視するのは、判断、確認、保存、失敗の調査を一件の業務としてつなげられるかである。
+モデルの理解力を測ることに加え、利用チームが残された処理と保守を引き受けられるかを見たい。
+五社の発表は、その問いを具体化する材料になる。</p>
 </section>
 <section class="report-section">
-<h2>チケット更新で確かめる四つの制御面</h2>
+<h2>OpenAI：SDKで実行を組み立てると、何が残るか</h2>
+<p>OpenAIの4月15日の<a href="https://openai.com/index/the-next-evolution-of-the-agents-sdk/">Agents SDK拡張の発表</a>は、モデルの指示を道具の実行へつなぐ仕組みと、隔離した作業環境を扱う。
+実行状態を外へ保持し、スナップショットで作業環境を引き継ぐ設計も示した。
+まずPythonへ提供し、TypeScript対応などは今後の予定としている。</p>
+<p>問い合わせ業務に当てはめると、SDKは読む、提案する、道具を呼ぶ流れを組み立てる手段になる。
+しかし、「契約の質問はどの部署へ送るか」「この利用者がこの案件を変更できるか」は会社のルールである。
+作業環境を保存できても、担当部署の正しさやチケットへの保存成功までは決まらない。</p>
+<p>この方式の利点は、既存のAPIや確認画面に合わせて処理を設計できることだ。
+一方、開発側は道具の接続、保存の確認、変更後の検証まで保守する必要がある。
+SDKの柔軟さを評価するなら、自分たちが扱える実装量も同時に見積もるべきだ。</p>
+</section>
+<section class="report-section">
+<h2>Anthropic：長く動かす仕組みと、完了を確かめる仕組み</h2>
+<p>Anthropicの2025年11月26日の<a href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents">長時間実行の検討</a>は、Webアプリ開発で、途中の作業が伝わらない、未完成なのに完成と判断する問題を扱った。
+初回に機能一覧を作り、後の実行が一機能ずつ進め、進捗とGit履歴を残し、実際の画面で確認する構成を示している。
+これは同社の開発例であり、あらゆる業務の成功率を証明した比較実験ではない。</p>
+<p>重要なのは、長い会話を保つだけでは、何が済んだか分からないことだ。
+問い合わせ業務でも、提案済み、確認待ち、保存済みを区別できなければ、人が記録を読み直す。
+「前の実行がどうなったか」を調べる負担を減らすには、実際の結果に結びついた進捗が必要になる。</p>
+<p>4月8日の<a href="https://www.anthropic.com/engineering/managed-agents">Managed Agentsの設計説明</a>は、イベント履歴を持つセッション、モデルと道具を動かす仕組み、隔離環境を分離する。
+実行環境の交換と履歴の保持を別に扱う構成だ。
+ただし、履歴が残ることから、接続先のチケットが正しく更新されたとは判断できない。</p>
+<p>管理サービスに実行の継続を任せても、業務の完了条件は利用側が定義する。
+中断後に人が引き取るなら、最後の提案だけでなく、保存結果や未確認の処理を渡せるかを見る。
+「動き続ける」と「仕事が終わる」の間を埋める責任は残る。</p>
+</section>
+<section class="report-section">
+<h2>Microsoft：判断と固定手順を組み合わせ、実行前に介入する</h2>
+<p>Microsoftは4月3日、.NETとPythonの<a href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/">Agent Framework 1.0</a>を発表した。
+安定した機能として、モデルを使うエージェント、関数や分岐を組み合わせる処理、チェックポイント、実行へ介入するミドルウェアを挙げる。
+同じ記事でも、Foundryへの管理済み実行や評価の統合はプレビューとして区別されている。</p>
+<p>この組み合わせなら、問い合わせの意味を読む部分はモデルに委ね、案件番号の照合や保存前の確認は決められた手順へ置ける。
+自由な判断が必要な箇所と、毎回同じ条件を守る箇所を一つの処理にできる点が比較の対象になる。
+SDKの安定版という説明を、組み合わせる全サービスの安定性へ広げてはいけない。</p>
+<p>4月2日の<a href="https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/">Agent Governance Toolkit</a>は、実行前の方針確認、身元、実行の管理などを別々に導入できるパッケージとして示した。
+既存のフレームワークの介入箇所へ接続する構成で、モデルへの指示とは別に制御を置く設計を説明している。</p>
+<p>方針を書く場所があっても、業務APIへ至る経路に確認が入らなければ強制できない。
+私は、採用時には許可されない案件を実際の接続経路から指定し、保存に到達しないことを確認すべきだと考える。
+ここで引用した発表は、その接続試験や全経路の強制を本記事が検証した証拠ではない。</p>
+</section>
+<section class="report-section">
+<h2>Google：作成から運用改善までを束ねる</h2>
+<p>Googleの4月22日の<a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform発表</a>は、作成、規模の拡大、統制、改善の四つに機能を整理した。
+実行環境に加え、身元、登録簿、接続のゲートウェイ、シミュレーション、評価、観測を一つの基盤として説明する。
+開発後に必要になる管理も、製品の比較範囲に含めている。</p>
+<p>一体化した管理画面や接続は、複数の処理を運用するチームにとって検討材料になる。
+ただし、登録簿は何が使えるか、身元は誰が動くか、ゲートウェイはどこへ接続するか、評価は結果がどうだったかを扱う。
+一つの製品内でも、これらは別の問いに答える。</p>
+<p>私は、チケット一件を通して、その情報を追えるかを確かめたい。
+提案した部署、確認した人、保存先、保存結果がつながれば、担当者は何を調べればよいか分かる。
+発表が述べる安全性や成果の保証はベンダーの説明であり、利用企業の既存APIまで含めた正確さや調査時間の実測ではない。</p>
+</section>
+<section class="report-section">
+<h2>AWS：公開の承認、操作の許可、結果の採点を分ける</h2>
+<p>AWSの4月9日の<a href="https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/">Agent Registryプレビュー</a>は、エージェントや道具の所有者、機能、呼び出し方を登録する。
+下書きから承認待ち、承認済みへ進み、社内で発見可能にする手順と、記録の版や廃止を説明している。
+これは使える資産を公開する承認であり、チケット一件を書き換える承認とは役割が違う。</p>
+<p>3月3日に一般提供となった<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/">AgentCore Policy</a>は、エージェントのコードの外に方針を置き、関連づけたGatewayで要求を検査する。
+ここでは、接続された道具の実行を許すかが対象になる。
+利用側は、その経路に必要な操作が通ることと、接続先の案件ごとの権限をどう扱うかを確認する必要がある。</p>
+<p>3月31日の<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">AgentCore Evaluations一般提供</a>は、本番の実行記録を抽出して採点するオンライン評価と、変更を試すオンデマンド評価を区別する。
+期待する回答や道具の順序との比較、独自の採点も説明している。
+採点は改善材料になり得るが、実行前の拒否とは別の働きだ。</p>
+<p>この三つを分けると、会社として利用を認めたエージェントでも、ある案件には書き込みできず、許された操作でも分類を間違え得ることが分かる。
+承認、許可、品質を一つの点数で代用しない方が、失敗を直す場所を選べる。
+Registryの今後の自動登録や運用情報との統合は、プレビューで使える機能と区別して導入を判断したい。</p>
+</section>
+<section class="report-section">
+<h2>比較を、一件の問い合わせに戻す</h2>
+<p>各社の範囲が分かったら、想定したチケット処理を候補の構成へ当てはめる。
+比較したいのは、同じ機能名を持つかより、必要な処理がどこで実施されるかだ。
+次の四項目は、そのための整理であり、製品共通の仕様ではない。</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>身元</h3>
-<p>どの利用者とエージェントが依頼を始めたかを追えるようにする。実行の出所を記録する面であり、更新を許す判断そのものではない。</p>
-</article>
-<article class="comparison-card">
-<h3>権限と承認</h3>
-<p>その利用者が対象チケットを読めるか、更新前に誰が内容を確認するかを定める。読み取りの許可と書き込みの承認を分ける。</p>
-</article>
-<article class="comparison-card">
-<h3>実行</h3>
-<p>承認された部署、本文、チケットの版だけを更新し、途中で変わった対象や中断を扱う。基盤、業務API、アプリケーションのどこで強制するかを確認する。</p>
-</article>
-<article class="comparison-card">
-<h3>観測と評価</h3>
-<p>分類の誤り、承認を飛ばした更新、外部APIの失敗を別々に記録し採点する。実行後の評価は、実行前の拒否を代替しない。</p>
-</article>
+<article class="comparison-card"><h3>読む・提案する</h3><p>利用者に見える問い合わせを読み、現行の担当ルールから部署を選ぶ。
+判断の理由と、確定できない条件を確認者へ渡す。</p></article>
+<article class="comparison-card"><h3>確認を受ける</h3><p>対象の案件、部署、内容を確認する。
+確認中に案件や提案が変わった場合、以前の確認が今の操作にも適用できるかを再検討する。</p></article>
+<article class="comparison-card"><h3>保存する</h3><p>実行者の権限と対象の条件を接続先でも確かめる。
+APIの応答だけで判断できない場合、実際に保存された案件を照合する。</p></article>
+<article class="comparison-card"><h3>中断を引き取る</h3><p>未送信、保存済み、結果不明を分ける。
+結果不明の操作をすぐ再送せず、接続先で確認できる方法と担当者を決める。</p></article>
 </div>
-<p>これは候補の基盤へ同じ四機能が備わるという主張ではない。どの面を既存のチケットシステムで担い、どこを新たに実装するかを比べるための分解である。</p>
+<p>案件の照合や承認を既存のチケットシステムが担うなら、そこを利用できる。
+新しい基盤へ移す部分と、既存の処理を残す部分を具体的に決めると、必要な開発も見えやすい。
+確認した内容を保存までつなぐには、両者の間で案件や内容が変わった場合の扱いも必要になる。</p>
+<p>この整理は、業務を必ず四つのサービスへ分割する提案ではない。
+一つの既存APIが複数の条件を満たすこともある。
+重要なのは、処理が止まったとき、人がどの記録を見て次の行動を決められるかである。</p>
 </section>
 <section class="report-section">
-<h2>発表が示すのは、実行以外にも用意された機能である</h2>
-<p>Googleは4月22日の<a href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform">Gemini Enterprise Agent Platform発表</a>で、開発・拡張・統制・最適化を並べ、実行環境に加えてIdentity、Registry、Gateway、評価と観測の機能を説明した。
-これは、エージェントの作成後に必要になる管理機能も製品の範囲として示した例である。
-ただし、機能名が並んでいることは、自社の既存システムまで同じ規則が適用される証明ではない。</p>
-<p>AWSは3月31日の<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">AgentCore Evaluationsの一般提供発表</a>で、本番のトレースを抽出して採点するオンライン評価と、変更をテストするオンデマンド評価を区別した。
-実行後の品質を測る機能が具体化している。ただし、採点する仕組みと、不適切な更新を実行前に拒否する仕組みは役割が異なる。</p>
-<p>この二例から私が導くのは、調達時の質問を増やす必要性である。
-「動くか」に加え、「許可されない処理を止められるか」「失敗を判別できるか」を問う。
-両社の提供範囲や性能が同等である、という比較結果ではない。</p>
+<h2>モデルの誤りと、基盤の不備を同じ点数にしない</h2>
+<p>比較試験では、部署の選択を間違えた、許可のない案件へ保存した、接続先が停止した、保存結果が分からないまま終わった、を分けて記録する。
+理解の誤りには参照する正しい分類が必要だ。
+許可の誤りには、利用者、確認内容、実際の更新を照合する記録が必要になる。</p>
+<p>Anthropicの<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">評価の解説</a>は、実行の記録と最終結果、採点方法の限界を区別する。
+この考え方に沿うなら、正しい部署を回答しただけでチケット業務を成功とせず、許された内容が保存されたかまで見る。
+「実行が終わった」と「期待した結果が残った」を分けることが出発点になる。</p>
+<p>モデルの差を知りたい試験では、問い合わせ、道具、権限、時間や費用の条件を揃える。
+製品全体を選ぶ試験では、その製品で必要になる準備、確認、待ち時間、失敗後の調査も含める。
+同じ試験から、モデルの優劣と製品の使いやすさを無条件に説明できるわけではない。</p>
+<p>私は、人が何件を修正し、何件を調べ直したかも残すことを勧める。
+提案の精度が高くても、毎回保存を確かめるなら負担は別の場所へ移る。
+これは比較試験の提案であり、五社について負担や成功率を測定した結果ではない。</p>
 </section>
 <section class="report-section">
-<h2>チケット更新のどこで責任が移るかを試す</h2>
-<p>想定した業務では、まずテスト用の問い合わせから適切な部署を選べるかを確認する。
-ここはモデルの読解や分類が関わる。次に、権限のないチケットを指定し、接続先が読み取りや更新を拒否するかを確かめる。
-正しい部署名を返せても、別の担当者の権限を借りて更新できてしまえば、導入条件を満たさない。</p>
-<p>人の確認を挟む場合には、承認した対象と内容が実際の更新と一致するかを見る。
-承認待ちの間にチケットが変わった場合や、実行が中断した場合も試したい。
-再開後の重複更新を防ぐ責任が基盤、業務API、アプリケーションのどこにあるかを、処理記録と保存結果から確認する。</p>
-<p>最後に、部署の誤分類と、承認を飛ばした更新を別々に検出できるかを調べる。
-前者には分類用の正解例、後者には承認と更新を結び付けた記録が必要になる。
-単一の品質スコアだけでは、この違いを見落とす可能性がある。</p>
+<h2>必要な管理だけを増やす</h2>
+<p><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropicの設計指針</a>は、簡単な方法から始め、必要に応じて複雑さを加えることを勧める。
+既存のチケットシステムに承認と監査があり、一部署で使うだけなら、SDKと限定したAPIの接続で要件を満たせるかを先に試せる。</p>
+<p>複数部署で処理を共有し、実行が長くなり、担当チームも増えるなら、身元や登録、実行記録をまとめて管理する価値を検討しやすくなる。
+ただし、集中管理を買えば保守がなくなるわけではない。
+部署のルール、接続先の変更、確認する人、採点の基準は更新し続ける必要がある。</p>
+<p>費用を比べる際は、モデルや実行の料金に加え、接続を作る作業、権限の設定、記録の保管、採点、担当者による調査も含める。
+管理サービスで削減できる部分と、利用側に残る部分を書き分ける。
+その上で、既存の担当者が維持できる構成を選びたい。</p>
 </section>
 <section class="report-section">
-<h2>必要な管理機能を、既存の仕組みも含めて揃える</h2>
-<p>全機能を一つの製品から導入することが常に最適とは限らない。
-<a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropicの設計記事</a>は、簡単な構成から始め、必要に応じて複雑さを増やす考え方を示している。
-既存のチケットシステムに承認と監査があるなら、それを利用する案と、新しい基盤に寄せる案を比べられる。</p>
-<p>私は、試行結果を「基盤が提供すること」「接続先が保証すること」「自分たちが実装すること」に分けて残すことを勧める。
-機能が不足する箇所だけでなく、設定、障害対応、変更時の再検証を誰が担うかも書く。
-この比較なら、モデル品質を測りながら、業務を運用するための追加作業と費用も判断できる。</p>
+<h2>引き受けられる責任で、基盤を選ぶ</h2>
+<p>五社の資料は、SDK、長時間実行、固定手順、管理サービス、評価を具体的に比較する材料を増やした。
+ただし、機能の並びが似ていることから、実装や業務の成果まで同じとは言えない。
+モデルの性能が重要でなくなったと読む根拠でもない。</p>
+<p>問い合わせを誤解するなら、モデル、入力、担当ルールを改善する必要がある。
+正しく理解したのに保存結果が分からないなら、実行と接続先の確認を直す。
+誰の権限で動いたかを追えないなら、身元と許可をつなぐ設計を見直す。
+困っている担当者にとって、この切り分けが次の改善を選ぶ手がかりになる。</p>
+<p>私の判断は、一件の業務を最後まで試し、基盤が提供する処理、既存システムが保証する条件、利用チームが保守する仕事を明確にして選ぶ、というものだ。
+良い回答を作れることから始め、失敗したときにも人が結果と次の行動を判断できる構成へ進めたい。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -208,49 +286,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-05-08-presentation-generation-becomes-artifact-workflow.html" aria-label="AIで作るプレゼン資料の編集可能性を、次の修正から考える">
+      <a class="article-card " href="/2026-05-08-presentation-generation-becomes-artifact-workflow.html" aria-label="AIで作るプレゼン資料：伝える判断と、次の修正を残す">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-05-08">2026年5月8日</time>
+        <time class="mono-note" datetime="2026-05-08">調査対象日 2026年5月8日</time>
       </div>
-      <h3 class="article-card-title">AIで作るプレゼン資料の編集可能性を、次の修正から考える</h3>
-      <p class="article-card-copy">見栄えだけでは分からない編集可能性を、数字と注記の修正から確かめる。</p>
+      <h3 class="article-card-title">AIで作るプレゼン資料：伝える判断と、次の修正を残す</h3>
+      <p class="article-card-copy">数字と注記を一度直して、見栄えの先にある資料の使いやすさを確かめる。</p>
       <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 13</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-04-27-agent-discovery-and-approval-shape-adoption.html" aria-label="ストアで見つけたAIエージェントを、組織で使うまでの確認事項">
+  </a><a class="article-card " href="/2026-04-27-agent-discovery-and-approval-shape-adoption.html" aria-label="AIエージェントを見つけ、部署で試す：五社のストアと導入判断">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-27">2026年4月27日</time>
+        <time class="mono-note" datetime="2026-04-27">調査対象日 2026年4月27日</time>
       </div>
-      <h3 class="article-card-title">ストアで見つけたAIエージェントを、組織で使うまでの確認事項</h3>
-      <p class="article-card-copy">カタログの説明を、誰が何を許可するかという具体的な試用条件に変える。</p>
+      <h3 class="article-card-title">AIエージェントを見つけ、部署で試す：五社のストアと導入判断</h3>
+      <p class="article-card-copy">使いたい候補を、具体的な仕事と許可範囲、評価条件へ落とし込む。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Apps</span><span class="meta-chip">Marketplace</span><span class="meta-chip">Governance</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 9</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Coworkに会議準備を任せるとき、資料作成と予定変更を分けて考える">
+  </a><a class="article-card " href="/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Coworkが引き受ける会議準備：情報収集から資料と予定まで">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-25">2026年3月25日</time>
+        <time class="mono-note" datetime="2026-03-25">調査対象日 2026年3月25日</time>
       </div>
-      <h3 class="article-card-title">Coworkに会議準備を任せるとき、資料作成と予定変更を分けて考える</h3>
-      <p class="article-card-copy">資料を作る依頼と予定を動かす依頼では、何を確認すべきか。Coworkの発表から試行の条件を考える。</p>
+      <h3 class="article-card-title">Coworkが引き受ける会議準備：情報収集から資料と予定まで</h3>
+      <p class="article-card-copy">メールの情報から表、スライド、予定へ。一つの依頼で仕事を渡すとき、何をつなぎ、何を確かめるか。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Cowork</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">Workflow</span><span class="meta-chip">Productivity</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 5</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -265,34 +343,114 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://openai.com/index/the-next-evolution-of-the-agents-sdk/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年4月15日</span>
               </div>
-              <p class="source-title">Anthropic Engineering: Building effective agents</p>
-              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
+              <p class="source-title">OpenAI: The next evolution of the Agents SDK</p>
+              <p class="source-url">https://openai.com/index/the-next-evolution-of-the-agents-sdk/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年11月26日</span>
+              </div>
+              <p class="source-title">Anthropic: Effective harnesses for long-running agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/managed-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月8日</span>
+              </div>
+              <p class="source-title">Anthropic: Scaling Managed Agents: Decoupling the brain from the hands</p>
+              <p class="source-url">https://www.anthropic.com/engineering/managed-agents</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月3日</span>
+              </div>
+              <p class="source-title">Microsoft: Agent Framework Version 1.0</p>
+              <p class="source-url">https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月2日</span>
+              </div>
+              <p class="source-title">Microsoft: Agent Governance Toolkit</p>
+              <p class="source-url">https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年4月22日</span>
               </div>
-              <p class="source-title">Google Cloud Blog: Introducing Gemini Enterprise Agent Platform</p>
+              <p class="source-title">Google Cloud: Introducing Gemini Enterprise Agent Platform</p>
               <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月9日</span>
+              </div>
+              <p class="source-title">AWS: Agent Registry preview</p>
+              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月3日</span>
+              </div>
+              <p class="source-title">AWS: Policy in Amazon Bedrock AgentCore is now generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年3月31日</span>
               </div>
-              <p class="source-title">AWS What&#39;s New: Amazon Bedrock AgentCore Evaluations is now generally available</p>
+              <p class="source-title">AWS: AgentCore Evaluations generally available</p>
               <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年1月9日</span>
+              </div>
+              <p class="source-title">Anthropic: Demystifying evals for AI agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年12月19日</span>
+              </div>
+              <p class="source-title">Anthropic: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
             </div>
             <span class="source-action">開く</span>
           </a>

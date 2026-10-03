@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>What does agent interoperability actually make exchangeable? | Auto Research Digest EN</title>
-    <meta name="description" content="Explain what A2A, MCP, and OpenAPI exchange, separating connection compatibility from compatible authentication, outputs, and failure contracts.">
+    <title>MCP and A2A: what must survive a change of provider | Auto Research Digest EN</title>
+    <meta name="description" content="Compare MCP, A2A, and OpenAPI: what changing a provider means for sources, document versions, user permissions, and the distinction between empty and failed searches.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="What does agent interoperability actually make exchangeable? | Auto Research Digest EN">
-    <meta property="og:description" content="Explain what A2A, MCP, and OpenAPI exchange, separating connection compatibility from compatible authentication, outputs, and failure contracts.">
+    <meta property="og:title" content="MCP and A2A: what must survive a change of provider | Auto Research Digest EN">
+    <meta property="og:description" content="Compare MCP, A2A, and OpenAPI: what changing a provider means for sources, document versions, user permissions, and the distinction between empty and failed searches.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="What does agent interoperability actually make exchangeable?">
+    <meta property="og:image:alt" content="MCP and A2A: what must survive a change of provider">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="What does agent interoperability actually make exchangeable? | Auto Research Digest EN">
-    <meta name="twitter:description" content="Explain what A2A, MCP, and OpenAPI exchange, separating connection compatibility from compatible authentication, outputs, and failure contracts.">
+    <meta name="twitter:title" content="MCP and A2A: what must survive a change of provider | Auto Research Digest EN">
+    <meta name="twitter:description" content="Compare MCP, A2A, and OpenAPI: what changing a provider means for sources, document versions, user permissions, and the distinction between empty and failed searches.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="What does agent interoperability actually make exchangeable?">
+    <meta name="twitter:image:alt" content="MCP and A2A: what must survive a change of provider">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html">
@@ -42,16 +42,15 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-07-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T14:06:39+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Protocol">
     <meta property="article:tag" content="MCP">
     <meta property="article:tag" content="Interoperability">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"What does agent interoperability actually make exchangeable?","description":"Explain what A2A, MCP, and OpenAPI exchange, separating connection compatibility from compatible authentication, outputs, and failure contracts.","datePublished":"2025-07-01T00:00:00+09:00","dateModified":"2026-09-20T14:06:39+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Protocol, MCP, Interoperability","mainEntityOfPage":"https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"What does agent interoperability actually make exchangeable?","item":"https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"MCP and A2A: what must survive a change of provider","description":"Compare MCP, A2A, and OpenAPI: what changing a provider means for sources, document versions, user permissions, and the distinction between empty and failed searches.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Protocol, MCP, Interoperability","mainEntityOfPage":"https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"MCP and A2A: what must survive a change of provider","item":"https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,21 +66,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">What does agent interoperability actually make exchangeable?</h1>
-          <p class="hero-copy">Use A2A, MCP, and OpenAPI to separate exchangeable tools, data, delegation, and task state from the authentication, output contracts, and business responsibility that remain.</p>
+          <h1 class="hero-title">MCP and A2A: what must survive a change of provider</h1>
+          <p class="hero-copy">Compare MCP structured output and authorization, A2A governance, and a database walkthrough to examine what must survive replacing a search provider.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-07-01">July 1, 2025</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2025-07-01">Research cutoff July 1, 2025</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span><span class="meta-chip">Interoperability</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=What%20does%20agent%20interoperability%20actually%20make%20exchangeable%3F&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-07-01-interoperability-leaves-the-roadmap.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=MCP%20and%20A2A%3A%20what%20must%20survive%20a%20change%20of%20provider&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-07-01-interoperability-leaves-the-roadmap.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="What does agent interoperability actually make exchangeable?"
-      data-share-text="What does agent interoperability actually make exchangeable?"
+      data-share-title="MCP and A2A: what must survive a change of provider"
+      data-share-text="MCP and A2A: what must survive a change of provider"
       data-share-url="https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="What does agent interoperability actually make exchangeable?"
+      data-share-title="MCP and A2A: what must survive a change of provider"
       data-share-url="https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -125,34 +125,71 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>What does interoperability actually make exchangeable?</h2>
-  <p>A2A, MCP, and OpenAPI releases in spring and summer 2025 made particular forms of connection testable. <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A</a> addresses tasks, state, and artifacts exchanged between agents; MCP addresses connections to tools and data; OpenAPI describes operations. Their availability does not mean a connected participant is interchangeable in business terms. This article separates connection compatibility from interchangeability of output meaning, authentication scope, failure behavior, and approval responsibility.</p>
+  <p class="section-kicker">Replacing a connection</p>
+  <h2>A successful search can change what “there is no policy” means</h2>
+  <p>Suppose an AI application switches its internal-document search role to a new provider. The same question can be sent, and a response comes back. Yet the new role may report “not found” because the user cannot read the policy, rather than because the policy does not exist. This is a hypothetical example for examining a replacement. For the user, the important question is whether the searched scope can be trusted.</p>
+  <p>Announcements and specifications for A2A, MCP, and OpenAPI make ways of connecting to other participants and tools more concrete. In June, A2A was donated to the Linux Foundation, and a walkthrough connected MCP Toolbox to an IDE and a database. More material is available for using shared connection formats to design work across products.</p>
+  <p>This article argues that freedom to replace a connection depends on preserving the conditions under which a user interprets its results. An answer with sources differs from prose alone; an empty search differs from a failed search. Starting with common formats, we need to compare meaning, permissions, and the treatment of failure.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What the formats share</p>
+  <h2>Delegating a task, calling a tool, and describing an API do different jobs</h2>
+  <p>The <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A announcement</a> describes discovering another agent’s capabilities and exchanging tasks, progress, and artifacts. MCP connects AI applications to tools and data. <a href="https://spec.openapis.org/oas/v3.1.1.html">OpenAPI 3.1.1</a> defines a format for describing HTTP API inputs, responses, authentication, and related details. Each standardizes a different part of a connection.</p>
+  <p>Our search example could call a document-search tool, or delegate research to another participant and wait for an artifact. Either could use a business API described with OpenAPI internally. Listing the three names does not determine which documents will be searched or what counts as completion. The work expected of the connected participant must be defined first.</p>
+  <p>The <a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">June 23 A2A donation</a> describes moving the specification, SDKs, and developer tooling into an independent project. A framework through which multiple companies can develop and maintain a standard matters for long-lived connections. Neutral governance, however, does not establish that providers produce equivalent search results or business judgments.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">A tool enters the work</p>
+  <h2>A database connection can extend from searching to changing code</h2>
+  <p><a href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases">Google Cloud’s June 4 MCP Toolbox walkthrough</a> follows Sara, a new developer, connecting from Cline in VS Code to a development database on Cloud SQL for PostgreSQL. She explores tables and open orders, adds a vendors table and vendor IDs to inventory, then updates application models and InventoryDAO tests. A connection used to read the database structure becomes part of work that changes and verifies code.</p>
+  <p>The material describes this flow and says it finishes quickly, but it does not report a controlled comparison of people and AI on the same task. The useful mechanism is access to actual data structures and a concrete scope of changes. A tool that reads tables and one that changes them require different permissions and different checks after failure.</p>
+  <p>When replacing the connection, seeing the same tool names is insufficient. Does it target the same development database? Does it allow the same reads and writes? Do the code and tests remain consistent after the changes? A common connection format makes such comparisons easier to begin. It does not make them unnecessary.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Output structure and meaning</p>
+  <h2>The same fields can carry different facts</h2>
+  <p>The <a href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools">June 18 MCP tools specification</a> covers structured results and outputSchema, which describes their format. When a schema is supplied, the server must return structured results that conform to it, and clients should validate them. Its weather example describes a numeric temperature and specifies Celsius. This gives the receiving program information with which to check the format.</p>
+  <p>For document search, an application could define fields for prose, source URL, document version, and searched scope. These are this article’s proposed design, not fields MCP requires for every search. Results from old document versions and results from current versions can have identical fields while supporting different conclusions. Structural agreement and agreement in business meaning need separate checks.</p>
+  <p>OpenAPI descriptions can also express business meaning through explanations of responses and their fields. Merely using the same specification version does not show that two providers adopt the same definitions. A replacement needs comparison of both the code that passes values to the screen and the conclusions drawn from those values.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Whose permissions apply</p>
+  <h2>A shared connection method does not automatically preserve what a user can read</h2>
+  <p>The <a href="https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization">June 18 MCP authorization specification</a> defines an authorization flow for HTTP connections. Authorization itself is optional; the same OAuth mechanism is not mandatory for every MCP implementation. Connections through standard input and output instead use credentials obtained from the environment. The connection method changes which conditions need checking.</p>
+  <p>The HTTP authorization specification requires a server to verify that an access token was issued for that server. Switching providers therefore cannot simply mean reusing a token issued for the previous destination. The destination must match the intended authorization target, and the application must check which documents that user can read. A shared format does not grant identical permissions at every destination.</p>
+  <p>The specification distinguishes 401 responses for conditions such as invalid tokens from 403 responses for insufficient permissions. If the application turns both into an empty search result, the user cannot distinguish “not found” from “cannot read.” That difference needs to survive through to the screen so the person can understand what was actually searched.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Reading success and failure</p>
+  <h2>Receiving a result does not establish that the search succeeded</h2>
+  <p>The MCP tools specification distinguishes protocol errors from errors during tool execution. The latter use isError within the result to indicate problems such as API failures or business-processing errors. Even when a result arrives, its content may describe a failed tool. A client that reads only the response prose loses that distinction.</p>
+  <p>In the opening document-search example, no matching documents within the searched scope, insufficient permission to read a document, and a stopped search process deserve separate treatment. This is a proposed business distinction. Preserving it when passing results to the answer-writing role helps prevent an application from claiming “there is no policy” when the search did not run successfully.</p>
+  <p>With longer work, an elapsed waiting period may also leave the other participant’s task unfinished. A search may be safe to repeat, while work that changes external records can create duplicates if repeated without checking whether the earlier operation committed. Waiting and retry policies need to reflect whether the tool only reads or also makes changes.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Combining with managed services</p>
+  <h2>Common connections can coexist with managed execution</h2>
+  <p>The <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">May Responses API update</a> added connections to remote MCP servers. <a href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/">Foundry’s Developer Essentials announcement</a> also describes A2A, MCP, and OpenAPI connections alongside managed agent execution. A managed runtime can offer shared connection methods.</p>
+  <p>This combination opens a path to using external tools and participants while delegating runtime management. The application still needs to test whether sources, readable scope, and failure distinctions survive a change of destination. A list of supported protocols helps select candidates; explaining the conditions for replacing a working role requires checking the features and versions actually used.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Deciding on a replacement</p>
+  <h2>Use the same work to test what changes and what must survive</h2>
+  <p>To evaluate a replacement search role, use the same documents, users, and questions. Include current and old document versions, readable and restricted documents, and questions with no matching document. Compare insufficient permissions, failed tools, and pending responses as well as normal results. Check whether users can interpret conclusions under the same conditions, rather than merely comparing the appearance of answers.</p>
+  <p>Where differences appear, separate conditions an adapter can preserve from conditions the provider cannot support. If a replacement returns no sources, formatting its prose afterward cannot recover them. The application must narrow the uses for which it claims equivalence, or choose a destination that returns the required information.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>What connection exchanges</h3><p>Tools and resources, tasks and artifacts and status, or operation inputs and outputs.</p></article>
-    <article class="comparison-card"><h3>What connection does not exchange</h3><p>Whose authority is used, what an output means, and who approves a consequential change must be defined separately.</p></article>
-    <article class="comparison-card"><h3>What to test</h3><p>Compare output schemas, authorization scope, timeouts, retries, and treatment of indeterminate state before and after a replacement.</p></article>
+    <article class="comparison-card"><h3>Preserve meaning</h3><p>Define document versions, sources, and searched scope, then check whether results support the same decisions.</p></article>
+    <article class="comparison-card"><h3>Preserve readable scope</h3><p>Check authorization at the destination and avoid treating unreadable documents as nonexistent.</p></article>
+    <article class="comparison-card"><h3>Preserve failure distinctions</h3><p>Return separate indications for an empty search, insufficient permission, execution failure, and pending work.</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Role of the published material</p>
-  <h2>A2A, MCP, and managed platforms address distinct connection surfaces</h2>
-  <p>The A2A announcement and its Linux Foundation donation treat agent cards, capability discovery, and long task lifecycles as open coordination concerns. Google Cloud MCP database integrations give a concrete tool and data connection case. Responses API remote MCP and Azure AI Foundry A2A/MCP/OpenAPI support offer options for combining managed execution and open connection formats.</p>
-  <p>These materials document formats and available scope. They do not prove compatible business outcomes, compliance with an organization’s security requirements, or equal performance between products. Evaluations such as <a href="https://arxiv.org/abs/2406.12045">tau-bench</a>, which include tools, a user, and state, remind us that a shared interface still requires separate checks of final work state.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Hypothetical example</p>
-  <h2>Compare output and failure contracts before replacing a search role</h2>
-  <p>This is a design example. A search role called through A2A is replaced with another provider. Sending a task and receiving an artifact may work, yet one provider may return source URLs and document versions while the other returns prose only. One may report missing user permission while another returns an empty result. The conditions under which a user concludes “not found” have changed.</p>
-  <p>On identical inputs, compare output schema, evidence, authorization failure, timeout, retry, and audit record. If external delivery or data updates are involved, the user or organizational approval point must also remain explicit. Treat communication success as insufficient; test whether completion conditions remain intact.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>Making interoperability a design premise means documenting the responsibilities that cannot be exchanged</h2>
-  <p>Public specifications made connection to other agents and tools more testable. This does not mean interoperability is complete. Authentication, data meaning, responsibility after failure, and approval rules remain contracts of an application and organization. Comparing those contracts as well as the connection format is what makes a future replacement practical.</p>
+  <p>The value of interoperability depends on more than the number of connections. After a replacement, users should still be able to read search results with the same meaning and continue their decisions. Using common formats while defining the conditions that must survive a replacement makes future choices more practical.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -174,49 +211,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="Why AgentOps becomes a control layer for execution">
+      <a class="article-card " href="/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="AgentOps after a connection loss: deciding what can be retried">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-08-01">August 1, 2025</time>
+        <time class="mono-note" datetime="2025-08-01">Research cutoff August 1, 2025</time>
       </div>
-      <h3 class="article-card-title">Why AgentOps becomes a control layer for execution</h3>
-      <p class="article-card-copy">Seeing execution does not guarantee recovery without repeating side effects.</p>
+      <h3 class="article-card-title">AgentOps after a connection loss: deciding what can be retried</h3>
+      <p class="article-card-copy">History alone cannot justify a retry. Distinguish committed changes from unknown outcomes so people can continue the work.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 7</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html" aria-label="How multi-agent design becomes an operating model">
-    <div class="article-card-main">
-      <p class="section-kicker">Older briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-06-01">June 1, 2025</time>
-      </div>
-      <h3 class="article-card-title">How multi-agent design becomes an operating model</h3>
-      <p class="article-card-copy">Before adding roles, define dependencies, evidence handoffs, an integrator, and a stopping condition.</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
       <span class="mono-note">Sources: 8</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-03-28-open-agent-protocol-stack.html" aria-label="What MCP, A2A, and AG-UI actually exchange">
+  </a><a class="article-card " href="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html" aria-label="Multi-agent research: dividing work that leads to one usable report">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-06-01">Research cutoff June 1, 2025</time>
+      </div>
+      <h3 class="article-card-title">Multi-agent research: dividing work that leads to one usable report</h3>
+      <p class="article-card-copy">Faster collection can leave more checking to the user. Choose division from the dependencies needed to finish the report.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 6</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-28-open-agent-protocol-stack.html" aria-label="Connecting work with MCP, A2A, and AG-UI: what has finished?">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-28">March 28, 2026</time>
+        <time class="mono-note" datetime="2026-03-28">Research cutoff March 28, 2026</time>
       </div>
-      <h3 class="article-card-title">What MCP, A2A, and AG-UI actually exchange</h3>
-      <p class="article-card-copy">Start with what must be exchanged, then compare overlapping protocol features and the approval checks left to applications.</p>
+      <h3 class="article-card-title">Connecting work with MCP, A2A, and AG-UI: what has finished?</h3>
+      <p class="article-card-copy">The investigation finished. Was the refund issued? Compare the completion signals and information the next person needs.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span><span class="meta-chip">AG-UI</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Protocol</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 7</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -231,34 +268,64 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">June 17, 2024</span>
-              </div>
-              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</p>
-              <p class="source-url">https://arxiv.org/abs/2406.12045</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">December 6, 2024</span>
-              </div>
-              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">March 11, 2025</span>
+                <span class="mono-note">April 9, 2025</span>
               </div>
-              <p class="source-title">OpenAI: New tools for building agents</p>
-              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
+              <p class="source-title">Google Developers: Announcing the Agent2Agent Protocol (A2A)</p>
+              <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://spec.openapis.org/oas/v3.1.1.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">October 24, 2024</span>
+              </div>
+              <p class="source-title">OpenAPI Specification 3.1.1</p>
+              <p class="source-url">https://spec.openapis.org/oas/v3.1.1.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">June 23, 2025</span>
+              </div>
+              <p class="source-title">Google Developers: Google Cloud donates A2A to Linux Foundation</p>
+              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">June 4, 2025</span>
+              </div>
+              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">June 18, 2025</span>
+              </div>
+              <p class="source-title">MCP specification 2025-06-18: Tools</p>
+              <p class="source-url">https://modelcontextprotocol.io/specification/2025-06-18/server/tools</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">June 18, 2025</span>
+              </div>
+              <p class="source-title">MCP specification 2025-06-18: Authorization</p>
+              <p class="source-url">https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
@@ -271,54 +338,14 @@
               <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">April 9, 2025</span>
-              </div>
-              <p class="source-title">Google Cloud: Build and manage multi-system agents with Vertex AI</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">April 9, 2025</span>
-              </div>
-              <p class="source-title">Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)</p>
-              <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">May 19, 2025</span>
               </div>
-              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
-              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">June 5, 2025</span>
-              </div>
-              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">June 23, 2025</span>
-              </div>
-              <p class="source-title">Google Developers Blog: Google Cloud donates A2A to Linux Foundation</p>
-              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
+              <p class="source-title">Microsoft Foundry: Announcing Developer Essentials</p>
+              <p class="source-url">https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/</p>
             </div>
             <span class="source-action">Open</span>
           </a>

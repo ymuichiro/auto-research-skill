@@ -5,166 +5,166 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 20 Sep 2026 16:01:07 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 04:16:16 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>LLMはすべてのif文を置き換えるのか。Jevが切り出す「判断API」</title>
+      <title>LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える</title>
       <link>https://research.notelligent.app/2026-09-21-jev-decision-api.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-09-21-jev-decision-api.html</guid>
-      <pubDate>Sun, 20 Sep 2026 16:01:07 GMT</pubDate>
-      <description>JevをBERT、生成LLM、Structured Outputsと比較。確率を返す判断APIを安全に導入するための評価、閾値、人手確認、規則の分担を整理する。</description>
+      
+      <description>JevのChoice・Noul・Scoreを問い合わせ処理で解説。BERTやStructured Outputsとの比較、較正、自動処理率、誤りと確認負担から導入条件を考える。</description>
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>HACWで、人の承認を次回の自動処理へ引き継ぐ条件</title>
+      <title>人とAIが仕事を引き継ぐHACW　実行の先に残る協働の課題</title>
       <link>https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:54:45 GMT</pubDate>
-      <description>HACWという設計仮説で、AIへの一回の承認を次回の業務ルールへ変える条件を説明。共有記録、適用条件、例外テスト、ルールの承認と失効を整理する。</description>
+      
+      <description>HACWは、人とAIが目的、成果物の版、担当、根拠、判断を共有する著者の設計仮説。Workspace Agents、CLEO、Pista、CHAPを比較し、途中の共同作業、引継ぎ、承認の再利用を検討する。</description>
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>希望が定まらない仕事で、確認質問とAIの試作品を使い分ける</title>
+      <title>AIにうまく頼めない仕事では、小さな案から希望を具体化する</title>
       <link>https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:45:30 GMT</pubDate>
-      <description>何を質問し、どんなAIの試作品を作るべきか。事実条件と好みを分ける4象限と、記事構成の例から、要件確認、修正、事実確認を使い分ける。</description>
+      
+      <description>AIに何を質問し、どんな試作品を作るか。記事・コード・画像の研究から、希望の具体化、修正、原典確認、完成までの共同作業を考える。</description>
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>AIエージェントの誤操作を、回答と実行記録から評価する</title>
+      <title>AIエージェント評価を、仕事の直し方につなげる</title>
       <link>https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:42:28 GMT</pubDate>
-      <description>予約変更の例で、AIエージェントの依頼条件、承認順序、入力値、最終状態を別々に評価。トレース、合否判定、正しい代替経路、回帰検出の役割を解説する。</description>
+      
+      <description>OpenAI、Google、AWS、AnthropicのAIエージェント評価を比較。予約変更の例から、トレース、呼出しの順序と引数、保存結果、回帰の確認を考える。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>APIのない業務アプリで、AIの入力と保存結果を確かめる</title>
+      <title>画面操作AIに任せる業務：入力から保存の確認までつなぐ</title>
       <link>https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:37:13 GMT</pubDate>
-      <description>APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。</description>
+      
+      <description>APIのない業務アプリをAIで操作する際、入力と保存結果をどう確かめるか。AWSとMicrosoft、導入報告と研究から、担当者の負担まで考える。</description>
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>営業AIが会議メモからCRMを更新する際、何を確認するか</title>
+      <title>営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ</title>
       <link>https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:30:14 GMT</pubDate>
-      <description>営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。</description>
+      
+      <description>営業AIの会議メモからCRMへの更新を比較。顧客の希望と成約見込み、案件照合、項目の根拠、同時更新、人の確認負担を分析する。</description>
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>AIで作るプレゼン資料の編集可能性を、次の修正から考える</title>
+      <title>AIで作るプレゼン資料：伝える判断と、次の修正を残す</title>
       <link>https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:28:26 GMT</pubDate>
-      <description>AI生成スライドの画像・SVG・グラフ要素を比較。PowerPointとGoogle Slidesの形式制約を踏まえ、次の修正で納品形式を評価する。</description>
+      
+      <description>AIプレゼン生成の構成、画像、SVG、PPTX、Google Slidesを比較。内容の根拠と、受け手が次に行う修正から形式を選ぶ。</description>
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか</title>
+      <title>AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる</title>
       <link>https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:26:38 GMT</pubDate>
-      <description>AIエージェント基盤の機能一覧を、チケット更新の具体的な検証に置き換える。権限、承認、実行記録、評価、既存システムの責任分担を整理。</description>
+      
+      <description>AIエージェント基盤の五社比較。SDK、長時間実行、固定手順、権限、登録、評価を一件のチケット業務へ当てはめ、利用側に残る責任を考える。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>ストアで見つけたAIエージェントを、組織で使うまでの確認事項</title>
+      <title>AIエージェントを見つけ、部署で試す：五社のストアと導入判断</title>
       <link>https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:25:02 GMT</pubDate>
-      <description>AIエージェントの掲載、接続、購入、組織への配布は別の手続き。一次資料と商談メモの例から、試用の権限・費用・更新・停止を整理する。</description>
+      
+      <description>AIエージェントのストア、ディレクトリ、マーケットプレイスを五社の一次資料で比較。掲載審査と社内承認、接続と調達、業務品質を分け、部署で試す条件を解説。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>AIエージェントの作業を中断後に再開するため、何を保存するか</title>
+      <title>AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件</title>
       <link>https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:23:15 GMT</pubDate>
-      <description>AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。</description>
+      
+      <description>AIエージェントの作業継続をCodex、Agents SDK、Managed Agents、Google ADK、AgentCoreから分析。保存範囲、成果物の版、古い記憶、再開時の確認条件を解説。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>コーディングAIの計画・権限・差分・テストを、どう確認するか</title>
+      <title>コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで</title>
       <link>https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:21:26 GMT</pubDate>
-      <description>コーディングAIの監督で混同しやすい計画承認、ブランチとVMの隔離、Verified署名、テスト結果を整理。各機能の保証範囲を確かめる。</description>
+      
+      <description>コーディングAIの五社比較。計画、作業環境、権限、差分、動作確認、遠隔操作を一件の修正から分析し、人のレビューと手戻りまで評価する。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>AIエージェントの記憶を、検索・適用・更新に分けて設計する</title>
+      <title>AIエージェントのメモリ設計　正しい検索が誤った判断になる理由</title>
       <link>https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:14:05 GMT</pubDate>
-      <description>AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。</description>
+      
+      <description>AIエージェントのメモリ設計を、RAGによる検索だけでなく更新、適用、忘却から分析。LangGraph、Letta、MemGPT、LongMemEvalを比較し、古い希望や共有更新の競合を扱う条件を説明する。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか</title>
+      <title>音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ</title>
       <link>https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:12:17 GMT</pubDate>
-      <description>音声AIの発話を止めても予約保存は取り消せない。speech-to-speechと分割型の違い、訂正時の状態管理、通話の試験方法を整理。</description>
+      
+      <description>音声AIの訂正と割り込みを、実際の予約結果まで追う。音声直接型と分割型、電話接続、再開、人への引き継ぎ、実音声の試験を分析。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか</title>
+      <title>AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ</title>
       <link>https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:10:27 GMT</pubDate>
-      <description>subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。</description>
+      
+      <description>subagentへの委任を、小型モデル、並列化、文脈、実行順序、途中記録から比較する。各社の設計と、根拠を返し統合する人の負担を分析。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>MCP、A2A、AG-UIは何を受け渡すのか</title>
+      <title>MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか</title>
       <link>https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:06:19 GMT</pubDate>
-      <description>返金処理を例に、MCP、A2A、AG-UIが接続、委任、画面表示で何を受け渡すかを整理し、承認と実行をアプリケーション側で設計する。</description>
+      
+      <description>MCP、A2A 1.0、AG-UIを返金処理で比較。ツール結果、調査、画面表示の完了の違いと、切断・取消後の確認から選択条件を考える。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>動画生成AIを選ぶなら、参照素材と修正工程を比べたい</title>
+      <title>動画生成AIは修正まで比べる：参照・音声・編集で変わる制作の仕事</title>
       <link>https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:08:44 GMT</pubDate>
-      <description>Runway Gen-4、Google Flow・Veo 3、Adobe Fireflyの参照入力や編集機能を比較。生成後の修正まで含めて動画生成AIを評価する。</description>
+      
+      <description>動画生成AIを参照、音声、既存映像の変更、編集で比較。Runway・Veo・Firefly・Luma・Soraの版と制約から、修正を含む制作の評価を考える。</description>
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>エージェントのIDと、利用者の権限をどう分けるか</title>
+      <title>エージェントIDと利用者の委任：誰の権限を渡し、どこで取り消すか</title>
       <link>https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:28:50 GMT</pubDate>
-      <description>エージェントIDと利用者の委任権限を区別し、MCPから外部APIへ接続する際のトークンとアクセス制御を、文書検索の例で解説する。</description>
+      
+      <description>エージェントID、利用者の委任、MCPと外部APIの権限を解説。認証情報の取消と取得済み資料まで追い、必要な仕事を続けながら不要なアクセスを止める条件を考える。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>Coworkに会議準備を任せるとき、資料作成と予定変更を分けて考える</title>
+      <title>Coworkが引き受ける会議準備：情報収集から資料と予定まで</title>
       <link>https://research.notelligent.app/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:26:54 GMT</pubDate>
-      <description>Coworkで会議準備を任せるとき、資料の読み取り、下書き保存、予定や送信の変更を分け、段階ごとの確認点を設計する。</description>
+      
+      <description>Coworkの会議準備を、業務情報への接続、ExcelとPowerPointの整合、画面操作、変更の波及から分析。人の確認と修正を含む価値を考える。</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>生成AIのチャットと編集画面は、どの作業を分担するのか</title>
+      <title>生成AIのチャットUIに、いつ編集や計画の画面を足すか</title>
       <link>https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:24:51 GMT</pubDate>
-      <description>生成AIで、会話による依頼、成果物の直接編集、計画と承認の確認をどの画面に置くかを、Canvas、Pages、Cocoaから考える。</description>
+      
+      <description>生成AIのチャットUIとCanvas、Pages、Artifactsを比較。Cocoaの同一モデルによる評価とKeyhole Effectの理論を区別し、部分編集、共同作業、計画、定型フォームを足す条件を分析する。</description>
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>エージェント公開前に、外部の指示で何が実行されるかを試す</title>
+      <title>エージェントの安全性は、外部の指示が実行へ届く経路で確かめる</title>
       <link>https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:17:34 GMT</pubDate>
-      <description>プロンプトインジェクションの検出、ツール実行の認可、通信の封じ込めを分け、外部送信を含むエージェントの公開前試験を設計する。</description>
+      
+      <description>プロンプトインジェクションへの対策を検出、実行権限、通信、人の確認に分け、正常業務と禁止操作、コードの脆弱性を公開前に確かめる。</description>
       <category>AI Agents</category>
     </item>
   </channel>

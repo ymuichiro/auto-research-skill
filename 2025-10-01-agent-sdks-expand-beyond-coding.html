@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか | Auto Research Digest</title>
-    <meta name="description" content="Claude Agent SDKとLooker MCPを比較し、汎用ワークフローで実行ループ、指標定義、承認をどう分けるかを整理する。">
+    <title>Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件 | Auto Research Digest</title>
+    <meta name="description" content="Claude Agent SDK、Looker MCP、Firestore、Microsoft Agent Frameworkを比較。月次報告を例に、AIに選ばせる手順と固定する業務条件を考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか | Auto Research Digest">
-    <meta property="og:description" content="Claude Agent SDKとLooker MCPを比較し、汎用ワークフローで実行ループ、指標定義、承認をどう分けるかを整理する。">
+    <meta property="og:title" content="Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件 | Auto Research Digest">
+    <meta property="og:description" content="Claude Agent SDK、Looker MCP、Firestore、Microsoft Agent Frameworkを比較。月次報告を例に、AIに選ばせる手順と固定する業務条件を考える。">
     <meta property="og:url" content="https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか">
+    <meta property="og:image:alt" content="Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか | Auto Research Digest">
-    <meta name="twitter:description" content="Claude Agent SDKとLooker MCPを比較し、汎用ワークフローで実行ループ、指標定義、承認をどう分けるかを整理する。">
+    <meta name="twitter:title" content="Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件 | Auto Research Digest">
+    <meta name="twitter:description" content="Claude Agent SDK、Looker MCP、Firestore、Microsoft Agent Frameworkを比較。月次報告を例に、AIに選ばせる手順と固定する業務条件を考える。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか">
+    <meta name="twitter:image:alt" content="Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件">
     <link rel="canonical" href="https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html">
@@ -42,16 +42,15 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-10-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T14:23:39+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="SDK">
     <meta property="article:tag" content="MCP">
     <meta property="article:tag" content="Workflow">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか","description":"Claude Agent SDKとLooker MCPを比較し、汎用ワークフローで実行ループ、指標定義、承認をどう分けるかを整理する。","datePublished":"2025-10-01T00:00:00+09:00","dateModified":"2026-09-20T14:23:39+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, SDK, MCP, Workflow","mainEntityOfPage":"https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか","item":"https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件","description":"Claude Agent SDK、Looker MCP、Firestore、Microsoft Agent Frameworkを比較。月次報告を例に、AIに選ばせる手順と固定する業務条件を考える。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, SDK, MCP, Workflow","mainEntityOfPage":"https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件","item":"https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,21 +66,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか</h1>
-          <p class="hero-copy">Claude Agent SDKは、文脈収集、行動、検証を反復する実行ループをアプリに組み込める。Looker MCPは定義済みの指標へ接続する。月次報告の想定例を通じ、実行制御と業務上の正しさ・承認が別の責任である理由を整理する。</p>
+          <h1 class="hero-title">Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件</h1>
+          <p class="hero-copy">Claude Agent SDKの汎用化、LookerとFirestoreのデータ接続、Microsoft Agent Frameworkを比較する。月次報告の想定例から、資料を探す反復と固定した指標・計算・提出条件をどう組み合わせるか、SDKを使わない条件まで考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-10-01">2025年10月1日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2025-10-01">調査対象日 2025年10月1日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">SDK</span><span class="meta-chip">MCP</span><span class="meta-chip">Workflow</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20SDK%E3%82%92%E6%B1%8E%E7%94%A8%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%81%B8%E7%B5%84%E3%81%BF%E8%BE%BC%E3%82%80%E3%81%A8%E3%81%8D%E3%80%81%E6%A5%AD%E5%8B%99%E5%AE%9A%E7%BE%A9%E3%81%AF%E3%81%A9%E3%81%93%E3%81%AB%E7%BD%AE%E3%81%8F%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-10-01-agent-sdks-expand-beyond-coding.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20SDK%E3%82%92%E6%A5%AD%E5%8B%99%E3%81%B8%E7%A7%BB%E3%81%99%EF%BC%9AAI%E3%81%AB%E9%81%B8%E3%81%B0%E3%81%9B%E3%82%8B%E6%89%8B%E9%A0%86%E3%80%81%E5%9B%BA%E5%AE%9A%E3%81%99%E3%82%8B%E6%9D%A1%E4%BB%B6&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-10-01-agent-sdks-expand-beyond-coding.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか"
-      data-share-text="Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか"
+      data-share-title="Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件"
+      data-share-text="Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件"
       data-share-url="https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか"
+      data-share-title="Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件"
       data-share-url="https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,49 +126,136 @@
   </section>
     <section class="article-body"><section class="report-section">
   <p class="section-kicker">問い</p>
-  <h2>Agent SDKが汎用ワークフローに入るとは、何を再利用できるということか</h2>
-  <p><a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDKの発表</a>は、Claude Codeで使われる仕組みを、調査、資料作成、顧客対応などのエージェントにも使える部品として説明する。中心にあるのは、文脈を集め、道具を使って行動し、結果を確かめて次の行動を選ぶ反復である。名称や用途例が広がったこと自体は、これらの業務で広く採用されたことや、正しい成果が自動で得られることを示さない。</p>
-  <p>本稿でいう「汎用ワークフローへ組み込む」とは、コード生成だけの補助から、実行ループと道具への接続をアプリに再利用できる部品へ役割が広がることを指す。ただし、何を売上と呼ぶか、誰がデータを見られるか、いつ外部へ確定結果を出すかは、その部品だけでは決まらない。月次報告を例に、実行を制御する責任と、業務上正しいと認める責任を分けて考える。</p>
+  <h2>コーディングの反復を、月次報告へ持ち込めるか</h2>
+  <p>月次報告を作るAIが、資料を探し、表を整え、見栄えのよいグラフまで作った。
+それでも経理担当者は、前年と比較してよい売上なのか判断できない。
+返品を差し引いた金額なのか、受注した金額なのかが分からないためだ。
+これは本稿の想定例だが、仕事を進める能力と、仕事の条件を守る能力の違いをよく表す。</p>
+  <p>9月29日の<a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDKの説明</a>は、Claude Code SDKという名称を改め、コード以外の仕事にも実行の仕組みを再利用する方向を示した。
+ファイルやコマンドを扱い、文脈収集、操作、検証を繰り返す。
+用途を広げる手掛かりは、財務や調査という業種名よりも、この反復にある。</p>
+  <p>本稿では、反復を業務に移すとき、何をAIに選ばせ、何を固定するかを考える。
+私の判断は、資料の探索や不足の確認には適応する余地を与え、業務の定義と計算条件は明示した処理へ置くことだ。
+SDKの再利用価値は、業務ルールを推測させずに、その周囲で必要な手順を選べる点にある。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">確認できる機能</p>
-  <h2>Claude Agent SDKが提供するのは、仕事を進める反復の骨組みである</h2>
-  <p>Anthropicの説明では、SDKのエージェントは「文脈を集める → 行動する → 作業を検証する → 繰り返す」という流れで動く。ファイルの検索と編集、コマンド実行、外部道具の呼び出しを組み合わせられ、サブエージェントは並列作業と文脈の分離に使える。長い処理では、要約によって文脈を圧縮する機能も説明されている。</p>
-  <p>これは、ある入力に対して一度だけ回答を返す仕組みより、途中の観測に応じて処理を変える仕事をアプリへ埋め込みやすくする。一方で、SDKが集計対象月、返品を控除した売上という定義、利用者の役割、最終報告の承認者まで与えるわけではない。前者は公開資料に記された機能範囲であり、後者は業務を実装する側が決める規則である。</p>
+  <p class="section-kicker">再利用する仕組み</p>
+  <h2>途中で分かったことが、次の操作を変える</h2>
+  <p>Claude Agent SDKの説明では、ファイルの検索・編集、コマンド実行、外部の道具を組み合わせられる。
+別のエージェントに分担して文脈を分け、長い処理では要約で文脈を圧縮する機能も示されている。
+アプリを一から同じ仕組みで組み直す負担を減らし、途中の結果を見て次の操作を選ぶための部品になる。</p>
+  <p>月次報告なら、表の列名が予想と違えば説明資料を探し、必要な値がなければ取得先を変える、といった手順を考えられる。
+最初からすべての分岐を書けない場面に、反復の使い道がある。
+ただし、検索の経路を変える自由と、売上の定義を変える自由は別だ。
+前者を許すために後者まで任せる必要はない。</p>
+  <p>反復は、検証方法があるほど役に立つ。
+SDKの説明は規則による確認、見た目の確認、別のモデルによる評価を挙げるが、モデルによる評価の頑健さには留保も置く。
+整ったグラフを見て問題がなさそうだと判断するだけでは、計算に含める取引の条件は確かめられない。
+業務へ移すには、どの失敗をどの確認で見つけるかまで具体化したい。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">道具の設計</p>
+  <h2>APIを増やす前に、AIが選べる仕事の単位を決める</h2>
+  <p>確認の精度は、呼び出す道具が何を返すかにも左右される。
+Anthropicの<a href="https://www.anthropic.com/engineering/writing-tools-for-agents">道具設計の説明</a>は、連絡先を全件返す道具より検索する道具、顧客と取引とメモを別々に取得する道具より必要な顧客情報をまとめる道具を例に挙げる。
+限られた文脈へ不要な中間結果を詰めず、仕事の目的に沿って操作を選べるようにする考え方である。</p>
+  <p>この考え方を月次報告に当てはめるなら、データベースの全テーブルへ自由に問い合わせる道具と、承認済み指標を期間・地域付きで取得する道具は、異なる選択肢をAIへ渡す。
+後者でも質問の読み違いは起こり得る。
+それでも、組織が共通に使う計算を道具側へ置けば、AIが毎回その計算を作り直す範囲を減らせる。</p>
+  <p>まとめた道具には、処理の内訳を隠す危険もある。
+金額だけを返し、返品データの取得に失敗した事実を伏せれば、短い出力はかえって誤解を招く。
+どの指標を使ったか、どこまで取得できたか、不足があるかは、次の処理を変える情報として返す必要がある。
+これは本稿の設計上の提案であり、短い応答なら常に精度が上がるという主張ではない。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">意味を固定する</p>
+  <h2>「売上」の定義を、毎回の生成から切り離す</h2>
+  <p><a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/">Looker MCP Serverの発表</a>は、AIがLookerのセマンティックレイヤー、つまり指標を共通に定義する仕組みへ接続する構成を示す。
+AIが独自にSQLを組み立てる代わりに、Looker側が定義に沿ってSQLを生成する。
+実行ループが依頼の読み取りと道具の選択を担い、指標の計算は既存の定義へ委ねる分担を作れる。</p>
+  <p>それでも、定義済みの指標を選べば仕事が終わるわけではない。
+国内売上という依頼が、配送先の国を指すのか、販売会社の所在地を指すのかで対象は変わる。
+期間にも受注日、請求日、売上計上日という違いがある。
+この想定例では、指標の候補と依頼の目的を照合し、曖昧さが残れば確認する必要がある。</p>
+  <p>指標が正しくても、別の定義で作った前年の数値とそのまま比較すると、増減の意味を取り違え得る。
+使った指標、期間、地域条件、参照した定義版を報告へ残すことが有用だ。
+定義版の取得や記録は、本稿がアプリに提案する実装であり、Looker MCPがこれらを必ず一式で返すとは限らない。
+この分担で固定できるのは計算の意味であって、売上が変化した原因までではない。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">検証の限界</p>
+  <h2>構文が通ることと、意図した条件を守ること</h2>
+  <p>定義を守る確認が必要な理由は、更新する道具を見ると分かりやすい。
+Googleの<a href="https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox">Firestore向けMCP Toolboxの説明</a>は、照会、対象文書の更新、セキュリティ規則の検査を扱う。
+開発者Alexが20件のテストアカウントを調べ、ほしい物リストから不要な商品を除く話は、明示された仮想例である。
+「数時間が数分になる」という結びも、実測した導入成果としては読めない。</p>
+  <p>この例の規則検査は、欠けたセミコロンを見つける。
+続いてAlexは有効な規則を取得して、新しい規則と比べる。
+構文の修正と規則の照合が別の手順になっている点が重要だ。
+構文が通っただけでは、意図した利用者だけが文書を読めることや、正しい商品だけを削除したことまでは確認できない。</p>
+  <p>月次報告でも、SQLが実行できること、計算が定義に従うこと、依頼に合うことは別々に確認したい。
+確認の一つに成功したことを、残りにも成功した証拠として使わない。
+その上で、許可される入力と更新範囲を道具側で制限し、守れない条件をエラーとして返す。
+AIの再試行は、その制限を回避する方法を探すためでなく、不足を補って同じ条件を満たすために使う。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">処理の分担</p>
+  <h2>柔軟な探索を、決められた順序の中で使う</h2>
+  <p>この分担は、SDKを選ぶ際にも手掛かりになる。
+10月1日の<a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Microsoft Agent Frameworkの発表</a>は、モデルが進め方を決めるAgent Orchestrationと、業務ロジックが手順を決めるWorkflow Orchestrationを分けて説明する。
+自由に進める作業と、決められた処理を共存させる方向である。</p>
+  <p>月次報告の想定例なら、対象期間と指標の確認、定義に沿った集計、検算、下書き作成、確認者への提出という順序を固定する。
+各段階の資料探しや説明の作成には、AIが手順を選ぶ余地を残せる。
+返品データが欠けた場合はゼロとして集計せず、不足を示して止める。
+別の資料を探しても見つからなければ、同じ不完全な値で報告を完成させず、担当者へ確認を渡す。</p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>SDKがアプリへ渡す制御点</h3>
-      <p>文脈の収集、道具の呼び出し、反復、サブエージェントへの分担、結果の確認を組み合わせるための部品である。アプリは、各段階で何を入力し、どの道具を許可するかを実装する。</p>
+      <h3>AIが手順を選ぶ部分</h3>
+      <p>列名の説明を探す、別の取得先を調べる、不足を質問する。
+途中で得た情報に応じて方法を変えても、満たすべき条件は維持する。</p>
     </article>
     <article class="comparison-card">
-      <h3>アプリと組織に残る業務規則</h3>
-      <p>どのデータ定義を使うか、権限外の値をどう扱うか、矛盾した結果で停止する条件、確定前に誰が確認するかは、SDKの用途例からは決まらない。</p>
+      <h3>業務側が固定する部分</h3>
+      <p>承認済み指標、対象期間と地域、検算方法、提出に必要な条件。
+AIの下書きが完成しても、条件が未解決なら次の段階へ進めない。</p>
     </article>
   </div>
+  <p>この構成で確認者が見るのは、最終文面だけではない。
+指標と対象範囲、検算結果、未解決の点を見て、提出できる条件を満たすか判断する。
+ただし、こうした確認が人の負担を減らすかは検証が必要だ。
+記録が大量にあるだけでは、見落としが減るとは限らない。
+自動で確かめた部分と人の判断が必要な部分を、報告の根拠に沿って見せたい。</p>
+  <p>Microsoftの発表は、Microsoft 365 Agents SDKとの統合や共通のクラウド実行環境を将来の方向としても述べる。
+それらをすべて現在の既定機能と扱うことはできない。
+他のSDKも同じ処理の分担や停止を備えるとは限らず、実際に使う版で確認する必要がある。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">データ定義との接続</p>
-  <h2>計算を実行できることと、売上の意味を決めることは別である</h2>
-  <p><a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server">Looker MCP Serverの発表</a>は、AIアプリケーションがLookerのセマンティックレイヤーに接続し、あらかじめ定義された指標とアクセス制御を参照する構成を説明する。AIがSQLを即興で書くのではなく、Lookerへ問い合わせ、Looker側がSQLを生成するという範囲である。つまり、この接続は「売上」という言葉に既存の定義を結び付ける経路を与える。</p>
-  <p>それでも、接続が質問の解釈を正しくするわけではない。例えば「今月の売上」という依頼に対し、返品控除後の認定売上、受注額、請求額のどれを採るかは、組織が定めた指標と依頼の目的を照合して決める必要がある。選んだ指標、対象期間、絞り込み条件が依頼に合うかを確認する仕事は、道具を呼び出す仕事とは別に残る。</p>
-  <p>同じくGoogleの<a href="https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox">Firestore向けMCP Toolboxの発表</a>は、エージェントがデータを照会・更新し、セキュリティ規則を検査する道具を示す。記事中の小売アプリの例はベンダーが説明のために置いた想定例であり、導入実績ではない。この例が具体化するのは、道具への接続が読み取りだけで終わらず、更新と規則検査まで及び得ること、そして実行権限と確定判断を分けて設計する必要である。</p>
+  <p class="section-kicker">選ばない条件</p>
+  <h2>手順が既知の集計へ、反復を増やす必要はない</h2>
+  <p>どの仕事にもSDKを入れる、という結論にはならない。
+Anthropicの<a href="https://www.anthropic.com/engineering/building-effective-agents">エージェント設計の説明</a>も、複雑な構成を先に選ばず、必要に応じて単純な構成から進む考え方を示す。
+毎月同じ形式のファイルを同じ定義で集計するだけなら、既存のスクリプトで処理し、例外だけを人に渡す選択肢がある。</p>
+  <p>SDKを検討する理由が強くなるのは、資料の形式や保存先が変わり、途中の情報から次の操作を選ぶ必要がある場合だ。
+同じ計算を何度もモデルに作らせることとは異なる。
+比較では処理時間だけでなく、誤った指標を選ぶ件数、不足データで停止できる割合、担当者が調べ直す時間まで確かめたい。
+追加した自由が成果につながらなければ、固定処理へ戻す判断も残る。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">想定例</p>
-  <h2>月次報告では、値と定義版と承認を同じ成果物に残す</h2>
-  <p>ここからは、本稿の設計例である。経理チームが「9月の国内売上を報告してほしい」と依頼する。アプリはClaude Agent SDKの反復を使い、依頼から対象期間と地域を取り出し、Looker MCPを通じて候補となる指標を取得する。この段階で出力に含めるのは金額だけではない。使った指標名、参照した定義版、期間、地域フィルター、取得時刻を併せて記録する。</p>
-  <p>次に、アプリが定義版の更新日や承認済みの報告ルールと照合する。依頼が古い定義を前提としている、または質問と指標の意味が一致しない場合は、金額を確定値として配布せず、相違と不足情報を示して止める。条件を満たしたときだけ、指定された確認者へ下書きを渡し、確認者が承認して初めて外部向けの報告にする。この停止と承認は両製品の既定動作ではなく、実行ループを業務へ組み込む側が定める制御である。</p>
-  <p>この記録があれば、後から数値に疑義が出たとき、モデルの文面ではなく、どの定義、入力、絞り込み、確認を経たかを調べられる。SDKの再利用価値は、用途名を増やすことではなく、このように取得、計算、確認を一つの実行経路として組み立てられる点にある。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">境界を残す</p>
-  <h2>SDKは実行を広げるが、業務の正しさをアプリから取り去らない</h2>
-  <p>同日に公開された<a href="https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/">Microsoft Agent Frameworkの発表</a>も、SDKと実行環境を一体として説明し、接続、オーケストレーション、可観測性、人の承認を製品機能に含める。これは、SDKという語が小さなコード補助ライブラリだけを指さなくなっている一例である。ただし、この製品の機能一覧から、すべてのSDKが同じ制御を備えることや、採用が一般化したことは導けない。</p>
-  <p>SDKを選ぶときは「コーディング以外に使えるか」という用途の数ではなく、実行ループのどこを再利用し、業務定義、認可、記録、承認をどこへ置くかを確認したい。実行を汎用部品にしても、成果物を業務上正しいと認める根拠と責任者はアプリの外へ消えない。この分担を先に設計できる場合に限り、SDKはコード生成を越えたワークフローの実行部品になる。</p>
+  <p class="section-kicker">判断</p>
+  <h2>汎用化するのは、業務の条件を守りながら進める方法</h2>
+  <p>Claude Agent SDK、業務向けのデータ接続、Microsoft Agent Frameworkは、異なる場所から実行を再利用する手段を広げている。
+それぞれの機能や用途例は、業務全体を任せてよい証明ではない。
+比較から読み取れるのは、探索、定義、固定された手順を別々に設計し、組み合わせる余地が増えていることだ。</p>
+  <p>月次報告へ移すなら、AIには不足を見つけて確認する仕事を与え、売上の定義や提出条件を反復の中で書き換えさせない。
+その分担ができて初めて、コーディングで使った仕組みを別の仕事へ持ち込む意味が生まれる。
+SDKの価値は、何でもできるという用途の数より、どこまで任せてよいかを具体的に定められるかで判断したい。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -190,49 +277,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="Agent開発ツールで減る実装と、製品側に残る設計">
+      <a class="article-card " href="/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="AgentKitで試作が速くなると、公開前に何を確かめるか">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-11-01">2025年11月1日</time>
+        <time class="mono-note" datetime="2025-11-01">調査対象日 2025年11月1日</time>
       </div>
-      <h3 class="article-card-title">Agent開発ツールで減る実装と、製品側に残る設計</h3>
-      <p class="article-card-copy">開発道具を選ぶ前に、作らずに済む部分と業務固有の設計を分けて確認する。</p>
+      <h3 class="article-card-title">AgentKitで試作が速くなると、公開前に何を確かめるか</h3>
+      <p class="article-card-copy">手順を保存しても、参照する規約や画面の説明が同じ変更を反映するとは限らない。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 4</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2025-09-01-coding-and-research-agents-broaden-the-scope.html" aria-label="コーディングの先で、実験仕事をどう評価するか">
+  </a><a class="article-card " href="/2025-09-01-coding-and-research-agents-broaden-the-scope.html" aria-label="AIが書いたコードから、比較できる実験結果へ">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-09-01">2025年9月1日</time>
+        <time class="mono-note" datetime="2025-09-01">調査対象日 2025年9月1日</time>
       </div>
-      <h3 class="article-card-title">コーディングの先で、実験仕事をどう評価するか</h3>
-      <p class="article-card-copy">実験はコードだけで完結しない。データ、条件、評価、結果を同じ記録で確かめる。</p>
+      <h3 class="article-card-title">AIが書いたコードから、比較できる実験結果へ</h3>
+      <p class="article-card-copy">良い点数だけでは採用を決められない。データ、条件、結果を結び、改善しなかった実験も次の判断へ残す。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Data Access</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 5</span>
+      <span class="mono-note">根拠数: 4</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2025-12-01-multi-agent-workflows-become-a-product-surface.html" aria-label="Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認">
+  </a><a class="article-card " href="/2025-12-01-multi-agent-workflows-become-a-product-surface.html" aria-label="Foundryの複数エージェント設計：工程の間で値と根拠を渡す">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-12-01">2025年12月1日</time>
+        <time class="mono-note" datetime="2025-12-01">調査対象日 2025年12月1日</time>
       </div>
-      <h3 class="article-card-title">Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認</h3>
-      <p class="article-card-copy">図を作ること、実行を追うこと、品質を評価すること、操作を承認することは別の作業である。</p>
+      <h3 class="article-card-title">Foundryの複数エージェント設計：工程の間で値と根拠を渡す</h3>
+      <p class="article-card-copy">形式に合う値でも、次の担当が確定済みの事実として使えるとは限らない。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 2</span>
+      <span class="mono-note">根拠数: 3</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -257,14 +344,24 @@
               <p class="source-url">https://claude.com/blog/building-agents-with-the-claude-agent-sdk</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/writing-tools-for-agents" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年8月8日</span>
+                <span class="mono-note">2025年9月11日</span>
+              </div>
+              <p class="source-title">Anthropic: Writing effective tools for agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/writing-tools-for-agents</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年8月9日</span>
               </div>
               <p class="source-title">Google Cloud: Looker debuts MCP Server to broaden AI developer access to data</p>
-              <p class="source-url">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server</p>
+              <p class="source-url">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/firestore-support-and-custom-tools-in-mcp-toolbox" target="_blank" rel="noopener noreferrer">
@@ -285,6 +382,16 @@
               </div>
               <p class="source-title">Microsoft: Introducing Microsoft Agent Framework</p>
               <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年12月19日</span>
+              </div>
+              <p class="source-title">Anthropic: Building effective agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/building-effective-agents</p>
             </div>
             <span class="source-action">開く</span>
           </a>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Separating agent identity from delegated user permissions | Auto Research Digest EN</title>
-    <meta name="description" content="Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.">
+    <title>Agent identity and user delegation: whose access is granted, and where it ends | Auto Research Digest EN</title>
+    <meta name="description" content="Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Separating agent identity from delegated user permissions | Auto Research Digest EN">
-    <meta property="og:description" content="Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.">
+    <meta property="og:title" content="Agent identity and user delegation: whose access is granted, and where it ends | Auto Research Digest EN">
+    <meta property="og:description" content="Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.">
     <meta property="og:url" content="https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Separating agent identity from delegated user permissions">
+    <meta property="og:image:alt" content="Agent identity and user delegation: whose access is granted, and where it ends">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Separating agent identity from delegated user permissions | Auto Research Digest EN">
-    <meta name="twitter:description" content="Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.">
+    <meta name="twitter:title" content="Agent identity and user delegation: whose access is granted, and where it ends | Auto Research Digest EN">
+    <meta name="twitter:description" content="Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Separating agent identity from delegated user permissions">
+    <meta name="twitter:image:alt" content="Agent identity and user delegation: whose access is granted, and where it ends">
     <link rel="canonical" href="https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-03-26T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T16:28:50+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Identity">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Authorization">
     <meta property="article:tag" content="Governance">
     <meta property="article:tag" content="OAuth">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Separating agent identity from delegated user permissions","description":"Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.","datePublished":"2026-03-26T00:00:00+09:00","dateModified":"2026-09-20T16:28:50+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Separating agent identity from delegated user permissions","item":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent identity and user delegation: whose access is granted, and where it ends","description":"Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent identity and user delegation: whose access is granted, and where it ends","item":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Separating agent identity from delegated user permissions</h1>
-          <p class="hero-copy">Microsoft and AWS announcements and MCP authorization requirements show why agent identity, delegated user access, and downstream permission checks need separate decisions.</p>
+          <h1 class="hero-title">Agent identity and user delegation: whose access is granted, and where it ends</h1>
+          <p class="hero-copy">Compare dedicated agent identity, user delegation, and downstream authorization through document search. Follow Microsoft, AWS, Auth0, and MCP evidence from access grants to responsibility changes, revocation, and retained information.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-03-26">March 26, 2026</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2026-03-26">Research cutoff March 26, 2026</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Identity</span><span class="meta-chip">Authentication</span><span class="meta-chip">Authorization</span><span class="meta-chip">Governance</span><span class="meta-chip">OAuth</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Separating%20agent%20identity%20from%20delegated%20user%20permissions&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-03-26-agent-identity-becomes-an-auth-control-plane.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20identity%20and%20user%20delegation%3A%20whose%20access%20is%20granted%2C%20and%20where%20it%20ends&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-03-26-agent-identity-becomes-an-auth-control-plane.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Separating agent identity from delegated user permissions"
-      data-share-text="Separating agent identity from delegated user permissions"
+      data-share-title="Agent identity and user delegation: whose access is granted, and where it ends"
+      data-share-text="Agent identity and user delegation: whose access is granted, and where it ends"
       data-share-url="https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Separating agent identity from delegated user permissions"
+      data-share-title="Agent identity and user delegation: whose access is granted, and where it ends"
       data-share-url="https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -126,48 +126,73 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>Knowing the agent's name does not determine its permission</h2>
-<p>Suppose an internal document-search agent also sends documents outside the organization. Recording which agent acted does not establish that the transmission was permitted. Identifying the executing software, accessing data on a user's behalf, and authorizing a particular operation are distinct decisions.</p>
-<p>At <a href="https://blogs.microsoft.com/blog/2025/05/19/microsoft-build-2025-the-age-of-ai-agents-and-building-the-open-agentic-web/">Build 2025</a>, Microsoft introduced an Entra Agent ID preview that assigns unique identities to agents created in Copilot Studio or Azure AI Foundry. Making agents visible as managed identities is useful. Issuing an identity, however, does not by itself determine appropriate resources and operations.</p>
+<h2>The same agent can have different document access for different users</h2>
+<p>Consider an agent that finds and summarizes internal documents. A sales representative looking for a customer's contract and an employee in another department asking the same question may be entitled to different results. This is the article's hypothetical example. Using the same agent does not justify giving both people the same document access.</p>
+<p>Adding external delivery creates a second decision: permission to read and permission to send. The user's ability to sign in, the ability to identify the agent, and authorization to send a particular document are distinct questions. Authentication at the entrance may not preserve individual access boundaries if the downstream connection can read documents for the whole organization.</p>
+<p>In my interpretation, agent identity matters beyond giving software a name. It can make the authority used for a request, and the point where that delegation can be revoked, objects of management. This article separates dedicated identity, user delegation, and downstream authorization, then follows them through changes in responsibilities and permissions.</p>
 </section>
 <section class="report-section">
-<h2>Put four separate questions between document search and external sending</h2>
+<h2>Use identity as a unit for granting access, stopping work, and investigating</h2>
+<p>At <a href="https://blogs.microsoft.com/blog/2025/05/19/microsoft-build-2025-the-age-of-ai-agents-and-building-the-open-agentic-web/">Build 2025</a>, Microsoft introduced an Entra Agent ID preview assigning unique identities to agents created in Copilot Studio or Azure AI Foundry. Its <a href="https://news.microsoft.com/ignite-2025-book-of-news/">Ignite 2025 Entra announcement</a> describes a preview through Agent 365 covering inventory, lifecycle management, and protection of resource access. These illustrate an expansion from identifying software to managing it.</p>
+<p>The permissions attached to a registered identity still require a decision. In the document-search example, stopping search alone differs from stopping delivery by the same agent as well. Without a correspondence between identities, connections, and permitted operations, a name in a management screen may not let an operator isolate the intended work.</p>
+<p>Conventional service accounts can also help when separated by workload, granted narrow permissions, and associated with traceable activity. A dedicated agent identity is not automatically superior. Sharing one powerful credential across several jobs can make stopping one interrupt the others, or make it difficult to identify what must stop. The useful comparison concerns the units available for grants, suspension, and investigation.</p>
+<p>Those units should also connect to human responsibilities. Establishing who defines the purpose, configures connections, and reviews continued use helps determine whether an unused permission still has a reason to exist. This is the article's operating recommendation, not a product guarantee that registration discovers every unnecessary permission.</p>
+</section>
+<section class="report-section">
+<h2>Separate scheduled workload permissions from authority borrowed from a user</h2>
+<p>A nightly job saving a fixed report to a specified location has a different basis for permission from a search of contracts its requester can read. One possible design gives the first dedicated workload permissions for an organizationally defined purpose and destination. The second needs to preserve access conditions corresponding to the requester. This is a design comparison, not a claim that every product implements the paths identically.</p>
+<p><a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/">AWS's July 2025 AgentCore announcement</a> describes Identity creating a unique workload identity and supporting access scoped to user or agent context. It discusses access to external services on behalf of users or with pre-authorized consent, along with a vault for user tokens. The announcement's architecture example does not establish equivalent enforcement across every external service.</p>
+<p>A token is a credential presented to an access target. Delegation does not require placing long-lived external-service credentials in the model's conversation. <a href="https://auth0.com/blog/auth0-token-vault-secure-token-exchange-for-ai-agents/">Auth0's Token Vault explanation</a> describes centralized management of provider tokens: the application obtains the access token it needs without directly handling that provider's refresh token. It provides a concrete example of separating credential storage and renewal from the model interpreting the assignment.</p>
+<p>This mechanism leaves a problem if the resulting permissions are too broad. A task does not necessarily need every document its requester can read, and readable documents cannot necessarily be sent to any recipient. After establishing who requested the work, narrowing the relevant resources and operations aligns delegation with its business purpose.</p>
+</section>
+<section class="report-section">
+<h2>Access to MCP and access to its downstream API belong to different connections</h2>
+<p>The <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization">MCP 2025-11-25 authorization specification</a> defines an authorization flow for HTTP connections. Servers must validate that presented tokens were issued for them. A call to another API uses a separate token issued for that API; the server must not pass through the token received from its client.</p>
+<p>For document search, examine the agent-to-MCP connection separately from the MCP-to-storage connection. Identifying the user on the first leaves a further question if the second can retrieve organization-wide documents: where are that user's access conditions enforced? The design needs to explain whether storage permissions make this decision or the search service restricts the documents it returns.</p>
+<p>The specification requires 401 for invalid or expired tokens and 403 for insufficient permissions. Converting these failures into zero search results obscures the distinction between missing and inaccessible material. It mixes cases requiring permission changes with cases requiring another search. Separately control whether an explanation may reveal the title or content of inaccessible documents.</p>
+<p>Authorization is optional for MCP implementations overall, and this OAuth procedure is not imposed uniformly on local standard-input/output connections. An “MCP-compatible” label establishes neither the authentication method nor permission scope. Inspect the actual transport and access conditions.</p>
+</section>
+<section class="report-section">
+<h2>Connect four questions for each operation</h2>
+<p>Apply these distinctions to the hypothetical path from search to external delivery. The following four questions are the article's review framework; they do not require placing all the information in a single token.</p>
 <div class="comparison-grid">
 <article class="comparison-card">
-<h3>Which agent executed?</h3>
-<p>Identify the executing agent as a unit for suspension and investigation. This makes the acting software traceable.</p>
+<h3>Which agent acted?</h3>
+<p>Identify the agent and connection used. Even for the same user, operations by different agents should remain distinguishable. Use the distinction for suspension and investigation.</p>
 </article>
 <article class="comparison-card">
-<h3>For whom is it acting?</h3>
-<p>Separate delegated search of a user's documents from an administratively defined recurring job. They can require different credentials and scopes.</p>
+<h3>For whom did it act?</h3>
+<p>Distinguish delegation by a verified user from an organizationally defined recurring job. Text asking it to act “as an administrator” is not evidence of the requester's authority.</p>
 </article>
 <article class="comparison-card">
-<h3>What does each target permit?</h3>
-<p>Authorize search, retrieval, and sending separately in the document store, delivery system, and calendar. Do not turn authentication at the entrance into downstream permission.</p>
+<h3>Which resource and operation were permitted?</h3>
+<p>Connect the document to operations such as search, retrieval, and delivery. A token intended for the correct service still leaves the permission for this document or recipient to be checked.</p>
 </article>
 <article class="comparison-card">
 <h3>What can be explained later?</h3>
-<p>Record the user, executing agent, connection, and permitted or refused action together. This is a record for verification and governance, not another source of permission.</p>
+<p>Make the request, user, agent, resource, and basis for permission or refusal traceable. This does not require logging the token itself. Define access to the records and their retention period too.</p>
 </article>
 </div>
-<p>These are design distinctions used in this article, not a demand to place all information in one token. The goal is to explain which layer makes which decision for every connection.</p>
+<p>These relationships help distinguish revoking a user's delegation from disabling a particular connection. Increasing permissions is only one aspect of management. Preserving necessary work while isolating unwanted resources or operations also demonstrates what can be controlled.</p>
 </section>
 <section class="report-section">
-<h2>Scheduled work and user-delegated access need different permission decisions</h2>
-<p>A nightly job that writes a report to a fixed location differs from a search that must return only documents its user can read. One possible design gives the first a dedicated workload permission and makes the second reflect the user's access. This is a design example, not a claim that every platform implements these paths identically.</p>
-<p><a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/">AWS's AgentCore announcement</a> describes Identity supporting access to external services on behalf of users or with pre-authorized consent. That distinction is a reason to establish whether a connection serves delegated user activity or an ongoing, administratively defined job before configuring its credentials.</p>
-<p>Conventional service accounts can also serve this purpose when separated by workload and granted narrow permissions. The problem is a shared, powerful credential that prevents operators from stopping one job independently. Evaluate a dedicated identity by whether it provides a usable unit for granting access, disabling work, and tracing activity.</p>
+<h2>After disconnecting, check issued credentials and previously retrieved information</h2>
+<p>A staff member transfers departments, a user withdraws delegation, or a recurring job loses its purpose. Each change requires deciding which access should end. A search borrowing the user's authority and a report the organization intends to continue can require different treatment after the same transfer. Continuing the latter requires reviewing its purpose and next responsible operator.</p>
+<p>Removing a connection in a management interface does not establish that every issued credential immediately becomes unusable. <a href="https://www.rfc-editor.org/rfc/rfc7009.html">RFC 7009 on OAuth token revocation</a> discusses propagation delays and differences between access-token designs. It also notes configurations in which revoking a refresh token does not immediately invalidate an access token.</p>
+<p>The check proposed here distinguishes preventing new credential acquisition from refusing access with credentials already issued. It also measures the interval from requesting suspension to access being refused, and identifies which connections received the change. This is a condition to verify in each implementation, not a measurement of the named products' revocation delays.</p>
+<p>Invalidating credentials does not necessarily delete previously retrieved documents or summaries. Decide how stored material is retained or removed, and prevent results saved for one user from being reused for another without the appropriate access conditions. Stopping future access and handling information already held each need their own checks.</p>
 </section>
 <section class="report-section">
-<h2>Permission to reach an MCP server does not transfer to its downstream API</h2>
-<p>A delegated token is not a universal credential. The <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization">MCP 2025-11-25 authorization specification</a> defines authorization for HTTP transports and requires servers to verify that tokens were issued for them. When an MCP server calls another API, it uses a separate token intended for that API; it must not forward the token received from its client unchanged.</p>
-<p>In document search, the agent's access to an MCP server and that server's access to document storage belong to different connections. If storage access uses a shared permission that reads every employee's documents, authenticating the user at the entrance does not ensure that search results respect that user's permissions. The search service or storage service must apply the corresponding access conditions.</p>
-<p>The cited flow concerns HTTP connections; it does not impose the same OAuth procedure on local standard-input/output connections. Check the actual transport and authorization design instead of inferring them from an “MCP-compatible” label.</p>
+<h2>Access decisions and content inspection serve different purposes</h2>
+<p>Generated-content inspection cannot replace this permission design. Checking a summary for problematic language and deciding whether its source may be read examine different things. Retrieval with valid permissions still leaves the accuracy of the summary and purpose of sharing to be assessed.</p>
+<p>As a product example separating operation permission from the model's response, <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/">AgentCore Policy, generally available from March 3</a>, describes evaluating tool access and input conditions through Gateway, outside agent code. It illustrates handling identity and permission for a particular call through distinct mechanisms. Controls attached to that Gateway cannot be presumed to cover another connection path or the treatment of previously retrieved material.</p>
+<p>Comparing enterprise products is easier when identity issuance, operation authorization, content inspection, and record management are treated as separate functions. For our search example, compare who enforces the user's document access, who constrains recipients, and where access is refused after revocation. The useful question is whether the required decisions are placed along the actual work path.</p>
 </section>
 <section class="report-section">
-<h2>Test access decisions separately from generated-content checks</h2>
-<p>Checking a summary for problematic language differs from deciding whether the underlying document may be read. Content inspection does not replace access control. Conversely, permission to retrieve a document does not establish that its summary is accurate or its destination is appropriate.</p>
-<p>For a proposed document-search and external-send workflow, test both a request for an inaccessible document and an attempt to send an accessible document to an unauthorized destination. Identify which component refuses each operation and whether its records link the user, executing agent, and connection. Explaining those two tests provides better evidence of an effective permission design than adding more identity product names.</p>
+<h2>Continue permitted work while ending delegation that is no longer needed</h2>
+<p>A trial should include two people with different document access using the same agent. Check that search results and saved summaries do not mix, and that accessible and inaccessible documents are correctly distinguished. Add an attempt to send an accessible document to an unauthorized recipient, and identify which component refuses it.</p>
+<p>Then revoke delegation or disable the connection and separately examine new retrieval, access with issued credentials, and reuse of saved results. Also verify that users and recurring jobs outside the suspension continue their necessary work. This is the article's proposed test, not a claim that a particular product passed it. The operator should be able to explain the scope of suspension and what remains unresolved from its results.</p>
+<p>Agent identity management has value beyond the moment access is granted. It matters when a change in purpose or responsibility still leaves people able to decide whose authority is used, what continues, and what ends. A configuration that meets those conditions can let an operator stop one delegation while preserving the other necessary work.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -189,49 +214,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-03-28-video-generation-ai-product-landscape.html" aria-label="Choosing video AI by reference inputs and revision work">
+      <a class="article-card " href="/en/2026-03-28-video-generation-ai-product-landscape.html" aria-label="Compare video AI through revision: references, sound, and editing">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Strategy</span>
-        <time class="mono-note" datetime="2026-03-28">March 28, 2026</time>
+        <time class="mono-note" datetime="2026-03-28">Research cutoff March 28, 2026</time>
       </div>
-      <h3 class="article-card-title">Choosing video AI by reference inputs and revision work</h3>
-      <p class="article-card-copy">Compare reference inputs, sound, and editing through the changes a production request actually requires.</p>
+      <h3 class="article-card-title">Compare video AI through revision: references, sound, and editing</h3>
+      <p class="article-card-copy">Change the background, and the product changes too. Compare preservation, revision, and handoff through documented features from five vendors.</p>
       <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Video Generation</span><span class="meta-chip">Creative Tools</span><span class="meta-chip">AI Product</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 15</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Delegating meeting preparation to Cowork: drafts, calendar changes, and review">
+  </a><a class="article-card " href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Meeting preparation with Cowork: connecting evidence, analysis, and action">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-25">March 25, 2026</time>
+        <time class="mono-note" datetime="2026-03-25">Research cutoff March 25, 2026</time>
       </div>
-      <h3 class="article-card-title">Delegating meeting preparation to Cowork: drafts, calendar changes, and review</h3>
-      <p class="article-card-copy">Meeting preparation can include drafts and calendar changes. Define the review points for each before delegating the whole task.</p>
+      <h3 class="article-card-title">Meeting preparation with Cowork: connecting evidence, analysis, and action</h3>
+      <p class="article-card-copy">From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Cowork</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">Workflow</span><span class="meta-chip">Productivity</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 5</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="Evaluate agent readiness against the work your organization must complete">
+  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="Enterprise AI agents: define the job and who takes it back">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-21">March 21, 2026</time>
+        <time class="mono-note" datetime="2026-03-21">Research cutoff March 21, 2026</time>
       </div>
-      <h3 class="article-card-title">Evaluate agent readiness against the work your organization must complete</h3>
-      <p class="article-card-copy">A benchmark score is a starting point. Define completion and exceptions, then compare the agent with a simpler workflow.</p>
+      <h3 class="article-card-title">Enterprise AI agents: define the job and who takes it back</h3>
+      <p class="article-card-copy">A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p>
       <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Use Case</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 6</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -250,30 +275,70 @@
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">May 19, 2025</span>
               </div>
-              <p class="source-title">Microsoft: Build 2025 announcements</p>
+              <p class="source-title">Microsoft Build 2025: Entra Agent ID preview</p>
               <p class="source-url">https://blogs.microsoft.com/blog/2025/05/19/microsoft-build-2025-the-age-of-ai-agents-and-building-the-open-agentic-web/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://news.microsoft.com/ignite-2025-book-of-news/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">November 18, 2025</span>
+              </div>
+              <p class="source-title">Microsoft Ignite 2025 Book of News: section 5.2.1 Entra</p>
+              <p class="source-url">https://news.microsoft.com/ignite-2025-book-of-news/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">July 16, 2025</span>
               </div>
-              <p class="source-title">AWS: Introducing Amazon Bedrock AgentCore (July 16, 2025)</p>
+              <p class="source-title">AWS: Introducing Amazon Bedrock AgentCore (preview)</p>
               <p class="source-url">https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://auth0.com/blog/auth0-token-vault-secure-token-exchange-for-ai-agents/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">October 9, 2025</span>
+              </div>
+              <p class="source-title">Auth0 Token Vault: Secure Token Exchange for AI Agents</p>
+              <p class="source-url">https://auth0.com/blog/auth0-token-vault-secure-token-exchange-for-ai-agents/</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">November 25, 2025</span>
               </div>
               <p class="source-title">MCP 2025-11-25: Authorization</p>
               <p class="source-url">https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.rfc-editor.org/rfc/rfc7009.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">August 22, 2013</span>
+              </div>
+              <p class="source-title">IETF RFC 7009: OAuth 2.0 Token Revocation</p>
+              <p class="source-url">https://www.rfc-editor.org/rfc/rfc7009.html</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 3, 2026</span>
+              </div>
+              <p class="source-title">AWS: Policy in Amazon Bedrock AgentCore is now generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/</p>
             </div>
             <span class="source-action">Open</span>
           </a>

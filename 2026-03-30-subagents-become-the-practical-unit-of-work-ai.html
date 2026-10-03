@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか | Auto Research Digest</title>
-    <meta name="description" content="subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。">
+    <title>AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ | Auto Research Digest</title>
+    <meta name="description" content="subagentへの委任を、小型モデル、並列化、文脈、実行順序、途中記録から比較する。各社の設計と、根拠を返し統合する人の負担を分析。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか | Auto Research Digest">
-    <meta property="og:description" content="subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。">
+    <meta property="og:title" content="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ | Auto Research Digest">
+    <meta property="og:description" content="subagentへの委任を、小型モデル、並列化、文脈、実行順序、途中記録から比較する。各社の設計と、根拠を返し統合する人の負担を分析。">
     <meta property="og:url" content="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか">
+    <meta property="og:image:alt" content="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか | Auto Research Digest">
-    <meta name="twitter:description" content="subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。">
+    <meta name="twitter:title" content="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ | Auto Research Digest">
+    <meta name="twitter:description" content="subagentへの委任を、小型モデル、並列化、文脈、実行順序、途中記録から比較する。各社の設計と、根拠を返し統合する人の負担を分析。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか">
+    <meta name="twitter:image:alt" content="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ">
     <link rel="canonical" href="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-03-30T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:10:27+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Subagents">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Orchestration">
     <meta property="article:tag" content="LLM">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか","description":"subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。","datePublished":"2026-03-30T00:00:00+09:00","dateModified":"2026-09-20T17:10:27+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Subagents, Multi-Agent, Workflow, Orchestration, LLM","mainEntityOfPage":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか","item":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ","description":"subagentへの委任を、小型モデル、並列化、文脈、実行順序、途中記録から比較する。各社の設計と、根拠を返し統合する人の負担を分析。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Subagents, Multi-Agent, Workflow, Orchestration, LLM","mainEntityOfPage":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ","item":"https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか</h1>
-          <p class="hero-copy">三製品の調査を例に、委任、並列化、根拠の受け渡し、結果統合、最終承認を分け、単一担当との品質・時間・費用の比較方法を考える。</p>
+          <h1 class="hero-title">AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ</h1>
+          <p class="hero-copy">OpenAI、Anthropic、Google、Microsoft、AWSの設計を、三製品を比較する想定業務から読む。小型モデル、並列探索、文脈分離、順序制御、履歴と処理記録を分け、人が統合し直す負担まで含めて分担を選ぶ。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-03-30">2026年3月30日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2026-03-30">調査対象日 2026年3月30日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%81%AE%E4%BB%95%E4%BA%8B%E3%82%92subagent%E3%81%AB%E5%88%86%E3%81%91%E3%82%8B%E3%81%A8%E3%81%8D%E3%80%81%E4%BD%95%E3%82%92%E4%B8%A6%E5%88%97%E5%8C%96%E3%81%97%E4%BD%95%E3%82%92%E5%85%B1%E6%9C%89%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%81%AE%E4%BB%95%E4%BA%8B%E3%82%92subagent%E3%81%B8%E5%88%86%E3%81%91%E3%82%8B%EF%BC%9A%E8%AA%BF%E6%9F%BB%E3%81%AE%E5%AE%8C%E4%BA%86%E3%82%92%E3%80%81%E5%88%A4%E6%96%AD%E3%81%A7%E3%81%8D%E3%82%8B%E7%B5%90%E6%9E%9C%E3%81%B8%E3%81%A4%E3%81%AA%E3%81%90&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか"
-      data-share-text="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか"
+      data-share-title="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ"
+      data-share-text="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ"
       data-share-url="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか"
+      data-share-title="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ"
       data-share-url="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,67 +126,134 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>待ち時間を減らせる分担と、受け渡しを増やす分担</h2>
-<p>三つの製品の仕様を別々に調べる仕事なら、調査を同時に進められる。
-一方、原因を調べてから修正し、修正後にテストする仕事は、前の結果を待つ必要がある。
-どちらも三つに分けられるが、分割しただけで所要時間が短くなるわけではない。</p>
-<p>下位エージェント（subagent）は、主担当から限定した仕事を受け取るエージェントである。
-本稿では、2026年3月30日までの発表と設計資料から、何を分けると利点があり、何を分けると受け渡しの負担が増すかを考える。
-以下の製品比較は説明のための想定例である。</p>
+<h2>三つの調査が終わっても、比較は完成しない</h2>
+<p>新しく使うソフトを選ぶため、三つの製品をAIに調べてもらう。
+担当を分ければ、各社の資料を同時に読める。
+ところが戻った結果を見ると、一つは無料版、一つは法人版、もう一つは以前の仕様を調べていた。
+三つとも完成を報告しているが、人は条件をそろえる調査をやり直す。
+これは分担の仕組みを考える想定例だ。
+待ち時間が短くなることと、判断できる結果が早く届くことは同じではない。</p>
+<p>下位エージェント（subagent）は、主担当から限定した仕事を受け取り、その範囲で調査や実行を進めるエージェントである。
+本稿は2026年3月30日までのOpenAI、Anthropic、Google、Microsoft、AWSの公表資料から、仕事をどこで分けるかを考える。
+各社が同じ構成へ移ったという説明や、製品の速度順位を示すものではない。</p>
+<p>私の判断は、分担の単位を「調査担当」のような役割名だけで決めず、何を受け取り、どこまで自分で進め、何を返せば次の判断へ進めるかまで設計する、というものだ。
+分けた結果を人が最初から検証し直すなら、担当数を増やす価値は小さくなる。
+独立した仕事を進めつつ、統合に必要な条件と根拠を残すことが出発点になる。</p>
 </section>
 <section class="report-section">
-<h2>分担の前に、入力、返り値、統合、承認を決める</h2>
+<h2>小型モデルを使うことと、仕事を同時に進めること</h2>
+<p>OpenAIの<a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">3月17日のGPT-5.4 miniとnanoの発表</a>は、Codexで大きなモデルが計画や統合を担い、miniへコード探索、ファイルの確認、資料処理などを並列に委任する例を示す。
+nanoは分類や抽出などの用途に位置付けられるが、この発表ではAPIでの提供であり、Codexの下位担当として説明されているのはminiだ。</p>
+<p>ここには二つの選択がある。
+作業に応じてモデルを選ぶことと、複数の作業を同時に進めることだ。
+小型モデルへ順番に任せる構成も、同じモデルで複数の担当を動かす構成も考えられる。
+単価を下げた効果と、並列にした効果を一つの数字へ混ぜると、何が改善したか分からなくなる。</p>
+<p>想定例で製品名と版の抽出だけを任せるなら、確認できる入力と返却形式を絞れる。
+一方、資料間の矛盾を解き、用途に合う製品を選ぶ仕事には追加の探索と判断が要る。
+「下位担当だから簡単」とは限らない。
+狭い仕事へ分けた後も、その担当が曖昧さを解く力を持つかを確かめたい。</p>
+</section>
+<section class="report-section">
+<h2>前の結果を待つ仕事を、並列に置かない</h2>
+<p>三製品の資料収集は、利用目的と対象の版を先に決めれば独立に進めやすい。
+しかし比較表の統合は収集結果を待つ。
+統合後の推奨理由の確認も、その表が必要になる。
+同じ「三工程」でも、収集を三方向へ分けることと、収集・統合・確認を同時に始めることは違う。</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>委任する調査</h3>
-<p>製品ごとに、同じ利用目的、対象の版、比較項目、根拠URLを渡す。独立に調べられる仕事だけを並列に置く。</p>
-</article>
-<article class="comparison-card">
-<h3>返してもらう根拠</h3>
-<p>結論だけでなく、確認した事実、出典、不明な点を返す。後で主担当が原資料へ戻れる形にする。</p>
-</article>
-<article class="comparison-card">
-<h3>統合する判断</h3>
-<p>同じ条件で比較できるか、食い違いを解消する追加調査が必要かを主担当が判断する。多数決で事実を決めない。</p>
-</article>
-<article class="comparison-card">
-<h3>最終承認</h3>
-<p>公開、外部送信、共有ファイルの更新は、統合後に一つの担当者または明示した承認手順へ戻す。役割名だけで書き込み権限を与えない。</p>
-</article>
+<article class="comparison-card"><h3>同じ条件を渡す</h3><p>利用目的、対象の版、比較する機能、資料の対象日をそろえる。条件を決める前に各担当の調査を始めない。</p></article>
+<article class="comparison-card"><h3>独立した探索を任せる</h3><p>製品ごとに資料を探し、食い違いを確かめる。他の製品の結論を待たずに進められる範囲を分ける。</p></article>
+<article class="comparison-card"><h3>根拠を伴う結果を返す</h3><p>事実、URL、該当箇所、確認できない項目を返す。調査に失敗したことを、機能が存在しないという結論へ変えない。</p></article>
+<article class="comparison-card"><h3>比較できるかを判断する</h3><p>版や提供条件がそろった結果から比較する。不足があればその担当へ戻し、未確認の差を推奨理由にしない。</p></article>
 </div>
-<p>この順番を決めずに担当数だけを増やすと、並列に得た結果を比べられず、統合の待ち時間と修正が増えうる。</p>
+<p>これは本稿の想定工程であり、四つのエージェントを作る要件ではない。
+決められた三つのURLを取得するだけなら、ツール呼び出しの並列化で足りる場合がある。
+資料から新しい論点を見つけ、別の原典へ進む判断まで任せたいときに、下位エージェントを使う理由が生まれる。</p>
+<p>コード作業でも、原因の分析、修正、修正後のテストは前の結果に依存する。
+独立したモジュールの確認は並列にできても、同じ修正対象を別々に書き換えると統合が必要になる。
+職種のような役割名より、誰がどの結果を待つかから分担を決める方が、受け渡しを説明しやすい。</p>
 </section>
 <section class="report-section">
-<h2>小型モデルへの委任と、並列化の効果を分ける</h2>
-<p>OpenAIの3月17日の<a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">GPT-5.4 miniとnanoの発表</a>は、大きなモデルが計画や統合を担い、miniがコード探索などの狭い作業を担当する例を示している。
-これは、作業ごとにモデルを選ぶ具体的な使い方である。
-小型モデルを使うことと、複数の仕事を同時に動かすことは別の選択であり、順番に委任する構成もあり得る。</p>
-<p>Anthropicの<a href="https://www.anthropic.com/engineering/multi-agent-research-system">2025年6月の調査システム記事</a>は、独立した方向を並行して調べる方式の利点を報告する一方、多数の依存関係がある仕事には適しにくいと述べている。
-同社の観測では、マルチエージェントのトークン使用量は通常のチャットの約15倍だった。比較対象は単一エージェントではない。
-この数字は同社のデータであり、あらゆる分担の費用倍率ではないが、委任すれば必ず安くなるという説明には反証となる。</p>
-<p>製品比較では、三つの調査が並行でも、指示の作成、結果の統合、不足部分の調べ直しが残る。
-小型モデルの単価だけでなく、主担当と下位担当の総使用量、ツール待ち時間、再試行を含めて評価する必要がある。</p>
+<h2>文脈を分けても、根拠を落とさない</h2>
+<p>Anthropicの<a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDKの設計記事</a>は、下位担当が独立した文脈を持ち、関連する情報だけを調整役へ返す仕組みを説明する。
+製品ごとに長い資料を読んでも、主担当がその全履歴を抱える必要はない。
+この文脈管理は、並列速度とは別の利点として検討できる。</p>
+<p>ただし、短い結論だけを返すと、比較に必要な条件まで消える。
+「検索機能あり」という要約では、法人版限定か、外部接続が要るか、どの版で確認したかが分からない。
+私は、比較表の各項目から原資料へ戻れる形を勧める。
+本文をすべて複写する必要はないが、結論を変え得る条件を圧縮で落としてはいけない。</p>
+<p>最初の想定例なら、担当は確認した版と機能を根拠に結び付け、確認できない項目を空欄とは別に返す。
+主担当は同じ条件で比較できる項目だけを統合する。
+三つの担当が同意していても、同じ古い資料を読んだだけなら、新しい裏付けが三つ増えたことにはならない。</p>
+<p>反対に、主担当の会話や全資料を毎回すべて渡せば、文脈を分けた利点は小さくなる。
+共通の利用目的と制約は渡し、その担当が扱わない資料は必要なときに参照できるようにする。
+共有を減らすこと自体ではなく、判断に必要な情報を保って入力を限定することが目的だ。</p>
 </section>
 <section class="report-section">
-<h2>比較条件を共有し、探索結果を独立に返してもらう</h2>
-<p>「製品Aを調べて」だけでは、担当ごとに違うものを集めやすい。
-私は、同じ利用目的、対象の版、確認する項目、根拠URL、不明な点の返し方を先に指定することを勧める。
-ある担当が無料版、別の担当が法人版を調べた結果を統合しても、適切な比較にはならない。</p>
-<p>下位担当には確認した事実と出典、未確認事項を返してもらい、最終判断は三製品を同じ条件で比較できる段階で行う。
-要約だけでなく元資料に戻れるようにすると、結果が食い違ったときに再検証できる。
-複数の担当が同じ主張に同意しても、全員が同じ誤った資料を参照していれば、独立した裏付けにはならない。</p>
-<p>分担した役割も、それ自体では権限の制限にならない。
-調査だけを任せるなら、設定上も不要な更新操作を与えない構成にする。
-複数担当が同じファイルを書き換える必要がなければ、別々の結果を返して主担当が統合する方が、競合を避けやすい。</p>
+<h2>順序を固定する仕組みと、担当を選ぶ仕組み</h2>
+<p><a href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/docs/agents/workflow-agents/index.md">Google ADKの3月30日時点の文書</a>は、順次、並列、反復の制御を、モデルに毎回判断させずに行うワークフローを示す。
+下位担当の内部ではモデルを使えても、実行順序は決められた規則で制御する。
+既知の手順を扱うなら、調整役が毎回順番を考える必要はない。</p>
+<p>同じ時点の<a href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py">調査コードの例</a>は、三つの担当の要約を別々の項目へ保存し、全員の処理が終わってから統合担当へ渡す。
+並列に走らせることと、結果をどう共有するかを分けている。
+例の要約指示だけで本稿の根拠条件を満たすわけではなく、順序が正しくても調査内容の正しさは別に確かめる必要がある。</p>
+<p><a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">Bedrockの2025年3月の一般提供の発表</a>には、supervisorが仕事を分解して統合する方式と、簡単な依頼を専門担当へ直接振る方式がある。
+後者も複雑な依頼では調整役へ戻る。
+たとえば一製品の仕様確認と三製品の比較では、必要な調整が違うという見方ができる。
+この例は本稿の解釈であり、振り分けによる費用削減を測定したものではない。</p>
+<p>固定した工程と、結果に応じて探索先を変える担当は組み合わせられる。
+各社の名称を並べるより、順序を誰が決めるか、担当を誰が選ぶか、結果をどこへ置くかを比べる方が、自分の業務に必要な仕組みを選びやすい。</p>
 </section>
 <section class="report-section">
-<h2>単一担当の結果と比べて、分担を残すか決める</h2>
-<p>実行順序が決まっている仕事には、固定した手順も使える。
-<a href="https://adk.dev/agents/workflow-agents/">Google ADKのワークフロー説明</a>は、順次、並列、反復の制御を、モデルに都度判断させずに実行する構成を示している。
-調整役を増やす前に、必要なのが探索の分担か、既知の手順の実行かを区別するとよい。</p>
-<p>製品比較なら、単一担当と分担構成に同じ入力と完了条件を与え、仕様の正確さ、比較項目の欠落、総時間、費用、手戻りを比べる。
-結果の統合に時間がかかるなら分割条件を見直し、各調査が独立に進み効果が確認できれば分担を残す。
-エージェント数を増やすことを目標にせず、仕事の依存関係と比較結果から構成を選ぶのが本稿の提案である。</p>
+<h2>会話の続きと、処理の続きは別に残す</h2>
+<p>Microsoft Agent Frameworkの<a href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/agents/workflow_as_agent_with_session.py">3月30日時点のセッションの例</a>は、複数の担当を含むワークフローを一つのエージェントとして呼び、会話の履歴を次の呼び出しへ渡す。
+履歴を保存用の形式へ変え、そこから戻す例もある。
+内側の分担を保ちつつ、利用者が前の依頼に続けて話せる構成だ。</p>
+<p>しかし「前に何を頼んだか」を残すことと、「どの調査が終わったか」を残すことは違う。
+同時点の<a href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/checkpoint/workflow_as_agent_checkpoint.py">チェックポイントの例</a>は、会話履歴と処理途中の記録を分けて扱う。
+例で使う保存先はメモリ内であり、これだけでプロセスの終了後も復旧できるとは言えない。
+コード例は設計を示すもので、本稿で実行や障害復旧を検証した結果ではない。</p>
+<p>想定調査で一担当だけが失敗したときには、終わった二担当の結果、未完了の担当、使った比較条件を残す。
+失敗した担当をやり直した後は、どの結果が置き換わったかも分かるようにする。
+途中で対象の版を変えるなら、既存の二結果が新しい条件に合うかを再確認する。
+再開できても、違う条件の結果をつないでしまえば比較は成立しない。</p>
+</section>
+<section class="report-section">
+<h2>主担当は、結果を並べるだけでは済まない</h2>
+<p>分担した調査では、資料を読む負担の一部がAIへ移り、主担当には条件の食い違いを見つける仕事が残る。
+人が最終的な選択をするなら、採用する根拠と未確認の条件を見せる必要がある。
+長い完成報告を三つ渡すだけでは、その人が再び比較表を作ることになる。</p>
+<p>各担当には、何が分かれば終了してよいか、資料が見つからないときに何を返すかを決めておく。
+主担当は不足を確認して追加調査の範囲を絞る。
+担当全員に最初から調べ直させる方法は、独立した探索の利点を失いやすい。
+早く返った結果を採用する場合も、未完了の調査が推奨を変え得るかを示したい。</p>
+<p>役割名は操作権限を制限しない。
+調査だけを任せるなら、実行設定でも不要な更新操作を与えない。
+成果物は別々に返し、共有ファイルへの反映や外部送信を行う担当を明示する。
+ここで分担するのは仕事であり、最終判断の責任が自動的に消えるわけではない。</p>
+</section>
+<section class="report-section">
+<h2>節約した単価より、増えた総作業を見る</h2>
+<p>Anthropicの<a href="https://www.anthropic.com/engineering/multi-agent-research-system">2025年6月の調査システム記事</a>は、独立した方向へ探索を広げる利点と、依存関係が多い仕事での難しさを報告する。
+同社のデータでは、マルチエージェントは通常のチャットの約15倍のトークンを使った。
+比較相手は単一エージェントではなくチャットであり、あらゆる分担の費用倍率ではない。
+それでも、委任すれば必ず安くなるという説明はできない。</p>
+<p>三つの調査が同時に進んでも、最後の担当を待つ時間、依頼の作成、結果の統合、追加調査は残る。
+大きいモデルの使用量が減っても、小型モデルの呼び出しと再試行が増えれば総費用は変わる。
+人が条件をそろえ直す時間も、利用者が判断できる結果までの所要時間へ入れる必要がある。</p>
+<p>比較では、単一担当と分担構成に同じ依頼、対象資料、品質条件を与える。
+同じ総予算で品質を比べる試験と、同じ品質を満たすまでの時間と費用を比べる試験は分けて報告する。
+モデルも変えるならその差を記録し、並列化だけの効果とは説明しない。
+複数回試し、事実の誤り、比較項目の欠落、不採用の結果、統合と人の修正を含めて確かめたい。</p>
+</section>
+<section class="report-section">
+<h2>次の判断へ渡せる範囲で、仕事を分ける</h2>
+<p>一製品の短い仕様確認なら、単一担当や固定した取得手順で足りるかもしれない。
+三製品を独立に探索し、原資料へ戻れる結果を集められるなら、下位担当を使う理由がある。
+分担の価値は、AIが同時に働いている見た目ではなく、必要な深さで調べた結果から、人が判断を進められるかにある。</p>
+<p>まず一つの分担を試し、入力、探索範囲、返す根拠、統合の担当をそろえる。
+待ち時間の短縮より統合の手戻りが大きければ、分け方を見直す。
+モデル、文脈、順序、保存先を個別に選べることを使い、判断できる結果までの仕事が改善した分担を残す。
+それが、本稿で提案する下位エージェントの使い方だ。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -208,49 +275,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-04-06-voice-agents-become-operational-systems.html" aria-label="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか">
+      <a class="article-card " href="/2026-04-06-voice-agents-become-operational-systems.html" aria-label="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-06">2026年4月6日</time>
+        <time class="mono-note" datetime="2026-04-06">調査対象日 2026年4月6日</time>
       </div>
-      <h3 class="article-card-title">音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか</h3>
-      <p class="article-card-copy">「別の日に」という訂正を、音声再生だけでなく予約の保存結果まで反映する。</p>
+      <h3 class="article-card-title">音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ</h3>
+      <p class="article-card-copy">「別の日に」と言い直した後、何が聞こえ、どの日が保存され、次の担当は何を知るか。</p>
       <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 9</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-03-28-open-agent-protocol-stack.html" aria-label="MCP、A2A、AG-UIは何を受け渡すのか">
+  </a><a class="article-card " href="/2026-03-28-open-agent-protocol-stack.html" aria-label="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-28">2026年3月28日</time>
+        <time class="mono-note" datetime="2026-03-28">調査対象日 2026年3月28日</time>
       </div>
-      <h3 class="article-card-title">MCP、A2A、AG-UIは何を受け渡すのか</h3>
-      <p class="article-card-copy">三つの名称をそろえる前に、誰に何を渡すのかを決める。仕様の重なりと承認処理の違いを読む。</p>
+      <h3 class="article-card-title">MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか</h3>
+      <p class="article-card-copy">調査は終わった。では、返金も終わったのか。共通仕様が伝える完了と、人が次に動くための情報を比べる。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span><span class="meta-chip">AG-UI</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Protocol</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 7</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントの記憶を、検索・適用・更新に分けて設計する">
+  </a><a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントのメモリ設計　正しい検索が誤った判断になる理由">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-08">2026年4月8日</time>
+        <time class="mono-note" datetime="2026-04-08">調査対象日 2026年4月8日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの記憶を、検索・適用・更新に分けて設計する</h3>
-      <p class="article-card-copy">正しく思い出しても誤る理由を、条件の適用と記憶の更新から考える。</p>
+      <h3 class="article-card-title">AIエージェントのメモリ設計　正しい検索が誤った判断になる理由</h3>
+      <p class="article-card-copy">正しく思い出すだけでは足りない。変わった希望を更新し、次の仕事で使う条件まで考える。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 12</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -269,30 +336,80 @@
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年3月17日</span>
               </div>
-              <p class="source-title">OpenAI: GPT-5.4 mini and nano (March 2026)</p>
+              <p class="source-title">OpenAI: Introducing GPT-5.4 mini and nano</p>
               <p class="source-url">https://openai.com/index/introducing-gpt-5-4-mini-and-nano/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年9月29日</span>
+              </div>
+              <p class="source-title">Anthropic: Building agents with the Claude Agent SDK</p>
+              <p class="source-url">https://claude.com/blog/building-agents-with-the-claude-agent-sdk</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/docs/agents/workflow-agents/index.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月30日</span>
+              </div>
+              <p class="source-title">Google ADK: workflow agents, March 30 snapshot</p>
+              <p class="source-url">https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/docs/agents/workflow-agents/index.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月30日</span>
+              </div>
+              <p class="source-title">Google ADK: parallel research and synthesis example, March 30 snapshot</p>
+              <p class="source-url">https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年3月10日</span>
+              </div>
+              <p class="source-title">AWS: Amazon Bedrock announces general availability of multi-agent collaboration</p>
+              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/agents/workflow_as_agent_with_session.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月30日</span>
+              </div>
+              <p class="source-title">Microsoft Agent Framework: workflow as agent with session, March 30 snapshot</p>
+              <p class="source-url">https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/agents/workflow_as_agent_with_session.py</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/checkpoint/workflow_as_agent_checkpoint.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月30日</span>
+              </div>
+              <p class="source-title">Microsoft Agent Framework: checkpoint sample, March 30 snapshot</p>
+              <p class="source-url">https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/checkpoint/workflow_as_agent_checkpoint.py</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2025年6月13日</span>
               </div>
-              <p class="source-title">Anthropic: Multi-agent research system (June 2025)</p>
+              <p class="source-title">Anthropic: How we built our multi-agent research system</p>
               <p class="source-url">https://www.anthropic.com/engineering/multi-agent-research-system</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://adk.dev/agents/workflow-agents/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Google ADK: Workflow agents</p>
-              <p class="source-url">https://adk.dev/agents/workflow-agents/</p>
             </div>
             <span class="source-action">開く</span>
           </a>

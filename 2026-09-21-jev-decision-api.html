@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jevが狙う「判断API」とLLMの使い分け | Auto Research Digest</title>
-    <meta name="description" content="JevをBERT、生成LLM、Structured Outputsと比較。確率を返す判断APIを安全に導入するための評価、閾値、人手確認、規則の分担を整理する。">
+    <title>Jevの判断API：LLM・分類器との違いと評価方法 | Auto Research Digest</title>
+    <meta name="description" content="JevのChoice・Noul・Scoreを問い合わせ処理で解説。BERTやStructured Outputsとの比較、較正、自動処理率、誤りと確認負担から導入条件を考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Jevが狙う「判断API」とLLMの使い分け | Auto Research Digest">
-    <meta property="og:description" content="JevをBERT、生成LLM、Structured Outputsと比較。確率を返す判断APIを安全に導入するための評価、閾値、人手確認、規則の分担を整理する。">
+    <meta property="og:title" content="Jevの判断API：LLM・分類器との違いと評価方法 | Auto Research Digest">
+    <meta property="og:description" content="JevのChoice・Noul・Scoreを問い合わせ処理で解説。BERTやStructured Outputsとの比較、較正、自動処理率、誤りと確認負担から導入条件を考える。">
     <meta property="og:url" content="https://research.notelligent.app/2026-09-21-jev-decision-api.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Jevが狙う「判断API」とLLMの使い分け">
+    <meta property="og:image:alt" content="Jevの判断API：LLM・分類器との違いと評価方法">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Jevが狙う「判断API」とLLMの使い分け | Auto Research Digest">
-    <meta name="twitter:description" content="JevをBERT、生成LLM、Structured Outputsと比較。確率を返す判断APIを安全に導入するための評価、閾値、人手確認、規則の分担を整理する。">
+    <meta name="twitter:title" content="Jevの判断API：LLM・分類器との違いと評価方法 | Auto Research Digest">
+    <meta name="twitter:description" content="JevのChoice・Noul・Scoreを問い合わせ処理で解説。BERTやStructured Outputsとの比較、較正、自動処理率、誤りと確認負担から導入条件を考える。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Jevが狙う「判断API」とLLMの使い分け">
+    <meta name="twitter:image:alt" content="Jevの判断API：LLM・分類器との違いと評価方法">
     <link rel="canonical" href="https://research.notelligent.app/2026-09-21-jev-decision-api.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-09-21-jev-decision-api.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-09-21-jev-decision-api.html">
@@ -42,16 +42,15 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-09-21T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-21T01:01:07+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Strategy">
     <meta property="article:tag" content="LLM">
     <meta property="article:tag" content="Classification">
     <meta property="article:tag" content="AI Architecture">
     <meta property="article:tag" content="Evaluation">
     <meta property="article:tag" content="AI Agent">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"LLMはすべてのif文を置き換えるのか。Jevが切り出す「判断API」","description":"JevをBERT、生成LLM、Structured Outputsと比較。確率を返す判断APIを安全に導入するための評価、閾値、人手確認、規則の分担を整理する。","datePublished":"2026-09-21T00:00:00+09:00","dateModified":"2026-09-21T01:01:07+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, Classification, AI Architecture, Evaluation, AI Agent","mainEntityOfPage":"https://research.notelligent.app/2026-09-21-jev-decision-api.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-09-21-jev-decision-api.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/topics/ai-strategy/"},{"@type":"ListItem","position":4,"name":"LLMはすべてのif文を置き換えるのか。Jevが切り出す「判断API」","item":"https://research.notelligent.app/2026-09-21-jev-decision-api.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える","description":"JevのChoice・Noul・Scoreを問い合わせ処理で解説。BERTやStructured Outputsとの比較、較正、自動処理率、誤りと確認負担から導入条件を考える。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, Classification, AI Architecture, Evaluation, AI Agent","mainEntityOfPage":"https://research.notelligent.app/2026-09-21-jev-decision-api.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-09-21-jev-decision-api.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/topics/ai-strategy/"},{"@type":"ListItem","position":4,"name":"LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える","item":"https://research.notelligent.app/2026-09-21-jev-decision-api.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,21 +66,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">LLMはすべてのif文を置き換えるのか。Jevが切り出す「判断API」</h1>
-          <p class="hero-copy">Jevは、閉じた選択肢と確率を返すTypeSafe AIの判断モデルである。BERT、生成LLM、Structured Outputsとの違いを整理し、曖昧な判断を安全にソフトウェアへ組み込む条件を考える。</p>
+          <h1 class="hero-title">LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える</h1>
+          <p class="hero-copy">Jevは、自然言語の意味を確率付きの判断としてソフトウェアへ渡すモデルだ。問い合わせ処理を例に、分類器や生成LLMとの違い、確率と正答率、実行条件と導入評価をつなげて考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-strategy/">AI Strategy</a>
-        <time class="mono-note" datetime="2026-09-21">2026年9月21日</time>
+        <time class="mono-note" datetime="2026-09-21">調査対象日 2026年9月21日</time>
         
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">Classification</span><span class="meta-chip">AI Architecture</span><span class="meta-chip">Evaluation</span><span class="meta-chip">AI Agent</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=LLM%E3%81%AF%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AEif%E6%96%87%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B%E3%81%AE%E3%81%8B%E3%80%82Jev%E3%81%8C%E5%88%87%E3%82%8A%E5%87%BA%E3%81%99%E3%80%8C%E5%88%A4%E6%96%ADAPI%E3%80%8D&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-09-21-jev-decision-api.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=LLM%E3%81%AF%E3%81%99%E3%81%B9%E3%81%A6%E3%81%AEif%E6%96%87%E3%82%92%E7%BD%AE%E3%81%8D%E6%8F%9B%E3%81%88%E3%82%8B%E3%81%AE%E3%81%8B%E3%80%82Jev%E3%81%AE%E5%88%A4%E6%96%ADAPI%E3%82%92%E8%80%83%E3%81%88%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-09-21-jev-decision-api.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="LLMはすべてのif文を置き換えるのか。Jevが切り出す「判断API」"
-      data-share-text="LLMはすべてのif文を置き換えるのか。Jevが切り出す「判断API」"
+      data-share-title="LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える"
+      data-share-text="LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える"
       data-share-url="https://research.notelligent.app/2026-09-21-jev-decision-api.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="LLMはすべてのif文を置き換えるのか。Jevが切り出す「判断API」"
+      data-share-title="LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える"
       data-share-url="https://research.notelligent.app/2026-09-21-jev-decision-api.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -125,158 +125,79 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>文章を書かせたいわけではないのに、なぜLLMを呼ぶのか</h2>
-<p>「この問い合わせは返金依頼か」。「この契約に自動更新条項はあるか」。「この取引を人の審査へ回すべきか」。</p>
-<p>どれも、業務ソフトウェアにはありふれた問いである。</p>
-<p>必要なのは説明文でも企画書でもなく、次の処理を分岐させる判断だ。</p>
-<p>それでも実装では、汎用の生成LLMに質問を渡し、文章かJSONを返させ、その値を読んで処理を決めることが多い。</p>
-<p>この使い方が常に過剰とは限らない。</p>
-<p>問い合わせの理由を説明し、必要な追加情報を尋ね、例外を処理するなら、生成モデルの柔軟さが必要になる。</p>
-<p>しかし、閉じた候補から選ぶだけの場面では、「文章を書いてほしいわけではないのに、なぜ文章生成モデルを使うのか」という問いが残る。</p>
-<p>TypeSafe AIが2026年9月15日に早期公開したJevは、この問いを製品の出発点にした。<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev">TypeSafe AIの発表</a>によれば、Jevは入力された状態と型付きの質問を受け、文章ではなく、選択肢、尺度、または真偽に対応する構造化された回答と確率を返す。</p>
-<p>本稿では、この製品が提示する層を<strong>判断API</strong>と呼ぶ。</p>
-<p>これは確立した業界分類ではない。</p>
-<p>生成、計算、実行を担うモデルとは別に、自然言語を読んだうえで、アプリケーションがあらかじめ定めた候補から判断を返す部品を指す、本稿の整理である。</p>
+  <h2>問い合わせを読めても、処理はまだ決まらない</h2>
+  <p>「二重に請求されています。先月は使っていません。もう解約したい」。この問い合わせを読めば、請求の相談と解約の希望が含まれていることは分かる。しかし、担当部署への振り分け、請求記録の照合、返金の可否、返信の作成は、それぞれ違う仕事である。以下は、この分担を考えるための想定例であり、Jevの導入実績ではない。</p>
+  <p>すべてを一度に生成LLMへ頼むと、柔軟な説明と業務の実行が同じ回答に混ざる。逆に、単語の一致だけで振り分けると、否定や複数の用件を取りこぼす。欲しいのは、自然言語の曖昧さを読み取り、その結果を既知の処理へ渡せる接点だ。ここに、TypeSafe AIが9月15日に発表した判断モデルJevを見る意味がある。</p>
+  <p>本稿の判断は、Jevがすべてのif文を置き換えるというものではない。<strong>意味を読む部分を確率付きの判断として切り出せれば、規則を実行するコードと、文章を作るLLMの役割を分けやすくなる。</strong>ただし、型に合う値が返ることと、その値で仕事を進めてよいことは、別に確かめる必要がある。</p>
 </section>
+
 <section class="report-section">
-<h2>現場では、学習済み分類器と汎用LLMの間が空いていた</h2>
-<p>従来の選択肢をBERTとLLMだけに還元すると、歴史を単純化しすぎる。</p>
-<p>ゼロショット分類は以前から研究されており、ラベル付きのタスク別データを見ずに分類する設定も2019年には体系的に評価されている。<a href="https://aclanthology.org/D19-1404/">Yinらの論文</a></p>
-<p>それでも実務の設計は、しばしば二つの作業様式の間で選ばれてきた。</p>
-<div class="comparison-grid">
-<article class="comparison-card">
-<h3>学習済み分類器</h3>
-<p>対象ラベルを決め、データを集め、ラベル付けし、評価してから配備する。BERTは事前学習済み表現にタスク固有の出力層を加えて微調整できる設計を示した。<a href="https://arxiv.org/abs/1810.04805">BERT論文</a></p>
-</article>
-<article class="comparison-card">
-<h3>汎用の生成LLM</h3>
-<p>新しい問いにも、その場の指示で答えられる。生成、説明、複数の条件をまたぐ推論まで一回の呼び出しに含められる一方、判断だけでも生成モデルの呼び出しになる。</p>
-</article>
-<article class="comparison-card">
-<h3>Jevの判断API</h3>
-<p>状態と閉じた質問を渡し、候補、尺度、真偽と確率を返す。モデルの自由度を、アプリケーション側が定めた判断空間へ絞る。</p>
-</article>
-</div>
-<p>この図は性能の序列ではない。</p>
-<p>手書きの規則で決まる条件、文章や説明が必要な仕事、訓練済みモデルが十分に高精度な領域は、それぞれ残る。</p>
-<p>Jevの着眼点は、両端のどちらが賢いかではなく、自然言語を読む必要はあるが、開いた文章を返す必要はない分岐を、独立した呼び出しとして扱ったことにある。</p>
+  <h2>新しさは「学習不要の分類」だけでは説明できない</h2>
+  <p>分類器は以前から、この接点を担ってきた。<a href="https://arxiv.org/abs/1810.04805v1" target="_blank" rel="noopener noreferrer">BERTの論文</a>では、文章の表現に分類層を加え、正解ラベルを使って追加学習する方法を示している。分類体系が安定し、十分なラベル付きデータがあるなら、このような専用の分類器は比較に残すべきだ。Jevの登場だけで、既存の方法が不要になるわけではない。</p>
+  <p>追加学習なしに、ラベルの説明から文章を分類する考え方も新発明ではない。<a href="https://aclanthology.org/D19-1404/" target="_blank" rel="noopener noreferrer">Yinらのゼロショット分類研究</a>は、話題、感情、状況の異なる分類を、文章とラベルの関係を判定する問題として扱った。業務ごとの学習データを見ない設定も評価している。「学習せずに使える」という説明だけでは、Jev固有の価値は分からない。</p>
+  <p>Jevについて注目したいのは、呼び出す側が質問と候補を渡し、通常のプログラムで扱える判断を受け取る設計である。分類ラベルが案件ごとに変わる仕事では、固定の分類器を作り直す負担を減らせる可能性がある。一方で、候補の定義や入力の整備が不要になるわけではない。手間がどこへ移るのかまで比較して、採用を決めたい。</p>
 </section>
+
 <section class="report-section">
-<h2>Jevは、閉じた判断を三つの型で受け取る</h2>
-<p>JevのHTTP APIは、アプリケーションの状態と質問の対応表を受け取り、各質問に一つの回答を返す。<a href="https://docs.typesafe.ai/api">API仕様</a></p>
-<p>質問の識別子はアプリケーションが決め、モデルに渡るのは質問文、選択肢、判定基準である。</p>
-<div class="comparison-grid">
-<article class="comparison-card">
-<h3>Choice</h3>
-<p>定義した候補から一つを選ぶ。問い合わせ先を返金、技術、営業のどこへ送るかのような判断に使い、各候補の確率と信頼度も返す。<a href="https://docs.typesafe.ai/primitives/choice">Choiceの仕様</a></p>
-</article>
-<article class="comparison-card">
-<h3>Score</h3>
-<p>あらかじめ説明した順序尺度上で状態を評価する。重大度や緊急度のように、候補間に順序がある判断へ向く。<a href="https://docs.typesafe.ai/primitives/score">Scoreの仕様</a></p>
-</article>
-<article class="comparison-card">
-<h3>Noul</h3>
-<p>真偽を問い、真である確率を0から1で返す。返金要求が含まれるかのような二値の判断に使う。<a href="https://docs.typesafe.ai/primitives/noul">Noulの仕様</a></p>
-</article>
-</div>
-<p>分類器らしく見えるのは、ここだけを見れば当然である。</p>
-<p>ただし、回答候補と評価基準は呼び出し時にアプリケーションが渡せる。</p>
-<p>今日の分類を<code>refund / support / sales</code>として定義し、明日は<code>abuse</code>を追加する変更は、再学習の開始ではなく、質問と評価ケースを更新する変更になる。</p>
-<p>この可変性が、Jevを固定の分類モデルではなく、分類器を作る行為の一部をAPIへ移した製品として見せる。</p>
+  <h2>生成LLMも、決められた型で答えられる</h2>
+  <p>型のある回答は、Jevだけの能力でもない。<a href="https://openai.com/index/introducing-structured-outputs-in-the-api/" target="_blank" rel="noopener noreferrer">OpenAIのStructured Outputs</a>は、開発者が指定したJSON Schemaに合わせて生成結果を制約する。ただし、拒否や生成の途中終了には別の扱いが必要で、型に合う値の中にも誤りは残り得ると説明している。形式が整うことと、内容の正しさを混同してはいけない。</p>
+  <p>TypeSafeは、Jevが文章を生成せず、限定された判断を並列に返す設計だと説明している。ここから考えられる価値は、長い返答を後から解析する工程を減らせることだ。ただし、生成LLMにも型を制約した呼び出しを用意すれば、似た接続は作れる。比較すべきなのは接続できるかどうかに加え、同じ仕事をどの精度、時間、費用で終えられるかである。</p>
+  <p>Jevが用件を読み、コードが請求記録を照合し、生成LLMが確認済みの結果から返信を作る。冒頭の問い合わせなら、このような分担が考えられる。説明文を作る能力が必要な場所では生成LLMを残し、判断だけが必要な場所でJevを比較する。使うモデルを一つに統一することより、必要な出力を決めることが先だ。</p>
 </section>
+
 <section class="report-section">
-<h2>Structured Outputsと競合するのは、出力形式ではない</h2>
-<p>「安価なLLMにStructured OutputsでJSONを返させればよい」という反論は正しい。</p>
-<p>OpenAIのStructured Outputsは、開発者が渡したJSON Schemaにモデル出力を適合させる機能であり、型が崩れた出力を受け取らないという目的には有力である。<a href="https://openai.com/index/introducing-structured-outputs-in-the-api/">OpenAIの発表</a></p>
-<p>したがって、形式だけを理由にJevを選ぶことはできない。</p>
-<p>Schemaに従うJSONと、事実に即した正しい判断は別の性質だからだ。</p>
-<p>この二つの経路は、次のように分けて考えるとよい。</p>
-<div class="comparison-grid">
-<article class="comparison-card">
-<h3>生成LLMとStructured Outputs</h3>
-<p>汎用モデルを、決めた構造の回答器として使う。説明、例外処理、抽出、推論も必要なら、一つのモデル呼び出しに含められる。</p>
-</article>
-<article class="comparison-card">
-<h3>Jev</h3>
-<p>閉じた判断を最初からAPI契約にし、各候補の確率と信頼度を返す。文章の説明を返す用途には使えない。</p>
-</article>
-</div>
-<p>TypeSafeは、出力を逐次的に生成するLLMと対比し、Jevでは複数の質問を同じ状態に対して並列に評価すると説明する。<a href="https://docs.typesafe.ai/introduction">Introduction</a></p>
-<p>同社のワークフロー評価も、分解した質問とコードによる制御を前提にしている。<a href="https://evals.typesafe.ai/">Workflow evals</a></p>
-<p>ただし、これはベンダー自身が作ったハーネスと、外部モデルの合議ラベルを基準にした評価である。</p>
-<p>同社もハーネス設計者による偏りの可能性を記しているため、速度や費用の主張を、独立した精度比較の結論として扱うことはできない。</p>
-<p>Jevが「より賢い」から選ばれるとは限らない。</p>
-<p>生成の自由度を捨て、候補と確率をソフトウェアの一級の入力にしたいときに、設計上の適合が生まれる。</p>
+  <h2>三つの出力は、違う質問に答える</h2>
+  <p>公開された<a href="https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_schemas/models.py" target="_blank" rel="noopener noreferrer">SDKのAPI定義</a>には、Choice、Noul、Scoreの回答がある。どれも数値を含むが、意味は同じではない。冒頭の問い合わせに当てはめると、次の違いが見える。</p>
+  <div class="comparison-grid">
+    <article class="comparison-card"><h3>Choice：一つを選ぶ</h3><p>主な用件を「請求」「技術相談」「その他」から選び、候補ごとの確率を返す。複数の用件が同時に成立するかを知りたいなら、一つのChoiceへ押し込めない。</p></article>
+    <article class="comparison-card"><h3>Noul：命題を確かめる</h3><p>「利用者は解約を希望しているか」のような命題に、真である確率を返す。0.5付近は、その命題の真偽が不確かという意味であり、解約希望の強さが中程度という意味ではない。</p></article>
+    <article class="comparison-card"><h3>Score：段階を評価する</h3><p>定義した対応の緊急度など、順序のある段階ごとの確率と加重平均を返す。平均値は段階の間にもなり得るため、それだけで対応を決めず、段階の定義と分布も見る。</p></article>
+  </div>
+  <p>例えば「緊急度2」という同じ平均でも、中程度に確率が集まる場合と、低い段階と高い段階に割れる場合では、確認したい内容が違う。これは出力の読み方を示す例であり、Jevの実測結果ではない。数値が一つあるから判断が明確になるのではなく、何を数値にしたかが明確である必要がある。</p>
+  <p><a href="https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_core/question_types.py" target="_blank" rel="noopener noreferrer">質問の定義</a>では、指示や候補の説明を呼び出し側が指定する。「請求」の範囲に解約相談を含めるか、緊急度を何で区別するかは、業務側の設計だ。モデルへの質問を作る作業は、曖昧だった処理条件を言葉にする作業でもある。</p>
 </section>
+
 <section class="report-section">
-<h2>学習は不要になっても、判断の設計と評価は消えない</h2>
-<p>Jevを「学習なしで使える分類器」と呼ぶことには、説明としての強さがある。</p>
-<p>タスクごとの重み更新を、利用企業が最初から行わずに済むからだ。</p>
-<p>しかし、「要件を書いてAPIを呼べば分類が完成する」と読むと誤る。</p>
-<p>分類の責任が消えるのではなく、ラベル、判定基準、閾値、例外の設計としてアプリケーション側へ移る。</p>
-<div class="comparison-grid">
-<article class="comparison-card">
-<h3>微調整分類器の変更</h3>
-<p>要件をラベル定義へ変え、データを収集してラベル付けし、訓練と評価を経てモデルを配備する。新しいラベルは、この機械学習の流れを更新する契機になる。</p>
-</article>
-<article class="comparison-card">
-<h3>判断APIの変更</h3>
-<p>要件を質問と判定基準へ変え、通常例と境界例の評価セットを作り、行動の閾値と人への引き渡し条件を定める。新しいラベルは、質問、評価、分岐規則を更新する契機になる。</p>
-</article>
-</div>
-<p>後者は、機械学習の運用を不要にするとは言えない。</p>
-<p>少なくとも、判断ごとに固有の訓練データを集めて再学習する工程を、初期導入の必須条件から外せる可能性がある。</p>
-<p>その代わり、誰が<code>abuse</code>に含まれる事例を定義し、どの誤分類を許容せず、どの回答を人に渡すかを、ソースコードと評価記録で追えるようにしなければならない。</p>
-<p>確率の扱いも自動化の許可証ではない。</p>
-<p>ニューラルネットワークの確率は校正されていないことがあり、校正は個々の回答の正しさを保証する性質ではない。<a href="https://arxiv.org/abs/1706.04599">Guoらの研究</a></p>
-<p>TypeSafeのドキュメントも、校正は予測の集合に対する性質であり、個別の回答を保証しないと説明する。<a href="https://docs.typesafe.ai/concepts/system-one">System Oneの仕様</a></p>
+  <h2>確率の集中と、実際の正答率を分ける</h2>
+  <p>ChoiceとScoreにはconfidenceもあるが、それを業務全体の正解確率として読むのは危険だ。例えば、比較用の<a href="https://github.com/typesafe-ai/system-one-adapter-python/blob/adffc2eab300a4fa3c0e92252d4ffd6ceaa53700/src/system_one_adapter/_utils/confidence_metrics.py" target="_blank" rel="noopener noreferrer">公式LLMアダプターの実装</a>は、Choiceの確率が一つにどれだけ集中しているかを、一様な分布を基準に計算する。候補が三つで確率が0.8、0.1、0.1なら、この実装のconfidenceは0.7になる。これは計算例であり、Jevサーバーの出力を測定した値ではない。</p>
+  <p>一方、<a href="https://arxiv.org/abs/1706.04599v1" target="_blank" rel="noopener noreferrer">Guoらが扱う較正</a>は、予測確率と実際の正答率の対応である。0.8程度と予測した案件を集めたとき、およそ8割が正しかったかを確かめる。単独の問い合わせに0.8が付いても、その一件の正しさを保証する証明にはならない。較正の確認にも十分な件数と、業務に合う正解が必要だ。</p>
+  <p>さらに、用件の分類が正しくても、返金条件が満たされているとは限らない。請求記録が古い、正しい用件が候補にない、担当者に実行権限がない、といった失敗は別に残る。出力確率、確率の集中、業務結果の正しさを分けて記録すれば、誤りが起きたときに直す対象を見つけやすくなる。</p>
 </section>
+
 <section class="report-section">
-<h2>確率はif文を置き換えるのではなく、if文へ入力する</h2>
-<p>判断APIを業務へ組み込むとき、モデルの出力を直接、外部操作に結び付けるべきではない。</p>
-<p>返金、本人確認、送金、公開のように誤りのコストが異なる操作では、必要な証拠と行動条件も異なる。</p>
-<p>たとえば問い合わせを振り分ける想定例では、モデルは担当候補を出し、プログラムが必須項目、信頼度、操作権限を順番に確かめる。</p>
-<pre><code>if missing_required_record(ticket):
-    route_to_human(ticket)
-elif decision.confidence &lt; ROUTING_THRESHOLD:
-    route_to_human(ticket)
-elif decision.choice == "refund":
-    open_refund_review(ticket)
-else:
-    route_to_support_queue(ticket, decision.choice)
-</code></pre>
-<p>これは実在する導入例ではなく、判断と行動の責任を分けるための想定例である。</p>
-<p>モデルは問い合わせを読む。</p>
-<p>プログラムは、何を自動処理でき、何を確認へ戻すかを決める。</p>
-<p>TypeSafeも、問い合わせを決定的な処理、専門LLM、人の担当者へ振り分ける設計を例示し、低い信頼度や高い複雑さを人へ戻している。<a href="https://docs.typesafe.ai/patterns/intent-routing">Intent routingの仕様</a></p>
-<p>高リスク操作には、正解らしい分類よりも、誤ったときに停止できる分岐、操作前の決定的な照合、監査できる記録が必要になる。</p>
-<p>この分担があるとき、AIはアプリケーションの中心で自由に振る舞うエージェントではなく、プログラムの途中で何度も呼ばれる「曖昧なif文」になる。</p>
+  <h2>質問を分けても、入力と候補の責任は残る</h2>
+  <p><a href="https://github.com/typesafe-ai/skills/blob/65a39f393687675ce170e6094757de20370365b9/skills/typesafe-ai/SKILL.md" target="_blank" rel="noopener noreferrer">TypeSafeの開発ガイド</a>は、既知の規則、計算、正確な検索、実行をコードに残し、意味の判断を質問として切り出す分担を勧める。また、同じ呼び出しの質問は独立に評価され、互いの回答を読むわけではないと説明している。並列に答えられることは、必要な確認の順番を省けることではない。</p>
+  <p>「解約を希望しているか」と「請求への不満があるか」は同じ文章から別々に聞ける。しかし、請求記録を取得してからでないと判定できない条件は、先に取得する必要がある。前の判断結果が次の入力を変えるなら、コードで結果を受け、状態を更新してから次の呼び出しへ進む。</p>
+  <p>候補の漏れも重要だ。「請求」と「技術相談」しか渡さなければ、そこにない用件を正しく選べない。「その他」や判定を保留する経路を設計し、必要な情報が欠けた状態も試すべきだ。細かく分解しただけで頑健になるのではなく、それぞれの質問に必要な証拠と、回答の使い道を合わせることで改善を狙う。</p>
 </section>
+
 <section class="report-section">
-<h2>Jevを試すなら、正答率より先に止まる条件を決める</h2>
-<p>Jevの型安全性は、意味の安全性を保証しない。</p>
-<p>Jev 1.13の公開ドキュメントには、数値計算、日時比較、複数段の間接的な問い、不要な情報を含む長い入力、敵対的な内容が失敗要因として記載されている。文章生成も用途外である。<a href="https://docs.typesafe.ai/model-jaggedness/jev-1.13">Jev 1.13の既知の限界</a></p>
-<p>このため導入の比較対象は、Jevだけではない。</p>
-<p>手書き規則、既存の微調整分類器、Structured Outputsを使う汎用LLM、人の確認を含め、同じ評価セットで比べる必要がある。</p>
-<ul>
-<li>通常例だけでなく、対象外、矛盾、曖昧、攻撃的な入力を評価セットに入れる。</li>
-<li>判断の種類ごとに、誤って通すことと、人へ回しすぎることの費用を分けて測る。</li>
-<li>高信頼度の回答でも抽出監査し、誤りが見つかれば質問、判定基準、閾値、または規則を更新する。</li>
-<li>モデル更新で回答が変わるため、閾値を調整した運用ではバージョンを固定し、変更時に再評価する。<a href="https://docs.typesafe.ai/models">Modelsの仕様</a></li>
-</ul>
-<p>選択的分類の研究は、誤りのリスクと自動判定の対象範囲を交換する考え方を扱ってきた。<a href="https://arxiv.org/abs/1705.08500">GeifmanとEl-Yanivの論文</a></p>
-<p>Jevの確率と信頼度は、この交換を実装しやすくする入力にはなり得る。</p>
-<p>ただし、適切な閾値と対象範囲は、製品が一律に決められるものではない。</p>
+  <h2>判断APIを、実行可能な処理へ接続する</h2>
+  <p>想定例を処理へ戻すと、まず問い合わせと必要な記録を集め、Jevで用件と解約希望を判定する。次にコードで顧客と請求の対応、契約の状態、定義済みの条件を確認する。情報不足なら確認待ちへ送る。実行できる処理が決まってから、生成LLMにその結果を使った返信案を作らせる。返金という言葉を読み取っただけで、返金処理を走らせる設計にはしない。</p>
+  <p>この接続には、判断の誤り以外の失敗もある。<a href="https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_core/client/sync/client.py" target="_blank" rel="noopener noreferrer">SDKの呼び出し仕様</a>は、接続や時間切れ、APIの失敗、回答形式の検証失敗を区別している。アプリケーション側でも、必要な回答がそろったか、どのモデルで判定したかを確認し、失敗時に実行を進めない処理を用意する必要がある。</p>
+  <p>人の仕事も変わる。問い合わせをすべて読み直すのか、不確かな案件だけ確認するのかで、負担は違う。保留の理由と入力の根拠が分かれば担当者は判断しやすいが、数値だけ渡されると再調査が必要になる。自動化の価値は、APIの呼び出しが速いことに加え、確認と修正を含む仕事が軽くなることで測りたい。</p>
 </section>
+
 <section class="report-section">
-<h2>残るのはJevそのものではなく、判断を部品にする需要かもしれない</h2>
-<p>Jevが長期に勝つかどうかは、まだ判断できない。</p>
-<p>早期公開直後のベンダー評価は、汎用LLM、既存の分類器、業務データを横断した独立比較ではない。</p>
-<p>一方で、生成LLMのSchema準拠、ゼロショット分類、信頼度に基づく棄却は、すでに別々の技術として存在していた。</p>
-<p>Jevはそれらを「状態を読み、閉じた判断と確率を返し、コードが行動を決める」という一つの製品契約にまとめた。</p>
-<p>この契約が定着すれば、AIは会話画面や自律エージェントだけでなく、問い合わせの振り分け、文書の判定、危険度の見積もり、確認への差し戻しという小さな分岐へ入っていく。</p>
-<p>Jevの注目点は、モデルの万能さではない。</p>
-<p>「生成AIほど重くなく、固定の分類器ほど変更しにくくない」中間の仕事に、判断APIという設計上の居場所を与えたことにある。</p>
+  <h2>ベンダーの比較は、何を正解にしたかまで読む</h2>
+  <p><a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">Jevの発表</a>は、同じ処理手順で各モデルを比較し、高性能な外部モデルの予測を平均して参照確率に使う評価を説明している。これは、決められた手順にモデルを組み込む比較として興味深い。一方、その参照は人が独立に確定した業務の正解とは異なるため、実際の問い合わせの処理成功率とは読めない。</p>
+  <p>発表には、開発チームが評価を作ったことによる偏り、短く情報密度の高い入力による実演の有利さ、米国西海岸からの速度測定も記されている。これらは隠すべき注記ではなく、結果を自分の環境へ移せるかを判断する条件だ。長い日本語の問い合わせや、記録取得を含む処理でも同じ優位があるかは、別に確かめる必要がある。</p>
+  <p>比較用の<a href="https://github.com/typesafe-ai/system-one-adapter-python/blob/adffc2eab300a4fa3c0e92252d4ffd6ceaa53700/README.md" target="_blank" rel="noopener noreferrer">LLMアダプター</a>には、確率を返す方式と、離散的な回答だけを返す方式がある。確率を求める比較と、用件ラベル一つだけを求める比較では、時間や費用の条件が変わる。Jevの性能を過大にも過小にも評価しないために、必要な出力、入力、再試行、接続条件を合わせたい。</p>
+</section>
+
+<section class="report-section">
+  <h2>自動で進める件数と、誤りを同時に評価する</h2>
+  <p>導入を決めるなら、実際の業務から確認用の案件を用意し、候補と正解、情報不足で保留すべき条件を人が定義する。その一部で質問や閾値を調整し、残りで評価する。モデル名、質問文、候補、入力の作り方を固定し、日本語と英語、複数の用件、未知の用件で結果を分ける。平均の正答率だけでは、困る案件がどこに残るか分からない。</p>
+  <p><a href="https://arxiv.org/abs/1705.08500v1" target="_blank" rel="noopener noreferrer">選択的分類の研究</a>は、判断を保留できる分類器を、答えた案件での誤りと、答えた割合の関係で評価する。ここでは、その視点を自動処理へ応用したい。論文の保証をそのままJevに移すのではなく、自分の案件で「どれだけ進め、どれだけ誤るか」を測るのである。</p>
+  <p>例えば、1,000件中400件を自動で進め、そのうち4件で誤れば、自動処理率は40%、その範囲の誤り率は1%だ。厳しい条件で200件へ減らし、誤りが1件になれば20%と0.5%になる。これは比較方法を示す想定値である。後者がよいかは、誤りの影響と、残った案件を確認する人の時間で変わる。閾値を上げても高い確信を持つ誤りは残り得るため、誤りの内容も読む。</p>
+  <p>待ち時間は再試行や記録取得を含めて測り、平均だけでなく遅い案件も見る。費用も一回の推論価格に加え、人の確認、修正、再処理を含める。記録の取得や回答の欠落など、モデル以外の失敗を含む全案件を分母にすれば、判断モデルを導入した結果、仕事全体が改善したかを評価できる。</p>
+</section>
+
+<section class="report-section">
+  <h2>if文を減らす前に、何を判断させるかを決める</h2>
+  <p>Jevは、自然言語を読む能力を文章生成から切り離し、ソフトウェアの判断に使う方向を示している。その価値が出やすいのは、候補を定義でき、意味の読み取りに手書きの規則が追いつかず、保留した案件を別の経路で扱える仕事だ。安定した分類なら専用分類器、説明の作成なら生成LLMという比較は引き続き必要になる。</p>
+  <p>冒頭の問い合わせで減らしたいのは、「二重」という語があれば請求担当へ送る、といった脆い判定である。請求記録が確認できたか、定義済みの条件を満たすか、実行に必要な確認が済んだか、という分岐は残す。そこを明示してこそ、判断が外れても原因を追い、処理を修正できる。</p>
+  <p>判断APIを採用する理由は、AIへ任せる範囲を広げること自体にはない。<strong>曖昧な意味を扱う部分を改善しながら、人とコードが確かめるべき条件を見える形に保ち、処理の誤りと修正負担を減らせるか。</strong>その問いに答えられたとき、Jevは新しいモデルの紹介を超えて、業務を変える選択肢になる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -298,49 +219,49 @@ else:
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-08-12-beyond-ai-agents-hacw.html" aria-label="HACWで、人の承認を次回の自動処理へ引き継ぐ条件">
+      <a class="article-card " href="/2026-08-12-beyond-ai-agents-hacw.html" aria-label="人とAIが仕事を引き継ぐHACW　実行の先に残る協働の課題">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Strategy</span>
-        <time class="mono-note" datetime="2026-08-12">2026年8月12日</time>
+        <time class="mono-note" datetime="2026-08-12">調査対象日 2026年8月12日</time>
       </div>
-      <h3 class="article-card-title">HACWで、人の承認を次回の自動処理へ引き継ぐ条件</h3>
-      <p class="article-card-copy">請求書の承認を例に、判断記録から検査可能な業務ルールへ変える手順と限界を考える。</p>
+      <h3 class="article-card-title">人とAIが仕事を引き継ぐHACW　実行の先に残る協働の課題</h3>
+      <p class="article-card-copy">AIが完成した文章を返すだけでは、翌日の担当者へ仕事の前提は渡らない。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">HACW</span><span class="meta-chip">AI Workspace</span><span class="meta-chip">Orchestration</span><span class="meta-chip">AI Governance</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 11</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-03-24-why-ai-products-converge-on-chat-ui.html" aria-label="生成AIのチャットと編集画面は、どの作業を分担するのか">
+  </a><a class="article-card " href="/2026-03-24-why-ai-products-converge-on-chat-ui.html" aria-label="生成AIのチャットUIに、いつ編集や計画の画面を足すか">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Strategy</span>
-        <time class="mono-note" datetime="2026-03-24">2026年3月24日</time>
+        <time class="mono-note" datetime="2026-03-24">調査対象日 2026年3月24日</time>
       </div>
-      <h3 class="article-card-title">生成AIのチャットと編集画面は、どの作業を分担するのか</h3>
-      <p class="article-card-copy">「読みやすくして」と伝えることと、「この段落だけ」と指すこと。会話と直接操作の役割を比較する。</p>
+      <h3 class="article-card-title">生成AIのチャットUIに、いつ編集や計画の画面を足すか</h3>
+      <p class="article-card-copy">依頼を伝えることと、直す箇所を指すことは違う。編集、共有、計画、定型フォームを加える理由を比べる。</p>
       <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Chat Interface</span><span class="meta-chip">Product Design</span><span class="meta-chip">Workflow</span><span class="meta-chip">UX</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 10</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="AIエージェントの誤操作を、回答と実行記録から評価する">
+  </a><a class="article-card " href="/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="AIエージェント評価を、仕事の直し方につなげる">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-07-11">2026年7月11日</time>
+        <time class="mono-note" datetime="2026-07-11">調査対象日 2026年7月11日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの誤操作を、回答と実行記録から評価する</h3>
-      <p class="article-card-copy">同じ正しい回答でも、承認前に保存した実行は不合格になる。その違いを判定する記録と規則を示す。</p>
+      <h3 class="article-card-title">AIエージェント評価を、仕事の直し方につなげる</h3>
+      <p class="article-card-copy">得点が上がったとき、仕事の何がよくなったのか。実行記録から修正する場所を選ぶ。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 7</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -361,88 +282,28 @@ else:
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2026年9月15日</span>
               </div>
-              <p class="source-title">TypeSafe AI: Introducing System One Models &amp; Jev</p>
+              <p class="source-title">TypeSafe: Introducing System One Models &amp; Jev</p>
               <p class="source-url">https://typesafe.ai/blog/introducing-system-one-models-and-jev</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.typesafe.ai/introduction" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/1810.04805v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2018年10月11日</span>
               </div>
-              <p class="source-title">TypeSafe AI Docs: Introduction</p>
-              <p class="source-url">https://docs.typesafe.ai/introduction</p>
+              <p class="source-title">BERT</p>
+              <p class="source-url">https://arxiv.org/abs/1810.04805v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.typesafe.ai/concepts/system-one" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://aclanthology.org/D19-1404/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
-                <span class="source-kind is-official">official</span>
+                <span class="source-kind ">paper</span>
                 
               </div>
-              <p class="source-title">TypeSafe AI Docs: System One</p>
-              <p class="source-url">https://docs.typesafe.ai/concepts/system-one</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.typesafe.ai/api" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">TypeSafe AI Docs: API reference</p>
-              <p class="source-url">https://docs.typesafe.ai/api</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.typesafe.ai/confidence" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">TypeSafe AI Docs: Confidence</p>
-              <p class="source-url">https://docs.typesafe.ai/confidence</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.typesafe.ai/patterns/intent-routing" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">TypeSafe AI Docs: Intent routing</p>
-              <p class="source-url">https://docs.typesafe.ai/patterns/intent-routing</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.typesafe.ai/model-jaggedness/jev-1.13" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年9月17日</span>
-              </div>
-              <p class="source-title">TypeSafe AI Docs: Jev 1.13 jaggedness</p>
-              <p class="source-url">https://docs.typesafe.ai/model-jaggedness/jev-1.13</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.typesafe.ai/models" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">TypeSafe AI Docs: Models</p>
-              <p class="source-url">https://docs.typesafe.ai/models</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://evals.typesafe.ai/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">TypeSafe AI: Workflow evals</p>
-              <p class="source-url">https://evals.typesafe.ai/</p>
+              <p class="source-title">Benchmarking Zero-shot Text Classification</p>
+              <p class="source-url">https://aclanthology.org/D19-1404/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://openai.com/index/introducing-structured-outputs-in-the-api/" target="_blank" rel="noopener noreferrer">
@@ -455,44 +316,84 @@ else:
               <p class="source-url">https://openai.com/index/introducing-structured-outputs-in-the-api/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/1810.04805" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_schemas/models.py" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2018年10月11日</span>
+                <span class="source-kind is-official">official</span>
+                
               </div>
-              <p class="source-title">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</p>
-              <p class="source-url">https://arxiv.org/abs/1810.04805</p>
+              <p class="source-title">typesafe-sdk-python: src/typesafe_sdk/_schemas/models.py</p>
+              <p class="source-url">https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_schemas/models.py</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://aclanthology.org/D19-1404/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_core/question_types.py" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2019年11月1日</span>
+                <span class="source-kind is-official">official</span>
+                
               </div>
-              <p class="source-title">Benchmarking Zero-shot Text Classification: Datasets, Evaluation and Entailment Approach</p>
-              <p class="source-url">https://aclanthology.org/D19-1404/</p>
+              <p class="source-title">typesafe-sdk-python: src/typesafe_sdk/_core/question_types.py</p>
+              <p class="source-url">https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_core/question_types.py</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/1706.04599" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.com/typesafe-ai/system-one-adapter-python/blob/adffc2eab300a4fa3c0e92252d4ffd6ceaa53700/src/system_one_adapter/_utils/confidence_metrics.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">system-one-adapter-python: src/system_one_adapter/_utils/confidence_metrics.py</p>
+              <p class="source-url">https://github.com/typesafe-ai/system-one-adapter-python/blob/adffc2eab300a4fa3c0e92252d4ffd6ceaa53700/src/system_one_adapter/_utils/confidence_metrics.py</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/1706.04599v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2017年6月14日</span>
               </div>
               <p class="source-title">On Calibration of Modern Neural Networks</p>
-              <p class="source-url">https://arxiv.org/abs/1706.04599</p>
+              <p class="source-url">https://arxiv.org/abs/1706.04599v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/1705.08500" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.com/typesafe-ai/skills/blob/65a39f393687675ce170e6094757de20370365b9/skills/typesafe-ai/SKILL.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">skills: skills/typesafe-ai/SKILL.md</p>
+              <p class="source-url">https://github.com/typesafe-ai/skills/blob/65a39f393687675ce170e6094757de20370365b9/skills/typesafe-ai/SKILL.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_core/client/sync/client.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">typesafe-sdk-python: src/typesafe_sdk/_core/client/sync/client.py</p>
+              <p class="source-url">https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_core/client/sync/client.py</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/typesafe-ai/system-one-adapter-python/blob/adffc2eab300a4fa3c0e92252d4ffd6ceaa53700/README.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">system-one-adapter-python: README.md</p>
+              <p class="source-url">https://github.com/typesafe-ai/system-one-adapter-python/blob/adffc2eab300a4fa3c0e92252d4ffd6ceaa53700/README.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/1705.08500v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2017年5月23日</span>
               </div>
               <p class="source-title">Selective Classification for Deep Neural Networks</p>
-              <p class="source-url">https://arxiv.org/abs/1705.08500</p>
+              <p class="source-url">https://arxiv.org/abs/1705.08500v1</p>
             </div>
             <span class="source-action">開く</span>
           </a>

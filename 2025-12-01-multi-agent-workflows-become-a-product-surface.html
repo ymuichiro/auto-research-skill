@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認 | Auto Research Digest</title>
-    <meta name="description" content="Foundryの複数エージェントワークフローを、図とYAMLの定義、実行経路、評価、承認が支える別々の判断から整理する。">
+    <title>Foundryの複数エージェント設計：工程の間で値と根拠を渡す | Auto Research Digest</title>
+    <meta name="description" content="Foundryの複数エージェントワークフローを分析。アカウント申請を例に、図とYAML、JSON Schema、変数、照合、承認の根拠をどう受け渡すか考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認 | Auto Research Digest">
-    <meta property="og:description" content="Foundryの複数エージェントワークフローを、図とYAMLの定義、実行経路、評価、承認が支える別々の判断から整理する。">
+    <meta property="og:title" content="Foundryの複数エージェント設計：工程の間で値と根拠を渡す | Auto Research Digest">
+    <meta property="og:description" content="Foundryの複数エージェントワークフローを分析。アカウント申請を例に、図とYAML、JSON Schema、変数、照合、承認の根拠をどう受け渡すか考える。">
     <meta property="og:url" content="https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認">
+    <meta property="og:image:alt" content="Foundryの複数エージェント設計：工程の間で値と根拠を渡す">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認 | Auto Research Digest">
-    <meta name="twitter:description" content="Foundryの複数エージェントワークフローを、図とYAMLの定義、実行経路、評価、承認が支える別々の判断から整理する。">
+    <meta name="twitter:title" content="Foundryの複数エージェント設計：工程の間で値と根拠を渡す | Auto Research Digest">
+    <meta name="twitter:description" content="Foundryの複数エージェントワークフローを分析。アカウント申請を例に、図とYAML、JSON Schema、変数、照合、承認の根拠をどう受け渡すか考える。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認">
+    <meta name="twitter:image:alt" content="Foundryの複数エージェント設計：工程の間で値と根拠を渡す">
     <link rel="canonical" href="https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html">
@@ -42,16 +42,15 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-12-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T14:36:16+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Multi-Agent">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認","description":"Foundryの複数エージェントワークフローを、図とYAMLの定義、実行経路、評価、承認が支える別々の判断から整理する。","datePublished":"2025-12-01T00:00:00+09:00","dateModified":"2026-09-20T14:36:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Multi-Agent, Workflow, Governance","mainEntityOfPage":"https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認","item":"https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Foundryの複数エージェント設計：工程の間で値と根拠を渡す","description":"Foundryの複数エージェントワークフローを分析。アカウント申請を例に、図とYAML、JSON Schema、変数、照合、承認の根拠をどう受け渡すか考える。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Multi-Agent, Workflow, Governance","mainEntityOfPage":"https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Foundryの複数エージェント設計：工程の間で値と根拠を渡す","item":"https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,21 +66,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認</h1>
-          <p class="hero-copy">Foundry Agent Serviceの2025年11月公開プレビューは、複数エージェントの経路を図とYAMLで定義し、実行経路と変数を追い、評価器を使う部品を示した。アカウント申請の想定例で、これら四つの成果物が別の判断を支える理由を整理する。</p>
+          <h1 class="hero-title">Foundryの複数エージェント設計：工程の間で値と根拠を渡す</h1>
+          <p class="hero-copy">Foundryの図、YAML、変数、JSON Schemaは、複数エージェントの受け渡しを明示する。アカウント申請の想定例で、抽出した候補、台帳で確かめた値、実際の承認を分け、型の検査や担当の追加だけでは得られない確認を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-12-01">2025年12月1日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2025-12-01">調査対象日 2025年12月1日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Governance</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Foundry%E3%81%AE%E8%A4%87%E6%95%B0%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E3%83%95%E3%83%AD%E3%83%BC%E3%81%A7%E5%88%86%E3%81%8B%E3%82%8C%E3%82%8B%E3%80%81%E5%AE%9A%E7%BE%A9%E3%83%BB%E5%AE%9F%E8%A1%8C%E3%83%BB%E8%A9%95%E4%BE%A1%E3%83%BB%E6%89%BF%E8%AA%8D&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-12-01-multi-agent-workflows-become-a-product-surface.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Foundry%E3%81%AE%E8%A4%87%E6%95%B0%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E8%A8%AD%E8%A8%88%EF%BC%9A%E5%B7%A5%E7%A8%8B%E3%81%AE%E9%96%93%E3%81%A7%E5%80%A4%E3%81%A8%E6%A0%B9%E6%8B%A0%E3%82%92%E6%B8%A1%E3%81%99&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-12-01-multi-agent-workflows-become-a-product-surface.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認"
-      data-share-text="Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認"
+      data-share-title="Foundryの複数エージェント設計：工程の間で値と根拠を渡す"
+      data-share-text="Foundryの複数エージェント設計：工程の間で値と根拠を渡す"
       data-share-url="https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認"
+      data-share-title="Foundryの複数エージェント設計：工程の間で値と根拠を渡す"
       data-share-url="https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,48 +126,136 @@
   </section>
     <section class="article-body"><section class="report-section">
   <p class="section-kicker">問い</p>
-  <h2>複数エージェントの経路を見える形にすると、誰が何を判断できるのか</h2>
-  <p>複数のエージェントをつないだ処理では、担当名を矢印で結ぶだけではレビューできない。前の工程から何を受け取り、どの条件で分岐し、どの入力が次の工程へ渡り、失敗時にどこで止まったかを区別して読む必要がある。<a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundry Agent Serviceの複数エージェントワークフロー</a>は、2025年11月の公開プレビューとして、その経路を図とYAMLで定義し、実行を追い、評価するための部品を示した。</p>
-  <p>本稿の主張は、ワークフローを可視化したこと自体が業務上の正しさや承認を証明するわけではない、ということである。経路の定義、実際に通った経路の記録、結果の評価、外部操作の承認は、互いに参照し合っても別の成果物である。アカウント申請の想定例を通じ、それぞれがどの判断を支えるかを分ける。</p>
+  <h2>次のエージェントは、渡された値を何として信用するか</h2>
+  <p>社員が「営業用のアカウントを、プロジェクトの間だけ使いたい」と申請する。
+最初のエージェントは部署名と役割と期限を読み取り、次のエージェントは申請書を作る。
+ところが「営業」が部署の正式名称なのか、利用目的なのかは未確認だった。
+この想定例では、整った形式で値を渡すほど、前段の推定が後段で確定済みの事実に見える危険がある。</p>
+  <p>11月25日に発表された<a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundry Agent Serviceの複数エージェントワークフロー</a>は、図とYAML、変数、構造化出力で工程をつなぐ公開プレビューである。
+担当名と矢印だけでなく、何を次へ渡し、どの条件で分岐するかを定義する部品が示された。
+これにより、複数エージェントの受け渡しを、実装者以外も確認する対象にできる。</p>
+  <p>本稿が重視するのは、値を渡せることに加え、その値の意味と根拠を渡すことだ。
+申請文から読み取った値、台帳で確かめた値、まだ推定の値、管理者が許可した内容を分ける。
+後段が何を信用してよいかを明確にすることが、役割を増やす前に必要な設計になる。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">公開プレビューの範囲</p>
-  <h2>図とYAMLは可能な経路を定義し、実行記録は通った経路を示す</h2>
-  <p>Microsoftの発表では、視覚的な編集とYAML定義が相互に更新される。処理はノードと接続で表し、エージェント出力をローカル変数へ保存し、後段で参照できる。JSON Schemaによる構造化出力、条件や変換に使うPower Fx式、保存ごとに作られる不変版も説明されている。図とYAMLは、どの入力がどの工程へ渡り得るか、どの分岐を意図したかをレビューするための定義である。</p>
-  <p>実行記録は別の問いに答える。発表は、エージェント呼び出し、入出力、変数代入、選んだ分岐経路を段階ごとに追跡できると説明する。これは、ある入力で定義どおりの分岐を通ったか、どの値で停止したかを調べる材料になる。ただし、初期リリースの観測はワークフロー内の個々のFoundryエージェントが中心である。画面に経路が表示されることだけから、すべての外部システムの状態まで追跡できるとは言えない。</p>
+  <p class="section-kicker">公開機能</p>
+  <h2>図とYAMLで、受け渡しと分岐を確認する</h2>
+  <p>Foundryの発表は、視覚的な編集とYAML定義が相互に更新され、エージェントの出力をローカル変数へ保存して後段で参照できると説明する。
+出力の形にはJSON Schema、条件分岐や変換にはPower Fx式を使う。
+保存ごとの不変版も説明されている。
+これは、曖昧な会話だけで作業を引き継ぐ方法とは異なり、受け渡す項目と分岐条件を明示する仕組みである。</p>
+  <p>アカウント申請なら、部署の照合が終わった場合と、候補が複数ある場合を別の経路にできる。
+図を見る担当者は、部署を読み取る工程から、登録する工程へ直接進んでいないかを確認できる。
+YAMLを見る開発者は、次の工程へどの変数を渡すかを調べられる。
+この例の具体的な項目や経路は、本稿の提案であって、製品に用意された申請処理ではない。</p>
+  <p>ただし、定義は可能な経路を示すもので、実行済みの事実ではない。
+不変の手順版があっても、参照する台帳が変われば、同じ申請への照合結果は変わり得る。
+受け渡しの定義を保存することと、どの入力・資料でその値が得られたかを残すことを分けて考えたい。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">型の限界</p>
+  <h2>文字列として正しくても、部署として正しいとは限らない</h2>
+  <p>JSON Schemaは、項目の型や必須項目など、データの構造に条件を付けるための仕組みである。
+部署名を文字列、役割を配列にそろえることには意味がある。
+後段が想定外の形を受け取り、処理できなくなる失敗を減らせるためだ。
+しかし、存在しない部署名も文字列としては正しく、配列に並んだ役割がその社員に適するかは別に確かめる必要がある。</p>
+  <p>有効期限にも注意が要る。
+<a href="https://json-schema.org/draft/2020-12/json-schema-validation">JSON Schema Draft 2020-12の検証仕様</a>は、<code>format</code>を注釈として扱う場合と、値の適合を検査する場合を分ける。
+日付の形式を指定するだけで、必ず日付として検査されるとは限らない。
+Foundryが使う仕様の版や検証設定は、この発表だけでは確定しないので、実際の処理で確認したい。</p>
+  <p>さらに、正しい日付でも、申請に書かれたプロジェクト期間と一致するとは限らない。
+期限が不明なときに、形式を満たすためだけに日付を推測して入れれば、型の検査を通る代わりに不確実さを隠してしまう。
+読み取りに成功した項目と不足した項目を別に返すことが、次の工程を正しく止める手掛かりになる。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">想定例の受け渡し</p>
+  <h2>抽出した値を、照合済みの値へ進める</h2>
+  <p>ここから、申請を三つの段階で扱う設計を考える。
+最初の段階は、申請者の識別情報と原文を保持し、部署、希望する役割、期限の候補を取り出す。
+「営業用」しか書かれていない場合は、正式な部署IDへ置き換えず、用途の記述と部署不明という結果を渡す。
+どの文から候補を読み取ったかも、必要な範囲で残す。</p>
+  <p>次の照合段階では、社員台帳と役割の一覧を使う。
+申請者に対応する部署が一つに定まるか、希望する役割が許可された候補か、期間が規則に合うかを確かめる。
+部署の候補が複数なら補足依頼へ進み、台帳を取得できないなら未確認のまま止める。
+確認できないことを、部署が存在しないことや、許可されたことへ読み替えない。</p>
+  <p>その結果を申請書にするときは、読み取った希望と、照合で確かめた項目を区別する。
+申請ID、参照した台帳と役割一覧の版、不足情報を結び付ければ、担当者は判断の根拠へ戻れる。
+これらの項目は、本稿が提案する受け渡しの設計であり、Foundryが自動で保存する情報の一覧ではない。
+また、原文や個人情報をすべて後段へコピーする必要もなく、確認に必要な部分を選ぶことが重要になる。</p>
   <div class="comparison-grid mt-6">
     <article class="comparison-card">
-      <h3>定義が支える判断</h3>
-      <p>予定した工程、入出力の形、条件分岐、変数、版をレビューできる。定義は「この入力ならこの経路が可能」という設計を表すが、実行済みの事実ではない。</p>
+      <h3>値の形をそろえる</h3>
+      <p>部署は文字列、役割は配列、必要な項目は必須とする。
+後段が受け取れる形式を定める。</p>
     </article>
     <article class="comparison-card">
-      <h3>実行記録が支える判断</h3>
-      <p>特定の入力で通ったノード、変数の更新、分岐、停止箇所を調べられる。記録だけでは、入力の事実性や外部操作の妥当性を判定しない。</p>
+      <h3>値を信用できる範囲を示す</h3>
+      <p>原文由来の候補、台帳で確認した値、取得失敗、不足、実際の承認を区別する。
+形式に合う値を確定済みと誤読させない。</p>
     </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">想定例</p>
-  <h2>アカウント申請では、経路・実行・評価・承認を四つの成果物として扱う</h2>
-  <p>ここからは本稿の想定例である。従業員の業務用アカウント申請を処理する。第一の工程は申請文から部署、必要な役割、有効期限を抽出し、決められたJSON形式へ入れる。第二の工程は部署台帳と役割カタログを照合し、不足情報や許可されない組み合わせがあれば補足依頼へ分岐する。第三の工程は、照合結果を含む申請書を管理者へ渡す。承認を受けた後にだけ、別の登録処理がアカウントを作成する。</p>
-  <p>この流れでは、図またはYAMLが第一の成果物である。抽出、照合、補足依頼、管理者確認、登録という経路と、工程間で渡す項目を固定する。第二の成果物は一回ごとの実行記録である。たとえば、部署名が台帳にないため補足依頼へ分岐したこと、役割カタログのどの版で照合したことを調べる。第三の成果物は評価結果である。発表が挙げる組み込み評価器または組織が作る評価器を使い、部署・役割・期限が必須形式を満たすか、規則に反する組み合わせを通していないかを検査する。</p>
-  <p>第四の成果物である承認は、管理者が誰にどの役割をいつまで許可したかを示す別の記録である。エージェントが出力した真偽値や、Schemaに合う「承認済み」という文字列は承認記録にならない。承認後に役割や期限が変わった場合は、元の承認を再利用してよいかを業務規則として決める。この例はFoundryの既定の申請処理や導入実績ではなく、公開された定義・追跡・評価の部品をどのように分けて使うかを説明するためのものだ。</p>
+  <p class="section-kicker">承認と実行</p>
+  <h2>「承認済み」という出力を、管理者の許可と取り違えない</h2>
+  <p>照合が終わっても、登録してよいという判断が済んだとは限らない。
+この想定例では、管理者が申請者、役割、期限を見て許可した記録を、アカウント作成の前提にする。
+エージェントが出した真偽値や「承認済み」という文字列だけでは、その管理者が許可した証拠にならない。</p>
+  <p>管理者が三か月の閲覧権限を認めた後、申請書が期限なしの編集権限へ変われば、同じ承認では登録できないようにする。
+誰に何をいつまで認めたかを、実際の登録内容と照合する必要がある。
+権限を変更する操作に進む前に、この一致をアプリ側で確かめる。
+これは人の承認を条件とする本稿の設計例であり、あらゆる処理に人の確認が必要だという主張ではない。</p>
+  <p>登録処理の後も、申請書の完成とアカウント作成の完了は別だ。
+外部の登録先が失敗を返したり、結果が不明だったりすれば、申請を完了と表示する根拠は足りない。
+照合結果、承認記録、登録先の実際の結果を結び付けることで、どの段階まで済んだかを担当者へ伝えられる。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">評価と制約</p>
-  <h2>型の検査や評価器は、承認の代わりにならない</h2>
-  <p>JSON Schemaは、工程間で渡す値の形をそろえるのに役立つ。部署名が文字列であり、役割が配列であり、有効期限が日付形式であることを検査できる。しかし、存在しない部署名も文字列になり得るし、役割の組み合わせが規程に合うかは型だけでは分からない。組み込み評価器やカスタム評価器も、品質、安全性、組織固有の規則を測るための材料であり、組織が定めた承認者の判断を自動的に置き換えるものではない。</p>
-  <p>したがって試行では、正常な申請だけを流さない。部署名が存在しない入力、管理者承認前の登録要求、承認後に役割が変わった申請、途中で外部ディレクトリ照会が失敗した処理を用意する。経路定義が期待どおり止まり、実行記録で原因を追え、評価がどの規則に反したかを示し、登録処理が承認記録なしに動かないかを別々に確かめる。</p>
+  <p class="section-kicker">動的な計画との比較</p>
+  <h2>探索の順序を変えても、推定を事実へ変えない</h2>
+  <p>工程の受け渡しを明示することは、すべての手順を固定することとは異なる。
+<a href="https://arxiv.org/html/2411.04468v1">Magentic-Oneの研究</a>は、統括エージェントが計画を立て直す構成を示す。
+タスクの記録に事実、推測、計画を置き、進捗の記録で次の担当や作業を決める。
+ブラウザー、ファイル、コードを扱う担当を、状況に応じて使う研究例である。</p>
+  <p>申請であれば、どの資料から不足情報を探すかは変えてよい場合がある。
+一方、根拠が得られない部署や期限を、計画を進めるために確認済みへ変えてはいけない。
+Magentic-OneとFoundryは、同じ実装や同じ性能を示す比較ではない。
+前者の動的な計画と後者の明示的な受け渡しを比べることで、柔軟な探索と、信用できる値の範囲は別に設計できると考えられる。</p>
+  <p>複数エージェントが同じ値に同意しても、独立した確認とは限らない。
+最初の担当が推測した部署を次の担当が申請書へ写し、確認担当もその申請書だけを読めば、同じ推定が三回繰り返される。
+確認担当が台帳や原文へ戻れる受け渡しにすることが、担当を増やすだけでは得られない検証になる。</p>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">動的な計画との関係</p>
-  <h2>調べる順序を変えても、固定すべき条件は残る</h2>
-  <p><a href="https://arxiv.org/abs/2411.04468v1">Magentic-Oneの研究</a>は、統括エージェントが進捗を追跡し、誤りから回復するために計画を立て直し、ブラウザー、ファイル、コードを扱う担当へ作業を振り分ける構成を提示した。これは、複数エージェントがあらかじめ固定された順番だけで動く必要はないことを示す研究例である。Foundryのプレビュー機能との性能比較や、同じ実装であることを意味しない。</p>
-  <p>申請で不足情報を調べる順序は、状況に応じて変えてよい場合がある。それでも、登録前に必要な照合と管理者承認を満たすという条件は変えない。柔軟にしてよい探索や補足の工程と、必ず残す承認・記録・停止条件を分けることが、見えるワークフローを業務へつなぐ前提になる。</p>
+  <p class="section-kicker">実行から調べる</p>
+  <h2>どの工程で、不確かな値が確定扱いになったか</h2>
+  <p>Foundryの発表は、呼び出し、入出力、変数代入、分岐経路の追跡と、組み込み・独自の評価器を説明する。
+初期リリースの観測は、ワークフロー内の個々のFoundryエージェントが中心である。
+表示された経路だけから、外部の台帳や登録先のすべての状態まで確認できるとは言えない。</p>
+  <p>この範囲を踏まえ、実行記録では、抽出時は部署不明だったのに、後段で正式な部署へ変わっていないかを調べる。
+その間に台帳照合の結果があれば変更を説明できるが、モデルが補っただけなら根拠が欠けている。
+分岐が予定どおりだったかに加え、その分岐に使った値がどこから来たかを確認する必要がある。</p>
+  <p>試行には、部署名の曖昧な申請、期限のない申請、照会失敗、承認後の内容変更を含めたい。
+正しいアカウントを作れた割合だけでなく、未確認の値で止まれたか、担当者が根拠へ戻れたかも見る。
+同じ入力と台帳を使い、固定した処理や単一エージェントとの比較を置けば、分担の追加に見合う改善を判断しやすい。
+どの確認も、評価器を選ぶだけでは決まらず、申請の規則から先に定める必要がある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">判断</p>
+  <h2>役割の数より、次の担当に何を渡せるか</h2>
+  <p>図、変数、構造化出力が提供されることで、複数エージェントの仕事を確認できる対象として扱いやすくなる。
+ただし、情報を渡す形式と、その情報を信用する根拠は同じではない。
+推定、照合、承認、実行結果を分けて渡すことが、見える手順を実際の業務へつなぐ条件になる。</p>
+  <p>本稿の申請例なら、抽出と申請書作成に別のモデルを使うことが必須ではない。
+台帳照合や承認内容の一致は、決められた処理で確かめられる部分もある。
+複数エージェントを選ぶなら、分担することで誰の判断が明確になり、どの誤りを見つけやすくするのかを示したい。
+受け渡しの根拠が説明できないまま担当を増やしても、同じ不確実さが長い経路を通るだけになり得る。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -189,49 +277,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-01-01-the-2025-signal-is-operational-boundaries.html" aria-label="2025年のエージェント開発で見えた、接続・実行・確認の責任境界">
+      <a class="article-card " href="/2026-01-01-the-2025-signal-is-operational-boundaries.html" aria-label="2025年のAIエージェント開発で、任せられる仕事はどう変わったか">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-01-01">2026年1月1日</time>
+        <time class="mono-note" datetime="2026-01-01">調査対象日 2026年1月1日</time>
       </div>
-      <h3 class="article-card-title">2025年のエージェント開発で見えた、接続・実行・確認の責任境界</h3>
-      <p class="article-card-copy">接続、実行、確認の部品が増えても、依頼の意味と公開責任は自動で決まらない。</p>
+      <h3 class="article-card-title">2025年のAIエージェント開発で、任せられる仕事はどう変わったか</h3>
+      <p class="article-card-copy">使える部品が増えた一年。次に任せる範囲は、受け取った成果で人の判断が進むかから選ぶ。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Operations</span><span class="meta-chip">Strategy</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="Agent開発ツールで減る実装と、製品側に残る設計">
+  </a><a class="article-card " href="/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="AgentKitで試作が速くなると、公開前に何を確かめるか">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-11-01">2025年11月1日</time>
+        <time class="mono-note" datetime="2025-11-01">調査対象日 2025年11月1日</time>
       </div>
-      <h3 class="article-card-title">Agent開発ツールで減る実装と、製品側に残る設計</h3>
-      <p class="article-card-copy">開発道具を選ぶ前に、作らずに済む部分と業務固有の設計を分けて確認する。</p>
+      <h3 class="article-card-title">AgentKitで試作が速くなると、公開前に何を確かめるか</h3>
+      <p class="article-card-copy">手順を保存しても、参照する規約や画面の説明が同じ変更を反映するとは限らない。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 4</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントの記憶を、検索・適用・更新に分けて設計する">
+  </a><a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントのメモリ設計　正しい検索が誤った判断になる理由">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-08">2026年4月8日</time>
+        <time class="mono-note" datetime="2026-04-08">調査対象日 2026年4月8日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの記憶を、検索・適用・更新に分けて設計する</h3>
-      <p class="article-card-copy">正しく思い出しても誤る理由を、条件の適用と記憶の更新から考える。</p>
+      <h3 class="article-card-title">AIエージェントのメモリ設計　正しい検索が誤った判断になる理由</h3>
+      <p class="article-card-copy">正しく思い出すだけでは足りない。変わった希望を更新し、次の仕事で使う条件まで考える。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 12</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -256,14 +344,24 @@
               <p class="source-url">https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2411.04468v1" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://json-schema.org/draft/2020-12/json-schema-validation" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2022年6月16日</span>
+              </div>
+              <p class="source-title">JSON Schema Draft 2020-12: Validation specification</p>
+              <p class="source-url">https://json-schema.org/draft/2020-12/json-schema-validation</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/html/2411.04468v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2024年11月7日</span>
               </div>
               <p class="source-title">Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks</p>
-              <p class="source-url">https://arxiv.org/abs/2411.04468v1</p>
+              <p class="source-url">https://arxiv.org/html/2411.04468v1</p>
             </div>
             <span class="source-action">開く</span>
           </a>

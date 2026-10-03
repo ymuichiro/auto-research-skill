@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>How to evaluate experiment work beyond code generation | Auto Research Digest EN</title>
-    <meta name="description" content="Use MLE-bench to separate executable code from a verifiable experiment with data, conditions, results, and reproducibility records.">
+    <title>From AI-written code to comparable experiment results | Auto Research Digest EN</title>
+    <meta name="description" content="Use MLE-bench, RE-Bench, GPT-5, and Looker to distinguish working code from comparable experiments with defined data, baselines, and adoption evidence.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="How to evaluate experiment work beyond code generation | Auto Research Digest EN">
-    <meta property="og:description" content="Use MLE-bench to separate executable code from a verifiable experiment with data, conditions, results, and reproducibility records.">
+    <meta property="og:title" content="From AI-written code to comparable experiment results | Auto Research Digest EN">
+    <meta property="og:description" content="Use MLE-bench, RE-Bench, GPT-5, and Looker to distinguish working code from comparable experiments with defined data, baselines, and adoption evidence.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="How to evaluate experiment work beyond code generation">
+    <meta property="og:image:alt" content="From AI-written code to comparable experiment results">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="How to evaluate experiment work beyond code generation | Auto Research Digest EN">
-    <meta name="twitter:description" content="Use MLE-bench to separate executable code from a verifiable experiment with data, conditions, results, and reproducibility records.">
+    <meta name="twitter:title" content="From AI-written code to comparable experiment results | Auto Research Digest EN">
+    <meta name="twitter:description" content="Use MLE-bench, RE-Bench, GPT-5, and Looker to distinguish working code from comparable experiments with defined data, baselines, and adoption evidence.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="How to evaluate experiment work beyond code generation">
+    <meta name="twitter:image:alt" content="From AI-written code to comparable experiment results">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html">
@@ -42,15 +42,14 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-09-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T14:11:34+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Coding Agent">
     <meta property="article:tag" content="Data Access">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"How to evaluate experiment work beyond code generation","description":"Use MLE-bench to separate executable code from a verifiable experiment with data, conditions, results, and reproducibility records.","datePublished":"2025-09-01T00:00:00+09:00","dateModified":"2026-09-20T14:11:34+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Coding Agent, Data Access","mainEntityOfPage":"https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"How to evaluate experiment work beyond code generation","item":"https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"From AI-written code to comparable experiment results","description":"Use MLE-bench, RE-Bench, GPT-5, and Looker to distinguish working code from comparable experiments with defined data, baselines, and adoption evidence.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Coding Agent, Data Access","mainEntityOfPage":"https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"From AI-written code to comparable experiment results","item":"https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,21 +65,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">How to evaluate experiment work beyond code generation</h1>
-          <p class="hero-copy">Use MLE-bench, RE-Bench, Looker MCP, and GPT-5 material to distinguish experiment work with data preparation, training, evaluation, and records from code creation alone.</p>
+          <h1 class="hero-title">From AI-written code to comparable experiment results</h1>
+          <p class="hero-copy">Compare GPT-5 and Looker tools with MLE-bench and RE-Bench, then use a hypothetical forecasting experiment to connect data meaning, conditions, and adoption decisions.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-09-01">September 1, 2025</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2025-09-01">Research cutoff September 1, 2025</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Data Access</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=How%20to%20evaluate%20experiment%20work%20beyond%20code%20generation&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-09-01-coding-and-research-agents-broaden-the-scope.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=From%20AI-written%20code%20to%20comparable%20experiment%20results&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-09-01-coding-and-research-agents-broaden-the-scope.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="How to evaluate experiment work beyond code generation"
-      data-share-text="How to evaluate experiment work beyond code generation"
+      data-share-title="From AI-written code to comparable experiment results"
+      data-share-text="From AI-written code to comparable experiment results"
       data-share-url="https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="How to evaluate experiment work beyond code generation"
+      data-share-title="From AI-written code to comparable experiment results"
       data-share-url="https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -124,33 +124,71 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>What distinguishes executable code from a verifiable experiment?</h2>
-  <p><a href="https://arxiv.org/abs/2410.07095">MLE-bench</a> gives machine-learning agents work that includes data, implementation, training, evaluation, and submission. That is a different evaluation target from generating code line by line. <a href="https://arxiv.org/abs/2411.15114">RE-Bench</a> and <a href="https://arxiv.org/abs/2410.08164">Agent S</a> also address longer work involving environments, tools, and research outcomes. This article does not claim that coding support automatically includes research support. It asks what must be recorded and compared when an agent contributes to an experiment.</p>
+  <p class="section-kicker">Can the result be used?</p>
+  <h2>A smaller forecast error can still leave adoption undecided</h2>
+  <p>Asked to improve a demand forecast, an AI changes code, trains a model, and reports a smaller error. But it evaluated a different period from the previous model. Did the forecasting method improve, or were only easier weeks compared? This is a hypothetical example for examining experiment support. Working code alone does not establish a reason to adopt its result.</p>
+  <p>August’s GPT-5 for developers announcement described support for code changes and tool calls. Looker MCP Server provided a way for AI to access predefined metrics. MLE-bench and RE-Bench evaluate work that uses data and compute to try solutions and compare outcomes. More material connects code, data, and analysis, but the capabilities each establishes differ.</p>
+  <p>This article argues for using the ability to produce candidates while separately establishing evidence for adopting them. Connect code, data meaning, execution conditions, results, and interpretation. A deliverable that lets the next person compare under the same conditions makes experiments without improvement useful to subsequent decisions too.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Connecting tools</p>
+  <h2>Combine tools for changing code with tools for reading metrics</h2>
+  <p>The <a href="https://openai.com/index/introducing-gpt-5-for-developers/">GPT-5 developer announcement</a> addresses code repairs and work using tools. Custom tools allow plaintext input instead of JSON, with grammar constraints supplied by developers. This adds a format option for passing material such as lengthy code to a tool. Easier input handling remains distinct from correct experiment design.</p>
+  <p>The <a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/">August 9 Looker MCP Server announcement</a> describes AI querying a model in which business metrics and calculations are defined. Looker generates SQL according to those definitions. The post describes use through Gemini CLI, Claude Desktop, and Cursor, providing a path from development environments to data with shared definitions.</p>
+  <p>Combining these tools suggests an application that investigates a metric, proposes possible causes, and changes aggregation or forecasting code. Combining available features, however, is not a measurement of improved business results. The handoffs need to preserve what was inferred from which data and which experiment will test it.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Separate execution from performance</p>
+  <h2>MLE-bench measures valid submissions and good predictions separately</h2>
+  <p>The <a href="https://arxiv.org/html/2410.07095v1">first MLE-bench paper</a> evaluates data preparation, training, experimentation, and prediction submissions across 75 Kaggle competitions. Its main setup allows at most 24 hours per competition and one A10 GPU. Averaged over repeated runs, o1-preview with AIDE produced valid submissions in 82.8% of attempts and medal-level performance in 16.9%. These are results for a 2024 configuration, not GPT-5’s performance on machine-learning experiments.</p>
+  <p>The submission-validation tool returns whether the format is valid, without a prediction-performance score. This illustrates the verification needed between producing runnable code and producing a good result. The interpretation here is to keep producing predictions in the correct format separate from improving the comparison metric.</p>
+  <p>Many tasks reconstruct training and test splits and compare with historical competition leaderboards. They do not measure the rate of successful business deployments. Evidence of strong competition performance needs to be read with its evaluation target, rather than transferred unchanged to other data or conditions of use.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Read the research objective</p>
+  <h2>RE-Bench tasks require more than faster execution</h2>
+  <p>The <a href="https://arxiv.org/html/2411.15114v1">first RE-Bench paper</a> evaluates seven machine-learning research and engineering tasks. Optimize LLM Foundry, for example, asks for less runtime without changing a training script’s behavior. Omitting required work to reduce time would miss the objective. The paper also reports loopholes that looked good to automated scoring but violated task rules under human inspection.</p>
+  <p>The principle worth carrying into experiment support is to define both the metric to improve and the conditions that must remain intact. A forecasting experiment that excludes required periods or uses information unavailable when predictions would be made is no longer solving the same task. Claims of a better score need to be interpreted against those conditions.</p>
+  <p>RE-Bench does not treat short tasks with clear objectives as covering months-long research in full. Choosing a research question or evaluation metric differs from improving a supplied task. Fast experimental iteration should not be evaluated as an ability to determine research objectives correctly by itself.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Preserve data meaning</p>
+  <h2>Align periods and populations even when both tables say “revenue”</h2>
+  <p>Sharing metric definitions through a system such as Looker offers a way to reduce different people creating different aggregation formulas. Access to a defined metric does not make the compared populations or explanations of differences identical. Data retrieval needs to remain connected to the user’s intended decision.</p>
+  <p>Consider a hypothetical comparison of store revenue. Order dates versus recognized-revenue dates, treatment of returns, and included stores can change conclusions even when tables have the same label. Recording metric definitions, periods, and filters lets a reviewer check whether a code change still compares the same question.</p>
+  <p>Separate observed changes from causal explanations too. An increase in revenue does not by itself establish that a campaign caused it. Seasonality or the composition of stores may offer other explanations. If the agent proposes causes, retain a distinction between observed differences and untested hypotheses.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Compare forecasts fairly</p>
+  <h2>Restore the conditions available when a forecast would be made</h2>
+  <p>For the opening forecasting example, first decide the data cutoff and future period to predict. A simple baseline using sales on the same weekday of the previous week could be compared with the candidate on identical periods. Do not give only the candidate actual future sales that would be unknown at prediction time. This is a proposed comparison, not an account of a company’s deployment.</p>
+  <p>Retain missing-data treatment, features, training and validation periods, metrics, and a compute-time limit with the results. A comparison using mean absolute error would calculate the magnitude of prediction errors on the same population and period. Even if the average improves, investigate deterioration on busy days or in particular stores. For ordering stock, the average alone may not settle adoption.</p>
+  <p>Recorded sales of a sold-out product may not equal the number of people who wanted it. Without explaining the difference between observed sales and the demand to be estimated, a good score can still diverge from the intended decision. Human examination of what the data measures remains necessary alongside the AI’s ability to process it.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Handing over results</p>
+  <h2>An experiment without improvement can still inform the next step</h2>
+  <p>The experimental deliverable should connect code version, data-retrieval conditions, dependencies, model settings, compute, and results. Retain randomization settings where used, while recognizing that a seed alone does not guarantee identical results. Check rerun differences if environmental or execution variation remains. The record should let another person read the result and continue necessary validation.</p>
+  <p>A candidate worse than the baseline can still help decide whether to try the same idea again if its conditions remain available. Explain where performance deteriorated and whether more time or resources might be worth testing. Distinguish a failed run from a correctly executed experiment that did not improve. Removing the latter and retaining only good outcomes hides the experimental picture.</p>
+  <p>Adoption also considers cost, update frequency, consequences for populations that worsened, and further validation. These are proposed decision criteria, not a claim that the sources establish successful automatic adoption. A starting design can delegate candidate creation and comparison records while assembling evidence for people to verify the conclusion.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">A deliverable for decisions</p>
+  <h2>Connect code, data, and analysis to the same question</h2>
+  <p>Development tools and data connections increase the options for combining previously separate work. Benchmarks establish execution and improvements within supplied conditions. Applying them to business or research requires data meaning and comparison conditions that fit the objective.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Data</h3><p>Identify input data, retrieval time, preprocessing, and splits.</p></article>
-    <article class="comparison-card"><h3>Execution conditions</h3><p>Retain code, dependencies, model, configuration, and compute context for comparison.</p></article>
-    <article class="comparison-card"><h3>Results and judgment</h3><p>Record metrics, baselines, failures, and reasons not to adopt a result.</p></article>
+    <article class="comparison-card"><h3>Data meaning</h3><p>Link results to what a metric counts and to retrieval scope and period.</p></article>
+    <article class="comparison-card"><h3>Comparison conditions</h3><p>Use the same population, baseline, and budget, checking conditions that must remain intact.</p></article>
+    <article class="comparison-card"><h3>The next decision</h3><p>Retain improvement, deterioration, and untested points so adoption or further validation has a readable rationale.</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Scope of the sources</p>
-  <h2>Do not confuse developer features with the evaluation scope of experimental tasks</h2>
-  <p>GPT-5 for developers is product material for development work; MLE-bench evaluates machine-learning engineering tasks. The former does not establish the latter’s benchmark result or experimental reproducibility. Looker MCP Server documents an option for connecting to defined semantic models and metrics. It illustrates a data boundary for preserving metric meaning, not a guarantee that any analysis conclusion is correct.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Hypothetical example</p>
-  <h2>For demand forecasting, make the experiment record—not proposed code—the deliverable</h2>
-  <p>This is a design example. An agent proposes a demand-forecasting model. The evaluation records data range and version, missing-data treatment, training and validation split, features, hyperparameters, baseline, metric, and random seed. Running code is insufficient when the training range changes, future data leaks in, no baseline is used, or the result cannot be reproduced.</p>
-  <p>Store a result with the data and conditions that produced it. A metric that does not improve is still a comparable result. A person decides statistical validity, business usefulness, and the need for further validation. This keeps the agent’s role limited to experiment proposals and recordkeeping assistance.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>Broader research and data work needs more reproducible units of judgment</h2>
-  <p>Experiment work beyond coding includes data, environment, evaluation, and interpretation. The material shows that such work can be explicitly evaluated and composed. The proposal is not to discard code evaluation: add a record connecting code, data, conditions, results, and evidence so that reproducible experiments and human decisions remain visible.</p>
+  <p>The value of experiment support includes the ability to question results, compare under the same conditions, and retain reasons for declining adoption. Connecting code, data, and analysis in one record turns an agent’s speed into decisions a person can verify.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -172,49 +210,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2025-10-01-agent-sdks-expand-beyond-coding.html" aria-label="Where business definitions belong when agent SDKs enter general workflows">
+      <a class="article-card " href="/en/2025-10-01-agent-sdks-expand-beyond-coding.html" aria-label="Agent SDKs in business workflows: adaptive steps, fixed conditions">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-10-01">October 1, 2025</time>
+        <time class="mono-note" datetime="2025-10-01">Research cutoff October 1, 2025</time>
       </div>
-      <h3 class="article-card-title">Where business definitions belong when agent SDKs enter general workflows</h3>
-      <p class="article-card-copy">A reusable execution loop does not define a business-correct result or its approval conditions.</p>
+      <h3 class="article-card-title">Agent SDKs in business workflows: adaptive steps, fixed conditions</h3>
+      <p class="article-card-copy">Allowing an AI to explore does not require letting it change revenue definitions or submission conditions.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">SDK</span><span class="meta-chip">MCP</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 6</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="Why AgentOps becomes a control layer for execution">
+  </a><a class="article-card " href="/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="AgentOps after a connection loss: deciding what can be retried">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-08-01">August 1, 2025</time>
+        <time class="mono-note" datetime="2025-08-01">Research cutoff August 1, 2025</time>
       </div>
-      <h3 class="article-card-title">Why AgentOps becomes a control layer for execution</h3>
-      <p class="article-card-copy">Seeing execution does not guarantee recovery without repeating side effects.</p>
+      <h3 class="article-card-title">AgentOps after a connection loss: deciding what can be retried</h3>
+      <p class="article-card-copy">History alone cannot justify a retry. Distinguish committed changes from unknown outcomes so people can continue the work.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 7</span>
+      <span class="mono-note">Sources: 8</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="Reviewing a coding agent: plans, permissions, diffs, and tests">
+  </a><a class="article-card " href="/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="Delegate one bug to a coding agent: from plan to a reviewable repair">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-13">April 13, 2026</time>
+        <time class="mono-note" datetime="2026-04-13">Research cutoff April 13, 2026</time>
       </div>
-      <h3 class="article-card-title">Reviewing a coding agent: plans, permissions, diffs, and tests</h3>
-      <p class="article-card-copy">Understand what a readable plan, a verified signature, and passing tests each establish.</p>
+      <h3 class="article-card-title">Delegate one bug to a coding agent: from plan to a reviewable repair</h3>
+      <p class="article-card-copy">After a passing-test notification, what does the engineer still need to investigate?</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 13</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -229,47 +267,7 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2410.07095" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">October 9, 2024</span>
-              </div>
-              <p class="source-title">MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering</p>
-              <p class="source-url">https://arxiv.org/abs/2410.07095</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2410.08164" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">October 10, 2024</span>
-              </div>
-              <p class="source-title">Agent S: An Open Agentic Framework that Uses Computers Like a Human</p>
-              <p class="source-url">https://arxiv.org/abs/2410.08164</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">November 22, 2024</span>
-              </div>
-              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
-              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">August 8, 2025</span>
-              </div>
-              <p class="source-title">Google Cloud: Introducing Looker MCP Server</p>
-              <p class="source-url">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-5-for-developers/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://openai.com/index/introducing-gpt-5-for-developers/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
@@ -277,6 +275,36 @@
               </div>
               <p class="source-title">OpenAI: Introducing GPT-5 for developers</p>
               <p class="source-url">https://openai.com/index/introducing-gpt-5-for-developers/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">August 9, 2025</span>
+              </div>
+              <p class="source-title">Google Cloud: Looker debuts MCP Server to broaden AI developer access to data</p>
+              <p class="source-url">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/html/2410.07095v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">October 9, 2024</span>
+              </div>
+              <p class="source-title">MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering (v1)</p>
+              <p class="source-url">https://arxiv.org/html/2410.07095v1</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/html/2411.15114v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">November 22, 2024</span>
+              </div>
+              <p class="source-title">RE-Bench: Evaluating frontier AI R&amp;D capabilities of language model agents against human experts (v1)</p>
+              <p class="source-url">https://arxiv.org/html/2411.15114v1</p>
             </div>
             <span class="source-action">Open</span>
           </a>

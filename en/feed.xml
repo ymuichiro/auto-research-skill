@@ -5,166 +5,166 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 20 Sep 2026 16:01:07 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 03 Oct 2026 04:16:16 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
-      <title>Will LLMs replace every if statement? Jev and the case for a decision API</title>
+      <title>Should LLMs replace every if statement? Understanding Jev’s decision API</title>
       <link>https://research.notelligent.app/en/2026-09-21-jev-decision-api.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-09-21-jev-decision-api.html</guid>
-      <pubDate>Sun, 20 Sep 2026 16:01:07 GMT</pubDate>
-      <description>A practical comparison of Jev, fine-tuned classifiers, generative LLMs, and Structured Outputs. Covers evaluation, thresholds, human review, and deterministic controls.</description>
+      
+      <description>Compare Jev with classifiers and structured LLM outputs. Understand Choice, Noul, Score, calibration, automated coverage, and the work that remains in code.</description>
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>HACW: when can a human approval become a rule for future agent tasks?</title>
+      <title>HACW: helping people and AI continue the same work</title>
       <link>https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:54:45 GMT</pubDate>
-      <description>HACW is a design hypothesis for reusing human approvals in agent workflows. An invoice example covers conditions, exception tests, rule ownership, and expiry.</description>
+      
+      <description>An HACW design hypothesis shares goals, versions, evidence, and decisions. Compare Workspace Agents, CLEO, Pista, and CHAP for joint work and handoffs.</description>
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>When to clarify a request and when to show an AI prototype</title>
+      <title>When an AI request is hard to specify, start with something judgeable</title>
       <link>https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:45:30 GMT</pubDate>
-      <description>Use questions for missing facts and prototypes for preferences that need inspection. A four-way table and outline example separate revision from verification.</description>
+      
+      <description>Choose AI clarification or prototypes using writing, code, and image research. Make preferences specific, revise reviewable work, and verify completion.</description>
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>Evaluating AI agent actions beyond the final answer</title>
+      <title>Use AI agent evaluation to decide what work needs repair</title>
       <link>https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:42:28 GMT</pubDate>
-      <description>Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.</description>
+      
+      <description>Compare OpenAI, Google, AWS, and Anthropic agent evaluation through booking traces, tool order and arguments, saved results, and regression checks.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>Verifying AI data entry and saves in applications without APIs</title>
+      <title>Delegating desktop work to AI: connect entry with verification</title>
       <link>https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:37:13 GMT</pubDate>
-      <description>Verify computer-use agents before and after Save. An invoice example covers duplicate prevention, managed desktops, and uncertain results.</description>
+      
+      <description>Compare AWS and Microsoft computer-use environments, a reported workflow, and long-task research to verify input, saves, recovery, and human effort.</description>
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>What to verify when sales AI turns meeting notes into CRM updates</title>
+      <title>Sales AI CRM updates: carry statements, forecasts, and agreements forward</title>
       <link>https://research.notelligent.app/en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:30:14 GMT</pubDate>
-      <description>Check CRM update proposals from sales AI: opportunity matching, field evidence, changed records, and saved results, with product comparisons.</description>
+      
+      <description>Compare sales AI CRM operations through meeting evidence, statements versus forecasts, opportunity matching, concurrent updates, and human review effort.</description>
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>Choosing editable formats for AI-generated presentations</title>
+      <title>AI-generated presentations: preserve the argument and the next edit</title>
       <link>https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:28:26 GMT</pubDate>
-      <description>Compare images, SVGs, and chart objects in AI-generated slides, then test the next revision in PowerPoint or Google Slides.</description>
+      
+      <description>Compare AI presentation outlines, images, SVG, PPTX, and Google Slides. Choose formats through the argument, source evidence, and the recipient’s next edit.</description>
       <category>AI Workflows</category>
     </item>
     <item>
-      <title>How to compare permissions, approvals, and evaluation in agent platforms</title>
+      <title>What an agent platform takes responsibility for: five approaches to one business task</title>
       <link>https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:26:38 GMT</pubDate>
-      <description>Use a ticket-update task to compare agent platform permissions, approvals, traces, and evaluation, including responsibilities left to existing systems.</description>
+      
+      <description>Compare five agent platforms through one ticket task: SDKs, execution, permissions, registries, evaluation, and the maintenance left to adopting teams.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>From an agent listing to an approved organizational trial</title>
+      <title>Find an agent and trial it at work: five ecosystems and adoption decisions</title>
       <link>https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:25:02 GMT</pubDate>
-      <description>Separate agent discovery, connection, purchase, and distribution. Define permissions, costs, changes, and withdrawal for an organizational trial.</description>
+      
+      <description>Compare five agent ecosystems: app discovery, internal distribution and procurement. Turn listings into workplace trials for quality, access, cost and changes.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>What to preserve so an AI agent can resume interrupted work</title>
+      <title>Carry an agent’s work into tomorrow: memory, artifacts, and recovery</title>
       <link>https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:23:15 GMT</pubDate>
-      <description>Distinguish saved sessions from task recovery using Managed Agents and Google ADK: persistence, artifact versions, duplicate actions, and resumption checks.</description>
+      
+      <description>Compare agent continuity across Codex, Agents SDK, Managed Agents, ADK and AgentCore: saved workspaces, artifact versions, stale memory and recovery checks.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>Reviewing a coding agent: plans, permissions, diffs, and tests</title>
+      <title>Delegate one bug to a coding agent: from plan to a reviewable repair</title>
       <link>https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:21:26 GMT</pubDate>
-      <description>Separate coding-agent plan review, branch and VM isolation, Verified signatures, and test evidence to understand what each check establishes.</description>
+      
+      <description>Compare coding agents through one bug: plans, execution environments, permissions, diffs, tests, remote intervention, and the engineer’s review effort.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>Designing agent memory for retrieval, applicability, and updates</title>
+      <title>Agent memory design: why correct recall can still lead to the wrong decision</title>
       <link>https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:14:05 GMT</pubDate>
-      <description>Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.</description>
+      
+      <description>Compare agent memory beyond RAG: working state, durable preferences, shared updates, and forgetting, drawing on LangGraph, Letta, MemGPT, and LongMemEval.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>Handling corrections, interruptions, and saved results in voice booking agents</title>
+      <title>Compare voice booking agents through corrections, interruption, and completion</title>
       <link>https://research.notelligent.app/en/2026-04-06-voice-agents-become-operational-systems.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-04-06-voice-agents-become-operational-systems.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:12:17 GMT</pubDate>
-      <description>Speech interruption does not undo a booking save. Compare voice architectures and coordinate corrections, API state, and call testing.</description>
+      
+      <description>Compare voice AI architectures, interruption, telephony, resumption, human handoff, and testing through whether spoken guidance matches the saved booking.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>When to split AI work into subagents, and what they need to share</title>
+      <title>Delegating to subagents: turn completed research into usable decisions</title>
       <link>https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:10:27 GMT</pubDate>
-      <description>Decide whether subagents help by examining task dependencies, shared criteria, evidence handoffs, total cost, and comparison with a single agent.</description>
+      
+      <description>Compare subagent designs across five vendors through model choice, parallel work, context, ordering, progress records, evidence handoffs, and human synthesis.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>What MCP, A2A, and AG-UI actually exchange</title>
+      <title>Connecting work with MCP, A2A, and AG-UI: what has finished?</title>
       <link>https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:06:19 GMT</pubDate>
-      <description>Use a refund workflow to separate what MCP, A2A, and AG-UI exchange for connection, delegation, and interface updates from application approval and execution.</description>
+      
+      <description>Compare MCP, A2A 1.0, and AG-UI through a refund workflow: task completion, interface events, disconnection, and cancellation.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>Choosing video AI by reference inputs and revision work</title>
+      <title>Compare video AI through revision: references, sound, and editing</title>
       <link>https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html</guid>
-      <pubDate>Sun, 20 Sep 2026 08:08:44 GMT</pubDate>
-      <description>Compare reference inputs, audio, and editing in Runway, Google Flow, and Adobe Firefly, then test a one-condition revision of the same clip.</description>
+      
+      <description>Compare video AI references, audio, footage modification, and editing. Examine versions, limitations, and the work needed for an acceptable revision.</description>
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>Separating agent identity from delegated user permissions</title>
+      <title>Agent identity and user delegation: whose access is granted, and where it ends</title>
       <link>https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:28:50 GMT</pubDate>
-      <description>Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.</description>
+      
+      <description>Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>Delegating meeting preparation to Cowork: drafts, calendar changes, and review</title>
+      <title>Meeting preparation with Cowork: connecting evidence, analysis, and action</title>
       <link>https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:26:54 GMT</pubDate>
-      <description>Separate reading, draft saving, and calendar or delivery changes when delegating meeting preparation to Cowork, then design checks for each stage.</description>
+      
+      <description>Compare Cowork for meeting preparation: context, Excel and PowerPoint, computer use, and changes across artifacts. Include human review when judging value.</description>
       <category>AI Agents</category>
     </item>
     <item>
-      <title>What chat and editing interfaces each contribute to AI work</title>
+      <title>AI chat UI: when to add an editor or a visible plan</title>
       <link>https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:24:51 GMT</pubDate>
-      <description>Use Canvas, Pages, and Cocoa to decide where an AI interface should place requests, direct artifact editing, plan review, and approval.</description>
+      
+      <description>Compare AI chat UI, Canvas, Pages, and Artifacts. Examine Cocoa’s controlled study and the Keyhole Effect theory to decide when to add editing, plans, or forms.</description>
       <category>AI Strategy</category>
     </item>
     <item>
-      <title>Before releasing an agent, test what external instructions can make it do</title>
+      <title>Agent security: trace external instructions through to execution</title>
       <link>https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
-      <pubDate>Sun, 20 Sep 2026 07:17:34 GMT</pubDate>
-      <description>Design pre-release agent tests that distinguish prompt-injection detection, tool-call authorization, and containment of outbound transmission.</description>
+      
+      <description>Evaluate agent security through prompt-injection detection, authorization, communication limits, human review, and tests of permitted and prohibited actions.</description>
       <category>AI Agents</category>
     </item>
   </channel>

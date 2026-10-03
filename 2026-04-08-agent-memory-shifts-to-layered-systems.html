@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AIエージェントの記憶を、検索・適用・更新に分けて設計する | Auto Research Digest</title>
-    <meta name="description" content="AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。">
+    <title>AIエージェントのメモリ設計 正しい検索が誤った判断になる理由 | Auto Research Digest</title>
+    <meta name="description" content="AIエージェントのメモリ設計を、RAGによる検索だけでなく更新、適用、忘却から分析。LangGraph、Letta、MemGPT、LongMemEvalを比較し、古い希望や共有更新の競合を扱う条件を説明する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AIエージェントの記憶を、検索・適用・更新に分けて設計する | Auto Research Digest">
-    <meta property="og:description" content="AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。">
+    <meta property="og:title" content="AIエージェントのメモリ設計 正しい検索が誤った判断になる理由 | Auto Research Digest">
+    <meta property="og:description" content="AIエージェントのメモリ設計を、RAGによる検索だけでなく更新、適用、忘却から分析。LangGraph、Letta、MemGPT、LongMemEvalを比較し、古い希望や共有更新の競合を扱う条件を説明する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AIエージェントの記憶を、検索・適用・更新に分けて設計する">
+    <meta property="og:image:alt" content="AIエージェントのメモリ設計 正しい検索が誤った判断になる理由">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIエージェントの記憶を、検索・適用・更新に分けて設計する | Auto Research Digest">
-    <meta name="twitter:description" content="AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。">
+    <meta name="twitter:title" content="AIエージェントのメモリ設計 正しい検索が誤った判断になる理由 | Auto Research Digest">
+    <meta name="twitter:description" content="AIエージェントのメモリ設計を、RAGによる検索だけでなく更新、適用、忘却から分析。LangGraph、Letta、MemGPT、LongMemEvalを比較し、古い希望や共有更新の競合を扱う条件を説明する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AIエージェントの記憶を、検索・適用・更新に分けて設計する">
+    <meta name="twitter:image:alt" content="AIエージェントのメモリ設計 正しい検索が誤った判断になる理由">
     <link rel="canonical" href="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-04-08T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:14:05+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Memory">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Multi-Agent">
     <meta property="article:tag" content="RAG">
     <meta property="article:tag" content="Workflow">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの記憶を、検索・適用・更新に分けて設計する","description":"AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。","datePublished":"2026-04-08T00:00:00+09:00","dateModified":"2026-09-20T17:14:05+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Memory, Long-Term Memory, Multi-Agent, RAG, Workflow","mainEntityOfPage":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの記憶を、検索・適用・更新に分けて設計する","item":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントのメモリ設計　正しい検索が誤った判断になる理由","description":"AIエージェントのメモリ設計を、RAGによる検索だけでなく更新、適用、忘却から分析。LangGraph、Letta、MemGPT、LongMemEvalを比較し、古い希望や共有更新の競合を扱う条件を説明する。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Memory, Long-Term Memory, Multi-Agent, RAG, Workflow","mainEntityOfPage":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントのメモリ設計　正しい検索が誤った判断になる理由","item":"https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AIエージェントの記憶を、検索・適用・更新に分けて設計する</h1>
-          <p class="hero-copy">過去の好みと今回の指示が違う想定例から、現在の依頼、長期の好み、組織規則、共有メモの範囲と更新を整理。LangGraph、Letta、LongMemEvalを具体的な根拠として読む。</p>
+          <h1 class="hero-title">AIエージェントのメモリ設計　正しい検索が誤った判断になる理由</h1>
+          <p class="hero-copy">以前の好みを正しく思い出しても、今回の依頼へ適用すれば誤る場合がある。会話の状態、継続する好み、共有記録を、検索、訂正、要約、忘却の違いから比較し、次の仕事で役立つ記憶を設計する。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-04-08">2026年4月8日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2026-04-08">調査対象日 2026年4月8日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E8%A8%98%E6%86%B6%E3%82%92%E3%80%81%E6%A4%9C%E7%B4%A2%E3%83%BB%E9%81%A9%E7%94%A8%E3%83%BB%E6%9B%B4%E6%96%B0%E3%81%AB%E5%88%86%E3%81%91%E3%81%A6%E8%A8%AD%E8%A8%88%E3%81%99%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-04-08-agent-memory-shifts-to-layered-systems.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E3%83%A1%E3%83%A2%E3%83%AA%E8%A8%AD%E8%A8%88%E3%80%80%E6%AD%A3%E3%81%97%E3%81%84%E6%A4%9C%E7%B4%A2%E3%81%8C%E8%AA%A4%E3%81%A3%E3%81%9F%E5%88%A4%E6%96%AD%E3%81%AB%E3%81%AA%E3%82%8B%E7%90%86%E7%94%B1&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-04-08-agent-memory-shifts-to-layered-systems.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AIエージェントの記憶を、検索・適用・更新に分けて設計する"
-      data-share-text="AIエージェントの記憶を、検索・適用・更新に分けて設計する"
+      data-share-title="AIエージェントのメモリ設計　正しい検索が誤った判断になる理由"
+      data-share-text="AIエージェントのメモリ設計　正しい検索が誤った判断になる理由"
       data-share-url="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AIエージェントの記憶を、検索・適用・更新に分けて設計する"
+      data-share-title="AIエージェントのメモリ設計　正しい検索が誤った判断になる理由"
       data-share-url="https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,80 +126,153 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>前の希望を覚えていても、今回の依頼を間違える</h2>
-<p>資料作成を助けるAIが「この利用者は短い説明を好む」と記憶しているとする。
-ところが今回は、利用者が「新入社員向けなので、背景から詳しく説明してほしい」と頼んだ。
-過去の好みを正しく検索できても、それを今回の明示的な依頼より優先すると、役に立たない資料になる。これは記憶設計を考えるための想定例である。</p>
-<p>問題は、思い出した内容が合っているかだけではない。
-誰についての情報か、いつの判断か、今の作業にも適用するかを決める必要がある。
-本稿は、2026年4月8日までの研究と実装資料を手掛かりに、記憶の検索、適用、更新を分けて考える。</p>
+<h2>覚えてくれたはずのAIが、今回の依頼を間違える</h2>
+<p>資料作成を助けるAIに、毎回同じ好みを説明するのは面倒だ。
+「説明は短めに」と一度伝えた希望を、翌日も使ってくれるなら仕事は始めやすい。
+ところが、新入社員向けの資料を頼んで「今回は背景から詳しく」と伝えても、以前の好みを優先して短くまとめられたらどうだろう。
+記憶の内容は正しくても、できた資料は依頼に合わない。これは記憶設計を考えるための想定例である。</p>
+<p>この失敗は、検索精度だけでは直せない。
+過去の希望、現在の依頼、組織の規則を、それぞれどの仕事へ適用するか決める必要がある。
+さらに、希望が変わったときに何を書き換え、古い要約をいつ使わなくするかまで考えなければ、昨日の便利さが今日の誤りになる。</p>
+<p>本稿は2026年4月8日までに公表された実装と研究を比較し、記憶を、情報を探す仕組みと、情報を有効な判断材料に保つ仕組みに分けて考える。
+会話の状態、継続する好み、共有する記録を分ける理由は、それぞれの読み方、更新者、保持期間が違うからだ。
+物理的な保存先を増やすことより、この違いを失わないことを重視する。</p>
 </section>
 <section class="report-section">
-<h2>同じ「記憶」にしない四つの記録</h2>
+<h2>検索で見つけることと、仕事へ適用すること</h2>
+<p><a href="https://arxiv.org/abs/2005.11401v1">外部資料を検索して回答へ渡すRAG</a>は、モデルの入力に必要な情報を補う。
+同じ検索を会話履歴や個人の記録へ使うこともできる。
+ただし、文書に書かれた製品仕様を読むことと、利用者の過去の希望を今回の依頼へ適用することでは、確かめる条件が異なる。</p>
+<p>「説明は短めに」という記録が見つかったとき、検索は似た情報を返しただけかもしれない。
+その希望が誰のものか、どの資料についての発言か、今も続くのかは、記録の出所と条件から判断する必要がある。
+ベクトル検索の類似度を、そのまま指示の優先順位にしてしまうと、よく似た古い希望ほど強く適用される恐れがある。</p>
+<p>そこで、ベクトル検索、構造化した記録、グラフ、人が読めるファイルを別の判断として比べたい。
+ベクトル検索は候補を探す方法、構造化記録は項目を明示する表現、グラフは関係を持たせる表現、ファイルは保存と編集の形式である。
+ファイルを検索することも、グラフから取った情報を会話へ入れることもできる。
+これらを一列の優劣へ並べると、検索の失敗と更新の失敗を区別できなくなる。</p>
+</section>
+<section class="report-section">
+<h2>会話の状態と、次の会話でも使う情報を分ける</h2>
+<p><a href="https://www.langchain.com/blog/langgraph-v0-2">LangGraph v0.2の発表</a>は、実行の段階ごとに状態を保存するチェックポイントを説明している。
+これは、会話の途中や処理の中断から再開するための記録である。
+一方、<a href="https://www.langchain.com/blog/launching-long-term-memory-support-in-langgraph">長期記憶の発表</a>は、会話を越えて文書を保存、取得、検索するストアと、利用者や組織ごとの保存区分（namespace）を示した。
+同じ「覚える」でも、止まった処理を戻すことと、次の仕事へ知識を渡すことは別の目的を持つ。</p>
+<p>たとえば、作成中の資料の見出しと未完了の段落は、今回の仕事の状態である。
+来月の別の資料へ、そのまま指示として持ち込む必要はない。
+逆に、利用者が明示した継続的な希望は、今回の会話が終わっても使いたい。
+保存期間だけでなく、再開のための記録か、別の仕事へ引き継ぐ判断材料かで分けると、何を読み込むべきかが明確になる。</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>今回の依頼</h3>
-<p>この資料だけを詳しくする、といった現在の明示的な指示である。会話の中で直ちに適用し、長期の好みより優先する。</p>
-</article>
-<article class="comparison-card">
-<h3>将来にも使う好み</h3>
-<p>「今後は詳しい説明を基本にする」のように、本人が継続する意図を示した記録である。出所、対象者、適用開始時点を残す。</p>
-</article>
-<article class="comparison-card">
-<h3>組織の規則</h3>
-<p>社内向け資料では用語集を使う、といった正式な規則である。個人の好みと同じ形式で保存できても、適用範囲と更新者は異なる。</p>
-</article>
-<article class="comparison-card">
-<h3>共有する作業メモ</h3>
-<p>期限、担当、未解決事項など、複数の担当が更新する記録である。検索条件に加え、書き込み方法と競合時の扱いを決める。</p>
-</article>
+<article class="comparison-card"><h3>今回の作業状態</h3><p>依頼、途中の判断、進捗、成果物の版を保持する。現在の仕事へ適用し、再開する際は外部の保存結果も照合する。</p></article>
+<article class="comparison-card"><h3>個人の継続記憶</h3><p>本人が続けたいと示した好みや事実を保持する。対象者、出所、適用する仕事、訂正を記録する。</p></article>
+<article class="comparison-card"><h3>組織の正式な規則</h3><p>用語、承認条件、保持期限などを管理する。利用者の好みとは更新者と適用する権限を分ける。</p></article>
+<article class="comparison-card"><h3>共有する作業記録</h3><p>担当、期限、根拠、未解決事項を引き継ぐ。誰がどの項目を更新したかと、競合の扱いを決める。</p></article>
 </div>
-<p>この分類は保存技術の選択ではなく、適用条件と更新責任の違いを取り戻すための設計例である。同じデータベースや検索方式を使っても、これらを区別して記録できる。</p>
+<p>この四分類は本稿の設計例であり、四つのデータベースを必須にするものではない。
+同じ保存先でも、情報の種類と適用条件を持たせれば区別できる。
+namespaceも整理の単位であって、名前を付けただけで読み書きの許可を保証しない。
+呼び出した人がその記録を扱えるかは、別に確認する必要がある。</p>
 </section>
 <section class="report-section">
-<h2>検索方式と、記憶の適用範囲は別に選べる</h2>
-<p>「ベクトル検索」と「短期・長期・共有の記憶」は、対立する方式ではない。
-ベクトル検索は、意味の近い候補を探す方法である。短期や長期は保持期間、共有は利用範囲に関わる分類であり、同じシステムで組み合わせられる。
-ファイルに保存した記憶を検索することもできるため、保存形式と検索方式も区別したい。</p>
-<p><a href="https://docs.langchain.com/oss/python/langgraph/add-memory">LangGraphの説明</a>は、スレッド内の会話を追う記憶と、会話を越えるユーザーやアプリの情報を分け、長期ストアの例でユーザー別のnamespaceを使っている。
-これは、検索前に対象の範囲を選ぶ実装例として参考になる。
-ただし、namespaceという名前を付けるだけでアクセス制御が成立するわけではなく、呼び出した人がその範囲を読めるかは別に保証する必要がある。</p>
-<p>先ほどの資料なら、個人の好み、今回の依頼、組織の正式な執筆規則を区別して扱う。
-同じデータベースでも、対象、出所、適用条件を持たせる方法はある。
-物理的な保存先を増やすこと自体を目的にせず、判断に必要な区別を復元できるようにする。</p>
+<h2>記録を要約するほど、何を失ったかが重要になる</h2>
+<p>会話のすべてを毎回入力すれば、記録を選ぶ手間は小さく見える。
+しかし、入力が増えるほど、今回に関係する条件と古い指示が同じ場所に並ぶ。
+要約して量を減らすなら、今度は、対象や期限を落としても意味が変わらないかを確かめる必要がある。</p>
+<p>記憶を加工する発想は、検索を追加するだけの設計より広い。
+<a href="https://arxiv.org/abs/2304.03442v1">Generative Agents</a>は、経験の記録から抽象度の高い振り返りを作り、行動の計画へ使った。
+評価対象は仮想環境の人物らしい振る舞いであり、業務の事実管理の正しさとは区別する。
+<a href="https://arxiv.org/abs/2310.08560v1">MemGPT</a>は、限られた入力の内外で情報を移動させる記憶管理を、文書分析と複数回の会話で検討した。</p>
+<p>これらから本稿が重視するのは、記録を残すことと、モデルへ見せる情報を作ることの分離である。
+元の発言は検証のために残し、短い要約は利用のために作る、と分ければ、要約が誤ったときに出所へ戻れる。
+ただし、そのために保存量や処理が増える。
+短い一回の相談なら、要約を育てる仕組みを追加せず、今の会話だけを扱う方が簡単な場合もある。</p>
+<p>冒頭の希望も、「短い説明を好む」とだけ圧縮すると、資料の種類や例外を失い得る。
+「通常の進捗報告は短め。ただし新人向け資料は背景を詳しく」と記録できれば、今回の依頼との関係を読み取りやすい。
+これは要約方式の性能結果ではなく、残す条件によって適用判断が変わる想定例である。</p>
 </section>
 <section class="report-section">
-<h2>訂正は、次の検索まで待たせない</h2>
-<p>利用者が「今後は詳しい説明を基本にして」と訂正したなら、今回限りの指示とは扱いが異なる。
-記憶を更新する場合は、その変更が今後の希望なのか、特定の資料だけの条件なのかを残したい。
-曖昧な一回の行動から、恒久的な好みを推定して上書きすると、別の作業まで影響が広がる。</p>
-<p>私の提案は、明示的な訂正を現在の作業にすぐ反映し、長期保存の整理が後から走る場合にも、古い要約が訂正を上書きしないようにすることだ。
-原発言や出所、更新対象、適用開始時点を記録し、最新の保存時刻だけで内容の優先順位を決めない。
-昨日の会話を今日要約した記録は、今日の訂正より古い事実を含み得るからである。</p>
-<p>グラフに関係を持たせても、この更新規則は必要である。
-関係を明示できることと、その関係が正しく現在も有効であることは別だ。
-グラフ、ベクトル検索、構造化レコードの優劣は、同じ更新課題と費用条件で試して判断する。</p>
+<h2>グラフとファイルは、違う更新の問題を扱う</h2>
+<p><a href="https://arxiv.org/abs/2502.12110v1">A-MEM</a>は、記憶を属性のあるノートとして作り、関連する記憶を結び、新しい情報によって既存の記憶も更新する方式を提案した。
+<a href="https://arxiv.org/abs/2501.13956v1">Zepの論文</a>は、会話と業務情報を時間を扱う知識グラフへ統合する構成を示している。
+どちらも、追加した記録を後から検索するだけでなく、記録同士の関係を整理する研究例である。</p>
+<p>関係と時点を持てれば、同じ顧客の担当者変更や、以前の条件と現在の条件を別の事実として扱いやすくなる。
+一方、抽出した人物や関係が誤っていれば、構造が整っていても判断は誤る。
+関係の生成、訂正、失効に必要な処理まで含めて、元の記録を読む方式と比べる必要がある。
+各論文のモデル、評価課題、比較対象が違うため、ここから方式の一律な順位は作れない。</p>
+<p><a href="https://www.letta.com/blog/context-repositories/">Letta CodeのContext Repositoriesの発表</a>は、別の性質を持つ。
+記憶をローカルのファイルとGitの版で扱い、必要な内容を段階的に読み込む設計である。
+人が差分を読み、どの説明を変更したかを調べたい仕事では、この編集可能性が選定材料になる。
+ただし、Gitで変更履歴を持てることは、変更後の内容が正しいことの保証ではない。</p>
+<p>顧客と契約の関係を追う仕事と、開発規約を読み直して訂正する仕事では、優先する扱いやすさが違う。
+前者では関係と有効時点、後者では人が確認できる差分が重要になり得る。
+保存形式を先に決めるより、誰が何を訂正するかを先に置くと、必要な複雑さを選びやすい。</p>
 </section>
 <section class="report-section">
-<h2>共有記憶では、検索とは別に書き込みが競合する</h2>
-<p>複数のエージェントが同じプロジェクトメモを編集すると、片方の更新が失われる場合がある。
-<a href="https://docs.letta.com/v1-sdk/memory/shared-memory">Lettaの共有記憶の説明</a>は、追記、部分置換、全面書き換えを区別し、複数の全面書き換えでは後の書き込みが勝つ問題を挙げている。
-これは、その更新操作の仕様に由来する問題であり、共有記憶が常に失敗するという意味ではない。</p>
-<p>たとえば、Aが期限を直す一方で、Bが古いメモに担当者を追記して全体を保存すると、Aの期限変更が消える。
-この想定例では、変更対象を限定する、保存前に版を照合する、全面編集の担当を一人にする、といった対処を比較できる。
-検索の精度を上げても、保存時に消えた変更は取り戻せない。</p>
+<h2>訂正を、古い要約で上書きしない</h2>
+<p>利用者が「この資料だけ詳しく」と言う場合と、「今後は詳しい説明を基本に」と言う場合では、更新する範囲が違う。
+一回の依頼から恒久的な好みを推定すると、次の短い報告まで長くなるかもしれない。
+反対に、継続する訂正を今回限りとして扱えば、翌日また同じ説明を求めることになる。</p>
+<p>本稿は、発言から見つけた保存候補と、将来に適用する記録を分けることを勧める。
+候補には原発言と対象を残し、継続する意図を確認できた内容を、適用する記録へ反映する。
+明示された今回の訂正は現在の作業へ直ちに反映し、長期記憶の整理を待たせない。
+整理を後から行う場合も、古い会話の要約が新しい訂正を取り消さないようにする。</p>
+<p>たとえば、昨日の会話を今日の夜に要約して保存すると、保存時刻は今日になる。
+それでも、内容は今日の午前に受けた訂正より古い。
+最新の保存時刻だけで優先順位を決めると、処理が遅れていた古い希望が勝ってしまう。
+発言した時点、条件が有効になる時点、保存した時点を分けて持つ理由はここにある。</p>
+<p>訂正前の記録をすべて消すかどうかも、用途によって違う。
+現在の提案には新しい好みを使い、変更理由の確認には以前の発言を参照したい場合がある。
+古い内容を検索結果から外すことと、履歴を削除することを分けて設計すれば、この二つの要求を混同せずに扱える。</p>
 </section>
 <section class="report-section">
-<h2>覚えた事実、訂正、答えない判断を別々に試す</h2>
-<p><a href="https://arxiv.org/abs/2410.10813v2">LongMemEval</a>は、情報抽出、複数セッションの推論、時間の推論、知識の更新、回答を控える能力を評価対象にしている。
-長期対話の記憶を、単に似た記録が見つかったかだけで評価しない研究例である。
-この分類は参考になるが、個別の業務で特定の記憶方式が最良だと証明するものではない。</p>
-<p>資料作成の例なら、過去の好みを聞く質問、今回だけ異なる指示、将来の好みを変える訂正、記録にない希望をそれぞれ試す。
-回答とともに、何を保存し、何を読み、どの条件を適用したかを確認する。
-記憶がない場合にも質問できるか、推測を事実として保存しないかまで見ると、追加すべき処理を絞り込める。</p>
-<p>公開資料の例数だけから、ある構成が最も普及し、最も安く、最も正確だとは言えない。
-ここで勧めるのは、必要な記憶を増やす前に、どの失敗を直すのかを特定することだ。
-読み落とし、古い条件の適用、誤保存、競合による消失では、直す場所が異なる。</p>
+<h2>共有記憶は、読む範囲と書く範囲を別に決める</h2>
+<p><a href="https://www.letta.com/blog/memory-blocks/">Lettaの記憶ブロック（memory blocks）の技術説明</a>は、複数のエージェントが同じ記憶ブロックを使う構成と、エージェントが編集できる内容、読み取り専用の内容を分ける仕組みを示す。
+これにより、参照する情報をそろえつつ、すべての担当へ同じ更新権限を渡さない設計ができる。
+共有できることと、同時更新の意味が正しいことは別の問題である。</p>
+<p>調査担当Aが期限を訂正し、担当Bが古いメモへ担当者を追記して全体を保存する場面を考える。
+全面保存を後の内容で置き換える実装なら、Aの訂正が消える。
+これは想定する更新方式から生じる競合例であり、特定製品が常にこの結果になるという主張ではない。
+検索を改善しても、保存時に失われた訂正は読み戻せない。</p>
+<p>変更対象の項目を限定する、保存前に版を照合する、全面編集の担当を決めるといった対処には、それぞれ負担がある。
+項目を分けても、期限と承認条件のように意味がつながる更新は一緒に確認したい。
+担当を一人にすれば調整はしやすいが、その処理を待つ時間は増える。
+共有記憶の選択では、検索の成績に加え、どの更新を同時に許し、どこで人や別の処理が競合を解くかを比べる必要がある。</p>
+</section>
+<section class="report-section">
+<h2>忘れる操作を、利用者が確かめられるようにする</h2>
+<p>便利な記憶ほど、利用者は何が残り、何に使われたかを確かめたい。
+<a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">ChatGPTの記憶に関する発表</a>は、記憶の確認、削除、停止を用意し、会話を削除しても別に保存された記憶は消えないことを説明している。
+製品のこの区別は、会話履歴と継続記憶を別の対象として扱う具体例になる。</p>
+<p>自分のアプリでも、「忘れて」という依頼が何を対象にするかを決める必要がある。
+現在の利用を止める、保存した好みを消す、元の会話を消す、共有記録からも外す、という操作は同じではない。
+削除した要約を、残った古い会話から後で再生成すれば、利用者の意図に反して記憶が戻る恐れがある。
+削除した対象と、その後の整理処理で再利用しない条件まで確認したい。</p>
+<p>履歴を残す必要がある業務でも、個人の好みと正式な記録を一緒に扱う必要はない。
+誰が訂正でき、誰が削除できるかを情報の種類ごとに決めれば、利用者の制御と仕事の記録を両立する選択肢を検討できる。
+記憶の量が増えるほど便利になる、という前提だけではこの判断を説明できない。</p>
+</section>
+<section class="report-section">
+<h2>記憶の評価を、検索の正答率で終わらせない</h2>
+<p><a href="https://aclanthology.org/2024.acl-long.747/">LoCoMo</a>は、平均600ターン、最大32セッションの会話を含み、質問への回答、出来事の要約、複数の情報形式を使う対話を評価する。
+長い会話を使うことで、離れた時点の発言や関係をどう扱うかを検査する研究例である。
+単一の短い問い合わせの成績から、継続する会話の品質を推定しないための材料になる。</p>
+<p><a href="https://arxiv.org/abs/2410.10813v2">LongMemEvalのv2</a>は500問を用い、情報抽出、複数セッションの推論、時間の推論、知識の更新、回答を控える能力を分けている。
+本稿がこの分類から採るのは、過去の事実を答えられることと、訂正後に古い事実を使わないことを別に試す考え方である。
+研究の評価項目を、自分の業務で特定方式が最良だという結論へ置き換えない。</p>
+<p>冒頭の資料作成なら、以前の好みを聞く場合、今回だけ詳しくする場合、今後の希望を変える場合、希望を一度も述べていない場合を分けて試せる。
+共有メモでは同時更新を、忘却では削除後の再利用を加える。
+回答と一緒に、保存した候補、確定した記録、読み込んだ内容、適用した条件を見れば、どの工程が誤ったかを調べやすい。</p>
+<p>費用も、回答に使う入力だけでは足りない。
+情報の抽出、要約、関係の生成、更新確認、削除の反映に使う処理と、人が誤記を訂正する時間を含めて比べたい。
+同じ課題とモデルで、会話だけを使う場合、検索を追加する場合、更新や共有の規則を加える場合を比べれば、どの追加処理に意味があるかを判断できる。</p>
+</section>
+<section class="report-section">
+<h2>次の仕事で役に立つ記憶を作る</h2>
+<p>冒頭の利用者が翌日また資料を頼んだとき、AIは以前の希望を覚えた上で、今回の明示的な依頼へ合わせて書けることが望ましい。
+希望が変わったなら訂正を保持し、何も示されていない条件は質問できる。
+この一往復を支えるには、候補を探す精度と、記録を適用できる状態へ保つ処理の両方が必要になる。</p>
+<p>したがって本稿は、記憶方式を選ぶ前に、読み落とし、古い条件の適用、誤保存、更新の消失、削除後の再利用のどれを直すかを決めることを勧める。
+その失敗に応じて、会話の状態、継続する好み、正式な規則、共有記録を区別し、検索、更新、忘却へ必要な処理を置く。
+記憶の設計が目指すのは、利用者が毎回同じ説明をし直さずに済み、変わった判断は変わったものとして扱われることである。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -221,49 +294,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIの計画・権限・差分・テストを、どう確認するか">
+      <a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-13">2026年4月13日</time>
+        <time class="mono-note" datetime="2026-04-13">調査対象日 2026年4月13日</time>
       </div>
-      <h3 class="article-card-title">コーディングAIの計画・権限・差分・テストを、どう確認するか</h3>
-      <p class="article-card-copy">計画が読める、署名がある、テストが通る。それぞれが確認する範囲を分ける。</p>
+      <h3 class="article-card-title">コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで</h3>
+      <p class="article-card-copy">テスト成功の通知を受けた後、担当者は何を調べ直すのか。任せた修正を引き取るまでを見る。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 13</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-04-06-voice-agents-become-operational-systems.html" aria-label="音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか">
+  </a><a class="article-card " href="/2026-04-06-voice-agents-become-operational-systems.html" aria-label="音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-06">2026年4月6日</time>
+        <time class="mono-note" datetime="2026-04-06">調査対象日 2026年4月6日</time>
       </div>
-      <h3 class="article-card-title">音声AIの予約変更で、聞き直し・割り込み・保存結果をどう扱うか</h3>
-      <p class="article-card-copy">「別の日に」という訂正を、音声再生だけでなく予約の保存結果まで反映する。</p>
+      <h3 class="article-card-title">音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ</h3>
+      <p class="article-card-copy">「別の日に」と言い直した後、何が聞こえ、どの日が保存され、次の担当は何を知るか。</p>
       <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 9</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか">
+  </a><a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-30">2026年3月30日</time>
+        <time class="mono-note" datetime="2026-03-30">調査対象日 2026年3月30日</time>
       </div>
-      <h3 class="article-card-title">AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか</h3>
-      <p class="article-card-copy">並列に調べられる仕事と、前の結果を待つ仕事を分けて委任を考える。</p>
+      <h3 class="article-card-title">AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ</h3>
+      <p class="article-card-copy">担当を増やす前に、何を受け取り、どこまで調べ、何を返せば比較が進むかを決める。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -278,33 +351,123 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://docs.langchain.com/oss/python/langgraph/add-memory" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/abs/2005.11401v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2020年5月22日</span>
               </div>
-              <p class="source-title">LangGraph: Memory</p>
-              <p class="source-url">https://docs.langchain.com/oss/python/langgraph/add-memory</p>
+              <p class="source-title">Retrieval-Augmented Generation (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2005.11401v1</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://docs.letta.com/v1-sdk/memory/shared-memory" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://www.langchain.com/blog/langgraph-v0-2" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年8月7日</span>
+              </div>
+              <p class="source-title">LangGraph v0.2 checkpoints</p>
+              <p class="source-url">https://www.langchain.com/blog/langgraph-v0-2</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.langchain.com/blog/launching-long-term-memory-support-in-langgraph" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年10月8日</span>
+              </div>
+              <p class="source-title">LangGraph long-term memory announcement</p>
+              <p class="source-url">https://www.langchain.com/blog/launching-long-term-memory-support-in-langgraph</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2304.03442v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2023年4月7日</span>
+              </div>
+              <p class="source-title">Generative Agents (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2304.03442v1</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.08560v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2023年10月12日</span>
+              </div>
+              <p class="source-title">MemGPT (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2310.08560v1</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2502.12110v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2025年2月17日</span>
+              </div>
+              <p class="source-title">A-MEM (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2502.12110v1</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/abs/2501.13956v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2025年1月20日</span>
+              </div>
+              <p class="source-title">Zep (v1)</p>
+              <p class="source-url">https://arxiv.org/abs/2501.13956v1</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.letta.com/blog/context-repositories/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年2月12日</span>
+              </div>
+              <p class="source-title">Letta Code Context Repositories</p>
+              <p class="source-url">https://www.letta.com/blog/context-repositories/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.letta.com/blog/memory-blocks/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年5月14日</span>
+              </div>
+              <p class="source-title">Letta memory blocks technical explanation</p>
+              <p class="source-url">https://www.letta.com/blog/memory-blocks/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.com/index/memory-and-new-controls-for-chatgpt/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年2月13日</span>
+              </div>
+              <p class="source-title">ChatGPT memory and controls</p>
+              <p class="source-url">https://openai.com/index/memory-and-new-controls-for-chatgpt/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aclanthology.org/2024.acl-long.747/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
                 
               </div>
-              <p class="source-title">Letta: Shared memory</p>
-              <p class="source-url">https://docs.letta.com/v1-sdk/memory/shared-memory</p>
+              <p class="source-title">LoCoMo (ACL 2024)</p>
+              <p class="source-url">https://aclanthology.org/2024.acl-long.747/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://arxiv.org/abs/2410.10813v2" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
-                
+                <span class="mono-note">2025年3月4日</span>
               </div>
-              <p class="source-title">LongMemEval (v2, March 2025)</p>
+              <p class="source-title">LongMemEval (v2)</p>
               <p class="source-url">https://arxiv.org/abs/2410.10813v2</p>
             </div>
             <span class="source-action">開く</span>

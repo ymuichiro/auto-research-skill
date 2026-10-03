@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AIエージェントの作業を中断後に再開するため、何を保存するか | Auto Research Digest</title>
-    <meta name="description" content="AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。">
+    <title>AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件 | Auto Research Digest</title>
+    <meta name="description" content="AIエージェントの作業継続をCodex、Agents SDK、Managed Agents、Google ADK、AgentCoreから分析。保存範囲、成果物の版、古い記憶、再開時の確認条件を解説。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="AIエージェントの作業を中断後に再開するため、何を保存するか | Auto Research Digest">
-    <meta property="og:description" content="AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。">
+    <meta property="og:title" content="AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件 | Auto Research Digest">
+    <meta property="og:description" content="AIエージェントの作業継続をCodex、Agents SDK、Managed Agents、Google ADK、AgentCoreから分析。保存範囲、成果物の版、古い記憶、再開時の確認条件を解説。">
     <meta property="og:url" content="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="AIエージェントの作業を中断後に再開するため、何を保存するか">
+    <meta property="og:image:alt" content="AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AIエージェントの作業を中断後に再開するため、何を保存するか | Auto Research Digest">
-    <meta name="twitter:description" content="AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。">
+    <meta name="twitter:title" content="AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件 | Auto Research Digest">
+    <meta name="twitter:description" content="AIエージェントの作業継続をCodex、Agents SDK、Managed Agents、Google ADK、AgentCoreから分析。保存範囲、成果物の版、古い記憶、再開時の確認条件を解説。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="AIエージェントの作業を中断後に再開するため、何を保存するか">
+    <meta name="twitter:image:alt" content="AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件">
     <link rel="canonical" href="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-04-20T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:23:15+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Automation">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Observability">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Background Work">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの作業を中断後に再開するため、何を保存するか","description":"AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。","datePublished":"2026-04-20T00:00:00+09:00","dateModified":"2026-09-20T17:23:15+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Automation, Sessions, Observability, Workflow, Background Work","mainEntityOfPage":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの作業を中断後に再開するため、何を保存するか","item":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件","description":"AIエージェントの作業継続をCodex、Agents SDK、Managed Agents、Google ADK、AgentCoreから分析。保存範囲、成果物の版、古い記憶、再開時の確認条件を解説。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Automation, Sessions, Observability, Workflow, Background Work","mainEntityOfPage":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件","item":"https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">AIエージェントの作業を中断後に再開するため、何を保存するか</h1>
-          <p class="hero-copy">調査報告の想定例で、会話履歴、次の作業、進捗、成果物の版、外部操作の結果を区別し、中断後の再開に必要な確認を整理する。</p>
+          <h1 class="hero-title">AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件</h1>
+          <p class="hero-copy">昨日の比較報告を今日完成させる想定例から、会話の再利用、実行環境の復旧、版付き成果物、記憶の更新を比較し、人が引き取れる継続性を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-04-20">2026年4月20日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2026-04-20">調査対象日 2026年4月20日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Automation</span><span class="meta-chip">Sessions</span><span class="meta-chip">Observability</span><span class="meta-chip">Workflow</span><span class="meta-chip">Background Work</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E4%BD%9C%E6%A5%AD%E3%82%92%E4%B8%AD%E6%96%AD%E5%BE%8C%E3%81%AB%E5%86%8D%E9%96%8B%E3%81%99%E3%82%8B%E3%81%9F%E3%82%81%E3%80%81%E4%BD%95%E3%82%92%E4%BF%9D%E5%AD%98%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-04-20-agents-compete-on-work-continuity.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%82%A8%E3%83%BC%E3%82%B8%E3%82%A7%E3%83%B3%E3%83%88%E3%81%AE%E4%BB%95%E4%BA%8B%E3%82%92%E7%BF%8C%E6%97%A5%E3%81%B8%E5%BC%95%E3%81%8D%E7%B6%99%E3%81%90%EF%BC%9A%E8%A8%98%E6%86%B6%E3%80%81%E6%88%90%E6%9E%9C%E7%89%A9%E3%80%81%E5%86%8D%E9%96%8B%E3%81%AE%E6%9D%A1%E4%BB%B6&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-04-20-agents-compete-on-work-continuity.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="AIエージェントの作業を中断後に再開するため、何を保存するか"
-      data-share-text="AIエージェントの作業を中断後に再開するため、何を保存するか"
+      data-share-title="AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件"
+      data-share-text="AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件"
       data-share-url="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="AIエージェントの作業を中断後に再開するため、何を保存するか"
+      data-share-title="AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件"
       data-share-url="https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,73 +126,132 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>「続きから」のために、何が残っていればよいか</h2>
-<p>AIに調査報告を任せ、途中で実行環境が停止したとする。
-会話には「資料を確認し、表を作った」と残っている。しかし、どの資料を使ったか、表のファイルはどこか、未確認の項目は何かが分からなければ、作業を再開しにくい。
-この想定例が示すのは、会話の保存と、仕事の再開に必要な情報の保存には違いがあるということだ。</p>
-<p>本稿では、2026年4月20日までの設計資料を手掛かりに、停止後も続ける仕事で残すものを考える。
-継続性が必要なタスクでは、回答の正確さに加え、再開後に同じ作業を繰り返さず、残りを進められるかを確かめたい。</p>
+<h2>昨日の調査を、今日の仕事につなげられるか</h2>
+<p>AIに製品の比較報告を任せ、表を保存したところで作業が止まったとする。
+翌日、「続きから」と頼むと、AIは資料を集め直し、別の表を作り始める。
+昨日の判断が消えたわけではない。会話に「表を作った」と残っていても、採用した資料、保存したファイル、未確認の二項目が結び付いていなかったのだ。</p>
+<p>これは仕組みを考えるための想定例である。
+逆に、昨日の表をそのまま完成扱いにしても困る。夜のうちに価格や提供地域が変わっていれば、引き継いだ情報を更新する必要がある。
+やり直しを減らすことと、古い判断を固定しないことを両立させたい。</p>
+<p>2026年4月20日までの資料を読むと、継続性への取り組みは、会話の再利用から実行環境の復旧まで広がっている。
+私が比較の軸にしたいのは、記憶の量ではない。次に担当するAIや人が、使える成果と判断の理由を受け取り、残りの仕事を正しい条件で進められるかである。</p>
 </section>
 <section class="report-section">
-<h2>再開する作業に残す五つの状態</h2>
+<h2>同じスレッドへ戻る便利さと、その先にある仕事</h2>
+<p>OpenAIの4月16日の<a href="https://openai.com/index/codex-for-almost-everything/">Codexの更新</a>には、既存のスレッドを再利用する自動化、後日に再び動き始める予定設定、過去の訂正や好みを扱うmemoryのプレビューが含まれる。
+毎回背景を説明し直す負担を減らす、利用者に見える継続性である。
+ただし、対象日には提供範囲や機能ごとの段階に制限があり、すべての利用環境で同じ機能が使えるわけではない。</p>
+<p>比較報告を毎週作る場合、前週と同じ形式や選定条件は引き継ぎたいが、今週の価格は新たに調べたい。
+一方、昨日止まった一件の報告を完成させる場合には、確認済みの行と未確認の行を区別して再開したい。
+定期的に新しい仕事を始めることと、一件の未完作業を復旧することは、必要な情報が違う。</p>
+<p>予定時刻に呼び出せることは、報告が完成する保証ではない。
+再開後に資料を読めなくなったとき、何が残件になったかを利用者へ返せる設計も要る。
+会話の再利用を入口にして、成果物と残件まで引き継げるかを見ると、便利さの評価が具体的になる。</p>
+</section>
+<section class="report-section">
+<h2>実行が落ちても、記録が一緒に消えない設計</h2>
+<p>Anthropicの4月8日の<a href="https://www.anthropic.com/engineering/managed-agents">Managed Agentsの設計記事</a>は、セッションのイベントログ、モデルとツールを動かす処理、コード実行用のsandboxを分離した経緯を説明する。
+処理が停止してもログを外部から読み戻し、続けられる構成である。
+sandboxが失われた場合には新しい環境を用意できるが、それだけで以前に生成した全ファイルが復元されるとは読み取れない。</p>
+<p>この分離が役立つのは、止まったプロセスの内部だけに進捗を置かずに済むからだ。
+報告の途中で停止しても、どの資料を取得し、どんな操作結果を受け取ったかを調べられる。
+それでも、保存された表を開けるか、ログにある操作と表の内容が一致するかは、別に確かめる必要がある。</p>
+<p>記事は、保存されたセッションと、その時点でモデルに渡す文脈も区別している。
+履歴を残すことは、全履歴を毎回読み込ませることではない。
+引き継ぐ担当が判断できる情報を選び、必要なら元の記録をたどれるようにする。この二段構えなら、短い引継ぎに説明の根拠を残せる。</p>
+</section>
+<section class="report-section">
+<h2>同じ環境へ再接続するのか、保存した内容から作り直すのか</h2>
+<p>OpenAIの4月15日の<a href="https://openai.com/index/the-next-evolution-of-the-agents-sdk/">Agents SDKの更新</a>は、ファイルやコマンドを使う作業環境、外部に保持する状態、スナップショットからの再開を説明する。
+対象日の発表ではPythonから提供され、TypeScriptなどの拡張は今後の予定だった。
+利用可能という発表と、すべてのAPIや保存動作が安定しているという判断は分けたい。</p>
+<p>実際、対象日以前に固定した<a href="https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/guide.md">SDKのsandboxガイド</a>はbetaと注記し、生きている環境の再利用、保存した接続状態からの再接続、スナップショットを読み込む新しい環境を区別している。
+同じ表が開けるという見た目でも、元の環境が残っている場合と、保存したファイルから環境を作り直した場合では、復旧できる範囲が違う。</p>
+<p>ガイドでは、スナップショットにマウント先や一時的なパスの内容は含まれず、既定の保存先を用意できなければ保存しない方式へ切り替わる場合もある。
+そのため、報告書を「どこかのフォルダへ書いた」だけでは保存を確約できない。
+採用した表が保存対象に入り、復元後にも読み取れるかを確認する必要がある。</p>
+<p>私は、SDKの選択時にこの違いを実際の停止条件へ翻訳したい。
+一時的な通信切断なら再接続で足りるかもしれない。元の環境が消えた場合には、保存済みの表と必要な入力から作業を再構成できるかが問われる。
+これはガイドに基づく試験の提案であり、ここで各環境の復旧を実測した結果ではない。</p>
+</section>
+<section class="report-section">
+<h2>進捗の値と、採用したファイルの版を結ぶ</h2>
+<p>Google ADKの<a href="https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/sessions/state.md">Stateの説明</a>は、会話中の進捗値とイベント履歴を分け、永続性はSessionServiceに依存するとする。
+InMemorySessionServiceは再起動で状態を失う。データベースなどの永続サービスを使う場合にも、状態の更新を管理されたイベントの流れへ乗せる必要がある。
+取得したSessionの値だけを直接書き換える方法は、履歴や保存を外れるおそれがあると説明されている。</p>
+<p>一方、<a href="https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/artifacts/index.md">Artifacts</a>は、ファイルなどのデータを名前と版付きで管理する。
+同じ名前で保存すると新しい版が作られ、保存時に返された版を指定して読み出せる。
+こちらも保存先に依存し、インメモリの実装はプロセス終了を越えてファイルを保持しない。</p>
+<p>比較表なら、進捗へ「このファイルの、この版を採用。二項目は未確認」と記録したい。
+最新のファイルを開くことと、判断に使った版を開くことは同じではない。
+保存後に別の実行が追記した表を、昨日の判断の根拠と取り違えないようにする。</p>
+<p>ただし、版付き保存と進捗更新があるだけで、両方が必ず同時に確定するとは言えない。
+表の保存直後、進捗更新前に止まる条件も試し、残ったファイルと記録を照合する。
+必要なのはデータの名前を増やすことではなく、食い違いから採用できる状態を判断する手順である。</p>
+</section>
+<section class="report-section">
+<h2>次の担当が判断できる、五つの引継ぎ情報</h2>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>会話と判断の履歴</h3>
-<p>何を依頼され、どの理由で資料を採用したかを残す。すべてを次のモデル呼び出しへ渡すこととは別である。</p>
-</article>
-<article class="comparison-card">
-<h3>次に行う作業</h3>
-<p>未確認の項目と次の操作を残す。進捗の割合だけでは、どこから手を動かすかが分からない。</p>
-</article>
-<article class="comparison-card">
-<h3>進捗の根拠</h3>
-<p>比較表の第2版まで作成済み、2項目が未確認といった状態を残す。完了という短い表示を具体的な作業へ戻せるようにする。</p>
-</article>
-<article class="comparison-card">
-<h3>入力と成果物の版</h3>
-<p>採用した資料と対応する表や報告書の版を結ぶ。古い成果物を開いて再開する誤りを避ける。</p>
-</article>
-<article class="comparison-card">
-<h3>外部操作の結果</h3>
-<p>送信、更新、登録が未実行、成功、失敗、結果不明のどれかを残す。停止時に記録できなかった操作は、相手側の状態や操作IDと照合する。</p>
-</article>
+<article class="comparison-card"><h3>依頼と判断の理由</h3><p>比較する対象、採用した資料、除外した理由を残す。説明が短くても、元の根拠へ戻れるようにする。</p></article>
+<article class="comparison-card"><h3>次の具体的な作業</h3><p>「八割完了」より、未確認の二項目と調べる資料を示す。次の担当が開始地点を選べる情報にする。</p></article>
+<article class="comparison-card"><h3>進捗を裏付ける結果</h3><p>取得済みの資料や確認済みの行を示す。完了という自己申告を、実際に残った結果と照合できるようにする。</p></article>
+<article class="comparison-card"><h3>入力と成果物の対応</h3><p>資料の取得時点と採用した表の版を結ぶ。新しい表が、同じ条件で作られたかを判断できるようにする。</p></article>
+<article class="comparison-card"><h3>外部操作の結果</h3><p>送信や更新が未実行、成功、失敗、結果不明のどれかを残す。不明な操作を、そのまま再実行しない。</p></article>
 </div>
-<p>五つを別サービスへ必ず保存する必要はない。再開する担当が、何を読み、どこから続け、何を再確認するかを決められる形で結び付いていることが重要である。</p>
+<p>これは本稿が提案する確認事項であり、各社共通の規格ではない。
+五つを別々のサービスへ置く必要もない。
+モデルが続きを進める場合も、人が引き取る場合も、何が使えて、何が未確認かを追えるように結び付ける。</p>
 </section>
 <section class="report-section">
-<h2>実行するプロセスと、復旧に使う記録を分ける</h2>
-<p>Anthropicの4月8日の<a href="https://www.anthropic.com/engineering/managed-agents">Managed Agents設計記事</a>は、セッションの記録、モデルを呼び出す処理、コードを動かす環境を分離した経緯を説明している。
-処理が落ちても外部に残るイベントログを読み直して再開する構成であり、保存されたセッションとモデルの文脈窓も区別している。</p>
-<p>これは「全部の履歴を毎回モデルに渡す」という設計ではない。
-記録を残すことと、その時点の判断に必要な情報を取り出すことは別の仕事になる。
-調査報告なら、全取得履歴を保存しておき、再開時には採用済みの資料、未解決の問い、次の作業を読み込む方法が考えられる。</p>
-<p>ただし、ログが残っても、外部サービスへの操作が一度だけ行われたとは限らない。
-送信は成功したが結果の記録前に停止した場合、再実行すると二重送信になり得る。
-この場合は送信先の状態や操作IDを照合する必要があり、セッションを読み戻す機能だけでは解決しない。</p>
+<h2>覚えておく判断と、今日調べ直す事実を分ける</h2>
+<p>対象日以前の<a href="https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/memory.md">SDKのmemoryの説明</a>では、会話履歴とは別に、過去の作業から得た学びをファイルへ残す。
+再利用には保存先のディレクトリ全体を引き継ぐ必要があり、新しい空のsandboxでは記憶も空になる。
+また、過去の記憶が古くなり得ることを明記している。</p>
+<p>比較報告では「契約変更が難しいので既存サービスとの接続を重視する」という選定理由は、次回も役立つかもしれない。
+「この製品は対象地域で未提供」という情報は、次回には変わっているかもしれない。
+理由、確認時点、見直す条件を一緒に残すと、同じ説明を繰り返さずに変化を調べられる。</p>
+<p>すべてを毎回調べ直せば記憶の利点が減り、何も調べ直さなければ古い前提を温存する。
+私は、変わりやすい価格、提供範囲、権限と、比較目的や選定理由を分けて扱うことを勧める。
+文章を短くする際も、この区別は省きたくない。なぜその判断を続けてよいかが、次の担当に必要だからだ。</p>
 </section>
 <section class="report-section">
-<h2>進捗と成果物を、同じ版に結び付ける</h2>
-<p>Google ADKの<a href="https://adk.dev/sessions/state/">Stateの説明</a>では、会話中に必要な値を保持する状態とイベント履歴を分け、状態の永続性は利用するSessionServiceに依存するとしている。
-InMemorySessionServiceの状態は再起動で失われる。
-「セッションがある」だけでは、再起動後にもデータが残るとは判断できない。</p>
-<p>また、ADKの<a href="https://adk.dev/artifacts/">Artifacts</a>は、ファイルなどのデータを名前と版付きで扱う仕組みである。
-こちらも保存サービスを選ぶ必要があり、インメモリの実装はプロセス終了を越えて保持しない。
-小さな進捗値と大きな生成ファイルを区別して保存する設計の例として読める。</p>
-<p>調査報告に戻ると、進捗には「比較表の第2版を作成、2項目は未確認」と残し、同じ第2版のファイルを参照できるようにする。
-「表は完成」とだけ書いて古いファイルを渡すと、次の実行が誤った地点から始まる。
-私の提案は、次の作業だけでなく、入力資料と成果物の版、未確認事項も一緒に引き継ぐことだ。</p>
+<h2>送信済みか分からないときは、履歴だけで決めない</h2>
+<p>報告書を送信した直後、成功の記録前に処理が止まることを想定しよう。
+保存された履歴に成功がないからといって、送信が失敗したとは言えない。
+再開した実行が同じ報告を送れば、受信者には二通届くおそれがある。</p>
+<p>この場合は、送信先の記録や操作IDを確認してから次の行動を選ぶ。
+再試行を重複として扱える仕組みが利用できるなら、その条件も確認する。利用できず結果も照合できないなら、不明という残件を人へ渡す。
+セッションの保存は、この判断材料を残す助けになるが、外部の操作を一度だけにしたり、取り消したりする保証ではない。</p>
+<p>翌日には利用者の依頼や共有範囲も変わり得る。
+過去の実行で送信を認められたことだけを根拠に、変更された報告を同じように送ってよいとは判断しない。
+継続するのは判断の根拠であり、その後に変わった条件を無視する許可ではない。</p>
 </section>
 <section class="report-section">
-<h2>停止位置を変えて、再開後の結果を比較する</h2>
-<p>再開を評価するには、中断しない実行と、中断を挟む実行で同じ完了条件を使う。
-調査報告なら、資料取得後、表の保存後、進捗の更新前といった位置で止めて試す。
-ファイルが開けるだけでなく、未確認事項が残り、検証済みの内容が維持され、不要な再取得や重複送信がないかを見る。</p>
-<p>時間をまたぐ仕事では、保存した情報が古くなる条件も入れたい。
-前日に取得した価格や公開状況を翌日の報告に使うなら、再確認する項目を決める。
-過去の文脈を保つことと、変わった事実を読み直すことを両立させる必要がある。</p>
-<p>こうした確認を通すと、保存すべきものがタスクごとに見えてくる。
-短い質問への回答に同じ仕組みを一式導入する必要はない。
-複数回に分けて進める仕事では、どこから再開し、何を確かめ直すかまで定義することが、継続性を評価する出発点になる。</p>
+<h2>再開の評価は、残った仕事を完成できるかで行う</h2>
+<p>AWSが3月31日に一般提供を発表した<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">AgentCore Evaluations</a>は、稼働中のtraceをサンプリングする評価と、開発やCIでの評価を説明する。
+回答だけでなく、セッションの目標やツールの振る舞いを評価対象に含められる。
+ただし、これは作業の保存機能ではなく、稼働中の全操作を事前に承認する仕組みでもない。</p>
+<p>比較報告の継続性なら、中断なしと中断ありで、同じ完了条件を使って試したい。
+資料取得後、表の保存後、進捗更新前、送信結果の記録前で止める。
+さらに、翌日に一つの資料が更新される条件を入れ、確認済みの情報を使いつつ、その変更を拾えるかを見る。</p>
+<p>測るのは、再接続までの時間だけではない。
+未確認の二項目を残したまま完成扱いにしないか、余計な再調査がないか、古い表や二重送信を避けられたかを確認する。
+人が状態を探し直し、誤った報告を修正する時間も含めて、引継ぎの負担を比べる。</p>
+<p>この試験は本稿の提案であり、各社製品の順位を示す実測ではない。
+同じモデル、入力、予算、保存条件をできるだけそろえ、モデルの能力差と復旧の仕組みの差を区別したい。
+ログが詳しくても、残件を理解できなければ仕事は進まない。能力のあるモデルと、判断できる引継ぎの両方が必要である。</p>
+</section>
+<section class="report-section">
+<h2>引継ぎを、読む人の仕事として設計する</h2>
+<p>短い質問への回答に、ここまでの保存機構を一式導入する必要はない。
+週次報告では形式と選定理由、複数日にまたがる開発では変更と検証、顧客への対応では約束と実際の更新が、次の担当にとって重要になる。
+まず一つの仕事を選び、停止したときに失いたくない成果と、翌日に確認し直す条件を決めたい。</p>
+<p>利用者や業務担当は何を完了とするかを示し、実装する側は記録とファイルの保存範囲を確認する。
+運用する側は、食い違いや結果不明を検知したときに誰へ返すかを決める。
+一つの小さな仕事なら同じ人が担ってもよいが、担当の境目で説明が消えないようにする。</p>
+<p>昨日のAIが何をしたかを語れるだけでは足りない。
+今日の担当が、昨日の成果を採用し、必要な事実を更新し、残りを完成できるところまで渡したい。
+そのために残す理由と確認条件が、継続する仕事を人にとって任せやすくする。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -214,49 +273,49 @@ InMemorySessionServiceの状態は再起動で失われる。
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-04-27-agent-discovery-and-approval-shape-adoption.html" aria-label="ストアで見つけたAIエージェントを、組織で使うまでの確認事項">
+      <a class="article-card " href="/2026-04-27-agent-discovery-and-approval-shape-adoption.html" aria-label="AIエージェントを見つけ、部署で試す：五社のストアと導入判断">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-27">2026年4月27日</time>
+        <time class="mono-note" datetime="2026-04-27">調査対象日 2026年4月27日</time>
       </div>
-      <h3 class="article-card-title">ストアで見つけたAIエージェントを、組織で使うまでの確認事項</h3>
-      <p class="article-card-copy">カタログの説明を、誰が何を許可するかという具体的な試用条件に変える。</p>
+      <h3 class="article-card-title">AIエージェントを見つけ、部署で試す：五社のストアと導入判断</h3>
+      <p class="article-card-copy">使いたい候補を、具体的な仕事と許可範囲、評価条件へ落とし込む。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Apps</span><span class="meta-chip">Marketplace</span><span class="meta-chip">Governance</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 9</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIの計画・権限・差分・テストを、どう確認するか">
+  </a><a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-13">2026年4月13日</time>
+        <time class="mono-note" datetime="2026-04-13">調査対象日 2026年4月13日</time>
       </div>
-      <h3 class="article-card-title">コーディングAIの計画・権限・差分・テストを、どう確認するか</h3>
-      <p class="article-card-copy">計画が読める、署名がある、テストが通る。それぞれが確認する範囲を分ける。</p>
+      <h3 class="article-card-title">コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで</h3>
+      <p class="article-card-copy">テスト成功の通知を受けた後、担当者は何を調べ直すのか。任せた修正を引き取るまでを見る。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 13</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントの記憶を、検索・適用・更新に分けて設計する">
+  </a><a class="article-card " href="/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="AIエージェントのメモリ設計　正しい検索が誤った判断になる理由">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-08">2026年4月8日</time>
+        <time class="mono-note" datetime="2026-04-08">調査対象日 2026年4月8日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの記憶を、検索・適用・更新に分けて設計する</h3>
-      <p class="article-card-copy">正しく思い出しても誤る理由を、条件の適用と記憶の更新から考える。</p>
+      <h3 class="article-card-title">AIエージェントのメモリ設計　正しい検索が誤った判断になる理由</h3>
+      <p class="article-card-copy">正しく思い出すだけでは足りない。変わった希望を更新し、次の仕事で使う条件まで考える。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 12</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -275,30 +334,80 @@ InMemorySessionServiceの状態は再起動で失われる。
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年4月8日</span>
               </div>
-              <p class="source-title">Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands</p>
+              <p class="source-title">Anthropic: Scaling Managed Agents: Decoupling the brain from the hands</p>
               <p class="source-url">https://www.anthropic.com/engineering/managed-agents</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://adk.dev/sessions/state/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://openai.com/index/the-next-evolution-of-the-agents-sdk/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年4月15日</span>
               </div>
-              <p class="source-title">Google ADK: State</p>
-              <p class="source-url">https://adk.dev/sessions/state/</p>
+              <p class="source-title">OpenAI: The next evolution of the Agents SDK</p>
+              <p class="source-url">https://openai.com/index/the-next-evolution-of-the-agents-sdk/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://adk.dev/artifacts/" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://openai.com/index/codex-for-almost-everything/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年4月16日</span>
               </div>
-              <p class="source-title">Google ADK: Artifacts</p>
-              <p class="source-url">https://adk.dev/artifacts/</p>
+              <p class="source-title">OpenAI: Codex for (almost) everything</p>
+              <p class="source-url">https://openai.com/index/codex-for-almost-everything/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月31日</span>
+              </div>
+              <p class="source-title">AWS: AgentCore Evaluations generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/sessions/state.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月17日</span>
+              </div>
+              <p class="source-title">Google ADK: State, April 20 cutoff snapshot</p>
+              <p class="source-url">https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/sessions/state.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/artifacts/index.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月17日</span>
+              </div>
+              <p class="source-title">Google ADK: Artifacts, April 20 cutoff snapshot</p>
+              <p class="source-url">https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/artifacts/index.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/guide.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月20日</span>
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Sandbox concepts, April 20 snapshot</p>
+              <p class="source-url">https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/guide.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/memory.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年4月20日</span>
+              </div>
+              <p class="source-title">OpenAI Agents SDK: Agent memory, April 20 snapshot</p>
+              <p class="source-url">https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/memory.md</p>
             </div>
             <span class="source-action">開く</span>
           </a>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AI agent evaluation with traces and final-state checks | Auto Research Digest EN</title>
-    <meta name="description" content="Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.">
+    <meta name="description" content="Compare OpenAI, Google, AWS, and Anthropic agent evaluation through booking traces, tool order and arguments, saved results, and regression checks.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="AI agent evaluation with traces and final-state checks | Auto Research Digest EN">
-    <meta property="og:description" content="Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.">
+    <meta property="og:description" content="Compare OpenAI, Google, AWS, and Anthropic agent evaluation through booking traces, tool order and arguments, saved results, and regression checks.">
     <meta property="og:url" content="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="AI agent evaluation with traces and final-state checks">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="AI agent evaluation with traces and final-state checks | Auto Research Digest EN">
-    <meta name="twitter:description" content="Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.">
+    <meta name="twitter:description" content="Compare OpenAI, Google, AWS, and Anthropic agent evaluation through booking traces, tool order and arguments, saved results, and regression checks.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta name="twitter:image:alt" content="AI agent evaluation with traces and final-state checks">
     <link rel="canonical" href="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-07-11T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:42:28+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Evaluation">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Tool Use">
     <meta property="article:tag" content="Governance">
     <meta property="article:tag" content="LLM">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Evaluating AI agent actions beyond the final answer","description":"Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.","datePublished":"2026-07-11T00:00:00+09:00","dateModified":"2026-09-20T17:42:28+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Evaluating AI agent actions beyond the final answer","item":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Use AI agent evaluation to decide what work needs repair","description":"Compare OpenAI, Google, AWS, and Anthropic agent evaluation through booking traces, tool order and arguments, saved results, and regression checks.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Use AI agent evaluation to decide what work needs repair","item":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Evaluating AI agent actions beyond the final answer</h1>
-          <p class="hero-copy">Two booking agents can return the same correct answer while only one follows the approval rule. A hypothetical example separates the task contract, execution order and arguments, and final state, then connects traces to acceptance and regression checks.</p>
+          <h1 class="hero-title">Use AI agent evaluation to decide what work needs repair</h1>
+          <p class="hero-copy">The same booking answer can hide different approvals and saves. Compare four providers and τ-bench to separate records, judgments, and outcomes and choose repairs.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-07-11">July 11, 2026</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2026-07-11">Research cutoff July 11, 2026</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Evaluating%20AI%20agent%20actions%20beyond%20the%20final%20answer&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-07-11-agent-evaluation-measures-execution-path.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Use%20AI%20agent%20evaluation%20to%20decide%20what%20work%20needs%20repair&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-07-11-agent-evaluation-measures-execution-path.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Evaluating AI agent actions beyond the final answer"
-      data-share-text="Evaluating AI agent actions beyond the final answer"
+      data-share-title="Use AI agent evaluation to decide what work needs repair"
+      data-share-text="Use AI agent evaluation to decide what work needs repair"
       data-share-url="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Evaluating AI agent actions beyond the final answer"
+      data-share-title="Use AI agent evaluation to decide what work needs repair"
       data-share-url="https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -126,52 +126,70 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>Two booking changes with the same answer</h2>
-<p>“Your booking has been moved to Friday” does not show whether an agent checked the right conditions, touched someone else's booking, or successfully saved the change. Those questions require evidence beyond the final response.</p>
-<p>This hypothetical evaluation example is not a product measurement. A verified customer requests a change to booking R42. The service requires approval of the new time and price before saving. Two runs produce the same final booking state and answer.</p>
-<ol>
-<li>Run A retrieves the booking, presents availability and price, obtains approval, and saves.</li>
-<li>Run B retrieves the booking, checks availability and price, saves, and then requests approval.</li>
-</ol>
-<p>Run B violates the service's approval order even though its answer and final state are correct. Detecting this requires a check of approval before saving in addition to response quality.</p>
+<h2>The same “changed” answer can conceal different work</h2>
+<p>Compare two AIs that return “Your booking has been moved to Friday.” Both change a verified customer's booking R42 and save the same time and price. This service requires presenting the time and price and obtaining approval before saving.</p>
+<p>The first run checks availability, presents the change, obtains approval, and saves. The second saves before asking for approval. This is a hypothetical evaluation example, not a measurement of a particular product. Although the answer and saved state match, the second run violates the service's conditions.</p>
+<p>OpenAI, Google, AWS, and Anthropic material available through July 11, 2026 describes evaluating execution records and tool use alongside answers. My recommendation is to compare records with business expectations and choose repairs by the condition violated. Treating a better answer as better work requires evidence that explains actual operations.</p>
 </section>
 <section class="report-section">
-<h2>Three contracts make the evaluation explicit</h2>
-<p>To judge the hypothetical case consistently, do not collapse what was requested, how it was executed, and what was saved into one aggregate score. This article records them as three separate contracts.</p>
+<h2>Separate the request, execution, and remaining result</h2>
+<p>An aggregate booking score can let a natural answer offset an approval-order violation. This article records three distinct checks. They are an organizational choice for explaining verdicts, not an industry-wide taxonomy.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Task contract</h3>
-<p>Fix that a verified customer may change booking R42, that the new time and price must be presented, and that no other booking may change. Record the starting data, permitted operations, completion condition, and prohibited conditions here.</p>
-</article>
-<article class="comparison-card">
-<h3>Execution contract</h3>
-<p>Check the order of lookup, presentation, approval, and saving, and verify that the booking ID, time, and price in the approval match the save request. The run ID, tool calls, approval, save request, and result provide the needed evidence.</p>
-</article>
-<article class="comparison-card">
-<h3>Outcome contract</h3>
-<p>Use evaluation data to confirm that only booking R42 holds the approved values and no other booking changed. Grade the final response separately; missing records prove neither a pass nor the absence of a prohibited action.</p>
-</article>
+<article class="comparison-card"><h3>Request conditions</h3><p>The target is the customer's booking R42. Present the new time and price and obtain approval before saving. Do not alter other bookings. Define initial data and permitted operations.</p></article>
+<article class="comparison-card"><h3>Execution evidence</h3><p>Check the order and content of lookup, presentation, approval, and saving. Does the approved booking ID, time, and price match the save request? Inspect what was retried and how often.</p></article>
+<article class="comparison-card"><h3>Remaining outcome</h3><p>Did only the target booking change to approved values? Inspect response content and saved state separately. Record missing evidence rather than assuming a pass.</p></article>
 </div>
-<p>Separating the contracts catches an approval-order violation behind a natural answer while avoiding rejection of a different path that meets the same business conditions.</p>
+<p>A changed price can justify another lookup and renewed approval. If the customer refuses, leaving the booking unchanged can be correct. Define results from requests and conditions rather than requiring identical operations every time.</p>
 </section>
 <section class="report-section">
-<h2>Recording events and judging them are separate jobs</h2>
-<p>OpenAI Agents SDK tracing records events including generation, tool calls, handoffs, and guardrails. A separate rule must establish which recorded behavior fails. <a href="https://openai.github.io/openai-agents-python/tracing/">Tracing documentation</a></p>
-<p>For the booking case, connect the run ID, booking ID, lookup result, proposed change, approval target, save request, and save result. Pass the approval condition only when the approved content matches the saved content and approval precedes saving. Missing approval evidence should trigger investigation rather than an assumption of permission.</p>
-<p>Final-state checks serve another purpose. The τ-bench research evaluates task completion by comparing the final database with an annotated goal state. <a href="https://arxiv.org/abs/2406.12045">τ-bench</a> A booking evaluation can similarly inspect test data to confirm the intended reservation changed and unrelated reservations did not.</p>
-<p>Incomplete logs cannot prove the absence of prohibited actions. Connect tool execution records to the business system's change history, and decide how to retain the necessary evidence without storing excessive sensitive data.</p>
+<h2>OpenAI tracing collects events for subsequent judgment</h2>
+<p>OpenAI Agents SDK <a href="https://github.com/openai/openai-agents-python/blob/08859339ee3a7cd6529e9a86f85a1be2d6dc4a6c/docs/tracing.md">tracing documentation</a> records generations, function-tool calls, handoffs, and guardrails. It connects an operation's identifier with individual spans carrying start and end times, and supports custom events.</p>
+<p>Those records do not automatically establish a correct booking change. The service needs to connect presented content, the approval target, save requests, and saved results. Do not assume standard SDK instrumentation captures every business approval or external-system write.</p>
+<p>Even with the correct booking ID, a price changed after approval is not covered by the earlier approval. Alongside names and timestamps, inspect which version of which content was approved. Execution evidence becomes useful when it identifies decisions and corresponding updates as well as order.</p>
+<p>Traces can contain inputs and outputs, so design the necessary evidence together with its capture scope. The SDK provides settings controlling sensitive-data inclusion. Consider reviewed reproduction data or sufficient identifiers where retaining entire original contents is unnecessary.</p>
 </section>
 <section class="report-section">
-<h2>Allow valid alternative paths</h2>
-<p>Making Run A's exact sequence the only acceptable path can reject a necessary repeat lookup. If the price changes, presenting it again and obtaining renewed approval may still satisfy the service's conditions.</p>
-<p>AWS AgentCore documentation distinguishes exact tool-sequence matching, matching in order with additional calls, and matching without order. <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html">Ground truth evaluations</a> The business requirement determines which is appropriate. Approval before saving requires order; two independent reads may not.</p>
-<p>Tool names alone also cannot detect a save directed to the wrong booking ID. Combine ordering checks with checks of arguments and saved state. When a model judges the usefulness of the response, do not allow a high aggregate score to cancel an explicitly detectable violation.</p>
+<h2>Google's matching modes change which paths are allowed</h2>
+<p>Google ADK’s <a href="https://github.com/google/adk-docs/blob/508e742f84ac0a07b318b12a56bd7b8d2805ac52/docs/evaluate/criteria.md">evaluation criteria</a> describe comparing expected and actual tool calls. It offers exact matching, required calls appearing in order, and required calls appearing in any order. Exact matching is the default; answer similarity and model-judged quality are separate metrics.</p>
+<p>The <a href="https://github.com/google/adk-python/blob/57e1ba66ee5f762e22cf5aa727f10fea3485a572/src/google/adk/evaluation/trajectory_evaluator.py">matching implementation</a> compares arguments as well as function names. A save to R43 does not match an expected save to R42 even with the same function name. This goes beyond checking names, but depends on supplying correct expected arguments.</p>
+<p>Exact matching can reject a repeat lookup needed after a price changes. In-order matching can allow that addition while checking required calls. However, a save to another booking among the allowed extras may still leave the required subsequence matching.</p>
+<p>“Approval preceded saving” therefore differs from “no unapproved save occurred.” Independent reads may not require a fixed order, while prohibited writes need their own checks. Looser matching should come with explicit decisions about allowed alternatives and additional inspections.</p>
 </section>
 <section class="report-section">
-<h2>Compare changes against the same cases; use production observation separately</h2>
-<p>For pre-change evaluation, include rejection, changed prices, missing permissions, and interrupted save responses alongside normal booking changes. Write the three contracts for every case, then run old and new versions with the same initial data and conditions to distinguish improved answers from worse actions. For an interrupted response, check whether the agent resends before establishing if the first save succeeded.</p>
-<p>Report response quality, saved state, prohibited actions, and missing evidence separately. Track latency and cost as additional measures. Repeat runs to test whether success depends on a fortunate attempt; τ-bench likewise distinguishes reliability across trials from success once.</p>
-<p>Use production records to find failures absent from the evaluation set. Observation alone cannot replace a pass or fail judgement against a predefined business condition. Convert a new failure into a reviewed, anonymized reproduction case with an expected outcome. Passing the accumulated cases cannot guarantee safety in unrepresented situations, but this loop makes it possible to explain which condition a particular change broke.</p>
+<h2>AWS separates expected answers from session behavior</h2>
+<p>The AWS AgentCore SDK <a href="https://github.com/aws/bedrock-agentcore-sdk-python/blob/738eb0fe8a49a737e18103f583967ba2f39b6d57/src/bedrock_agentcore/evaluation/client.py">evaluation client</a> accepts expected responses, lists of tool names, and assertions about required behavior. Responses can be associated with a particular trace, while tool trajectories and conditions apply to a session. The client collects CloudWatch spans and submits them to specified evaluators.</p>
+<p>Its trajectory input is a list of names, not structured arguments containing booking IDs or amounts. Do not equate that input with Google ADK's argument comparison. The booking case needs separate reconciliation of approved content, save parameters, and actual reservation data.</p>
+<p>The <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">general-availability announcement</a> describes evaluating specified interactions on demand and sampling production records online. Session-wide, response-level, and tool-call-level scopes expose different possible violations. An evaluation capability does not establish that every action is authorized before execution.</p>
+</section>
+<section class="report-section">
+<h2>Inspect why the grader declares a pass</h2>
+<p>Rules can check explicit identifiers and tool ordering. People or model judges can help assess whether a price change was explained clearly. The choice depends on what is being judged and which paraphrases are acceptable.</p>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">evaluation explanation</a> distinguishes execution transcripts, graders, and final outcomes, including grader errors. If a grader rejects a correct alternative phrasing or accepts a plausible success report, increasing its score may not improve the work.</p>
+<p>For the scenario, prepare a correct save of approved values to the right ID and a confusable record that saves before approval. Compare the owner's expected judgments with the grader and investigate disagreements. Recheck the same records after changing rules or the judge model. This is a proposed check, not a measured accuracy result for a particular grader.</p>
+</section>
+<section class="report-section">
+<h2>Measure saved results and repeated reliability</h2>
+<p><a href="https://arxiv.org/html/2406.12045v1">τ-bench version 1</a> compares the final database with an annotated goal state. It also distinguishes success in at least one attempt from consistent success across repeated attempts. Fluent answers or success once make it difficult to judge whether the same work can be delegated repeatedly.</p>
+<p>Final-state evaluation still does not replace approval-order checks. The opening runs leave identical data yet differ on order. Conversely, correct call ordering can still end with an unsuccessful save when a tool fails. Inspect appropriate execution and actual outcomes together.</p>
+<p>Restore the same initial data for repeated runs, separating correct changes, appropriate refusals or stops, wrong actions, and missing evidence. Evaluating only successful runs hides how often difficult cases stop. With an interrupted save response, also inspect whether the agent resends before establishing the first operation's result.</p>
+</section>
+<section class="report-section">
+<h2>Compare which conditions improve after a change</h2>
+<p>Include customer refusal, changed prices, missing permissions, similar booking IDs, and interrupted save responses alongside ordinary changes. Record versions of the model, instructions, tools, and grading rules, then compare before and after with matched initial data and action budgets. Changing everything together makes the cause harder to explain.</p>
+<p>Use the failure breakdown to choose a repair. Wrong targets suggest inspecting lookup and identification; postapproval changes suggest binding approval to saved content; false completion reports suggest checking results. Do not reduce every failure to a need for a larger model.</p>
+<p>Report answer quality, trajectory violations, saved results, missing evidence, latency, and cost separately. A high score for a concise answer must not cancel a wrong-booking update. Measuring the owner's investigation time and user clarification requests also reveals whether effort increases despite maintained success.</p>
+</section>
+<section class="report-section">
+<h2>Turn production observations into reproducible cases</h2>
+<p>Production records help find failures absent from a fixed evaluation set. A violation absent from a sample may still occur elsewhere. Show which actions were observable, including capture scope and missing records.</p>
+<p>Review and anonymize necessary information from a new failure, then create a reproduction with initial state, request, expected operations, forbidden conditions, and outcome. Verify the next repair and check whether later changes bring the failure back. Passing accumulated cases cannot guarantee safety in situations not yet collected.</p>
+<p>More traces can also mean more reading for owners. Supporting a repair decision requires reaching the violated condition and its evidence. Showing which booking, approval, and save ceased to correspond can make investigation easier than presenting every record.</p>
+</section>
+<section class="report-section">
+<h2>Make evaluation evidence useful for repairing work</h2>
+<p>The four providers support different methods for recording execution and comparing it with expected behavior. Their materials do not establish a product ranking under shared conditions or a common complete audit capability. Select records and judgments from the booking service's own requirements.</p>
+<p>Start with a small set of cases expressing the success and forbidden conditions owners consider consequential. Include disagreements among answers, execution, and saved results, with inspectable reasons for verdicts. Use existing procedures and deterministic rules where they suffice.</p>
+<p>The goal extends beyond watching scores rise. Explain what improved, where it worsened, and what to repair next. A booking-change “completion” should connect to work the customer and owner can establish.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -193,49 +211,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html" aria-label="When to clarify a request and when to show an AI prototype">
+      <a class="article-card " href="/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html" aria-label="When an AI request is hard to specify, start with something judgeable">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-08-01">August 1, 2026</time>
+        <time class="mono-note" datetime="2026-08-01">Research cutoff August 1, 2026</time>
       </div>
-      <h3 class="article-card-title">When to clarify a request and when to show an AI prototype</h3>
-      <p class="article-card-copy">Distinguish missing requirements from emerging preferences, then choose a question or an inspectable prototype.</p>
+      <h3 class="article-card-title">When an AI request is hard to specify, start with something judgeable</h3>
+      <p class="article-card-copy">Clarify known constraints and use small artifacts to choose what to retain and repair.</p>
       <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">AI Workflow</span><span class="meta-chip">Prompting</span><span class="meta-chip">Evaluation</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 8</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-06-30-agents-operate-legacy-desktop-workflows.html" aria-label="Verifying AI data entry and saves in applications without APIs">
+  </a><a class="article-card " href="/en/2026-06-30-agents-operate-legacy-desktop-workflows.html" aria-label="Delegating desktop work to AI: connect entry with verification">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-06-30">June 30, 2026</time>
+        <time class="mono-note" datetime="2026-06-30">Research cutoff June 30, 2026</time>
       </div>
-      <h3 class="article-card-title">Verifying AI data entry and saves in applications without APIs</h3>
-      <p class="article-card-copy">If the screen freezes after Save, should the agent retry? An invoice example shows what to verify first.</p>
+      <h3 class="article-card-title">Delegating desktop work to AI: connect entry with verification</h3>
+      <p class="article-card-copy">After Save, can the owner establish what happened? Connect visual control, managed workspaces, and verification.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 7</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="How to compare permissions, approvals, and evaluation in agent platforms">
+  </a><a class="article-card " href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="What an agent platform takes responsibility for: five approaches to one business task">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-05-07">May 7, 2026</time>
+        <time class="mono-note" datetime="2026-05-07">Research cutoff May 7, 2026</time>
       </div>
-      <h3 class="article-card-title">How to compare permissions, approvals, and evaluation in agent platforms</h3>
-      <p class="article-card-copy">Test permissions and approvals through a complete ticket-update task.</p>
+      <h3 class="article-card-title">What an agent platform takes responsibility for: five approaches to one business task</h3>
+      <p class="article-card-copy">Compare useful answers with responsibility for complete tasks and maintenance.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 11</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -250,34 +268,74 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://openai.github.io/openai-agents-python/tracing/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://github.com/openai/openai-agents-python/blob/08859339ee3a7cd6529e9a86f85a1be2d6dc4a6c/docs/tracing.md" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">July 11, 2026</span>
               </div>
-              <p class="source-title">OpenAI Agents SDK: Tracing</p>
-              <p class="source-url">https://openai.github.io/openai-agents-python/tracing/</p>
+              <p class="source-title">OpenAI Agents SDK tracing</p>
+              <p class="source-url">https://github.com/openai/openai-agents-python/blob/08859339ee3a7cd6529e9a86f85a1be2d6dc4a6c/docs/tracing.md</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.com/google/adk-docs/blob/508e742f84ac0a07b318b12a56bd7b8d2805ac52/docs/evaluate/criteria.md" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">July 10, 2026</span>
               </div>
-              <p class="source-title">AWS: Ground truth evaluations</p>
-              <p class="source-url">https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html</p>
+              <p class="source-title">Google ADK evaluation criteria</p>
+              <p class="source-url">https://github.com/google/adk-docs/blob/508e742f84ac0a07b318b12a56bd7b8d2805ac52/docs/evaluate/criteria.md</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://github.com/google/adk-python/blob/57e1ba66ee5f762e22cf5aa727f10fea3485a572/src/google/adk/evaluation/trajectory_evaluator.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">July 11, 2026</span>
+              </div>
+              <p class="source-title">Google ADK trajectory evaluator implementation</p>
+              <p class="source-url">https://github.com/google/adk-python/blob/57e1ba66ee5f762e22cf5aa727f10fea3485a572/src/google/adk/evaluation/trajectory_evaluator.py</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.com/aws/bedrock-agentcore-sdk-python/blob/738eb0fe8a49a737e18103f583967ba2f39b6d57/src/bedrock_agentcore/evaluation/client.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">July 10, 2026</span>
+              </div>
+              <p class="source-title">AWS AgentCore evaluation client</p>
+              <p class="source-url">https://github.com/aws/bedrock-agentcore-sdk-python/blob/738eb0fe8a49a737e18103f583967ba2f39b6d57/src/bedrock_agentcore/evaluation/client.py</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 31, 2026</span>
+              </div>
+              <p class="source-title">AWS: AgentCore Evaluations generally available</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">January 9, 2026</span>
+              </div>
+              <p class="source-title">Anthropic: Demystifying evals for AI agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://arxiv.org/html/2406.12045v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
-                
+                <span class="mono-note">June 17, 2024</span>
               </div>
-              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction</p>
-              <p class="source-url">https://arxiv.org/abs/2406.12045</p>
+              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</p>
+              <p class="source-url">https://arxiv.org/html/2406.12045v1</p>
             </div>
             <span class="source-action">Open</span>
           </a>

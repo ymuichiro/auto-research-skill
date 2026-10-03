@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>営業AIのCRM更新：案件、根拠、競合の確認 | Auto Research Digest</title>
-    <meta name="description" content="営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。">
+    <meta name="description" content="営業AIの会議メモからCRMへの更新を比較。顧客の希望と成約見込み、案件照合、項目の根拠、同時更新、人の確認負担を分析する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="営業AIのCRM更新：案件、根拠、競合の確認 | Auto Research Digest">
-    <meta property="og:description" content="営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。">
+    <meta property="og:description" content="営業AIの会議メモからCRMへの更新を比較。顧客の希望と成約見込み、案件照合、項目の根拠、同時更新、人の確認負担を分析する。">
     <meta property="og:url" content="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="営業AIのCRM更新：案件、根拠、競合の確認">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="営業AIのCRM更新：案件、根拠、競合の確認 | Auto Research Digest">
-    <meta name="twitter:description" content="営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。">
+    <meta name="twitter:description" content="営業AIの会議メモからCRMへの更新を比較。顧客の希望と成約見込み、案件照合、項目の根拠、同時更新、人の確認負担を分析する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta name="twitter:image:alt" content="営業AIのCRM更新：案件、根拠、競合の確認">
     <link rel="canonical" href="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-06-08T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:30:14+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Sales">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Human Approval">
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Enterprise AI">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"営業AIが会議メモからCRMを更新する際、何を確認するか","description":"営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。","datePublished":"2026-06-08T00:00:00+09:00","dateModified":"2026-09-20T17:30:14+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Sales, CRM, Human Approval, Workflow, Enterprise AI","mainEntityOfPage":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"営業AIが会議メモからCRMを更新する際、何を確認するか","item":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ","description":"営業AIの会議メモからCRMへの更新を比較。顧客の希望と成約見込み、案件照合、項目の根拠、同時更新、人の確認負担を分析する。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Sales, CRM, Human Approval, Workflow, Enterprise AI","mainEntityOfPage":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ","item":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">営業AIが会議メモからCRMを更新する際、何を確認するか</h1>
-          <p class="hero-copy">顧客の希望を成約予定日に変えてよいとは限らない。営業AIが作る更新候補について、抽出、案件照合、根拠、現在値、承認、保存結果を確認する方法を整理する。</p>
+          <h1 class="hero-title">営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ</h1>
+          <p class="hero-copy">AWS、Microsoft、Salesforce、OpenAIの作成・保存・更新を比較。会議メモの解釈、案件照合、同時変更、人の修正負担から任せる範囲を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
-        <time class="mono-note" datetime="2026-06-08">2026年6月8日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2026-06-08">調査対象日 2026年6月8日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Sales</span><span class="meta-chip">CRM</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Workflow</span><span class="meta-chip">Enterprise AI</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E5%96%B6%E6%A5%ADAI%E3%81%8C%E4%BC%9A%E8%AD%B0%E3%83%A1%E3%83%A2%E3%81%8B%E3%82%89CRM%E3%82%92%E6%9B%B4%E6%96%B0%E3%81%99%E3%82%8B%E9%9A%9B%E3%80%81%E4%BD%95%E3%82%92%E7%A2%BA%E8%AA%8D%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-08-sales-agents-turn-notes-into-crm-actions.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E5%96%B6%E6%A5%ADAI%E3%81%AECRM%E6%9B%B4%E6%96%B0%EF%BC%9A%E7%99%BA%E8%A8%80%E3%80%81%E8%A6%8B%E8%BE%BC%E3%81%BF%E3%80%81%E5%90%88%E6%84%8F%E3%82%92%E5%88%86%E3%81%91%E3%81%A6%E5%BC%95%E3%81%8D%E7%B6%99%E3%81%90&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-08-sales-agents-turn-notes-into-crm-actions.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="営業AIが会議メモからCRMを更新する際、何を確認するか"
-      data-share-text="営業AIが会議メモからCRMを更新する際、何を確認するか"
+      data-share-title="営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ"
+      data-share-text="営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ"
       data-share-url="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="営業AIが会議メモからCRMを更新する際、何を確認するか"
+      data-share-title="営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ"
       data-share-url="https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,81 +126,136 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>会議の一文を、どのCRM項目に入れるか</h2>
-<p>会議メモに「来月の導入を希望」とあっても、商談の成約予定日が来月に決まったとは限らない。
-顧客の希望、営業担当者の見込み、合意済みの日付を区別せずに保存すると、読みやすい要約から誤った案件情報が作られる。</p>
-<p>本稿が扱うのは、会議などの資料からCRMの更新候補を作る作業である。
-AIが何を読み取ったかに加え、どの顧客と案件に対応し、どの項目を変更しようとしているかを確認する。
-これは営業AI全般の価値を一つの指標で評価する提案ではなく、CRM更新を任せる範囲を決めるための整理である。</p>
+<h2>「来月の導入を希望」を、成約予定日に変えてよいか</h2>
+<p>会議は終わり、メモには「来月の導入を希望。見積もりは再提示」と残った。
+AIが成約予定日を翌月末に変える候補を作る。
+同じ顧客には二つの商談があり、別の営業担当者もCRMを更新している。
+短い要約はできても、そのまま保存してよいとは限らない。</p>
+<p>これは仕組みを考える想定例であり、特定企業で起きた事例や測定結果ではない。
+顧客の希望、担当者の見込み、合意した日付は違う。
+会議後のCRM更新では、何を読み取ったかに加え、誰がどの案件のどの項目を確定するかが問われる。</p>
+<p>2026年6月8日までのAWS、Microsoft、Salesforce、OpenAIの資料は、その仕事を異なる操作として示している。
+私の判断は、発言から作る候補と営業担当者の解釈を分け、実際に保存された記録までつなげて評価する、というものだ。
+その構成なら、入力の手間と、担当者が記録の意味を引き受けられるかを合わせて確かめられる。</p>
 </section>
 <section class="report-section">
-<h2>候補から保存結果まで、六つの確認をつなぐ</h2>
+<h2>AWS：資料から新規案件の作成を準備する</h2>
+<p>AWSの5月15日の<a href="https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/">Partner Central agents発表</a>は、会議メモ、提案書、通話記録などを渡し、案件情報の抽出、顧客情報の補完、不足や項目の改善提案を経て、案件を作る機能を説明する。
+自然な文章での依頼や既存案件の複製も扱い、コンソールとMCP経由の利用を示した。
+ここでの更新先は、AWSとの共同販売に使うPartner Centralである。</p>
+<p>3月16日の<a href="https://aws.amazon.com/blogs/apn/introducing-aws-partner-central-agents/">同サービスの説明</a>は、新規案件をPartnerの確認後に作る手順を記す。
+会議の資料から入力候補を作り、確認して登録する構成が具体的に見える。
+一方、入力時間や販売期間が短くなるという説明はベンダーの主張であり、案件照合や項目精度を共通条件で測った結果ではない。</p>
+<p>この方式を比較するなら、フォーム入力に必要な情報をどこまで正しく埋め、足りない点を担当者へ返せるかを見る。
+資料を受け取れることから、希望日を成約予定日へ正しく変換できるとは判断できない。
+新規作成の確認手順を、既存CRMのすべての書き込みへ備わるものと推定することもできない。</p>
+</section>
+<section class="report-section">
+<h2>Salesforce：既存商談を、次の活動へつなぐ</h2>
+<p>Salesforceの3月16日の<a href="https://www.salesforce.com/news/stories/agentforce-sales-announcement/">Agentforce Sales発表</a>は、Pipeline Management agentが営業活動から商談の項目を更新し、次の行動を提案すると説明する。
+商談を新しく登録することに加え、続いている案件を保つ仕事が比較の対象になる。
+同社は、営業担当者が実行を見渡し、最終承認を持つとも述べている。</p>
+<p>会議後の情報が次の見積もりや連絡へつながるなら、記録は単なる保管ではなく、次の担当者が判断する材料になる。
+ただし、発表の説明から、全項目について同じ確認画面や根拠表示が提供されるとは確認できない。
+実際に使う項目と操作で確かめる必要がある。</p>
+<p>同社は時間削減や営業成果も紹介するが、その値を会議メモからの更新精度へ置き換えることはできない。
+新規顧客への接触や商談作成の件数と、既存案件へ誤った日付を入れなかった割合は違う指標だ。
+自分たちの更新作業に対応する結果を選んで評価したい。</p>
+</section>
+<section class="report-section">
+<h2>MicrosoftとOpenAI：活動の保存と、複数アプリの仕事</h2>
+<p>Microsoft Sales agentの<a href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-outlook-activities-crm.md">Outlook活動の保存手順</a>は、メールや会議をDynamics 365またはSalesforceへ保存し、関連する案件などを候補や検索から選ぶ操作を扱う。
+活動を記録に関連づけることと、会議の文章から成約予定日を抽出して変更することは別である。</p>
+<p>一方、同社の<a href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/use-sales-copilot-app-during-meeting.md">Teams会議中の手順</a>は、会議に接続したCRMレコードを開き、担当者が内容を編集できると説明する。
+「活動保存しかできない」とまとめるのも不正確だ。
+手動のレコード編集と、AIが作った項目候補の自動反映を分けることで、どの仕事を人が担うかが分かる。</p>
+<p>OpenAIの6月2日の<a href="https://openai.com/index/codex-for-every-role-tool-workflow/">Codexの役割別プラグイン発表</a>は、営業向けにアプリ、スキル、指示を束ね、顧客の調査、会議準備、追客、顧客記録の更新、商談リスクの確認を挙げた。
+Salesforce、HubSpot、Slackなどを使い、BusinessやEnterpriseの管理者は基になるアプリの権限を制御する。
+一つのCRMの画面へ閉じた機能とは提供の範囲が違う。</p>
+<p>複数アプリをまたぐ方式では、会議前に集めた情報を会議後の作業へ利用する余地がある。
+その分、どのアプリのどの記録を読むか、どこへ変更を返すかを具体化する必要がある。
+発表が更新を挙げていることだけで、案件の一意な照合や項目ごとの根拠が保証されるわけではない。</p>
+</section>
+<section class="report-section">
+<h2>顧客の一致と、案件の一致を分ける</h2>
+<p>Microsoftの<a href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/connect-contact.md">連絡先の接続手順</a>は、メールアドレスがCRMの連絡先に一件一致、ゼロ件、複数件一致する場合を分ける。
+一件なら自動で接続し、複数件なら担当者が正しい連絡先を選ぶ。
+一致しないときは、既存の別の連絡先を推定する手順ではなく、新しい連絡先の作成を案内する。</p>
+<p>これは連絡先の照合の仕様であり、商談が一つに決まる仕様ではない。
+冒頭の顧客に二つの商談があるなら、メールアドレスが正しくても、どちらの導入について話したかは残る。
+参加者、議題、対象製品、提案書の番号などを手がかりにし、決められなければ担当者へ戻す必要がある。</p>
+<p>私は、候補を返すときに顧客名だけを見せる構成を避けたい。
+案件名、対象、現在の段階、候補にした理由が分かれば、担当者は「顧客は正しいが案件は違う」を見つけやすい。
+これは本稿の表示設計の提案であり、各製品でその効果を測った結果ではない。</p>
+</section>
+<section class="report-section">
+<h2>発言を残し、見込みを誰が判断したかを残す</h2>
+<p>「来月の導入を希望」は希望時期として読める。
+しかし、翌月末の成約、金額の合意、社内の決裁完了は、その一文だけでは確定できない。
+希望時期のメモとして残すか、担当者が別の情報を確認して成約予定日を決めるかで、記録の意味が違う。</p>
+<p>候補には、元の発言、現在値、提案値、確定できない点、担当者が加えた判断を付けることを勧める。
+推定は常に不要なのではなく、営業予測として使う場合がある。
+そのときも、顧客の合意した事実として保存せず、誰がどう見込んだかを区別したい。</p>
+<p>元のメモや文字起こしにも誤りはあり得る。
+発言の引用が付けば値が正しいとは決めず、金額、期日、合意などの重要項目は元資料や担当者の確認へ戻れるようにする。
+AIの抽出を確認する仕事と、営業担当者が見込みを判断する仕事を混ぜないことが重要だ。</p>
+<p>Microsoftの<a href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-additional-details-outlook.md">保存設定の文書</a>は、管理者が活動の保存、分類項目、添付の保存方法を選べることを示す。
+ただし、保存できる設定は、手元にある全資料をその案件へ残すべきだという判断ではない。
+記録を引き継ぐ人に必要な根拠と、無関係な案件の資料を分けて扱いたい。</p>
+</section>
+<section class="report-section">
+<h2>確認した後の変更と、保存結果を扱う</h2>
+<p>案件と値が正しくても、提案後に別の担当者がCRMを更新することがある。
+最新版を読み直すことは役立つが、その直後から保存までの間にも変更は起こり得る。
+古い提案を確認したという理由だけで、新しい値を上書きしてよいとは言えない。</p>
+<p>HTTPの<a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC 9110の条件付き要求</a>は、同時変更による上書きを防ぐため、対象データの版を表す識別情報（ETag）が一致するときに操作を実行するIf-Matchを説明する。
+接続先のAPIがこの方式や同等の版確認を提供するなら、確認した版と違う要求を検出して再確認へ戻せる。
+本記事は、紹介した営業製品の各操作がそれに対応するかを検証していない。</p>
+<p>対応する仕組みがなければ、単に再読込するだけで競合を完全に防げるとは考えず、更新担当や時間を調整する必要がある。
+保存中に通信が切れた場合も、失敗と決めてすぐ再送しない。
+新規案件なら重複、項目更新なら一部だけ反映された状態を含め、保存先の結果を調べて次の行動を決める。</p>
+</section>
+<section class="report-section">
+<h2>四社を、同じ作業として採点しない</h2>
+<p>比較の出発点は、実際に委ねたい操作だ。
+新規案件の作成、活動の関連づけ、既存商談の項目更新を分け、それぞれに正しい結果を定義する。
+次の四項目は、本稿が提案する確認の整理である。</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>1. 会議メモから抽出する</h3>
-<p>顧客の発言、営業側の見込み、合意済みの条件を分けて候補化する。読み取れた文を、確定したCRM値と同一視しない。</p>
-</article>
-<article class="comparison-card">
-<h3>2. 案件を照合する</h3>
-<p>参加者、議題、時期から候補の案件を絞る。同じ顧客に複数案件があれば、一意に決められないことを記録する。</p>
-</article>
-<article class="comparison-card">
-<h3>3. 項目ごとの根拠を添える</h3>
-<p>成約予定日、金額、次の行動などに対応する発言を示し、根拠がない推定を未確定として返す。</p>
-</article>
-<article class="comparison-card">
-<h3>4. 現在値と競合を確認する</h3>
-<p>提案を作った後にCRMが更新されていないか照合する。条件付き更新を使える場合は、古い値に基づく書き込みを検出する。</p>
-</article>
-<article class="comparison-card">
-<h3>5. 承認する変更を確定する</h3>
-<p>担当者が対象案件、現在値、提案値、根拠を見て選ぶ。候補表示の承認を、無関係な項目までの書き込み許可に広げない。</p>
-</article>
-<article class="comparison-card">
-<h3>6. 保存結果を照合する</h3>
-<p>実際に保存された項目と承認内容を比べる。通信エラーでは成功と決めず、更新先の状態を確認する。</p>
-</article>
+<article class="comparison-card"><h3>照合</h3><p>正しい顧客と案件を選んだか。
+複数候補が残る場合、人へ戻せたかを別に数える。</p></article>
+<article class="comparison-card"><h3>項目の意味</h3><p>金額、日付、段階、次の行動を項目ごとに見る。
+発言、見込み、合意の取り違えを記録する。</p></article>
+<article class="comparison-card"><h3>実際の保存</h3><p>確認した対象と項目が保存されたか。
+競合、重複、一部だけの更新、結果不明を分ける。</p></article>
+<article class="comparison-card"><h3>人の仕事</h3><p>候補を直す、根拠を調べる、案件を選び直す作業を数える。
+確認と修正にかかった時間も残す。</p></article>
 </div>
-<p>この六段階は本稿の会議メモからCRMを更新する想定例であり、すべての製品が同じ画面や手順を提供するという比較ではない。</p>
+<p>Anthropicの<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">エージェント評価の解説</a>も、実行の記録と最終結果、採点の限界を区別する。
+営業の試験へ当てはめるなら、妥当な候補を回答しただけで保存作業を成功とせず、正しい記録が残ったかを見る。
+これらは試験の提案であり、四社の更新精度を測った値ではない。</p>
+<p>同じ資料と案件で正常な入力、曖昧な発言、複数案件、途中の値変更、通信エラーを試す。
+日本語や英語、短いメモや長い通話記録も分ける。
+単純なケースの平均だけで、重要な日付や金額の取り違えを隠さないようにする。</p>
 </section>
 <section class="report-section">
-<h2>製品が扱う記録は同じではない</h2>
-<p>AWS Partner Central agentsの2026年5月15日の発表は、会議メモ、提案書、通話記録などから情報を抽出し、顧客情報の補完や不足項目の改善提案を経て案件を作成する機能を説明する。
-対象はPartner Centralの案件作成である。<a href="https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/">AWSの発表</a></p>
-<p>Microsoft Sales agentの保存機能は、Outlookのメールや会議をDynamics 365またはSalesforceへ保存し、関連するレコードを選ぶ作業を扱う。
-候補から選択するほか、検索してレコードを指定する手順がある。
-メールを案件に関連付けて保存することと、本文から商談金額を抽出して更新することは、同じ操作ではない。<a href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-outlook-activities-crm">Microsoftの保存手順</a></p>
-<p>SalesforceのAgentforce Salesの発表では、Pipeline Management agentが営業活動に基づいて商談の項目を更新し、次の行動を提案する。
-こちらは既存商談の継続的な更新が対象になる。<a href="https://www.salesforce.com/news/stories/agentforce-sales-announcement/">Salesforceの発表</a></p>
-<p>三つの資料を比較すると、新規案件の作成、活動記録の関連付け、既存案件の項目更新を分けて評価すべきだと分かる。
-ある製品で確認した手動選択や承認の仕組みが、他製品の全操作にも備わっているとは推定しない。
-導入時は、実際に使う操作について、更新先、利用権限、確認画面、反映結果を確かめる必要がある。</p>
+<h2>候補の提示から、任せる範囲を決める</h2>
+<p>最初はAIに候補と根拠を作らせ、CRMの更新は担当者の通常の手順で行う。
+手入力、既存のフォーム、決まった規則での抽出と比べ、確認や修正がどう変わるかを見る。
+固定した入力で十分な業務へ、自由な判断を増やす必要はない。</p>
+<p>扱える候補が分かったら、選んだ案件と項目を確認して反映する試行へ進む。
+新規作成、段階変更、金額更新、顧客への送信は、それぞれ影響と修正方法が違う。
+一つの操作がうまくいったことを、他の操作の自動実行へ広げる根拠にしない。</p>
+<p>入力件数や要約件数が増えても、担当者が毎回原文を読み直し、誤った商談を直すなら負担は移っただけだ。
+AIが準備した記録を次の担当者が理解し、必要な判断を少ない手直しで引き継げるかまで見たい。
+売上や成約率への影響は、更新の正確さとは別に測る必要がある。</p>
 </section>
 <section class="report-section">
-<h2>更新候補を確認する想定例</h2>
-<p>以下は製品の実測ではなく、確認対象を示す想定例である。
-同じ顧客に二つの商談があり、会議メモには「来月の導入を希望。見積もりは再提示」と書かれているとする。
-AIが成約予定日を翌月末へ変える候補を作った場合、担当者は三点を確認する。</p>
-<ol>
-<li>保存先：参加者や議題はどちらの商談に対応するか。同じ会社名だけで決めず、候補を一意にできなければ担当者が選ぶ。</li>
-<li>根拠：来月という希望は読み取れても、翌月末の成約を示す記述はない。希望時期のメモとして残すか、別途確認してから成約予定日を変える。</li>
-<li>現在値：会議後に別の担当者が予定日を更新していないか。更新されていれば、新しい情報を確認して候補を作り直す。</li>
-</ol>
-<p>この確認を可能にするため、候補には現在値、提案値、根拠となる文、未確定の点を付けることを勧める。
-これは本稿の設計上の提案であり、前節の各製品がすべて同じ形式を提供するという意味ではない。</p>
-<p>承認後も、書き込みの直前に現在値が変わる場合がある。
-更新先が版番号などによる条件付き更新を提供するなら利用し、競合時には再確認へ戻す。
-その仕組みを利用できない場合、読み直しだけで競合を完全に防げるとは考えず、同時更新を避ける手順も必要になる。</p>
-</section>
-<section class="report-section">
-<h2>候補提示から試し、修正量を測る</h2>
-<p>最初は、実際のCRMを書き換えずに候補と根拠を作り、担当者が通常の手順で更新する。
-正しい案件を選べた割合、項目ごとの誤り、未確定情報を確定扱いした件数、確認時間を記録する。
-少ない確認で正しい候補を作れる操作から、承認済みの変更を反映する試行へ進む。</p>
-<p>反映後には、保存された項目が承認内容と一致し、重複した案件や一部だけの更新が生じていないかを照合する。
-通信エラーで結果が不明な場合も、成功と報告したり無条件で再実行したりせず、更新先を確認する。</p>
-<p>自動化件数が増えても、誤った案件を直す時間や、推定を見抜く負担が増えれば、営業担当者の仕事は軽くならない。
-会議内容から候補を作る効果と、安全に反映するための負担を合わせて測ることで、CRM更新のどこをAIに任せるかを判断できる。</p>
+<h2>営業担当者が、記録の意味を引き受けられるようにする</h2>
+<p>冒頭のメモでAIへ任せられるのは、希望時期と見積もり再提示を候補として取り出すことから始まる。
+どちらの商談かを確認し、希望と成約見込みを分け、別の担当者の更新と照合して保存へ進む。
+ここをつなげると、会議後の作業を減らす場所と、営業側の判断を残す場所が見える。</p>
+<p>私が営業AIに期待するのは、顧客の言葉を読みやすく整えることに加え、その意味を変えずに次の仕事へ渡すことだ。
+新規作成、活動保存、項目更新の違いを踏まえ、正しい案件に説明できる記録が残る範囲から任せたい。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -222,49 +277,49 @@ AIが成約予定日を翌月末へ変える候補を作った場合、担当者
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-06-30-agents-operate-legacy-desktop-workflows.html" aria-label="APIのない業務アプリで、AIの入力と保存結果を確かめる">
+      <a class="article-card " href="/2026-06-30-agents-operate-legacy-desktop-workflows.html" aria-label="画面操作AIに任せる業務：入力から保存の確認までつなぐ">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-06-30">2026年6月30日</time>
+        <time class="mono-note" datetime="2026-06-30">調査対象日 2026年6月30日</time>
       </div>
-      <h3 class="article-card-title">APIのない業務アプリで、AIの入力と保存結果を確かめる</h3>
-      <p class="article-card-copy">画面が固まったとき、保存を繰り返してよいか。請求書入力の例から、確認と停止の方法を考える。</p>
+      <h3 class="article-card-title">画面操作AIに任せる業務：入力から保存の確認までつなぐ</h3>
+      <p class="article-card-copy">保存ボタンの後で困らないために。操作、管理環境、業務結果の照合を分けてつなぐ。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 7</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-05-08-presentation-generation-becomes-artifact-workflow.html" aria-label="AIで作るプレゼン資料の編集可能性を、次の修正から考える">
+  </a><a class="article-card " href="/2026-05-08-presentation-generation-becomes-artifact-workflow.html" aria-label="AIで作るプレゼン資料：伝える判断と、次の修正を残す">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-05-08">2026年5月8日</time>
+        <time class="mono-note" datetime="2026-05-08">調査対象日 2026年5月8日</time>
       </div>
-      <h3 class="article-card-title">AIで作るプレゼン資料の編集可能性を、次の修正から考える</h3>
-      <p class="article-card-copy">見栄えだけでは分からない編集可能性を、数字と注記の修正から確かめる。</p>
+      <h3 class="article-card-title">AIで作るプレゼン資料：伝える判断と、次の修正を残す</h3>
+      <p class="article-card-copy">数字と注記を一度直して、見栄えの先にある資料の使いやすさを確かめる。</p>
       <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Presentation</span><span class="meta-chip">PPTX</span><span class="meta-chip">Image Generation</span><span class="meta-chip">Automation</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 13</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Coworkに会議準備を任せるとき、資料作成と予定変更を分けて考える">
+  </a><a class="article-card " href="/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Coworkが引き受ける会議準備：情報収集から資料と予定まで">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-25">2026年3月25日</time>
+        <time class="mono-note" datetime="2026-03-25">調査対象日 2026年3月25日</time>
       </div>
-      <h3 class="article-card-title">Coworkに会議準備を任せるとき、資料作成と予定変更を分けて考える</h3>
-      <p class="article-card-copy">資料を作る依頼と予定を動かす依頼では、何を確認すべきか。Coworkの発表から試行の条件を考える。</p>
+      <h3 class="article-card-title">Coworkが引き受ける会議準備：情報収集から資料と予定まで</h3>
+      <p class="article-card-copy">メールの情報から表、スライド、予定へ。一つの依頼で仕事を渡すとき、何をつなぎ、何を確かめるか。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Cowork</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">Workflow</span><span class="meta-chip">Productivity</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 5</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -285,18 +340,18 @@ AIが成約予定日を翌月末へ変える候補を作った場合、担当者
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2026年5月15日</span>
               </div>
-              <p class="source-title">AWS: Partner Central agents accelerate opportunity creation</p>
+              <p class="source-title">AWS: Partner Central opportunity creation</p>
               <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-outlook-activities-crm" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/apn/introducing-aws-partner-central-agents/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年3月16日</span>
               </div>
-              <p class="source-title">Microsoft Learn: Save Outlook activities to your CRM</p>
-              <p class="source-url">https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-outlook-activities-crm</p>
+              <p class="source-title">AWS: Introducing Partner Central agents</p>
+              <p class="source-url">https://aws.amazon.com/blogs/apn/introducing-aws-partner-central-agents/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://www.salesforce.com/news/stories/agentforce-sales-announcement/" target="_blank" rel="noopener noreferrer">
@@ -305,8 +360,78 @@ AIが成約予定日を翌月末へ変える候補を作った場合、担当者
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2026年3月16日</span>
               </div>
-              <p class="source-title">Salesforce: Agentforce Sales announcement</p>
+              <p class="source-title">Salesforce: Agentforce Sales</p>
               <p class="source-url">https://www.salesforce.com/news/stories/agentforce-sales-announcement/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-outlook-activities-crm.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年6月4日</span>
+              </div>
+              <p class="source-title">Microsoft Sales agent: save-outlook-activities-crm</p>
+              <p class="source-url">https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-outlook-activities-crm.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/use-sales-copilot-app-during-meeting.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年6月4日</span>
+              </div>
+              <p class="source-title">Microsoft Sales agent: use-sales-copilot-app-during-meeting</p>
+              <p class="source-url">https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/use-sales-copilot-app-during-meeting.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://openai.com/index/codex-for-every-role-tool-workflow/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年6月2日</span>
+              </div>
+              <p class="source-title">OpenAI: Codex for every role, tool and workflow</p>
+              <p class="source-url">https://openai.com/index/codex-for-every-role-tool-workflow/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/connect-contact.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年6月4日</span>
+              </div>
+              <p class="source-title">Microsoft Sales agent: connect-contact</p>
+              <p class="source-url">https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/connect-contact.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-additional-details-outlook.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年6月4日</span>
+              </div>
+              <p class="source-title">Microsoft Sales agent: save-additional-details-outlook</p>
+              <p class="source-url">https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-additional-details-outlook.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.rfc-editor.org/rfc/rfc9110.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">RFC9110: HTTP conditional requests</p>
+              <p class="source-url">https://www.rfc-editor.org/rfc/rfc9110.html</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年1月9日</span>
+              </div>
+              <p class="source-title">Anthropic: Demystifying evals for AI agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</p>
             </div>
             <span class="source-action">開く</span>
           </a>

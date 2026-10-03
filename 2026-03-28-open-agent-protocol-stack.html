@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>MCP、A2A、AG-UIは何を受け渡すのか | Auto Research Digest</title>
-    <meta name="description" content="返金処理を例に、MCP、A2A、AG-UIが接続、委任、画面表示で何を受け渡すかを整理し、承認と実行をアプリケーション側で設計する。">
+    <title>MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか | Auto Research Digest</title>
+    <meta name="description" content="MCP、A2A 1.0、AG-UIを返金処理で比較。ツール結果、調査、画面表示の完了の違いと、切断・取消後の確認から選択条件を考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="MCP、A2A、AG-UIは何を受け渡すのか | Auto Research Digest">
-    <meta property="og:description" content="返金処理を例に、MCP、A2A、AG-UIが接続、委任、画面表示で何を受け渡すかを整理し、承認と実行をアプリケーション側で設計する。">
+    <meta property="og:title" content="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか | Auto Research Digest">
+    <meta property="og:description" content="MCP、A2A 1.0、AG-UIを返金処理で比較。ツール結果、調査、画面表示の完了の違いと、切断・取消後の確認から選択条件を考える。">
     <meta property="og:url" content="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="MCP、A2A、AG-UIは何を受け渡すのか">
+    <meta property="og:image:alt" content="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="MCP、A2A、AG-UIは何を受け渡すのか | Auto Research Digest">
-    <meta name="twitter:description" content="返金処理を例に、MCP、A2A、AG-UIが接続、委任、画面表示で何を受け渡すかを整理し、承認と実行をアプリケーション側で設計する。">
+    <meta name="twitter:title" content="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか | Auto Research Digest">
+    <meta name="twitter:description" content="MCP、A2A 1.0、AG-UIを返金処理で比較。ツール結果、調査、画面表示の完了の違いと、切断・取消後の確認から選択条件を考える。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="MCP、A2A、AG-UIは何を受け渡すのか">
+    <meta name="twitter:image:alt" content="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか">
     <link rel="canonical" href="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-03-28T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:06:19+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="MCP">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="AG-UI">
     <meta property="article:tag" content="Interoperability">
     <meta property="article:tag" content="Protocol">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"MCP、A2A、AG-UIは何を受け渡すのか","description":"返金処理を例に、MCP、A2A、AG-UIが接続、委任、画面表示で何を受け渡すかを整理し、承認と実行をアプリケーション側で設計する。","datePublished":"2026-03-28T00:00:00+09:00","dateModified":"2026-09-20T17:06:19+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, MCP, A2A, AG-UI, Interoperability, Protocol","mainEntityOfPage":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"MCP、A2A、AG-UIは何を受け渡すのか","item":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか","description":"MCP、A2A 1.0、AG-UIを返金処理で比較。ツール結果、調査、画面表示の完了の違いと、切断・取消後の確認から選択条件を考える。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, MCP, A2A, AG-UI, Interoperability, Protocol","mainEntityOfPage":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか","item":"https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">MCP、A2A、AG-UIは何を受け渡すのか</h1>
-          <p class="hero-copy">MCP、A2A、AG-UIが返金処理で受け渡す情報を、請求情報への接続、調査の委任、利用者への表示として分ける。承認と返金実行は、プロトコル名では決まらないアプリケーション側の条件として整理する。</p>
+          <h1 class="hero-title">MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか</h1>
+          <p class="hero-copy">返金処理を例に、MCPのツール結果、A2A 1.0の調査タスク、AG-UIの画面表示が伝える完了の範囲を比較する。機能の重なり、追加情報、切断と取消まで追い、共通仕様が人の待機と再調査を減らす条件を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-03-28">2026年3月28日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2026-03-28">調査対象日 2026年3月28日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span><span class="meta-chip">AG-UI</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Protocol</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=MCP%E3%80%81A2A%E3%80%81AG-UI%E3%81%AF%E4%BD%95%E3%82%92%E5%8F%97%E3%81%91%E6%B8%A1%E3%81%99%E3%81%AE%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-28-open-agent-protocol-stack.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=MCP%E3%83%BBA2A%E3%83%BBAG-UI%E3%81%A7%E3%81%A4%E3%81%AA%E3%81%90%E4%BB%95%E4%BA%8B%EF%BC%9A%E4%BD%95%E3%81%AE%E5%AE%8C%E4%BA%86%E3%82%92%E5%8F%97%E3%81%91%E6%B8%A1%E3%81%99%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-03-28-open-agent-protocol-stack.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="MCP、A2A、AG-UIは何を受け渡すのか"
-      data-share-text="MCP、A2A、AG-UIは何を受け渡すのか"
+      data-share-title="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか"
+      data-share-text="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか"
       data-share-url="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="MCP、A2A、AG-UIは何を受け渡すのか"
+      data-share-title="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか"
       data-share-url="https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,72 +126,122 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>接続する相手と、渡す情報から仕様を読む</h2>
-<p>AWSは3月13日、AgentCore RuntimeでAG-UIをサポートすると<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/">発表した</a>。
-既存のMCPとA2Aへの対応に加え、利用者の画面へ文章やツールの結果、処理状況を送る接続を扱う。
-この発表は、三つのプロトコルを同じ実行サービスで使える例になる。</p>
-<p>ただし、三つを導入すればエージェント同士が自動的に仕事を分担し、人の承認まで正しく扱えるという意味ではない。
-本稿では、ツールを呼ぶ、別のエージェントへ依頼する、画面へ進捗を伝える、という三つの場面を比較する。
-これは設計を整理するための区分であり、仕様が重なりのない三層を定めているという主張ではない。</p>
+<h2>つながった後に、誰が何を待つのか</h2>
+<p>返金の問い合わせを受け、請求書を探し、例外規定を調べ、利用者に金額を提示する。
+この想定業務を複数のサービスへ分けると、通信が成功しても「どこまで終わったか」が分からなくなる。
+調査担当から返金案が届いた段階なのか、利用者が承認したのか、実際に返金されたのか。
+同じ完了表示でも、次に動く人の仕事は違う。</p>
+<p>AWSは3月13日、AgentCore Runtimeで、既存のMCPとA2Aへの対応に加えて<a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/">AG-UIをサポートすると発表した</a>。
+ツール、別のエージェント、利用者の画面を、共通仕様で接続できる範囲が広がっている。
+ただし、この発表は各接続の機能を説明するもので、返金業務が速くなったという測定ではない。</p>
+<p>本稿の判断は、共通プロトコルの価値を、対応する名称の数よりも、仕事の途中と結果を別の実装へ渡せることに置く、というものだ。
+その価値を得るには、呼び出し、調査、表示のそれぞれが伝える完了の範囲をそろえ、利用者が待つ理由と次の行動を理解できるようにする必要がある。</p>
 </section>
 <section class="report-section">
-<h2>返金処理で、どの相手に何を渡すか</h2>
+<h2>MCPはツールの入出力をそろえる</h2>
+<p><a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCPの2025-11-25版のツール仕様</a>は、ツールの一覧、入力の形式、呼び出し、結果の返却を定める。
+請求書検索なら、依頼側は必要な検索条件を渡し、接続先の結果を受け取る。
+内部でデータベースを読むかAIで調べるかは、ツールの実装次第である。
+相手がAIを使っているという理由だけでは、A2Aを選ぶ根拠にならない。</p>
+<p>結果の形式を示す<code>outputSchema</code>は任意だが、指定する場合、サーバーはそれに合う構造化結果を返す必要がある。
+また、呼び出し自体の形式の問題と、ツールが実行中に返す<code>isError</code>によるエラーは区別される。
+受け取り側がこの違いを保てば、検索で何も見つからなかった場合と、検索サービスを呼べなかった場合を別に扱える。</p>
+<p>それでも、金額欄が数値であることは、正しい請求書を選んだことを証明しない。
+想定例では、請求番号、対象期間、通貨と金額を確かめ、検索結果を返金の根拠へ結び付ける処理が必要になる。
+ツールの返却を、返金全体の完了に読み替えてはいけない。</p>
+</section>
+<section class="report-section">
+<h2>A2Aは、相手の作業をタスクとして追う</h2>
+<p>請求書の取得だけでなく、例外規定を調査する担当へ依頼するなら、途中で不足情報を求められるかもしれない。
+3月12日に公開された<a href="https://a2a-protocol.org/dev/blog/2026/03/12/a2a-protocol-ships-v10-production-ready-standard-for-agent-to-agent-communication/">A2A 1.0</a>は、こうしたエージェント間のやり取りの安定版として発表された。
+以前の0.3系からは変更があり、告知は両版を提示して段階的に移行する方法も説明する。
+安定版という位置付けは、あらゆる接続相手との互換性を保証するものではない。</p>
+<p><a href="https://github.com/a2aproject/A2A/blob/173695755607e884aa9acf8ce4feed90e32727a1/docs/specification.md">1.0.0の仕様</a>では、Agent Cardが相手の能力や接続方法を記述し、タスクの状態と成果物を受け渡す。
+追加情報を待つ状態もあり、同じタスクへの回答を、タスクと会話の識別子で結び付けられる。
+調査担当の内部実装を直接操作せずに、依頼、確認、結果の受け取りを続けられる構成である。</p>
+<p>想定業務で「どの契約条項を適用するか」を聞かれたなら、利用者の回答をその調査へ戻す。
+別の新規依頼として送り直すと、前の調査が残ったまま二つの作業が進む可能性がある。
+一方、調査タスクの成功は、調査としての成功を示す。
+返金案の成果物を受け取っても、送金まで済んだとは限らない。</p>
+<p>Agent Cardに「請求調査」と書かれていることも、調査品質の証明ではない。
+利用者の依頼をどの担当へ渡すかを選ぶ情報と、その担当の結果を採用できるかの検査は別になる。
+共通形式は相手を呼ぶための足場を作り、結果の意味は業務側で確かめる。</p>
+</section>
+<section class="report-section">
+<h2>長時間処理だけで仕様を選ばない</h2>
+<p>MCPにも、処理状況を追って後から結果を取得する<a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks">実験的なTasks機能</a>が2025-11-25版で導入されている。
+対応する能力を両端で確認する必要があり、同じ版を名乗るすべてのサーバーが、一覧取得や取消まで実装しているとは限らない。
+したがって「長く待つならA2A」という単純な分け方はできない。</p>
+<p>決められた請求書検索の結果を後で受け取るだけなら、タスクに対応したツールで足りる場合がある。
+相手の能力を調べ、途中の質問へ答え、会話と成果物を伴う調査を任せるなら、A2Aのやり取りが比較対象になる。
+これは本稿の選択の視点であり、三つのプロトコルが重なりのない三層を定めているという説明ではない。</p>
+<p>取消にも注意が必要だ。
+MCP Tasksは、有効な取消要求に対して取消済みの状態へ移すことを要求する一方、実行が続いてしまった場合もその状態を維持すると定める。
+画面で「取消済み」と表示されても、外部への返金が取り消されたとは言えない。
+停止の要求、処理が止まった証拠、済んだ処理を戻す手続きは、それぞれ確認する必要がある。</p>
+</section>
+<section class="report-section">
+<h2>AG-UIは、画面に届く出来事をそろえる</h2>
+<p>利用者にとって、調査が動いていることと、判断できる結果が届いたことは違う。
+AG-UIの<a href="https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/events.mdx">3月28日時点のイベント文書</a>は、処理の開始や終了、文章の断片、ツール呼び出しと結果を画面へ伝える出来事を定義する。
+重要なのは、ツール呼び出しの引数を送り終えた<code>TOOL_CALL_END</code>と、実行結果を届ける<code>TOOL_CALL_RESULT</code>が別だという点だ。</p>
+<p>想定例で画面が前者だけを見て「返金完了」と表示すれば、利用者は手続きを終えたと思ってしまう。
+処理単位の終了も、依頼全体の成功に直結するとは限らない。
+調査結果が届いたときには「返金案を確認してください」、追加情報を待つときには「契約を選択してください」と示せるよう、出来事を業務の状態へ対応させる必要がある。</p>
+<p>承認ボタンの表示からも、実行側の認可は生まれない。
+返金する請求、金額、宛先と、承認した人を実行側で対応させる設計が要る。
+画面への表示、利用者の回答、返金の実行結果をつなぐ部分は、アプリケーションが引き受ける。</p>
+</section>
+<section class="report-section">
+<h2>同じ返金依頼を、四つの受け渡しで追う</h2>
 <div class="comparison-grid">
 <article class="comparison-card">
-<h3>MCP: 請求情報へ接続する</h3>
-<p>依頼を受けたエージェントが、請求書番号や契約条件を検索する。渡すのは検索条件とツールの結果であり、返金の可否そのものではない。</p>
+<h3>請求情報を取得する</h3>
+<p>MCPのツールへ検索条件を渡し、請求番号、期間、通貨と金額を受け取る。取得失敗と該当なしを分け、後の調査が同じ請求を扱えるようにする。</p>
 </article>
 <article class="comparison-card">
-<h3>A2A: 調査を依頼する</h3>
-<p>請求内容や例外規定を調べる担当へ、調査課題、追加で必要な入力、進捗、成果物を渡す。相手がエージェントである必要がある場合のやり取りを表す。</p>
+<h3>例外規定を調べる</h3>
+<p>A2Aで担当へ調査を依頼し、タスクと会話を追う。不足情報への回答を元の調査へ戻し、返金案と判断の根拠を成果物として受け取る。</p>
 </article>
 <article class="comparison-card">
-<h3>AG-UI: 利用者へ状況を示す</h3>
-<p>調査中であること、見つかった金額、確認が必要な理由をアプリケーション画面へ送る。表示されたことは、返金が認可されたことを意味しない。</p>
+<h3>利用者の次の行動を示す</h3>
+<p>AG-UIの出来事と状態を、調査中、回答待ち、案の確認へ対応させる。利用者が待つだけでよい場面と、入力すべき場面を区別する。</p>
 </article>
 <article class="comparison-card">
-<h3>アプリケーション: 承認と実行を結ぶ</h3>
-<p>誰が、どの請求、金額、宛先を承認し、その承認がどの返金API呼び出しに対応するかを確かめる。拒否、期限切れ、画面離脱の扱いもここで決める。</p>
+<h3>実際の返金結果を確かめる</h3>
+<p>アプリケーションが承認内容と実行を結び付ける。結果が不明なら確認中として扱い、画面を閉じたことや返却メッセージだけで成功や失敗を決めない。</p>
 </article>
 </div>
-<p>これは仕様の利用例としての想定であり、返金サービスがこれら三つの接続を必要とするという意味ではない。小さな処理なら、検索と既存の画面だけで足りることもある。</p>
+<p>この四つは、仕組みの比較を説明する想定例だ。
+四つのエージェントや、三つすべてのプロトコルを導入する要件ではない。
+同じ請求と依頼を追える情報を渡すと、担当者は各サービスのログを最初から突き合わせる負担を減らせる可能性がある。
+その効果は、実際の処理と担当者の確認時間で確かめたい。</p>
 </section>
 <section class="report-section">
-<h2>MCPのツール呼び出しと、A2Aのタスクの受け渡し</h2>
-<p><a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCPのツール仕様</a>は、利用可能なツールの一覧、引数の形式、呼び出し、結果の返却を定める。
-たとえば請求書検索のツールなら、依頼側は検索条件を渡し、結果を受け取る。
-ツールの実装の内部でAIを使うこともできるため、接続先がAIかどうかだけではMCPとA2Aを区別できない。</p>
-<p><a href="https://a2a-protocol.org/v0.3.0/specification/">A2A 0.3.0の仕様</a>では、Agent Cardに能力などを記述し、タスクの進捗や成果物を受け渡す。
-追加の入力を待つ<code>input-required</code>も定義されている。
-請求内容の調査を別のエージェントに任せ、途中で不足情報を聞かれ、最後に調査結果を受け取る構成なら、こうしたやり取りが比較項目になる。</p>
-<p>長時間処理があるだけでA2Aが必要になるわけでもない。
-<a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks">MCPの2025-11-25版</a>にも、処理状況を追跡して後から結果を取得する実験的なタスク機能がある。
-選択時には、単発の関数呼び出しで足りるか、相手の能力情報や継続的な対話を必要とするか、接続する両端がどの版と機能に対応しているかを確かめたい。</p>
+<h2>切断後も、結果を確かめられるか</h2>
+<p>利用者が画面を閉じたり通信が切れたりしたとき、途中の表示がすべて再送されると考えてはいけない。
+A2A 1.0の仕様は、再接続後にすべての状態メッセージを受け取れるとは限らず、メッセージを重要情報の確実な配送手段として扱ってはいけないと定める。
+想定業務では、調査の識別子から現在のタスクや成果物を再取得し、業務の記録と照合する設計が必要になる。</p>
+<p>AG-UIの<a href="https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/state.mdx">状態の同期</a>には、現在の全体を置き換えるスナップショットと、順番に適用する差分がある。
+画面と実行側の状態が食い違った場合には、新しい全体状態を取り直す考え方が説明されている。
+ただし、取り直した画面の状態が、外部の返金結果まで正しく含むかは別に確かめる必要がある。</p>
+<p>返金の応答だけが届かなかった場合、失敗と決めて新たに返金すると、二重処理になり得る。
+再接続した利用者には、元の依頼の結果を確認していることを伝える。
+請求や金額を変えた提案については、前の承認をそのまま使わない。
+共通の通信形式を使っても、依頼の継続と新しい処理を区別する仕事は残る。</p>
 </section>
 <section class="report-section">
-<h2>進捗を画面へ送ることと、返金を許可すること</h2>
-<p>別のエージェントが作業を進めても、利用者には何を待っているのかが分からない場合がある。
-AWSのAG-UI対応発表は、文字列やツール結果を逐次送ることに加え、画面の進捗表示などに使える情報の同期を説明している。
-これは、処理の途中経過をアプリケーションの画面で扱うための接続である。</p>
-<p>ここで、請求調査の結果に基づく返金を想定する。
-画面に金額と承認ボタンを表示するだけでは、承認前に返金APIを呼べないとは限らない。
-実行側で、誰が、どの請求と金額を承認したかを確かめ、その内容と実際の呼び出しを対応させる必要がある。
-画面を閉じた場合や拒否した場合に処理を進めない条件も、アプリケーション側の設計になる。</p>
-<p>この想定例では、MCPは請求情報などへのアクセス、A2Aは調査の依頼、AG-UIは利用者への表示に使える。
-しかし、返金の権限と承認条件は三つの名称からは決まらない。
-MCPの仕様も、サーバーによるアクセス制御を要求し、特定の利用者インターフェースを必須にはしていない。</p>
-</section>
-<section class="report-section">
-<h2>必要な接続だけを採用し、業務の意味をそろえる</h2>
-<p>請求書を検索して画面に表示するだけなら、別の調査エージェントへの委任は不要かもしれない。
-その場合、A2Aを追加する理由は薄い。
-既存の画面とAPIで処理状況を十分伝えられるなら、AG-UIへの置き換えも効果を確かめてからでよい。</p>
-<p>複数の実装をつなぐ場合には、通信が成立することに加え、「調査完了」が何を意味するかをそろえる。
-返金を提案しただけなのか、承認を得たのか、実行まで終えたのかを区別し、同じ依頼を追える記録を残す。
-共通プロトコルでメッセージの形式がそろっても、この業務上の意味まで自動的に一致するわけではない。</p>
-<p>三つの仕様を比較する利点は、必要なやり取りを具体的に選べることにある。
-まず接続相手と受け渡す情報を決め、既存の実装で不足する機能だけを採用する。
-その順番なら、プロトコルへの対応数と、実際に完了できる仕事を混同せずに設計できる。</p>
+<h2>必要な接続から始め、変更の影響を測る</h2>
+<p>既存の検索APIと画面で請求書を見つけられるなら、それを基準にする。
+別の担当へ調査を任せる必要があるときにA2Aを、複数の実行環境から同じ画面へ進捗を届けたいときにAG-UIを比較する。
+AWSの対応発表もA2Aの版を指定していないため、A2A 1.0への対応まで推定せず、両端の版と任意機能を確認する。</p>
+<p>試行では、通常の調査に加え、不足情報への回答、途中の切断、取消、接続相手の変更を含めたい。
+最終結果が正しいかとともに、人が待った時間、入力をやり直した回数、結果を再調査した時間を見る。
+担当エージェントを交換したとき、画面や請求検索までどこを直す必要があるかも確かめる。
+これは検証案であり、特定製品で改善を実測した結果ではない。</p>
+<p>共通仕様によって、接続先の変更を限られた範囲で扱えるなら、利用者の仕事を保ったまま仕組みを更新しやすくなる。
+逆に、途中の状態が曖昧で人が確認し直すなら、接続が増えても負担は減らない。
+プロトコルを選ぶ際は、何を受け渡せるかに加え、その受け渡しによって次の人が迷わず仕事を進められるかを判断したい。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -213,49 +263,49 @@ MCPの仕様も、サーバーによるアクセス制御を要求し、特定�
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか">
+      <a class="article-card " href="/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" aria-label="AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-30">2026年3月30日</time>
+        <time class="mono-note" datetime="2026-03-30">調査対象日 2026年3月30日</time>
       </div>
-      <h3 class="article-card-title">AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか</h3>
-      <p class="article-card-copy">並列に調べられる仕事と、前の結果を待つ仕事を分けて委任を考える。</p>
+      <h3 class="article-card-title">AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ</h3>
+      <p class="article-card-copy">担当を増やす前に、何を受け取り、どこまで調べ、何を返せば比較が進むかを決める。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-03-28-video-generation-ai-product-landscape.html" aria-label="動画生成AIを選ぶなら、参照素材と修正工程を比べたい">
+  </a><a class="article-card " href="/2026-03-28-video-generation-ai-product-landscape.html" aria-label="動画生成AIは修正まで比べる：参照・音声・編集で変わる制作の仕事">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Strategy</span>
-        <time class="mono-note" datetime="2026-03-28">2026年3月28日</time>
+        <time class="mono-note" datetime="2026-03-28">調査対象日 2026年3月28日</time>
       </div>
-      <h3 class="article-card-title">動画生成AIを選ぶなら、参照素材と修正工程を比べたい</h3>
-      <p class="article-card-copy">良い映像が一度出るだけでは十分か。参照画像、音声、編集機能を、修正依頼への対応から比較する。</p>
+      <h3 class="article-card-title">動画生成AIは修正まで比べる：参照・音声・編集で変わる制作の仕事</h3>
+      <p class="article-card-copy">背景だけを直すと、商品まで変わる。同じものを保って修正し、制作物へ渡せるかを五社の公表機能から読む。</p>
       <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Video Generation</span><span class="meta-chip">Creative Tools</span><span class="meta-chip">AI Product</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 15</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2025-07-01-interoperability-leaves-the-roadmap.html" aria-label="相互運用は、何を交換できる状態を指すのか">
+  </a><a class="article-card " href="/2025-07-01-interoperability-leaves-the-roadmap.html" aria-label="MCPとA2A：接続先の交換で変えてはいけないこと">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-07-01">2025年7月1日</time>
+        <time class="mono-note" datetime="2025-07-01">調査対象日 2025年7月1日</time>
       </div>
-      <h3 class="article-card-title">相互運用は、何を交換できる状態を指すのか</h3>
-      <p class="article-card-copy">接続形式が共通でも、出力の意味、認証、承認、失敗処理は自動でそろわない。</p>
+      <h3 class="article-card-title">MCPとA2A：接続先の交換で変えてはいけないこと</h3>
+      <p class="article-card-copy">検索先を替えても、同じ意味で結果を読めるか。接続形式から、出典・権限・失敗の比較へ。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span><span class="meta-chip">Interoperability</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 9</span>
+      <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -274,9 +324,9 @@ MCPの仕様も、サーバーによるアクセス制御を要求し、特定�
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2026年3月13日</span>
               </div>
-              <p class="source-title">AWS: AgentCore Runtime AG-UI support (March 13, 2026)</p>
+              <p class="source-title">AWS: AgentCore Runtime AG-UI support</p>
               <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/</p>
             </div>
             <span class="source-action">開く</span>
@@ -284,30 +334,60 @@ MCPの仕様も、サーバーによるアクセス制御を要求し、特定�
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2025年11月25日</span>
               </div>
               <p class="source-title">MCP 2025-11-25: Tools</p>
               <p class="source-url">https://modelcontextprotocol.io/specification/2025-11-25/server/tools</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://a2a-protocol.org/v0.3.0/specification/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">A2A 0.3.0: Specification</p>
-              <p class="source-url">https://a2a-protocol.org/v0.3.0/specification/</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">2025年11月25日</span>
               </div>
-              <p class="source-title">MCP 2025-11-25: Tasks</p>
+              <p class="source-title">MCP 2025-11-25: experimental Tasks</p>
               <p class="source-url">https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://a2a-protocol.org/dev/blog/2026/03/12/a2a-protocol-ships-v10-production-ready-standard-for-agent-to-agent-communication/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月12日</span>
+              </div>
+              <p class="source-title">A2A protocol ships v1.0</p>
+              <p class="source-url">https://a2a-protocol.org/dev/blog/2026/03/12/a2a-protocol-ships-v10-production-ready-standard-for-agent-to-agent-communication/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/a2aproject/A2A/blob/173695755607e884aa9acf8ce4feed90e32727a1/docs/specification.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月12日</span>
+              </div>
+              <p class="source-title">A2A v1.0.0: pinned specification</p>
+              <p class="source-url">https://github.com/a2aproject/A2A/blob/173695755607e884aa9acf8ce4feed90e32727a1/docs/specification.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/events.mdx" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月28日</span>
+              </div>
+              <p class="source-title">AG-UI: event concepts, March 28 pinned snapshot</p>
+              <p class="source-url">https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/events.mdx</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/state.mdx" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年3月28日</span>
+              </div>
+              <p class="source-title">AG-UI: state concepts, March 28 pinned snapshot</p>
+              <p class="source-url">https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/state.mdx</p>
             </div>
             <span class="source-action">開く</span>
           </a>

@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Why AI-agent comparison turned to measurable work design | Auto Research Digest EN</title>
-    <meta name="description" content="Using agent research and product documentation available by early 2025, this article maps separate measures for tool use, environment actions, and final task state.">
+    <title>AI-agent evaluation: tool success versus task completion | Auto Research Digest EN</title>
+    <meta name="description" content="Compare ReAct, Toolformer, WebArena, SWE-bench, and OSWorld as of early 2025. Separate successful tool calls from completed tasks to locate repairable failures.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="Why AI-agent comparison turned to measurable work design | Auto Research Digest EN">
-    <meta property="og:description" content="Using agent research and product documentation available by early 2025, this article maps separate measures for tool use, environment actions, and final task state.">
+    <meta property="og:title" content="AI-agent evaluation: tool success versus task completion | Auto Research Digest EN">
+    <meta property="og:description" content="Compare ReAct, Toolformer, WebArena, SWE-bench, and OSWorld as of early 2025. Separate successful tool calls from completed tasks to locate repairable failures.">
     <meta property="og:url" content="https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="Why AI-agent comparison turned to measurable work design">
+    <meta property="og:image:alt" content="AI-agent evaluation: tool success versus task completion">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Why AI-agent comparison turned to measurable work design | Auto Research Digest EN">
-    <meta name="twitter:description" content="Using agent research and product documentation available by early 2025, this article maps separate measures for tool use, environment actions, and final task state.">
+    <meta name="twitter:title" content="AI-agent evaluation: tool success versus task completion | Auto Research Digest EN">
+    <meta name="twitter:description" content="Compare ReAct, Toolformer, WebArena, SWE-bench, and OSWorld as of early 2025. Separate successful tool calls from completed tasks to locate repairable failures.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="Why AI-agent comparison turned to measurable work design">
+    <meta name="twitter:image:alt" content="AI-agent evaluation: tool success versus task completion">
     <link rel="canonical" href="https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html">
@@ -42,15 +42,14 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-01-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T13:43:25+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Benchmark">
     <meta property="article:tag" content="Tool Use">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Why AI-agent comparison turned to measurable work design","description":"Using agent research and product documentation available by early 2025, this article maps separate measures for tool use, environment actions, and final task state.","datePublished":"2025-01-01T00:00:00+09:00","dateModified":"2026-09-20T13:43:25+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Benchmark, Tool Use","mainEntityOfPage":"https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Why AI-agent comparison turned to measurable work design","item":"https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Evaluating AI agents: a successful tool call is not a finished job","description":"Compare ReAct, Toolformer, WebArena, SWE-bench, and OSWorld as of early 2025. Separate successful tool calls from completed tasks to locate repairable failures.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Benchmark, Tool Use","mainEntityOfPage":"https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Evaluating AI agents: a successful tool call is not a finished job","item":"https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,21 +65,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Why AI-agent comparison turned to measurable work design</h1>
-          <p class="hero-copy">Compare ReAct, Toolformer, WebArena, SWE-bench, and OSWorld to show why agent evaluation needs conditions for completing work in an environment, not just evidence of a tool call.</p>
+          <h1 class="hero-title">Evaluating AI agents: a successful tool call is not a finished job</h1>
+          <p class="hero-copy">Search can succeed while returning a deadline for the wrong device. Compare ReAct, Toolformer, and environment benchmarks to separate actions, use of observations, and final task state.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-01-01">January 1, 2025</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2025-01-01">Research cutoff January 1, 2025</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Tool Use</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=Why%20AI-agent%20comparison%20turned%20to%20measurable%20work%20design&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-01-01-agents-shift-to-measurable-systems.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Evaluating%20AI%20agents%3A%20a%20successful%20tool%20call%20is%20not%20a%20finished%20job&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-01-01-agents-shift-to-measurable-systems.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="Why AI-agent comparison turned to measurable work design"
-      data-share-text="Why AI-agent comparison turned to measurable work design"
+      data-share-title="Evaluating AI agents: a successful tool call is not a finished job"
+      data-share-text="Evaluating AI agents: a successful tool call is not a finished job"
       data-share-url="https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="Why AI-agent comparison turned to measurable work design"
+      data-share-title="Evaluating AI agents: a successful tool call is not a finished job"
       data-share-url="https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -124,77 +124,59 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>Why can’t an AI agent be compared merely by whether it can use a tool?</h2>
-  <p>Research published by January 1, 2025 had made a tool call or a one-shot response an insufficient unit of evaluation. <a href="https://arxiv.org/abs/2210.03629">ReAct</a> and <a href="https://arxiv.org/abs/2302.04761">Toolformer</a> study ways to incorporate outside information and APIs into action. <a href="https://arxiv.org/abs/2307.13854">WebArena</a>, <a href="https://arxiv.org/abs/2310.06770">SWE-bench</a>, and <a href="https://arxiv.org/abs/2404.07972">OSWorld</a> evaluate whether work is completed inside an environment. This does not prove that an entire market had changed at once. It does show a set of components for measuring tools, environments, and completion conditions in comparable forms.</p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>Select an action</h3>
-      <p>Decide whether to retrieve information and which API and arguments to use.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Change an environment</h3>
-      <p>Read the state of a screen, repository, or dataset, then execute several actions in sequence.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Verify completion</h3>
-      <p>Judge final state, supporting evidence, and disallowed side effects against conditions for a specific job.</p>
-    </article>
-  </div>
+<h2>The search succeeded, but the answer belonged to a different device</h2>
+<p>A colleague asks an AI for a device's maintenance deadline. The AI calls document search, opens material containing a deadline, and returns a date with a citation. Suppose the material describes an older model. The search log shows success, but the colleague's question remains unanswered. This is a hypothetical example for examining evaluation.</p>
+<p>Tool use creates failures that the appearance of an answer cannot reveal. An agent may select the right function with the wrong arguments, retrieve the correct material but miss a condition, or complete several actions without saving the result. A single label of “agent failure” does not identify what to repair.</p>
+<p>Research available by January 1, 2025 supplied components for measuring these distinctions. ReAct and Toolformer address action selection and use of observations; WebArena, SWE-bench, and OSWorld address completion within an environment. Our conclusion is to compare agents through jobs with inputs, actions, and evidence of completion, rather than capability lists. These sources do not establish a simultaneous market-wide transition.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Action design</p>
-  <h2>ReAct and Toolformer approach the same phrase, “tool use,” from different directions</h2>
-  <p>ReAct interleaves reasoning traces with task-specific actions and uses observations in later decisions. Its question-answering examples sequence Wikipedia search, lookup within a page, and an action that commits to an answer. The paper establishes that a model can acquire outside information during a task and leave a trajectory that a person can inspect. It evaluates particular benchmarks; it does not establish that adding external search improves every kind of question.</p>
-  <p>Toolformer proposes a self-supervised method for learning which API to call, when to call it, which arguments to pass, and how to incorporate a result into later generation. Its tools include a calculator, question answering, search, translation, and a calendar. It is not a replacement implementation recipe for ReAct. ReAct addresses the loop between reasoning and observation, while Toolformer addresses incorporating API calls into training. Reducing both to one success metric would hide that difference.</p>
-  <div class="callout-panel">
-    <p class="callout-title">What the sources establish</p>
-    <p>Tool-use design contains separate questions about selection, arguments, and use of an observation. A successful call is not evidence that the subsequent work is complete.</p>
-  </div>
+<h2>Separate obtaining external information from using it</h2>
+<p><a href="https://arxiv.org/html/2210.03629v3">ReAct version 3</a> interleaves reasoning traces and task-specific actions, using observations to select subsequent actions. Its question-answering setup includes Wikipedia search, lookup within pages, and committing to an answer. Applied to our hypothetical example, this provides a place to decide to search another document when the first lacks a required condition.</p>
+<p>External search does not improve every task automatically. In the paper's comparison using the same PaLM-540B model, HotpotQA exact-match accuracy was 27.4% for ReAct and 29.4% for chain-of-thought prompting (CoT). FEVER fact-verification accuracy reversed the order: 60.9% versus 56.3%. Different tasks and measures cannot be reduced to a single advantage from search access.</p>
+<p><a href="https://arxiv.org/abs/2302.04761v1">The first Toolformer paper</a> proposes self-supervised learning from a small number of demonstrations to decide which API to call, when, with which arguments, and how to use the result in subsequent generation. Its tools include calculation, question answering, search, translation, and a calendar. Where ReAct addresses the reasoning-observation loop, Toolformer addresses incorporating calls into learning.</p>
+<p>Together they motivate examining tool selection, arguments, and interpretation of results separately. A search response does not establish a matching model number or incorporation of the deadline's conditions. Read intermediate records to locate where a condition was lost, rather than simply to admire a fluent explanation.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Completion conditions</p>
-  <h2>Environment benchmarks made final state, rather than an answer alone, the object of evaluation</h2>
-  <p>WebArena provides functioning web environments for e-commerce, forums, collaborative software development, and content management, then evaluates functional completion over long action sequences. In the April 2024 version of the paper, its best GPT-4-based agent reached 14.41% end-to-end task success while humans reached 78.24%. Those values belong to WebArena’s environment, tasks, and baseline at that time. They cannot be reused as a success rate for a company’s website automation or as a statement about current models.</p>
-  <p>SWE-bench supplies a codebase and issue description for 2,294 real GitHub issues and their corresponding pull requests across 12 Python repositories. The work resembles reading a problem, changing related files, and checking the final state with tests, rather than proposing a code fragment. OSWorld places 369 tasks in real computer environments spanning Ubuntu, Windows, and macOS, with initial-state configuration and execution-based evaluation scripts. Its reported comparison of 12.24% for the best model and 72.36% for humans is likewise an environment-specific measure that includes GUI grounding and operational knowledge.</p>
-  <p>The public version of <a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> aimed to put several web-agent benchmarks under shared observation and action spaces and to make experiment management more consistent. Across these efforts, the common lesson is that evaluating an agent requires more than an input prompt: the initial state, permitted actions, and completion checker must be explicit.</p>
+<h2>Measure web work by its final state, not its number of clicks</h2>
+<p><a href="https://arxiv.org/abs/2307.13854v2">WebArena version 2</a> evaluates functional completion across long action sequences in working websites for e-commerce, forums, collaborative software development, and content management. It provides an environment for relating individual abilities, such as opening a page or entering text, to completion of a whole task.</p>
+<p>That version reports 14.41% end-to-end success for its best GPT-4-based agent and 78.24% for humans. These are results for the tasks, environment, and agent configuration at that time, not for current models or an organization's website. They reveal a gap worth measuring between convincingly interpreting a request and completing the specified work.</p>
+<p>In a hypothetical internal ticket-registration task, text entered into a form differs from a correctly saved record for the intended case. Successful submission to the wrong destination could be counted as an operational success while missing the error. Defining the final-state check first clarifies both the necessary actions and the information that must be read along the way.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Product surface</p>
-  <h2>Official building features supplied components for implementing a work boundary, not measurement by themselves</h2>
-  <p>The 2024 update to <a href="https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/">Amazon Bedrock Agents</a> included action groups, simplified configuration, return of control to an invoking application, and Infrastructure as Code. <a href="https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder">Vertex AI Agent Builder</a> and Claude <a href="https://www.anthropic.com/news/tool-use-ga">tool use</a> likewise documented options for composing applications that connect knowledge sources and external functions. Vendor documentation alone does not guarantee that a user’s work has been completed correctly.</p>
-  <p>These components can nevertheless make a chosen work boundary easier to implement. A team can specify allowed APIs, the point at which control returns to its application, and the sources that may be consulted as configuration rather than only as model instructions. The distinction between workflows and agents in <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> is also a useful design reference for choosing a degree of control that fits the work, instead of presuming universal autonomy.</p>
+<h2>Code and screen operations need different completion checks</h2>
+<p><a href="https://arxiv.org/abs/2310.06770v1">The first SWE-bench paper</a> collects 2,294 problems based on real GitHub issues and corresponding fixes across twelve Python repositories. A model receives a codebase and problem description and edits relevant files. Evaluation checks that previously failing tests pass and previously passing tests continue to pass.</p>
+<p>This separates plausible code from fixing the problem while preserving existing behavior. Passing the selected tests still does not establish every unmeasured quality or operational requirement. Use tests as evidence for an artifact while retaining the scope they actually check.</p>
+<p><a href="https://arxiv.org/abs/2404.07972v1">The first OSWorld paper</a> provides 369 tasks involving web and desktop applications, file operations, and workflows across applications, with initial-state configuration and execution-based evaluation scripts. Its environment supports Ubuntu, Windows, and macOS; support does not mean equivalent performance was measured on every operating system. Saved files and application state require checks different from code tests.</p>
+<p>For a hypothetical document task, seeing a table on screen is insufficient if the required values were not saved to the specified file. Conversely, some jobs can succeed with a slightly different appearance if the requested data is correctly retained. The checker should match the person's desired result, making one score for all agents difficult to interpret.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Make it concrete</p>
-  <h2>For “find the maintenance deadline in internal documents,” write the scorecard first</h2>
-  <p>The following is a hypothetical application of the research, not a reported deployment. A user asks for a device’s maintenance deadline and an agent searches internal documents. An API response is insufficient. A document for an older model is the wrong evidence even if the operation succeeded. If the deadline depends on model number or contract, generating a plausible date is not completion either.</p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card">
-      <h3>Inputs and permitted actions</h3>
-      <p>Specify a model number, contract identifier, and searchable document repositories. Do not include external delivery or contract changes in this job.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Evidence of completion</h3>
-      <p>Return the applicable document version, the passage stating the deadline, and its correspondence to the contract. Treat “unknown because evidence is missing” as a correct outcome when appropriate.</p>
-    </article>
-    <article class="comparison-card">
-      <h3>Records to compare</h3>
-      <p>On the same set of questions, record answers meeting the conditions, evidence mismatches, time, and call count. Aggregate these separately from raw API success.</p>
-    </article>
-  </div>
-  <p>This scorecard does not import a research benchmark score into an organization. It is a design example for spelling out local initial and final states, as environment benchmarks do for their own tasks.</p>
+<h2>A common experiment interface does not make tasks identical</h2>
+<p><a href="https://arxiv.org/abs/2412.05467v1">The first BrowserGym paper</a> puts multiple web-agent benchmarks under common observation and action formats, using AgentLab for experiment management and analysis. It addresses the difficulty of tracing comparisons across fragmented execution systems.</p>
+<p>A shared format makes it easier to compare models, exposed information, permitted actions, and trial settings. Yet answering an information question and updating a record still have different meanings of success. A common action interface does not produce a ranking applicable to every business task.</p>
+<p>For the maintenance example, fix the document-search method, answer construction, and source versions when comparing alternatives. Changing the material and time limit along with the model makes improvement harder to attribute. Measurability includes both a repeatable environment and records explaining which conditions changed.</p>
 </section>
-
 <section class="report-section">
-  <p class="section-kicker">Design conclusion</p>
-  <h2>Measurable work is needed to make failures legible, not to make a demo smaller</h2>
-  <p>The most useful implication of the early-2025 research and product material is to avoid comparing agents through a list of apparent capabilities. Separating tool selection, actions in an environment, and final state makes it possible to tell whether a search chose the wrong document, an operation stopped partway through, or the completion condition was vague. This article calls that separation measurable system design.</p>
-  <p>A benchmark success rate or a documented product feature still cannot be generalized directly into an organization’s business outcome. Start with work whose source boundary and final state are easy to specify and whose external side effects are limited. Then use recorded failures to revise permitted actions and completion conditions. That is how a striking demo can become work that an organization can operate.</p>
+<h2>Product building blocks help implement the job being evaluated</h2>
+<p><a href="https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/">AWS's April 2024 Bedrock Agents update</a> describes defining functions and parameters and returning control to the calling application. The model can select an operation while an existing application performs it. This is a product example of separating action selection from the place where execution occurs.</p>
+<p><a href="https://cloud.google.com/blog/products/ai-machine-learning/build-generative-ai-experiences-with-vertex-ai-agent-builder">Google's Vertex AI Agent Builder announcement</a> combines building capabilities including search and conversation. <a href="https://www.anthropic.com/news/tool-use-ga">Claude's May 2024 tool-use announcement</a> likewise connects natural-language requests to defined tools and APIs. These are implementation choices, rather than measurements proving the user's job succeeded.</p>
+<p>For the hypothetical deadline question, define the searchable documents and returned fields, then implement their use in an answer. Retrieving the correct material, applying it to a contract, and returning the correct date each need checks. When choosing building tools, examine where those checks can run as well as how many functions can be added.</p>
+<p><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic's agent design guide</a> distinguishes workflows following predefined paths from agents whose models select the process. If the material and sequence are fixed, choosing actions freely each time may offer little benefit. Compare a simple design against the requirements and measure the time and failures introduced by additional flexibility.</p>
+</section>
+<section class="report-section">
+<h2>A deadline-answering task also needs conditions for returning unknown</h2>
+<p>Apply the research to a scorecard for the opening example. Include the device model and contract in the input and define accessible document repositories. A deadline in a document is not final until its applicability to that model, contract, and period is verified. The following is our evaluation proposal, not a product deployment result.</p>
+<div class="comparison-grid">
+<article class="comparison-card"><h3>Check the answer's evidence</h3><p>Show the applicable document version and deadline passage. Even a correct date obtained from a different model's material is an evidence error.</p></article>
+<article class="comparison-card"><h3>Return missing conditions for review</h3><p>Report an unknown contract, conflicting documents, or inaccessible material. Do not fill an evidence gap with a plausible date.</p></article>
+<article class="comparison-card"><h3>Check the request's scope</h3><p>Separate answering a deadline question from renewing a contract or sending material externally. A correct answer accompanied by an unrequested change is not a pass.</p></article>
+</div>
+<p>Include changed model numbers, updated deadlines, and missing contracts alongside answerable cases. Always returning “unknown” can reduce wrong answers while leaving the colleague's research burden intact. Record the fraction answered under the conditions, evidence mismatches, and returns to review separately.</p>
+<p>Also measure calls, waiting time, and the person's repeat research. More correct answers save little work if the colleague must reread every document each time. Compare whether the response lets a person verify the necessary passage and applicability conditions using the same set of questions.</p>
+</section>
+<section class="report-section">
+<h2>Legible failures make the next improvement possible</h2>
+<p>The period's sources address different problems: selecting actions, measuring completion in real environments, and constructing executable jobs. Rather than claiming one method solves them all, the useful conclusion is to connect those layers in evaluation. Compare jobs for which a team can explain where a condition was lost, what state remained, and what a person had to check again.</p>
+<p>The colleague in the opening example needs an applicable maintenance deadline and its evidence more than a report that search succeeded. If the deadline cannot be established, they need to know what to verify next. Designing an agent as measurable work means locating failures that can be repaired and helping the person use the result they delegated.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -216,49 +198,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2025-02-01-browser-agents-enter-the-product-roadmap.html" aria-label="What to design before putting browser agents on a product roadmap">
+      <a class="article-card " href="/en/2025-02-01-browser-agents-enter-the-product-roadmap.html" aria-label="Browser agents: using existing screens without losing the job">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-02-01">February 1, 2025</time>
+        <time class="mono-note" datetime="2025-02-01">Research cutoff February 1, 2025</time>
       </div>
-      <h3 class="article-card-title">What to design before putting browser agents on a product roadmap</h3>
-      <p class="article-card-copy">Clicking a screen is not a product plan. Define state, confirmation, and handoff for browser-agent work.</p>
+      <h3 class="article-card-title">Browser agents: using existing screens without losing the job</h3>
+      <p class="article-card-copy">More screens mean more outcomes to verify. Compare the breadth of browser access with the effort needed to continue each job.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 10</span>
+      <span class="mono-note">Sources: 9</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="Evaluating AI agent actions beyond the final answer">
+  </a><a class="article-card " href="/en/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="Use AI agent evaluation to decide what work needs repair">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-07-11">July 11, 2026</time>
+        <time class="mono-note" datetime="2026-07-11">Research cutoff July 11, 2026</time>
       </div>
-      <h3 class="article-card-title">Evaluating AI agent actions beyond the final answer</h3>
-      <p class="article-card-copy">The same correct answer can conceal an unapproved write. Check events, arguments, and final state separately.</p>
+      <h3 class="article-card-title">Use AI agent evaluation to decide what work needs repair</h3>
+      <p class="article-card-copy">When a score rises, what work improved? Use execution evidence to choose what to repair.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 7</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="Evaluate agent readiness against the work your organization must complete">
+  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="Enterprise AI agents: define the job and who takes it back">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-21">March 21, 2026</time>
+        <time class="mono-note" datetime="2026-03-21">Research cutoff March 21, 2026</time>
       </div>
-      <h3 class="article-card-title">Evaluate agent readiness against the work your organization must complete</h3>
-      <p class="article-card-copy">A benchmark score is a starting point. Define completion and exceptions, then compare the agent with a simpler workflow.</p>
+      <h3 class="article-card-title">Enterprise AI agents: define the job and who takes it back</h3>
+      <p class="article-card-copy">A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p>
       <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Use Case</span><span class="meta-chip">Governance</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 6</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -273,14 +255,14 @@
       <p class="panel-copy max-w-xl md:mt-0">Public pages list only evidence that can be verified as official documentation or papers.</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2210.03629" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://arxiv.org/html/2210.03629v3" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
-                <span class="mono-note">October 6, 2022</span>
+                <span class="mono-note">March 10, 2023</span>
               </div>
-              <p class="source-title">ReAct: Synergizing Reasoning and Acting in Language Models</p>
-              <p class="source-url">https://arxiv.org/abs/2210.03629</p>
+              <p class="source-title">ReAct: Synergizing Reasoning and Acting in Language Models (v3)</p>
+              <p class="source-url">https://arxiv.org/html/2210.03629v3</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://arxiv.org/abs/2302.04761v1" target="_blank" rel="noopener noreferrer">
@@ -293,44 +275,44 @@
               <p class="source-url">https://arxiv.org/abs/2302.04761v1</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2307.13854" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2307.13854v2" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
-                <span class="mono-note">July 25, 2023</span>
+                <span class="mono-note">October 24, 2023</span>
               </div>
-              <p class="source-title">WebArena: A Realistic Web Environment for Building Autonomous Agents</p>
-              <p class="source-url">https://arxiv.org/abs/2307.13854</p>
+              <p class="source-title">WebArena: A Realistic Web Environment for Building Autonomous Agents (v2)</p>
+              <p class="source-url">https://arxiv.org/abs/2307.13854v2</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2310.06770v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">October 10, 2023</span>
               </div>
               <p class="source-title">SWE-bench: Can Language Models Resolve Real-World GitHub Issues?</p>
-              <p class="source-url">https://arxiv.org/abs/2310.06770</p>
+              <p class="source-url">https://arxiv.org/abs/2310.06770v1</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2404.07972v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">April 11, 2024</span>
               </div>
               <p class="source-title">OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments</p>
-              <p class="source-url">https://arxiv.org/abs/2404.07972</p>
+              <p class="source-url">https://arxiv.org/abs/2404.07972v1</p>
             </div>
             <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467v1" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">December 6, 2024</span>
               </div>
               <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
+              <p class="source-url">https://arxiv.org/abs/2412.05467v1</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/" target="_blank" rel="noopener noreferrer">

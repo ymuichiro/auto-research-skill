@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>コーディングの先で、実験仕事をどう評価するか | Auto Research Digest</title>
-    <meta name="description" content="MLE-benchなどを基に、実験支援で必要なデータ・条件・結果・再現記録を整理し、実行可能なコードと検証可能な実験を分ける。">
+    <title>AIが書いたコードから、比較できる実験結果へ | Auto Research Digest</title>
+    <meta name="description" content="AIの実験支援をMLE-bench、RE-Bench、GPT-5、Lookerから考える。コードの実行、予測の成績、データの定義、再検証できる比較条件を区別する。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="コーディングの先で、実験仕事をどう評価するか | Auto Research Digest">
-    <meta property="og:description" content="MLE-benchなどを基に、実験支援で必要なデータ・条件・結果・再現記録を整理し、実行可能なコードと検証可能な実験を分ける。">
+    <meta property="og:title" content="AIが書いたコードから、比較できる実験結果へ | Auto Research Digest">
+    <meta property="og:description" content="AIの実験支援をMLE-bench、RE-Bench、GPT-5、Lookerから考える。コードの実行、予測の成績、データの定義、再検証できる比較条件を区別する。">
     <meta property="og:url" content="https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="コーディングの先で、実験仕事をどう評価するか">
+    <meta property="og:image:alt" content="AIが書いたコードから、比較できる実験結果へ">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="コーディングの先で、実験仕事をどう評価するか | Auto Research Digest">
-    <meta name="twitter:description" content="MLE-benchなどを基に、実験支援で必要なデータ・条件・結果・再現記録を整理し、実行可能なコードと検証可能な実験を分ける。">
+    <meta name="twitter:title" content="AIが書いたコードから、比較できる実験結果へ | Auto Research Digest">
+    <meta name="twitter:description" content="AIの実験支援をMLE-bench、RE-Bench、GPT-5、Lookerから考える。コードの実行、予測の成績、データの定義、再検証できる比較条件を区別する。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="コーディングの先で、実験仕事をどう評価するか">
+    <meta name="twitter:image:alt" content="AIが書いたコードから、比較できる実験結果へ">
     <link rel="canonical" href="https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html">
@@ -42,15 +42,14 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-09-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T14:11:34+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Coding Agent">
     <meta property="article:tag" content="Data Access">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"コーディングの先で、実験仕事をどう評価するか","description":"MLE-benchなどを基に、実験支援で必要なデータ・条件・結果・再現記録を整理し、実行可能なコードと検証可能な実験を分ける。","datePublished":"2025-09-01T00:00:00+09:00","dateModified":"2026-09-20T14:11:34+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Coding Agent, Data Access","mainEntityOfPage":"https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"コーディングの先で、実験仕事をどう評価するか","item":"https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AIが書いたコードから、比較できる実験結果へ","description":"AIの実験支援をMLE-bench、RE-Bench、GPT-5、Lookerから考える。コードの実行、予測の成績、データの定義、再検証できる比較条件を区別する。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Coding Agent, Data Access","mainEntityOfPage":"https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"AIが書いたコードから、比較できる実験結果へ","item":"https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -66,21 +65,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">コーディングの先で、実験仕事をどう評価するか</h1>
-          <p class="hero-copy">MLE-bench、RE-Bench、Looker MCP、GPT-5の資料を手がかりに、データ準備、学習、評価、記録を含む実験仕事を、コード作成と区別して評価する方法を考える。</p>
+          <h1 class="hero-title">AIが書いたコードから、比較できる実験結果へ</h1>
+          <p class="hero-copy">GPT-5とLookerの接続、MLE-benchとRE-Benchの評価を比べ、コードが動くことと実験が妥当であることを区別する。需要予測の想定例で、データの意味、比較条件、採用判断を結び付ける。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-09-01">2025年9月1日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2025-09-01">調査対象日 2025年9月1日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Data Access</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E3%82%B3%E3%83%BC%E3%83%87%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E5%85%88%E3%81%A7%E3%80%81%E5%AE%9F%E9%A8%93%E4%BB%95%E4%BA%8B%E3%82%92%E3%81%A9%E3%81%86%E8%A9%95%E4%BE%A1%E3%81%99%E3%82%8B%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-09-01-coding-and-research-agents-broaden-the-scope.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=AI%E3%81%8C%E6%9B%B8%E3%81%84%E3%81%9F%E3%82%B3%E3%83%BC%E3%83%89%E3%81%8B%E3%82%89%E3%80%81%E6%AF%94%E8%BC%83%E3%81%A7%E3%81%8D%E3%82%8B%E5%AE%9F%E9%A8%93%E7%B5%90%E6%9E%9C%E3%81%B8&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-09-01-coding-and-research-agents-broaden-the-scope.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -90,8 +90,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="コーディングの先で、実験仕事をどう評価するか"
-      data-share-text="コーディングの先で、実験仕事をどう評価するか"
+      data-share-title="AIが書いたコードから、比較できる実験結果へ"
+      data-share-text="AIが書いたコードから、比較できる実験結果へ"
       data-share-url="https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html"
       hidden
     >
@@ -105,7 +105,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="コーディングの先で、実験仕事をどう評価するか"
+      data-share-title="AIが書いたコードから、比較できる実験結果へ"
       data-share-url="https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -124,33 +124,129 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">問い</p>
-  <h2>実行できるコードと、検証可能な実験は何が違うのか</h2>
-  <p><a href="https://arxiv.org/abs/2410.07095">MLE-bench</a> は、機械学習エージェントに、データ、実装、学習、評価、提出を含む仕事を課す。これはコードを一行ずつ生成する能力とは別の評価対象である。<a href="https://arxiv.org/abs/2411.15114">RE-Bench</a> や <a href="https://arxiv.org/abs/2410.08164">Agent S</a> も、環境・道具・研究上の成果を含む長い仕事を扱う。本稿では、コーディング支援が研究支援を自動的に含むとは主張しない。実験を扱うなら、コード以外に何を記録し、何を比較する必要があるかを整理する。</p>
+  <p class="section-kicker">結果を使えるか</p>
+  <h2>予測の誤差が減っても、採用を決められないことがある</h2>
+  <p>AIに需要予測の改善を頼むと、コードを書き換え、学習を実行し、「誤差が減りました」という結果を返した。
+ところが、前のモデルとは評価した期間が違う。
+新しい結果が良く見える理由は、予測方法が改善したからなのか、予測しやすい週だけを比べたからなのか。
+これは、実験を支援するエージェントを考えるための想定例だ。
+コードが動いたことだけでは、その結果を採用する根拠にならない。</p>
+  <p>8月のGPT-5 for developersは、コードの変更や道具の呼び出しを支える機能を発表した。
+Looker MCP Serverは、定義済みの指標へAIから接続する方法を公開した。
+MLE-benchやRE-Benchは、データや計算資源を使い、試して結果を比べる仕事を評価している。
+コード、データ、分析を一緒に扱う材料が増えているが、それぞれが証明する能力は異なる。</p>
+  <p>本稿の結論は、候補を作る能力を活用しながら、その候補を採用する判断の根拠を別に整えることだ。
+コード、データの意味、実行条件、結果、解釈を結び付ける。
+次の人が同じ条件で比べられる記録までを成果物にすると、良い結果だけでなく、改善しなかった実験も次の判断へ使える。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">道具がつながる</p>
+  <h2>コードを変える道具と、指標を読む道具を組み合わせる</h2>
+  <p><a href="https://openai.com/index/introducing-gpt-5-for-developers/">GPT-5の開発者向け発表</a>は、コードの修正や道具を使う作業を扱う。
+custom toolsでは、道具の入力をJSONではなく文字列で渡し、開発者が文法による制約を加えられる。
+長いコードなどを道具へ渡す形式の選択肢だ。
+入力形式を扱いやすくすることと、実験の設計が正しいことは別の問題である。</p>
+  <p><a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/">8月9日のLooker MCP Serverの発表</a>は、Lookerで業務の指標や計算式を定義したモデルへ、AIから問い合わせる仕組みを示す。
+指標や業務上の定義に沿って、LookerがSQLを生成する。
+Gemini CLI、Claude Desktop、Cursorなどから利用する構成を説明している。
+開発に使う環境から、共通の定義を持つデータへ接続する道がある。</p>
+  <p>こうした道具を組み合わせれば、指標を調べ、原因の候補を作り、集計や予測のコードを修正する構成を考えられる。
+ただし、提供機能の組み合わせは、修正によって事業の結果が良くなるという計測ではない。
+どのデータから何を推測し、どの実験で確かめるかを、作業のつなぎ目で保つ必要がある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">実行と成績を分ける</p>
+  <h2>MLE-benchは、提出できたことと良い予測を別々に測る</h2>
+  <p><a href="https://arxiv.org/html/2410.07095v1">MLE-benchの初版</a>は、Kaggleから選んだ75の競技を使い、データの準備、学習、実験、予測の提出を評価する。
+主な実験では一競技あたり最大24時間、一台のA10 GPUを与える。
+o1-previewとAIDEの組み合わせを繰り返した平均では、提出が有効だった割合は82.8%、メダル相当の成績に達した割合は16.9%だった。
+これらは2024年の構成の結果で、GPT-5の機械学習実験の成績ではない。</p>
+  <p>提出形式を確認する道具は、形式が有効かを返し、予測性能の点数は返さない。
+この区別は、動くコードを作ることと、良い結果を作ることの間に検証が必要だと分かる例である。
+本稿の解釈では、予測値を正しい形式で出す工程と、比較する指標を改善する工程を、同じ成功へまとめるべきではない。</p>
+  <p>また、多くの課題は学習・テストの分割を作り直し、過去の競技の順位表と比較する。
+実際の事業への導入が成功した割合を測るものではない。
+競技で高い成績を得たという証拠を、別のデータや利用条件へそのまま持ち込まず、評価の対象を明示して読む必要がある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">研究の目的を読む</p>
+  <h2>RE-Benchの課題は、速く動くだけでは満たせない</h2>
+  <p><a href="https://arxiv.org/html/2411.15114v1">RE-Benchの初版</a>は、七つの機械学習の研究・開発課題を評価する。
+たとえばOptimize LLM Foundryは、学習スクリプトの動作を変えずに実行時間を減らす課題だ。
+時間だけが短くなっても、必要な処理を省いて動作を変えれば、目的を満たしていない。
+論文は、採点で良く見える抜け道が、人の確認では課題のルールに反していた例も報告する。</p>
+  <p>この例から実験支援へ引き継ぎたいのは、改善する指標と、変えてはいけない条件を一緒に定める考え方だ。
+予測の誤差を減らす実験でも、必要な期間を除外したり、予測する時点には分からない情報を使ったりすれば、同じ課題を解いたことにならない。
+採点が良いという説明を、その条件へ戻して読む必要がある。</p>
+  <p>RE-Benchも、明確な目的を持つ短い課題が、何か月も続く研究の全体を覆うとはしていない。
+研究の問いや評価指標を選ぶことと、与えられた課題を改善することは異なる。
+実験を速く回せる能力を、研究の目的まで自動で正しく決める能力へ広げて評価しないことが重要になる。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">データの意味を保つ</p>
+  <h2>同じ「売上」でも、期間や対象をそろえて読む</h2>
+  <p>Lookerのように指標の定義を共有する仕組みは、担当者ごとに別の集計式を作る問題を抑えるための選択肢になる。
+しかし、定義された指標を取得できても、比較する対象や、差の原因まで同じになるわけではない。
+利用者がその値から何を判断したいかを、データの取得と結び付ける必要がある。</p>
+  <p>ここでは、店舗の売上を比べる想定例を考える。
+注文した日と売上が確定した日、返品を含めるか、どの店舗を対象にするかが違えば、同じ名前の表でも結論は変わり得る。
+取得した指標の定義、期間、絞り込み条件を記録すれば、コードを修正した後にも、同じ問いを比較したか調べられる。</p>
+  <p>データの変化と、原因の説明も分けたい。
+売上が増えたという集計から、キャンペーンが増加を引き起こしたと自動で結論付けることはできない。
+季節や店舗の構成など、別の説明も考える必要がある。
+エージェントが原因の候補を出すなら、観測した差と、まだ確かめていない仮説を分けて残す。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">予測を公平に比べる</p>
+  <h2>需要予測の実験では、予測する時点へ条件を戻す</h2>
+  <p>冒頭の需要予測を設計するなら、いつまでのデータで、どの先の期間を予測するかを先に決める。
+たとえば、前週の同じ曜日の売上を使う単純な基準と、候補のモデルを同じ期間で比べる。
+予測を作る時点では未知の実売上を、候補だけの入力へ加えない。
+これは本稿の比較案で、特定企業の運用実績ではない。</p>
+  <p>欠損値の扱い、特徴量、学習と検証の期間、評価指標、計算時間の上限を、結果とともに保存する。
+たとえば平均絶対誤差で比べるなら、予測と実績の差の大きさを、同じ対象と期間で計算する。
+平均が改善しても、忙しい日や一部の店舗で悪化していないかを調べる。
+発注へ使うなら、平均の改善だけで採用を決めるとは限らない。</p>
+  <p>売り切れた商品の販売数も、欲しかった人の数をそのまま表すとは限らない。
+観測した売上と、推定したい需要の違いを説明せずに学習すると、良い点数でも利用したい判断とはずれる可能性がある。
+AIがデータを処理できるかに加え、目的に対して何を測れているかを人が検討する必要がある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">結果を引き継ぐ</p>
+  <h2>改善しなかった実験も、理由が分かれば次の仕事に使える</h2>
+  <p>実験の成果物には、コードの版、データの取得条件、依存関係、モデルの設定、計算資源、結果を結び付ける。
+乱数を使う処理ではその設定も残すが、乱数の設定だけで同じ結果が必ず再現するとは扱わない。
+環境や実行条件による変動が残るなら、再実行の差を確認する。
+別の人が結果を読み、必要な検証を続けられる記録が重要になる。</p>
+  <p>候補が基準より悪かった場合も、試した条件を残せば、次に同じ案を再び試すべきか判断できる。
+どこで悪化したのか、時間や資源を増やす余地があるのかを説明する。
+失敗した実行と、正常に実行して改善しなかった結果も区別する。
+後者を消して良い結果だけを残すと、実験の全体を読めなくなる。</p>
+  <p>採用の判断では、予測の成績に加え、費用、必要な更新頻度、悪化した対象への影響、追加検証を考える。
+これは本稿の判断案であり、公開資料で自動採用の成果が証明されたという主張ではない。
+エージェントには候補の作成と比較の記録を任せ、人が結論を確かめるための材料を整える構成から始められる。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">判断できる成果物</p>
+  <h2>コード、データ、分析を、同じ問いへ結び付ける</h2>
+  <p>開発の道具とデータの接続は、これまで別々に進めた作業を組み合わせる選択肢を増やす。
+ベンチマークは、与えられた条件の中で何を実行でき、どこまで成績を改善できたかを示す。
+それらを事業や研究へ使うには、目的に合ったデータの意味と比較条件を定める必要がある。</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>データ</h3><p>入力データ、取得時点、前処理、分割を特定できるか。</p></article>
-    <article class="comparison-card"><h3>実行条件</h3><p>コード、依存関係、モデル、設定、計算資源を比較可能な形で残せるか。</p></article>
-    <article class="comparison-card"><h3>結果と判断</h3><p>評価指標、基準線、失敗、採用しない理由を記録できるか。</p></article>
+    <article class="comparison-card"><h3>データの意味</h3><p>何を数えた指標か、取得範囲と期間は何かを結果へ結び付ける。</p></article>
+    <article class="comparison-card"><h3>比較する条件</h3><p>同じ対象、基準、予算で試し、変えてはいけない条件を確認する。</p></article>
+    <article class="comparison-card"><h3>次の判断</h3><p>改善、悪化、未検証を記録し、採用や追加検証の理由を読めるようにする。</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">資料の位置付け</p>
-  <h2>開発者向け機能と、実験タスクの評価範囲を混同しない</h2>
-  <p>GPT-5 for developers は開発作業を支援する製品文脈を、MLE-bench は機械学習エンジニアリングの課題を扱う。前者の提供機能は、後者のベンチマーク成績や研究の再現性を証明しない。Looker MCP Server は定義済みの semantic model や metric へ接続する選択肢を示す。これは、分析における指標の意味を保つためのデータ境界の例であり、任意の分析結論を正しくする保証ではない。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">想定例</p>
-  <h2>需要予測の実験では、提案したコードではなく実験記録を成果物にする</h2>
-  <p>以下は設計例である。エージェントが需要予測モデルの候補を提案する。評価対象には、使用したデータの期間と版、欠損値処理、学習・検証の分割、特徴量、ハイパーパラメータ、基準線、評価指標、乱数 seed を含める。コードが動いても、学習期間が異なる、将来情報が混ざる、基準線と比べない、結果を再実行できないなら、実験の成功とは扱わない。</p>
-  <p>結果は、指標とともに、どのデータ・条件から得たかを保存する。指標が改善しなかった場合も、失敗ではなく比較可能な結果として記録する。人は、統計的な妥当性、事業上の利用可否、追加検証の必要を判断する。これにより、エージェントの役割を実験の候補作成と記録補助に限定して評価できる。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">結論</p>
-  <h2>研究・データ仕事を広げるなら、再現できる判断単位を増やす</h2>
-  <p>コーディングの先にある実験仕事は、データ、環境、評価、解釈を含む。ベンチマークと製品資料が示すのは、それらを含む仕事を明示的に評価・構成できるということだ。本稿の提案は、コード作成の評価を捨てることではない。コード、データ、条件、結果、根拠を結んだ記録を追加し、どの実験が再現され、どの判断が人に残るかを明らかにすることである。</p>
+  <p>実験支援の価値は、良さそうなコードや点数が出ることだけでは測れない。
+結果を疑い、同じ条件で比較し、採用を見送る場合にも理由を残せることが、次の仕事を支える。
+コード、データ、分析を一つの記録へつなぐと、エージェントの速さを、人が確かめられる判断へ変えられる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -172,49 +268,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2025-10-01-agent-sdks-expand-beyond-coding.html" aria-label="Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか">
+      <a class="article-card " href="/2025-10-01-agent-sdks-expand-beyond-coding.html" aria-label="Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-10-01">2025年10月1日</time>
+        <time class="mono-note" datetime="2025-10-01">調査対象日 2025年10月1日</time>
       </div>
-      <h3 class="article-card-title">Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか</h3>
-      <p class="article-card-copy">実行を繰り返せても、業務上正しい結果と承認条件はアプリ側が定義する。</p>
+      <h3 class="article-card-title">Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件</h3>
+      <p class="article-card-copy">資料を探す自由を与えても、売上の定義や提出条件まで変えさせる必要はない。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">SDK</span><span class="meta-chip">MCP</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 6</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="AgentOps は、なぜ実行を制御する層になるのか">
+  </a><a class="article-card " href="/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="AgentOps：通信が切れた後、何をやり直してよいか">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-08-01">2025年8月1日</time>
+        <time class="mono-note" datetime="2025-08-01">調査対象日 2025年8月1日</time>
       </div>
-      <h3 class="article-card-title">AgentOps は、なぜ実行を制御する層になるのか</h3>
-      <p class="article-card-copy">実行を見られることは、同じ副作用を起こさずに復旧できる保証ではない。</p>
+      <h3 class="article-card-title">AgentOps：通信が切れた後、何をやり直してよいか</h3>
+      <p class="article-card-copy">履歴があるだけでは再実行を選べない。確定した変更と未確定の結果を分け、人が仕事を続けられるようにする。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 7</span>
+      <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIの計画・権限・差分・テストを、どう確認するか">
+  </a><a class="article-card " href="/2026-04-13-coding-agents-become-supervised-runtime-systems.html" aria-label="コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-13">2026年4月13日</time>
+        <time class="mono-note" datetime="2026-04-13">調査対象日 2026年4月13日</time>
       </div>
-      <h3 class="article-card-title">コーディングAIの計画・権限・差分・テストを、どう確認するか</h3>
-      <p class="article-card-copy">計画が読める、署名がある、テストが通る。それぞれが確認する範囲を分ける。</p>
+      <h3 class="article-card-title">コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで</h3>
+      <p class="article-card-copy">テスト成功の通知を受けた後、担当者は何を調べ直すのか。任せた修正を引き取るまでを見る。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Coding Agent</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Runtime</span><span class="meta-chip">Workflow</span><span class="meta-chip">DevOps</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 13</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -229,47 +325,7 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2410.07095" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年10月9日</span>
-              </div>
-              <p class="source-title">MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering</p>
-              <p class="source-url">https://arxiv.org/abs/2410.07095</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2410.08164" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年10月10日</span>
-              </div>
-              <p class="source-title">Agent S: An Open Agentic Framework that Uses Computers Like a Human</p>
-              <p class="source-url">https://arxiv.org/abs/2410.08164</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2411.15114" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年11月22日</span>
-              </div>
-              <p class="source-title">RE-Bench: Evaluating Frontier AI R&amp;D Capabilities of Language Model Agents against Human Experts</p>
-              <p class="source-url">https://arxiv.org/abs/2411.15114</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年8月8日</span>
-              </div>
-              <p class="source-title">Google Cloud: Introducing Looker MCP Server</p>
-              <p class="source-url">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/introducing-gpt-5-for-developers/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://openai.com/index/introducing-gpt-5-for-developers/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
@@ -277,6 +333,36 @@
               </div>
               <p class="source-title">OpenAI: Introducing GPT-5 for developers</p>
               <p class="source-url">https://openai.com/index/introducing-gpt-5-for-developers/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年8月9日</span>
+              </div>
+              <p class="source-title">Google Cloud: Looker debuts MCP Server to broaden AI developer access to data</p>
+              <p class="source-url">https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/html/2410.07095v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年10月9日</span>
+              </div>
+              <p class="source-title">MLE-bench: Evaluating Machine Learning Agents on Machine Learning Engineering (v1)</p>
+              <p class="source-url">https://arxiv.org/html/2410.07095v1</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://arxiv.org/html/2411.15114v1" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind ">paper</span>
+                <span class="mono-note">2024年11月22日</span>
+              </div>
+              <p class="source-title">RE-Bench: Evaluating frontier AI R&amp;D capabilities of language model agents against human experts (v1)</p>
+              <p class="source-url">https://arxiv.org/html/2411.15114v1</p>
             </div>
             <span class="source-action">開く</span>
           </a>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>APIなしの業務アプリをAIで操作する際の検証 | Auto Research Digest</title>
-    <meta name="description" content="APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。">
+    <meta name="description" content="APIのない業務アプリをAIで操作する際、入力と保存結果をどう確かめるか。AWSとMicrosoft、導入報告と研究から、担当者の負担まで考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -14,7 +14,7 @@
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
     <meta property="og:title" content="APIなしの業務アプリをAIで操作する際の検証 | Auto Research Digest">
-    <meta property="og:description" content="APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。">
+    <meta property="og:description" content="APIのない業務アプリをAIで操作する際、入力と保存結果をどう確かめるか。AWSとMicrosoft、導入報告と研究から、担当者の負担まで考える。">
     <meta property="og:url" content="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
@@ -22,7 +22,7 @@
     <meta property="og:image:alt" content="APIなしの業務アプリをAIで操作する際の検証">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="APIなしの業務アプリをAIで操作する際の検証 | Auto Research Digest">
-    <meta name="twitter:description" content="APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。">
+    <meta name="twitter:description" content="APIのない業務アプリをAIで操作する際、入力と保存結果をどう確かめるか。AWSとMicrosoft、導入報告と研究から、担当者の負担まで考える。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta name="twitter:image:alt" content="APIなしの業務アプリをAIで操作する際の検証">
     <link rel="canonical" href="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-06-30T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:37:13+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Computer Use">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Human Approval">
     <meta property="article:tag" content="Legacy Systems">
     <meta property="article:tag" content="Governance">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"APIのない業務アプリで、AIの入力と保存結果を確かめる","description":"APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。","datePublished":"2026-06-30T00:00:00+09:00","dateModified":"2026-09-20T17:37:13+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"APIのない業務アプリで、AIの入力と保存結果を確かめる","item":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"画面操作AIに任せる業務：入力から保存の確認までつなぐ","description":"APIのない業務アプリをAIで操作する際、入力と保存結果をどう確かめるか。AWSとMicrosoft、導入報告と研究から、担当者の負担まで考える。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"画面操作AIに任せる業務：入力から保存の確認までつなぐ","item":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">APIのない業務アプリで、AIの入力と保存結果を確かめる</h1>
-          <p class="hero-copy">画面を操作できても、保存が成功したか分からなければ再試行で重複を作る恐れがある。請求書入力の想定例で、対象特定、入力照合、保存後の検査、応答不明時の停止を確認する。</p>
+          <h1 class="hero-title">画面操作AIに任せる業務：入力から保存の確認までつなぐ</h1>
+          <p class="hero-copy">APIのない業務アプリを動かすAIを、AWSとMicrosoftの管理環境、Graebelの導入報告、長時間課題の研究から分析。入力の意味、保存結果、人の修正負担をつなげて任せる範囲を考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
-        <time class="mono-note" datetime="2026-06-30">2026年6月30日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2026-06-30">調査対象日 2026年6月30日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=API%E3%81%AE%E3%81%AA%E3%81%84%E6%A5%AD%E5%8B%99%E3%82%A2%E3%83%97%E3%83%AA%E3%81%A7%E3%80%81AI%E3%81%AE%E5%85%A5%E5%8A%9B%E3%81%A8%E4%BF%9D%E5%AD%98%E7%B5%90%E6%9E%9C%E3%82%92%E7%A2%BA%E3%81%8B%E3%82%81%E3%82%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-30-agents-operate-legacy-desktop-workflows.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E7%94%BB%E9%9D%A2%E6%93%8D%E4%BD%9CAI%E3%81%AB%E4%BB%BB%E3%81%9B%E3%82%8B%E6%A5%AD%E5%8B%99%EF%BC%9A%E5%85%A5%E5%8A%9B%E3%81%8B%E3%82%89%E4%BF%9D%E5%AD%98%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%BE%E3%81%A7%E3%81%A4%E3%81%AA%E3%81%90&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-30-agents-operate-legacy-desktop-workflows.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="APIのない業務アプリで、AIの入力と保存結果を確かめる"
-      data-share-text="APIのない業務アプリで、AIの入力と保存結果を確かめる"
+      data-share-title="画面操作AIに任せる業務：入力から保存の確認までつなぐ"
+      data-share-text="画面操作AIに任せる業務：入力から保存の確認までつなぐ"
       data-share-url="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="APIのない業務アプリで、AIの入力と保存結果を確かめる"
+      data-share-title="画面操作AIに任せる業務：入力から保存の確認までつなぐ"
       data-share-url="https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -126,70 +126,137 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>保存できたか分からない画面操作</h2>
-<p>APIのない業務アプリでも、画面を読み、入力欄を選び、保存ボタンを押す方式なら自動化を試せる。
-Anthropicが2024年10月に公開したcomputer useも、画面を見る、カーソルを動かす、クリックする、文字を入力する操作を提供する一方、実験的で誤りを伴う機能だと説明している。<a href="https://www.anthropic.com/news/3-5-models-and-computer-use">Anthropicの発表</a></p>
-<p>問題は入力できるかだけではない。
-保存後に画面が固まった場合、保存は成功したのか、それとも再入力が必要なのか。
-判断できないまま同じ操作を繰り返すと、伝票を二重に作る可能性がある。
-本稿では請求書入力を想定例に、保存の前後を確認できる単位で画面操作を設計する方法を考える。</p>
+<h2>保存ボタンの後に、画面が止まったら</h2>
+<p>請求書から取引先、番号、金額を読み、業務アプリへ入力する。
+AIが保存ボタンを押したところで画面が止まった。
+登録は終わったのか。
+もう一度押せば進むのか、それとも二重の伝票を作るのか。
+これは仕組みを考える想定例であり、実際の事故や導入効果の報告ではない。</p>
+<p>APIがないアプリにも届く画面操作は、手入力を減らす選択肢になる。
+ただし、ボタンを押すまでの自動化と、正しい登録を確かめる仕事は続いている。
+入力を任せた後に、人が毎件の保存を調べ直すなら、担当者の仕事がどこまで減ったかを別に考える必要がある。</p>
+<p>2026年6月30日までの資料を比較すると、視覚による操作、管理された作業場所、業務結果の照合という三つの役割が見える。
+私の判断は、これらを接続できる短い区間から任せる、というものだ。
+対象アプリの広さに加えて、入力の意味と保存結果を人が説明できる範囲を導入の基準にしたい。</p>
 </section>
 <section class="report-section">
-<h2>請求書入力を無人で進める前の七つの確認</h2>
+<h2>画面を見るモデルは、何を観測しているか</h2>
+<p>Anthropicの<a href="https://www.anthropic.com/research/developing-computer-use">2024年10月の研究説明</a>では、Claudeがスクリーンショットを解釈し、移動すべき画素数を求めてマウスやキーボードを操作する。
+個々のアプリに専用の接続処理を用意しなくても、画面から操作を選べることがこの方式の価値だ。</p>
+<p>同じ説明は、連続した映像ではなく画像を順に見るため、短く表示される通知を見逃し得ることも挙げる。
+請求書の例では、保存通知が消えた後の画面だけを見ても、登録の有無を決められない場合がある。
+観測した画面、判断した入力値、実際の保存結果を別々に残す理由はここにある。</p>
+<p>画面には依頼者以外が作った文章も表示される。
+Anthropicは、そこに含まれる悪意ある指示によって本来の依頼から逸れる危険も説明している。
+請求書を読む目的で開いた画面の文章が、送信先や処理手順を自由に変える権限まで持つとは扱わない。</p>
+</section>
+<section class="report-section">
+<h2>AWSは業務アプリを動かす場所を管理する</h2>
+<p>AWSの<a href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/">6月30日の一般提供発表</a>は、Amazon WorkSpaces for AI agentsを、ERP、CRM、メインフレームなどを操作する管理デスクトップとして説明する。
+既存のID管理やネットワーク分離に加え、実行中の活動の確認とアクセスの取り消し、Active DirectoryのIDを使う構成を挙げている。</p>
+<p>発表には、画面操作に加えて、MCPの呼び出しをアプリやOSへ転送する機能もある。
+管理デスクトップを選ぶことと、すべての処理をマウス操作で行うことは別の判断になる。
+利用できる構造化された操作があれば、それと画面操作を組み合わせる余地がある。
+精度、遅延、費用の改善はAWSの説明であり、対象の請求書処理で測定された比較ではない。</p>
+<p>この環境を使う場合、管理者は操作できる場所と身元を管理し、業務担当者は正しい取引先、金額、完了条件を定める。
+アクセスを取り消せても、すでに作った伝票が正しいかは別に調べる必要がある。
+環境の管理は、入力内容の判断や登録後の照合を置き換えるものではない。</p>
+</section>
+<section class="report-section">
+<h2>Microsoftでは作業場所と操作ツールを分けて読む</h2>
+<p>Microsoftは<a href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-365-for-agents-now-in-public-preview-run-ai-agents-securely-at-scale/4513479">5月1日</a>、Windows 365 for Agentsの米国限定公開プレビューを発表した。
+Intuneで管理するCloud PCを、エージェントの実行場所として提供する。
+<a href="https://blogs.windows.com/windowsexperience/2026/01/22/windows-365-for-agents-the-cloud-pcs-next-chapter/">1月の設計説明</a>には、プールからPCを借りて返す仕組みと、途中で人が操作を引き継ぐ構成がある。</p>
+<p>一方、<a href="https://techcommunity.microsoft.com/blog/copilot-studio-blog/computer-using-agents-in-microsoft-copilot-studio-are-now-generally-available/4519427">5月13日のCopilot Studio発表</a>は、画面操作機能の一般提供を説明する。
+許可したサイトやアプリ、認証情報、承認が必要な場面、人へ戻す確認箇所、実行履歴を扱う。
+Cloud PCの提供状態と操作ツールの提供状態を一つの「一般提供」にまとめると、選ぶ機能や利用条件を取り違える。</p>
+<p>AWSとMicrosoftから共通に読み取れるのは、エージェントの作業場所やアクセス、途中介入を管理する方向である。
+ただし、同じ名前の承認機能でも、請求書のどの項目を誰が見るかは業務側で定める必要がある。
+確認できる画面と権限がそろったことから、保存内容まで正しいとは結論できない。</p>
+</section>
+<section class="report-section">
+<h2>Graebelの報告では、画面入力の前にも仕事がある</h2>
+<p>同じCopilot Studioの発表は、Graebelのサービス注文処理を紹介している。
+APIで接続できないGlobal Connectへ、自由形式のメールから情報を取り出し、業務ルールを検査して画面から入力する。
+例外や確信度の低い案件は人へ戻す、という構成だ。</p>
+<p>これはMicrosoftが紹介する導入報告である。
+手作業の削減や処理の迅速化も述べるが、同じ入力条件での誤登録率や確認時間を比較した測定ではない。
+それでも、資料の解釈、業務上の検査、画面入力、人への引き継ぎを分けた具体例として読める。</p>
+<p>請求書の想定例にも、この分解が役立つ。
+税抜額と請求総額のどちらを入れるかは、クリックする場所を探す問題とは異なる。
+入力欄を正しく押せるモデルでも、入れる値の意味を誤れば伝票は誤る。
+どの段階で人の判断が必要だったかを残すと、画面認識だけを改善すべきか、資料や業務ルールを見直すべきかを分けられる。</p>
+</section>
+<section class="report-section">
+<h2>長い課題では、途中まで進むことと完了が離れる</h2>
+<p><a href="https://arxiv.org/abs/2606.29537v1">OSWorld 2.0の初版</a>は、108件の長い画面操作課題を評価する。
+500ステップを上限に、Claude Opus 4.8をmaximum thinkingと一括ツール呼び出しで動かした設定では、完全完了率が20.6%、部分得点が54.8%だった。
+完全完了は、最終状態がすべての採点項目を満たした場合に数える。
+途中の進捗と終わった仕事の量は、同じ数値にならない。</p>
+<p>論文の経費精算課題では、規程、メールの領収書、銀行の記録、過去の申請から必要な情報を集め、申請を提出する過程を示す。
+提出まで進んでも、項目や添付の不足によって部分得点にとどまる。
+これは研究課題の実行例であり、企業の本番運用実績ではない。</p>
+<p>この研究から、自社の請求入力の成功率を予測することはできない。
+課題、環境、操作予算が異なるためだ。
+私が設計に採るのは、画面をまたいで必要な条件を保ち、保存後の結果まで検査するという点である。
+「提出済み」と「必要な情報が正しくそろった」を別に確かめる。</p>
+</section>
+<section class="report-section">
+<h2>請求書入力を、三つの確かめられる区間にする</h2>
+<p>入力前には、対象会社、取引先、請求番号を特定し、同じ請求が登録済みでないか調べる。
+番号の表記揺れや複数の候補を扱えなければ、該当なしと断定して新規登録へ進まない。
+対象を選び直す仕事を、人へ戻す条件に含める。</p>
+<p>保存前には、入力欄の取引先、金額、税、期日を資料と照合する。
+最初の試行では担当者が差分と根拠を見て保存を許可する。
+確認後に入力値や対象が変わった場合は、その変更を含めて再確認する。
+以前の確認を、変更後の内容へそのまま流用しない。</p>
+<p>保存後には、作成した伝票を開き直し、対象と主要項目を照合する。
+利用できるなら帳票や出力データも使う。
+同じ画面認識だけで入力と検査を行うと、同じ誤認を繰り返す可能性がある。
+別の照合手段を得られない場合は、その制約を明示して人の確認を残す。</p>
+<p>この三分割は請求書処理の提案であり、すべての画面操作に同じ順序を求めるものではない。
+読み取りだけの作業なら保存前の承認は不要な場合がある。
+更新のある作業では、クリック数に加えて、何が確定し、どの記録で結果を確かめるかを決める。</p>
+</section>
+<section class="report-section">
+<h2>止める操作と、元に戻す作業を区別する</h2>
+<p>保存直後に通信が切れたら、同じ請求番号で登録の有無を調べる。
+見つからなくても、検索の遅れや別の表示条件が考えられるため、検索結果だけで未保存と断定しない。
+それでも決められなければ再保存せず、最後の画面、入力値、試みた操作、結果が不明な点を担当者へ渡す。</p>
+<p>人が途中で操作を引き継いだ場合も、返却後に現在の画面と登録内容を読み直す。
+人が修正した対象へ、引き継ぎ前の計画をそのまま適用すると、正しい修正を上書きする恐れがある。
+介入する機能に加えて、再開時に何を読み直すかが必要になる。</p>
+<p>アクセスの取り消しやCloud PCの初期化は、その後の操作や作業環境を管理する手段である。
+外部の業務システムへ済ませた書き込みまで取り消すとは限らない。
+重複や誤登録が起きた場合は、担当者が対象を確認して訂正や取消の手順を選ぶ。
+停止できたことと、業務データの復旧が終わったことを分けて記録する。</p>
+</section>
+<section class="report-section">
+<h2>受入試験では、人が調べ直す時間まで数える</h2>
+<p>次は本稿が提案する評価観点であり、四つの指標で測定済みの製品比較ではない。
+<a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropicの評価説明</a>も、実行記録、最終結果、採点方法の限界を区別する。
+請求入力では、正常な保存の件数に加えて、どこで不明になり誰が直したかを残したい。</p>
 <div class="comparison-grid">
-<article class="comparison-card"><h3>対象を一意に決める</h3><p>取引先と請求番号から、入力対象を特定できる。</p></article>
-<article class="comparison-card"><h3>重複を探す</h3><p>保存前に同じ請求が登録済みでないかを確認できる。</p></article>
-<article class="comparison-card"><h3>入力値を照合する</h3><p>取引先、番号、金額を請求書と比較できる。</p></article>
-<article class="comparison-card"><h3>保存を許可する</h3><p>最初の試行では、誰が保存前の差分を確認するか決める。</p></article>
-<article class="comparison-card"><h3>保存結果を独立に検査する</h3><p>作成済み伝票や帳票で、番号、取引先、金額を開き直して確認する。</p></article>
-<article class="comparison-card"><h3>不明な結果で停止する</h3><p>画面停止や通信切断では無条件に再保存せず、検索と照合へ戻る。</p></article>
-<article class="comparison-card"><h3>人へ引き継ぐ</h3><p>最後に見た画面、入力値、保存の有無が不明な点を渡して判断を引き継ぐ。</p></article>
+<article class="comparison-card"><h3>入力の意味</h3><p>取引先と伝票を選び、金額、税、期日を正しく解釈したか。曖昧な候補を人へ戻した件数も残す。</p></article>
+<article class="comparison-card"><h3>実際の結果</h3><p>保存した伝票を照合できたか。正しい登録、誤登録、重複、結果不明を分ける。</p></article>
+<article class="comparison-card"><h3>中断と復旧</h3><p>切断、画面変更、期限切れのログイン、途中介入から停止や再開ができたか。済んだ操作を重ねていないか。</p></article>
+<article class="comparison-card"><h3>担当者の負担</h3><p>確認、対象の選び直し、根拠の調査、訂正にかかった時間を測る。停止件数だけで負担を評価しない。</p></article>
 </div>
-<p>これは請求書入力の受入条件として提案する七項目であり、すべての画面操作へ同じ順序を強制するものではない。対象アプリが独立した保存検査を持たない場合は、その制約を前提に人の確認を残す。</p>
+<p>実データを変更しない環境で、通常の請求と、重複、似た取引先、画面配置の変更、保存直後の切断を試す。
+同じ初期状態と資料で手入力や既存の自動化と比較する。
+日本語と英語の資料、短い請求書と複雑な明細を分ければ、平均に埋もれる誤りも見つけやすい。</p>
 </section>
 <section class="report-section">
-<h2>管理された作業環境が担う部分</h2>
-<p>AWSは2026年6月30日、Amazon WorkSpaces for AI agentsの一般提供を発表した。
-既存のID管理とネットワーク分離を持つ管理デスクトップで、エージェントが業務アプリを操作する構成である。
-実行中の活動を確認し、アクセスを取り消す機能も説明されている。<a href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/">AWSの発表</a></p>
-<p>これは、画面操作モデルに与える場所と権限を管理する仕組みである。
-請求額を正しく読み取ることや、保存済みの伝票を見分けることまで保証する機能ではない。
-請求書入力に使うなら、管理者は必要なアプリと保存先だけを許可し、業務担当者は対象伝票と完了条件を定める。
-実行環境の制限と業務結果の検査には、別々の役割がある。</p>
-</section>
-<section class="report-section">
-<h2>長い操作の成績を読む際の条件</h2>
-<p>OSWorld 2.0の初版は、108件の長時間の画面操作課題を評価する。
-平均318回というツール呼び出し数は、Claude Opus 4.7のmaximum thinking設定による値であり、業務一般に必要な回数ではない。
-主要な完全完了指標では、500ステップ上限でClaude Opus 4.8のmaximum thinkingと一括ツール呼び出しを使った設定が20.6%だった。<a href="https://arxiv.org/abs/2606.29537v1">OSWorld 2.0初版</a></p>
-<p>論文は、制約を忘れる、途中で届いた情報を逃す、確認を省くといった失敗を挙げている。
-この結果を自社の請求書入力の成功率に読み替えることはできない。
-本稿が設計上の注意として採るのは、クリック単体の正否に加えて、途中の条件と保存結果を確認する必要があるという点である。</p>
-</section>
-<section class="report-section">
-<h2>請求書入力を三つの区間で確認する</h2>
-<p>次は導入事例ではなく、保存の不確実さを扱う想定例である。
-一つのアプリで取引先、請求番号、金額を入力するとし、まず実データを変更しない検証環境で試す。</p>
-<ol>
-<li>入力前：対象会社と請求番号を確認し、同じ請求がすでに登録されていないか調べる。画面や資料から対象を一意に決められなければ停止する。</li>
-<li>保存前：入力欄の値を請求書と照合する。最初の試行では担当者が差分を確認し、保存を許可する。</li>
-<li>保存後：作成された伝票を開き直し、番号、取引先、金額を照合する。利用できるなら帳票や出力データでも確認する。</li>
-</ol>
-<p>同じ画面認識だけで入力と確認を行うと、同じ誤認を繰り返す可能性が残る。
-帳票など別の確認手段がないなら、その制約を踏まえて人の確認を残す。
-画面に成功と表示されたことだけを、正しい伝票が作られた証拠にはしない。</p>
-<p>保存応答が不明な場合は、同じ請求番号を検索して結果を確かめる。
-それでも保存の有無を決められなければ、再保存せず、入力済みの項目と最後に確認できた画面を担当者へ渡す。
-初期状態へ戻す際も、デスクトップを初期化すれば業務データの書き込みまで取り消せるとは考えない。</p>
-</section>
-<section class="report-section">
-<h2>無人化の範囲を結果から決める</h2>
-<p>試験には通常入力に加えて、重複請求、画面配置の変更、期限切れのログイン、保存直後の切断を含める。
-正しく登録できた件数と、重複や誤登録、確認不能で止まった件数を分けて記録する。
-人の確認時間も測り、手入力より負担が増えていないか比較する。</p>
-<p>独立した照合が安定している区間から無人化を検討し、確認できない操作は人に残す。
-管理環境と画面操作機能が利用できても、対象アプリの保存結果を検査できなければ、この請求書処理を無人で完了させる根拠は足りない。
-導入範囲は、製品がクリックできる対象の広さより、実際に結果を確かめられた作業から決める。</p>
+<h2>任せる範囲は、確かめられる仕事から広げる</h2>
+<p>固定された画面や入力形式なら、既存のRPAや一括取込の方が扱いやすい場合がある。
+APIが一部でも使えるなら、照合や保存はその経路を利用し、画面操作を必要な部分へ絞る選択もある。
+あらゆる業務を視覚モデルへ移すこと自体を目標にしない。</p>
+<p>まず読み取りと入力候補を任せ、人が確認して保存する構成で、修正負担を測る。
+対象の特定と保存後の照合が安定する区間から、保存まで任せる範囲を検討する。
+不明な結果を残す作業は、担当者が判断できる情報とともに引き継ぐ。</p>
+<p>画面操作AIの価値は、改修しにくいアプリにも仕事をつなげられることにある。
+その価値を現場で確かめるには、操作できる場所、入力の意味、登録後の証拠を一緒に設計する必要がある。
+保存ボタンの後で担当者が困らない区間から、仕事を任せていく。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -211,49 +278,49 @@ Anthropicが2024年10月に公開したcomputer useも、画面を見る、カ�
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="AIエージェントの誤操作を、回答と実行記録から評価する">
+      <a class="article-card " href="/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="AIエージェント評価を、仕事の直し方につなげる">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-07-11">2026年7月11日</time>
+        <time class="mono-note" datetime="2026-07-11">調査対象日 2026年7月11日</time>
       </div>
-      <h3 class="article-card-title">AIエージェントの誤操作を、回答と実行記録から評価する</h3>
-      <p class="article-card-copy">同じ正しい回答でも、承認前に保存した実行は不合格になる。その違いを判定する記録と規則を示す。</p>
+      <h3 class="article-card-title">AIエージェント評価を、仕事の直し方につなげる</h3>
+      <p class="article-card-copy">得点が上がったとき、仕事の何がよくなったのか。実行記録から修正する場所を選ぶ。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 7</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-06-08-sales-agents-turn-notes-into-crm-actions.html" aria-label="営業AIが会議メモからCRMを更新する際、何を確認するか">
+  </a><a class="article-card " href="/2026-06-08-sales-agents-turn-notes-into-crm-actions.html" aria-label="営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ">
     <div class="article-card-main">
       <p class="section-kicker">ひとつ古い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-06-08">2026年6月8日</time>
+        <time class="mono-note" datetime="2026-06-08">調査対象日 2026年6月8日</time>
       </div>
-      <h3 class="article-card-title">営業AIが会議メモからCRMを更新する際、何を確認するか</h3>
-      <p class="article-card-copy">「来月の導入を希望」を成約予定日に変えてよいか。会議メモからCRMへ移す判断を具体化する。</p>
+      <h3 class="article-card-title">営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ</h3>
+      <p class="article-card-copy">顧客の希望を成約見込みへ変える前に、どの案件と判断を引き継ぐかを確かめる。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Sales</span><span class="meta-chip">CRM</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Workflow</span><span class="meta-chip">Enterprise AI</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 3</span>
+      <span class="mono-note">根拠数: 10</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-08-01-ai-collaboration-starts-with-first-artifact.html" aria-label="希望が定まらない仕事で、確認質問とAIの試作品を使い分ける">
+  </a><a class="article-card " href="/2026-08-01-ai-collaboration-starts-with-first-artifact.html" aria-label="AIにうまく頼めない仕事では、小さな案から希望を具体化する">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-08-01">2026年8月1日</time>
+        <time class="mono-note" datetime="2026-08-01">調査対象日 2026年8月1日</time>
       </div>
-      <h3 class="article-card-title">希望が定まらない仕事で、確認質問とAIの試作品を使い分ける</h3>
-      <p class="article-card-copy">質問で決まる条件と、案を見て決まる希望を分け、AIと直す対象を明確にする。</p>
+      <h3 class="article-card-title">AIにうまく頼めない仕事では、小さな案から希望を具体化する</h3>
+      <p class="article-card-copy">完璧な依頼を待つより、条件を確かめ、小さな案で残す説明と直す点を選ぶ。</p>
       <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">AI Workflow</span><span class="meta-chip">Prompting</span><span class="meta-chip">Evaluation</span><span class="meta-chip">LLM</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -268,24 +335,54 @@ Anthropicが2024年10月に公開したcomputer useも、画面を見る、カ�
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2026年6月30日</span>
-              </div>
-              <p class="source-title">AWS: Amazon WorkSpaces for AI agents is generally available</p>
-              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://www.anthropic.com/news/3-5-models-and-computer-use" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://www.anthropic.com/research/developing-computer-use" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2024年10月22日</span>
               </div>
-              <p class="source-title">Anthropic: Introducing computer use</p>
-              <p class="source-url">https://www.anthropic.com/news/3-5-models-and-computer-use</p>
+              <p class="source-title">Anthropic: Developing a computer use model</p>
+              <p class="source-url">https://www.anthropic.com/research/developing-computer-use</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年6月30日</span>
+              </div>
+              <p class="source-title">AWS: WorkSpaces for AI agents GA</p>
+              <p class="source-url">https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-365-for-agents-now-in-public-preview-run-ai-agents-securely-at-scale/4513479" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年5月1日</span>
+              </div>
+              <p class="source-title">Microsoft: Windows 365 for Agents public preview</p>
+              <p class="source-url">https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-365-for-agents-now-in-public-preview-run-ai-agents-securely-at-scale/4513479</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://blogs.windows.com/windowsexperience/2026/01/22/windows-365-for-agents-the-cloud-pcs-next-chapter/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年1月22日</span>
+              </div>
+              <p class="source-title">Microsoft: Windows 365 for Agents architecture</p>
+              <p class="source-url">https://blogs.windows.com/windowsexperience/2026/01/22/windows-365-for-agents-the-cloud-pcs-next-chapter/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/copilot-studio-blog/computer-using-agents-in-microsoft-copilot-studio-are-now-generally-available/4519427" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年5月13日</span>
+              </div>
+              <p class="source-title">Microsoft: Copilot Studio computer use GA</p>
+              <p class="source-url">https://techcommunity.microsoft.com/blog/copilot-studio-blog/computer-using-agents-in-microsoft-copilot-studio-are-now-generally-available/4519427</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://arxiv.org/abs/2606.29537v1" target="_blank" rel="noopener noreferrer">
@@ -294,8 +391,18 @@ Anthropicが2024年10月に公開したcomputer useも、画面を見る、カ�
                 <span class="source-kind ">paper</span>
                 <span class="mono-note">2026年6月28日</span>
               </div>
-              <p class="source-title">OSWorld 2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks</p>
+              <p class="source-title">OSWorld 2.0 version 1</p>
               <p class="source-url">https://arxiv.org/abs/2606.29537v1</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2026年1月9日</span>
+              </div>
+              <p class="source-title">Anthropic: Demystifying evals for AI agents</p>
+              <p class="source-url">https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents</p>
             </div>
             <span class="source-action">開く</span>
           </a>

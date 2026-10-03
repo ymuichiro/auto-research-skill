@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>When to split AI work into subagents, and what they need to share | Auto Research Digest EN</title>
-    <meta name="description" content="Decide whether subagents help by examining task dependencies, shared criteria, evidence handoffs, total cost, and comparison with a single agent.">
+    <title>Delegating to subagents: turn completed research into usable decisions | Auto Research Digest EN</title>
+    <meta name="description" content="Compare subagent designs across five vendors through model choice, parallel work, context, ordering, progress records, evidence handoffs, and human synthesis.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="ja_JP">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="When to split AI work into subagents, and what they need to share | Auto Research Digest EN">
-    <meta property="og:description" content="Decide whether subagents help by examining task dependencies, shared criteria, evidence handoffs, total cost, and comparison with a single agent.">
+    <meta property="og:title" content="Delegating to subagents: turn completed research into usable decisions | Auto Research Digest EN">
+    <meta property="og:description" content="Compare subagent designs across five vendors through model choice, parallel work, context, ordering, progress records, evidence handoffs, and human synthesis.">
     <meta property="og:url" content="https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="When to split AI work into subagents, and what they need to share">
+    <meta property="og:image:alt" content="Delegating to subagents: turn completed research into usable decisions">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="When to split AI work into subagents, and what they need to share | Auto Research Digest EN">
-    <meta name="twitter:description" content="Decide whether subagents help by examining task dependencies, shared criteria, evidence handoffs, total cost, and comparison with a single agent.">
+    <meta name="twitter:title" content="Delegating to subagents: turn completed research into usable decisions | Auto Research Digest EN">
+    <meta name="twitter:description" content="Compare subagent designs across five vendors through model choice, parallel work, context, ordering, progress records, evidence handoffs, and human synthesis.">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="When to split AI work into subagents, and what they need to share">
+    <meta name="twitter:image:alt" content="Delegating to subagents: turn completed research into usable decisions">
     <link rel="canonical" href="https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html">
@@ -42,8 +42,7 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2026-03-30T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T17:10:27+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Subagents">
@@ -51,8 +50,8 @@
     <meta property="article:tag" content="Workflow">
     <meta property="article:tag" content="Orchestration">
     <meta property="article:tag" content="LLM">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"When to split AI work into subagents, and what they need to share","description":"Decide whether subagents help by examining task dependencies, shared criteria, evidence handoffs, total cost, and comparison with a single agent.","datePublished":"2026-03-30T00:00:00+09:00","dateModified":"2026-09-20T17:10:27+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Subagents, Multi-Agent, Workflow, Orchestration, LLM","mainEntityOfPage":"https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"When to split AI work into subagents, and what they need to share","item":"https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"}],"inLanguage":"en"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Delegating to subagents: turn completed research into usable decisions","description":"Compare subagent designs across five vendors through model choice, parallel work, context, ordering, progress records, evidence handoffs, and human synthesis.","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Subagents, Multi-Agent, Workflow, Orchestration, LLM","mainEntityOfPage":"https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Delegating to subagents: turn completed research into usable decisions","item":"https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"}],"inLanguage":"en"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -68,21 +67,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">When to split AI work into subagents, and what they need to share</h1>
-          <p class="hero-copy">A three-product research example separates delegation, parallel execution, evidence handoffs, synthesis, and final approval, then compares them with a single agent.</p>
+          <h1 class="hero-title">Delegating to subagents: turn completed research into usable decisions</h1>
+          <p class="hero-copy">Read OpenAI, Anthropic, Google, Microsoft, and AWS designs through a hypothetical product comparison. Separate model choice, parallel exploration, context, ordering, and progress records, then assess synthesis and human rework.</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2026-03-30">March 30, 2026</time>
-        <time class="mono-note" datetime="2026-09-20">Updated September 20, 2026</time>
+        <time class="mono-note" datetime="2026-03-30">Research cutoff March 30, 2026</time>
+        
+        <time class="mono-note" datetime="2026-10-03">Updated October 3, 2026</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Subagents</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Workflow</span><span class="meta-chip">Orchestration</span><span class="meta-chip">LLM</span></div>
     </section>
     <section class="article-share" aria-label="Share article">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=When%20to%20split%20AI%20work%20into%20subagents%2C%20and%20what%20they%20need%20to%20share&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=Delegating%20to%20subagents%3A%20turn%20completed%20research%20into%20usable%20decisions&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-03-30-subagents-become-the-practical-unit-of-work-ai.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -92,8 +92,8 @@
       type="button"
       aria-label="Open share menu"
       data-native-share
-      data-share-title="When to split AI work into subagents, and what they need to share"
-      data-share-text="When to split AI work into subagents, and what they need to share"
+      data-share-title="Delegating to subagents: turn completed research into usable decisions"
+      data-share-text="Delegating to subagents: turn completed research into usable decisions"
       data-share-url="https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"
       hidden
     >
@@ -107,7 +107,7 @@
       aria-label="Copy article title and link"
       data-copy-share
       data-state="idle"
-      data-share-title="When to split AI work into subagents, and what they need to share"
+      data-share-title="Delegating to subagents: turn completed research into usable decisions"
       data-share-url="https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"
       data-copy-label-default="Copy article title and link"
       data-copy-label-success="Copied"
@@ -126,48 +126,65 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-<h2>Some divisions reduce waiting; others add handoffs</h2>
-<p>Researching three products independently can proceed concurrently. Investigating a defect, fixing it, and testing the fix requires later steps to wait for earlier results. Both jobs can be split into three parts, but splitting alone does not shorten completion time.</p>
-<p>A subagent receives a bounded task from a lead agent. Using announcements and design material available by March 30, 2026, this article considers when that division helps and when it adds handoff costs. The product-comparison task below is hypothetical.</p>
+<h2>Three completed investigations do not make a completed comparison</h2>
+<p>A team asks AI to research three software products before choosing one. Separate agents can read the vendors' material concurrently. Their results arrive: one investigated the free tier, another the enterprise tier, and the third an older version. All report completion, yet a person must repeat the research to align the conditions. This hypothetical example distinguishes a shorter wait from earlier access to findings that support a decision.</p>
+<p>A subagent receives a bounded task from a lead agent and investigates or acts within that scope. Using material published by OpenAI, Anthropic, Google, Microsoft, and AWS by March 30, 2026, this article examines where to divide work. It does not claim that every vendor adopted one architecture or rank their products by speed.</p>
+<p>My judgment is that a division should specify more than a role such as “researcher”: define its inputs, how far it can proceed independently, and what it must return for the next decision. Adding agents has little value if a person must verify their findings from scratch. Start by enabling independent work while preserving the conditions and evidence required for synthesis.</p>
 </section>
 <section class="report-section">
-<h2>Decide inputs, returns, synthesis, and approval before splitting work</h2>
+<h2>Choosing a smaller model differs from running work concurrently</h2>
+<p>OpenAI's <a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">March 17 announcement of GPT-5.4 mini and nano</a> describes a Codex configuration in which a larger model plans and synthesizes while mini subagents search code, review files, or process supporting documents in parallel. Nano is positioned for tasks such as classification and extraction, but the announcement makes it available through the API; mini is the model described for Codex delegation.</p>
+<p>Two choices are involved: selecting a model for a task and executing several tasks concurrently. Smaller models can receive sequential assignments, and multiple agents can use the same model. Combining unit-price savings and parallel execution into one number obscures what actually improved.</p>
+<p>For the hypothetical comparison, extracting product names and versions can use constrained inputs and a checkable return format. Resolving conflicting documents and selecting a product for a use case requires further exploration and judgment. A subordinate assignment is not necessarily easy. After narrowing its scope, check whether the assigned model can resolve the ambiguity that remains.</p>
+</section>
+<section class="report-section">
+<h2>Keep dependent work behind the result it needs</h2>
+<p>Collecting material about three products can proceed independently once the use case and target versions are fixed. Synthesizing the comparison must wait for those findings, and checking the recommendation requires the resulting table. Splitting collection across three directions differs from starting collection, synthesis, and verification simultaneously, even though both arrangements have three parts.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Delegated research</h3>
-<p>Give each product task the same use case, version, comparison fields, and source URLs. Parallelize only work that can be investigated independently.</p>
-</article>
-<article class="comparison-card">
-<h3>Evidence returned</h3>
-<p>Return verified facts, sources, and unresolved questions rather than a conclusion alone, so the lead can return to the original material later.</p>
-</article>
-<article class="comparison-card">
-<h3>Synthesis decision</h3>
-<p>The lead decides whether results are comparable and whether a conflict needs more research. Do not decide facts by a majority of agent summaries.</p>
-</article>
-<article class="comparison-card">
-<h3>Final approval</h3>
-<p>Return publication, external sending, and shared-file updates to one owner or an explicit approval step after synthesis. A role label does not itself grant write permission.</p>
-</article>
+<article class="comparison-card"><h3>Supply matching conditions</h3><p>Align the use case, target version, features being compared, and research cutoff. Set these conditions before each investigator starts.</p></article>
+<article class="comparison-card"><h3>Delegate independent exploration</h3><p>Find product material and investigate conflicts. Assign scopes that can progress without waiting for another product's conclusions.</p></article>
+<article class="comparison-card"><h3>Return findings with evidence</h3><p>Return facts, URLs, relevant locations, and unverified fields. Do not turn a failed investigation into a claim that a feature does not exist.</p></article>
+<article class="comparison-card"><h3>Decide whether findings are comparable</h3><p>Compare results with matching versions and availability conditions. Return gaps to their investigator; do not use unverified differences to justify a recommendation.</p></article>
 </div>
-<p>Adding agents before setting this sequence can produce parallel results that cannot be compared, along with extra integration waits and rework.</p>
+<p>This is the article's hypothetical procedure, not a requirement to create four agents. Fetching three predetermined URLs may need only parallel tool calls. Delegating to a subagent becomes useful when it should discover a new issue in a document and decide to pursue another primary source.</p>
+<p>In coding, diagnosis, a patch, and tests of that patch depend on earlier results. Independent module reviews may run concurrently, but separate edits to the same target need integration. Dividing work according to which result each participant must wait for makes handoffs easier to explain than dividing it by job-like role names.</p>
 </section>
 <section class="report-section">
-<h2>Separate smaller-model delegation from parallel execution</h2>
-<p>OpenAI's March 17 <a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">GPT-5.4 mini and nano announcement</a> describes a larger model handling planning and synthesis while mini performs narrower work such as code exploration. This is a concrete use of task-specific model selection. Choosing a smaller model and running tasks concurrently are separate decisions; delegation can also be sequential.</p>
-<p>Anthropic's <a href="https://www.anthropic.com/engineering/multi-agent-research-system">June 2025 research-system article</a> reports benefits from exploring independent directions while noting difficulties with heavily interdependent work. In its data, multi-agent systems used about 15 times the tokens of ordinary chats. That comparison is with chats, not single-agent systems. It is not a universal cost multiplier, but it challenges the claim that delegation necessarily costs less.</p>
-<p>Even if the three product investigations run concurrently, preparing assignments, synthesizing findings, and filling gaps remain. Evaluate the lead and subagents' total usage, tool delays, and retries alongside the smaller model's unit price.</p>
+<h2>Separate contexts without discarding evidence</h2>
+<p>Anthropic's <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDK design article</a> describes subagents with isolated context windows that return only relevant information to the orchestrator. Investigators can read long product documents without making the lead carry every investigation's history. Context management is a potential benefit to assess separately from parallel speed.</p>
+<p>A short conclusion alone, however, may erase the conditions needed for comparison. “Search supported” does not reveal whether it is enterprise-only, requires an external connection, or was checked in the relevant version. I recommend making each comparison field traceable to its source. Entire documents need not be copied, but compression must preserve conditions that could change the conclusion.</p>
+<p>In the opening example, each investigator would link the verified version and features to evidence and distinguish unverified fields from empty ones. The lead would synthesize only comparable fields. Agreement among three agents reading the same outdated document does not add three independent sources of corroboration.</p>
+<p>Conversely, copying the lead's entire conversation and all documents into every assignment reduces the value of separate contexts. Supply the common purpose and constraints, and make other material accessible when needed. The goal is to limit inputs while retaining what decisions require, rather than minimizing sharing for its own sake.</p>
 </section>
 <section class="report-section">
-<h2>Share comparison criteria and return separately traceable findings</h2>
-<p>“Research product A” leaves too much unspecified. I recommend defining the use case, version, comparison fields, source URLs, and treatment of unknowns. Combining one agent's free-tier findings with another's enterprise-tier findings does not produce a sound comparison.</p>
-<p>Ask each agent to return facts, sources, and unresolved questions, then make the final judgment once the products can be compared under matching conditions. Retaining access to original evidence allows conflicting summaries to be checked. Agreement among agents is not independent corroboration if they all relied on the same incorrect source.</p>
-<p>Role labels also do not enforce permissions. A research-only task should be configured without unnecessary write operations. Where agents need not edit one shared file, returning separate results for the lead to integrate can avoid write conflicts.</p>
+<h2>Fixed ordering and choosing a specialist solve different problems</h2>
+<p><a href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/docs/agents/workflow-agents/index.md">Google ADK's documentation as of March 30</a> describes sequential, parallel, and loop workflows whose orchestration does not consult a model at every step. A subagent can use a model internally while predefined rules control execution order. An established procedure need not have a coordinator rediscover its sequence each time.</p>
+<p>The corresponding <a href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py">research code example</a> saves three investigators' summaries in distinct fields and passes them to a merger after all investigators finish. Concurrent execution and sharing results are separate decisions. Its summary instructions do not by themselves meet this article's evidence requirements: correct ordering still requires a separate check of research accuracy.</p>
+<p><a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">Bedrock's March 2025 general availability announcement</a> describes both a supervisor that decomposes and synthesizes work and a routing mode that sends simple requests directly to specialists. Complex requests still return to coordination in that mode. Checking one product and comparing three products can therefore call for different amounts of coordination. This example is my interpretation, not a measured cost saving from routing.</p>
+<p>Fixed procedures can be combined with investigators that change their exploration according to findings. Compare who determines order, who chooses a specialist, and where results are stored. These questions make it easier to select mechanisms for a particular job than a list of vendor terminology does.</p>
 </section>
 <section class="report-section">
-<h2>Keep delegation only if comparison with one agent supports it</h2>
-<p>Known execution sequences can use fixed workflows. <a href="https://adk.dev/agents/workflow-agents/">Google ADK's workflow documentation</a> describes sequential, parallel, and loop control without asking a model to make each orchestration decision. Before adding a coordinator, distinguish exploratory delegation from executing an established procedure.</p>
-<p>For product research, give single-agent and delegated configurations the same inputs and completion criteria. Compare factual accuracy, missing fields, total time, cost, and rework. Revise the split if integration dominates; retain it if independent investigations produce a demonstrated benefit. My recommendation is to choose the structure from task dependencies and measured results.</p>
+<h2>Preserve conversation continuity and execution progress separately</h2>
+<p>A <a href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/agents/workflow_as_agent_with_session.py">Microsoft Agent Framework session example available on March 30</a> wraps a workflow containing multiple participants as one agent and includes conversation history in subsequent calls. It also serializes history into a form that can be stored and restored. This preserves internal delegation while allowing a user to continue a previous conversation.</p>
+<p>Remembering the request differs from recording which investigations finished. The separate <a href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/checkpoint/workflow_as_agent_checkpoint.py">checkpoint example at that date</a> distinguishes conversation history from execution-state records. Its storage is in memory; that alone does not demonstrate recovery after process termination. These code samples illustrate designs, not execution or failure-recovery tests performed for this article.</p>
+<p>If one hypothetical investigator fails, retain the other two results, the unfinished assignment, and the comparison conditions. After retrying, identify which result was replaced. If the target version changes during the work, check whether the existing results still match it. Resuming successfully does not produce a valid comparison if results from different conditions are joined.</p>
+</section>
+<section class="report-section">
+<h2>The lead's job goes beyond placing results side by side</h2>
+<p>Delegated research moves some reading to AI while leaving the lead with discrepancies to detect. A person making the final selection needs to see the evidence used and the conditions still unverified. Handing over three long completion reports makes that person reconstruct the comparison table.</p>
+<p>Define what allows each investigator to stop and what it should return when material cannot be found. The lead can then identify gaps and narrow further assignments. Asking everyone to restart wastes the benefit of independent exploration. If an early result is used, indicate whether an unfinished investigation could change the recommendation.</p>
+<p>Role names do not restrict permissions. Configure research assignments without unnecessary update operations. Return separate artifacts and identify who may incorporate them into shared files or send them externally. Delegation divides work; it does not automatically remove responsibility for the final decision.</p>
+</section>
+<section class="report-section">
+<h2>Count total work alongside cheaper calls</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/multi-agent-research-system">June 2025 research-system report</a> describes benefits from exploring independent directions and difficulties with heavily interdependent tasks. In its data, multi-agent systems used about 15 times the tokens of ordinary chats. The comparator is chats, not single-agent systems, and the figure is not a universal cost multiplier. Delegation cannot be assumed to reduce cost.</p>
+<p>Even three concurrent investigations leave time for the last investigator, assignment preparation, synthesis, and follow-up research. Lower usage of a large model can be accompanied by more small-model calls and retries. Include the person's work to align conditions in the time required to obtain decision-ready findings.</p>
+<p>Give single-agent and delegated configurations the same request, source material, and quality criteria. Report quality comparisons under a fixed total budget separately from comparisons of time and cost to meet a fixed quality target. Record model changes rather than attributing their effects solely to parallel execution. Repeat trials and include factual errors, missing fields, rejected findings, integration, and human corrections.</p>
+</section>
+<section class="report-section">
+<h2>Divide work into scopes that support the next decision</h2>
+<p>A short specification check for one product may need only one agent or a fixed retrieval procedure. Independent exploration of three products, with findings traceable to original material, gives a reason to delegate. Its value lies in enabling a person to proceed from sufficiently deep research, rather than in the appearance of several AIs working at once.</p>
+<p>Try one division first, aligning inputs, exploration scope, returned evidence, and responsibility for synthesis. Reconsider it if integration rework outweighs reduced waiting. Select models, contexts, ordering, and storage individually, retaining divisions that improve the work required to deliver usable findings. That is the approach to subagents proposed here.</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -189,49 +206,49 @@
       <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-04-06-voice-agents-become-operational-systems.html" aria-label="Handling corrections, interruptions, and saved results in voice booking agents">
+      <a class="article-card " href="/en/2026-04-06-voice-agents-become-operational-systems.html" aria-label="Compare voice booking agents through corrections, interruption, and completion">
     <div class="article-card-main">
       <p class="section-kicker">Newer briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-06">April 6, 2026</time>
+        <time class="mono-note" datetime="2026-04-06">Research cutoff April 6, 2026</time>
       </div>
-      <h3 class="article-card-title">Handling corrections, interruptions, and saved results in voice booking agents</h3>
-      <p class="article-card-copy">Carry a caller’s correction through playback and the actual booking result.</p>
+      <h3 class="article-card-title">Compare voice booking agents through corrections, interruption, and completion</h3>
+      <p class="article-card-copy">After “another day,” track what is heard, what is saved, and what the next person knows.</p>
       <div class="meta-tags"><span class="meta-chip">Voice AI</span><span class="meta-chip">Realtime</span><span class="meta-chip">Speech-to-Speech</span><span class="meta-chip">Contact Center</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Generative AI</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 9</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-03-28-open-agent-protocol-stack.html" aria-label="What MCP, A2A, and AG-UI actually exchange">
+  </a><a class="article-card " href="/en/2026-03-28-open-agent-protocol-stack.html" aria-label="Connecting work with MCP, A2A, and AG-UI: what has finished?">
     <div class="article-card-main">
       <p class="section-kicker">Older briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-28">March 28, 2026</time>
+        <time class="mono-note" datetime="2026-03-28">Research cutoff March 28, 2026</time>
       </div>
-      <h3 class="article-card-title">What MCP, A2A, and AG-UI actually exchange</h3>
-      <p class="article-card-copy">Start with what must be exchanged, then compare overlapping protocol features and the approval checks left to applications.</p>
+      <h3 class="article-card-title">Connecting work with MCP, A2A, and AG-UI: what has finished?</h3>
+      <p class="article-card-copy">The investigation finished. Was the refund issued? Compare the completion signals and information the next person needs.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span><span class="meta-chip">AG-UI</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Protocol</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
+      <span class="mono-note">Sources: 7</span>
       <span class="text-link">Open briefing</span>
     </div>
-  </a><a class="article-card " href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="Designing agent memory for retrieval, applicability, and updates">
+  </a><a class="article-card " href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html" aria-label="Agent memory design: why correct recall can still lead to the wrong decision">
     <div class="article-card-main">
       <p class="section-kicker">Related briefing</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-04-08">April 8, 2026</time>
+        <time class="mono-note" datetime="2026-04-08">Research cutoff April 8, 2026</time>
       </div>
-      <h3 class="article-card-title">Designing agent memory for retrieval, applicability, and updates</h3>
-      <p class="article-card-copy">Correct recall can still lead to a wrong answer when applicability and updates are mishandled.</p>
+      <h3 class="article-card-title">Agent memory design: why correct recall can still lead to the wrong decision</h3>
+      <p class="article-card-copy">Useful memory must preserve corrections and applicability, not just retrieve the right record.</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Memory</span><span class="meta-chip">Long-Term Memory</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">RAG</span><span class="meta-chip">Workflow</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">Sources: 3</span>
+      <span class="mono-note">Sources: 12</span>
       <span class="text-link">Open briefing</span>
     </div>
   </a>
@@ -250,30 +267,80 @@
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">March 17, 2026</span>
               </div>
-              <p class="source-title">OpenAI: GPT-5.4 mini and nano (March 2026)</p>
+              <p class="source-title">OpenAI: Introducing GPT-5.4 mini and nano</p>
               <p class="source-url">https://openai.com/index/introducing-gpt-5-4-mini-and-nano/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">September 29, 2025</span>
+              </div>
+              <p class="source-title">Anthropic: Building agents with the Claude Agent SDK</p>
+              <p class="source-url">https://claude.com/blog/building-agents-with-the-claude-agent-sdk</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/docs/agents/workflow-agents/index.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 30, 2026</span>
+              </div>
+              <p class="source-title">Google ADK: workflow agents, March 30 snapshot</p>
+              <p class="source-url">https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/docs/agents/workflow-agents/index.md</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 30, 2026</span>
+              </div>
+              <p class="source-title">Google ADK: parallel research and synthesis example, March 30 snapshot</p>
+              <p class="source-url">https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 10, 2025</span>
+              </div>
+              <p class="source-title">AWS: Amazon Bedrock announces general availability of multi-agent collaboration</p>
+              <p class="source-url">https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/agents/workflow_as_agent_with_session.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 30, 2026</span>
+              </div>
+              <p class="source-title">Microsoft Agent Framework: workflow as agent with session, March 30 snapshot</p>
+              <p class="source-url">https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/agents/workflow_as_agent_with_session.py</p>
+            </div>
+            <span class="source-action">Open</span>
+          </a><a class="source-row" href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/checkpoint/workflow_as_agent_checkpoint.py" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">March 30, 2026</span>
+              </div>
+              <p class="source-title">Microsoft Agent Framework: checkpoint sample, March 30 snapshot</p>
+              <p class="source-url">https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/checkpoint/workflow_as_agent_checkpoint.py</p>
             </div>
             <span class="source-action">Open</span>
           </a><a class="source-row" href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                
+                <span class="mono-note">June 13, 2025</span>
               </div>
-              <p class="source-title">Anthropic: Multi-agent research system (June 2025)</p>
+              <p class="source-title">Anthropic: How we built our multi-agent research system</p>
               <p class="source-url">https://www.anthropic.com/engineering/multi-agent-research-system</p>
-            </div>
-            <span class="source-action">Open</span>
-          </a><a class="source-row" href="https://adk.dev/agents/workflow-agents/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                
-              </div>
-              <p class="source-title">Google ADK: Workflow agents</p>
-              <p class="source-url">https://adk.dev/agents/workflow-agents/</p>
             </div>
             <span class="source-action">Open</span>
           </a>

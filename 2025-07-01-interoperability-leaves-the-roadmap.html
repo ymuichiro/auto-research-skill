@@ -3,8 +3,8 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>相互運用は、何を交換できる状態を指すのか | Auto Research Digest</title>
-    <meta name="description" content="A2A、MCP、OpenAPIが交換する対象を整理し、接続可能性と、認証・出力・失敗時の業務契約が一致することを区別する。">
+    <title>MCPとA2A：接続先の交換で変えてはいけないこと | Auto Research Digest</title>
+    <meta name="description" content="MCP・A2A・OpenAPIの接続互換と業務の意味を区別する。出典、文書の版、閲覧権限、空の検索と実行失敗を交換前後で比べる。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
     <meta name="theme-color" content="#0d0f14">
@@ -13,18 +13,18 @@
     <meta property="og:locale" content="ja_JP">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:site_name" content="Auto Research Digest">
-    <meta property="og:title" content="相互運用は、何を交換できる状態を指すのか | Auto Research Digest">
-    <meta property="og:description" content="A2A、MCP、OpenAPIが交換する対象を整理し、接続可能性と、認証・出力・失敗時の業務契約が一致することを区別する。">
+    <meta property="og:title" content="MCPとA2A：接続先の交換で変えてはいけないこと | Auto Research Digest">
+    <meta property="og:description" content="MCP・A2A・OpenAPIの接続互換と業務の意味を区別する。出典、文書の版、閲覧権限、空の検索と実行失敗を交換前後で比べる。">
     <meta property="og:url" content="https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html">
     <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="628">
-    <meta property="og:image:alt" content="相互運用は、何を交換できる状態を指すのか">
+    <meta property="og:image:alt" content="MCPとA2A：接続先の交換で変えてはいけないこと">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="相互運用は、何を交換できる状態を指すのか | Auto Research Digest">
-    <meta name="twitter:description" content="A2A、MCP、OpenAPIが交換する対象を整理し、接続可能性と、認証・出力・失敗時の業務契約が一致することを区別する。">
+    <meta name="twitter:title" content="MCPとA2A：接続先の交換で変えてはいけないこと | Auto Research Digest">
+    <meta name="twitter:description" content="MCP・A2A・OpenAPIの接続互換と業務の意味を区別する。出典、文書の版、閲覧権限、空の検索と実行失敗を交換前後で比べる。">
     <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
-    <meta name="twitter:image:alt" content="相互運用は、何を交換できる状態を指すのか">
+    <meta name="twitter:image:alt" content="MCPとA2A：接続先の交換で変えてはいけないこと">
     <link rel="canonical" href="https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html">
     <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html">
     <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html">
@@ -42,16 +42,15 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
     <script src="/assets/article-share.js" defer></script>
-    <meta property="article:published_time" content="2025-07-01T00:00:00+09:00">
-    <meta property="article:modified_time" content="2026-09-20T14:06:39+09:00">
+    <meta property="article:modified_time" content="2026-10-03T13:16:16+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
     <meta property="article:tag" content="Roundup">
     <meta property="article:tag" content="Protocol">
     <meta property="article:tag" content="MCP">
     <meta property="article:tag" content="Interoperability">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"相互運用は、何を交換できる状態を指すのか","description":"A2A、MCP、OpenAPIが交換する対象を整理し、接続可能性と、認証・出力・失敗時の業務契約が一致することを区別する。","datePublished":"2025-07-01T00:00:00+09:00","dateModified":"2026-09-20T14:06:39+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Protocol, MCP, Interoperability","mainEntityOfPage":"https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"相互運用は、何を交換できる状態を指すのか","item":"https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html"}],"inLanguage":"ja"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"MCPとA2A：接続先の交換で変えてはいけないこと","description":"MCP・A2A・OpenAPIの接続互換と業務の意味を区別する。出典、文書の版、閲覧権限、空の検索と実行失敗を交換前後で比べる。","dateModified":"2026-10-03T13:16:16+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Protocol, MCP, Interoperability","mainEntityOfPage":"https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html","image":["https://research.notelligent.app/assets/og-twitter-card-1200x628.png"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"MCPとA2A：接続先の交換で変えてはいけないこと","item":"https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html"}],"inLanguage":"ja"}</script>
   </head>
   <body>
     <div class="page-shell">
@@ -67,21 +66,22 @@
       <main class="site-main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">相互運用は、何を交換できる状態を指すのか</h1>
-          <p class="hero-copy">A2A、MCP、OpenAPIを手がかりに、道具・データ、他エージェントへの委譲、実行中の状態をどう交換できるかと、認証・出力契約・業務責任として残るものを整理する。</p>
+          <h1 class="hero-title">MCPとA2A：接続先の交換で変えてはいけないこと</h1>
+          <p class="hero-copy">MCPの構造化出力と認可、A2Aの寄贈、Googleのデータベース接続例を比較する。検索担当を替える想定例から、出典、閲覧範囲、失敗の区別をどう保つかを考える。</p>
         </section>
         <div class="content-stack">
           <article class="article-shell">
     <section class="article-meta">
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-agents/">AI Agents</a>
-        <time class="mono-note" datetime="2025-07-01">2025年7月1日</time>
-        <time class="mono-note" datetime="2026-09-20">最終更新 2026年9月20日</time>
+        <time class="mono-note" datetime="2025-07-01">調査対象日 2025年7月1日</time>
+        
+        <time class="mono-note" datetime="2026-10-03">最終更新 2026年10月3日</time>
       </div>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span><span class="meta-chip">Interoperability</span></div>
     </section>
     <section class="article-share" aria-label="記事を共有">
-    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E7%9B%B8%E4%BA%92%E9%81%8B%E7%94%A8%E3%81%AF%E3%80%81%E4%BD%95%E3%82%92%E4%BA%A4%E6%8F%9B%E3%81%A7%E3%81%8D%E3%82%8B%E7%8A%B6%E6%85%8B%E3%82%92%E6%8C%87%E3%81%99%E3%81%AE%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-07-01-interoperability-leaves-the-roadmap.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=MCP%E3%81%A8A2A%EF%BC%9A%E6%8E%A5%E7%B6%9A%E5%85%88%E3%81%AE%E4%BA%A4%E6%8F%9B%E3%81%A7%E5%A4%89%E3%81%88%E3%81%A6%E3%81%AF%E3%81%84%E3%81%91%E3%81%AA%E3%81%84%E3%81%93%E3%81%A8&url=https%3A%2F%2Fresearch.notelligent.app%2F2025-07-01-interoperability-leaves-the-roadmap.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
   </svg></span>
@@ -91,8 +91,8 @@
       type="button"
       aria-label="共有メニューを開く"
       data-native-share
-      data-share-title="相互運用は、何を交換できる状態を指すのか"
-      data-share-text="相互運用は、何を交換できる状態を指すのか"
+      data-share-title="MCPとA2A：接続先の交換で変えてはいけないこと"
+      data-share-text="MCPとA2A：接続先の交換で変えてはいけないこと"
       data-share-url="https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html"
       hidden
     >
@@ -106,7 +106,7 @@
       aria-label="記事タイトルとリンクをコピー"
       data-copy-share
       data-state="idle"
-      data-share-title="相互運用は、何を交換できる状態を指すのか"
+      data-share-title="MCPとA2A：接続先の交換で変えてはいけないこと"
       data-share-url="https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html"
       data-copy-label-default="記事タイトルとリンクをコピー"
       data-copy-label-success="コピーしました"
@@ -125,34 +125,129 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     <section class="article-body"><section class="report-section">
-  <p class="section-kicker">問い</p>
-  <h2>相互運用は、何を交換できる状態を指すのか</h2>
-  <p>2025年春から夏の A2A、MCP、OpenAPI をめぐる発表は、接続を試験できる対象を具体化した。<a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A</a> は他エージェントへ task、状態、artifact を渡す形を、MCP は道具やデータへ接続する形を、OpenAPI は操作を記述する形を扱う。これらがそろっても、相手を業務上そのまま置換できるとは限らない。本稿は、接続可能性と、出力の意味、認証範囲、失敗処理、承認責任まで一致する交換可能性を分ける。</p>
+  <p class="section-kicker">接続先を替える</p>
+  <h2>検索が通っても、「規程がない」の意味は変わり得る</h2>
+  <p>社内文書を調べるAIの検索担当を、新しい提供者へ替える。
+同じ質問を送れて、回答も戻る。
+ところが、新しい担当が「見つかりません」と返した理由は、規程が存在しないからではなく、利用者の権限では読めないからかもしれない。
+これは接続先の交換を考えるための想定例だ。
+利用者には、通信が成功したかより、調べた範囲を信じてよいかが重要になる。</p>
+  <p>A2A、MCP、OpenAPIを扱う発表や仕様は、異なる担当や道具へ接続する方法を具体化している。
+6月にはA2AがLinux Foundationへ寄贈され、MCP ToolboxをIDEとデータベースにつなぐ説明例も公開された。
+接続の共通化を、製品をまたぐ仕事の設計に使える材料が増えている。</p>
+  <p>本稿の結論は、接続先を交換する自由を得るには、利用者が結果を読む条件も保つ必要があるということだ。
+出典のある答えと本文だけの答え、検索結果が空であることと検索に失敗したことを、同じ成功へまとめない。
+共通の形式を出発点に、意味、権限、失敗の扱いまで比べたい。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">共通化する対象</p>
+  <h2>担当への依頼、道具の呼び出し、APIの記述は異なる</h2>
+  <p><a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2Aの発表</a>は、別のエージェントの能力を見つけ、タスク、進捗、成果物をやり取りする設計を示す。
+MCPは、AIアプリケーションから道具やデータへ接続するための仕組みだ。
+<a href="https://spec.openapis.org/oas/v3.1.1.html">OpenAPI 3.1.1</a>は、HTTP APIの入力、応答、認証などを記述する形式を定める。
+それぞれ、共通化する対象が違う。</p>
+  <p>検索の想定例では、文書検索を行う道具を呼ぶ構成と、別の担当へ調査を依頼して成果物を待つ構成がある。
+その内部で、OpenAPIに記述した業務APIを使うことも考えられる。
+三つの名前を並べても、どの文書を検索し、何を完了とするかは決まらない。
+接続する相手の仕事を先に定義する必要がある。</p>
+  <p><a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">6月23日のA2A寄贈</a>では、仕様、SDK、開発用の道具を独立したプロジェクトへ移すと説明する。
+複数の企業が規格の発展や保守へ参加する枠組みは、長く接続を使う上で意味がある。
+一方、規格の管理が中立であることは、各提供者の検索結果や業務判断が同等であることの証明ではない。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">道具が仕事へ入る</p>
+  <h2>データベース接続は、検索からコード変更まで仕事を広げる</h2>
+  <p><a href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases">Google Cloudの6月4日のMCP Toolboxの説明</a>は、新任開発者Saraが、VS Code内のClineから開発用のCloud SQL for PostgreSQLへ接続する場面を示す。
+テーブルや未完了の注文を調べ、取引先のテーブルと在庫の取引先IDを追加する。
+続いて、アプリケーションのモデルとInventoryDAOのテストを更新する。
+データベースの構造を読む接続が、コードの変更と検証まで同じ仕事につながる例である。</p>
+  <p>資料はこの流れを説明し、短時間で終わると述べるが、同じ課題を人とAIで比較した計測ではない。
+ここから読み取れる価値は、接続によって実際のデータ構造を参照し、変更する範囲を具体的に扱える点だ。
+読む道具と、テーブルを変更する道具では、必要な権限も失敗した後の確認も異なる。</p>
+  <p>接続先を替えるなら、同じ道具の名前が見えるだけでは足りない。
+開発用の同じデータベースを対象にしているか、読み書きできる範囲は同じか、変更後にコードとテストが整合するかを確かめたい。
+共通の接続形式は、こうした比較を始めやすくする。
+比較そのものを不要にするわけではない。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">出力の構造と意味</p>
+  <h2>同じ項目で返せても、同じ事実を返すとは限らない</h2>
+  <p><a href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools">MCPの6月18日版の道具仕様</a>では、構造化した結果と、その出力形式を記述するoutputSchemaを扱う。
+形式を提示する場合、サーバーはそれに合う構造化結果を返す必要があり、利用側にも検証を推奨する。
+天気の例は、温度が数字であり、摂氏を使うことまで説明する。
+値を受け取るプログラムが、形式を確認するための材料になる。</p>
+  <p>文書検索へ当てはめるなら、本文、出典URL、文書の版、調べた範囲を項目として定められる。
+これは本稿の設計案で、MCPがすべての検索へ要求する項目ではない。
+古い版だけを検索した結果と、現行の版を検索した結果は、同じ項目を持っていても判断への使い方が違う。
+構造の一致と、業務上の意味の一致を分けて検証する必要がある。</p>
+  <p>OpenAPIの記述にも、応答や項目の説明を通じて業務の意味を表現できる。
+ただし、同じ仕様版を使うという事実だけで、二つの提供者が同じ定義を採用したとは分からない。
+接続先を交換する際は、返された値を画面へ渡す処理だけでなく、その値から何を結論付けるかも比べる。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">誰の権限で読むか</p>
+  <h2>接続方式が同じでも、利用者の閲覧範囲は自動では引き継がれない</h2>
+  <p><a href="https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization">MCPの6月18日版の認可仕様</a>は、HTTPで接続する場合の認可の流れを定める。
+認可機能自体は任意であり、すべてのMCP実装へ同じOAuthの仕組みを義務付けるものではない。
+標準入出力でつなぐ方式では、環境から認証情報を得る設計を扱う。
+どの接続方式を使うかで、確認すべき条件が異なる。</p>
+  <p>HTTPの認可仕様は、接続先が自分に対して発行されたアクセストークンかを検証するよう求める。
+そのため、提供者を替えたからといって、前の接続先向けのトークンをそのまま使う設計にはできない。
+接続先と認可する対象を合わせ、その利用者にどの文書が読めるかを確かめる。
+共通の形式は、どの接続先にも同じ権限を与えるという意味ではない。</p>
+  <p>仕様は、無効なトークンなどの401と、権限不足などの403を分ける。
+アプリケーションが両方を空の検索結果へ置き換えると、利用者は「見つからない」と「読めない」を区別できない。
+何が検索対象になったかを知りたい人のために、この違いを画面まで保つ必要がある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">成功と失敗の読み方</p>
+  <h2>結果を受け取れたことを、検索が成功したことへ置き換えない</h2>
+  <p>MCPの道具仕様は、プロトコルのエラーと、道具の実行で起きたエラーを区別する。
+後者は結果の中でisErrorを付け、APIの失敗や業務処理の誤りなどを示す。
+結果を受け取れた場合でも、その内容は道具の失敗かもしれない。
+利用側が結果の本文だけを読むと、この区別を落とすことになる。</p>
+  <p>冒頭の文書検索を考えると、対象範囲に該当文書がない場合、対象文書を読む権限がない場合、検索処理が止まった場合は別々に扱いたい。
+これは本稿が提案する業務上の区別だ。
+回答を作る担当へ渡す際にも区別を保てば、検索ができていないのに「規程はありません」と答えることを防ぐ設計になる。</p>
+  <p>長い処理では、待ち時間が過ぎた場合も、相手の仕事が終わっていない可能性がある。
+検索なら再実行できる場合があるが、外部の記録を変更する仕事では、先の操作が確定したかを調べず再実行すると重複が起こり得る。
+待ち時間や再試行の方針は、道具が読むだけか、変更するかに合わせて定める必要がある。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">管理サービスとの組み合わせ</p>
+  <h2>共通の接続と、サービスの管理を同時に使える</h2>
+  <p><a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">Responses APIの5月の更新</a>は外部のMCPサーバーへの接続を加えた。
+<a href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/">FoundryのDeveloper Essentials</a>も、A2A、MCP、OpenAPIによる接続と、管理サービスでのエージェント実行を説明する。
+管理された実行環境でも、共通の接続方式を使う選択がある。</p>
+  <p>この組み合わせは、実行環境の管理を任せながら、外部の道具や担当を使う道を開く。
+しかし、別の接続先へ替えたときに、出典、閲覧範囲、失敗の区別が保たれるかは、アプリケーションで検証する必要がある。
+対応するプロトコルの一覧は候補選びに役立つが、仕事の交換条件を説明するには、実際に使う機能と版を確認したい。</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">交換の判断</p>
+  <h2>同じ仕事を使って、変わる結果と保つ条件を確かめる</h2>
+  <p>検索担当の交換を検証するなら、同じ文書、利用者、質問を使う。
+現行の文書と古い版、閲覧できる文書とできない文書、該当文書のない質問を含める。
+正常な結果だけでなく、権限不足、道具の失敗、応答待ちも比べる。
+結果の見た目より、利用者が同じ条件で結論を読めるかを確認する。</p>
+  <p>差があれば、変換処理で保てる条件と、提供者の機能として保てない条件を分ける。
+たとえば、出典が返らない担当へ替えるなら、後から本文の形式を整えるだけでは出典を回復できない。
+同じ用途に使えると説明する範囲を狭めるか、必要な結果を返す接続先を選び直すことになる。</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>接続で渡すもの</h3><p>道具・resource、task・artifact・status、操作の入力と出力をやり取りする。</p></article>
-    <article class="comparison-card"><h3>接続だけでは渡らないもの</h3><p>誰の権限で呼ぶか、出力が何を意味するか、危険な変更を誰が承認するかは別に定める。</p></article>
-    <article class="comparison-card"><h3>検査するもの</h3><p>出力 schema、認可範囲、timeout、再試行、未確定状態の扱いを、交換前後で比べる。</p></article>
+    <article class="comparison-card"><h3>意味を保つ</h3><p>文書の版、出典、検索対象を定義し、同じ判断へ使える結果か確かめる。</p></article>
+    <article class="comparison-card"><h3>閲覧範囲を保つ</h3><p>接続先の認可を確認し、読めない文書を「存在しない」と扱わない。</p></article>
+    <article class="comparison-card"><h3>失敗を保つ</h3><p>空の検索、権限不足、実行失敗、待機中を区別して返す。</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">公開資料の役割</p>
-  <h2>A2A、MCP、マネージド基盤は、異なる接続面を扱う</h2>
-  <p>A2A の発表と Linux Foundation への寄贈は、agent card、capability discovery、長い task の lifecycle をオープンな協調課題として扱った。Google Cloud の MCP database integrations は、開発者が道具とデータへ接続する具体例を示した。OpenAI の Responses API の remote MCP、Azure AI Foundry の A2A/MCP/OpenAPI 対応は、マネージド実行とオープンな接続方式を組み合わせる選択肢を示す。</p>
-  <p>これらの資料は、接続の形式や提供範囲を説明する。互換性のある業務結果、組織のセキュリティ要件への適合、あるいは複数製品の同等性能を証明する資料ではない。<a href="https://arxiv.org/abs/2406.12045">tau-bench</a> のような道具・利用者・状態を含む評価は、インターフェースが同じでも仕事の最終状態を別途検査する必要を思い出させる。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">想定例</p>
-  <h2>検索担当を差し替える前に、出力と失敗の契約を比べる</h2>
-  <p>以下は設計例である。A2A 経由で呼ぶ検索担当を別の提供者へ替える。task の送信と artifact の受信ができても、片方は引用 URL と文書版を返し、片方は本文だけを返すかもしれない。片方は利用者ごとの権限不足を返し、もう片方は空の結果として扱うかもしれない。利用者が「見つからない」と判断する条件も変わる。</p>
-  <p>交換テストでは、同じ入力に対し、出力 schema、根拠の有無、認証失敗、timeout、再試行、監査記録を比べる。外部送信やデータ更新が含まれるなら、どの段階で利用者・組織の承認を求めるかも変えてはならない。通信が通ることを合格にせず、仕事の完了条件が保たれるかを確認する。</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">結論</p>
-  <h2>相互運用を設計前提にするとは、交換できない責任も先に書くことだ</h2>
-  <p>公開仕様により、他のエージェントや道具へ接続することは以前より検査可能になった。本稿の結論は、相互運用が完成したというものではない。接続形式を共通化しても、認証、データの意味、失敗時の責任、承認規則はアプリケーションと組織の契約として残る。そこまで含めて比べることが、将来の差し替えを可能にする設計になる。</p>
+  <p>相互運用の価値は、接続先の数だけで決まらない。
+交換した後も、利用者が検索結果を同じ意味で読み、必要な判断を続けられることにある。
+共通の形式を使いながら、交換前後で保つべき条件を具体化することが、将来の選択を広げる。</p>
 </section>
 </section>
     <section class="panel-block topic-backlink">
@@ -174,49 +269,49 @@
       <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
     </div>
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="AgentOps は、なぜ実行を制御する層になるのか">
+      <a class="article-card " href="/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html" aria-label="AgentOps：通信が切れた後、何をやり直してよいか">
     <div class="article-card-main">
       <p class="section-kicker">より新しい記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-08-01">2025年8月1日</time>
+        <time class="mono-note" datetime="2025-08-01">調査対象日 2025年8月1日</time>
       </div>
-      <h3 class="article-card-title">AgentOps は、なぜ実行を制御する層になるのか</h3>
-      <p class="article-card-copy">実行を見られることは、同じ副作用を起こさずに復旧できる保証ではない。</p>
+      <h3 class="article-card-title">AgentOps：通信が切れた後、何をやり直してよいか</h3>
+      <p class="article-card-copy">履歴があるだけでは再実行を選べない。確定した変更と未確定の結果を分け、人が仕事を続けられるようにする。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">AgentOps</span><span class="meta-chip">Observability</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">根拠数: 7</span>
-      <span class="text-link">レポートを開く</span>
-    </div>
-  </a><a class="article-card " href="/2025-06-01-multi-agent-design-turns-into-an-operating-model.html" aria-label="複数エージェントの設計は、どう運用モデルになるのか">
-    <div class="article-card-main">
-      <p class="section-kicker">ひとつ古い記事</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-06-01">2025年6月1日</time>
-      </div>
-      <h3 class="article-card-title">複数エージェントの設計は、どう運用モデルになるのか</h3>
-      <p class="article-card-copy">担当を増やす前に、依存関係、受け渡す根拠、統合者、終了条件を決める。</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
     </div>
     <div class="article-card-foot">
       <span class="mono-note">根拠数: 8</span>
       <span class="text-link">レポートを開く</span>
     </div>
-  </a><a class="article-card " href="/2026-03-28-open-agent-protocol-stack.html" aria-label="MCP、A2A、AG-UIは何を受け渡すのか">
+  </a><a class="article-card " href="/2025-06-01-multi-agent-design-turns-into-an-operating-model.html" aria-label="複数エージェントで調査報告を作るなら、どう仕事を分けるか">
+    <div class="article-card-main">
+      <p class="section-kicker">ひとつ古い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-06-01">調査対象日 2025年6月1日</time>
+      </div>
+      <h3 class="article-card-title">複数エージェントで調査報告を作るなら、どう仕事を分けるか</h3>
+      <p class="article-card-copy">資料収集を速めても、比較条件を落とせば人の確認は増える。完成までの依存関係から分業を選ぶ。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 6</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-03-28-open-agent-protocol-stack.html" aria-label="MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか">
     <div class="article-card-main">
       <p class="section-kicker">テーマが近い記事</p>
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-28">2026年3月28日</time>
+        <time class="mono-note" datetime="2026-03-28">調査対象日 2026年3月28日</time>
       </div>
-      <h3 class="article-card-title">MCP、A2A、AG-UIは何を受け渡すのか</h3>
-      <p class="article-card-copy">三つの名称をそろえる前に、誰に何を渡すのかを決める。仕様の重なりと承認処理の違いを読む。</p>
+      <h3 class="article-card-title">MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか</h3>
+      <p class="article-card-copy">調査は終わった。では、返金も終わったのか。共通仕様が伝える完了と、人が次に動くための情報を比べる。</p>
       <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">MCP</span><span class="meta-chip">A2A</span><span class="meta-chip">AG-UI</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Protocol</span></div>
     </div>
     <div class="article-card-foot">
-      <span class="mono-note">根拠数: 4</span>
+      <span class="mono-note">根拠数: 7</span>
       <span class="text-link">レポートを開く</span>
     </div>
   </a>
@@ -231,34 +326,64 @@
       <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
     </div>
     <div class="mt-6 grid gap-4">
-      <a class="source-row" href="https://arxiv.org/abs/2406.12045" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年6月17日</span>
-              </div>
-              <p class="source-title">tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains</p>
-              <p class="source-url">https://arxiv.org/abs/2406.12045</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://arxiv.org/abs/2412.05467" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind ">paper</span>
-                <span class="mono-note">2024年12月6日</span>
-              </div>
-              <p class="source-title">The BrowserGym Ecosystem for Web Agent Research</p>
-              <p class="source-url">https://arxiv.org/abs/2412.05467</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://openai.com/index/new-tools-for-building-agents/" target="_blank" rel="noopener noreferrer">
+      <a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年3月11日</span>
+                <span class="mono-note">2025年4月9日</span>
               </div>
-              <p class="source-title">OpenAI: New tools for building agents</p>
-              <p class="source-url">https://openai.com/index/new-tools-for-building-agents/</p>
+              <p class="source-title">Google Developers: Announcing the Agent2Agent Protocol (A2A)</p>
+              <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://spec.openapis.org/oas/v3.1.1.html" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2024年10月24日</span>
+              </div>
+              <p class="source-title">OpenAPI Specification 3.1.1</p>
+              <p class="source-url">https://spec.openapis.org/oas/v3.1.1.html</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年6月23日</span>
+              </div>
+              <p class="source-title">Google Developers: Google Cloud donates A2A to Linux Foundation</p>
+              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年6月4日</span>
+              </div>
+              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
+              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年6月18日</span>
+              </div>
+              <p class="source-title">MCP specification 2025-06-18: Tools</p>
+              <p class="source-url">https://modelcontextprotocol.io/specification/2025-06-18/server/tools</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                <span class="mono-note">2025年6月18日</span>
+              </div>
+              <p class="source-title">MCP specification 2025-06-18: Authorization</p>
+              <p class="source-url">https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization</p>
             </div>
             <span class="source-action">開く</span>
           </a><a class="source-row" href="https://openai.com/index/new-tools-and-features-in-the-responses-api/" target="_blank" rel="noopener noreferrer">
@@ -271,54 +396,14 @@
               <p class="source-url">https://openai.com/index/new-tools-and-features-in-the-responses-api/</p>
             </div>
             <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年4月9日</span>
-              </div>
-              <p class="source-title">Google Cloud: Build and manage multi-system agents with Vertex AI</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年4月9日</span>
-              </div>
-              <p class="source-title">Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)</p>
-              <p class="source-url">https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352" target="_blank" rel="noopener noreferrer">
+          </a><a class="source-row" href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/" target="_blank" rel="noopener noreferrer">
             <div>
               <div class="meta-row">
                 <span class="source-kind is-official">official</span>
                 <span class="mono-note">2025年5月19日</span>
               </div>
-              <p class="source-title">Microsoft: Announcing general availability of Azure AI Foundry Agent Service</p>
-              <p class="source-url">https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年6月5日</span>
-              </div>
-              <p class="source-title">Google Cloud: New MCP integrations to Google Cloud Databases</p>
-              <p class="source-url">https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases</p>
-            </div>
-            <span class="source-action">開く</span>
-          </a><a class="source-row" href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/" target="_blank" rel="noopener noreferrer">
-            <div>
-              <div class="meta-row">
-                <span class="source-kind is-official">official</span>
-                <span class="mono-note">2025年6月23日</span>
-              </div>
-              <p class="source-title">Google Developers Blog: Google Cloud donates A2A to Linux Foundation</p>
-              <p class="source-url">https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/</p>
+              <p class="source-title">Microsoft Foundry: Announcing Developer Essentials</p>
+              <p class="source-url">https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/</p>
             </div>
             <span class="source-action">開く</span>
           </a>
