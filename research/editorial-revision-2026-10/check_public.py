@@ -21,7 +21,8 @@ def fetch(url):
         with urllib.request.urlopen(request, timeout=25) as response:
             raw = response.read()
             return {'url': url, 'status': response.status, 'final_url': response.url,
-                    'headers': {k.lower(): v for k,v in response.headers.items()},
+                    'headers': {k.lower(): v for k,v in response.headers.items()
+                                if k.lower() in ('content-type','cache-control','x-robots-tag','last-modified')},
                     'bytes': len(raw), 'html': raw.decode('utf-8', errors='replace')}
     except urllib.error.HTTPError as error:
         return {'url': url, 'status': error.code, 'final_url': error.url}

@@ -45,7 +45,7 @@
   ],
   "articles": {
     "2025-01-01-agents-shift-to-measurable-systems": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "baseline_characters": 2870,
@@ -72,12 +72,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-01-01-agents-shift-to-measurable-systems.html",
+        "https://research.notelligent.app/en/2025-01-01-agents-shift-to-measurable-systems.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-02-01-browser-agents-enter-the-product-roadmap": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4207,
@@ -104,12 +109,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-02-01-browser-agents-enter-the-product-roadmap.html",
+        "https://research.notelligent.app/en/2025-02-01-browser-agents-enter-the-product-roadmap.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-03-01-agent-evaluation-becomes-a-gating-layer": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3985,
@@ -136,12 +146,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-03-01-agent-evaluation-becomes-a-gating-layer.html",
+        "https://research.notelligent.app/en/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-04-01-managed-agent-primitives-arrive-together": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3972,
@@ -168,12 +183,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-04-01-managed-agent-primitives-arrive-together.html",
+        "https://research.notelligent.app/en/2025-04-01-managed-agent-primitives-arrive-together.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-05-01-open-runtimes-and-managed-platforms-converge": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3948,
@@ -200,12 +220,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-05-01-open-runtimes-and-managed-platforms-converge.html",
+        "https://research.notelligent.app/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-06-01-multi-agent-design-turns-into-an-operating-model": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3847,
@@ -232,12 +257,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-06-01-multi-agent-design-turns-into-an-operating-model.html",
+        "https://research.notelligent.app/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-07-01-interoperability-leaves-the-roadmap": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3652,
@@ -264,12 +294,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-07-01-interoperability-leaves-the-roadmap.html",
+        "https://research.notelligent.app/en/2025-07-01-interoperability-leaves-the-roadmap.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-08-01-agent-ops-gets-promoted-to-a-control-layer": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3883,
@@ -296,12 +331,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html",
+        "https://research.notelligent.app/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-09-01-coding-and-research-agents-broaden-the-scope": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3727,
@@ -328,12 +368,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-09-01-coding-and-research-agents-broaden-the-scope.html",
+        "https://research.notelligent.app/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-10-01-agent-sdks-expand-beyond-coding": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3843,
@@ -360,12 +405,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-10-01-agent-sdks-expand-beyond-coding.html",
+        "https://research.notelligent.app/en/2025-10-01-agent-sdks-expand-beyond-coding.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-11-01-workflow-tooling-catches-up-with-agent-complexity": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3868,
@@ -392,12 +442,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html",
+        "https://research.notelligent.app/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2025-12-01-multi-agent-workflows-become-a-product-surface": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3785,
@@ -424,12 +479,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2025-12-01-multi-agent-workflows-become-a-product-surface.html",
+        "https://research.notelligent.app/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-01-01-the-2025-signal-is-operational-boundaries": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4074,
@@ -456,12 +516,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-01-01-the-2025-signal-is-operational-boundaries.html",
+        "https://research.notelligent.app/en/2026-01-01-the-2025-signal-is-operational-boundaries.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-02-01-control-planes-and-evals-set-the-pace": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3705,
@@ -488,12 +553,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-02-01-control-planes-and-evals-set-the-pace.html",
+        "https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-01-agent-architecture-matters-more-than-model-novelty": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3735,
@@ -520,12 +590,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-01-agent-architecture-matters-more-than-model-novelty.html",
+        "https://research.notelligent.app/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-21-enterprise-ai-agents-readiness": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4285,
@@ -552,12 +627,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-21-enterprise-ai-agents-readiness.html",
+        "https://research.notelligent.app/en/2026-03-21-enterprise-ai-agents-readiness.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-23-agent-security-becomes-a-shipping-gate": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4376,
@@ -584,12 +664,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-23-agent-security-becomes-a-shipping-gate.html",
+        "https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-24-why-ai-products-converge-on-chat-ui": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "baseline_characters": 1925,
@@ -616,12 +701,17 @@
         "body_source_parity": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
         "build": "passed",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html",
+        "https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-25-cowork-signals-the-execution-layer-of-work-ai": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4035,
@@ -648,12 +738,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html",
+        "https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-26-agent-identity-becomes-an-auth-control-plane": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4461,
@@ -680,12 +775,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html",
+        "https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-28-open-agent-protocol-stack": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 3786,
@@ -712,12 +812,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html",
+        "https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-28-video-generation-ai-product-landscape": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4342,
@@ -744,12 +849,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-28-video-generation-ai-product-landscape.html",
+        "https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-03-30-subagents-become-the-practical-unit-of-work-ai": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4306,
@@ -776,12 +886,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html",
+        "https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-04-06-voice-agents-become-operational-systems": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4477,
@@ -808,12 +923,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html",
+        "https://research.notelligent.app/en/2026-04-06-voice-agents-become-operational-systems.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-04-08-agent-memory-shifts-to-layered-systems": {
-      "status": "local_verified",
+      "status": "public_verified",
       "research_inventory_count": 21,
       "published_sources": 12,
       "metrics": {
@@ -839,13 +959,18 @@
         "human_bilingual_readthrough": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, language switch, no horizontal overflow)",
         "diff_check": "passed",
-        "date_semantics": "research cutoff labeled; no inferred first-publication timestamp"
+        "date_semantics": "research cutoff labeled; no inferred first-publication timestamp",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
       "review": "2026-04-08-agent-memory-shifts-to-layered-systems.review.md",
-      "remaining_publication": "Deploy and compare with local source after all 36 pairs are verified."
+      "public_urls": [
+        "https://research.notelligent.app/2026-04-08-agent-memory-shifts-to-layered-systems.html",
+        "https://research.notelligent.app/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-04-13-coding-agents-become-supervised-runtime-systems": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4955,
@@ -872,12 +997,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-04-13-coding-agents-become-supervised-runtime-systems.html",
+        "https://research.notelligent.app/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-04-20-agents-compete-on-work-continuity": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4610,
@@ -904,12 +1034,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-04-20-agents-compete-on-work-continuity.html",
+        "https://research.notelligent.app/en/2026-04-20-agents-compete-on-work-continuity.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-04-27-agent-discovery-and-approval-shape-adoption": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4410,
@@ -936,12 +1071,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-04-27-agent-discovery-and-approval-shape-adoption.html",
+        "https://research.notelligent.app/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-05-07-governed-agent-stacks-not-smarter-models": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4845,
@@ -968,12 +1108,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-05-07-governed-agent-stacks-not-smarter-models.html",
+        "https://research.notelligent.app/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-05-08-presentation-generation-becomes-artifact-workflow": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4635,
@@ -1000,12 +1145,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN,1440x1000 and390x844,body/cards/sources,bidirectional language switch,no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html",
+        "https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-06-08-sales-agents-turn-notes-into-crm-actions": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4349,
@@ -1032,12 +1182,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html",
+        "https://research.notelligent.app/en/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-06-30-agents-operate-legacy-desktop-workflows": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4234,
@@ -1064,12 +1219,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html",
+        "https://research.notelligent.app/en/2026-06-30-agents-operate-legacy-desktop-workflows.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-07-11-agent-evaluation-measures-execution-path": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4022,
@@ -1096,12 +1256,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html",
+        "https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-08-01-ai-collaboration-starts-with-first-artifact": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4349,
@@ -1128,12 +1293,17 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html",
+        "https://research.notelligent.app/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-08-12-beyond-ai-agents-hacw": {
-      "status": "local_verified",
+      "status": "public_verified",
       "research_inventory_count": 23,
       "published_sources": 11,
       "metrics": {
@@ -1158,13 +1328,18 @@
         "body_source_parity": "passed",
         "build": "passed after English SEO description correction",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
       "review": "2026-08-12-beyond-ai-agents-hacw.review.md",
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-08-12-beyond-ai-agents-hacw.html",
+        "https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     },
     "2026-09-21-jev-decision-api": {
-      "status": "local_verified",
+      "status": "public_verified",
       "metrics": {
         "ja": {
           "characters": 4852,
@@ -1191,16 +1366,40 @@
         "human_bilingual_readthrough": "passed",
         "build": "passed",
         "desktop_mobile_render": "passed (JA/EN, 1440x1000 and 390x844, body/cards/sources, bidirectional language switch, no horizontal overflow)",
-        "diff_check": "passed"
+        "diff_check": "passed",
+        "public_response_body_metadata": "passed (JA/EN HTTP200, exact revised body, canonical, hreflang, H1, description and JSON-LD)"
       },
-      "remaining_public_verification": "after all 36 article pairs are revised"
+      "public_urls": [
+        "https://research.notelligent.app/2026-09-21-jev-decision-api.html",
+        "https://research.notelligent.app/en/2026-09-21-jev-decision-api.html"
+      ],
+      "public_verified_at_utc": "2026-10-03T04:22:17.637547+00:00"
     }
   },
   "deployment": {
-    "status": "not_started"
+    "status": "completed",
+    "source_commit": "110c687038ca1b0b6f67322b3c53b10ea736edcd",
+    "workflow_run": "https://github.com/ymuichiro/auto-research-skill/actions/runs/37096008536",
+    "workflow_conclusion": "success",
+    "pages_commit": "2df754be4cf47aa5fb6df8680b0727218109b9aa",
+    "pages_status": "built"
   },
   "public_verification": {
-    "status": "not_started"
+    "status": "passed",
+    "evidence": "public-verification.json",
+    "captured_at_utc": "2026-10-03T04:22:17.637547+00:00",
+    "sitemap_urls": 102,
+    "articles_checked": 72,
+    "status_not_200": [],
+    "canonical_mismatches": [],
+    "article_body_mismatches": [],
+    "noindex_urls": [],
+    "article_h1_failures": [],
+    "article_hreflang_failures": [],
+    "article_jsonld_failures": [],
+    "script_urls": [
+      "/assets/article-share.js"
+    ]
   },
   "resolved_obstacles": [
     {
@@ -1222,5 +1421,5 @@
     "status": "local_verified",
     "note": "Research cutoff is not emitted as first publication. Optional verified publishedAt timestamps have timezone validation. JSON-LD, Open Graph, RSS and visible labels checked for known and unknown cases."
   },
-  "updated_at_utc": "2026-10-03T04:12:05.664826+00:00"
+  "updated_at_utc": "2026-10-03T04:24:23.643540+00:00"
 }
