@@ -1,14 +1,14 @@
 {
   "slug": "video-generation-ai-product-landscape",
   "date": "2026-03-28",
-  "titleJa": "動画生成AIを選ぶなら、参照素材と修正工程を比べたい",
-  "titleEn": "Choosing video AI by reference inputs and revision work",
-  "summaryJa": "Runway、Google、Adobeの公表機能を、被写体の維持、音声生成、カットの編集から比較する。同じ参照素材で初回生成、条件を一つ変えた修正、採用判定までを記録する評価方法を提案する。",
-  "summaryEn": "Compare documented reference, audio, and editing features from Runway, Google, and Adobe, then record an initial clip, a one-condition revision using the same asset, and acceptance.",
-  "seoDescriptionJa": "Runway Gen-4、Google Flow・Veo 3、Adobe Fireflyの参照入力や編集機能を比較。生成後の修正まで含めて動画生成AIを評価する。",
-  "seoDescriptionEn": "Compare reference inputs, audio, and editing in Runway, Google Flow, and Adobe Firefly, then test a one-condition revision of the same clip.",
-  "teaserJa": "良い映像が一度出るだけでは十分か。参照画像、音声、編集機能を、修正依頼への対応から比較する。",
-  "teaserEn": "Compare reference inputs, sound, and editing through the changes a production request actually requires.",
+  "titleJa": "動画生成AIは修正まで比べる：参照・音声・編集で変わる制作の仕事",
+  "titleEn": "Compare video AI through revision: references, sound, and editing",
+  "summaryJa": "OpenAI、Google、Adobe、Runway、Lumaの公表機能を、同じ商品や動きを保って修正する仕事から比較する。参照、音声、既存映像の変更、編集への接続、提供継続を追い、採用できる修正版までの総作業で評価する条件を考える。",
+  "summaryEn": "Compare documented OpenAI, Google, Adobe, Runway, and Luma features through revisions preserving products and movement. References, sound, footage changes, editing handoff, and service continuity reveal the work required to obtain an acceptable revised asset.",
+  "seoDescriptionJa": "動画生成AIを参照、音声、既存映像の変更、編集で比較。Runway・Veo・Firefly・Luma・Soraの版と制約から、修正を含む制作の評価を考える。",
+  "seoDescriptionEn": "Compare video AI references, audio, footage modification, and editing. Examine versions, limitations, and the work needed for an acceptable revision.",
+  "teaserJa": "背景だけを直すと、商品まで変わる。同じものを保って修正し、制作物へ渡せるかを五社の公表機能から読む。",
+  "teaserEn": "Change the background, and the product changes too. Compare preservation, revision, and handoff through documented features from five vendors.",
   "category": "AI Strategy",
   "tags": [
     "Generative AI",
@@ -18,22 +18,94 @@
   ],
   "publishedSources": [
     {
-      "label": "Runway: Introducing Gen-4",
+      "label": "Runway: Gen-4",
       "url": "https://runway.com/research/introducing-runway-gen-4",
       "type": "official",
       "publishedAt": "2025-03-31"
     },
     {
-      "label": "Google: Introducing Flow",
-      "url": "https://blog.google/innovation-and-ai/products/google-flow-veo-ai-filmmaking-tool/",
+      "label": "Runway: Gen-4.5",
+      "url": "https://runway.com/research/introducing-runway-gen-4.5",
       "type": "official",
-      "publishedAt": "2025-05-20"
+      "publishedAt": "2025-12-01"
     },
     {
-      "label": "Adobe: Firefly Video Model public beta",
+      "label": "Runway: changelog, entries through March 28",
+      "url": "https://runway.com/changelog",
+      "type": "official",
+      "publishedAt": "2026-01-21"
+    },
+    {
+      "label": "Google: Veo 3.1 and Flow updates",
+      "url": "https://blog.google/innovation-and-ai/products/veo-updates-flow/",
+      "type": "official",
+      "publishedAt": "2025-10-15"
+    },
+    {
+      "label": "Google: Veo 3.1 Ingredients to Video",
+      "url": "https://blog.google/innovation-and-ai/technology/ai/veo-3-1-ingredients-to-video/",
+      "type": "official",
+      "publishedAt": "2026-01-13"
+    },
+    {
+      "label": "Adobe: Firefly Video public beta",
       "url": "https://news.adobe.com/news/2025/02/firefly-web-app-commercially-safe",
       "type": "official",
       "publishedAt": "2025-02-12"
+    },
+    {
+      "label": "Adobe: Generative Extend GA",
+      "url": "https://news.adobe.com/news/2025/04/new-ai-innovation-in-industry",
+      "type": "official",
+      "publishedAt": "2025-04-02"
+    },
+    {
+      "label": "Adobe: Firefly video editor beta and partner editing",
+      "url": "https://blog.adobe.com/en/publish/2025/12/16/adobe-firefly-improves-ai-video-creation-tools-new-models-unlimited-generations",
+      "type": "official",
+      "publishedAt": "2025-12-16"
+    },
+    {
+      "label": "Luma: Ray3 Modify",
+      "url": "https://lumalabs.ai/news/ray3-modify",
+      "type": "official",
+      "publishedAt": "2025-12-18"
+    },
+    {
+      "label": "Luma: Ray3.14",
+      "url": "https://lumalabs.ai/news/ray3_14",
+      "type": "official",
+      "publishedAt": "2026-01-26"
+    },
+    {
+      "label": "OpenAI: Sora 2 launch",
+      "url": "https://openai.com/index/sora-2/",
+      "type": "official",
+      "publishedAt": "2025-09-30"
+    },
+    {
+      "label": "OpenAI: Launching Sora responsibly",
+      "url": "https://openai.com/index/launching-sora-responsibly/",
+      "type": "official",
+      "publishedAt": "2025-09-30"
+    },
+    {
+      "label": "OpenAI: Video generation models as world simulators",
+      "url": "https://openai.com/index/video-generation-models-as-world-simulators/",
+      "type": "official",
+      "publishedAt": "2024-02-15"
+    },
+    {
+      "label": "Sora: app discontinuation announced March24",
+      "url": "https://x.com/soraofficialapp/status/2036546752535470382",
+      "type": "official",
+      "publishedAt": "2026-03-24"
+    },
+    {
+      "label": "Luma: Ray3.14 launch user guide",
+      "url": "https://lumalabs.ai/learning-hub/ray314-user-guide",
+      "type": "official",
+      "publishedAt": "2026-01-23"
     }
   ],
   "draft": false

@@ -1,51 +1,66 @@
 <section class="report-section">
-<h2>Missing information and preferences that emerge from an example</h2>
-<p>When commissioning an internal article, a person can answer questions about its deadline and destination. How much technical detail to keep may become clear only after reading a draft. Treating both as the same ambiguity can lead to endless questions or unnecessary guesses.</p>
-<p>Clarification can recover missing requirements. ClarifyGPT detects ambiguity in code-generation requirements, asks questions, and revises the requirement using the answers. In a ten-person evaluation, GPT-4's Pass@1 on MBPP-sanitized rose from 70.96% to 80.80%. Pass@1 measures whether the first generated program passes the tests; these numbers do not predict the gain on arbitrary development work. <a href="https://arxiv.org/abs/2310.10996">ClarifyGPT</a></p>
-<p>For preferences a person cannot yet articulate, visible alternatives can provide something to judge. We recommend choosing questions or prototypes according to that distinction. A format conversion with fixed inputs and correct outputs does not inherently need iterative prototypes.</p>
+<h2>The requested edit can still produce the wrong article</h2>
+<p>You ask an AI to remove jargon and make an article easier to read. The sentences get shorter, but the examples and reasoning you wanted to keep disappear. Only after reading the revision can you explain: “I want simpler expression without thinner content.” This is a hypothetical collaboration example, not an evaluation of a particular product.</p>
+<p>A longer initial instruction is one possible response. Another is to revise one section, inspect what survived and what was lost, and decide the next change. Clarify answerable conditions such as readers and citation requirements beforehand; use actual writing to judge difficulty and explanatory density.</p>
+<p>My recommendation is to ask about conditions a person can answer and show a small intermediate artifact for preferences that require inspection. Before accepting the first output as finished, decide what it must let a person judge. Carry that decision into the next version, and check claims and behavior through evidence and tests.</p>
 </section>
 <section class="report-section">
-<h2>What studies of intermediate results actually show</h2>
-<p>AI Chains studied linked processing steps whose intermediate results and operations people could edit. Its 20-person study reported better task outcomes, transparency, and controllability. Users could investigate the stage where an error appeared. This was not a test showing that presenting a complete first draft improves every kind of work. <a href="https://arxiv.org/abs/2110.01691">AI Chains</a></p>
-<p>A text-to-image study combined clarification questions with an editable graph of the agent's interpretation. At least 90% of participants found the approach helpful. That finding alone does not isolate the graph's contribution from the questions' contribution. <a href="https://deepmind.google/research/publications/121578/">Proactive Agents for Multi-Turn Text-to-Image Generation</a></p>
-<p>Our design inference is to make misunderstanding discoverable while the relevant stage remains editable. The useful intermediate object depends on the task: an article outline, objects and layout for an image, or tests expressing expected code behavior.</p>
+<h2>Separate missing information from preferences that are not settled</h2>
+<p>A publication destination or deadline can be clarified if the requester knows it. The amount of mechanism needed for a substantial article can be harder to specify without comparing actual text. Calling both “ambiguous requirements” can make the AI guess known constraints or repeatedly ask about preferences the person cannot yet decide.</p>
+<p><a href="https://arxiv.org/abs/2310.10996v1">ClarifyGPT</a> investigates ambiguity through differences in generated code behavior, then updates requirements using clarification questions and answers. In a ten-person evaluation, GPT-4's Pass@1 on MBPP-sanitized rose from 70.96% to 80.80%. This measures whether the first generated program passes the tests; it does not predict an identical gain in arbitrary development work. It supports clarification where answers can establish expected behavior.</p>
+<p>Question selection also has limits. <a href="https://arxiv.org/abs/2503.22674v1">QuestBench</a> tests choosing an appropriate question from options when one necessary piece of information is missing. Models that could solve specified problems still struggled to identify the necessary question in logic and planning tasks. This is not a comparison with prototypes. Read it as a reason to avoid assuming that questions will always settle a request.</p>
 </section>
 <section class="report-section">
-<h2>Choose the next action from facts and preferences</h2>
-<p>To choose between a question and a prototype, this article separates whether factual conditions are already known from whether a preference can be judged without an artifact. This is a working classification for deciding what a requester and an agent should do next, not a shared research metric.</p>
+<h2>Intermediate results let people choose where to repair work</h2>
+<p><a href="https://arxiv.org/abs/2110.01691v1">AI Chains</a> studied linked processing steps with editable intermediate results and operations. In a study of 20 people producing review text and study flashcards, it reported improvements in output quality, transparency, and controllability. People could investigate whether a problem arose in extraction, organization, or composition rather than seeing only the final paragraph.</p>
+<p>For example, polishing prose cannot recover a qualification omitted while extracting evidence. Showing the extracted conditions first can expose that omission before the person selects a writing style. This is my design inference; the study did not measure editing on this website.</p>
+<p><a href="https://arxiv.org/abs/2203.06566v1">PromptChainer</a> studied chain authoring with four people and identified a need to debug individual operations and their connections. It was not a large performance trial, but it shows why merely displaying intermediate objects is insufficient. After repairing a stage, inspect its inputs and downstream results to establish whether the change advances the overall purpose.</p>
+</section>
+<section class="report-section">
+<h2>Articles, code, and images need different objects for judgment</h2>
+<p>An outline and one section can help select an article's question and explanatory density. Tests showing expected inputs and outputs can help establish code behavior. Both support decisions before completion, but a presentation preference and a behavioral requirement are different.</p>
+<p><a href="https://arxiv.org/abs/2404.10100v1">TiCoder</a> proposes partially formalizing intent through a person's responses to generated tests. A study with 15 programmers reported better evaluation of AI-generated code and lower task-induced cognitive load. A separate automated evaluation used an idealized user proxy; its results should not become estimates of actual workers' gains. Conditions absent from the tests, and mistakes in the tests themselves, still require inspection.</p>
+<p>A <a href="https://arxiv.org/abs/2412.06771v1">text-to-image study</a> combined clarification questions with an editable graph of objects and relationships understood by the agent. The design lets people correct discrepancies between their desired composition and the agent's interpretation before the final image. A combined intervention does not isolate the graph's effect or demonstrate gains across all creative work.</p>
+<p>The shared idea is to turn the AI's assumptions into something a person can choose or change. A prose explanation is not always the best object. An outline for an argument, inputs and outputs for behavior, or objects and placement for an image can make the relevant difference more specific.</p>
+</section>
+<section class="report-section">
+<h2>Choose whether to ask or make something next</h2>
+<p>This article separates whether factual conditions are known from whether preferences can be settled without an artifact. The following four categories are a working aid for selecting the next action, not a shared research scale. Match the method to what remains unsettled instead of treating more dialogue as the policy.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Known facts, decidable preference</h3>
-<p>When an input format, output format, and correct result are fixed, execution and testing matter more than repeated prototypes. For example, move fixed table columns into another format and compare the result with its acceptance conditions.</p>
-</article>
-<article class="comparison-card">
-<h3>Missing facts, decidable preference</h3>
-<p>Ask first when a code runtime, input data, or error behavior is undecided. More visual alternatives do not create a testable requirement while the target API or failure handling remains an assumption.</p>
-</article>
-<article class="comparison-card">
-<h3>Known facts, preference needs an artifact</h3>
-<p>Even with a reader, citation conditions, and facts fixed, an article's explanatory order may become clear only after reviewing an outline. Show an editable intermediate object to make the requested change specific.</p>
-</article>
-<article class="comparison-card">
-<h3>Both facts and preferences are unsettled</h3>
-<p>First clarify the subject, constraints, and way to check them, then make a small prototype. Satisfaction with that prototype does not prove product capability, numbers, or citations; check verifiable facts separately with sources or tests.</p>
-</article>
+<article class="comparison-card"><h3>Conditions and preferences are settled</h3><p>For a table conversion with fixed column order and format, execute and compare. Check omissions and conversion errors rather than adding rounds of prototypes.</p></article>
+<article class="comparison-card"><h3>Conditions are missing; preferences are decidable</h3><p>Clarify the runtime, destination, or permitted data first. A polished presentation does not make the output usable while those constraints remain guesses.</p></article>
+<article class="comparison-card"><h3>Conditions are known; preferences need inspection</h3><p>Readers and citation requirements may be settled while density needs a sample. Show an outline and one section to select explanations to retain and expression to simplify.</p></article>
+<article class="comparison-card"><h3>Both remain unsettled</h3><p>Clarify the subject and constraints, then prototype within them. Pass decided preferences and still-unverified facts separately into the next step.</p></article>
 </div>
-<p>Tests that express expected behavior can be a prototype for code, while an outline can be a prototype for an article. Conditions absent from a test and facts asserted in an outline each require separate evidence.</p>
+<p>A question can establish a correct answer, while a prototype can reveal a preference. These are not exclusive roles. The important requirement is to explain which information or artifact can reduce the uncertainty currently blocking a decision.</p>
 </section>
 <section class="report-section">
-<h2>A hypothetical revision of an article outline</h2>
-<p>Consider a request for an article on AI adoption that nontechnical readers can follow. The agent returns an outline beginning with product names. Without reading a full draft, the requester can identify the problem: the article should first explain which job it helps improve.</p>
-<p>The next instruction might be: “Open with a salesperson updating records after a meeting. Keep the product comparison, but explain the comparison criteria before naming products.” The agent revises only the outline and opening. Once the connection between the example and comparison is clear, the requester can commission the full text.</p>
-<p>This exchange establishes an explanatory order. It does not verify product capabilities or deployment statistics; those still need source checks. Dialogue and correctness can overlap, as when clarification establishes expected program behavior. Nevertheless, a person's satisfaction cannot substitute for factual verification.</p>
+<h2>Revise one section and carry forward why it matters</h2>
+<p>Continue the hypothetical article edit. The requester specifies general readers, retention of primary-source conditions, and no goal of reducing length for its own sake. The AI places an existing section alongside an easier-to-read revision. Before rewriting the whole article, the person can select an acceptable kind of simplification.</p>
+<p>The feedback becomes specific: “Keep the measurement conditions. Shorten the product list. Explain what changes in someone's work before giving the conclusion.” The AI revises that section while retaining sourced facts and interpretation derived from comparison. Inspect both whether the requested changes appeared and whether explanations selected for retention survived.</p>
+<p>An outline alone cannot establish the depth of the finished article. Once the structure works, expand the text and read the connections between sections. Keeping the revision unit small does not mean reducing the explanation required for completion. It means making the retained and changed material inspectable.</p>
+<p>This exchange establishes order, density, and priorities. Capabilities and research numbers still need source checks even when the prose becomes convincing. Fit and factual verification can overlap, but passing one does not complete the other.</p>
 </section>
 <section class="report-section">
-<h2>Preserve the agreed brief during revision</h2>
-<p>Repeated editing can carry an early mistaken assumption forward. A Microsoft Research study compared six generation tasks with instructions supplied at once or spread across turns. Performance fell by 39% on average in the multi-turn condition. Analysis of more than 200,000 simulated conversations found reliance on early assumptions. This compares ways of supplying requirements; it does not establish a uniform penalty for every longer conversation. <a href="https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/">LLMs Get Lost In Multi-Turn Conversation</a></p>
-<p>After agreeing on an outline, restate the reader, central question, and retained example in a short brief. Preserve the previous version and inspect whether unrelated claims changed. If feedback is not being applied, reconsider the requested change or acceptance criterion instead of merely adding more turns.</p>
+<h2>Prototypes also create assumptions and review costs</h2>
+<p>A concrete first version may focus attention on repairing that version rather than considering another structure. If explanatory order remains open, compare an example-first outline with a comparison-first outline instead of three paraphrases of one structure. State which difference the alternatives help select. This is a proposed technique, not a measured optimal number of options.</p>
+<p>An intermediate artifact can also be too small. Headings alone may not reveal jargon, and one screen may not reveal connected operations. Add the text or behavior needed to make the decision possible. Rebuilding everything on each turn increases reading and comparison work.</p>
+<p>To evaluate prototypes, inspect review time, repeated repairs, and unrequested changes alongside final quality. Compare with an existing template or one generation where those suffice, and ask whether burden falls at equivalent quality. Producing more options is not itself evidence of better collaboration.</p>
 </section>
 <section class="report-section">
-<h2>Know what will end the collaboration</h2>
-<p>For an article, finish by checking its fit to the reader and question, the evidence for its claims, and the conditions attached to numbers. Satisfaction with the presentation is not sufficient for publication, while continued conversation without a remaining improvement serves no purpose.</p>
-<p>A prototype connects an unarticulated preference to something editable. Ask about conditions the requester can already specify; show intermediate work where inspection is needed to decide. Combine those decisions with source checks or tests so the next revision and the remaining verification are clear.</p>
+<h2>Consolidate scattered conditions into the current brief</h2>
+<p><a href="https://arxiv.org/abs/2505.06120v1">LLMs Get Lost In Multi-Turn Conversation</a> compared six generation tasks with requirements supplied at once or over multiple turns. It analyzed more than 200,000 simulated conversations and reported an average 39% performance decrease in the latter setting, including reliance on early assumptions. This compares ways of supplying conditions; it is not a uniform length-dependent penalty for every revision dialogue.</p>
+<p>After agreeing on an article structure, consolidate its readers, question, retained examples, and fixed conditions into a current brief. Record which requirement wins where earlier instructions conflict. Have a person inspect the summary rather than assuming the AI preserved every decision.</p>
+<p>Keep the previous version and compare the requested area and material that depends on it. If the same feedback is repeatedly missed, do not merely add turns. Narrow the change or restart with consolidated agreed conditions. These are practical proposals, not guarantees that summarization eliminates failure.</p>
+</section>
+<section class="report-section">
+<h2>Check completion beyond the feeling of a good conversation</h2>
+<p>An article is finished when it answers the reader's question, retains necessary comparisons and evidence, and allows numerical conditions to be checked against sources. For code, test agreed behavior and inspect changes and exceptions. For images, assess the chosen composition and purpose and verify usage conditions. Similar collaboration steps still require different final checks.</p>
+<p><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic's engineering guidance</a> discusses intermediate gates and evaluation with revision, while recommending simplicity when it suffices. Reconsider the method when edits no longer change the decision or review cost keeps increasing. Iteration limits and completion criteria belong in the delegation design.</p>
+<p>Stopping at “I like it” can preserve plausible errors. Repeating an undefined “make it better” after the checks pass can also erase the purpose of revision. Name the remaining deficiency, and stop when it is resolved.</p>
+</section>
+<section class="report-section">
+<h2>Start where a person can judge, even without a complete preference</h2>
+<p>The research supports different uses of questions, intermediate results, tests, and revision under different conditions. It does not establish a universal collaboration method or the general superiority of prototypes. My recommendation follows those distinctions: move the work forward in a form that enables the person's next decision.</p>
+<p>A perfect initial instruction is not required. State known conditions, inspect a small but sufficient artifact, and return reasons to retain material along with specific changes. Carry those choices into the next version and combine fit with evidence-based checks. AI collaboration should let people build and verify the work they want, rather than simply lengthen the conversation.</p>
 </section>

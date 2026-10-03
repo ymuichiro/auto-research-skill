@@ -1,50 +1,69 @@
 <section class="report-section">
-<h2>Remembering a preference can still produce the wrong response</h2>
-<p>Suppose a writing assistant remembers that a user prefers brief explanations. Today the user asks for a detailed introduction for new employees. Retrieving the old preference correctly but prioritizing it over today's explicit request produces an unhelpful document. This is a hypothetical example for examining memory design.</p>
-<p>Correct recall is only part of the problem. The system also needs to determine whose information it is, when it applied, and whether it governs the current task. Drawing on research and implementation material available by April 8, 2026, this article separates retrieving, applying, and updating memory.</p>
+<h2>An assistant can remember a preference and still miss the request</h2>
+<p>Repeating the same preferences to a writing assistant makes every task harder to start. If it carries “keep explanations brief” into tomorrow's work, memory seems useful. But suppose you now request a detailed introduction for new employees and the assistant still produces a short summary. It has remembered correctly and delivered the wrong document. This is a hypothetical example for examining memory design.</p>
+<p>Better retrieval alone cannot repair this failure. Previous preferences, current instructions, and organizational rules need different applicability conditions. The system also needs to decide what to update when a preference changes and when to stop using an old summary. Otherwise, a helpful record from yesterday can become a source of error today.</p>
+<p>Drawing on implementations and research published by April 8, 2026, this article distinguishes finding information from keeping it fit to inform a decision. Conversation state, durable preferences, and shared records differ in how they are read, who updates them, and how long they remain useful. Preserving these distinctions matters more than adding physical stores.</p>
 </section>
 <section class="report-section">
-<h2>Four records that should not become one kind of “memory”</h2>
+<h2>Finding information and applying it to work are different decisions</h2>
+<p><a href="https://arxiv.org/abs/2005.11401v1">Retrieval-augmented generation</a> supplies a model with information retrieved from outside its immediate input. Similar retrieval can be applied to conversations and personal records. But reading a product specification and applying a user's previous preference require different checks.</p>
+<p>A retrieved note saying “keep explanations brief” may simply be a relevant match. Its source and conditions must establish whose preference it is, which documents it concerned, and whether it still applies. Treating semantic similarity as instruction priority risks giving a closely matching but outdated preference too much influence.</p>
+<p>Vector retrieval, structured records, graphs, and readable files should therefore be compared as different choices. Vector retrieval finds candidates; structured records make fields explicit; graphs represent relationships; files provide a storage and editing format. Files can be indexed, and graph results can enter a conversation. Ranking these as interchangeable alternatives obscures whether the problem is retrieval or updating.</p>
+</section>
+<section class="report-section">
+<h2>Separate conversation state from information for the next conversation</h2>
+<p>The <a href="https://www.langchain.com/blog/langgraph-v0-2">LangGraph v0.2 announcement</a> describes checkpoints that save state at execution steps, supporting continuation after an interruption. Its <a href="https://www.langchain.com/blog/launching-long-term-memory-support-in-langgraph">long-term memory announcement</a> describes storing, retrieving, and searching documents across conversations, with namespaces for users and organizations. Resuming interrupted work and carrying knowledge into another task serve different purposes.</p>
+<p>The headings and unfinished paragraphs of the current document belong to its working state. They need not become instructions for a different document next month. An explicitly continuing preference, however, may remain useful after this conversation ends. Distinguishing records by purpose as well as duration clarifies what should be loaded.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Current request</h3>
-<p>This is an explicit instruction for the present document, such as making this one explanation detailed. Apply it immediately in the conversation and give it priority over a durable preference.</p>
-</article>
-<article class="comparison-card">
-<h3>Durable preference</h3>
-<p>This is a stated continuing intention, such as making detailed explanations the default from now on. Retain its source, subject, and effective time.</p>
-</article>
-<article class="comparison-card">
-<h3>Organizational rule</h3>
-<p>This is a formal rule, such as using a glossary in internal documents. It can share a storage format with a personal preference while having different scope and authorized updaters.</p>
-</article>
-<article class="comparison-card">
-<h3>Shared work note</h3>
-<p>This records deadlines, owners, and unresolved matters that several people may update. It needs defined write operations and conflict treatment as well as retrieval conditions.</p>
-</article>
+<article class="comparison-card"><h3>Current working state</h3><p>Retain the request, intermediate decisions, progress, and artifact version. Apply them to this task, checking external saved results when resuming.</p></article>
+<article class="comparison-card"><h3>Durable personal memory</h3><p>Retain preferences and facts intended to continue. Record their subject, source, applicable tasks, and corrections.</p></article>
+<article class="comparison-card"><h3>Formal organizational rules</h3><p>Manage terminology, approval conditions, and retention periods. Separate their authorized updaters and authority from personal preferences.</p></article>
+<article class="comparison-card"><h3>Shared work records</h3><p>Pass on owners, deadlines, evidence, and unresolved matters. Define who updates which fields and how conflicting changes are handled.</p></article>
 </div>
-<p>This is a design distinction for restoring applicability and update responsibility, not a choice among storage technologies. One database or retrieval method can still record the four categories separately.</p>
+<p>These four categories are this article's design example, not a requirement for four databases. One store can distinguish them through record types and applicability conditions. A namespace organizes information but does not itself authorize access. The application still needs to check whether the caller may read or change the record.</p>
 </section>
 <section class="report-section">
-<h2>Retrieval methods and memory scope are separate choices</h2>
-<p>Vector retrieval and short-term, long-term, or shared memory are not competing alternatives. Vector retrieval finds semantically related candidates. Duration and sharing describe other dimensions that can coexist with it. File-backed records can also be indexed, so storage format should be distinguished from retrieval method.</p>
-<p><a href="https://docs.langchain.com/oss/python/langgraph/add-memory">LangGraph documentation</a> separates conversation tracking within a thread from user or application information spanning conversations; its long-term store example uses a user-specific namespace. This illustrates choosing scope before searching. A namespace label alone is not access control: the application must establish that the caller may read that scope.</p>
-<p>For the document example, distinguish the user's preference, the current request, and formal organizational writing rules. These distinctions can be represented with subjects, sources, and applicability conditions even inside one database. Adding physical stores is not itself the objective.</p>
+<h2>Summarizing a record makes its omissions important</h2>
+<p>Sending every conversation into every request can appear to avoid selection work. Yet more input places current conditions alongside older instructions. Reducing that input through summarization introduces another question: can subjects or time limits be dropped without changing the meaning?</p>
+<p>Research on processing memory reaches beyond adding retrieval. <a href="https://arxiv.org/abs/2304.03442v1">Generative Agents</a> synthesizes higher-level reflections from experience to support planning; its evaluation concerns believable behavior in a simulated environment, rather than business record correctness. <a href="https://arxiv.org/abs/2310.08560v1">MemGPT</a> examines moving information between memory tiers inside and outside limited context, using document analysis and multi-session conversation tasks.</p>
+<p>The distinction I draw from these approaches is between preserving a record and producing information for the model to use. Keeping the original statement for verification and a summary for use allows an incorrect summary to be checked against its source. This adds storage and processing, however. A short, one-off consultation may be simpler to handle with the current conversation alone.</p>
+<p>Compressing the opening preference into “prefers brief explanations” could lose its document type or exceptions. “Keep routine progress reports brief, but explain background in material for new employees” provides more information for applicability. This is a hypothetical illustration of how retained conditions affect a decision, not a measured summarization result.</p>
 </section>
 <section class="report-section">
-<h2>Apply corrections before background memory processing finishes</h2>
-<p>A correction such as “make detailed explanations my default from now on” differs from a request for one document. If it is stored, its continuing scope should be retained. Inferring a permanent preference from one ambiguous action could affect unrelated future work.</p>
-<p>I recommend applying explicit corrections to the active task immediately and preventing later background summaries from overriding them. Record source statements, update targets, and effective times instead of ranking facts solely by storage time. A summary created today from yesterday's conversation can contain information older than today's correction.</p>
-<p>A graph representation still needs such update rules. Making a relationship explicit does not establish that it is correct or remains valid. Compare graphs, vector retrieval, and structured records using the same update tasks and cost conditions.</p>
+<h2>Graphs and files address different updating needs</h2>
+<p><a href="https://arxiv.org/abs/2502.12110v1">A-MEM</a> proposes attributed memory notes, links between related memories, and updates to existing memories as new information arrives. The <a href="https://arxiv.org/abs/2501.13956v1">Zep paper</a> describes integrating conversation and business information in a temporal knowledge graph. Both examine organizing relationships between records in addition to retrieving stored entries.</p>
+<p>Relationships and time information can help distinguish changes of account owner or earlier and current conditions. Incorrectly extracted entities or relationships can still produce an incorrect decision even in a well-organized graph. Compare the work of creating, correcting, and invalidating relationships with reading original records. Different models, tasks, and baselines prevent a universal ranking from these papers.</p>
+<p><a href="https://www.letta.com/blog/context-repositories/">Letta Code's Context Repositories announcement</a> presents another property: local memory files, Git versioning, and progressive loading of content. Readable changes can matter when people need to inspect which guidance was edited. Git history nevertheless cannot establish that the revised content is true.</p>
+<p>Tracing customer-contract relationships and correcting development conventions may therefore prioritize different affordances. The former may need relationships and effective times; the latter may need inspectable diffs. Starting with who corrects what helps choose the necessary complexity before choosing a format.</p>
 </section>
 <section class="report-section">
-<h2>Shared memory introduces write conflicts as well as retrieval problems</h2>
-<p>When several agents edit one project note, an update can be lost. <a href="https://docs.letta.com/v1-sdk/memory/shared-memory">Letta's shared-memory documentation</a> distinguishes appending, targeted replacement, and full rewrites, identifying last-writer-wins behavior for concurrent full rewrites. This is a property of those update operations, not evidence that shared memory always fails.</p>
-<p>For example, agent A corrects a deadline while agent B adds an owner to an old copy and saves the whole note, erasing A's change. In this hypothetical case, compare targeted edits, version checks before saving, or one owner for full rewrites. Better retrieval cannot recover an update lost during storage.</p>
+<h2>Do not let an old summary overwrite a correction</h2>
+<p>“Make this document detailed” and “make detailed explanations my default from now on” change different scopes. Inferring a lasting preference from a single request could make the next short report unnecessarily long. Treating a lasting correction as temporary makes the user repeat it tomorrow.</p>
+<p>I recommend separating candidate memories extracted from statements from records applied to future work. Preserve the original statement and subject in the candidate, and promote information when its continuing intent is established. Apply an explicit correction to the active task immediately, without waiting for long-term memory processing. Later consolidation must not reverse it with an older conversation summary.</p>
+<p>A summary produced tonight from yesterday's conversation has today's storage time, but its contents precede a correction received this morning. Ranking facts by storage time alone lets delayed processing of an older preference win. This is why statement time, effective time, and storage time should be distinguished.</p>
+<p>Whether to erase the previous record also depends on its purpose. Current suggestions may use the new preference while an explanation of the change still needs the earlier statement. Separating exclusion from active retrieval and deletion of history avoids conflating those requirements.</p>
 </section>
 <section class="report-section">
-<h2>Test remembered facts, corrections, and abstention separately</h2>
-<p><a href="https://arxiv.org/abs/2410.10813v2">LongMemEval</a> evaluates extraction, multi-session reasoning, temporal reasoning, knowledge updates, and abstention. It offers a research example of evaluating memory beyond finding a related record. Its categories do not establish a universally best memory architecture for individual business tasks.</p>
-<p>For the writing assistant, test a question about the previous preference, a one-off conflicting request, a lasting correction, and a preference never stated. Inspect what was saved and retrieved and which condition was applied, alongside the answer. Check whether the assistant can ask when information is missing and avoid saving a guess as fact.</p>
-<p>The number of examples in public documentation cannot establish which design is most prevalent, cheapest, or most accurate. Before adding memory mechanisms, identify the failure being corrected. Missed retrieval, stale applicability, incorrect storage, and lost concurrent updates require different repairs.</p>
+<h2>Define read access and write access separately for shared memory</h2>
+<p><a href="https://www.letta.com/blog/memory-blocks/">Letta's technical explanation of memory blocks</a> describes blocks shared by multiple agents and distinguishes agent-editable content from read-only content. This supports designs that align the information agents consult without granting every participant the same update rights. Sharing information does not establish that concurrent updates preserve its meaning.</p>
+<p>Consider researcher A correcting a deadline while researcher B adds an owner to an older copy and saves the whole note. In an implementation that replaces the entire record with the later save, A's correction disappears. This is a hypothetical consequence of that write model, not a claim that a particular product always behaves this way. Better retrieval cannot read back a correction lost at storage time.</p>
+<p>Targeted field edits, version checks before saving, and a designated owner for full rewrites each impose different costs. Even separately stored fields can require joint review when a deadline and an approval condition are related. A single owner simplifies coordination but can add waiting. Compare which updates may run together and where people or other processes resolve conflicts, alongside retrieval performance.</p>
+</section>
+<section class="report-section">
+<h2>Make forgetting something the user can verify</h2>
+<p>As memory becomes more useful, users need to understand what remains and what influenced an answer. <a href="https://openai.com/index/memory-and-new-controls-for-chatgpt/">ChatGPT's memory announcement</a> describes inspecting, deleting, and disabling memory, explaining that deleting a conversation does not delete separately saved memories. This provides a product example of treating conversation history and durable memory as distinct objects.</p>
+<p>An application needs to decide what a request to forget covers: stop using a record, remove a saved preference, delete the original conversation, or remove information from shared records. These operations differ. Recreating a deleted summary from a retained old conversation could restore memory against the user's intention. Check the deletion target and the conditions preventing later consolidation from reusing it.</p>
+<p>Work that requires history need not mix formal records with personal preferences. Defining correction and deletion rights for each information type creates options for preserving work records while giving users control. Assuming that more retained information always means more usefulness cannot settle that choice.</p>
+</section>
+<section class="report-section">
+<h2>Evaluate memory beyond retrieval accuracy</h2>
+<p><a href="https://aclanthology.org/2024.acl-long.747/">LoCoMo</a> includes conversations averaging 600 turns and spanning up to 32 sessions, evaluating question answering, event summarization, and multimodal dialogue. It examines information separated across a long conversation. This cautions against inferring sustained conversational quality from a short, isolated query.</p>
+<p><a href="https://arxiv.org/abs/2410.10813v2">LongMemEval v2</a> uses 500 questions and separates extraction, multi-session reasoning, temporal reasoning, knowledge updates, and abstention. I use these categories to distinguish answering an old fact from avoiding it after a correction. They do not establish a best memory method for a particular business task.</p>
+<p>For the writing assistant, separate a query about the previous preference, a one-off detailed request, a lasting correction, and a preference never stated. Add concurrent updates for shared notes and reuse after deletion for forgetting. Inspect candidate memories, accepted records, retrieved content, and applied conditions alongside the answer to locate the failed stage.</p>
+<p>Costs extend beyond the input used to answer. Include extraction, summarization, relationship generation, update checks, deletion propagation, and people's time correcting records. With the same task and model, compare conversation-only handling, added retrieval, and added updating or sharing rules. This can reveal which additional processing actually addresses the failure.</p>
+</section>
+<section class="report-section">
+<h2>Build memory that helps with the next task</h2>
+<p>When the user returns tomorrow, the assistant should remember the previous preference while following the current explicit request. A changed preference should remain corrected, and an unstated condition can be clarified by asking. Supporting this interaction requires both finding relevant records and keeping them fit to apply.</p>
+<p>Before choosing a memory method, I recommend identifying whether the failure is missed retrieval, stale applicability, incorrect storage, a lost update, or reuse after deletion. Distinguish working state, continuing preferences, formal rules, and shared records accordingly, then add the required retrieval, updating, and forgetting processes. The aim is for users to avoid repeating the same explanation while having changed decisions treated as changed.</p>
 </section>

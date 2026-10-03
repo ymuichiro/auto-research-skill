@@ -1,45 +1,61 @@
 <section class="report-section">
-<h2>Can “actually, another day” stop a booking change?</h2>
-<p>Suppose a caller interrupts a voice agent reading a proposed reservation time: “Actually, another day.” The voice stops, but a background operation continues saving the booking. This hypothetical example illustrates why speech interruption and cancellation of a business action need separate handling.</p>
-<p>Using booking changes as one concrete task, this article connects audio input, conversational corrections, and saved results. Material available by April 6, 2026 provides the architectural distinctions and testing ideas for evaluating conversational quality and task correctness within the same call.</p>
+<h2>After the voice stops, what happened to the booking?</h2>
+<p>A caller interrupts a voice agent reading a proposed reservation: “Actually, another day.” The voice stops, but a background operation continues saving the first date. Repeating the request triggers another change. This hypothetical design example asks what the caller needs to know: not only whether the AI reacted to interruption, but which date was ultimately booked.</p>
+<p>This article reads material published by OpenAI, Google, Microsoft, and AWS by April 6, 2026 through a booking-change call. It compares naturalness, waiting, corrections, external operations, telephone connections, and handoffs as parts of one job. Vendor demonstrations and evaluations are not treated as success rates for this booking workflow.</p>
+<p>My judgment is that voice AI should be assessed through whether the caller's revised intent, the guidance heard, and the actual result agree. A fluent voice and quick responses have value. Connecting that value to work requires deciding what to confirm during the conversation, how far operations have progressed, and what to pass to a person.</p>
+</section>
+<section class="report-section">
+<h2>Process audio directly or pass through text</h2>
+<p>A chained architecture transcribes speech, processes text, and generates speech through connected stages. OpenAI's <a href="https://openai.com/index/introducing-our-next-generation-audio-models/">March 2025 audio-model announcement</a> describes adding transcription and speech generation to existing text-based agents. An established booking-text workflow can therefore be reused, with a place to inspect the recognized date before passing it onward.</p>
+<p>Its <a href="https://openai.com/index/introducing-gpt-realtime/">August 2025 Realtime API general availability announcement</a> instead describes a single model processing and generating audio directly, with claimed benefits in latency and preserving speech nuance. Either architecture still needs booking confirmation; retaining text does not guarantee accuracy. Direct audio can also be combined with explicit fields and confirmation of a candidate reservation.</p>
+<p>A unified API does not imply identical internal architectures. Microsoft's <a href="https://github.com/MicrosoftDocs/azure-ai-docs/blob/70ac2961db604c2fb30995d0ce5e6b8cdc47920c/articles/ai-services/speech-service/voice-live.md">Voice Live documentation as of April 6</a> combines speech, reasoning, and synthesis behind one interface. Its model table includes native audio models and text models paired with transcription and speech synthesis. Compare the interface developers connect to separately from the architecture processing the conversation.</p>
+<p>Consider reuse of existing processing, inspection of recognized words, and control over delivery and intonation. Then compare audible-response time, date errors, and saved results after corrections on the same booking task. Architecture labels alone cannot establish that one approach is always safer or another always more natural.</p>
+</section>
+<section class="report-section">
+<h2>Handle the end of speech before rushing to respond</h2>
+<p>Google announced <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-flash-live/">Gemini 3.1 Flash Live on March 26</a>, offering it in preview through the developer Live API. It describes improvements in understanding tone and following instructions amid interruptions and hesitations. These improvements inform comparison, but do not measure completion of this booking workflow. Availability in consumer applications also needs to be distinguished from developer API conditions.</p>
+<p>A caller saying “next week's … Thursday” may pause between words. Treating that pause as the end of speech makes the system respond before the caller finishes. Waiting too long can instead leave the caller uncertain whether the system heard anything. The hypothetical workflow must decide when to clarify alongside how long to wait for speech to end.</p>
+<p>“I heard you” differs from establishing the date. I would repeat the date, time, and booking being changed, clarifying only the ambiguous parts. Asking for every detail again after each recognition error increases the caller's burden. Assess response speed alongside the time required to restore the correct conversational conditions.</p>
+</section>
+<section class="report-section">
+<h2>Stop generation, stop playback, and verify the operation</h2>
+<p>The <a href="https://github.com/googleapis/python-genai/blob/cc4d0b919c06436bfebd0d7dc1217826f22a36b7/google/genai/types.py">Google GenAI SDK definitions available on April 6</a> describe an interruption signal as a cue for a client playing audio in real time to stop and empty its queue. If buffered device audio continues after server generation stops, the caller still hears the agent speaking. Generation ending and audible playback ending are separate events.</p>
+<p>The same definitions include cancellation notices for specified tool calls. They say a client may attempt to undo side effects, rather than guaranteeing automatic reversal of a saved booking. A proposed change that was never sent, a submitted save, and a completed save therefore need separate handling.</p>
+<p>Microsoft's <a href="https://github.com/MicrosoftDocs/azure-ai-docs/blob/70ac2961db604c2fb30995d0ce5e6b8cdc47920c/articles/ai-services/speech-service/how-to-voice-live-function-calling.md">Voice Live function-calling example at that date</a> also shows the application receiving arguments, executing an external function, and returning its result to the corresponding call. A convenient voice interface still leaves work connecting business results to conversation. These samples were not executed for this article and do not validate booking cancellation.</p>
+<p>In the hypothetical call, a correction would stop playback of the old candidate and update which reservation the confirmation concerns. After submission, reconcile the save before proceeding to another change. Do not describe a late result for the old request as success for the new intent, or say “changed” while the result is unknown. Guidance the caller understands must agree with the execution record.</p>
 </section>
 <section class="report-section">
 <h2>Follow one correction through four states</h2>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Conversation state</h3>
-<p>Track which date the caller wants and which candidate was corrected. Clarifications and misheard digits become visible in this state.</p>
-</article>
-<article class="comparison-card">
-<h3>Playback state</h3>
-<p>Track whether speech is generating, audio is queued on the device, and playback stopped after interruption. This carries a correction into what the caller actually hears.</p>
-</article>
-<article class="comparison-card">
-<h3>Booking-save state</h3>
-<p>Separate pre-confirmation, save submitted, saved, and result unknown. Stopping speech does not automatically undo a saved booking.</p>
-</article>
-<article class="comparison-card">
-<h3>Handoff state</h3>
-<p>When transferring to a person, pass whether the request was unexecuted, saved, or uncertain as well as the requested date. That information helps avoid repeating the change.</p>
-</article>
+<article class="comparison-card"><h3>Intent and confirmation</h3><p>Associate the requested date, target booking, and confirmed candidate. After a correction, do not reuse confirmation of an old candidate for a new one.</p></article>
+<article class="comparison-card"><h3>What is audible</h3><p>Distinguish generation, queued audio, playback, and stopping. A generated-speech record does not establish that the caller heard the whole message.</p></article>
+<article class="comparison-card"><h3>The actual save</h3><p>Separate unchanged, submitted, saved, and unknown results. Business rules determine whether a completed save requires another change or cancellation.</p></article>
+<article class="comparison-card"><h3>Handoff to the next participant</h3><p>Pass progress and uncertainties alongside the request. Retain what helps a person avoid repeating an action or asking for the explanation from scratch.</p></article>
 </div>
-<p>This state model is the article's booking-change example, not a requirement for every voice response. It explains why spoken text alone cannot establish completion for a call that invokes an external operation.</p>
+<p>This is the article's organization of a booking-change example, not a requirement for four products or agents. A call that only provides a date differs from one that saves a change. The proposal does not add all four states to every short voice response without a business operation.</p>
+<p>Continuing to respond also differs from receiving a tool result. OpenAI's Realtime announcement describes conversation continuing while a long-running function is pending. The hypothetical agent could say “I am checking availability” without claiming a slot is available or a change succeeded before confirmation. Explanations of waiting must also match actual progress.</p>
 </section>
 <section class="report-section">
-<h2>Choose between direct audio and an explicit text stage</h2>
-<p><a href="https://developers.openai.com/api/docs/guides/voice-agents">OpenAI's voice-agent guide</a> distinguishes direct speech-to-speech sessions from a chain of transcription, text reasoning, and speech generation. It describes the former for low-latency conversation and the latter for explicit control over each stage.</p>
-<p>An intermediate text stage gives a booking workflow a place to inspect the recognized date before proceeding. Transcription can still be wrong; retaining text alone establishes neither correctness nor compliance with audit requirements. A direct-audio design can also structure and confirm booking details.</p>
-<p>Compare the approaches on the same booking task rather than assigning blanket guarantees of safety or naturalness. Measure the time from the caller finishing to audible response, mistaken dates, and the saved result after corrections separately. The need to reuse an existing text workflow is another relevant condition.</p>
+<h2>Compare the telephone connection separately from available voices</h2>
+<p>A browser microphone and telephone line impose different input and connection conditions even with the same voice model. OpenAI's Realtime general availability includes SIP connections to telephone networks and private branch exchanges. Connectivity does not prove task success, but creates a route for callers to make a request without opening a new application.</p>
+<p>Amazon Connect's March updates also distinguish voice types. Its <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-adds-generative-text-to-speech-voices/">March 17 announcement</a> expands generative text-to-speech voices and regions. The <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-connect-london-europe-region/">March 18 announcement</a> expands speech-to-speech experiences to London and adds voices. Regions and voices available for synthesis cannot simply be assumed to apply to every conversational architecture.</p>
+<p>For a Japanese booking line, check the selected model, input language, output voice, region, and actual telephone route together. A multilingual capability description does not establish identical accuracy for addresses, dates, and alphanumerics across languages. Test the same corrections and repeat-back when changing a voice or connection.</p>
 </section>
 <section class="report-section">
-<h2>Coordinate playback interruption with the state of the save</h2>
-<p><a href="https://ai.google.dev/gemini-api/docs/live-api/capabilities">Google's Live API guide</a> describes interrupting generation when speech is detected and stopping playback and clearing queued audio in the application. If already buffered audio continues playing, the caller still hears the agent speaking even after server-side generation stops.</p>
-<p>A booking API introduces another state to track: whether the system is reading a candidate, has submitted a save, or has confirmed completion. A completed save requires a subsequent change or cancellation procedure. Stopping speech does not undo it.</p>
-<p>I would associate confirmation with the specific candidate read to the caller and return an old candidate to an unconfirmed state when corrected. For corrections after submission, reconcile the result and give an update matching the actual state. A quick response should not claim success before the saved result is known.</p>
+<h2>Retain the explanation needed for reconnection and human handoff</h2>
+<p>Long calls and reconnection require state for conversational continuity. The Google GenAI SDK defines resumption information and an indication of whether resumption is currently possible. It notes that some states, including function execution or generation, may not be resumable and that using earlier state can lose information. Every point in a conversation cannot be assumed recoverable under identical conditions.</p>
+<p>Do not resend a booking save merely because conversation resumes after a disconnection. Reconcile the submitted request with the current reservation using business records. Tell the caller whether it was changed, remains unexecuted, or is being checked, according to verified information. Reconnection and duplicate prevention need separate implementations connected to each other.</p>
+<p>For human handoff, concisely pass the desired date, established details, unresolved issues, and save state. A full transcript alone leaves the operator searching for execution status. A summary that omits the date or target booking makes the caller repeat the explanation. Retain the necessary handoff information and define access and retention according to the job.</p>
+<p>Fluent conversation does not establish the caller's identity or authority to change a booking; those checks belong to the booking procedure. The value of voice intake includes allowing callers and operators to continue from the right point after escalation, alongside reducing how often escalation is needed.</p>
 </section>
 <section class="report-section">
-<h2>Test conversational branches and the audio the caller hears</h2>
-<p>AWS's February 2, 2026 <a href="https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-connect-provides-apis-test-simulate-voice-interactions/">Amazon Connect announcement</a> describes APIs for simulating voice interactions with specified caller intents, expected responses, and conditions such as after-hours calls. This offers a mechanism for repeating branch checks under defined conditions.</p>
-<p>Booking tests should include corrections, pauses, overlapping speech, misheard digits, API delays, and disconnection just after a save. Compare the stored date with what the caller actually heard, not only the response text. Supplement simulation with audio tests using the intended devices, connections, speakers, and noise conditions to inspect recognition and playback interruption.</p>
-<p>When transferring to a person, pass the requested change and whether it was saved, remains uncertain, or was never executed. That can help the operator avoid repeating an action. Alongside choosing a voice model, maintaining a consistent account of what the call has established is central to completing the booking change.</p>
+<h2>Test conversational branches and the sound actually heard</h2>
+<p>AWS's <a href="https://aws.amazon.com/about-aws/whats-new/2026/02/amazon-connect-provides-apis-test-simulate-voice-interactions/">February 2 Amazon Connect announcement</a> describes simulation APIs with caller intents, expected responses, and conditions such as after-hours calls or full queues. Tests can be repeated and integrated into development and release procedures. This supplies a mechanism for checking branches, not evidence of recognition on actual devices or telephone lines.</p>
+<p>Booking tests should include pauses, corrections, overlapping speech, misheard digits, API delays, and disconnection immediately after saving. Compare the date stored with the guidance the caller actually heard, not just response text. Pass audio through the intended devices, speakers, connections, and noise conditions to inspect delayed stopping and clarification. One clean audio response does not establish the call's success.</p>
+<p>Compare architectures using the same requests and audio conditions. Record response-start time, wrong dates, correction counts, booking outcomes, and work after human handoff. Separate slow responses and fast but incorrect operations from average latency. Recheck affected cases after changing prompts, models, voices, or connections. This is a proposed trial, not a measured ranking of vendors.</p>
+</section>
+<section class="report-section">
+<h2>A call in which the caller understands what is complete</h2>
+<p>Voice lets people express and revise a request without entering it again on a screen. Preserve that benefit by aligning guidance and operations with the corrected intent. Connecting speech stopping, conversational continuity, and booking saves affects uncertainty and the need to repeat explanations.</p>
+<p>Start with one job such as booking changes, testing normal calls alongside corrections and disconnections, then verifying what was heard against actual results. Assess fluency and waiting without omitting necessary confirmation and handoff. A voice agent's completion condition should include the caller understanding what is done and what remains.</p>
 </section>

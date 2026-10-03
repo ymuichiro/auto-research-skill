@@ -1,44 +1,139 @@
 <section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>What should be evaluated before a prototype is treated as a deployment candidate?</h2>
-  <p>Calling agent evaluation a “deployment gate” does not mean that an evaluation automatically decides whether to deploy. It means separately testing the answer, the final state changed in an environment, disallowed side effects, and a handoff to a person, so a team can explain what work may be delegated. <a href="https://arxiv.org/abs/2308.03688">AgentBench</a>, <a href="https://arxiv.org/abs/2311.12983">GAIA</a>, <a href="https://arxiv.org/abs/2310.06770">SWE-bench</a>, and <a href="https://arxiv.org/abs/2404.07972">OSWorld</a> show that different jobs have different completion conditions. This article treats them as a set of checks needed for a deployment decision, not as one overall score.</p>
+  <p class="section-kicker">Before accepting an update</p>
+  <h2>The average score improves, but the user still cannot rely on the agent</h2>
+  <p>Consider an agent that reads deadlines from documents and enters them in a calendar.
+This is a hypothetical example for explaining evaluation design.
+A new model handles more documents and improves the overall success rate.
+Yet it still saves some deadlines in the wrong time zone or creates two copies of an event when retrying an interrupted operation.
+Should the higher average be sufficient to deploy the update?</p>
+  <p>What troubles the user is missing their deadline or having to investigate which event is correct.
+My judgment is that evaluation for deployment needs to explain improved capabilities separately from unacceptable failures.
+Public benchmark scores cannot establish a passing grade applicable to every business process.</p>
+  <p>This requires reading what the grader accepts as correct, alongside what the agent did.
+Solving a task once, solving it consistently under the same conditions, and producing something the user can use without repair are different questions.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What the score covers</p>
+  <h2>Public evaluations help reveal the distance to the work being delegated</h2>
+  <p><a href="https://arxiv.org/abs/2308.03688v1">The original AgentBench paper</a> evaluates reasoning and decision-making in eight interactive environments.
+<a href="https://arxiv.org/abs/2311.12983v1">The original GAIA paper</a> builds 466 questions combining reasoning, inputs such as images, web browsing, and tools.
+The former examines multistep actions in environments, while the latter examines reaching answers using multiple sources of information.
+Neither directly grades an internal requirement to save exactly one event at the correct time.</p>
+  <p><a href="https://arxiv.org/abs/2404.07972v1">The original OSWorld paper</a> supplies initial states and execution-based evaluation for 369 tasks involving web and desktop applications and file operations.
+Such evaluation helps move attention from plausible explanations to the state that remains after execution.
+Actions completed on public tasks may still fail with a different application version or permission arrangement.</p>
+  <p>Using a benchmark involves more than sorting candidates by an overall score.
+Examine which capabilities required by the intended work are included and which conditions are absent.
+For a calendar job, check the target calendar, time zone, and treatment of duplicates as well as document reading.
+Understanding the test’s scope reveals what needs additional inspection.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">The difference across repeated trials</p>
+  <h2>One success in eight attempts and success on all eight answer different questions</h2>
+  <p><a href="https://arxiv.org/html/2406.12045v1">The original τ-bench paper</a> tests agents supplied with APIs and business rules in simulated retail and airline environments, interacting with users played by language models.
+It compares the database after a conversation with the expected state.
+This research environment tests dialogue, tools, and rules together; it is distinct from deployment testing with actual customers.</p>
+  <p>The paper distinguishes pass@k, success at least once across multiple trials, from pass^k, the probability that every trial succeeds, averaged across tasks.
+In its retail experiment, a GPT-4o function-calling agent exceeds 60% average success, while pass^8, success on all eight trials, falls below 25%.
+Generated dialogue introduces variation even for the same task, so one success does not establish consistency.</p>
+  <p>The significance of the two measures depends on the work.
+When a person selects one of several drafts, obtaining at least one usable candidate has value.
+For changes to an existing calendar, repeatedly saving until something works and choosing the best result afterward is unsuitable.
+Repeated evaluation should restore the initial state and inspect duplicates and partial changes alongside success.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">An action that prevents the next one</p>
+  <h2>A polite response can conceal the loss of a required operation</h2>
+  <p>The τ-bench appendix describes a user seeking to exchange two items from one order.
+The agent forgets the rule allowing only one exchange per order and exchanges one item first.
+It should have gathered the necessary information and handled both items in one operation.
+The first action works, but the remaining request becomes impossible to execute.
+Tone and the ability to call a tool do not expose that failure.</p>
+  <p>The calendar example likewise needs separate checks for reading the document and preserving existing events.
+A higher average from improved reading does not reduce the user’s burden if the agent saves to the wrong calendar or adds duplicates.
+Before deployment, decide whether success on other, easier tasks can compensate for a consequential failure.</p>
+  <p>I would investigate an update that produces a prohibited change independently of its average score.
+Conversely, seeing no such failure during evaluation does not prove it will never occur.
+Recording the tested conditions, trial counts, and untested areas permits a narrower explanation of what deployment is justified.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Inspecting the grader</p>
+  <h2>A low score can also reflect a defect in the test</h2>
+  <p><a href="https://openai.com/index/introducing-swe-bench-verified/">The SWE-bench Verified announcement</a> illustrates the need to examine evaluation itself.
+OpenAI identifies underspecified issues, tests specific enough to reject valid solutions, and problems configuring execution environments, then releases 500 tasks screened by developers.
+The requirement, grader, and environment need inspection before their score is trusted.</p>
+  <p>In its example, an issue about an unused library parameter is graded by a test requiring a particular warning and its exact wording.
+If that condition is absent from the issue supplied to the agent, a reasonable fix can still fail.
+This provides a concrete reason why stricter grading does not automatically mean more trustworthy grading.
+Human screening also does not guarantee measurement of every quality dimension.</p>
+  <p>Calendar grading needs the same scrutiny.
+Does the test reject an equivalent instant saved in another time-zone representation merely because the strings differ?
+Or does a correct description of the time allow an event saved to the wrong calendar to pass?
+Inspect both the rejection of valid changes and the acceptance of invalid ones.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Even with tasks from actual work</p>
+  <h2>Historical payouts do not directly establish the benefit of deployment</h2>
+  <p><a href="https://arxiv.org/html/2502.12115v1">The original SWE-Lancer paper</a> collects over 1,400 software engineering tasks from Upwork, with historical payouts totaling $1 million.
+Implementation tasks use end-to-end tests triple-verified by experienced engineers; managerial tasks compare the model’s choice among technical proposals with the original manager’s choice.
+The research measures implementing code and selecting an approach through different grading methods.</p>
+  <p>This makes the work more understandable than an abstract count of problems.
+Historical payments, however, are not revenue actually earned by an AI system.
+Matching a manager’s choice does not establish that the proposal was optimal under every condition.
+An economic assessment needs to distinguish measured outcomes from operating costs and time spent on human review.</p>
+  <p>For calendar work, do not count an automatic entry as the entire benefit.
+Include time spent checking the date and destination, removing duplicates, and rereading the document when necessary.
+Does delegation reduce effort compared with direct human entry or extracting the date for a person to save?
+That comparison provides a reason to expand the scope entrusted to the agent.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Comparing updates</p>
+  <h2>Hold conditions steady and retain scores separately from explanations</h2>
+  <p><a href="https://arxiv.org/abs/2412.05467v1">The original BrowserGym paper</a> presents common observation and action interfaces for several web evaluation environments.
+<a href="https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/">AutoGen v0.4</a> describes message tracing and debugging, among other features.
+Consistent experimental conditions and inspectable execution support an explanation of the deployment decision.
+Even detailed records still require a separate definition of a correct saved time.</p>
+  <p>Compare the old and new configurations using the same documents, existing events, permissions, time zone, and application version.
+Changing multiple conditions together makes improvements and regressions harder to attribute.
+Alongside completion counts, retain the source consulted, interpreted time, destination, submitted arguments, and saved state.
+These records should distinguish misreading the document from converting the time incorrectly or selecting the wrong calendar.</p>
+  <p>Good results on tasks used for tuning leave performance on new documents unresolved.
+Separate retesting previous failures from testing cases that were not used for adjustments.
+Define clarification or withholding a change as correct when a document lacks a time or calendar permission is absent.
+Count necessary deferrals separately from unnecessary returns to a person, so the evaluation distinguishes useful restraint from a system that delegates everything back.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Answer contract</h3><p>Can the agent use the required evidence, avoid filling gaps with guesses, and return a result in the form a user needs?</p></article>
-    <article class="comparison-card"><h3>Execution contract</h3><p>Did it reach an expected final state from the specified initial state using permitted actions?</p></article>
-    <article class="comparison-card"><h3>Supervision contract</h3><p>Can it stop dangerous actions and hand an uncertain state to a person with supporting evidence?</p></article>
+    <article class="comparison-card">
+      <h3>Completion and remaining changes</h3>
+      <p>Was exactly one correct event saved? Record duplicates, wrong destinations, and partial changes separately.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Consistency by condition</h3>
+      <p>Separate document and permission conditions and restore initial state for repeated trials. Read the failures hidden by an average.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Effort returned to the user</h3>
+      <p>Distinguish necessary clarification from unnecessary handoffs. Compare investigation and correction time as well.</p>
+    </article>
   </div>
 </section>
 
 <section class="report-section">
-  <p class="section-kicker">What benchmarks measure</p>
-  <h2>“Can answer” and “can finish in an environment” require different checks</h2>
-  <p>GAIA poses real-world-style questions that require reasoning, multimodal input, web browsing, and tool use. Its first version contained 466 questions and reported a comparison between human responses and GPT-4 with plugins. Its central question is whether a system can gather several kinds of information and derive a final answer. AgentBench likewise evaluates agents across environments and tools, treating performance as task-dependent.</p>
-  <p>SWE-bench builds tasks from real GitHub issues and corresponding pull requests, requiring changes to a codebase that resolve the problem. OSWorld provides real web and desktop applications, file operations, and workflows across applications with initial states and execution-based evaluation scripts. Both check a changed repository or screen state rather than a plausible explanation. <a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> also aims to standardize observation and action spaces across benchmarks, reinforcing that environment conditions are part of comparison.</p>
-  <p>None of these values can be transplanted directly into a deployment decision. Their value is a vocabulary for separating evaluation targets. A test of source-research correctness, a test of a saved screen state, and a test for a forbidden external action should not use the same grader if a team wants failures to be understandable.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Observation and control</p>
-  <h2>Tracing and confirmation do not replace an average score; they make a failure explainable</h2>
-  <p>Anthropic’s computer-use material explains that screenshot observation can miss transient notifications and that limits in speed and accuracy remain. The Operator announcement describes takeover for login, payment details, and CAPTCHAs, along with confirmation before orders and email are sent. These sources describe the design of human intervention points, not a browser-action success rate.</p>
-  <p>AutoGen v0.4 documents asynchronous messages, event-driven long-running processes, message tracing, and debugging. <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> distinguishes a workflow that follows a defined path from an agent that chooses its own tool use. These features and categories do not independently prove safety or effectiveness. They do help a team decide which information to retain when investigating a failure, a stop point, or a decision passed to a person.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Evaluation card</p>
-  <h2>For a calendar entry, grade the answer, saved state, and action path separately</h2>
-  <p>This is a hypothetical business evaluation design. A source document supplies a deadline date and time, while a calendar has existing entries and user permissions. The expected job is to read the correct time from the document, create exactly one event in the correct calendar, and request confirmation when needed.</p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Answer</h3><p>If the document omits a time, request clarification rather than inventing one. Connect the date and time to their source passage.</p></article>
-    <article class="comparison-card"><h3>Final state</h3><p>Check the calendar or API state for exactly one event in the correct calendar and time. A different calendar, time drift, a draft, and a duplicate are distinct failures.</p></article>
-    <article class="comparison-card"><h3>Path and safety</h3><p>Record source material, actions used, confirmation requests, and state after an error. Treat a human handoff as a correct outcome when permission is missing or a saved result cannot be confirmed.</p></article>
-  </div>
-  <p>Difficulty changes with initial data, calendar version, permitted actions, and time zone. A comparison should hold those conditions fixed while storing the score separately from the trajectory needed to investigate a cause.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Answer for deployment</p>
-  <h2>Evaluation is evidence for explaining a delegation boundary, not a single pass/fail number</h2>
-  <p>The “gate” in this article is not a one-step rule that deploys an agent after it passes a public benchmark. For representative work, it means defining valid answers, verified final states, forbidden side effects, and states that must be handed to a person. With those conditions in place, a team can discuss whether a prototype failure should be attributed to the model, tool, environment, or grading rule.</p>
-  <p>For early deployment candidates, choose a small number of representative cases and test the answer, execution, and supervision contracts separately. If an average score improves but an old representative case starts to create a dangerous side effect, do not pass the change. Connecting evaluation to a record of updates is the practical boundary between an impressive prototype and supervised work.</p>
+  <p class="section-kicker">Making a deployment decision</p>
+  <h2>Pair the work delegated with the conditions that should stop an update</h2>
+  <p><a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> describes adding complexity as needed and choosing between predefined paths and decisions delegated to a model.
+If evaluation finds that unrestricted retries increase duplicates, returning to input preparation is an available choice.
+Deployment can be granted for tested work and conditions, rather than for the entire agent at once.</p>
+  <p>The proposed acceptance conditions extend beyond a success-rate target.
+Define the work, repeated tests, unacceptable failures, reasons to defer, and user effort in advance, then compare updates against the same criteria.
+Adequate trial counts and passing thresholds depend on the consequences of failure and the scope actually examined.
+A few successful examples cannot establish long-term consistency.</p>
+  <p>Connecting a higher score to work the user can rely on requires showing what improved, which failures remain, and who repairs them.
+Evaluation used for that explanation can recognize progress while identifying updates that should be withheld.
+Deployment is supported by a high score together with an understanding of the work that the score leaves unresolved.</p>
 </section>

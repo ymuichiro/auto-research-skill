@@ -19,7 +19,7 @@ const localeCopy = {
   ja: {
     homeTitle: "トップ",
     listingTitle: "公開レポート",
-    listingIntro: "公開済みレポートを新しい順に一覧化しています。",
+    listingIntro: "公開済みレポートを調査対象日が新しい順に一覧化しています。",
     featuredBriefingKicker: "注目ブリーフィング",
     featuredBriefingTitle: "最新公開のブリーフィング",
     featuredBriefingIntro: "まずは最新公開レポートの要点と導線を、短く整理した編集枠から確認できます。",
@@ -32,6 +32,8 @@ const localeCopy = {
     articleAuthorAbout: "このサイトについて",
     articleAuthorPolicy: "調査・編集方針",
     articleUpdatedLabel: "最終更新",
+    articleSnapshotLabel: "調査対象日",
+    articlePublishedLabel: "初公開",
     pageStatus: "ページ",
     rangeLabel: "表示範囲",
     paginationPrevious: "前へ",
@@ -88,27 +90,27 @@ const localeCopy = {
     sitemapOpenPage: "ページを開く",
     sitemapBrowseTimeline: "タイムラインを見る",
     timelineTitle: "タイムライン",
-    timelineIntro: "公開済みレポートを月ごとの編集年表として整理し、更新密度とテーマ推移を詳しく追えるページです。",
-    timelineSummaryTitle: "公開の流れ",
-    timelineSummaryIntro: "各月の公開本数と主なテーマを、記事の導線と合わせて追える編集タイムラインです。",
+    timelineIntro: "公開済みレポートを調査対象の月ごとに整理し、テーマの変化を追えるページです。",
+    timelineSummaryTitle: "調査テーマの流れ",
+    timelineSummaryIntro: "各調査対象月の記事数と主なテーマを、記事へのリンクと合わせて追えます。",
     timelineBrowseSitemap: "サイトマップを見る",
     timelineStatArticles: "公開レポート",
-    timelineStatMonths: "公開月",
+    timelineStatMonths: "調査対象月",
     timelineStatTopics: "テーマ数",
     timelineStatLatest: "最新更新",
     timelineMonthCount: "公開本数",
     timelineMonthThemes: "主なテーマ",
     discoverySitePageLabel: "サイトページ",
     sitemapMonthAnchorsTitle: "月別アンカー",
-    sitemapMonthAnchorsIntro: "公開月から目的の一覧へすぐに移動できます。",
-    sitemapCompactMonthTitle: "月別リンク",
+    sitemapMonthAnchorsIntro: "調査対象月から目的の一覧へ移動できます。",
+    sitemapCompactMonthTitle: "調査対象月別リンク",
     sitemapCompactMonthCount: "記事",
     sitemapCompactBrowseTimeline: "詳細な年表はタイムラインへ"
   },
   en: {
     homeTitle: "Home",
     listingTitle: "Published Briefings",
-    listingIntro: "Published briefings listed in reverse chronological order.",
+    listingIntro: "Published briefings, ordered by their research cutoff.",
     featuredBriefingKicker: "Featured briefing",
     featuredBriefingTitle: "Latest published briefing",
     featuredBriefingIntro: "Start with a compact editorial frame for the newest published briefing before moving into the full list.",
@@ -121,6 +123,8 @@ const localeCopy = {
     articleAuthorAbout: "About this publication",
     articleAuthorPolicy: "Editorial policy",
     articleUpdatedLabel: "Updated",
+    articleSnapshotLabel: "Research cutoff",
+    articlePublishedLabel: "First published",
     pageStatus: "Page",
     rangeLabel: "Showing",
     paginationPrevious: "Previous",
@@ -178,12 +182,12 @@ const localeCopy = {
     sitemapOpenPage: "Open page",
     sitemapBrowseTimeline: "View timeline",
     timelineTitle: "Timeline",
-    timelineIntro: "A discovery page that arranges published briefings month by month so readers can follow density and topic shifts.",
-    timelineSummaryTitle: "Publishing flow",
-    timelineSummaryIntro: "An editorial timeline combining each month's output and main themes with direct links into the briefings.",
+    timelineIntro: "Published briefings grouped by research month to follow changes in their topics.",
+    timelineSummaryTitle: "Research timeline",
+    timelineSummaryIntro: "Article counts and themes for each research month, with links to the briefings.",
     timelineBrowseSitemap: "View sitemap",
     timelineStatArticles: "Briefings",
-    timelineStatMonths: "Active months",
+    timelineStatMonths: "Research months",
     timelineStatTopics: "Topics",
     timelineStatLatest: "Latest update",
     timelineMonthCount: "Briefings",
@@ -191,7 +195,7 @@ const localeCopy = {
     discoverySitePageLabel: "Site page",
     sitemapMonthAnchorsTitle: "Month anchors",
     sitemapMonthAnchorsIntro: "Jump straight to the month you want to browse.",
-    sitemapCompactMonthTitle: "Monthly links",
+    sitemapCompactMonthTitle: "Links by research month",
     sitemapCompactMonthCount: "Briefings",
     sitemapCompactBrowseTimeline: "Use the timeline for the full editorial chronology"
   }
@@ -464,8 +468,7 @@ export function renderPage({
 ${renderSharedHeadAssets(locale)}
 ${renderSharedPageScript(pageType)}
     ${pageType === "article" && article
-      ? `<meta property="article:published_time" content="${article.publishedAtIso}">
-    <meta property="article:modified_time" content="${article.lastModified}">
+      ? `${article.publishedAtIso ? `<meta property="article:published_time" content="${escapeHtml(article.publishedAtIso)}">\n    ` : ""}<meta property="article:modified_time" content="${article.lastModified}">
     <meta property="article:section" content="${escapeHtml(article.category)}">
     ${article.tags
       .map((tag) => `<meta property="article:tag" content="${escapeHtml(tag)}">`)
@@ -622,7 +625,7 @@ function renderEditorialBriefing(
       <div class="editorial-briefing-main">
         <div class="meta-row justify-between">
           ${renderTopicPill(locale, article.category, categoryHref)}
-          <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+          <time class="mono-note" datetime="${article.date}">${escapeHtml(localeCopy[locale].articleSnapshotLabel)} ${escapeHtml(formatDisplayDate(article.date, locale))}</time>
         </div>
         <${headingTag} class="editorial-briefing-title">
           <a class="editorial-briefing-link" href="${articleHref}">${escapeHtml(articleTitle)}</a>
@@ -677,7 +680,7 @@ function renderArticleCard(article, locale, { featured = false, eyebrow = "", he
       ${eyebrow ? `<p class="section-kicker">${escapeHtml(eyebrow)}</p>` : ""}
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">${escapeHtml(article.category)}</span>
-        <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+        <time class="mono-note" datetime="${article.date}">${escapeHtml(localeCopy[locale].articleSnapshotLabel)} ${escapeHtml(formatDisplayDate(article.date, locale))}</time>
       </div>
       <${headingTag} class="article-card-title">${escapeHtml(title)}</${headingTag}>
       <p class="article-card-copy">${escapeHtml(seo.teaser)}</p>
@@ -883,7 +886,7 @@ function renderDiscoveryArticleRow(article, locale, topicHubMap) {
   return `<article class="discovery-entry">
     <div class="meta-row justify-between">
       ${renderTopicPill(locale, article.category, topicHref)}
-      <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+      <time class="mono-note" datetime="${article.date}">${escapeHtml(localeCopy[locale].articleSnapshotLabel)} ${escapeHtml(formatDisplayDate(article.date, locale))}</time>
     </div>
     <h3 class="discovery-entry-title">
       <a class="discovery-entry-link" href="${href}">${escapeHtml(title)}</a>
@@ -907,7 +910,7 @@ function renderSitemapArticleLink(article, locale, topicHubMap) {
     <a class="sitemap-article-link" href="${href}">
       <span class="sitemap-article-link-title">${escapeHtml(title)}</span>
       <span class="sitemap-article-link-meta">
-        <time datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+        <time datetime="${article.date}">${escapeHtml(localeCopy[locale].articleSnapshotLabel)} ${escapeHtml(formatDisplayDate(article.date, locale))}</time>
         ${topicLabel ? `<span aria-hidden="true">•</span>${topicLabel}` : ""}
       </span>
     </a>
@@ -996,8 +999,8 @@ function renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHr
       title: copy.timelineStatMonths,
       note:
         locale === "ja"
-          ? "公開がある月だけを数えています。"
-          : "Counting only months with published briefings."
+          ? "公開記事の調査対象になった月を数えています。"
+          : "Counting research months covered by published briefings."
     },
     {
       value: String(topicHubs.length),
@@ -1013,8 +1016,8 @@ function renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHr
       note:
         latestArticle
           ? locale === "ja"
-            ? `${latestArticle.titleJa} を含む最新公開月です。`
-            : `The latest published month, including ${latestArticle.titleEn}.`
+            ? `${latestArticle.titleJa} を含む最新の調査対象月です。`
+            : `The latest research month, including ${latestArticle.titleEn}.`
           : locale === "ja"
             ? "まだ公開レポートはありません。"
             : "No published briefings yet."
@@ -1797,7 +1800,8 @@ export function renderArticlePage(article, locale, articles = []) {
             ? `<a class="meta-pill is-accent article-topic-link" href="${topicHubLink}">${escapeHtml(article.category)}</a>`
             : `<span class="meta-pill is-accent">${escapeHtml(article.category)}</span>`
         }
-        <time class="mono-note" datetime="${article.date}">${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+        <time class="mono-note" datetime="${article.date}">${escapeHtml(localeCopy[locale].articleSnapshotLabel)} ${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+        ${article.publishedAtIso ? `<time class="mono-note" datetime="${escapeHtml(article.publishedAtIso)}">${escapeHtml(copy.articlePublishedLabel)} ${escapeHtml(formatDisplayDate(article.publishedAtIso.slice(0, 10), locale))}</time>` : ""}
         ${
           updatedAt !== article.date
             ? `<time class="mono-note" datetime="${updatedAt}">${escapeHtml(copy.articleUpdatedLabel)} ${escapeHtml(
@@ -1964,13 +1968,13 @@ ${feedItems
     const title = locale === "ja" ? article.titleJa : article.titleEn;
     const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
     const link = absoluteUrl(locale === "ja" ? article.outputPaths.ja : article.outputPaths.en);
-    const pubDate = new Date(article.lastModified);
+    const pubDate = article.publishedAtIso ? new Date(article.publishedAtIso) : null;
 
     return `    <item>
       <title>${formatXml(title)}</title>
       <link>${formatXml(link)}</link>
       <guid isPermaLink="true">${formatXml(link)}</guid>
-      <pubDate>${formatXml((Number.isNaN(pubDate.getTime()) ? new Date(article.publishedAtIso) : pubDate).toUTCString())}</pubDate>
+      ${pubDate ? `<pubDate>${formatXml(pubDate.toUTCString())}</pubDate>` : ""}
       <description>${formatXml(seo.description)}</description>
       <category>${formatXml(article.category)}</category>
     </item>`;

@@ -1,14 +1,14 @@
 {
   "slug": "managed-agent-primitives-arrive-together",
   "date": "2025-04-01",
-  "titleJa": "マネージドなエージェント基盤は、何をアプリに残すのか",
-  "titleEn": "What do managed agent platforms still leave to an application?",
-  "summaryJa": "OpenAI、AWS、AutoGen、Magentic-Oneの資料を比べ、ホストされたツール実行、アプリに組み込む協調、複数担当の調整で、誰がどの責任を持つかを整理する。",
-  "summaryEn": "Compare OpenAI, AWS, AutoGen, and Magentic-One to distinguish hosted tool execution, embedded orchestration, and multi-agent coordination by the responsibility each leaves behind.",
-  "seoDescriptionJa": "2025年4月時点のOpenAI・AWS・複数エージェント研究を基に、マネージド基盤の実行、協調、アプリ側に残る認証・業務規則・監督を整理する。",
-  "seoDescriptionEn": "Using April 2025 releases and multi-agent research, this article separates managed execution from identity, business rules, and supervision left to an app.",
-  "teaserJa": "マネージド機能は責任を消さない。実行、協調、認証、業務判断の境界を比べる。",
-  "teaserEn": "Managed features do not erase responsibility. Compare execution, coordination, identity, and business-rule boundaries.",
+  "titleJa": "OpenAIとBedrockで比べる、エージェント基盤に任せる仕事",
+  "titleEn": "OpenAI and Bedrock: what work to delegate to an agent platform",
+  "summaryJa": "Responses API、Agents SDK、Bedrockの担当調整を、一件の問い合わせで比較する。検索、画面操作、外部実行の違いから、減らせる実装と残る業務判断を考える。",
+  "summaryEn": "Compare Responses API, Agents SDK, and Bedrock through one support request, separating hosted search, screen actions, coordination, and business logic still required.",
+  "seoDescriptionJa": "OpenAIとAmazon Bedrockのエージェント基盤を比較。ホストされた検索、アプリ側の画面操作、SDKと担当調整から、任せる範囲と残る実装を考える。",
+  "seoDescriptionEn": "Compare OpenAI and Bedrock agent platforms: hosted search, screen actions, SDK handoffs, service coordination, and business logic required in an application.",
+  "teaserJa": "道具と担当をつないでも、依頼を終える仕事は残る。基盤が何を実行し、アプリが何を補うかを比べる。",
+  "teaserEn": "Connecting tools and specialists still leaves work to finish. Compare what the platform executes with what the application must supply.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,22 +18,16 @@
   ],
   "publishedSources": [
     {
-      "label": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
-      "url": "https://arxiv.org/abs/2308.08155",
+      "label": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation Framework",
+      "url": "https://arxiv.org/abs/2308.08155v1",
       "type": "paper",
-      "publishedAt": "2023-08-15"
+      "publishedAt": "2023-08-16"
     },
     {
       "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
+      "url": "https://arxiv.org/html/2411.04468v1",
       "type": "paper",
       "publishedAt": "2024-11-07"
-    },
-    {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
     },
     {
       "label": "Anthropic: Building effective agents",
@@ -48,12 +42,6 @@
       "publishedAt": "2025-01-23"
     },
     {
-      "label": "Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai",
-      "type": "official",
-      "publishedAt": "2025-01-24"
-    },
-    {
       "label": "OpenAI: New tools for building agents",
       "url": "https://openai.com/index/new-tools-for-building-agents/",
       "type": "official",
@@ -64,6 +52,18 @@
       "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/",
       "type": "official",
       "publishedAt": "2025-03-10"
+    },
+    {
+      "label": "AWS: Agents for Amazon Bedrock simplified creation and configuration",
+      "url": "https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/",
+      "type": "official",
+      "publishedAt": "2024-04-23"
+    },
+    {
+      "label": "AWS: Amazon Bedrock Agents now supports custom orchestration",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-bedrock-agents-custom-orchestration/",
+      "type": "official",
+      "publishedAt": "2024-11-27"
     }
   ],
   "draft": false

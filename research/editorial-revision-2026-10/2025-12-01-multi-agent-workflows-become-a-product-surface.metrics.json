@@ -1,0 +1,18 @@
+{
+  "ja": {
+    "characters": 3785,
+    "words": 30,
+    "paragraphs": 33,
+    "sections": 8,
+    "body_citations": 3,
+    "baseline_characters": 2296
+  },
+  "en": {
+    "characters": 8000,
+    "words": 1376,
+    "paragraphs": 33,
+    "sections": 8,
+    "body_citations": 3,
+    "baseline_characters": 5201
+  }
+}

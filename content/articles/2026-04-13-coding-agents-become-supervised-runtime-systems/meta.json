@@ -1,14 +1,14 @@
 {
   "slug": "coding-agents-become-supervised-runtime-systems",
   "date": "2026-04-13",
-  "titleJa": "コーディングAIの計画・権限・差分・テストを、どう確認するか",
-  "titleEn": "Reviewing a coding agent: plans, permissions, diffs, and tests",
-  "summaryJa": "Julesの計画とVM、GitHubの署名検証、Anthropicの実験を手掛かりに、計画、実行環境、差分、試験、受入の確認を役割ごとに分ける。",
-  "summaryEn": "Use Jules planning and VM documentation, GitHub signature verification, and Anthropic experiments to separate plan, environment, diff, test, and acceptance checks for an agent-written fix.",
-  "seoDescriptionJa": "コーディングAIの監督で混同しやすい計画承認、ブランチとVMの隔離、Verified署名、テスト結果を整理。各機能の保証範囲を確かめる。",
-  "seoDescriptionEn": "Separate coding-agent plan review, branch and VM isolation, Verified signatures, and test evidence to understand what each check establishes.",
-  "teaserJa": "計画が読める、署名がある、テストが通る。それぞれが確認する範囲を分ける。",
-  "teaserEn": "Understand what a readable plan, a verified signature, and passing tests each establish.",
+  "titleJa": "コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで",
+  "titleEn": "Delegate one bug to a coding agent: from plan to a reviewable repair",
+  "summaryJa": "Codex、Claude Code、Copilot、Jules、AWSの機能を、一件の並び順の不具合から読む。対話と非同期実行、計画、権限、評価役、差分、途中の介入をつなぎ、人が成果を引き取れる条件を比較する。",
+  "summaryEn": "Read Codex, Claude Code, Copilot, Jules, and AWS through one sorting bug. Compare interactive and background execution, plans, permissions, evaluators, diffs, and intervention through the work an engineer can accept.",
+  "seoDescriptionJa": "コーディングAIの五社比較。計画、作業環境、権限、差分、動作確認、遠隔操作を一件の修正から分析し、人のレビューと手戻りまで評価する。",
+  "seoDescriptionEn": "Compare coding agents through one bug: plans, execution environments, permissions, diffs, tests, remote intervention, and the engineer’s review effort.",
+  "teaserJa": "テスト成功の通知を受けた後、担当者は何を調べ直すのか。任せた修正を引き取るまでを見る。",
+  "teaserEn": "After a passing-test notification, what does the engineer still need to investigate?",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,24 +20,82 @@
   ],
   "publishedSources": [
     {
-      "label": "Anthropic Engineering: Quantifying infrastructure noise in agentic coding evals",
+      "label": "OpenAI: Introducing the Codex app",
+      "url": "https://openai.com/index/introducing-the-codex-app/",
+      "type": "official",
+      "publishedAt": "2026-02-02"
+    },
+    {
+      "label": "OpenAI: GPT-5.3-Codex-Spark",
+      "url": "https://openai.com/index/introducing-gpt-5-3-codex-spark/",
+      "type": "official",
+      "publishedAt": "2026-02-12"
+    },
+    {
+      "label": "Anthropic: Harness design for long-running application development",
+      "url": "https://www.anthropic.com/engineering/harness-design-long-running-apps",
+      "type": "official",
+      "publishedAt": "2026-03-24"
+    },
+    {
+      "label": "Anthropic: Claude Code auto mode",
+      "url": "https://www.anthropic.com/engineering/claude-code-auto-mode",
+      "type": "official",
+      "publishedAt": "2026-03-25"
+    },
+    {
+      "label": "Anthropic: Quantifying infrastructure noise in agentic coding evals",
       "url": "https://www.anthropic.com/engineering/infrastructure-noise",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-02-05"
     },
     {
-      "label": "Jules docs: Reviewing plans and giving feedback",
-      "url": "https://jules.google/docs/review-plan/",
-      "type": "official"
+      "label": "GitHub: Research, plan, and code with Copilot cloud agent",
+      "url": "https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/",
+      "type": "official",
+      "publishedAt": "2026-04-01"
     },
     {
-      "label": "Jules docs: Environment setup",
-      "url": "https://jules.google/docs/environment",
-      "type": "official"
+      "label": "GitHub: Parallel validation tools",
+      "url": "https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster/",
+      "type": "official",
+      "publishedAt": "2026-04-10"
     },
     {
-      "label": "GitHub: About commit signature verification",
-      "url": "https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification",
-      "type": "official"
+      "label": "GitHub Mobile: Copilot tab and native session logs",
+      "url": "https://github.blog/changelog/2026-04-01-github-mobile-stay-in-flow-with-a-refreshed-copilot-tab-and-native-session-logs/",
+      "type": "official",
+      "publishedAt": "2026-04-01"
+    },
+    {
+      "label": "Google: Jules public beta",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules/",
+      "type": "official",
+      "publishedAt": "2025-05-20"
+    },
+    {
+      "label": "Google: Jules out of beta",
+      "url": "https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/",
+      "type": "official",
+      "publishedAt": "2025-08-06"
+    },
+    {
+      "label": "AWS: DevOps Agent generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/",
+      "type": "official",
+      "publishedAt": "2026-03-31"
+    },
+    {
+      "label": "GitHub: Persistent commit signature verification preview",
+      "url": "https://github.blog/changelog/2024-11-12-persistent-commit-signature-verification-now-in-public-preview/",
+      "type": "official",
+      "publishedAt": "2024-11-13"
+    },
+    {
+      "label": "GitHub: Remote control CLI sessions public preview",
+      "url": "https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/",
+      "type": "official",
+      "publishedAt": "2026-04-13"
     }
   ],
   "draft": false

@@ -1,14 +1,14 @@
 {
   "slug": "why-ai-products-converge-on-chat-ui",
   "date": "2026-03-24",
-  "titleJa": "生成AIのチャットと編集画面は、どの作業を分担するのか",
-  "titleEn": "What chat and editing interfaces each contribute to AI work",
-  "summaryJa": "Gemini Canvas、Copilot Pages、Cocoaから、会話で依頼を始める面、成果物を直す面、計画と承認を確かめる面を分けて考える。報告書の改稿と共有を例に、画面ごとの役割を評価する。",
-  "summaryEn": "Canvas, Pages, and Cocoa separate the surface that starts a request, the surface that revises an artifact, and the surface that checks a plan or approval. A report-revision example evaluates each role.",
-  "seoDescriptionJa": "生成AIで、会話による依頼、成果物の直接編集、計画と承認の確認をどの画面に置くかを、Canvas、Pages、Cocoaから考える。",
-  "seoDescriptionEn": "Use Canvas, Pages, and Cocoa to decide where an AI interface should place requests, direct artifact editing, plan review, and approval.",
-  "teaserJa": "「読みやすくして」と伝えることと、「この段落だけ」と指すこと。会話と直接操作の役割を比較する。",
-  "teaserEn": "Describing a goal and selecting a passage solve different problems. Compare conversation, editing, and shared plans.",
+  "titleJa": "生成AIのチャットUIに、いつ編集や計画の画面を足すか",
+  "titleEn": "AI chat UI: when to add an editor or a visible plan",
+  "summaryJa": "依頼を言葉にすること、直す箇所を選ぶこと、最新版と計画を確かめることは別の作業である。Canvas、Pages、ArtifactsとCocoaの評価から、会話と直接操作の役割を考える。",
+  "summaryEn": "Describing a goal, selecting an edit, and checking the current draft or plan are different tasks. Compare Canvas, Pages, Artifacts, and Cocoa to decide where conversation benefits from direct manipulation.",
+  "seoDescriptionJa": "生成AIのチャットUIとCanvas、Pages、Artifactsを比較。Cocoaの同一モデルによる評価とKeyhole Effectの理論を区別し、部分編集、共同作業、計画、定型フォームを足す条件を分析する。",
+  "seoDescriptionEn": "Compare AI chat UI, Canvas, Pages, and Artifacts. Examine Cocoa’s controlled study and the Keyhole Effect theory to decide when to add editing, plans, or forms.",
+  "teaserJa": "依頼を伝えることと、直す箇所を指すことは違う。編集、共有、計画、定型フォームを加える理由を比べる。",
+  "teaserEn": "A conversational request and a precise edit solve different problems. Compare drafts, shared versions, editable plans, and recurring forms.",
   "category": "AI Strategy",
   "tags": [
     "LLM",
@@ -20,19 +20,64 @@
   ],
   "publishedSources": [
     {
-      "label": "Google: Canvas and Audio Overview (March 18, 2025)",
+      "label": "OpenAI: Apps in ChatGPT announcement",
+      "url": "https://openai.com/index/introducing-apps-in-chatgpt/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "Microsoft: Copilot Chat announcement",
+      "url": "https://www.microsoft.com/en-us/copilot/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
+      "type": "official",
+      "publishedAt": "2025-01-15"
+    },
+    {
+      "label": "OpenAI: canvas launch",
+      "url": "https://openai.com/index/introducing-canvas/",
+      "type": "official",
+      "publishedAt": "2024-10-03"
+    },
+    {
+      "label": "Google: Gemini Canvas launch",
       "url": "https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-03-18"
     },
     {
-      "label": "Microsoft: Copilot Pages (September 16, 2024)",
+      "label": "Anthropic: Claude 3.5 Sonnet and Artifacts announcement",
+      "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "type": "official",
+      "publishedAt": "2024-06-21"
+    },
+    {
+      "label": "Microsoft: Copilot Pages announcement",
       "url": "https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2024-09-16"
     },
     {
-      "label": "Cocoa: Co-Planning and Co-Execution with AI Agents (v1)",
-      "url": "https://arxiv.org/abs/2412.10999v1",
-      "type": "paper"
+      "label": "Cocoa: Co-Planning and Co-Execution with AI Agents (v1, full text)",
+      "url": "https://arxiv.org/html/2412.10999v1",
+      "type": "paper",
+      "publishedAt": "2024-12-14"
+    },
+    {
+      "label": "The Keyhole Effect: Why Chat Interfaces Fail at Data Analysis (v1)",
+      "url": "https://arxiv.org/abs/2602.00947v1",
+      "type": "paper",
+      "publishedAt": "2026-02-01"
+    },
+    {
+      "label": "Anthropic: Cowork and plugins for teams across the enterprise",
+      "url": "https://claude.com/blog/cowork-plugins-across-enterprise",
+      "type": "official",
+      "publishedAt": "2026-02-24"
+    },
+    {
+      "label": "OpenAI: ChatGPT agent launch",
+      "url": "https://openai.com/index/introducing-chatgpt-agent/",
+      "type": "official",
+      "publishedAt": "2025-07-17"
     }
   ],
   "draft": false

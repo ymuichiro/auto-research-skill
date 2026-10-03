@@ -1,14 +1,14 @@
 {
   "slug": "the-2025-signal-is-operational-boundaries",
   "date": "2026-01-01",
-  "titleJa": "2025年のエージェント開発で見えた、接続・実行・確認の責任境界",
-  "titleEn": "The responsibility boundaries visible in 2025 agent development",
-  "summaryJa": "A2A、Claude Agent SDK、Foundryワークフローは、仕事の受け渡し、実行の反復、経路の定義と評価に異なる部品を示した。調査記事の想定例で、依頼の意味、実行記録、公開承認がどこに残るかを整理する。",
-  "summaryEn": "A2A, Claude Agent SDK, and Foundry workflows expose different components for handing off work, iterating execution, and defining and evaluating paths. A research-publication scenario locates the meaning of a request, execution record, and publication approval.",
-  "seoDescriptionJa": "2025年のA2A、Claude Agent SDK、Foundryワークフローを、仕事の受け渡し・実行・確認で異なる責任境界として整理する。",
-  "seoDescriptionEn": "A2A, Claude Agent SDK, and Foundry workflows reveal separate responsibility boundaries for handoffs, execution, and review.",
-  "teaserJa": "接続、実行、確認の部品が増えても、依頼の意味と公開責任は自動で決まらない。",
-  "teaserEn": "More components for connection, execution, and review do not automatically define task meaning or publication responsibility.",
+  "titleJa": "2025年のAIエージェント開発で、任せられる仕事はどう変わったか",
+  "titleEn": "AI agents in 2025: what changed the work we can delegate?",
+  "summaryJa": "Operator、A2AとMCP、GPT-5とClaude Agent SDK、AgentKit、Foundry、AgentCoreを比較する。操作や接続の進展を、成果の条件と人が調べ直す負担へつなぎ、任せる範囲を広げる判断を考える。",
+  "summaryEn": "Compare Operator, A2A and MCP, GPT-5 and Claude Agent SDK, AgentKit, Foundry, and AgentCore. Connect advances in action and integration to output requirements and human rework when deciding how far to delegate.",
+  "seoDescriptionJa": "2025年のAIエージェントの操作、接続、SDK、評価の進展を比較。仕事の完了条件と人の再調査負担から、任せる範囲を考える。",
+  "seoDescriptionEn": "Compare 2025 AI agent developments in browsing, protocols, SDKs, and evaluation through output requirements and the human work left after review.",
+  "teaserJa": "使える部品が増えた一年。次に任せる範囲は、受け取った成果で人の判断が進むかから選ぶ。",
+  "teaserEn": "More components became available. Choose the next task to delegate by whether its output advances human judgment.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,10 +18,28 @@
   ],
   "publishedSources": [
     {
-      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
-      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
+      "label": "OpenAI: Introducing Operator",
+      "url": "https://openai.com/index/introducing-operator/",
       "type": "official",
-      "publishedAt": "2025-06-23"
+      "publishedAt": "2025-01-23"
+    },
+    {
+      "label": "Google: Announcing the Agent2Agent Protocol (A2A)",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "type": "official",
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "MCP 2025-06-18: Tools",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+      "type": "official",
+      "publishedAt": "2025-06-18"
+    },
+    {
+      "label": "OpenAI: Introducing GPT-5 for developers",
+      "url": "https://openai.com/index/introducing-gpt-5-for-developers/",
+      "type": "official",
+      "publishedAt": "2025-08-07"
     },
     {
       "label": "Anthropic: Building agents with the Claude Agent SDK",
@@ -30,10 +48,22 @@
       "publishedAt": "2025-09-29"
     },
     {
+      "label": "OpenAI: Introducing AgentKit",
+      "url": "https://openai.com/index/introducing-agentkit/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
       "label": "Microsoft: Introducing Multi-Agent Workflows in Foundry Agent Service",
       "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/",
       "type": "official",
       "publishedAt": "2025-11-25"
+    },
+    {
+      "label": "AWS: AgentCore adds quality evaluations and policy controls (preview)",
+      "url": "https://aws.amazon.com/blogs/aws/amazon-bedrock-agentcore-adds-quality-evaluations-and-policy-controls-for-deploying-trusted-ai-agents/",
+      "type": "official",
+      "publishedAt": "2025-12-02"
     }
   ],
   "draft": false

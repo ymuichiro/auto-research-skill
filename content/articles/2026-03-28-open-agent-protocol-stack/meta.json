@@ -1,14 +1,14 @@
 {
   "slug": "open-agent-protocol-stack",
   "date": "2026-03-28",
-  "titleJa": "MCP、A2A、AG-UIは何を受け渡すのか",
-  "titleEn": "What MCP, A2A, and AG-UI actually exchange",
-  "summaryJa": "MCP、A2A、AG-UIが返金処理で受け渡す情報を、請求情報への接続、調査の委任、利用者への表示として分ける。承認と返金実行は、プロトコル名では決まらないアプリケーション側の条件として整理する。",
-  "summaryEn": "In a refund workflow, MCP, A2A, and AG-UI respectively connect invoice data, delegate investigation, and update the user. Approval and execution remain application conditions, not consequences of protocol names.",
-  "seoDescriptionJa": "返金処理を例に、MCP、A2A、AG-UIが接続、委任、画面表示で何を受け渡すかを整理し、承認と実行をアプリケーション側で設計する。",
-  "seoDescriptionEn": "Use a refund workflow to separate what MCP, A2A, and AG-UI exchange for connection, delegation, and interface updates from application approval and execution.",
-  "teaserJa": "三つの名称をそろえる前に、誰に何を渡すのかを決める。仕様の重なりと承認処理の違いを読む。",
-  "teaserEn": "Start with what must be exchanged, then compare overlapping protocol features and the approval checks left to applications.",
+  "titleJa": "MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか",
+  "titleEn": "Connecting work with MCP, A2A, and AG-UI: what has finished?",
+  "summaryJa": "返金処理を例に、MCPのツール結果、A2A 1.0の調査タスク、AG-UIの画面表示が伝える完了の範囲を比較する。機能の重なり、追加情報、切断と取消まで追い、共通仕様が人の待機と再調査を減らす条件を考える。",
+  "summaryEn": "A hypothetical refund workflow compares tool results, A2A 1.0 investigation tasks, and AG-UI interface events. Feature overlap, missing input, disconnection, and cancellation reveal when common exchanges could reduce waiting and reconstruction.",
+  "seoDescriptionJa": "MCP、A2A 1.0、AG-UIを返金処理で比較。ツール結果、調査、画面表示の完了の違いと、切断・取消後の確認から選択条件を考える。",
+  "seoDescriptionEn": "Compare MCP, A2A 1.0, and AG-UI through a refund workflow: task completion, interface events, disconnection, and cancellation.",
+  "teaserJa": "調査は終わった。では、返金も終わったのか。共通仕様が伝える完了と、人が次に動くための情報を比べる。",
+  "teaserEn": "The investigation finished. Was the refund issued? Compare the completion signals and information the next person needs.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,24 +20,46 @@
   ],
   "publishedSources": [
     {
-      "label": "AWS: AgentCore Runtime AG-UI support (March 13, 2026)",
+      "label": "AWS: AgentCore Runtime AG-UI support",
       "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-03-13"
     },
     {
       "label": "MCP 2025-11-25: Tools",
       "url": "https://modelcontextprotocol.io/specification/2025-11-25/server/tools",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-11-25"
     },
     {
-      "label": "A2A 0.3.0: Specification",
-      "url": "https://a2a-protocol.org/v0.3.0/specification/",
-      "type": "official"
-    },
-    {
-      "label": "MCP 2025-11-25: Tasks",
+      "label": "MCP 2025-11-25: experimental Tasks",
       "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-11-25"
+    },
+    {
+      "label": "A2A protocol ships v1.0",
+      "url": "https://a2a-protocol.org/dev/blog/2026/03/12/a2a-protocol-ships-v10-production-ready-standard-for-agent-to-agent-communication/",
+      "type": "official",
+      "publishedAt": "2026-03-12"
+    },
+    {
+      "label": "A2A v1.0.0: pinned specification",
+      "url": "https://github.com/a2aproject/A2A/blob/173695755607e884aa9acf8ce4feed90e32727a1/docs/specification.md",
+      "type": "official",
+      "publishedAt": "2026-03-12"
+    },
+    {
+      "label": "AG-UI: event concepts, March 28 pinned snapshot",
+      "url": "https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/events.mdx",
+      "type": "official",
+      "publishedAt": "2026-03-28"
+    },
+    {
+      "label": "AG-UI: state concepts, March 28 pinned snapshot",
+      "url": "https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/state.mdx",
+      "type": "official",
+      "publishedAt": "2026-03-28"
     }
   ],
   "draft": false

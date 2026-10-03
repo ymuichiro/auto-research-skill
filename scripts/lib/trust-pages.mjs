@@ -155,6 +155,7 @@ const trustPages = {
         {
           title: "更新と訂正",
           paragraphs: [
+            "調査対象日は、本文が扱う資料の期限を示し、実際の初公開日とは区別します。初公開日は公開履歴から確認できる場合に示し、不明な場合は調査対象日で代用しません。最終更新日は、記事本文やメタデータの変更を反映します。",
             "既存記事を更新するときは、根拠リンクの有効性と本文の整合を見直します。新しい公式資料で論点が変わる場合は、旧来の説明を惰性的に残しません。",
             "公開後に誤記、リンク切れ、説明不足、翻訳差分などを確認した場合は、内容の性質に応じて修正します。修正判断は、正確性と読者理解への影響を基準に行います。"
           ]
@@ -188,6 +189,7 @@ const trustPages = {
         {
           title: "Updates and corrections",
           paragraphs: [
+            "The research cutoff identifies the date through which sources are considered and is distinct from first publication. First publication is shown when verified from publication history; an unknown date is not replaced with the research cutoff. The update date reflects changes to the article text or metadata.",
             "When an existing article is updated, source links and article claims are reviewed together. If new official material changes the frame, older wording is not kept by inertia.",
             "If a typo, broken link, translation mismatch, or explanation gap is found after publication, the page can be revised according to the nature and impact of the issue. Accuracy and reader understanding drive that decision."
           ]

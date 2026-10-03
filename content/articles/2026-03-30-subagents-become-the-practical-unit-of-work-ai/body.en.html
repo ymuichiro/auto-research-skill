@@ -1,44 +1,61 @@
 <section class="report-section">
-<h2>Some divisions reduce waiting; others add handoffs</h2>
-<p>Researching three products independently can proceed concurrently. Investigating a defect, fixing it, and testing the fix requires later steps to wait for earlier results. Both jobs can be split into three parts, but splitting alone does not shorten completion time.</p>
-<p>A subagent receives a bounded task from a lead agent. Using announcements and design material available by March 30, 2026, this article considers when that division helps and when it adds handoff costs. The product-comparison task below is hypothetical.</p>
+<h2>Three completed investigations do not make a completed comparison</h2>
+<p>A team asks AI to research three software products before choosing one. Separate agents can read the vendors' material concurrently. Their results arrive: one investigated the free tier, another the enterprise tier, and the third an older version. All report completion, yet a person must repeat the research to align the conditions. This hypothetical example distinguishes a shorter wait from earlier access to findings that support a decision.</p>
+<p>A subagent receives a bounded task from a lead agent and investigates or acts within that scope. Using material published by OpenAI, Anthropic, Google, Microsoft, and AWS by March 30, 2026, this article examines where to divide work. It does not claim that every vendor adopted one architecture or rank their products by speed.</p>
+<p>My judgment is that a division should specify more than a role such as “researcher”: define its inputs, how far it can proceed independently, and what it must return for the next decision. Adding agents has little value if a person must verify their findings from scratch. Start by enabling independent work while preserving the conditions and evidence required for synthesis.</p>
 </section>
 <section class="report-section">
-<h2>Decide inputs, returns, synthesis, and approval before splitting work</h2>
+<h2>Choosing a smaller model differs from running work concurrently</h2>
+<p>OpenAI's <a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">March 17 announcement of GPT-5.4 mini and nano</a> describes a Codex configuration in which a larger model plans and synthesizes while mini subagents search code, review files, or process supporting documents in parallel. Nano is positioned for tasks such as classification and extraction, but the announcement makes it available through the API; mini is the model described for Codex delegation.</p>
+<p>Two choices are involved: selecting a model for a task and executing several tasks concurrently. Smaller models can receive sequential assignments, and multiple agents can use the same model. Combining unit-price savings and parallel execution into one number obscures what actually improved.</p>
+<p>For the hypothetical comparison, extracting product names and versions can use constrained inputs and a checkable return format. Resolving conflicting documents and selecting a product for a use case requires further exploration and judgment. A subordinate assignment is not necessarily easy. After narrowing its scope, check whether the assigned model can resolve the ambiguity that remains.</p>
+</section>
+<section class="report-section">
+<h2>Keep dependent work behind the result it needs</h2>
+<p>Collecting material about three products can proceed independently once the use case and target versions are fixed. Synthesizing the comparison must wait for those findings, and checking the recommendation requires the resulting table. Splitting collection across three directions differs from starting collection, synthesis, and verification simultaneously, even though both arrangements have three parts.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Delegated research</h3>
-<p>Give each product task the same use case, version, comparison fields, and source URLs. Parallelize only work that can be investigated independently.</p>
-</article>
-<article class="comparison-card">
-<h3>Evidence returned</h3>
-<p>Return verified facts, sources, and unresolved questions rather than a conclusion alone, so the lead can return to the original material later.</p>
-</article>
-<article class="comparison-card">
-<h3>Synthesis decision</h3>
-<p>The lead decides whether results are comparable and whether a conflict needs more research. Do not decide facts by a majority of agent summaries.</p>
-</article>
-<article class="comparison-card">
-<h3>Final approval</h3>
-<p>Return publication, external sending, and shared-file updates to one owner or an explicit approval step after synthesis. A role label does not itself grant write permission.</p>
-</article>
+<article class="comparison-card"><h3>Supply matching conditions</h3><p>Align the use case, target version, features being compared, and research cutoff. Set these conditions before each investigator starts.</p></article>
+<article class="comparison-card"><h3>Delegate independent exploration</h3><p>Find product material and investigate conflicts. Assign scopes that can progress without waiting for another product's conclusions.</p></article>
+<article class="comparison-card"><h3>Return findings with evidence</h3><p>Return facts, URLs, relevant locations, and unverified fields. Do not turn a failed investigation into a claim that a feature does not exist.</p></article>
+<article class="comparison-card"><h3>Decide whether findings are comparable</h3><p>Compare results with matching versions and availability conditions. Return gaps to their investigator; do not use unverified differences to justify a recommendation.</p></article>
 </div>
-<p>Adding agents before setting this sequence can produce parallel results that cannot be compared, along with extra integration waits and rework.</p>
+<p>This is the article's hypothetical procedure, not a requirement to create four agents. Fetching three predetermined URLs may need only parallel tool calls. Delegating to a subagent becomes useful when it should discover a new issue in a document and decide to pursue another primary source.</p>
+<p>In coding, diagnosis, a patch, and tests of that patch depend on earlier results. Independent module reviews may run concurrently, but separate edits to the same target need integration. Dividing work according to which result each participant must wait for makes handoffs easier to explain than dividing it by job-like role names.</p>
 </section>
 <section class="report-section">
-<h2>Separate smaller-model delegation from parallel execution</h2>
-<p>OpenAI's March 17 <a href="https://openai.com/index/introducing-gpt-5-4-mini-and-nano/">GPT-5.4 mini and nano announcement</a> describes a larger model handling planning and synthesis while mini performs narrower work such as code exploration. This is a concrete use of task-specific model selection. Choosing a smaller model and running tasks concurrently are separate decisions; delegation can also be sequential.</p>
-<p>Anthropic's <a href="https://www.anthropic.com/engineering/multi-agent-research-system">June 2025 research-system article</a> reports benefits from exploring independent directions while noting difficulties with heavily interdependent work. In its data, multi-agent systems used about 15 times the tokens of ordinary chats. That comparison is with chats, not single-agent systems. It is not a universal cost multiplier, but it challenges the claim that delegation necessarily costs less.</p>
-<p>Even if the three product investigations run concurrently, preparing assignments, synthesizing findings, and filling gaps remain. Evaluate the lead and subagents' total usage, tool delays, and retries alongside the smaller model's unit price.</p>
+<h2>Separate contexts without discarding evidence</h2>
+<p>Anthropic's <a href="https://claude.com/blog/building-agents-with-the-claude-agent-sdk">Claude Agent SDK design article</a> describes subagents with isolated context windows that return only relevant information to the orchestrator. Investigators can read long product documents without making the lead carry every investigation's history. Context management is a potential benefit to assess separately from parallel speed.</p>
+<p>A short conclusion alone, however, may erase the conditions needed for comparison. “Search supported” does not reveal whether it is enterprise-only, requires an external connection, or was checked in the relevant version. I recommend making each comparison field traceable to its source. Entire documents need not be copied, but compression must preserve conditions that could change the conclusion.</p>
+<p>In the opening example, each investigator would link the verified version and features to evidence and distinguish unverified fields from empty ones. The lead would synthesize only comparable fields. Agreement among three agents reading the same outdated document does not add three independent sources of corroboration.</p>
+<p>Conversely, copying the lead's entire conversation and all documents into every assignment reduces the value of separate contexts. Supply the common purpose and constraints, and make other material accessible when needed. The goal is to limit inputs while retaining what decisions require, rather than minimizing sharing for its own sake.</p>
 </section>
 <section class="report-section">
-<h2>Share comparison criteria and return separately traceable findings</h2>
-<p>“Research product A” leaves too much unspecified. I recommend defining the use case, version, comparison fields, source URLs, and treatment of unknowns. Combining one agent's free-tier findings with another's enterprise-tier findings does not produce a sound comparison.</p>
-<p>Ask each agent to return facts, sources, and unresolved questions, then make the final judgment once the products can be compared under matching conditions. Retaining access to original evidence allows conflicting summaries to be checked. Agreement among agents is not independent corroboration if they all relied on the same incorrect source.</p>
-<p>Role labels also do not enforce permissions. A research-only task should be configured without unnecessary write operations. Where agents need not edit one shared file, returning separate results for the lead to integrate can avoid write conflicts.</p>
+<h2>Fixed ordering and choosing a specialist solve different problems</h2>
+<p><a href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/docs/agents/workflow-agents/index.md">Google ADK's documentation as of March 30</a> describes sequential, parallel, and loop workflows whose orchestration does not consult a model at every step. A subagent can use a model internally while predefined rules control execution order. An established procedure need not have a coordinator rediscover its sequence each time.</p>
+<p>The corresponding <a href="https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py">research code example</a> saves three investigators' summaries in distinct fields and passes them to a merger after all investigators finish. Concurrent execution and sharing results are separate decisions. Its summary instructions do not by themselves meet this article's evidence requirements: correct ordering still requires a separate check of research accuracy.</p>
+<p><a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">Bedrock's March 2025 general availability announcement</a> describes both a supervisor that decomposes and synthesizes work and a routing mode that sends simple requests directly to specialists. Complex requests still return to coordination in that mode. Checking one product and comparing three products can therefore call for different amounts of coordination. This example is my interpretation, not a measured cost saving from routing.</p>
+<p>Fixed procedures can be combined with investigators that change their exploration according to findings. Compare who determines order, who chooses a specialist, and where results are stored. These questions make it easier to select mechanisms for a particular job than a list of vendor terminology does.</p>
 </section>
 <section class="report-section">
-<h2>Keep delegation only if comparison with one agent supports it</h2>
-<p>Known execution sequences can use fixed workflows. <a href="https://adk.dev/agents/workflow-agents/">Google ADK's workflow documentation</a> describes sequential, parallel, and loop control without asking a model to make each orchestration decision. Before adding a coordinator, distinguish exploratory delegation from executing an established procedure.</p>
-<p>For product research, give single-agent and delegated configurations the same inputs and completion criteria. Compare factual accuracy, missing fields, total time, cost, and rework. Revise the split if integration dominates; retain it if independent investigations produce a demonstrated benefit. My recommendation is to choose the structure from task dependencies and measured results.</p>
+<h2>Preserve conversation continuity and execution progress separately</h2>
+<p>A <a href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/agents/workflow_as_agent_with_session.py">Microsoft Agent Framework session example available on March 30</a> wraps a workflow containing multiple participants as one agent and includes conversation history in subsequent calls. It also serializes history into a form that can be stored and restored. This preserves internal delegation while allowing a user to continue a previous conversation.</p>
+<p>Remembering the request differs from recording which investigations finished. The separate <a href="https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/checkpoint/workflow_as_agent_checkpoint.py">checkpoint example at that date</a> distinguishes conversation history from execution-state records. Its storage is in memory; that alone does not demonstrate recovery after process termination. These code samples illustrate designs, not execution or failure-recovery tests performed for this article.</p>
+<p>If one hypothetical investigator fails, retain the other two results, the unfinished assignment, and the comparison conditions. After retrying, identify which result was replaced. If the target version changes during the work, check whether the existing results still match it. Resuming successfully does not produce a valid comparison if results from different conditions are joined.</p>
+</section>
+<section class="report-section">
+<h2>The lead's job goes beyond placing results side by side</h2>
+<p>Delegated research moves some reading to AI while leaving the lead with discrepancies to detect. A person making the final selection needs to see the evidence used and the conditions still unverified. Handing over three long completion reports makes that person reconstruct the comparison table.</p>
+<p>Define what allows each investigator to stop and what it should return when material cannot be found. The lead can then identify gaps and narrow further assignments. Asking everyone to restart wastes the benefit of independent exploration. If an early result is used, indicate whether an unfinished investigation could change the recommendation.</p>
+<p>Role names do not restrict permissions. Configure research assignments without unnecessary update operations. Return separate artifacts and identify who may incorporate them into shared files or send them externally. Delegation divides work; it does not automatically remove responsibility for the final decision.</p>
+</section>
+<section class="report-section">
+<h2>Count total work alongside cheaper calls</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/multi-agent-research-system">June 2025 research-system report</a> describes benefits from exploring independent directions and difficulties with heavily interdependent tasks. In its data, multi-agent systems used about 15 times the tokens of ordinary chats. The comparator is chats, not single-agent systems, and the figure is not a universal cost multiplier. Delegation cannot be assumed to reduce cost.</p>
+<p>Even three concurrent investigations leave time for the last investigator, assignment preparation, synthesis, and follow-up research. Lower usage of a large model can be accompanied by more small-model calls and retries. Include the person's work to align conditions in the time required to obtain decision-ready findings.</p>
+<p>Give single-agent and delegated configurations the same request, source material, and quality criteria. Report quality comparisons under a fixed total budget separately from comparisons of time and cost to meet a fixed quality target. Record model changes rather than attributing their effects solely to parallel execution. Repeat trials and include factual errors, missing fields, rejected findings, integration, and human corrections.</p>
+</section>
+<section class="report-section">
+<h2>Divide work into scopes that support the next decision</h2>
+<p>A short specification check for one product may need only one agent or a fixed retrieval procedure. Independent exploration of three products, with findings traceable to original material, gives a reason to delegate. Its value lies in enabling a person to proceed from sufficiently deep research, rather than in the appearance of several AIs working at once.</p>
+<p>Try one division first, aligning inputs, exploration scope, returned evidence, and responsibility for synthesis. Reconsider it if integration rework outweighs reduced waiting. Select models, contexts, ordering, and storage individually, retaining divisions that improve the work required to deliver usable findings. That is the approach to subagents proposed here.</p>
 </section>

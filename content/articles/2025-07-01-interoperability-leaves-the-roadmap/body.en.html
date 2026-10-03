@@ -1,30 +1,67 @@
 <section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>What does interoperability actually make exchangeable?</h2>
-  <p>A2A, MCP, and OpenAPI releases in spring and summer 2025 made particular forms of connection testable. <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A</a> addresses tasks, state, and artifacts exchanged between agents; MCP addresses connections to tools and data; OpenAPI describes operations. Their availability does not mean a connected participant is interchangeable in business terms. This article separates connection compatibility from interchangeability of output meaning, authentication scope, failure behavior, and approval responsibility.</p>
+  <p class="section-kicker">Replacing a connection</p>
+  <h2>A successful search can change what “there is no policy” means</h2>
+  <p>Suppose an AI application switches its internal-document search role to a new provider. The same question can be sent, and a response comes back. Yet the new role may report “not found” because the user cannot read the policy, rather than because the policy does not exist. This is a hypothetical example for examining a replacement. For the user, the important question is whether the searched scope can be trusted.</p>
+  <p>Announcements and specifications for A2A, MCP, and OpenAPI make ways of connecting to other participants and tools more concrete. In June, A2A was donated to the Linux Foundation, and a walkthrough connected MCP Toolbox to an IDE and a database. More material is available for using shared connection formats to design work across products.</p>
+  <p>This article argues that freedom to replace a connection depends on preserving the conditions under which a user interprets its results. An answer with sources differs from prose alone; an empty search differs from a failed search. Starting with common formats, we need to compare meaning, permissions, and the treatment of failure.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">What the formats share</p>
+  <h2>Delegating a task, calling a tool, and describing an API do different jobs</h2>
+  <p>The <a href="https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/">A2A announcement</a> describes discovering another agent’s capabilities and exchanging tasks, progress, and artifacts. MCP connects AI applications to tools and data. <a href="https://spec.openapis.org/oas/v3.1.1.html">OpenAPI 3.1.1</a> defines a format for describing HTTP API inputs, responses, authentication, and related details. Each standardizes a different part of a connection.</p>
+  <p>Our search example could call a document-search tool, or delegate research to another participant and wait for an artifact. Either could use a business API described with OpenAPI internally. Listing the three names does not determine which documents will be searched or what counts as completion. The work expected of the connected participant must be defined first.</p>
+  <p>The <a href="https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/">June 23 A2A donation</a> describes moving the specification, SDKs, and developer tooling into an independent project. A framework through which multiple companies can develop and maintain a standard matters for long-lived connections. Neutral governance, however, does not establish that providers produce equivalent search results or business judgments.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">A tool enters the work</p>
+  <h2>A database connection can extend from searching to changing code</h2>
+  <p><a href="https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases">Google Cloud’s June 4 MCP Toolbox walkthrough</a> follows Sara, a new developer, connecting from Cline in VS Code to a development database on Cloud SQL for PostgreSQL. She explores tables and open orders, adds a vendors table and vendor IDs to inventory, then updates application models and InventoryDAO tests. A connection used to read the database structure becomes part of work that changes and verifies code.</p>
+  <p>The material describes this flow and says it finishes quickly, but it does not report a controlled comparison of people and AI on the same task. The useful mechanism is access to actual data structures and a concrete scope of changes. A tool that reads tables and one that changes them require different permissions and different checks after failure.</p>
+  <p>When replacing the connection, seeing the same tool names is insufficient. Does it target the same development database? Does it allow the same reads and writes? Do the code and tests remain consistent after the changes? A common connection format makes such comparisons easier to begin. It does not make them unnecessary.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Output structure and meaning</p>
+  <h2>The same fields can carry different facts</h2>
+  <p>The <a href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools">June 18 MCP tools specification</a> covers structured results and outputSchema, which describes their format. When a schema is supplied, the server must return structured results that conform to it, and clients should validate them. Its weather example describes a numeric temperature and specifies Celsius. This gives the receiving program information with which to check the format.</p>
+  <p>For document search, an application could define fields for prose, source URL, document version, and searched scope. These are this article’s proposed design, not fields MCP requires for every search. Results from old document versions and results from current versions can have identical fields while supporting different conclusions. Structural agreement and agreement in business meaning need separate checks.</p>
+  <p>OpenAPI descriptions can also express business meaning through explanations of responses and their fields. Merely using the same specification version does not show that two providers adopt the same definitions. A replacement needs comparison of both the code that passes values to the screen and the conclusions drawn from those values.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Whose permissions apply</p>
+  <h2>A shared connection method does not automatically preserve what a user can read</h2>
+  <p>The <a href="https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization">June 18 MCP authorization specification</a> defines an authorization flow for HTTP connections. Authorization itself is optional; the same OAuth mechanism is not mandatory for every MCP implementation. Connections through standard input and output instead use credentials obtained from the environment. The connection method changes which conditions need checking.</p>
+  <p>The HTTP authorization specification requires a server to verify that an access token was issued for that server. Switching providers therefore cannot simply mean reusing a token issued for the previous destination. The destination must match the intended authorization target, and the application must check which documents that user can read. A shared format does not grant identical permissions at every destination.</p>
+  <p>The specification distinguishes 401 responses for conditions such as invalid tokens from 403 responses for insufficient permissions. If the application turns both into an empty search result, the user cannot distinguish “not found” from “cannot read.” That difference needs to survive through to the screen so the person can understand what was actually searched.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Reading success and failure</p>
+  <h2>Receiving a result does not establish that the search succeeded</h2>
+  <p>The MCP tools specification distinguishes protocol errors from errors during tool execution. The latter use isError within the result to indicate problems such as API failures or business-processing errors. Even when a result arrives, its content may describe a failed tool. A client that reads only the response prose loses that distinction.</p>
+  <p>In the opening document-search example, no matching documents within the searched scope, insufficient permission to read a document, and a stopped search process deserve separate treatment. This is a proposed business distinction. Preserving it when passing results to the answer-writing role helps prevent an application from claiming “there is no policy” when the search did not run successfully.</p>
+  <p>With longer work, an elapsed waiting period may also leave the other participant’s task unfinished. A search may be safe to repeat, while work that changes external records can create duplicates if repeated without checking whether the earlier operation committed. Waiting and retry policies need to reflect whether the tool only reads or also makes changes.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Combining with managed services</p>
+  <h2>Common connections can coexist with managed execution</h2>
+  <p>The <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">May Responses API update</a> added connections to remote MCP servers. <a href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/">Foundry’s Developer Essentials announcement</a> also describes A2A, MCP, and OpenAPI connections alongside managed agent execution. A managed runtime can offer shared connection methods.</p>
+  <p>This combination opens a path to using external tools and participants while delegating runtime management. The application still needs to test whether sources, readable scope, and failure distinctions survive a change of destination. A list of supported protocols helps select candidates; explaining the conditions for replacing a working role requires checking the features and versions actually used.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Deciding on a replacement</p>
+  <h2>Use the same work to test what changes and what must survive</h2>
+  <p>To evaluate a replacement search role, use the same documents, users, and questions. Include current and old document versions, readable and restricted documents, and questions with no matching document. Compare insufficient permissions, failed tools, and pending responses as well as normal results. Check whether users can interpret conclusions under the same conditions, rather than merely comparing the appearance of answers.</p>
+  <p>Where differences appear, separate conditions an adapter can preserve from conditions the provider cannot support. If a replacement returns no sources, formatting its prose afterward cannot recover them. The application must narrow the uses for which it claims equivalence, or choose a destination that returns the required information.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>What connection exchanges</h3><p>Tools and resources, tasks and artifacts and status, or operation inputs and outputs.</p></article>
-    <article class="comparison-card"><h3>What connection does not exchange</h3><p>Whose authority is used, what an output means, and who approves a consequential change must be defined separately.</p></article>
-    <article class="comparison-card"><h3>What to test</h3><p>Compare output schemas, authorization scope, timeouts, retries, and treatment of indeterminate state before and after a replacement.</p></article>
+    <article class="comparison-card"><h3>Preserve meaning</h3><p>Define document versions, sources, and searched scope, then check whether results support the same decisions.</p></article>
+    <article class="comparison-card"><h3>Preserve readable scope</h3><p>Check authorization at the destination and avoid treating unreadable documents as nonexistent.</p></article>
+    <article class="comparison-card"><h3>Preserve failure distinctions</h3><p>Return separate indications for an empty search, insufficient permission, execution failure, and pending work.</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Role of the published material</p>
-  <h2>A2A, MCP, and managed platforms address distinct connection surfaces</h2>
-  <p>The A2A announcement and its Linux Foundation donation treat agent cards, capability discovery, and long task lifecycles as open coordination concerns. Google Cloud MCP database integrations give a concrete tool and data connection case. Responses API remote MCP and Azure AI Foundry A2A/MCP/OpenAPI support offer options for combining managed execution and open connection formats.</p>
-  <p>These materials document formats and available scope. They do not prove compatible business outcomes, compliance with an organization’s security requirements, or equal performance between products. Evaluations such as <a href="https://arxiv.org/abs/2406.12045">tau-bench</a>, which include tools, a user, and state, remind us that a shared interface still requires separate checks of final work state.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Hypothetical example</p>
-  <h2>Compare output and failure contracts before replacing a search role</h2>
-  <p>This is a design example. A search role called through A2A is replaced with another provider. Sending a task and receiving an artifact may work, yet one provider may return source URLs and document versions while the other returns prose only. One may report missing user permission while another returns an empty result. The conditions under which a user concludes “not found” have changed.</p>
-  <p>On identical inputs, compare output schema, evidence, authorization failure, timeout, retry, and audit record. If external delivery or data updates are involved, the user or organizational approval point must also remain explicit. Treat communication success as insufficient; test whether completion conditions remain intact.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>Making interoperability a design premise means documenting the responsibilities that cannot be exchanged</h2>
-  <p>Public specifications made connection to other agents and tools more testable. This does not mean interoperability is complete. Authentication, data meaning, responsibility after failure, and approval rules remain contracts of an application and organization. Comparing those contracts as well as the connection format is what makes a future replacement practical.</p>
+  <p>The value of interoperability depends on more than the number of connections. After a replacement, users should still be able to read search results with the same meaning and continue their decisions. Using common formats while defining the conditions that must survive a replacement makes future choices more practical.</p>
 </section>

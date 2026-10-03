@@ -1,61 +1,81 @@
 <section class="report-section">
-<h2>Does approval today authorize the next task?</h2>
-<p>A person approves an invoice prepared by an AI agent. Another invoice arrives from the same supplier next month. That earlier decision does not establish permission to proceed: the amount or bank account may have changed, or the approval may have covered a one-time exception.</p>
-<p>Agent products address part of this problem. OpenAI's Workspace Agents announcement describes organization-controlled access to tools and data, with approval for selected actions. It does not establish an end-to-end process for converting one approval into a business rule for separate future tasks. <a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/">OpenAI announcement</a></p>
-<p>This article proposes that missing process: record a human decision, test the conditions under which it can be reused, and activate only rules approved by an accountable owner. We call this design proposal a Human-Agent Collaboration Workspace (HACW). It is a working hypothesis, not an established standard or a product category with demonstrated benefits.</p>
+<h2>An agent finishes the task, but someone still has to explain the context</h2>
+<p>Suppose a sales representative delegates customer research and a proposal draft to an AI. The next day, the team learns that the customer values implementation time more than cost, and another person takes over. If that person receives only the finished text, the original representative must explain why the team chose the proposal, which conditions remain unverified, and what needs changing. This is a hypothetical example for examining collaboration design.</p>
+<p>An agent's ability to research with tools differs from the next person's ability to continue its work. People do more than issue a request and wait: they change goals during execution, create parts of an artifact, and compare conflicting evidence. Without a way to communicate those changes to the agent and the next owner, more automated execution can leave the explanation and repair burden intact.</p>
+<p>This article uses product announcements and research available by August 12, 2026 to examine an environment for continuing the same work across people and agents. We call our design hypothesis a Human-Agent Collaboration Workspace (HACW): shared goals, ownership, artifact versions, evidence, changes, and human decisions. This is the author's proposal about which capabilities to connect and test, rather than an account of an established standard.</p>
 </section>
 <section class="report-section">
-<h2>Five roles in the HACW design</h2>
-<p>In this article, HACW is a design proposal for retaining goals, constraints, artifacts, evidence, checks, and human decisions as records the next task can reference. These five roles do not prescribe a product architecture or separate agents for every task. They make explicit who owns each decision and which part, if any, may be automated.</p>
+<h2>Execution across tools is already part of products</h2>
+<p><a href="https://openai.com/index/introducing-workspace-agents-in-chatgpt/">OpenAI's Workspace Agents announcement</a> describes shared organizational agents using permitted tools and data, with approval for selected actions. A Rippling customer comment in the announcement connects account research, Gong call summaries, and deal briefs posted to Slack. The statement that this automates work previously taking representatives five to six hours a week is a customer report, not an independent time measurement.</p>
+<p>The example shows a product expanding from answering questions to carrying a team's process across tools. The time report alone does not establish whether another owner can recover the research assumptions or how a person's correction carries into the next task. Once execution is connected, the sharing of work context still needs examination.</p>
+<p>For the hypothetical proposal, the customer's changed priorities affect whether the team preserves only the cost table or researches the implementation sequence again. Before placing existing capabilities under one label, check whether a changed goal reaches the responsible people and artifacts. HACW starts with making that handoff work, rather than simply adding more executable actions.</p>
+</section>
+<section class="report-section">
+<h2>People do more than provide the final approval</h2>
+<p><a href="https://arxiv.org/html/2603.02050v1">The first version of the CLEO paper</a> examines delegation, direction, and concurrent work with an agent in a shared workspace. Its initial exploratory study involved ten professional designers; the two-day study of the revised CLEO also involved ten. These studies observe collaborative behavior, rather than comparing productivity across occupations.</p>
+<p>In the first prototype, seeing the agent's process encouraged people to intervene, but the agent could confuse independent human work with corrective feedback and revert changes. The revised design emphasizes interpreting what human actions mean. Displaying an execution process and handling changes made concurrently by a person are separate capabilities.</p>
+<p>In the proposal example, a person might revise the customer-facing introduction while asking the agent to research implementation timelines. Treating that edit as an instruction to rewrite the entire document could destroy the person's work. Participants need to share who owns which part and whether a change affects another task.</p>
+<p><a href="https://arxiv.org/abs/2507.22358v1">The Magentic-UI research report</a> also presents a prototype for planning together, participating in tasks, and controlling selected actions. These are concrete examples of collaboration extending beyond a final permission gate. A research interface, however, has a different maturity level from an environment operated continuously across departments.</p>
+</section>
+<section class="report-section">
+<h2>Read intervention results through what the study measured</h2>
+<p><a href="https://arxiv.org/html/2604.20070v1">The first Pista paper</a> proposes splitting spreadsheet changes into steps, showing formulas, affected ranges, and downstream effects, and branching execution from a local edit. A person can question computational assumptions during the process instead of only inspecting a completed spreadsheet.</p>
+<p>Its within-subject evaluation involved sixteen participants with Excel experience, twelve of whom were graduate students. Across two spreadsheet tasks, the baseline removed Pista's collaborative features and applied changes before returning a summary. The mean number of prompts was 2.19 with Pista and 4.00 with the baseline, a difference the paper reports as statistically significant. That count does not mean completion time or operational errors fell by the same proportion.</p>
+<p>Our interpretation is that targeting a particular step may enable intervention without restating the whole job. Increased trust in a readable explanation still needs to be distinguished from a correct calculation. HACW should likewise measure the sense of participation, whether intent was reflected, and artifact accuracy separately.</p>
+</section>
+<section class="report-section">
+<h2>HACW keeps shared records for continuing the same work</h2>
+<p>Our design shares the goal and unresolved conditions, current owner, permitted actions, adopted artifact version, evidence, checks, reasons for changes, and open issues. The aim is not to save every conversation. It is to let the next owner understand the current state and return to relevant original material. Even a solo user must hand work to their next-day self and agent.</p>
+<p><a href="https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/">The Copilot Pages announcement</a> describes retaining generated content as an object people can edit, expand, and share. A shared document provides a basis for handing over an artifact. Collaborative text editing alone does not establish shared task ownership, execution authority, or the scope of a decision.</p>
+<p><a href="https://arxiv.org/html/2606.09751v1">The first CHAP paper</a> proposes a protocol containing workspaces, participants, tasks, artifacts, and an append-only evidence log, with a published specification and reference implementation. It attempts to structure handoffs and human changes rather than leaving them only in conversation. Such formats therefore cannot be described as entirely absent. The existence of a proposal, widespread adoption, and a working handoff between products are separate questions.</p>
+<p>A record that detects tampering does not establish that the recorded decision was correct. Different access permissions may also prevent a receiving owner from opening the evidence. Design the record format together with the conditions that let someone use it to continue work.</p>
+</section>
+<section class="report-section">
+<h2>Five roles do not imply five AI agents</h2>
+<p>We organize participants using shared records into five roles. This is our division of responsibilities, not a required product architecture. One person may set the goal and perform specialized work; existing programs may coordinate tasks and run checks.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Accountable owner</h3>
-<p>Sets the goal, constraints, and acceptance conditions, and accepts responsibility for a process that meets them. Automation can advance only where applicability conditions are explicit.</p>
-</article>
-<article class="comparison-card">
-<h3>Coordination</h3>
-<p>Records task breakdown, handoffs, and completion conditions. A process can be repeated only when both assignment and completion judgement are clear.</p>
-</article>
-<article class="comparison-card">
-<h3>Specialized work</h3>
-<p>Performs a bounded task and returns the inputs, tools, evidence, and result used. That work can be delegated when permissions, inputs and outputs, and accessible records are constrained.</p>
-</article>
-<article class="comparison-card">
-<h3>Evaluation</h3>
-<p>Checks the artifact, execution path, and safety conditions, separating ordinary cases from exceptions. A judgement without reproducible grading rules is not evidence for automating the decision.</p>
-</article>
-<article class="comparison-card">
-<h3>Memory and records</h3>
-<p>Retains evidence, versions, changes, and decision rationale so prior candidates remain traceable. Records without retention, correction, and deletion rules do not become future execution authority by themselves.</p>
-</article>
+<article class="comparison-card"><h3>Own the goal and responsibility</h3><p>Define the desired result, conditions to preserve, and unresolved questions. Communicate why a goal changes and which work the change affects.</p></article>
+<article class="comparison-card"><h3>Coordinate ownership and progress</h3><p>Divide tasks and align owners, dependencies, and completion conditions. Coordination need not carry permission to execute every task itself.</p></article>
+<article class="comparison-card"><h3>Perform specialized work</h3><p>An agent, human specialist, or existing system does the work. Return intermediate artifacts, inputs, evidence, and reasons for stopping.</p></article>
+<article class="comparison-card"><h3>Check results and execution</h3><p>Test task-specific acceptance conditions. Separate rule-based checks from human judgement about goals or values.</p></article>
+<article class="comparison-card"><h3>Carry records into later work</h3><p>Retain artifact versions, reasons for changes, decisions, and applicability conditions. Apply corrections and expiry so old records do not override current instructions.</p></article>
 </div>
-<p>This is not a feature list for existing products. It states this article's design claim: reusing a human decision needs responsibility and testing to turn a record into a conditional execution rule; searching prior conversations is insufficient.</p>
+<p>The reason for distinguishing roles is not to add participants. The person who can change a customer's goal, the agent researching material, and the owner authorizing publication or delivery can decide different things. Even a system using one agent should preserve those distinctions in its records and permissions.</p>
 </section>
 <section class="report-section">
-<h2>A decision record and an execution rule answer different questions</h2>
-<p>A decision record explains why an action was approved. An execution rule specifies which conditions a new request must meet, whose authority applies, and which action is permitted. Finding a previous decision does not answer all of those questions.</p>
-<p>The OpenAI Agents SDK can interrupt a tool call and resume after approval or rejection. This controls an operation in a running task. <a href="https://openai.github.io/openai-agents-python/human_in_the_loop/">Approval documentation</a> AWS AgentCore Policy evaluates tool access through Gateway against rules outside the agent's code. <a href="https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/policy.html">Policy documentation</a></p>
-<p>These mechanisms support a distinction between receiving permission and repeatedly testing execution conditions. We propose a separate step between them: derive a candidate rule from the decision, test it, and have it approved. Connecting the products does not automatically supply that step. The business must define the conditions and accountable owner.</p>
+<h2>The scope of delegation can change during the work</h2>
+<p><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic's agent design guide</a> distinguishes workflows following predefined paths from agents whose models choose their own process, and recommends avoiding unnecessary complexity. With a stable sequence, sending input to an existing process may be easier to manage than asking an agent to decompose the task each time.</p>
+<p>In <a href="https://www.anthropic.com/engineering/multi-agent-research-system">its multi-agent research system</a>, a lead divides research and integrates specialists' findings. The account also describes limitations for work requiring everyone to share the same context or involving many dependencies. Having independently researchable questions differs from integrating their answers into a coherent proposal.</p>
+<p>For our hypothetical proposal, separate agents could research competing products, the representative could learn what the customer values, and both could revise the implementation sequence. New conditions may require stopping delegated research or rechecking a completed comparison. Delegation, joint creation, and handoff to a person should not be fixed permanently by the initial request.</p>
+<p>Adding this coordination to every short routine task can create more record maintenance than useful work. In rare negotiations, a person may benefit more from reviewing past reasons than from replaying the earlier decision. Start testing HACW where work continues over time and intermediate changes or owner transitions actually occur.</p>
 </section>
 <section class="report-section">
-<h2>An invoice example with explicit exceptions</h2>
-<p>The following is a hypothetical design example, not a deployment report. A company processes a monthly contractual charge. For the current invoice, a reviewer checks the contract number, billing period, amount, and registered payment destination before approving it.</p>
-<p>To reuse the decision, the owner specifies more than “allow invoices from this supplier.” The contract must be active, the amount must match, the billing period must not already have been processed, and the payment destination must be unchanged. The record identifies the contract version, approving owner, and rule expiry. Similar wording in two invoices does not establish those conditions.</p>
+<h2>Evidence alignment differs from permission to adopt the result</h2>
+<p><a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropic's evaluation guide</a> distinguishes an execution transcript from the resulting state of the environment and selects grading methods by task. Saying research was performed, supplying a citation, and actually verifying the required information are different achievements.</p>
+<p>For a proposal, examine whether the material supports the statement, whether it is current, whether it applies to the customer's conditions, and whether the team may promise that result. A statement can match its source yet apply only to a particular configuration. Calculation and format checks may be programmatic, while missing conditions or competing priorities may require human judgement.</p>
+<p>Permission to act is another check. <a href="https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-bedrock-agentcore-policy-evaluations-preview/">AWS's December 2025 AgentCore Policy announcement</a> describes checking tool calls through Gateway against policies. This illustrates control over execution conditions; it is not itself an evaluator deciding whether a proposal suits a customer.</p>
+<p>When returning work to a person, send the artifact together with what was verified, which conditions are missing, and the requested decision. Also distinguish agent uncertainty from an action reserved to a person by the organization. The owner can then understand whether they are filling a research gap, selecting a goal, or authorizing an operation.</p>
+</section>
+<section class="report-section">
+<h2>Turning today's approval into tomorrow's permission needs testing</h2>
+<p>Consider a hypothetical invoice example for reusing a shared decision record. A reviewer approves a monthly contractual charge after checking the contract number, period, amount, and registered payment destination. An invoice from the same supplier next month may still contain a change or follow a one-time exception. Finding the previous approval does not authorize a new operation.</p>
+<p>For reuse, an accountable owner could propose a rule requiring an active contract, matching amount, unprocessed billing period, and unchanged payment destination. Record the contract version, expiry, and permitted action. Test the actual data against these conditions rather than treating similar wording as sufficient.</p>
 <ul>
-<li>A matching invoice for an unprocessed period is a candidate for the rule.</li>
-<li>An excessive amount, changed destination, or previously processed period must not receive automatic permission.</li>
-<li>An unavailable contract or unreadable billing period returns to review instead of being guessed.</li>
+<li>Test excessive amounts, changed destinations, and duplicate invoices alongside ordinary cases; exclude them from automatic permission.</li>
+<li>Return to human review when the contract is unavailable or the period unreadable, rather than guessing.</li>
+<li>Activate only a version whose tests and scope the owner approved, with a way to revoke it after a contract change or discovered error.</li>
 </ul>
-<p>A developer turns the normal and exceptional cases into tests. The business owner reviews the results and scope before activating a versioned rule. Execution rechecks the target data and records the rule version and result. A contract change triggers another review; a discovered error must allow the rule to be disabled.</p>
-<p>Automation extends only to operations the organization delegates to that rule. If payment needs separate approval, a successful invoice match does not waive it. Passing the tests also does not guarantee correct handling of exceptions missing from the test set.</p>
+<p>If payment requires separate approval, successful matching does not waive that permission. Passing tests also does not establish correct handling of exceptions omitted from them. Decision reuse is one HACW capability; converting every human judgement into automatic execution is not its purpose.</p>
 </section>
 <section class="report-section">
-<h2>Keep the records the next owner needs</h2>
-<p>The next person needs the invoice and contract, matching results, applied rule, and reason for any escalation. Preserve references to those records without requiring everyone to read an entire conversation. If several agents divide the work, assign responsibility for routing and integration. A task completed by one process does not inherently need another management agent.</p>
-<p>Research supports carrying experience into later attempts. Reflexion evaluates agents that retain textual feedback and retrieve it for subsequent trials. <a href="https://arxiv.org/abs/2303.11366">Reflexion paper</a> Better benchmark performance, however, is not authority to approve a company's payment. In this design, memory retrieves relevant decisions; approved rules determine whether an operation is permitted.</p>
+<h2>Carry the adopted decision and its conditions into the next task</h2>
+<p><a href="https://arxiv.org/abs/2303.11366v4">Reflexion</a> evaluates retaining textual reflections derived from feedback for subsequent trials. It provides a research example of experience reuse, rather than a basis for granting business authority. Use prior records to find relevant candidates without replacing current instructions and permission checks.</p>
+<p>For the opening proposal, retain why the customer prioritized implementation time, the adopted option, unfinished research, and the next owner's decisions. A search returning the old cost-first approach should not override the next day's correction. The proposal text, decision record, and future execution rule have different purposes and update owners.</p>
+<p>A reader should be able to return to original material and inspect both a change and its affected conclusions. More retained information is not automatically better. Define what to keep, who corrects it, and when obsolete records are removed, so continuing work does not require reading the entire conversation.</p>
 </section>
 <section class="report-section">
-<h2>Test whether reuse saves work without increasing errors</h2>
-<p>Begin with the agent proposing a rule while people continue making the decisions. Record agreement, incorrectly permitted candidates, missed exceptions, and review time. Use those results to choose the automation scope, retaining sample review and rule withdrawal after deployment.</p>
-<p>Fewer approval requests offer little benefit if rule authoring and maintenance consume more time than they save. Rare negotiations and rapidly changing conditions may be better served by keeping past decisions as reference material. The test of HACW is whether decisions whose goal, constraints, evidence, checks, and owner remain traceable can pass into subsequent work without increasing misapplication.</p>
+<h2>Include the person's explanation and repair time in the test</h2>
+<p>Agent execution counts cannot measure HACW's benefit by themselves. Compare the same job using conventional conversation and file handoffs against a design with the necessary shared records. Include changed conditions and a new owner, then record restatements, use of outdated versions, lost conditions, and human repair time. This is our evaluation proposal, not a measured result for HACW as a whole.</p>
+<p>Fewer review requests offer little benefit if record creation and rule maintenance consume more time. Displaying every action can increase reassurance without helping a person notice important changes. Test a view of changed conditions, conflicting evidence, and unchecked items, with access to original records when needed.</p>
+<p>Our conclusion is that a collaborative environment should let people understand delegated work mid-process, revise it, and hand it to another owner. HACW organizes that requirement as shared goals, artifacts, ownership, evidence, and decisions. The next-day recipient of the proposal should be able to continue under the customer's changed conditions without asking someone to reconstruct yesterday's conversation. That is the state this hypothesis needs to demonstrate in real work.</p>
 </section>

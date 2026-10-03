@@ -1,14 +1,14 @@
 {
   "slug": "agent-evaluation-measures-execution-path",
   "date": "2026-07-11",
-  "titleJa": "AIエージェントの誤操作を、回答と実行記録から評価する",
-  "titleEn": "Evaluating AI agent actions beyond the final answer",
-  "summaryJa": "同じ予約変更の回答を返しても、承認より先に保存した実行は不合格になる。予約変更の想定例で、依頼の条件、実行順序と入力値、最終状態の三つを分け、トレースを合否判定と回帰検出へ結び付ける方法を説明する。",
-  "summaryEn": "Two booking agents can return the same correct answer while only one follows the approval rule. A hypothetical example separates the task contract, execution order and arguments, and final state, then connects traces to acceptance and regression checks.",
-  "seoDescriptionJa": "予約変更の例で、AIエージェントの依頼条件、承認順序、入力値、最終状態を別々に評価。トレース、合否判定、正しい代替経路、回帰検出の役割を解説する。",
-  "seoDescriptionEn": "Evaluate AI agents through task contracts, booking traces, approval order, tool arguments, and saved state. Learn how traces support acceptance checks and regressions.",
-  "teaserJa": "同じ正しい回答でも、承認前に保存した実行は不合格になる。その違いを判定する記録と規則を示す。",
-  "teaserEn": "The same correct answer can conceal an unapproved write. Check events, arguments, and final state separately.",
+  "titleJa": "AIエージェント評価を、仕事の直し方につなげる",
+  "titleEn": "Use AI agent evaluation to decide what work needs repair",
+  "summaryJa": "同じ予約変更の回答でも、承認順序や保存先が違えば評価は変わる。四社のトレースと評価方法、τ-benchから、記録、判定、結果を分けて改善の場所を選ぶ。",
+  "summaryEn": "The same booking answer can hide different approvals and saves. Compare four providers and τ-bench to separate records, judgments, and outcomes and choose repairs.",
+  "seoDescriptionJa": "OpenAI、Google、AWS、AnthropicのAIエージェント評価を比較。予約変更の例から、トレース、呼出しの順序と引数、保存結果、回帰の確認を考える。",
+  "seoDescriptionEn": "Compare OpenAI, Google, AWS, and Anthropic agent evaluation through booking traces, tool order and arguments, saved results, and regression checks.",
+  "teaserJa": "得点が上がったとき、仕事の何がよくなったのか。実行記録から修正する場所を選ぶ。",
+  "teaserEn": "When a score rises, what work improved? Use execution evidence to choose what to repair.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,19 +20,46 @@
   ],
   "publishedSources": [
     {
-      "label": "OpenAI Agents SDK: Tracing",
-      "url": "https://openai.github.io/openai-agents-python/tracing/",
-      "type": "official"
+      "label": "OpenAI Agents SDK tracing",
+      "url": "https://github.com/openai/openai-agents-python/blob/08859339ee3a7cd6529e9a86f85a1be2d6dc4a6c/docs/tracing.md",
+      "type": "official",
+      "publishedAt": "2026-07-11"
     },
     {
-      "label": "AWS: Ground truth evaluations",
-      "url": "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/ground-truth-evaluations.html",
-      "type": "official"
+      "label": "Google ADK evaluation criteria",
+      "url": "https://github.com/google/adk-docs/blob/508e742f84ac0a07b318b12a56bd7b8d2805ac52/docs/evaluate/criteria.md",
+      "type": "official",
+      "publishedAt": "2026-07-10"
     },
     {
-      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction",
-      "url": "https://arxiv.org/abs/2406.12045",
-      "type": "paper"
+      "label": "Google ADK trajectory evaluator implementation",
+      "url": "https://github.com/google/adk-python/blob/57e1ba66ee5f762e22cf5aa727f10fea3485a572/src/google/adk/evaluation/trajectory_evaluator.py",
+      "type": "official",
+      "publishedAt": "2026-07-11"
+    },
+    {
+      "label": "AWS AgentCore evaluation client",
+      "url": "https://github.com/aws/bedrock-agentcore-sdk-python/blob/738eb0fe8a49a737e18103f583967ba2f39b6d57/src/bedrock_agentcore/evaluation/client.py",
+      "type": "official",
+      "publishedAt": "2026-07-10"
+    },
+    {
+      "label": "AWS: AgentCore Evaluations generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/",
+      "type": "official",
+      "publishedAt": "2026-03-31"
+    },
+    {
+      "label": "Anthropic: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "type": "official",
+      "publishedAt": "2026-01-09"
+    },
+    {
+      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "url": "https://arxiv.org/html/2406.12045v1",
+      "type": "paper",
+      "publishedAt": "2024-06-17"
     }
   ],
   "draft": false,

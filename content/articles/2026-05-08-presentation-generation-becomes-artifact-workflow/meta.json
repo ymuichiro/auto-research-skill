@@ -1,14 +1,14 @@
 {
   "slug": "presentation-generation-becomes-artifact-workflow",
   "date": "2026-05-08",
-  "titleJa": "AIで作るプレゼン資料の編集可能性を、次の修正から考える",
-  "titleEn": "Choosing editable formats for AI-generated presentations",
-  "summaryJa": "週次報告の更新を例に、依頼、生成した成果物、画像・SVG・スライド要素の修正、PowerPoint/Slidesでの受入確認を分ける。",
-  "summaryEn": "A weekly-report example separates the request, generated artifact, revisions to images, SVGs, or slide objects, and acceptance in PowerPoint or Slides.",
-  "seoDescriptionJa": "AI生成スライドの画像・SVG・グラフ要素を比較。PowerPointとGoogle Slidesの形式制約を踏まえ、次の修正で納品形式を評価する。",
-  "seoDescriptionEn": "Compare images, SVGs, and chart objects in AI-generated slides, then test the next revision in PowerPoint or Google Slides.",
-  "teaserJa": "見栄えだけでは分からない編集可能性を、数字と注記の修正から確かめる。",
-  "teaserEn": "Test edits to numbers and notes to judge an AI-generated deck beyond its appearance.",
+  "titleJa": "AIで作るプレゼン資料：伝える判断と、次の修正を残す",
+  "titleEn": "AI-generated presentations: preserve the argument and the next edit",
+  "summaryJa": "構成、画像、SVG、データ付きグラフ、テンプレート、表示点検を比較。週次報告の次の修正から、納品形式と人に残る仕事を考える。",
+  "summaryEn": "Compare outlines, images, SVGs, data-bearing charts, templates, and rendered checks, then choose delivery formats through a weekly report’s next revision.",
+  "seoDescriptionJa": "AIプレゼン生成の構成、画像、SVG、PPTX、Google Slidesを比較。内容の根拠と、受け手が次に行う修正から形式を選ぶ。",
+  "seoDescriptionEn": "Compare AI presentation outlines, images, SVG, PPTX, and Google Slides. Choose formats through the argument, source evidence, and the recipient’s next edit.",
+  "teaserJa": "数字と注記を一度直して、見栄えの先にある資料の使いやすさを確かめる。",
+  "teaserEn": "Revise one figure and note to test a deck beyond its first appearance.",
   "category": "AI Workflows",
   "tags": [
     "Generative AI",
@@ -20,24 +20,82 @@
   ],
   "publishedSources": [
     {
-      "label": "Microsoft: Edit SVG images",
-      "url": "https://support.microsoft.com/en-us/office/graphics-visuals/edit-svg-images-in-microsoft-365",
-      "type": "official"
+      "label": "Microsoft: Copilot Wave2 narrative builder",
+      "url": "https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/",
+      "type": "official",
+      "publishedAt": "2024-09-16"
     },
     {
-      "label": "PptxGenJS: Charts",
-      "url": "https://gitbrent.github.io/PptxGenJS/docs/api-charts/",
-      "type": "official"
+      "label": "Canva: Introducing Magic Studio",
+      "url": "https://www.canva.com/newsroom/news/magic-studio/",
+      "type": "official",
+      "publishedAt": "2023-10-04"
     },
     {
-      "label": "Google Slides: CreateImageRequest",
-      "url": "https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateImageRequest",
-      "type": "official"
+      "label": "OpenAI: Image generation API",
+      "url": "https://openai.com/index/image-generation-api/",
+      "type": "official",
+      "publishedAt": "2025-04-23"
     },
     {
-      "label": "PPTAgent (v3, February 2025)",
+      "label": "Adobe: Firefly Services and Custom Models",
+      "url": "https://news.adobe.com/news/news-details/2024/adobe-introduces-firefly-services-and-custom-models-to-accelerate-enterprise-content-creation-and-production",
+      "type": "official",
+      "publishedAt": "2024-03-26"
+    },
+    {
+      "label": "PptxGenJS: api-images",
+      "url": "https://github.com/gitbrent/PptxGenJS/blob/f7b4b9b69e57ba1448f021053929704a984e79ed/docs/api-images.md",
+      "type": "official",
+      "publishedAt": "2025-06-29"
+    },
+    {
+      "label": "PptxGenJS: api-text",
+      "url": "https://github.com/gitbrent/PptxGenJS/blob/f7b4b9b69e57ba1448f021053929704a984e79ed/docs/api-text.md",
+      "type": "official",
+      "publishedAt": "2025-06-29"
+    },
+    {
+      "label": "PptxGenJS: api-charts",
+      "url": "https://github.com/gitbrent/PptxGenJS/blob/f7b4b9b69e57ba1448f021053929704a984e79ed/docs/api-charts.md",
+      "type": "official",
+      "publishedAt": "2025-06-29"
+    },
+    {
+      "label": "Google Slides API: fixed May8 schema",
+      "url": "https://github.com/googleapis/google-api-nodejs-client/blob/7fa3d498cd5973402ed52f7516454c56c5be8be2/src/apis/slides/v1.ts",
+      "type": "official",
+      "publishedAt": "2026-05-08"
+    },
+    {
+      "label": "PptxGenJS: masters",
+      "url": "https://github.com/gitbrent/PptxGenJS/blob/f7b4b9b69e57ba1448f021053929704a984e79ed/docs/masters.md",
+      "type": "official",
+      "publishedAt": "2025-06-29"
+    },
+    {
+      "label": "Microsoft PowerPoint: insert slides",
+      "url": "https://github.com/OfficeDev/office-js-docs-pr/blob/78dfc8e76f59d7d9f6727ac3f4d76c1a2552cd7d/docs/powerpoint/insert-slides-into-presentation.md",
+      "type": "official",
+      "publishedAt": "2026-05-08"
+    },
+    {
+      "label": "PPTAgent v3",
       "url": "https://arxiv.org/abs/2501.03936v3",
-      "type": "paper"
+      "type": "paper",
+      "publishedAt": "2025-02-21"
+    },
+    {
+      "label": "PreGenie v1",
+      "url": "https://arxiv.org/abs/2505.21660v1",
+      "type": "paper",
+      "publishedAt": "2025-05-27"
+    },
+    {
+      "label": "DeepPresenter v3",
+      "url": "https://arxiv.org/abs/2602.22839v3",
+      "type": "paper",
+      "publishedAt": "2026-04-20"
     }
   ],
   "draft": false

@@ -1,14 +1,14 @@
 {
   "slug": "interoperability-leaves-the-roadmap",
   "date": "2025-07-01",
-  "titleJa": "相互運用は、何を交換できる状態を指すのか",
-  "titleEn": "What does agent interoperability actually make exchangeable?",
-  "summaryJa": "A2A、MCP、OpenAPIを手がかりに、道具・データ、他エージェントへの委譲、実行中の状態をどう交換できるかと、認証・出力契約・業務責任として残るものを整理する。",
-  "summaryEn": "Use A2A, MCP, and OpenAPI to separate exchangeable tools, data, delegation, and task state from the authentication, output contracts, and business responsibility that remain.",
-  "seoDescriptionJa": "A2A、MCP、OpenAPIが交換する対象を整理し、接続可能性と、認証・出力・失敗時の業務契約が一致することを区別する。",
-  "seoDescriptionEn": "Explain what A2A, MCP, and OpenAPI exchange, separating connection compatibility from compatible authentication, outputs, and failure contracts.",
-  "teaserJa": "接続形式が共通でも、出力の意味、認証、承認、失敗処理は自動でそろわない。",
-  "teaserEn": "Shared formats do not automatically align output meaning, authentication, approval, or failure handling.",
+  "titleJa": "MCPとA2A：接続先の交換で変えてはいけないこと",
+  "titleEn": "MCP and A2A: what must survive a change of provider",
+  "summaryJa": "MCPの構造化出力と認可、A2Aの寄贈、Googleのデータベース接続例を比較する。検索担当を替える想定例から、出典、閲覧範囲、失敗の区別をどう保つかを考える。",
+  "summaryEn": "Compare MCP structured output and authorization, A2A governance, and a database walkthrough to examine what must survive replacing a search provider.",
+  "seoDescriptionJa": "MCP・A2A・OpenAPIの接続互換と業務の意味を区別する。出典、文書の版、閲覧権限、空の検索と実行失敗を交換前後で比べる。",
+  "seoDescriptionEn": "Compare MCP, A2A, and OpenAPI: what changing a provider means for sources, document versions, user permissions, and the distinction between empty and failed searches.",
+  "teaserJa": "検索先を替えても、同じ意味で結果を読めるか。接続形式から、出典・権限・失敗の比較へ。",
+  "teaserEn": "After replacing a search provider, can users still interpret its results under the same conditions?",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,22 +19,40 @@
   ],
   "publishedSources": [
     {
-      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
-      "url": "https://arxiv.org/abs/2406.12045",
-      "type": "paper",
-      "publishedAt": "2024-06-17"
-    },
-    {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
-    },
-    {
-      "label": "OpenAI: New tools for building agents",
-      "url": "https://openai.com/index/new-tools-for-building-agents/",
+      "label": "Google Developers: Announcing the Agent2Agent Protocol (A2A)",
+      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
       "type": "official",
-      "publishedAt": "2025-03-11"
+      "publishedAt": "2025-04-09"
+    },
+    {
+      "label": "OpenAPI Specification 3.1.1",
+      "url": "https://spec.openapis.org/oas/v3.1.1.html",
+      "type": "official",
+      "publishedAt": "2024-10-24"
+    },
+    {
+      "label": "Google Developers: Google Cloud donates A2A to Linux Foundation",
+      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
+      "type": "official",
+      "publishedAt": "2025-06-23"
+    },
+    {
+      "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
+      "type": "official",
+      "publishedAt": "2025-06-04"
+    },
+    {
+      "label": "MCP specification 2025-06-18: Tools",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+      "type": "official",
+      "publishedAt": "2025-06-18"
+    },
+    {
+      "label": "MCP specification 2025-06-18: Authorization",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/basic/authorization",
+      "type": "official",
+      "publishedAt": "2025-06-18"
     },
     {
       "label": "OpenAI: New tools and features in the Responses API",
@@ -43,34 +61,10 @@
       "publishedAt": "2025-05-21"
     },
     {
-      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
-      "type": "official",
-      "publishedAt": "2025-04-09"
-    },
-    {
-      "label": "Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)",
-      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
-      "type": "official",
-      "publishedAt": "2025-04-09"
-    },
-    {
-      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
+      "label": "Microsoft Foundry: Announcing Developer Essentials",
+      "url": "https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/",
       "type": "official",
       "publishedAt": "2025-05-19"
-    },
-    {
-      "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
-      "type": "official",
-      "publishedAt": "2025-06-05"
-    },
-    {
-      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
-      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
-      "type": "official",
-      "publishedAt": "2025-06-23"
     }
   ],
   "draft": false

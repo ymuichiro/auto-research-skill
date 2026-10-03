@@ -1,14 +1,14 @@
 {
   "slug": "agent-memory-shifts-to-layered-systems",
   "date": "2026-04-08",
-  "titleJa": "AIエージェントの記憶を、検索・適用・更新に分けて設計する",
-  "titleEn": "Designing agent memory for retrieval, applicability, and updates",
-  "summaryJa": "過去の好みと今回の指示が違う想定例から、現在の依頼、長期の好み、組織規則、共有メモの範囲と更新を整理。LangGraph、Letta、LongMemEvalを具体的な根拠として読む。",
-  "summaryEn": "Use conflicting preferences and requests to examine current instructions, durable preferences, organizational rules, and shared notes through LangGraph, Letta, and LongMemEval.",
-  "seoDescriptionJa": "AIの記憶では正しい検索だけでは足りない。個人の好みと今回の指示、訂正の有効時点、共有記憶の競合を分けて設計・評価する方法を解説。",
-  "seoDescriptionEn": "Design agent memory around scope, current instructions, corrections, and concurrent writes, then evaluate retrieval and update failures separately.",
-  "teaserJa": "正しく思い出しても誤る理由を、条件の適用と記憶の更新から考える。",
-  "teaserEn": "Correct recall can still lead to a wrong answer when applicability and updates are mishandled.",
+  "titleJa": "AIエージェントのメモリ設計　正しい検索が誤った判断になる理由",
+  "titleEn": "Agent memory design: why correct recall can still lead to the wrong decision",
+  "summaryJa": "以前の好みを正しく思い出しても、今回の依頼へ適用すれば誤る場合がある。会話の状態、継続する好み、共有記録を、検索、訂正、要約、忘却の違いから比較し、次の仕事で役立つ記憶を設計する。",
+  "summaryEn": "Correct recall can still apply an old preference to the wrong task. Compare working state, durable preferences, and shared records through retrieval, correction, summarization, and forgetting to design memory for the next task.",
+  "seoDescriptionJa": "AIエージェントのメモリ設計を、RAGによる検索だけでなく更新、適用、忘却から分析。LangGraph、Letta、MemGPT、LongMemEvalを比較し、古い希望や共有更新の競合を扱う条件を説明する。",
+  "seoDescriptionEn": "Compare agent memory beyond RAG: working state, durable preferences, shared updates, and forgetting, drawing on LangGraph, Letta, MemGPT, and LongMemEval.",
+  "teaserJa": "正しく思い出すだけでは足りない。変わった希望を更新し、次の仕事で使う条件まで考える。",
+  "teaserEn": "Useful memory must preserve corrections and applicability, not just retrieve the right record.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,19 +20,75 @@
   ],
   "publishedSources": [
     {
-      "label": "LangGraph: Memory",
-      "url": "https://docs.langchain.com/oss/python/langgraph/add-memory",
-      "type": "official"
+      "label": "Retrieval-Augmented Generation (v1)",
+      "url": "https://arxiv.org/abs/2005.11401v1",
+      "type": "paper",
+      "publishedAt": "2020-05-22"
     },
     {
-      "label": "Letta: Shared memory",
-      "url": "https://docs.letta.com/v1-sdk/memory/shared-memory",
-      "type": "official"
+      "label": "LangGraph v0.2 checkpoints",
+      "url": "https://www.langchain.com/blog/langgraph-v0-2",
+      "type": "official",
+      "publishedAt": "2024-08-07"
     },
     {
-      "label": "LongMemEval (v2, March 2025)",
-      "url": "https://arxiv.org/abs/2410.10813v2",
+      "label": "LangGraph long-term memory announcement",
+      "url": "https://www.langchain.com/blog/launching-long-term-memory-support-in-langgraph",
+      "type": "official",
+      "publishedAt": "2024-10-08"
+    },
+    {
+      "label": "Generative Agents (v1)",
+      "url": "https://arxiv.org/abs/2304.03442v1",
+      "type": "paper",
+      "publishedAt": "2023-04-07"
+    },
+    {
+      "label": "MemGPT (v1)",
+      "url": "https://arxiv.org/abs/2310.08560v1",
+      "type": "paper",
+      "publishedAt": "2023-10-12"
+    },
+    {
+      "label": "A-MEM (v1)",
+      "url": "https://arxiv.org/abs/2502.12110v1",
+      "type": "paper",
+      "publishedAt": "2025-02-17"
+    },
+    {
+      "label": "Zep (v1)",
+      "url": "https://arxiv.org/abs/2501.13956v1",
+      "type": "paper",
+      "publishedAt": "2025-01-20"
+    },
+    {
+      "label": "Letta Code Context Repositories",
+      "url": "https://www.letta.com/blog/context-repositories/",
+      "type": "official",
+      "publishedAt": "2026-02-12"
+    },
+    {
+      "label": "Letta memory blocks technical explanation",
+      "url": "https://www.letta.com/blog/memory-blocks/",
+      "type": "official",
+      "publishedAt": "2025-05-14"
+    },
+    {
+      "label": "ChatGPT memory and controls",
+      "url": "https://openai.com/index/memory-and-new-controls-for-chatgpt/",
+      "type": "official",
+      "publishedAt": "2024-02-13"
+    },
+    {
+      "label": "LoCoMo (ACL 2024)",
+      "url": "https://aclanthology.org/2024.acl-long.747/",
       "type": "paper"
+    },
+    {
+      "label": "LongMemEval (v2)",
+      "url": "https://arxiv.org/abs/2410.10813v2",
+      "type": "paper",
+      "publishedAt": "2025-03-04"
     }
   ],
   "draft": false

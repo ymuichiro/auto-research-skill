@@ -1,14 +1,14 @@
 {
   "slug": "agents-shift-to-measurable-systems",
   "date": "2025-01-01",
-  "titleJa": "AIエージェントの比較は、なぜ測定可能な仕事の設計へ向かったのか",
-  "titleEn": "Why AI-agent comparison turned to measurable work design",
-  "summaryJa": "ReAct、Toolformer、WebArena、SWE-bench、OSWorldを比較し、AIエージェントを「道具を呼べるか」ではなく、環境内の仕事をどの条件で終えられるかで評価する理由を整理する。",
-  "summaryEn": "Compare ReAct, Toolformer, WebArena, SWE-bench, and OSWorld to show why agent evaluation needs conditions for completing work in an environment, not just evidence of a tool call.",
-  "seoDescriptionJa": "2025年初頭までのAIエージェント研究と公式資料を基に、ツール使用、環境操作、最終状態を分けて測る仕事設計を解説する。",
-  "seoDescriptionEn": "Using agent research and product documentation available by early 2025, this article maps separate measures for tool use, environment actions, and final task state.",
-  "teaserJa": "APIが応答しても、仕事が終わったとは限らない。研究ベンチマークが示した「測定可能な仕事」の設計をたどる。",
-  "teaserEn": "An API response does not prove that work is complete. Trace how agent benchmarks made task conditions measurable.",
+  "titleJa": "AIエージェントの評価　道具の成功と仕事の完了を分ける",
+  "titleEn": "Evaluating AI agents: a successful tool call is not a finished job",
+  "summaryJa": "検索が応答しても、別機種の保守期限を返せば仕事は終わらない。ReAct、Toolformerと環境ベンチマークを比較し、行動、観測の利用、最終状態を分けて測る意味を考える。",
+  "summaryEn": "Search can succeed while returning a deadline for the wrong device. Compare ReAct, Toolformer, and environment benchmarks to separate actions, use of observations, and final task state.",
+  "seoDescriptionJa": "2025年初頭までのReAct、Toolformer、WebArena、SWE-bench、OSWorldを比較。AIエージェントのツール成功率と仕事の完了を分け、失敗を直せる評価条件を説明する。",
+  "seoDescriptionEn": "Compare ReAct, Toolformer, WebArena, SWE-bench, and OSWorld as of early 2025. Separate successful tool calls from completed tasks to locate repairable failures.",
+  "teaserJa": "検索の成功を、利用者が知りたかったことの成功と取り違えない。",
+  "teaserEn": "A successful search may still leave the person’s question unanswered.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,10 +18,10 @@
   ],
   "publishedSources": [
     {
-      "label": "ReAct: Synergizing Reasoning and Acting in Language Models",
-      "url": "https://arxiv.org/abs/2210.03629",
+      "label": "ReAct: Synergizing Reasoning and Acting in Language Models (v3)",
+      "url": "https://arxiv.org/html/2210.03629v3",
       "type": "paper",
-      "publishedAt": "2022-10-06"
+      "publishedAt": "2023-03-10"
     },
     {
       "label": "Toolformer: Language Models Can Teach Themselves to Use Tools",
@@ -30,26 +30,26 @@
       "publishedAt": "2023-02-09"
     },
     {
-      "label": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
-      "url": "https://arxiv.org/abs/2307.13854",
+      "label": "WebArena: A Realistic Web Environment for Building Autonomous Agents (v2)",
+      "url": "https://arxiv.org/abs/2307.13854v2",
       "type": "paper",
-      "publishedAt": "2023-07-25"
+      "publishedAt": "2023-10-24"
     },
     {
       "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues?",
-      "url": "https://arxiv.org/abs/2310.06770",
+      "url": "https://arxiv.org/abs/2310.06770v1",
       "type": "paper",
       "publishedAt": "2023-10-10"
     },
     {
       "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
-      "url": "https://arxiv.org/abs/2404.07972",
+      "url": "https://arxiv.org/abs/2404.07972v1",
       "type": "paper",
       "publishedAt": "2024-04-11"
     },
     {
       "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
+      "url": "https://arxiv.org/abs/2412.05467v1",
       "type": "paper",
       "publishedAt": "2024-12-06"
     },
@@ -78,5 +78,7 @@
       "publishedAt": "2024-12-19"
     }
   ],
-  "draft": false
+  "draft": false,
+  "seoTitleJa": "AIエージェントの評価方法　ツール利用と仕事の完了を分ける",
+  "seoTitleEn": "AI-agent evaluation: tool success versus task completion"
 }

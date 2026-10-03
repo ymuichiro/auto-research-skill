@@ -1,14 +1,14 @@
 {
   "slug": "agents-compete-on-work-continuity",
   "date": "2026-04-20",
-  "titleJa": "AIエージェントの作業を中断後に再開するため、何を保存するか",
-  "titleEn": "What to preserve so an AI agent can resume interrupted work",
-  "summaryJa": "調査報告の想定例で、会話履歴、次の作業、進捗、成果物の版、外部操作の結果を区別し、中断後の再開に必要な確認を整理する。",
-  "summaryEn": "A research-report example distinguishes history, next action, progress, artifact versions, and external action results needed to resume interrupted work.",
-  "seoDescriptionJa": "AIエージェントのセッション保存と作業再開の違いを解説。Managed AgentsとGoogle ADKを手掛かりに、永続化、成果物の版、重複操作を考える。",
-  "seoDescriptionEn": "Distinguish saved sessions from task recovery using Managed Agents and Google ADK: persistence, artifact versions, duplicate actions, and resumption checks.",
-  "teaserJa": "会話が残っていても続けられない原因を、進捗とファイルの引き継ぎから考える。",
-  "teaserEn": "Preserve the progress and files a task needs, then test what happens when execution stops.",
+  "titleJa": "AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件",
+  "titleEn": "Carry an agent’s work into tomorrow: memory, artifacts, and recovery",
+  "summaryJa": "昨日の比較報告を今日完成させる想定例から、会話の再利用、実行環境の復旧、版付き成果物、記憶の更新を比較し、人が引き取れる継続性を考える。",
+  "summaryEn": "A comparison-report scenario examines thread reuse, workspace recovery, versioned artifacts, and memory refresh, asking what lets an agent or person finish the remaining work.",
+  "seoDescriptionJa": "AIエージェントの作業継続をCodex、Agents SDK、Managed Agents、Google ADK、AgentCoreから分析。保存範囲、成果物の版、古い記憶、再開時の確認条件を解説。",
+  "seoDescriptionEn": "Compare agent continuity across Codex, Agents SDK, Managed Agents, ADK and AgentCore: saved workspaces, artifact versions, stale memory and recovery checks.",
+  "teaserJa": "「続きから」と頼めるだけでなく、昨日の判断と今日の事実を結び付ける。",
+  "teaserEn": "Carry forward usable work and its rationale, while checking what changed overnight.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,19 +20,52 @@
   ],
   "publishedSources": [
     {
-      "label": "Anthropic Engineering: Scaling Managed Agents: Decoupling the brain from the hands",
+      "label": "Anthropic: Scaling Managed Agents: Decoupling the brain from the hands",
       "url": "https://www.anthropic.com/engineering/managed-agents",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-04-08"
     },
     {
-      "label": "Google ADK: State",
-      "url": "https://adk.dev/sessions/state/",
-      "type": "official"
+      "label": "OpenAI: The next evolution of the Agents SDK",
+      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk/",
+      "type": "official",
+      "publishedAt": "2026-04-15"
     },
     {
-      "label": "Google ADK: Artifacts",
-      "url": "https://adk.dev/artifacts/",
-      "type": "official"
+      "label": "OpenAI: Codex for (almost) everything",
+      "url": "https://openai.com/index/codex-for-almost-everything/",
+      "type": "official",
+      "publishedAt": "2026-04-16"
+    },
+    {
+      "label": "AWS: AgentCore Evaluations generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/",
+      "type": "official",
+      "publishedAt": "2026-03-31"
+    },
+    {
+      "label": "Google ADK: State, April 20 cutoff snapshot",
+      "url": "https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/sessions/state.md",
+      "type": "official",
+      "publishedAt": "2026-04-17"
+    },
+    {
+      "label": "Google ADK: Artifacts, April 20 cutoff snapshot",
+      "url": "https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/artifacts/index.md",
+      "type": "official",
+      "publishedAt": "2026-04-17"
+    },
+    {
+      "label": "OpenAI Agents SDK: Sandbox concepts, April 20 snapshot",
+      "url": "https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/guide.md",
+      "type": "official",
+      "publishedAt": "2026-04-20"
+    },
+    {
+      "label": "OpenAI Agents SDK: Agent memory, April 20 snapshot",
+      "url": "https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/memory.md",
+      "type": "official",
+      "publishedAt": "2026-04-20"
     }
   ],
   "draft": false

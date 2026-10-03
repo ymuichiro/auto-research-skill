@@ -1,14 +1,14 @@
 {
   "slug": "multi-agent-workflows-become-a-product-surface",
   "date": "2025-12-01",
-  "titleJa": "Foundryの複数エージェントワークフローで分かれる、定義・実行・評価・承認",
-  "titleEn": "Foundry workflows separate definition, execution, evaluation, and approval",
-  "summaryJa": "Foundry Agent Serviceの2025年11月公開プレビューは、複数エージェントの経路を図とYAMLで定義し、実行経路と変数を追い、評価器を使う部品を示した。アカウント申請の想定例で、これら四つの成果物が別の判断を支える理由を整理する。",
-  "summaryEn": "Foundry Agent Service’s November 2025 public preview offers components for defining multi-agent paths in diagrams and YAML, tracing runs and variables, and evaluating work. An account-request scenario shows why those four artifacts support different decisions.",
-  "seoDescriptionJa": "Foundryの複数エージェントワークフローを、図とYAMLの定義、実行経路、評価、承認が支える別々の判断から整理する。",
-  "seoDescriptionEn": "Foundry multi-agent workflows: diagrams and YAML define paths, traces record execution, evaluators assess behavior, and approval remains separate.",
-  "teaserJa": "図を作ること、実行を追うこと、品質を評価すること、操作を承認することは別の作業である。",
-  "teaserEn": "Defining a path, tracing a run, evaluating behavior, and authorizing an action are separate tasks.",
+  "titleJa": "Foundryの複数エージェント設計：工程の間で値と根拠を渡す",
+  "titleEn": "Foundry multi-agent workflows: passing values with evidence",
+  "summaryJa": "Foundryの図、YAML、変数、JSON Schemaは、複数エージェントの受け渡しを明示する。アカウント申請の想定例で、抽出した候補、台帳で確かめた値、実際の承認を分け、型の検査や担当の追加だけでは得られない確認を考える。",
+  "summaryEn": "Foundry diagrams, YAML, variables, and JSON Schema make handoffs explicit. An account-request scenario separates extracted candidates, directory-confirmed values, and actual approval, examining what types and additional roles cannot verify alone.",
+  "seoDescriptionJa": "Foundryの複数エージェントワークフローを分析。アカウント申請を例に、図とYAML、JSON Schema、変数、照合、承認の根拠をどう受け渡すか考える。",
+  "seoDescriptionEn": "Analyze Foundry multi-agent workflows through an account request: YAML, JSON Schema, variables, verified values, and evidence for approval.",
+  "teaserJa": "形式に合う値でも、次の担当が確定済みの事実として使えるとは限らない。",
+  "teaserEn": "A well-formed value need not be a fact the next agent may trust.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -25,8 +25,14 @@
       "publishedAt": "2025-11-25"
     },
     {
+      "label": "JSON Schema Draft 2020-12: Validation specification",
+      "url": "https://json-schema.org/draft/2020-12/json-schema-validation",
+      "type": "official",
+      "publishedAt": "2022-06-16"
+    },
+    {
       "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468v1",
+      "url": "https://arxiv.org/html/2411.04468v1",
       "type": "paper",
       "publishedAt": "2024-11-07"
     }

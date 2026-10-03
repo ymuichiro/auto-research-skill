@@ -1,14 +1,14 @@
 {
   "slug": "agent-security-becomes-a-shipping-gate",
   "date": "2026-03-23",
-  "titleJa": "エージェント公開前に、外部の指示で何が実行されるかを試す",
-  "titleEn": "Before releasing an agent, test what external instructions can make it do",
-  "summaryJa": "外部文書の不正指示を検出できたか、誘導されたツール実行を認可しなかったか、通信を封じ込めたかを分けて測る。OpenAI、AWS、Anthropicの公開資料を手がかりに、メール要約の公開前試験を組み立てる。",
-  "summaryEn": "Measure separately whether an external instruction was detected, an induced tool call was unauthorized, and transmission was contained. OpenAI, AWS, and Anthropic sources inform a pre-release test for email summarization.",
-  "seoDescriptionJa": "プロンプトインジェクションの検出、ツール実行の認可、通信の封じ込めを分け、外部送信を含むエージェントの公開前試験を設計する。",
-  "seoDescriptionEn": "Design pre-release agent tests that distinguish prompt-injection detection, tool-call authorization, and containment of outbound transmission.",
-  "teaserJa": "攻撃文を見抜くことと、誘導された操作を止めることは別。通信と実行記録まで確認する公開前試験を考える。",
-  "teaserEn": "Recognizing an attack and preventing its action are different outcomes. Check execution and transmission before release.",
+  "titleJa": "エージェントの安全性は、外部の指示が実行へ届く経路で確かめる",
+  "titleEn": "Agent security: trace external instructions through to execution",
+  "summaryJa": "OpenAIの送信対策、AgentCore Policy、Anthropicの許可設計とAgentDojoの研究を比較する。メール要約の想定例で、指示の検出、実行の認可、通信、人の確認、コード検証を区別し、正常な仕事と禁止操作を試す公開条件を考える。",
+  "summaryEn": "Compare transmission checks, AgentCore Policy, permission design, and AgentDojo research. An email-summary scenario separates detection, authorization, communication, human review, and code validation to define release tests.",
+  "seoDescriptionJa": "プロンプトインジェクションへの対策を検出、実行権限、通信、人の確認に分け、正常業務と禁止操作、コードの脆弱性を公開前に確かめる。",
+  "seoDescriptionEn": "Evaluate agent security through prompt-injection detection, authorization, communication limits, human review, and tests of permitted and prohibited actions.",
+  "teaserJa": "不正指示を見抜いた返答だけでは、送信が止まったと分からない。許可された仕事を続けられるかも確かめる。",
+  "teaserEn": "Recognizing an injection does not establish that transmission stopped. Verify that permitted work can still finish.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -24,16 +24,28 @@
       "publishedAt": "2026-03-11"
     },
     {
-      "label": "AWS: AgentCore Policy general availability",
+      "label": "AWS: Policy in Amazon Bedrock AgentCore is now generally available",
       "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/",
       "type": "official",
       "publishedAt": "2026-03-03"
     },
     {
-      "label": "Anthropic: Framework for safe and trustworthy agents",
+      "label": "AgentDojo: A Dynamic Environment to Evaluate Attacks and Defenses for LLM Agents (v1)",
+      "url": "https://arxiv.org/html/2406.13352v1",
+      "type": "paper",
+      "publishedAt": "2024-06-19"
+    },
+    {
+      "label": "Anthropic: Our framework for developing safe and trustworthy agents",
       "url": "https://www.anthropic.com/news/our-framework-for-developing-safe-and-trustworthy-agents",
       "type": "official",
       "publishedAt": "2025-08-04"
+    },
+    {
+      "label": "OpenAI: Codex Security, now in research preview",
+      "url": "https://openai.com/index/codex-security-now-in-research-preview/",
+      "type": "official",
+      "publishedAt": "2026-03-06"
     }
   ],
   "draft": false

@@ -1,31 +1,74 @@
 <section class="report-section">
-<h2>When performance improves, can you explain what changed?</h2>
-<p>Suppose a team upgrades an agent's model while also increasing its search and retry limits. A higher score cannot, by itself, distinguish the model's contribution from the extra processing. Both the model and the workflow belong in the comparison, with changes recorded explicitly.</p>
-<p>Drawing on research and tools available by March 2026, this article examines how to make those comparisons. The evidence does not establish that architecture generally matters more than the model. The useful question is which change improves the same task, and at what cost.</p>
-<div class="comparison-grid mt-6">
-<article class="comparison-card">
-<h3>Conditions to hold constant</h3>
-<p>Keep the evaluation task, the version of documents or screens, observable information, permitted tools, total time, retries, and grading criteria aligned. If they differ, the result is not a model-only comparison.</p>
-</article>
-<article class="comparison-card">
-<h3>Conditions to change one at a time</h3>
-<p>Change the model first, then the procedure such as search or retries, and test the combination last. Do not infer the combined result from either isolated result.</p>
-</article>
-</div>
+  <p class="section-kicker">Choosing a configuration</p>
+  <h2>A higher score does not explain its cause</h2>
+  <p>A team replaces the model in an agent answering from internal procedures and adds another search when evidence is insufficient. More answers are correct, so it concludes that the new model was better. But a comparison with an old configuration that searches only once also includes the effect of additional retrieval. This is a hypothetical example for examining comparison methods.</p>
+  <p>There are two questions: which configuration is better for the job, and which change caused the improvement? Comparing complete configurations helps answer the first. Answering the second requires separating the model, information presentation, search, and retries. Mixing the questions obscures both what to improve next and why costs increased.</p>
+  <p>This article uses BrowserGym, RE-Bench, and development tools to make those comparison conditions concrete. Instead of ranking architecture and models by general importance, it asks which change improves the same job at what burden. That question provides a basis for the next improvement beyond a configuration's complexity or a model's novelty.</p>
 </section>
+
 <section class="report-section">
-<h2>Changing the time budget can change the result</h2>
-<p>The <a href="https://arxiv.org/abs/2411.15114v1">first version of RE-Bench</a> compared agents with human experts on machine-learning research engineering tasks. Agents led under a short time budget, while human performance improved more as the total budget increased. These were specific research tasks, not a verdict on humans and AI across all work.</p>
-<p>The methodological lesson is to keep the budget attached to the score. Generating several candidates and selecting the best is different from a single attempt. Recording attempts, selection methods, runtime, and usage costs alongside the model and score makes an improvement easier to reproduce.</p>
+  <p class="section-kicker">Available observations</p>
+  <h2>The same page can show different information to a model</h2>
+  <p>The <a href="https://arxiv.org/html/2412.05467v1">first version of the BrowserGym paper</a> provides observations including the page's DOM, accessibility tree, and screenshots. The agent implementation decides how to process and present them to the model. It is a research environment offering a common interface for observations and actions, rather than a product that makes different business tasks equally difficult.</p>
+  <p>One example in the paper shows a search button obscured by an autocomplete menu, causing a click error. The error returns in the next observation. Images showing overlaps and feedback about the previous failure provide information for the next action beyond page text. An action failure alone cannot establish that model planning was the sole weakness.</p>
+  <p>Likewise, in the internal-procedure scenario, a model cannot use a necessary warning omitted from the search result. A comparison giving the new configuration full text but the old one only a short excerpt does not compare models with the same information. Align which source version is provided, how much of it, and in what form.</p>
+  <p>A comparison for deployment may instead use presentation suited to each model. In that case, describe the comparison as one between combinations of models and observations. Distinguishing controlled information from usable configurations helps avoid both unnecessarily weakening one candidate and attributing all improvement to its model.</p>
 </section>
+
 <section class="report-section">
-<h2>Standardize what agents can observe, and retain workflow versions</h2>
-<p>For browser tasks, the information shown to the model and the actions it can take are experimental conditions. <a href="https://arxiv.org/abs/2412.05467v1">BrowserGym</a> provides a shared environment with defined observation and action spaces across multiple web benchmarks. Its companion AgentLab supports experiments and analysis. This helps document conditions; it does not make different business tasks equivalent.</p>
-<p>Workflows also need identifiable versions. OpenAI's <a href="https://openai.com/index/introducing-agentkit/">October 2025 AgentKit announcement</a> introduced workflow versioning and trace grading. This is a reference to the capabilities announced at that time. Their availability does not prove a performance gain, but they provide material for investigating which workflow produced a failure.</p>
+  <p class="section-kicker">Tools and responses</p>
+  <h2>A shared search name does not establish shared conditions</h2>
+  <p>Observation differences extend beyond browser screens. Answers can change depending on whether a search tool returns source text and citations or only a short summary. Coverage of older material, access permissions, and the number of results are also comparison conditions.</p>
+  <p>The <a href="https://modelcontextprotocol.io/specification/2025-06-18/server/tools">MCP tools specification dated June 18, 2025</a> describes structured output and results indicating tool failures. Explicit output formats help inspect a connection. But identically shaped responses need not contain equivalent content or coverage. A common connection method does not establish equivalent search conditions.</p>
+  <p>In the scenario, the old search could turn retrieval failure into an empty result while the new search exposes the failure, changing the decision to stop. Calling that difference greater caution from the new model would miss a condition required to reproduce it. Record the actual text, gaps, and failure information passed to the model, and treat tool replacement as a configuration change.</p>
 </section>
+
 <section class="report-section">
-<h2>Change the model and search procedure separately</h2>
-<p>Consider a hypothetical agent that answers questions from internal documents. To compare configurations, prepare the same questions, document snapshot, and grading criteria. First hold the workflow constant and change only the model. Then hold the model constant and compare a single-search workflow with one that searches again when evidence is insufficient.</p>
-<p>Record answer correctness and source agreement, together with search count and latency. Extra searches may improve answers while exceeding the acceptable time or cost. Finally, test the combined changes: model and workflow can interact, so their separate results do not establish how the combination will perform.</p>
-<p>This yields a more useful explanation than attributing improvement to a newer model alone. A team can identify which questions improved, which regressed, and what extra processing was required. Comparing changes on the same work provides a concrete basis for the next decision.</p>
+  <p class="section-kicker">Time and trial allocation</p>
+  <h2>The same total budget can favor different trial lengths</h2>
+  <p>The <a href="https://arxiv.org/html/2411.15114v1">first version of RE-Bench</a> studies time and trial allocation across seven ML research-engineering environments. In comparisons allocating eight total hours, thirty-minute trials scored best for the Modular scaffold, while two-hour trials scored best for AIDE, among the allocations tested. The favorable allocation differed by scaffold even with the same total time.</p>
+  <p>The comparison includes selecting good results across multiple trials. Selection is random for Scaling Law Experiment, where the score is unavailable. The best obtained score cannot be treated as performance available from an arbitrary single attempt. Nor do these bounded research tasks establish that thirty minutes or two hours is optimal for internal inquiries.</p>
+  <p>The lesson I would adopt is to compare how a budget is spent alongside the model. Repeating the same search, finding a different source, and generating several answers for selection spend extra time differently. Recording only the retry limit cannot explain what improvement the extra processing bought.</p>
+  <p>Also distinguish user waiting time from total compute time. Parallel trials may shorten the wait while retaining compute and selection work. Examine time from the request to a usable answer, call and search counts, and usage cost together. Ranking peak scores obtained with different budgets moves away from choosing a configuration suitable for the job.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Separating causes</p>
+  <h2>Compare four combinations of model and additional search</h2>
+  <p>Return to the internal-procedure scenario. With the same questions, source snapshot, grading conditions, and total budget, combine the old and new models with either one search or another search when evidence is insufficient. Examine a model change, a procedure change, and finally both together. Reset the initial state and repeat each configuration rather than judging a single success. The four configurations permit comparison without assigning improvement to one factor prematurely.</p>
+  <div class="comparison-grid mt-6">
+    <article class="comparison-card">
+      <h3>Investigate the model's effect</h3>
+      <p>Hold the search procedure fixed and change the model. Examine differences in answering from the same information.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Investigate the procedure's effect</h3>
+      <p>Hold the model fixed and add retrieval when evidence is insufficient. Examine the output and burden of the extra processing.</p>
+    </article>
+  </div>
+  <p>Additional retrieval helps only if the model identifies insufficient evidence and chooses another useful search. A new model might handle this decision well while an old one repeats the same query. That is a mechanism-level hypothesis, not a measured result for a named model. Because the factors can interact, do not add their isolated gains to predict combined performance.</p>
+  <p>For deployment selection, each configuration may instead be tuned within the budget allowed for the job. That compares the output of complete tuned configurations, rather than model capability alone. Separate tuning questions from final evaluation questions to help detect improvements fitted only to familiar inputs.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Grading and selection</p>
+  <h2>Can the system select the good candidate it generated?</h2>
+  <p>Anthropic's <a href="https://www.anthropic.com/engineering/writing-tools-for-agents">guide to writing tools for agents</a> recommends verifiable outcomes, evaluations representative of real work, and checks on held-out tasks. For answers from procedure documents, I would verify the applicable product version and supporting evidence alongside the setting value. Examine stopping when a source cannot be retrieved separately.</p>
+  <p>When generating multiple answers, distinguish selection by an evaluation grader that knows the correct answer from selection available in production. If a user who does not know the answer must choose among five candidates, that checking effort is also a cost. Having a correct candidate in the set leaves another verification step before delivering correct guidance.</p>
+  <p>Read which questions improved and which deteriorated alongside the average score. Distinguish answers supported by additional evidence from wrong answers combining instructions for older versions. Counting appropriate stops only as unanswered questions risks tuning away necessary stopping behavior. Output requirements for the use case determine the configuration's evaluation.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Recording configurations</p>
+  <h2>Keep versions that lead back to a failed execution</h2>
+  <p>The <a href="https://openai.com/index/introducing-agentkit/">AgentKit announcement</a> presents procedure versioning and evaluation using traces. Agent Builder is in beta, and having those features does not prove improved performance. AgentLab, used with BrowserGym, also describes experiment version information and tools for inspecting observations and actions. Both provide material for linking configurations to results.</p>
+  <p>In this scenario, retain the model and instructions, sources and search conditions, time and retry limits, actual calls, and grading and selection methods. When a reviewer finds an incorrect answer, they should be able to return to the product version it described, unavailable material, and additional searches. The purpose is to explain what to change next, beyond demonstrating configuration complexity.</p>
+  <p>Records cannot guarantee exact reproduction. The BrowserGym paper describes limitations from changing live-site content and regional settings, among other factors. Distinguish comparison on a fixed internal corpus from checks on changing live sites. An improvement under one fixed condition cannot establish performance on every future screen or source.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">The adoption decision</p>
+  <h2>Should the next change improve capability or provide missing information?</h2>
+  <p>If additional retrieval explains the initial improvement, trying that procedure with the old model has value. If the new model improves with the same information, examine the value of changing reading or judgment capability. If only the combination improves, carry that interaction and its additional cost into the decision. No particular configuration can be declared the winner before the comparison.</p>
+  <p>Alongside correct-answer counts, include user waiting time, time to find errors, and the burden of locating evidence again. More automatic answers may offer little improvement if staff must recheck every product version. Comparing models, tools, and procedures ends with whether the recipient can proceed to the next task, as well as whether the score can be explained.</p>
 </section>

@@ -1,14 +1,14 @@
 {
   "slug": "open-runtimes-and-managed-platforms-converge",
   "date": "2025-05-01",
-  "titleJa": "オープンな接続、マネージド実行、承認設計をどう分けるか",
-  "titleEn": "How to separate open connectivity, managed execution, and approval design",
-  "summaryJa": "OpenAI、AWS、Google、Microsoftの2025年春の資料を読み、プロトコルによる接続、ホストされた実行、利用者・組織の承認を別々の責任として組み合わせる設計を考える。",
-  "summaryEn": "Read spring 2025 material from OpenAI, AWS, Google, and Microsoft to separate protocol connectivity, hosted execution, and user or organizational approval as distinct responsibilities.",
-  "seoDescriptionJa": "A2A、マネージドなエージェント実行、Bedrockの確認フローを基に、接続・実行・承認を混同しないエージェント設計を解説する。",
-  "seoDescriptionEn": "Using A2A, managed agent execution, and Bedrock confirmation flows, this article explains an agent architecture that separates connection, execution, and approval.",
-  "teaserJa": "接続できること、実行できること、変更を承認できることは別の責任である。",
-  "teaserEn": "Connection, execution, and approval for a change are separate responsibilities.",
+  "titleJa": "A2Aで別のAIエージェントへ依頼するとき、何を引き継ぐか",
+  "titleEn": "A2A handover: what must travel with an agent request",
+  "summaryJa": "A2A、Google ADKとAgent Engine、Semantic Kernel Agents、Bedrockの休暇申請例を比較。別基盤への接続から、人の編集後の再検証、承認待ち、保存結果まで依頼を引き継ぐ条件を考える。",
+  "summaryEn": "Compare A2A, ADK and Agent Engine, Semantic Kernel Agents, and Bedrock leave requests to examine how intent, validation, and progress travel across systems.",
+  "seoDescriptionJa": "A2Aのタスクと成果物、ADKとAgent Engineの役割、Bedrockの利用者確認と制御返却を比較し、異なるAIエージェントへ依頼を引き継ぐ条件を解説する。",
+  "seoDescriptionEn": "Compare A2A tasks, ADK deployment, and Bedrock confirmation to show how agent handover preserves intent, revalidates edits, and reports approval status.",
+  "teaserJa": "相手を呼ぶ接続に、依頼の意味、変更後の検証、利用者が知りたい進捗を結び付ける。",
+  "teaserEn": "Connect delegation to request meaning, validation after edits, and the progress users need to see.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,52 +19,22 @@
   ],
   "publishedSources": [
     {
-      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
-      "type": "paper",
-      "publishedAt": "2024-11-07"
-    },
-    {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
-    },
-    {
-      "label": "Microsoft Research: AutoGen v0.4",
-      "url": "https://www.microsoft.com/en-us/research/blog/autogen-v0-4-reimagining-the-foundation-of-agentic-ai-for-scale-extensibility-and-robustness/",
+      "label": "Anthropic: Introducing the Model Context Protocol",
+      "url": "https://www.anthropic.com/news/model-context-protocol",
       "type": "official",
-      "publishedAt": "2025-01-14"
+      "publishedAt": "2024-11-25"
     },
     {
-      "label": "OpenAI: Introducing Operator",
-      "url": "https://openai.com/index/introducing-operator/",
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
       "type": "official",
-      "publishedAt": "2025-01-23"
+      "publishedAt": "2024-12-19"
     },
     {
-      "label": "OpenAI: New tools for building agents",
-      "url": "https://openai.com/index/new-tools-for-building-agents/",
+      "label": "Microsoft: Semantic Kernel Agents are now Generally Available",
+      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/",
       "type": "official",
-      "publishedAt": "2025-03-11"
-    },
-    {
-      "label": "AWS: Amazon Bedrock announces general availability of multi-agent collaboration",
-      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/",
-      "type": "official",
-      "publishedAt": "2025-03-10"
-    },
-    {
-      "label": "AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents",
-      "url": "https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/",
-      "type": "official",
-      "publishedAt": "2025-04-09"
-    },
-    {
-      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
-      "type": "official",
-      "publishedAt": "2025-04-09"
+      "publishedAt": "2025-04-04"
     },
     {
       "label": "Google Developers Blog: Announcing the Agent2Agent Protocol (A2A)",
@@ -73,16 +43,16 @@
       "publishedAt": "2025-04-09"
     },
     {
-      "label": "Anthropic: Introducing Code with Claude",
-      "url": "https://www.anthropic.com/news/Introducing-code-with-claude",
+      "label": "Google Cloud: Vertex AI offers new ways to build and manage multi-agent systems",
+      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
       "type": "official",
-      "publishedAt": "2025-04-03"
+      "publishedAt": "2025-04-09"
     },
     {
-      "label": "Microsoft: Semantic Kernel Agents are now generally available",
-      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/",
+      "label": "AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents",
+      "url": "https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/",
       "type": "official",
-      "publishedAt": "2025-04-04"
+      "publishedAt": "2025-04-09"
     }
   ],
   "draft": false

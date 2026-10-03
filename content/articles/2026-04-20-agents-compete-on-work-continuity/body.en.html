@@ -1,49 +1,68 @@
 <section class="report-section">
-<h2>What must survive for an agent to continue?</h2>
-<p>Suppose an agent researching a report loses its execution environment. The conversation says it reviewed sources and created a table, but the sources, file location, and unresolved questions are unclear. Resumption is difficult. This hypothetical example distinguishes preserving a conversation from preserving what a task needs to continue.</p>
-<p>Drawing on design material available by April 20, 2026, this article examines what to retain for work that spans interruptions. For such tasks, accuracy needs to be assessed together with whether a resumed run can advance the remaining work without unnecessarily repeating completed steps.</p>
+<h2>Can yesterday's research become today's work?</h2>
+<p>Suppose an agent stops after saving a product-comparison table. The next day, asked to continue, it collects the sources again and starts another table. Yesterday's decisions have not necessarily disappeared. A conversation saying that a table was created is insufficient when the selected sources, saved file, and two unresolved entries are disconnected.</p>
+<p>This is a hypothetical example for examining the mechanism. Accepting yesterday's table as complete would create another problem: prices or supported regions may have changed overnight. The resumed task needs to update those facts. We want less unnecessary repetition without freezing yesterday's judgments.</p>
+<p>Material available by April 20, 2026 shows continuity work extending from conversation reuse to execution recovery. I would compare more than memory capacity. Can the next agent or person receive usable results and the reasons behind decisions, then advance the remaining work under the right conditions?</p>
 </section>
 <section class="report-section">
-<h2>Five states to preserve for resumption</h2>
+<h2>Returning to the same thread is a useful beginning</h2>
+<p>OpenAI's April 16 <a href="https://openai.com/index/codex-for-almost-everything/">Codex update</a> includes automations that reuse existing threads, scheduled future wake-ups, and a memory preview for past corrections and preferences. These are user-visible forms of continuity that can reduce repeated explanation. Availability and release stages differed by feature and environment at the cutoff; the same capabilities were not available everywhere.</p>
+<p>For a weekly comparison report, we may want to reuse the format and selection criteria while researching this week's prices. For yesterday's unfinished report, we need to distinguish verified entries from unresolved ones. Starting a new recurring task and recovering one incomplete task require different information.</p>
+<p>A scheduled invocation does not guarantee a finished report. If a source becomes inaccessible after resumption, the product must also return the remaining work to its owner. Starting with conversation reuse and following the handoff through artifacts and unresolved items makes the convenience easier to assess.</p>
+</section>
+<section class="report-section">
+<h2>Keep the recovery record outside the process that can fail</h2>
+<p>Anthropic's April 8 <a href="https://www.anthropic.com/engineering/managed-agents">Managed Agents architecture article</a> describes separating the session event log, the loop that runs models and tools, and the code-execution sandbox. The loop can reload an external log after failure. A replacement sandbox can be provisioned, but that alone does not establish restoration of every previously generated file.</p>
+<p>The separation helps because progress need not exist only inside the failed process. After the report task stops, the next owner can inspect collected sources and returned operation results. Whether the saved table opens, and whether its contents agree with the recorded operations, still requires separate checks.</p>
+<p>The article also distinguishes a stored session from the context supplied to the model at a particular moment. Retaining history does not mean loading every event into every call. Select enough information for the next decision and keep a path back to the underlying records. This makes a concise handoff compatible with preserving its evidence.</p>
+</section>
+<section class="report-section">
+<h2>Reconnect to the environment, or rebuild from saved contents?</h2>
+<p>OpenAI's April 15 <a href="https://openai.com/index/the-next-evolution-of-the-agents-sdk/">Agents SDK update</a> describes a workspace with files and commands, externally retained state, and resumption from snapshots. The announcement began with Python; TypeScript and further extensions were planned. Availability should be distinguished from a claim that every API and persistence behavior is stable.</p>
+<p>Indeed, the <a href="https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/guide.md">sandbox guide pinned before the cutoff</a> carries a beta warning. It distinguishes reusing a live environment, reconnecting through serialized session state, and creating a fresh environment seeded from a snapshot. Reopening the same table can look similar in each case, while the recoverable state differs.</p>
+<p>The guide excludes mounted and ephemeral paths from durable snapshot contents. It also allows a no-op snapshot fallback when a default local snapshot location cannot be established. Writing a report into some folder therefore does not establish persistence. Verify that the selected table is within the saved contents and can be read after restoration.</p>
+<p>I would translate these distinctions into failure conditions when choosing an SDK. Reconnection may suffice after a temporary network interruption. If the original environment disappears, the question becomes whether saved tables and required inputs can reconstruct the work. This is a proposed test based on the guide, not a recovery measurement conducted here.</p>
+</section>
+<section class="report-section">
+<h2>Link progress to the artifact version actually selected</h2>
+<p>Google ADK's <a href="https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/sessions/state.md">State documentation</a> separates progress values from event history and makes durability dependent on the SessionService. InMemorySessionService loses state on restart. Even with a persistent database service, updates need to follow the managed event flow. Directly modifying a retrieved Session can bypass history and persistence.</p>
+<p><a href="https://github.com/google/adk-docs/blob/63a9a5264fb5a54d7e738d15076ab3155a48f9d4/docs/artifacts/index.md">Artifacts</a>, meanwhile, manage file-like data with names and versions. Saving the same name creates a new version; the returned version can be specified when loading it. Storage choice still matters: the in-memory implementation does not retain files across process termination.</p>
+<p>For our table, record the selected filename and returned version, together with the two unresolved entries. Opening the newest file and opening the version used for a decision are different operations. A table extended by another run should not silently become the evidence for yesterday's judgment.</p>
+<p>Versioned storage and progress updates do not alone establish that both commit together. Test a stop immediately after saving the table and before updating progress, then reconcile surviving files and records. The useful outcome is a procedure for choosing valid state from a discrepancy, rather than more names for stored data.</p>
+</section>
+<section class="report-section">
+<h2>Five pieces of information for the next owner's decision</h2>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Conversation and decision history</h3>
-<p>Retain what was requested and why sources were selected. This is different from passing every record to the next model call.</p>
-</article>
-<article class="comparison-card">
-<h3>Next action</h3>
-<p>Retain unresolved items and the next operation. A progress percentage does not say where to resume work.</p>
-</article>
-<article class="comparison-card">
-<h3>Evidence for progress</h3>
-<p>Record that table version two exists and that two entries remain unverified. This makes a short completion display traceable to concrete work.</p>
-</article>
-<article class="comparison-card">
-<h3>Input and artifact versions</h3>
-<p>Connect selected sources to the corresponding table or report version, preventing resumption from an obsolete artifact.</p>
-</article>
-<article class="comparison-card">
-<h3>External-action result</h3>
-<p>Record whether a send, update, or registration was unexecuted, successful, failed, or uncertain. Reconcile an action not recorded before a stop with destination state or an operation ID.</p>
-</article>
+<article class="comparison-card"><h3>Request and decision rationale</h3><p>Retain the comparison scope, selected sources, and reasons for exclusions. A short explanation should still lead back to the evidence.</p></article>
+<article class="comparison-card"><h3>The next concrete action</h3><p>Identify the two unresolved entries and sources to investigate. A progress percentage does not provide a starting point.</p></article>
+<article class="comparison-card"><h3>Results supporting progress</h3><p>Identify collected sources and verified entries so a completion claim can be checked against results that actually survived.</p></article>
+<article class="comparison-card"><h3>Input-to-artifact correspondence</h3><p>Link source retrieval times to the selected table version. The next owner should be able to tell whether a newer table uses the same conditions.</p></article>
+<article class="comparison-card"><h3>External-action outcomes</h3><p>Distinguish unexecuted, successful, failed, and uncertain sends or updates. An uncertain operation should not be repeated automatically.</p></article>
 </div>
-<p>The five states need not each live in a separate service. They need to be connected so a resuming owner can decide what to read, where to continue, and what to verify again.</p>
+<p>These are checks proposed by this article, not a shared vendor standard. They do not require five separate services. Connect them so the next model or human can determine what is usable and what remains unverified.</p>
 </section>
 <section class="report-section">
-<h2>Separate the running process from its recovery record</h2>
-<p>Anthropic's April 8 <a href="https://www.anthropic.com/engineering/managed-agents">Managed Agents architecture article</a> describes separating session records, the model-calling loop, and the code-execution environment. An external event log supports resumption after the loop fails. It also distinguishes the stored session from the model's context window.</p>
-<p>This does not mean passing the entire history into every model call. Retaining records and selecting information for the current decision are separate tasks. For a research report, one could retain the collection history while loading the selected sources, unresolved questions, and next action when resuming.</p>
-<p>A surviving log does not establish that an external action happened exactly once. If a message was sent but execution stopped before recording the result, repeating the action could send it twice. Reconciling the destination's state or an operation identifier is necessary in that case; reloading a session alone is insufficient.</p>
+<h2>Separate remembered reasoning from facts to refresh today</h2>
+<p>The <a href="https://github.com/openai/openai-agents-python/blob/5d300f06daccc321d621e16bc97ab37e20d65648/docs/sandbox/memory.md">SDK memory documentation pinned before the cutoff</a> describes preserving lessons from previous work in files, separately from conversation history. Reuse requires preserving the entire configured memory directory; a fresh empty sandbox starts with empty memory. It also explicitly recognizes that memories can become stale.</p>
+<p>For the report, a reason such as prioritizing existing integrations because contracts are difficult to change may remain useful next week. A statement that a product is unavailable in a particular region may no longer hold. Keeping the reason, verification time, and review conditions together lets the next owner investigate change without repeating the whole explanation.</p>
+<p>Rechecking everything reduces the benefit of memory; rechecking nothing preserves obsolete assumptions. I recommend distinguishing volatile prices, availability, and permissions from the comparison's purpose and selection rationale. Editing for brevity should preserve this distinction: the next owner needs to understand why a judgment can still be carried forward.</p>
 </section>
 <section class="report-section">
-<h2>Connect progress records to the correct artifact version</h2>
-<p>Google ADK's <a href="https://adk.dev/sessions/state/">State documentation</a> separates values needed during an interaction from event history and makes persistence dependent on the SessionService. InMemorySessionService loses state on restart. The existence of a session does not by itself establish restart durability.</p>
-<p>ADK's <a href="https://adk.dev/artifacts/">Artifacts</a> manage file-like data with names and versions. Their storage service also matters: the in-memory implementation does not survive process termination. This illustrates separating small progress values from larger generated files.</p>
-<p>For the report, record that comparison-table version two exists and that two entries remain unverified, then reference that exact file version. Saying only that the table is complete while handing over an older file would send the next run to the wrong starting point. I recommend transferring input and output versions and unresolved questions alongside the next action.</p>
+<h2>An uncertain send needs more than conversation history</h2>
+<p>Imagine execution stopping immediately after sending the report but before recording success. Missing success in the retained history does not establish failure. A resumed run that sends the report again could deliver two copies to the recipient.</p>
+<p>Check destination records or an operation identifier before choosing the next action. If a mechanism can recognize retries as duplicates, verify its conditions. If neither that mechanism nor reconciliation is available, return the uncertainty to a person. Session persistence helps retain decision evidence; it does not guarantee exactly-once external actions or undo them.</p>
+<p>The user's request or sharing scope may also change overnight. Prior permission to send one version does not automatically settle whether a changed report may be sent under changed conditions. Carrying forward the rationale is different from ignoring developments since that rationale was established.</p>
 </section>
 <section class="report-section">
-<h2>Vary the interruption point and compare the resumed outcome</h2>
-<p>Use the same completion criteria for uninterrupted and interrupted runs. For the report, stop after source collection, after saving the table, and before updating progress. Check that unresolved questions survive, verified content remains intact, and unnecessary refetching or duplicate sending does not occur. Merely reopening the file is insufficient.</p>
-<p>Include changes over time. If yesterday's prices or availability will appear in today's report, define which facts need refreshing. Carrying forward context must coexist with checking facts that may have changed.</p>
-<p>These exercises identify what a particular task needs to preserve. A short question does not require the same collection of mechanisms. For work completed across multiple runs, defining the resumption point and what must be checked again provides a practical starting point for evaluating continuity.</p>
+<h2>Evaluate whether the remaining work can be completed</h2>
+<p>AWS's March 31 general-availability announcement for <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">AgentCore Evaluations</a> describes sampled online trace evaluation and development or CI evaluations. Session goals and tool behavior can be assessed alongside responses. These are evaluation capabilities, not task persistence or pre-action approval of every operation in production.</p>
+<p>For report continuity, use the same completion criteria for interrupted and uninterrupted runs. Stop after source collection, after saving the table, before updating progress, and before recording the send result. Also update one source overnight. Check whether the agent preserves verified information while detecting that change.</p>
+<p>Measure more than reconnection time. Does the resumed run avoid claiming completion with two unresolved entries, unnecessary research, obsolete tables, and duplicate sending? Include the human time required to rediscover state and repair incorrect reports when comparing the handoff burden.</p>
+<p>This is a proposed trial, not a measured product ranking. Match models, inputs, budgets, and persistence conditions where possible, distinguishing model capability from recovery mechanisms. A detailed log cannot advance the work if the next model cannot understand the remaining questions. Capable reasoning and an actionable handoff both matter.</p>
+</section>
+<section class="report-section">
+<h2>Design the handoff for the person who will read it</h2>
+<p>A short question does not need this entire persistence setup. A weekly report needs its format and selection reasons; development across days needs changes and verification; customer work needs commitments and actual updates. Start with one task, identify the results that should survive a stop, and decide what must be checked again the next day.</p>
+<p>The user or business owner defines completion. Implementers check the persistence boundary for records and files. Operators decide where discrepancies and uncertain outcomes should go. One person can hold all these roles for a small task, provided the explanation does not disappear at a handoff.</p>
+<p>Being able to describe yesterday's activity is insufficient. Today's owner should be able to adopt yesterday's usable results, refresh the necessary facts, and finish the remaining work. Preserving reasons and review conditions makes continuing work easier for a person to delegate.</p>
 </section>

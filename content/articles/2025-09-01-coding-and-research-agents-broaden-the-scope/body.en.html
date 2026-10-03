@@ -1,29 +1,67 @@
 <section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>What distinguishes executable code from a verifiable experiment?</h2>
-  <p><a href="https://arxiv.org/abs/2410.07095">MLE-bench</a> gives machine-learning agents work that includes data, implementation, training, evaluation, and submission. That is a different evaluation target from generating code line by line. <a href="https://arxiv.org/abs/2411.15114">RE-Bench</a> and <a href="https://arxiv.org/abs/2410.08164">Agent S</a> also address longer work involving environments, tools, and research outcomes. This article does not claim that coding support automatically includes research support. It asks what must be recorded and compared when an agent contributes to an experiment.</p>
+  <p class="section-kicker">Can the result be used?</p>
+  <h2>A smaller forecast error can still leave adoption undecided</h2>
+  <p>Asked to improve a demand forecast, an AI changes code, trains a model, and reports a smaller error. But it evaluated a different period from the previous model. Did the forecasting method improve, or were only easier weeks compared? This is a hypothetical example for examining experiment support. Working code alone does not establish a reason to adopt its result.</p>
+  <p>August’s GPT-5 for developers announcement described support for code changes and tool calls. Looker MCP Server provided a way for AI to access predefined metrics. MLE-bench and RE-Bench evaluate work that uses data and compute to try solutions and compare outcomes. More material connects code, data, and analysis, but the capabilities each establishes differ.</p>
+  <p>This article argues for using the ability to produce candidates while separately establishing evidence for adopting them. Connect code, data meaning, execution conditions, results, and interpretation. A deliverable that lets the next person compare under the same conditions makes experiments without improvement useful to subsequent decisions too.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Connecting tools</p>
+  <h2>Combine tools for changing code with tools for reading metrics</h2>
+  <p>The <a href="https://openai.com/index/introducing-gpt-5-for-developers/">GPT-5 developer announcement</a> addresses code repairs and work using tools. Custom tools allow plaintext input instead of JSON, with grammar constraints supplied by developers. This adds a format option for passing material such as lengthy code to a tool. Easier input handling remains distinct from correct experiment design.</p>
+  <p>The <a href="https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/">August 9 Looker MCP Server announcement</a> describes AI querying a model in which business metrics and calculations are defined. Looker generates SQL according to those definitions. The post describes use through Gemini CLI, Claude Desktop, and Cursor, providing a path from development environments to data with shared definitions.</p>
+  <p>Combining these tools suggests an application that investigates a metric, proposes possible causes, and changes aggregation or forecasting code. Combining available features, however, is not a measurement of improved business results. The handoffs need to preserve what was inferred from which data and which experiment will test it.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Separate execution from performance</p>
+  <h2>MLE-bench measures valid submissions and good predictions separately</h2>
+  <p>The <a href="https://arxiv.org/html/2410.07095v1">first MLE-bench paper</a> evaluates data preparation, training, experimentation, and prediction submissions across 75 Kaggle competitions. Its main setup allows at most 24 hours per competition and one A10 GPU. Averaged over repeated runs, o1-preview with AIDE produced valid submissions in 82.8% of attempts and medal-level performance in 16.9%. These are results for a 2024 configuration, not GPT-5’s performance on machine-learning experiments.</p>
+  <p>The submission-validation tool returns whether the format is valid, without a prediction-performance score. This illustrates the verification needed between producing runnable code and producing a good result. The interpretation here is to keep producing predictions in the correct format separate from improving the comparison metric.</p>
+  <p>Many tasks reconstruct training and test splits and compare with historical competition leaderboards. They do not measure the rate of successful business deployments. Evidence of strong competition performance needs to be read with its evaluation target, rather than transferred unchanged to other data or conditions of use.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Read the research objective</p>
+  <h2>RE-Bench tasks require more than faster execution</h2>
+  <p>The <a href="https://arxiv.org/html/2411.15114v1">first RE-Bench paper</a> evaluates seven machine-learning research and engineering tasks. Optimize LLM Foundry, for example, asks for less runtime without changing a training script’s behavior. Omitting required work to reduce time would miss the objective. The paper also reports loopholes that looked good to automated scoring but violated task rules under human inspection.</p>
+  <p>The principle worth carrying into experiment support is to define both the metric to improve and the conditions that must remain intact. A forecasting experiment that excludes required periods or uses information unavailable when predictions would be made is no longer solving the same task. Claims of a better score need to be interpreted against those conditions.</p>
+  <p>RE-Bench does not treat short tasks with clear objectives as covering months-long research in full. Choosing a research question or evaluation metric differs from improving a supplied task. Fast experimental iteration should not be evaluated as an ability to determine research objectives correctly by itself.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Preserve data meaning</p>
+  <h2>Align periods and populations even when both tables say “revenue”</h2>
+  <p>Sharing metric definitions through a system such as Looker offers a way to reduce different people creating different aggregation formulas. Access to a defined metric does not make the compared populations or explanations of differences identical. Data retrieval needs to remain connected to the user’s intended decision.</p>
+  <p>Consider a hypothetical comparison of store revenue. Order dates versus recognized-revenue dates, treatment of returns, and included stores can change conclusions even when tables have the same label. Recording metric definitions, periods, and filters lets a reviewer check whether a code change still compares the same question.</p>
+  <p>Separate observed changes from causal explanations too. An increase in revenue does not by itself establish that a campaign caused it. Seasonality or the composition of stores may offer other explanations. If the agent proposes causes, retain a distinction between observed differences and untested hypotheses.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Compare forecasts fairly</p>
+  <h2>Restore the conditions available when a forecast would be made</h2>
+  <p>For the opening forecasting example, first decide the data cutoff and future period to predict. A simple baseline using sales on the same weekday of the previous week could be compared with the candidate on identical periods. Do not give only the candidate actual future sales that would be unknown at prediction time. This is a proposed comparison, not an account of a company’s deployment.</p>
+  <p>Retain missing-data treatment, features, training and validation periods, metrics, and a compute-time limit with the results. A comparison using mean absolute error would calculate the magnitude of prediction errors on the same population and period. Even if the average improves, investigate deterioration on busy days or in particular stores. For ordering stock, the average alone may not settle adoption.</p>
+  <p>Recorded sales of a sold-out product may not equal the number of people who wanted it. Without explaining the difference between observed sales and the demand to be estimated, a good score can still diverge from the intended decision. Human examination of what the data measures remains necessary alongside the AI’s ability to process it.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Handing over results</p>
+  <h2>An experiment without improvement can still inform the next step</h2>
+  <p>The experimental deliverable should connect code version, data-retrieval conditions, dependencies, model settings, compute, and results. Retain randomization settings where used, while recognizing that a seed alone does not guarantee identical results. Check rerun differences if environmental or execution variation remains. The record should let another person read the result and continue necessary validation.</p>
+  <p>A candidate worse than the baseline can still help decide whether to try the same idea again if its conditions remain available. Explain where performance deteriorated and whether more time or resources might be worth testing. Distinguish a failed run from a correctly executed experiment that did not improve. Removing the latter and retaining only good outcomes hides the experimental picture.</p>
+  <p>Adoption also considers cost, update frequency, consequences for populations that worsened, and further validation. These are proposed decision criteria, not a claim that the sources establish successful automatic adoption. A starting design can delegate candidate creation and comparison records while assembling evidence for people to verify the conclusion.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">A deliverable for decisions</p>
+  <h2>Connect code, data, and analysis to the same question</h2>
+  <p>Development tools and data connections increase the options for combining previously separate work. Benchmarks establish execution and improvements within supplied conditions. Applying them to business or research requires data meaning and comparison conditions that fit the objective.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Data</h3><p>Identify input data, retrieval time, preprocessing, and splits.</p></article>
-    <article class="comparison-card"><h3>Execution conditions</h3><p>Retain code, dependencies, model, configuration, and compute context for comparison.</p></article>
-    <article class="comparison-card"><h3>Results and judgment</h3><p>Record metrics, baselines, failures, and reasons not to adopt a result.</p></article>
+    <article class="comparison-card"><h3>Data meaning</h3><p>Link results to what a metric counts and to retrieval scope and period.</p></article>
+    <article class="comparison-card"><h3>Comparison conditions</h3><p>Use the same population, baseline, and budget, checking conditions that must remain intact.</p></article>
+    <article class="comparison-card"><h3>The next decision</h3><p>Retain improvement, deterioration, and untested points so adoption or further validation has a readable rationale.</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Scope of the sources</p>
-  <h2>Do not confuse developer features with the evaluation scope of experimental tasks</h2>
-  <p>GPT-5 for developers is product material for development work; MLE-bench evaluates machine-learning engineering tasks. The former does not establish the latter’s benchmark result or experimental reproducibility. Looker MCP Server documents an option for connecting to defined semantic models and metrics. It illustrates a data boundary for preserving metric meaning, not a guarantee that any analysis conclusion is correct.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Hypothetical example</p>
-  <h2>For demand forecasting, make the experiment record—not proposed code—the deliverable</h2>
-  <p>This is a design example. An agent proposes a demand-forecasting model. The evaluation records data range and version, missing-data treatment, training and validation split, features, hyperparameters, baseline, metric, and random seed. Running code is insufficient when the training range changes, future data leaks in, no baseline is used, or the result cannot be reproduced.</p>
-  <p>Store a result with the data and conditions that produced it. A metric that does not improve is still a comparable result. A person decides statistical validity, business usefulness, and the need for further validation. This keeps the agent’s role limited to experiment proposals and recordkeeping assistance.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>Broader research and data work needs more reproducible units of judgment</h2>
-  <p>Experiment work beyond coding includes data, environment, evaluation, and interpretation. The material shows that such work can be explicitly evaluated and composed. The proposal is not to discard code evaluation: add a record connecting code, data, conditions, results, and evidence so that reproducible experiments and human decisions remain visible.</p>
+  <p>The value of experiment support includes the ability to question results, compare under the same conditions, and retain reasons for declining adoption. Connecting code, data, and analysis in one record turns an agent’s speed into decisions a person can verify.</p>
 </section>

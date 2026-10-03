@@ -1,14 +1,14 @@
 {
   "slug": "ai-collaboration-starts-with-first-artifact",
   "date": "2026-08-01",
-  "titleJa": "希望が定まらない仕事で、確認質問とAIの試作品を使い分ける",
-  "titleEn": "When to clarify a request and when to show an AI prototype",
-  "summaryJa": "締切のように質問で確かめられる条件と、案を見て初めて決まる希望は異なる。事実条件の既知・未知と、成果物なしで好みを判断できるかの4象限を使い、確認質問、試作、修正、事実確認の役割を分ける。",
-  "summaryEn": "Some requirements can be clarified with a question; other preferences emerge from an example. A four-way decision table separates known facts and inspectable preferences, then assigns clarification, prototypes, revision, and verification.",
-  "seoDescriptionJa": "何を質問し、どんなAIの試作品を作るべきか。事実条件と好みを分ける4象限と、記事構成の例から、要件確認、修正、事実確認を使い分ける。",
-  "seoDescriptionEn": "Use questions for missing facts and prototypes for preferences that need inspection. A four-way table and outline example separate revision from verification.",
-  "teaserJa": "質問で決まる条件と、案を見て決まる希望を分け、AIと直す対象を明確にする。",
-  "teaserEn": "Distinguish missing requirements from emerging preferences, then choose a question or an inspectable prototype.",
+  "titleJa": "AIにうまく頼めない仕事では、小さな案から希望を具体化する",
+  "titleEn": "When an AI request is hard to specify, start with something judgeable",
+  "summaryJa": "読みやすくした記事から、大事な説明が消える。そんな想定例から、質問で決まる条件と、案を見て決まる希望を分ける。記事・コード・画像の研究を比較し、途中成果の選び方、修正の渡し方、確認費用、完成の基準を考える。",
+  "summaryEn": "An easier-to-read edit can lose essential reasoning. Compare clarification and intermediate artifacts across writing, code, and images, then choose reviewable revisions, track review costs, and define completion.",
+  "seoDescriptionJa": "AIに何を質問し、どんな試作品を作るか。記事・コード・画像の研究から、希望の具体化、修正、原典確認、完成までの共同作業を考える。",
+  "seoDescriptionEn": "Choose AI clarification or prototypes using writing, code, and image research. Make preferences specific, revise reviewable work, and verify completion.",
+  "teaserJa": "完璧な依頼を待つより、条件を確かめ、小さな案で残す説明と直す点を選ぶ。",
+  "teaserEn": "Clarify known constraints and use small artifacts to choose what to retain and repair.",
   "category": "AI Workflows",
   "tags": [
     "Generative AI",
@@ -21,26 +21,54 @@
   "publishedSources": [
     {
       "label": "ClarifyGPT",
-      "url": "https://arxiv.org/abs/2310.10996",
-      "type": "paper"
-    },
-    {
-      "label": "Google DeepMind: Proactive Agents for Multi-Turn Text-to-Image Generation",
-      "url": "https://deepmind.google/research/publications/121578/",
-      "type": "official"
+      "url": "https://arxiv.org/abs/2310.10996v1",
+      "type": "paper",
+      "publishedAt": "2023-10-17"
     },
     {
       "label": "AI Chains",
-      "url": "https://arxiv.org/abs/2110.01691",
-      "type": "paper"
+      "url": "https://arxiv.org/abs/2110.01691v1",
+      "type": "paper",
+      "publishedAt": "2021-10-04"
     },
     {
-      "label": "Microsoft Research: LLMs Get Lost In Multi-Turn Conversation",
-      "url": "https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/",
-      "type": "official"
+      "label": "PromptChainer",
+      "url": "https://arxiv.org/abs/2203.06566v1",
+      "type": "paper",
+      "publishedAt": "2022-03-13"
+    },
+    {
+      "label": "TiCoder",
+      "url": "https://arxiv.org/abs/2404.10100v1",
+      "type": "paper",
+      "publishedAt": "2024-04-15"
+    },
+    {
+      "label": "Proactive Agents for Multi-Turn Text-to-Image Generation",
+      "url": "https://arxiv.org/abs/2412.06771v1",
+      "type": "paper",
+      "publishedAt": "2024-12-09"
+    },
+    {
+      "label": "LLMs Get Lost In Multi-Turn Conversation",
+      "url": "https://arxiv.org/abs/2505.06120v1",
+      "type": "paper",
+      "publishedAt": "2025-05-09"
+    },
+    {
+      "label": "QuestBench",
+      "url": "https://arxiv.org/abs/2503.22674v1",
+      "type": "paper",
+      "publishedAt": "2025-03-28"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
     }
   ],
   "draft": false,
-  "seoTitleJa": "AIとの共同作業で質問と試作品を使い分ける",
+  "seoTitleJa": "AIとの共同作業：確認質問と試作品の使い分け",
   "seoTitleEn": "AI collaboration: clarification, prototypes, and verification"
 }

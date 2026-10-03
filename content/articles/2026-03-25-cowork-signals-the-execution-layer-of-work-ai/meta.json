@@ -1,14 +1,14 @@
 {
   "slug": "cowork-signals-the-execution-layer-of-work-ai",
   "date": "2026-03-25",
-  "titleJa": "Coworkに会議準備を任せるとき、資料作成と予定変更を分けて考える",
-  "titleEn": "Delegating meeting preparation to Cowork: drafts, calendar changes, and review",
-  "summaryJa": "AnthropicとMicrosoftのCowork関連発表を、資料を読む、下書きを保存する、予定や送信を変更する三段階から読む。会議準備を例に、段階ごとに誰が結果を受け取り、何を確認するかを整理する。",
-  "summaryEn": "Read Anthropic and Microsoft Cowork announcements through three stages of meeting preparation: reading material, saving a draft, and changing a calendar or delivery. Each stage has a different recipient and check.",
-  "seoDescriptionJa": "Coworkで会議準備を任せるとき、資料の読み取り、下書き保存、予定や送信の変更を分け、段階ごとの確認点を設計する。",
-  "seoDescriptionEn": "Separate reading, draft saving, and calendar or delivery changes when delegating meeting preparation to Cowork, then design checks for each stage.",
-  "teaserJa": "資料を作る依頼と予定を動かす依頼では、何を確認すべきか。Coworkの発表から試行の条件を考える。",
-  "teaserEn": "Meeting preparation can include drafts and calendar changes. Define the review points for each before delegating the whole task.",
+  "titleJa": "Coworkが引き受ける会議準備：情報収集から資料と予定まで",
+  "titleEn": "Meeting preparation with Cowork: connecting evidence, analysis, and action",
+  "summaryJa": "AnthropicとMicrosoftのCoworkを、会議準備で人がつないでいる仕事から比較する。情報への接続、表とスライドの前提、途中の変更が及ぶ範囲を追い、確認と修正まで含めて仕事を渡せたかを判断する。",
+  "summaryEn": "Compare Anthropic and Microsoft Cowork through the work people connect during meeting preparation. Trace information access, analytical assumptions, and changes across artifacts, then judge value with review and correction included.",
+  "seoDescriptionJa": "Coworkの会議準備を、業務情報への接続、ExcelとPowerPointの整合、画面操作、変更の波及から分析。人の確認と修正を含む価値を考える。",
+  "seoDescriptionEn": "Compare Cowork for meeting preparation: context, Excel and PowerPoint, computer use, and changes across artifacts. Include human review when judging value.",
+  "teaserJa": "メールの情報から表、スライド、予定へ。一つの依頼で仕事を渡すとき、何をつなぎ、何を確かめるか。",
+  "teaserEn": "From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -22,22 +22,32 @@
     {
       "label": "Anthropic: Claude release notes (January 12, 2026 entry)",
       "url": "https://support.claude.com/en/articles/12138966-release-notes",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-01-12"
     },
     {
       "label": "Anthropic: Cowork and plugins for teams (February 24, 2026)",
       "url": "https://claude.com/blog/cowork-plugins-across-enterprise",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-02-24"
     },
     {
       "label": "Microsoft: Copilot Cowork (March 9, 2026)",
       "url": "https://www.microsoft.com/en-us/copilot/blog/2026/03/09/copilot-cowork-a-new-way-of-getting-work-done/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-03-09"
+    },
+    {
+      "label": "Anthropic: Put Claude to work on your computer (March 23, 2026)",
+      "url": "https://claude.com/blog/dispatch-and-computer-use",
+      "type": "official",
+      "publishedAt": "2026-03-23"
     },
     {
       "label": "Anthropic: Demystifying evals for AI agents",
       "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-01-09"
     }
   ],
   "draft": false

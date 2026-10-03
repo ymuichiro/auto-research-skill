@@ -1,14 +1,14 @@
 {
   "slug": "agents-operate-legacy-desktop-workflows",
   "date": "2026-06-30",
-  "titleJa": "APIのない業務アプリで、AIの入力と保存結果を確かめる",
-  "titleEn": "Verifying AI data entry and saves in applications without APIs",
-  "summaryJa": "画面を操作できても、保存が成功したか分からなければ再試行で重複を作る恐れがある。請求書入力の想定例で、対象特定、入力照合、保存後の検査、応答不明時の停止を確認する。",
-  "summaryEn": "An agent that can click Save still needs to establish whether the write succeeded. A hypothetical invoice workflow checks target identity, entered values, post-save results, and stops when the result is uncertain.",
-  "seoDescriptionJa": "APIのない業務アプリをAIで操作する際、入力値と保存結果をどう検証するか。請求書の想定例とOSWorld 2.0の条件付き評価から考える。",
-  "seoDescriptionEn": "Verify computer-use agents before and after Save. An invoice example covers duplicate prevention, managed desktops, and uncertain results.",
-  "teaserJa": "画面が固まったとき、保存を繰り返してよいか。請求書入力の例から、確認と停止の方法を考える。",
-  "teaserEn": "If the screen freezes after Save, should the agent retry? An invoice example shows what to verify first.",
+  "titleJa": "画面操作AIに任せる業務：入力から保存の確認までつなぐ",
+  "titleEn": "Delegating desktop work to AI: connect entry with verification",
+  "summaryJa": "APIのない業務アプリを動かすAIを、AWSとMicrosoftの管理環境、Graebelの導入報告、長時間課題の研究から分析。入力の意味、保存結果、人の修正負担をつなげて任せる範囲を考える。",
+  "summaryEn": "Compare managed desktops from AWS and Microsoft, Graebel’s reported workflow, and long-task research to connect field meaning, saved results, and human repair effort.",
+  "seoDescriptionJa": "APIのない業務アプリをAIで操作する際、入力と保存結果をどう確かめるか。AWSとMicrosoft、導入報告と研究から、担当者の負担まで考える。",
+  "seoDescriptionEn": "Compare AWS and Microsoft computer-use environments, a reported workflow, and long-task research to verify input, saves, recovery, and human effort.",
+  "teaserJa": "保存ボタンの後で困らないために。操作、管理環境、業務結果の照合を分けてつなぐ。",
+  "teaserEn": "After Save, can the owner establish what happened? Connect visual control, managed workspaces, and verification.",
   "category": "AI Workflows",
   "tags": [
     "AI Agent",
@@ -20,22 +20,46 @@
   ],
   "publishedSources": [
     {
-      "label": "AWS: Amazon WorkSpaces for AI agents is generally available",
+      "label": "Anthropic: Developing a computer use model",
+      "url": "https://www.anthropic.com/research/developing-computer-use",
+      "type": "official",
+      "publishedAt": "2024-10-22"
+    },
+    {
+      "label": "AWS: WorkSpaces for AI agents GA",
       "url": "https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/",
       "type": "official",
       "publishedAt": "2026-06-30"
     },
     {
-      "label": "Anthropic: Introducing computer use",
-      "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+      "label": "Microsoft: Windows 365 for Agents public preview",
+      "url": "https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-365-for-agents-now-in-public-preview-run-ai-agents-securely-at-scale/4513479",
       "type": "official",
-      "publishedAt": "2024-10-22"
+      "publishedAt": "2026-05-01"
     },
     {
-      "label": "OSWorld 2.0: Benchmarking Computer Use Agents on Long-Horizon Real-World Tasks",
+      "label": "Microsoft: Windows 365 for Agents architecture",
+      "url": "https://blogs.windows.com/windowsexperience/2026/01/22/windows-365-for-agents-the-cloud-pcs-next-chapter/",
+      "type": "official",
+      "publishedAt": "2026-01-22"
+    },
+    {
+      "label": "Microsoft: Copilot Studio computer use GA",
+      "url": "https://techcommunity.microsoft.com/blog/copilot-studio-blog/computer-using-agents-in-microsoft-copilot-studio-are-now-generally-available/4519427",
+      "type": "official",
+      "publishedAt": "2026-05-13"
+    },
+    {
+      "label": "OSWorld 2.0 version 1",
       "url": "https://arxiv.org/abs/2606.29537v1",
       "type": "paper",
       "publishedAt": "2026-06-28"
+    },
+    {
+      "label": "Anthropic: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "type": "official",
+      "publishedAt": "2026-01-09"
     }
   ],
   "draft": false,

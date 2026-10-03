@@ -1,14 +1,14 @@
 {
   "slug": "subagents-become-the-practical-unit-of-work-ai",
   "date": "2026-03-30",
-  "titleJa": "AIの仕事をsubagentに分けるとき、何を並列化し何を共有するか",
-  "titleEn": "When to split AI work into subagents, and what they need to share",
-  "summaryJa": "三製品の調査を例に、委任、並列化、根拠の受け渡し、結果統合、最終承認を分け、単一担当との品質・時間・費用の比較方法を考える。",
-  "summaryEn": "A three-product research example separates delegation, parallel execution, evidence handoffs, synthesis, and final approval, then compares them with a single agent.",
-  "seoDescriptionJa": "subagentを増やせば速く安くなるとは限らない。仕事の依存関係、共通の比較条件、根拠の受け渡し、総費用から分担を判断する。",
-  "seoDescriptionEn": "Decide whether subagents help by examining task dependencies, shared criteria, evidence handoffs, total cost, and comparison with a single agent.",
-  "teaserJa": "並列に調べられる仕事と、前の結果を待つ仕事を分けて委任を考える。",
-  "teaserEn": "Separate independent research from dependent steps before choosing a subagent structure.",
+  "titleJa": "AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ",
+  "titleEn": "Delegating to subagents: turn completed research into usable decisions",
+  "summaryJa": "OpenAI、Anthropic、Google、Microsoft、AWSの設計を、三製品を比較する想定業務から読む。小型モデル、並列探索、文脈分離、順序制御、履歴と処理記録を分け、人が統合し直す負担まで含めて分担を選ぶ。",
+  "summaryEn": "Read OpenAI, Anthropic, Google, Microsoft, and AWS designs through a hypothetical product comparison. Separate model choice, parallel exploration, context, ordering, and progress records, then assess synthesis and human rework.",
+  "seoDescriptionJa": "subagentへの委任を、小型モデル、並列化、文脈、実行順序、途中記録から比較する。各社の設計と、根拠を返し統合する人の負担を分析。",
+  "seoDescriptionEn": "Compare subagent designs across five vendors through model choice, parallel work, context, ordering, progress records, evidence handoffs, and human synthesis.",
+  "teaserJa": "担当を増やす前に、何を受け取り、どこまで調べ、何を返せば比較が進むかを決める。",
+  "teaserEn": "Define inputs, independent scope, and evidence returned before adding investigators.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,19 +20,52 @@
   ],
   "publishedSources": [
     {
-      "label": "OpenAI: GPT-5.4 mini and nano (March 2026)",
+      "label": "OpenAI: Introducing GPT-5.4 mini and nano",
       "url": "https://openai.com/index/introducing-gpt-5-4-mini-and-nano/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-03-17"
     },
     {
-      "label": "Anthropic: Multi-agent research system (June 2025)",
+      "label": "Anthropic: Building agents with the Claude Agent SDK",
+      "url": "https://claude.com/blog/building-agents-with-the-claude-agent-sdk",
+      "type": "official",
+      "publishedAt": "2025-09-29"
+    },
+    {
+      "label": "Google ADK: workflow agents, March 30 snapshot",
+      "url": "https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/docs/agents/workflow-agents/index.md",
+      "type": "official",
+      "publishedAt": "2026-03-30"
+    },
+    {
+      "label": "Google ADK: parallel research and synthesis example, March 30 snapshot",
+      "url": "https://github.com/google/adk-docs/blob/ddd466022537fd9910a045a0fff3f924560ce1e5/examples/python/snippets/agents/workflow-agents/parallel_agent_web_research.py",
+      "type": "official",
+      "publishedAt": "2026-03-30"
+    },
+    {
+      "label": "AWS: Amazon Bedrock announces general availability of multi-agent collaboration",
+      "url": "https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/",
+      "type": "official",
+      "publishedAt": "2025-03-10"
+    },
+    {
+      "label": "Microsoft Agent Framework: workflow as agent with session, March 30 snapshot",
+      "url": "https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/agents/workflow_as_agent_with_session.py",
+      "type": "official",
+      "publishedAt": "2026-03-30"
+    },
+    {
+      "label": "Microsoft Agent Framework: checkpoint sample, March 30 snapshot",
+      "url": "https://github.com/microsoft/agent-framework/blob/0f81c277d95ec6a149b7814db1ab324fd699e087/python/samples/03-workflows/checkpoint/workflow_as_agent_checkpoint.py",
+      "type": "official",
+      "publishedAt": "2026-03-30"
+    },
+    {
+      "label": "Anthropic: How we built our multi-agent research system",
       "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
-      "type": "official"
-    },
-    {
-      "label": "Google ADK: Workflow agents",
-      "url": "https://adk.dev/agents/workflow-agents/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-06-13"
     }
   ],
   "draft": false

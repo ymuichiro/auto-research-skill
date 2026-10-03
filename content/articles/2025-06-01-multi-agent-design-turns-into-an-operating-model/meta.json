@@ -1,14 +1,14 @@
 {
   "slug": "multi-agent-design-turns-into-an-operating-model",
   "date": "2025-06-01",
-  "titleJa": "複数エージェントの設計は、どう運用モデルになるのか",
-  "titleEn": "How multi-agent design becomes an operating model",
-  "summaryJa": "Azure AI Foundry、Responses API、Semantic Kernelの資料を基に、依存関係、受け渡す根拠、検証、終了条件を持つ複数エージェントの仕事設計を考える。",
-  "summaryEn": "Using Azure AI Foundry, Responses API, and Semantic Kernel material, this article defines multi-agent work around dependencies, evidence handoffs, verification, and stopping conditions.",
-  "seoDescriptionJa": "複数エージェントを図解で終わらせず、依存関係、handoff、検証、終了条件を持つ運用モデルとして設計する方法を整理する。",
-  "seoDescriptionEn": "Design multi-agent systems as operating models with dependencies, handoffs, verification, and stopping conditions rather than as diagrams.",
-  "teaserJa": "担当を増やす前に、依存関係、受け渡す根拠、統合者、終了条件を決める。",
-  "teaserEn": "Before adding roles, define dependencies, evidence handoffs, an integrator, and a stopping condition.",
+  "titleJa": "複数エージェントで調査報告を作るなら、どう仕事を分けるか",
+  "titleEn": "Multi-agent research: dividing work that leads to one usable report",
+  "summaryJa": "Semantic Kernelの順番・並列・動的な協調、Foundryの道具と監視、Responses APIの長い処理を比較。調査報告の根拠、計算条件、統合、再調査をつなぎ、分業が人の負担を減らす条件を考える。",
+  "summaryEn": "Compare Semantic Kernel orchestration, Foundry tools and traces, and Responses API background work to examine dependencies, evidence handoffs, and report quality.",
+  "seoDescriptionJa": "複数AIエージェントで調査報告を作る際の順番・並列処理、根拠の引き継ぎ、統合と再調査を、Semantic Kernel、Foundry、Responses APIの資料から解説する。",
+  "seoDescriptionEn": "Use Semantic Kernel, Foundry, and Responses API examples to design multi-agent research with dependencies, evidence handoffs, review, and return to collection.",
+  "teaserJa": "資料収集を速めても、比較条件を落とせば人の確認は増える。完成までの依存関係から分業を選ぶ。",
+  "teaserEn": "Faster collection can leave more checking to the user. Choose division from the dependencies needed to finish the report.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,32 +18,26 @@
   ],
   "publishedSources": [
     {
-      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
-      "url": "https://arxiv.org/abs/2406.12045",
-      "type": "paper",
-      "publishedAt": "2024-06-17"
-    },
-    {
       "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
+      "url": "https://arxiv.org/html/2411.04468v1",
       "type": "paper",
       "publishedAt": "2024-11-07"
     },
     {
-      "label": "Google Cloud: Build and manage multi-system agents with Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai",
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
       "type": "official",
-      "publishedAt": "2025-04-09"
+      "publishedAt": "2024-12-19"
     },
     {
-      "label": "Google Developers Blog: A2A, a new era of agent interoperability",
-      "url": "https://developers.googleblog.com/en/a2a-a-new-era-of-agent-interoperability/",
+      "label": "Microsoft: Semantic Kernel Agents are now Generally Available",
+      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/",
       "type": "official",
-      "publishedAt": "2025-04-09"
+      "publishedAt": "2025-04-04"
     },
     {
-      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
+      "label": "Microsoft: Announcing Developer Essentials for Agents and Apps in Azure AI Foundry",
+      "url": "https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/",
       "type": "official",
       "publishedAt": "2025-05-19"
     },
@@ -58,12 +52,6 @@
       "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/",
       "type": "official",
       "publishedAt": "2025-05-27"
-    },
-    {
-      "label": "Anthropic: Building effective agents",
-      "url": "https://www.anthropic.com/engineering/building-effective-agents",
-      "type": "official",
-      "publishedAt": "2024-12-19"
     }
   ],
   "draft": false

@@ -1,14 +1,14 @@
 {
   "slug": "agent-sdks-expand-beyond-coding",
   "date": "2025-10-01",
-  "titleJa": "Agent SDKを汎用ワークフローへ組み込むとき、業務定義はどこに置くか",
-  "titleEn": "Where business definitions belong when agent SDKs enter general workflows",
-  "summaryJa": "Claude Agent SDKは、文脈収集、行動、検証を反復する実行ループをアプリに組み込める。Looker MCPは定義済みの指標へ接続する。月次報告の想定例を通じ、実行制御と業務上の正しさ・承認が別の責任である理由を整理する。",
-  "summaryEn": "Claude Agent SDK can embed a loop that gathers context, acts, and verifies work, while Looker MCP connects agents to defined metrics. A monthly-report scenario separates execution control from business correctness and approval.",
-  "seoDescriptionJa": "Claude Agent SDKとLooker MCPを比較し、汎用ワークフローで実行ループ、指標定義、承認をどう分けるかを整理する。",
-  "seoDescriptionEn": "Claude Agent SDK and Looker MCP show how to separate execution loops, metric definitions, and approval in a general workflow.",
-  "teaserJa": "実行を繰り返せても、業務上正しい結果と承認条件はアプリ側が定義する。",
-  "teaserEn": "A reusable execution loop does not define a business-correct result or its approval conditions.",
+  "titleJa": "Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件",
+  "titleEn": "Agent SDKs in business workflows: adaptive steps, fixed conditions",
+  "summaryJa": "Claude Agent SDKの汎用化、LookerとFirestoreのデータ接続、Microsoft Agent Frameworkを比較する。月次報告の想定例から、資料を探す反復と固定した指標・計算・提出条件をどう組み合わせるか、SDKを使わない条件まで考える。",
+  "summaryEn": "Claude Agent SDK, Looker and Firestore tools, and Microsoft Agent Framework offer different forms of reuse. A monthly-report scenario examines adaptive exploration, fixed definitions and checks, and when a script is sufficient.",
+  "seoDescriptionJa": "Claude Agent SDK、Looker MCP、Firestore、Microsoft Agent Frameworkを比較。月次報告を例に、AIに選ばせる手順と固定する業務条件を考える。",
+  "seoDescriptionEn": "Compare Claude Agent SDK, Looker MCP, Firestore, and Microsoft Agent Framework through adaptive steps and fixed conditions in a monthly report.",
+  "teaserJa": "資料を探す自由を与えても、売上の定義や提出条件まで変えさせる必要はない。",
+  "teaserEn": "Allowing an AI to explore does not require letting it change revenue definitions or submission conditions.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -25,10 +25,16 @@
       "publishedAt": "2025-09-29"
     },
     {
-      "label": "Google Cloud: Looker debuts MCP Server to broaden AI developer access to data",
-      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server",
+      "label": "Anthropic: Writing effective tools for agents",
+      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
       "type": "official",
-      "publishedAt": "2025-08-08"
+      "publishedAt": "2025-09-11"
+    },
+    {
+      "label": "Google Cloud: Looker debuts MCP Server to broaden AI developer access to data",
+      "url": "https://cloud.google.com/blog/products/business-intelligence/introducing-looker-mcp-server/",
+      "type": "official",
+      "publishedAt": "2025-08-09"
     },
     {
       "label": "Google Cloud: Announcing MCP Toolbox support for Firestore",
@@ -41,6 +47,12 @@
       "url": "https://devblogs.microsoft.com/foundry/introducing-microsoft-agent-framework-the-open-source-engine-for-agentic-ai-apps/",
       "type": "official",
       "publishedAt": "2025-10-01"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
     }
   ],
   "draft": false

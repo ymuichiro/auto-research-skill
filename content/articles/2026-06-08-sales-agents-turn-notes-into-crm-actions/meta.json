@@ -1,14 +1,14 @@
 {
   "slug": "sales-agents-turn-notes-into-crm-actions",
   "date": "2026-06-08",
-  "titleJa": "営業AIが会議メモからCRMを更新する際、何を確認するか",
-  "titleEn": "What to verify when sales AI turns meeting notes into CRM updates",
-  "summaryJa": "顧客の希望を成約予定日に変えてよいとは限らない。営業AIが作る更新候補について、抽出、案件照合、根拠、現在値、承認、保存結果を確認する方法を整理する。",
-  "summaryEn": "A customer preference is not necessarily a closing commitment. Examine extraction, opportunity matching, evidence, current values, approval, and saved CRM results for a sales-AI proposal.",
-  "seoDescriptionJa": "営業AIの更新候補をどう確認するか。AWS、Microsoft、Salesforceの対象作業を区別し、会議メモの解釈、案件照合、同時更新の問題を説明する。",
-  "seoDescriptionEn": "Check CRM update proposals from sales AI: opportunity matching, field evidence, changed records, and saved results, with product comparisons.",
-  "teaserJa": "「来月の導入を希望」を成約予定日に変えてよいか。会議メモからCRMへ移す判断を具体化する。",
-  "teaserEn": "Does “deployment next month” justify a close date? Check the target opportunity and evidence before saving.",
+  "titleJa": "営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ",
+  "titleEn": "Sales AI CRM updates: carry statements, forecasts, and agreements forward",
+  "summaryJa": "AWS、Microsoft、Salesforce、OpenAIの作成・保存・更新を比較。会議メモの解釈、案件照合、同時変更、人の修正負担から任せる範囲を考える。",
+  "summaryEn": "Compare creation, saving, and updates across AWS, Microsoft, Salesforce, and OpenAI, then evaluate interpretation, deal matching, conflicts, and human repair.",
+  "seoDescriptionJa": "営業AIの会議メモからCRMへの更新を比較。顧客の希望と成約見込み、案件照合、項目の根拠、同時更新、人の確認負担を分析する。",
+  "seoDescriptionEn": "Compare sales AI CRM operations through meeting evidence, statements versus forecasts, opportunity matching, concurrent updates, and human review effort.",
+  "teaserJa": "顧客の希望を成約見込みへ変える前に、どの案件と判断を引き継ぐかを確かめる。",
+  "teaserEn": "Before turning a customer preference into a close forecast, establish which opportunity and judgment the record carries.",
   "category": "AI Workflows",
   "tags": [
     "AI Agent",
@@ -20,21 +20,63 @@
   ],
   "publishedSources": [
     {
-      "label": "AWS: Partner Central agents accelerate opportunity creation",
+      "label": "AWS: Partner Central opportunity creation",
       "url": "https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/",
       "type": "official",
       "publishedAt": "2026-05-15"
     },
     {
-      "label": "Microsoft Learn: Save Outlook activities to your CRM",
-      "url": "https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-outlook-activities-crm",
-      "type": "official"
+      "label": "AWS: Introducing Partner Central agents",
+      "url": "https://aws.amazon.com/blogs/apn/introducing-aws-partner-central-agents/",
+      "type": "official",
+      "publishedAt": "2026-03-16"
     },
     {
-      "label": "Salesforce: Agentforce Sales announcement",
+      "label": "Salesforce: Agentforce Sales",
       "url": "https://www.salesforce.com/news/stories/agentforce-sales-announcement/",
       "type": "official",
       "publishedAt": "2026-03-16"
+    },
+    {
+      "label": "Microsoft Sales agent: save-outlook-activities-crm",
+      "url": "https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-outlook-activities-crm.md",
+      "type": "official",
+      "publishedAt": "2026-06-04"
+    },
+    {
+      "label": "Microsoft Sales agent: use-sales-copilot-app-during-meeting",
+      "url": "https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/use-sales-copilot-app-during-meeting.md",
+      "type": "official",
+      "publishedAt": "2026-06-04"
+    },
+    {
+      "label": "OpenAI: Codex for every role, tool and workflow",
+      "url": "https://openai.com/index/codex-for-every-role-tool-workflow/",
+      "type": "official",
+      "publishedAt": "2026-06-02"
+    },
+    {
+      "label": "Microsoft Sales agent: connect-contact",
+      "url": "https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/connect-contact.md",
+      "type": "official",
+      "publishedAt": "2026-06-04"
+    },
+    {
+      "label": "Microsoft Sales agent: save-additional-details-outlook",
+      "url": "https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-additional-details-outlook.md",
+      "type": "official",
+      "publishedAt": "2026-06-04"
+    },
+    {
+      "label": "RFC9110: HTTP conditional requests",
+      "url": "https://www.rfc-editor.org/rfc/rfc9110.html",
+      "type": "official"
+    },
+    {
+      "label": "Anthropic: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "type": "official",
+      "publishedAt": "2026-01-09"
     }
   ],
   "draft": false,

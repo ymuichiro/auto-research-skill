@@ -1,14 +1,14 @@
 {
   "slug": "agent-ops-gets-promoted-to-a-control-layer",
   "date": "2025-08-01",
-  "titleJa": "AgentOps は、なぜ実行を制御する層になるのか",
-  "titleEn": "Why AgentOps becomes a control layer for execution",
-  "summaryJa": "Foundry、Responses API、Semantic Kernel、接続プロトコルの資料を基に、trace、review、権限、復旧を、エージェント実行を観測・停止・改善する制御面として整理する。",
-  "summaryEn": "Use Foundry, Responses API, Semantic Kernel, and connection-protocol material to define traces, review, permissions, and recovery as a control layer for observing, stopping, and improving agent execution.",
-  "seoDescriptionJa": "AgentOpsをtrace、review、permission、recoveryから整理し、実行履歴を見られることと安全な復旧を分けて考える。",
-  "seoDescriptionEn": "Explain AgentOps through traces, review, permissions, and recovery, separating visible execution history from safe recovery.",
-  "teaserJa": "実行を見られることは、同じ副作用を起こさずに復旧できる保証ではない。",
-  "teaserEn": "Seeing execution does not guarantee recovery without repeating side effects.",
+  "titleJa": "AgentOps：通信が切れた後、何をやり直してよいか",
+  "titleEn": "AgentOps after a connection loss: deciding what can be retried",
+  "summaryJa": "AgentCore、Foundry、LangGraphの実行管理と履歴を比較し、チケット作成の通信断から復旧を考える。途中保存と外部の確定状態、停止と取消しを分け、人の再調査を減らす運用を描く。",
+  "summaryEn": "Compare agent runtime and tracing services, then use a hypothetical ticket-creation failure to distinguish checkpoints, external outcomes, stopping, and cancellation.",
+  "seoDescriptionJa": "AgentOpsで履歴から復旧を判断する方法を考える。AgentCore、Foundry、LangGraphとAPIの冪等性から、通信断後の重複防止と再開条件を整理する。",
+  "seoDescriptionEn": "Explore AgentOps recovery with AgentCore, Foundry, LangGraph, and API idempotency: reconcile unknown outcomes before retrying external changes.",
+  "teaserJa": "履歴があるだけでは再実行を選べない。確定した変更と未確定の結果を分け、人が仕事を続けられるようにする。",
+  "teaserEn": "History alone cannot justify a retry. Distinguish committed changes from unknown outcomes so people can continue the work.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,22 +18,34 @@
   ],
   "publishedSources": [
     {
-      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
-      "url": "https://arxiv.org/abs/2411.15114",
-      "type": "paper",
-      "publishedAt": "2024-11-22"
+      "label": "AWS: Introducing Amazon Bedrock AgentCore (preview)",
+      "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/",
+      "type": "official",
+      "publishedAt": "2025-07-16"
     },
     {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
-    },
-    {
-      "label": "Microsoft: Announcing general availability of Azure AI Foundry Agent Service",
-      "url": "https://techcommunity.microsoft.com/blog/azure-ai-foundry-blog/announcing-general-availability-of-azure-ai-foundry-agent-service/4414352",
+      "label": "Microsoft Foundry: Announcing Developer Essentials",
+      "url": "https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/",
       "type": "official",
       "publishedAt": "2025-05-19"
+    },
+    {
+      "label": "Anthropic: How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "type": "official",
+      "publishedAt": "2025-06-13"
+    },
+    {
+      "label": "AWS: Amazon CloudWatch adds generative AI observability (Preview)",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-cloudwatch-generative-ai-observability-preview/",
+      "type": "official",
+      "publishedAt": "2025-07-16"
+    },
+    {
+      "label": "LangChain: LangGraph Platform is now Generally Available",
+      "url": "https://www.langchain.com/blog/langgraph-platform-ga",
+      "type": "official",
+      "publishedAt": "2025-05-14"
     },
     {
       "label": "OpenAI: New tools and features in the Responses API",
@@ -42,22 +54,16 @@
       "publishedAt": "2025-05-21"
     },
     {
-      "label": "Microsoft: Semantic Kernel multi-agent orchestration",
-      "url": "https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/",
+      "label": "Stripe: Designing robust and predictable APIs with idempotency",
+      "url": "https://stripe.com/blog/idempotency",
       "type": "official",
-      "publishedAt": "2025-05-27"
+      "publishedAt": "2017-02-22"
     },
     {
-      "label": "Google Cloud: New MCP integrations to Google Cloud Databases",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/new-mcp-integrations-to-google-cloud-databases",
+      "label": "AWS: Implement human-in-the-loop confirmation with Amazon Bedrock Agents",
+      "url": "https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/",
       "type": "official",
-      "publishedAt": "2025-06-05"
-    },
-    {
-      "label": "Google Developers Blog: Google Cloud donates A2A to Linux Foundation",
-      "url": "https://developers.googleblog.com/en/google-cloud-donates-a2a-to-linux-foundation/",
-      "type": "official",
-      "publishedAt": "2025-06-23"
+      "publishedAt": "2025-04-09"
     }
   ],
   "draft": false

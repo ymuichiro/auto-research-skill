@@ -1,14 +1,14 @@
 {
   "slug": "browser-agents-enter-the-product-roadmap",
   "date": "2025-02-01",
-  "titleJa": "ブラウザ操作エージェントを製品計画へ入れる前に、何を設計するか",
-  "titleEn": "What to design before putting browser agents on a product roadmap",
-  "summaryJa": "WebVoyager、VisualWebArena、OSWorld、Operator、AutoGen v0.4を比較し、ブラウザ操作を製品計画に置く際の環境、状態、確認、人への引き継ぎを整理する。",
-  "summaryEn": "Compare WebVoyager, VisualWebArena, OSWorld, Operator, and AutoGen v0.4 to define the environment, state, confirmation, and human handoff needed before planning a browser agent product.",
-  "seoDescriptionJa": "2025年2月時点のブラウザ操作研究と製品発表を基に、computer useを計画する際の完了条件、状態管理、承認、引き継ぎを整理する。",
-  "seoDescriptionEn": "Using browser-agent research and product releases available in February 2025, this article defines completion, state, approval, and handoff conditions for computer use.",
-  "teaserJa": "画面をクリックできることは、製品化の条件ではない。ブラウザ操作を計画するための状態・確認・引き継ぎを考える。",
-  "teaserEn": "Clicking a screen is not a product plan. Define state, confirmation, and handoff for browser-agent work.",
+  "titleJa": "ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ",
+  "titleEn": "Browser agents: using existing screens without losing the job",
+  "summaryJa": "Operatorと画面操作研究から、APIのないサイトへ仕事を広げる利点と、受付結果の確認、人への引き継ぎ、修正負担の関係を考える。",
+  "summaryEn": "Compare Operator and screen-agent research to weigh access without custom APIs against outcome verification, human handoff, and the effort of correcting unfinished work.",
+  "seoDescriptionJa": "ブラウザ操作AIはAPIのない画面で何を任せられるのか。Operator、WebVoyagerなどから、視覚、完了確認、再開と利用者の負担を比較する。",
+  "seoDescriptionEn": "How can browser agents use existing screens? Compare Operator and research on vision, outcome verification, resuming work, and the effort required from users.",
+  "teaserJa": "使える画面が増えるほど、そこで起きたことを確かめる仕事も増える。操作の広さと、引き継ぐ負担を一緒に考える。",
+  "teaserEn": "More screens mean more outcomes to verify. Compare the breadth of browser access with the effort needed to continue each job.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -19,31 +19,31 @@
   "publishedSources": [
     {
       "label": "WebVoyager: Building an End-to-End Web Agent with Large Multimodal Models",
-      "url": "https://arxiv.org/abs/2401.13919",
+      "url": "https://arxiv.org/html/2401.13919v1",
       "type": "paper",
       "publishedAt": "2024-01-25"
     },
     {
       "label": "VisualWebArena: Evaluating Multimodal Agents on Realistic Visual Web Tasks",
-      "url": "https://arxiv.org/abs/2401.13649",
+      "url": "https://arxiv.org/html/2401.13649v1",
       "type": "paper",
       "publishedAt": "2024-01-24"
     },
     {
       "label": "OSWorld: Benchmarking Multimodal Agents for Open-Ended Tasks in Real Computer Environments",
-      "url": "https://arxiv.org/abs/2404.07972",
+      "url": "https://arxiv.org/abs/2404.07972v1",
       "type": "paper",
       "publishedAt": "2024-04-11"
     },
     {
       "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
-      "url": "https://arxiv.org/abs/2411.04468",
+      "url": "https://arxiv.org/html/2411.04468v1",
       "type": "paper",
       "publishedAt": "2024-11-07"
     },
     {
       "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467",
+      "url": "https://arxiv.org/abs/2412.05467v1",
       "type": "paper",
       "publishedAt": "2024-12-06"
     },
@@ -70,12 +70,6 @@
       "url": "https://openai.com/index/introducing-operator/",
       "type": "official",
       "publishedAt": "2025-01-23"
-    },
-    {
-      "label": "Google Cloud: Your ultimate guide to the latest in generative AI on Vertex AI",
-      "url": "https://cloud.google.com/blog/products/ai-machine-learning/your-ultimate-guide-to-the-latest-in-generative-ai-on-vertex-ai",
-      "type": "official",
-      "publishedAt": "2025-01-24"
     }
   ],
   "draft": false

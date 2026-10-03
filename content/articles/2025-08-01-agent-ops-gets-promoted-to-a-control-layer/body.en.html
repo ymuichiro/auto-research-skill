@@ -1,30 +1,69 @@
 <section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>Why does visible execution history not mean that recovery is safe?</h2>
-  <p>As an agent uses tools, outside data, and several roles, its outcome is insufficient without an account of its path. Azure AI Foundry, <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">Responses API</a>, Semantic Kernel, and MCP/A2A material document components for traces, sessions, run history, connections, and permissions. This article calls the surface used to observe, review, stop, and improve execution AgentOps. A trace does not prove that an external action happened exactly once or that retrying it is safe.</p>
+  <p class="section-kicker">Work stops midway</p>
+  <h2>Before pressing “run again,” has the ticket already been created?</h2>
+  <p>An AI investigates a customer inquiry and creates a support ticket. The connection drops during creation, and the screen shows an error. Should the person press the button again or first check the external system? This is a hypothetical recovery scenario. Even when the AI cannot reply, the other system may already have committed the change.</p>
+  <p>As agents use external tools and continue longer tasks, they need mechanisms for handling failures midway. Following May announcements from Foundry and LangGraph Platform, Amazon Bedrock AgentCore announced preview capabilities in July for runtime infrastructure, permissions, and observing execution. Components for operating work are being offered alongside capabilities for generating answers.</p>
+  <p>This article uses AgentOps to mean the work of handling execution records, control, recovery, and improvement together. Its argument is that visible records must support decisions about what has committed, what remains unknown, and what may happen next. If users have to investigate from the beginning every time, the value of the agent’s partial progress is also lost.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Services for operating agents</p>
+  <h2>Delegating runtime and history does not settle business completion</h2>
+  <p>The <a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/">July 16 AgentCore announcement</a> describes individually usable services including Runtime for execution, Identity for access, and Observability for following runs. Its support example identifies a customer through CRM, retrieves orders and product information, and prepares a reply. The prototype simulates internal systems with Python functions. It is not a measurement of safe recovery in live customer support.</p>
+  <p><a href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/">Foundry’s Developer Essentials</a> also describes tracing, evaluation, and monitoring alongside tool connections. A team choosing a managed service can compare which history is retained and which failures can be investigated, as well as whether it can query a model. A running environment, a generated answer, and exactly one created ticket remain different things to verify.</p>
+  <p>This difference also affects decisions to add tools. Moving from a document-reading prototype to ticket creation or sending replies adds external state to check after a failure. The available connections need to be considered together with the records and operations required for recovery.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Investigating the cause</p>
+  <h2>Break “the AI got it wrong” into places that can be repaired</h2>
+  <p><a href="https://www.anthropic.com/engineering/multi-agent-research-system">Anthropic’s research-system engineering report</a> describes users complaining that agents missed obvious information, without developers knowing whether queries, source selection, or failing tools were responsible. Adding production tracing helped diagnose and fix causes. This is a vendor’s engineering account, not an experiment showing the same reduction in repair time across organizations.</p>
+  <p>The <a href="https://aws.amazon.com/about-aws/whats-new/2025/07/amazon-cloudwatch-generative-ai-observability-preview/">July CloudWatch preview</a> offers latency, usage, errors, and tracing across knowledge retrieval, tools, and models. If a search failed to retrieve the needed policy, a team would investigate its corpus or retrieval method. If the correct policy was supplied but ignored in the answer, a different part of the application needs repair.</p>
+  <p>The operating recommendation is to link inputs, retrieved evidence versions, tool arguments and results, and execution versions. The final answer alone makes it hard to distinguish a wrong input from evidence lost midway. Conversely, a lengthy history that is not linked to the external creation result still cannot settle whether the opening ticket exists.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Resuming midway</p>
+  <h2>Returning to saved execution differs from reversing an external change</h2>
+  <p><a href="https://www.langchain.com/blog/langgraph-platform-ga">LangGraph Platform, generally available on May 14</a>, persists state for long-running work and for waiting on human input. Its Studio description includes checkpoints for returning to a failure point, editing, and rerunning. <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">Responses API background mode</a> likewise provides a way to start long work and inspect its status afterward. These are components for making waiting and resumption accessible to an application.</p>
+  <p>In our hypothetical ticket example, returning to a point before creation could restore the agent’s internal “not yet created” state while the external ticket already exists. Running the creation tool again could produce two tickets with the same content. An execution checkpoint cannot be treated as a mechanism for undoing external changes.</p>
+  <p>A resumption point therefore depends on more than step order. Distinguish rereading material from committing an external change. Even rereading can yield different results after document updates, while an external write requires checking whether the earlier change committed. Records should also show which input and environment versions will be used to resume.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Avoiding repeated changes</p>
+  <h2>Distinguish failure from an unknown result after a connection loss</h2>
+  <p><a href="https://stripe.com/blog/idempotency">Stripe’s API-design explanation</a> covers unknown outcomes after communication failures, including a successful operation whose response is lost. It describes resending the same operation identifier so the server can avoid duplicates and return its result. Idempotency means repeated calls do not multiply their effects. This is a problem in ordinary APIs too, rather than a failure unique to agents.</p>
+  <p>If the external ticket system supports this mechanism, our example can link the operation key to the committed ticket ID. A retry must check whether it can use the same creation content and key, including the key’s validity period and the destination’s processing conditions. If the AI reasons again, produces similar prose, and sends it with a new key, the server may see a separate creation request.</p>
+  <p>When identifiers cannot reconcile the outcome, an empty search immediately afterward does not establish nonexistence. The other system may still be processing or may take time to reflect the result in search. Report “the outcome cannot yet be confirmed,” rather than “creation failed, so create again,” and hand a person the earlier operation content and last verified state. Urgency makes preserving uncertainty more necessary.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Choosing where to stop</p>
+  <h2>Approval, stopping, and cancellation require different checks</h2>
+  <p><a href="https://aws.amazon.com/blogs/machine-learning/implement-human-in-the-loop-confirmation-with-amazon-bedrock-agents/">Bedrock’s human-confirmation example</a> shows inputs presented and edited before creating a leave request. It provides material for linking a proposed action to the action a person confirms may execute. Applied to customer support, the ticket or reply content should be linked to the actual inputs immediately before sending.</p>
+  <p>If the prose or recipient changes after approval, the earlier approval may no longer apply. Permissions may also change during a long wait, requiring execution conditions to be checked on resumption. Beyond providing an approval screen, retain which content and operation the person approved.</p>
+  <p>When designing a stop, distinguish future tool calls from operations already sent. Whether a sent reply can be recalled or a created ticket should be closed depends on the external system and business judgment. Cancellation is another operation whose permissions and outcome need checking. A stopped screen should not imply that every change has been reversed.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Choosing records to retain</p>
+  <h2>Recovery evidence and complete conversations deserve separate consideration</h2>
+  <p>Investigating a cause does not always require retaining every conversation in full. Anthropic describes observing decision and interaction patterns without monitoring individual conversation contents. CloudWatch’s announcement also states that collected and stored telemetry incurs charges. Adding records increases both investigable detail and the information and costs retained.</p>
+  <p>This article recommends first defining the fields needed for recovery decisions. Link operation and external identifiers, committed outcomes, permissions used, and approved input versions to the same run. If sensitive prose is necessary for investigation, define who may inspect it and how long it is retained, and exclude credentials themselves from history. Recovery staff being able to find evidence differs from everyone being able to read everything.</p>
+  <p>Make gaps visible when only part of the history remains. Segments using unrecorded tools or missing an external response should not appear identical to confirmed completion. Knowing the boundaries of available evidence lets a person avoid unnecessary investigation and concentrate on unresolved parts.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">From recovery to improvement</p>
+  <h2>Help the next person avoid investigating the same failure from scratch</h2>
+  <p>After recovery, ask what missing information made the decision slow. Turn a problematic search condition into an evaluation case, or a lost response into a test of resending the same operation. Comparing recorded input, model, tool, and external-data versions makes it easier to check whether a repair works under the same conditions. Separate repeating real external actions from reproducing a cause in a test environment.</p>
+  <p>Alongside answer correctness, examine whether unknown outcomes were overlooked, duplicates were created, or a person spent minutes reinvestigating. These are proposed evaluation criteria, not measured product comparisons from the sources. They help move from collecting records to reducing people’s recovery burden.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Observe</h3><p>Retain inputs, tool calls, state, outputs, and failures.</p></article>
-    <article class="comparison-card"><h3>Control</h3><p>Define who may use a connection and which actions require review or approval.</p></article>
-    <article class="comparison-card"><h3>Recover</h3><p>Choose retry, cancellation, or human handoff after reconciling external state.</p></article>
+    <article class="comparison-card"><h3>Observe</h3><p>Use inputs, evidence, tools, and execution versions to locate what needs repair.</p></article>
+    <article class="comparison-card"><h3>Reconcile and resume</h3><p>Distinguish checkpoints from externally committed state to avoid repeating changes.</p></article>
+    <article class="comparison-card"><h3>Control</h3><p>Check approved content, changes remaining after a stop, and permission to cancel.</p></article>
+    <article class="comparison-card"><h3>Improve</h3><p>Turn causes into evaluation cases and reduce the next person’s investigation.</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Scope of the material</p>
-  <h2>Tracing and orchestration create records for investigating a failure</h2>
-  <p>Foundry agent services and Semantic Kernel orchestration are examples of platforms for roles, tools, and execution. Responses API background mode offers a way to inspect a long-running operation after it begins. MCP data connections and A2A task lifecycles add contracts for more connections and states. These materials document capability and configuration; they do not establish that an organization can recover safely.</p>
-  <p><a href="https://arxiv.org/abs/2411.15114">RE-Bench</a> and <a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> evaluate outcomes influenced by environments, time, and tools. The design implication is not to attribute every failure immediately to a model. Records must make it possible to investigate input, environment, authority, and execution path.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Hypothetical example</p>
-  <h2>Decide whether a ticket can be retried safely after a connection loss</h2>
-  <p>This is a design example. An agent loses connection while creating a customer ticket. A trace saying that it called the creation API leaves the result indeterminate. The request may not have arrived; a ticket may have been created but its response lost; or an existing ticket may have matched the same input. History alone may not distinguish these cases.</p>
-  <p>Recovery first reconciles external state with an identifier or idempotency key. Do not retry if a ticket exists. Retry only when nonexistence can be confirmed. If reconciliation is impossible, hand a person the indeterminate state, input content, and last verified external state. A trace supports this judgment; it does not replace reconciliation, duplicate prevention, or permission checks.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>AgentOps makes recovery decisions evidence-based; it does not automate recovery by itself</h2>
-  <p>The control layer described here puts traces, review, permissions, and recovery outside a model. With more connections and roles, a team must know not only what actions occurred but what remains indeterminate. Defining reconciliation, retry, cancellation, and human handoff for each failure type, then retaining the records those decisions require, is a condition for operating agents.</p>
+  <p>AgentOps is valuable when even failed work leaves confirmed facts distinguishable from unknowns, allowing the user to choose the next operation. Connecting execution history to recovery decisions and improvement makes partial progress something people can continue.</p>
 </section>

@@ -1,41 +1,136 @@
 <section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>Which responsibilities does a managed agent platform assume, and which remain with an application?</h2>
-  <p><a href="https://openai.com/index/new-tools-for-building-agents/">OpenAI’s agent-building tools</a> and <a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">Amazon Bedrock multi-agent collaboration</a>, released in March 2025, presented tool execution and coordination between roles as service or SDK capabilities. They did not make vendor scopes identical. This article uses <a href="https://arxiv.org/abs/2308.08155">AutoGen</a> and <a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> as research context for role separation, then compares execution, coordination, and business responsibility.</p>
+  <p class="section-kicker">Start with one request</p>
+  <h2>After connecting tools and specialists, who finishes the request?</h2>
+  <p>Consider a customer asking how to configure a product and what has happened to their order.
+This is a hypothetical example for comparing the scope a platform manages.
+Product documents supply the instructions; customer-specific data supplies order status.
+Alongside model calls, the developer needs search, an order API connection, request routing, and a way to combine the results.</p>
+  <p><a href="https://openai.com/index/new-tools-for-building-agents/">OpenAI’s March 11 announcement of agent-building tools</a> and <a href="https://aws.amazon.com/blogs/machine-learning/amazon-bedrock-announces-general-availability-of-multi-agent-collaboration/">Amazon Bedrock’s March 10 general availability of multi-agent collaboration</a> make some of that work available as selectable components.
+Search can run in a service, handoffs can be composed with an SDK, and coordination can be configured within a service.
+The starting point for development becomes more concrete, although the two vendors assume different responsibilities.</p>
+  <p>My comparison focuses on who executes each part of a request, rather than the number of named features.
+Searching documents still leaves the question of whether a customer’s order may be accessed.
+Routing between specialists leaves the handling of conflicting results unresolved.
+Breaking down the work makes the value of a managed platform easier to assess.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Search within the service</p>
+  <h2>Delegating search separates connection work from judgments about the material</h2>
+  <p>The Responses API presents web search, file search, and computer use as built-in tools.
+Web search retrieves external information, while file search looks through supplied documents.
+Registering product documents for search can reduce the retrieval implementation a developer must build.
+The application team still chooses which materials to register and when to use them.</p>
+  <p>For the opening request, public instructions and customer-specific contract conditions should be treated differently.
+A correctly retrieved procedure for an older product or another customer still produces the wrong answer for this request.
+Document version, product identity, and access scope need to connect to search conditions and the evidence behind the response.
+A citation also does not establish that the material applies to this customer.</p>
+  <p>The reduction is in part of the implementation needed to obtain information.
+Maintaining documents and determining applicability remain necessary work.
+In evaluating a search component, examine whether the team can control exclusion of outdated documents and selection conditions alongside retrieval accuracy.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Where screen actions run</p>
+  <h2>Tools in the same API can still require execution by the application</h2>
+  <p>The computer-use tool is described as generating mouse and keyboard actions for execution in the developer’s environment.
+Being offered in the same API as search does not mean the service hosts the entire environment in which a screen is operated.
+The application needs to execute actions, obtain the resulting screen, and pass it back for the next decision.</p>
+  <p>The distinction becomes clearer alongside <a href="https://openai.com/index/introducing-operator/">Operator’s January 23 announcement</a>.
+Operator provides browser interaction as a research preview for users, with control returned to a person for tasks such as login.
+Accessing its model through a developer API and receiving the consumer product’s browser and handoff behavior inside an application are different arrangements.</p>
+  <p>An order system with an API offers that route for integration.
+A system available only through screens requires the application to handle login state, waiting, and the result of an action.
+Identify where execution occurs and who observes the result rather than grouping everything under tool calling.
+This is an initial distinction for estimating the required development work.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Coordination embedded in an application</p>
+  <h2>A short SDK example still leaves refund-request logic to be implemented</h2>
+  <p>OpenAI’s Agents SDK presents components for agent configuration, handoffs, input and output checks, and inspection of execution records.
+A developer can embed a flow that receives an inquiry and passes it to shopping or support specialists.
+It is an open-source SDK; it does not host application deployment or customer authentication.</p>
+  <p>The announcement’s sample leaves the logic inside a refund-request function for the developer to add.
+Its example return value is a short success string, while the actual business process must be implemented there.
+That small gap contains work such as finding the order, checking whether a change is allowed, recording the request, and returning evidence of acceptance.
+A working handoff must be distinguished from an accepted request.</p>
+  <p>Input and output checks likewise require conditions defined by the developer.
+Checking response format alone cannot determine whether another customer’s order may be accessed.
+Execution records help identify the specialist and function called, but evidence of a change to the correct order is also needed from the business system.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Coordination within a service</p>
+  <h2>Bedrock separates consolidation from direct routing</h2>
+  <p>Amazon Bedrock’s general availability release describes a supervisor that decomposes complex requests, assigns work, and combines the results.
+Its supervisor-with-routing mode sends simple requests directly to an appropriate specialist, returning complex or unclear requests to full coordination.
+Handling this coordination as service configuration differs from composing it in an application SDK.</p>
+  <p>A question about instructions alone can follow a route to a document specialist.
+A question combining instructions and order status needs results from both sources.
+Independent retrieval may run in parallel, while an operation requiring identification of the order first may need to wait.
+Splitting the work and choosing its correct sequence need separate tests.</p>
+  <p>The release includes interfaces for inspecting interactions and records of execution substeps.
+These support investigation of coordination; they are not comparative evidence that an internal support request necessarily becomes faster or more accurate.
+If overlapping specialist descriptions produce misrouting, the application team must revise those descriptions and the execution path.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Reading roles through research</p>
+  <h2>Managing conversation and progress does not settle the business answer</h2>
+  <p><a href="https://arxiv.org/abs/2308.08155v1">The original AutoGen paper</a> describes building applications through multi-agent conversation, combining human input and tools.
+<a href="https://arxiv.org/html/2411.04468v1">The original Magentic-One paper</a> uses an Orchestrator with a ledger of facts, guesses, and plans and a ledger of progress and assignments, coordinating specialists for browsers, files, and code.
+These provide a way to understand division of work, without establishing a platform’s performance or a universal arrangement for every task.</p>
+  <p>In the support example, suppose the document specialist says the delivery address can be changed while the order specialist reports that shipment is complete.
+The team must establish which order states the document’s change conditions cover and when the order information was updated.
+Adding an integrator does not settle that answer.
+Smoothing a mismatch into a fluent sentence hides what remains unverified from the user.</p>
+  <p>Division of work should have a reason beyond increasing agent count.
+Use it where separating materials, APIs, or permission to change data serves the task and the results can be checked against one another.
+Keep conversation-management features separate from the conditions for establishing an answer to the customer’s request.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Connecting existing business processes</p>
+  <h2>A managed platform can also return an operation to the application</h2>
+  <p><a href="https://aws.amazon.com/blogs/aws/agents-for-amazon-bedrock-introducing-a-simplified-creation-and-configuration-experience/">Bedrock’s April 2024 announcement</a> describes returning control to the calling application as an alternative to executing an action through Lambda.
+Its customer-settings example also shows the application providing the function’s result.
+Existing integrations and business processes can therefore remain in use without moving every operation into a new platform.</p>
+  <p><a href="https://aws.amazon.com/about-aws/whats-new/2024/11/amazon-bedrock-agents-custom-orchestration/">The November custom-orchestration announcement</a> additionally describes defining execution logic in Lambda.
+Using service-provided coordination can coexist with an organization defining the order of operations.
+Allowing the model to choose every search, check, and update on each occasion is only one implementation choice.</p>
+  <p>For an order inquiry, the business system should establish the relationship between the person and order, the permitted access scope, and the state in which a change is allowed.
+A customer name generated by the agent should not become verified identity by itself.
+If an API fails, return a distinction between an accepted request and an unconfirmed result.
+This lets the user understand evidence for the document answer separately from progress in the order process.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Bring the choice back to one job</p>
+  <h2>Compare reduced implementation and remaining judgments through the same request</h2>
+  <p><a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> describes beginning with simple arrangements and choosing predefined paths or model-selected actions as needed.
+A question satisfied by document explanation alone does not inherently require multiple specialists.
+Separating roles or processes becomes useful when their data and permission to make changes differ.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Hosted execution</h3><p>Call tools for search, files, or screens while receiving part of an execution environment.</p></article>
-    <article class="comparison-card"><h3>Embedded coordination</h3><p>Compose roles, handoffs, input/output checks, and records inside an application.</p></article>
-    <article class="comparison-card"><h3>Business responsibility</h3><p>Define identity, data permissions, update rules, and approvals for exceptions outside the platform.</p></article>
+    <article class="comparison-card">
+      <h3>Processing delegated to a service</h3>
+      <p>Identify the search and coordination delegated, the feature used, and the location where it runs.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Processing implemented in the app</h3>
+      <p>Include screen actions, external APIs, identity checks, and outcome records, including logic omitted from SDK examples.</p>
+    </article>
+    <article class="comparison-card">
+      <h3>Results returned to the user</h3>
+      <p>Separate answer evidence from order state and retain uncertainty. Evaluate the effort spent reinvestigating.</p>
+    </article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Different product surfaces</p>
-  <h2>Tools, SDKs, and multi-agent coordination retain different scopes despite similar language</h2>
-  <p>OpenAI’s release placed Responses API tools for web search, file search, and computer use alongside its open-source Agents SDK. The former offers hosted tool-call options; the latter offers components for application-level agent settings, handoffs, guardrails, and traces. Using an SDK does not make the service manage application deployment, user authentication, business-data retention, or permission for external action.</p>
-  <p>Bedrock’s general availability release described a supervisor that divides work among collaborators and a mode that directly routes simple requests. Even when part of the division is service configuration, the user must still define role descriptions, the meaning of an external API, and treatment of misrouting. As <a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> separates workflows from agents, the key design question is which path to fix, not simply whether a managed component exists.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Relation to research</p>
-  <h2>Use role separation to make responsibility traceable, not merely to add features</h2>
-  <p>AutoGen treats multi-agent conversation as an application-building framework, while Magentic-One studies coordination of roles for complex work. Neither proves the performance of a particular managed platform. They do make clear that if a planner, specialist, and integrator are introduced, each role needs defined inputs, outputs, failures, and completion conditions.</p>
-  <p><a href="https://arxiv.org/abs/2412.05467">BrowserGym</a> and screen-operation material such as Operator show that work acting on an external environment needs an initial state and a completion condition. A backend API role and a browser-operation role both require defined permission boundaries and confirmation points before their external actions.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Hypothetical example</p>
-  <h2>Use a support request about product usage and order status to identify work that remains</h2>
-  <p>This is a design example. Assign product-usage questions to a document-search role and order status to an order-API role. A platform can take on part of the tool execution and delegation. The application still decides how a customer is identified, which order may be read, what to say after an API failure, and whether an order change is permitted.</p>
-  <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Results to test</h3><p>Check supporting evidence, routing to an incorrect role, API-failure handling, and the combined answer separately.</p></article>
-    <article class="comparison-card"><h3>Boundaries to record</h3><p>Retain execution environment, inputs and outputs, permission checks, traces, and any state returned to the user as unconfirmed.</p></article>
-    <article class="comparison-card"><h3>What people decide</h3><p>Define customer-data scope, approval for refunds or changes, escalation destination, and recovery from an incorrect action as business rules.</p></article>
-  </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>Compare responsibility boundaries, not feature counts</h2>
-  <p>The spring 2025 releases showed a growing choice of platforms for execution, tools, and coordination among roles. The practical conclusion is not that a platform manages everything. Separating hosted tools, application-embedded coordination, and the organization’s identity, policy, and approval responsibilities lets a team choose components according to the work for which it remains responsible.</p>
+  <p>For selection, test normal answers, outdated documents, disagreement between specialists, and order-API failure using the same documents and order data.
+Record what the platform handles, what the application supplies, and what a person repairs.
+Compare response time and usage alongside that breakdown.
+Differences in model or configuration should not become conclusions about coordination alone.</p>
+  <p>The March releases expand the choices for delegating development work.
+Delivering their value to users requires recognizing the work that remains after implementation is reduced.
+Connect retrieval, coordination, external execution, and outcome verification through a single request.
+A platform whose responsibilities can be explained provides a path from richer components to a usable service.</p>
 </section>

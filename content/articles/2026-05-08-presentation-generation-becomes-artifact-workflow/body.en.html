@@ -1,44 +1,68 @@
 <section class="report-section">
-<h2>Build a deck that can accept next week's numbers</h2>
-<p>An AI-generated slide can look finished while remaining awkward to revise. Consider a hypothetical weekly report: its owner needs to replace the sales figures and update one chart. If the entire page is a single image, selecting the number and editing it as text is unavailable. The owner must change the source and export again, or edit the image.</p>
-<p>Keeping the title as text and the chart as a chart object with data allows separate update steps. My proposal is to decide who will revise which elements, and in which application, before choosing a generation service. Testing the next revision alongside the initial appearance provides a more useful way to judge the delivery format.</p>
+<h2>Can the finished deck survive its next revision?</h2>
+<p>A weekly report is ready. Its diagrams look good and its text is concise. Before the meeting, sales figures change and a note must explain that forecasts are included. Where does the owner make those edits? Replacing an image, updating chart data, and regenerating the deck leave different work for the person receiving it.</p>
+<p>This is a scenario for explaining the mechanisms, not a measured customer deployment. Primary sources available through May 8, 2026 cover outline generation, image creation, PowerPoint and Google Slides APIs, and research that inspects rendered slides. These approaches help with different parts of producing a presentation.</p>
+<p>I would start the choice with the recipient's next revision. Alongside appearance, ask whether the argument and evidence remain intact and whether the required change can be made in the destination application. For a distribution-only PDF, regenerating the output can be appropriate. The intended use changes the right artifact.</p>
 </section>
 <section class="report-section">
-<h2>Treat the deck as an artifact from request through acceptance</h2>
+<h2>Choose the argument before generating the pages</h2>
+<p>A report needs more than short sentences. A rise in sales prompts decisions about the comparison, possible explanations, and the action requested. In our weekly-report scenario, removing the distinction between actuals and forecasts can make an easy sentence misleading.</p>
+<p>Microsoft's September 2024 <a href="https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/">Copilot Wave 2 announcement</a> describes editing and refining topics and an outline in PowerPoint's Narrative Builder before creating a draft. <a href="https://www.canva.com/newsroom/news/magic-studio/">Canva's Magic Studio announcement</a> also describes drafting presentation outlines and content from a request, then using Brand Kit fonts and colors. Choosing the argument and arranging its appearance can be considered separately from the beginning.</p>
+<p>I recommend writing down the decision to communicate, its evidence, and the conditions that must survive. Mapping those to the outline helps distinguish removable repetition from qualifications whose removal changes the meaning. A product's ability to draft slides does not establish that the input figures or the author's judgment are correct.</p>
+<p>The story is the sequence connecting context, comparison, explanation, and judgment. It lets the audience follow the reasoning. Attractive pages still leave work for the recipient when the proposal does not follow from the preceding evidence.</p>
+</section>
+<section class="report-section">
+<h2>Image generation adds assets, without retaining their data</h2>
+<p>OpenAI's April 2025 <a href="https://openai.com/index/image-generation-api/">image generation API announcement</a> describes producing images from text and image inputs under supplied instructions. Adobe's <a href="https://news.adobe.com/news/news-details/2024/adobe-introduces-firefly-services-and-custom-models-to-accelerate-enterprise-content-creation-and-production">Firefly Services announcement</a> describes APIs for generation, editing, and assembly, alongside Custom Models using company assets. Illustrations, backgrounds, and image adaptations are possible components of a presentation.</p>
+<p>If a sales chart is generated as one image, its bars, underlying data, units, and notes are not separate PowerPoint chart objects. Correct-looking figures do not make the image aware that the source data has changed. Updating it requires replacing the image and checking the result against its evidence.</p>
+<p>That property can suit an illustration whose internal text or numbers will not be edited. For evidence-bearing diagrams, however, the visual must not imply a measured fact that the source does not support. A vendor's claim about matching a brand also differs from a company's review and approval of the resulting deck.</p>
+</section>
+<section class="report-section">
+<h2>SVG and directly editable text or charts preserve different things</h2>
+<p>Images also differ. PptxGenJS's <a href="https://github.com/gitbrent/PptxGenJS/blob/f7b4b9b69e57ba1448f021053929704a984e79ed/docs/api-images.md">image documentation</a> describes SVG support in newer desktop PowerPoint versions or Microsoft 365 alongside ordinary image formats. Vector graphics can address enlargement, but that property alone does not let a recipient update the sales data.</p>
+<p>Lines and text inside an SVG differ from independent PowerPoint text boxes and data-bearing charts. Recoloring or resizing an entire diagram requires different editing targets from changing a particular value or note. Opening a file as PPTX does not resolve that distinction.</p>
+<p>PptxGenJS separately documents <a href="https://github.com/gitbrent/PptxGenJS/blob/f7b4b9b69e57ba1448f021053929704a984e79ed/docs/api-text.md">adding text</a> and <a href="https://github.com/gitbrent/PptxGenJS/blob/f7b4b9b69e57ba1448f021053929704a984e79ed/docs/api-charts.md">adding charts</a> from series labels, categories, and values. This offers a route for delivering text and chart data as separate elements. It also leaves a need to check fonts, longer notes, axes, and units in the recipient's actual application.</p>
+<p>I would choose the representation for each expected edit: an image background, text boxes, and a data-bearing chart can coexist. The API code has not been executed for this article. Complete agreement of display and editing behavior between applications has not been established here.</p>
+</section>
+<section class="report-section">
+<h2>Connecting source data makes the update responsibility visible</h2>
+<p>The <a href="https://github.com/googleapis/google-api-nodejs-client/blob/7fa3d498cd5973402ed52f7516454c56c5be8be2/src/apis/slides/v1.ts">Google Slides API definitions</a> separate image creation, text insertion, and creation of a Google Sheets chart. An image URL is fetched once and a copy is stored in the presentation. The image request accepts PNG, JPEG, and GIF; changing the source URL's image is not a specification for automatically updating the existing deck.</p>
+<p>A Sheets chart request can specify a link to the spreadsheet. Without that setting, the chart is inserted as an unlinked image. Refreshing a chart is another request. These definitions support explicit designs for data connections and refreshes; they do not establish that every connected deck stays current automatically.</p>
+<p>For a weekly report, align who changes the source sheet, which version reaches the slides, and what the reviewer saw. Correct source data does not help if the displayed chart still represents last week. Both image replacement and linked charts leave responsibility for checking the updated display against the values.</p>
+</section>
+<section class="report-section">
+<h2>Templates offer another way to preserve the brand</h2>
+<p>Existing templates deserve comparison when fonts, colors, margins, and page numbers must agree. PptxGenJS's <a href="https://github.com/gitbrent/PptxGenJS/blob/f7b4b9b69e57ba1448f021053929704a984e79ed/docs/masters.md">slide master documentation</a> describes defining shared elements and layouts, then creating slides with a selected master. Consistency is established in a different place from freely generating every element again.</p>
+<p>Microsoft's <a href="https://github.com/OfficeDev/office-js-docs-pr/blob/78dfc8e76f59d7d9f6727ac3f4d76c1a2552cd7d/docs/powerpoint/insert-slides-into-presentation.md">slide insertion documentation</a> describes inserting selected slides from a source PPTX, keeping source formatting or adopting the destination theme. This reuses presentation elements and formatting separately from matching the style of generated images. The integration must handle source-slide identifiers and the intended formatting choice.</p>
+<p>Shared formatting still does not establish valid content. Reusing a prior slide with an outdated reporting period or qualification can preserve the brand while misreporting the result. I would choose a setup in which the template, source evidence, and updated content can be checked together.</p>
+</section>
+<section class="report-section">
+<h2>Research separates generation from inspection</h2>
+<p><a href="https://arxiv.org/abs/2501.03936v3">PPTAgent v3</a> analyzes reference presentations for slide roles and content schemas, creates an outline, and applies editing actions to reference slides. PPTEval separates content, design, and coherence. Execution success in the paper concerns producing slides after correcting generation errors; it does not measure how long a recipient takes to change a value after delivery.</p>
+<p><a href="https://arxiv.org/abs/2505.21660v1">PreGenie v1</a> generates Markdown for Slidev, checks the code, then reviews rendered pages and regenerates them. This addresses layout problems that code inspection alone can miss. Its limitations also describe imperfect PowerPoint compatibility and inability to import PPT templates directly. Revising rendered output and editing in the recipient's application are different capabilities.</p>
+<p><a href="https://arxiv.org/abs/2602.22839v3">DeepPresenter v3</a> uses researched content and assets to produce HTML presentations, inspecting rendered pages for overlap, overflow, and readability. It likewise separates reading generated code from observing its display. HTML generation and research scores do not establish performance at preserving data-bearing PowerPoint objects.</p>
+<p>The lesson I would take from these studies is to connect the outline, generated representation, and inspection method. Research scores alone cannot choose a delivery format. Representations, inputs, and evaluation conditions differ, so a comparison must include the recipient's revision on the same task.</p>
+</section>
+<section class="report-section">
+<h2>Accept the deck by testing the work that follows</h2>
+<p>Returning to the weekly report, opening the file is only part of the test. Update the figure and add a longer qualification, then check whether the argument still holds. The following four considerations are my proposed organization, not a shared product standard or an experiment already performed.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Decompose the request</h3>
-<p>Separate fixed brand elements from numbers, charts, and notes that change next week. Include the editor and receiving application among the request conditions.</p>
-</article>
-<article class="comparison-card">
-<h3>Choose the generated format</h3>
-<p>Decide which parts remain background images, SVGs, text, or chart objects. A matching appearance can still lead to different possible next edits.</p>
-</article>
-<article class="comparison-card">
-<h3>Perform the next revision</h3>
-<p>Change one value, update a chart, and correct a note. Check whether the owner needs to return to the generation environment or can edit in the receiving application.</p>
-</article>
-<article class="comparison-card">
-<h3>Confirm acceptance</h3>
-<p>Open it in PowerPoint or Google Slides and inspect wrapping, placement, values, and charts. Separate successful file generation from successful editing by the recipient.</p>
-</article>
+<article class="comparison-card"><h3>Content and evidence</h3><p>Check source values, periods, units, and citations. Preserve the conditions needed to connect the comparison to the conclusion.</p></article>
+<article class="comparison-card"><h3>Actual display</h3><p>Open the deck in the recipient's application. Check text fit, cropped figures, fonts, and distinguishable colors rather than judging only the generator's preview.</p></article>
+<article class="comparison-card"><h3>The next edit</h3><p>Change one value, extend a note, and replace a source. Check that the chosen update method works and leaves other elements intact.</p></article>
+<article class="comparison-card"><h3>After handoff</h3><p>Save the revision and reopen it. Check that the recipient can trace the source data and update method, and explain the same judgment.</p></article>
 </div>
-<p>This does not mean images are always the wrong choice. A deck can use an image for decoration that will not change and separate elements for information that will.</p>
+<p>Check the updated chart and the prose conclusion separately. Changing sales values leaves a contradiction if “improved over last week” still depends on the previous values. Editable elements do not remove the work of checking content consistency.</p>
+<p>For Japanese and English editions, also check differing text lengths and qualification placement. Keep the same comparison conditions and confidence after translation rather than deleting conditions for readability. These are proposed test items; this article has not measured the products' multilingual editing performance.</p>
 </section>
 <section class="report-section">
-<h2>Images, SVGs, and slide objects offer different edits</h2>
-<p>A background illustration may work perfectly well as one image. Baking frequently changing amounts and notes into that background, however, makes a text correction require image rework. A slide can separate fixed decoration from information that will change.</p>
-<p>An SVG can preserve sharp outlines when enlarged, but that does not turn its contents into PowerPoint text or chart objects. Microsoft's documentation distinguishes resizing or recoloring a whole SVG from converting it to shapes to edit individual parts; conversion also has environment requirements. The <a href="https://support.microsoft.com/en-us/office/graphics-visuals/edit-svg-images-in-microsoft-365">SVG editing guide</a> is a reason to test the required edit in the recipient's application.</p>
-<p>Individual slide objects offer another route. The <a href="https://gitbrent.github.io/PptxGenJS/docs/api-charts/">PptxGenJS chart API</a> adds charts from series data and options, separately from inserting images. Connecting data to its display this way is a candidate for recurring charts. A successful API call still does not establish how the output will render or behave during editing in the destination application.</p>
+<h2>Compare speed through the person's remaining revision work</h2>
+<p>Fast generation can still leave lengthy corrections before the meeting. Compare preparation, generation, content checks, layout repair, updating, and handoff using the same source text, figures, brand requirements, and destination. Include rejected decks and cases in which reviewers had to investigate the evidence again.</p>
+<p>Keep manual editing of an existing template as a baseline. A weekly report built from a table into predictable pages may need only a fixed procedure. Selecting arguments from a long document and changing the structure offers more room for model judgment combined with human review.</p>
+<p>If distributed output will not be edited internally and updates come from regenerating the source, producing a PDF from images or HTML can fit the purpose. If a customer changes values or wording during a meeting, preserving objects their application can edit becomes more valuable. Compare generation and maintenance costs against who edits what.</p>
 </section>
 <section class="report-section">
-<h2>Check the receiving application, not just the file extension</h2>
-<p>The editing environment needs to be specified along with the file format. Google Slides API's <a href="https://developers.google.com/workspace/slides/api/reference/rest/v1/presentations/request#CreateImageRequest">CreateImageRequest</a> accepts PNG, JPEG, and GIF images; it is not a request for inserting SVG directly. A PowerPoint SVG insertion procedure cannot simply be transferred to this Slides API operation.</p>
-<p>For a weekly report maintained in Slides, choose whether headings and notes will be editable text or whether image replacement will be the update procedure. If the workflow passes through PPTX, inspect wrapping, fonts, charts, and positioning after conversion. Successfully saving a PPTX does not establish that its recipient can perform the intended revision.</p>
-</section>
-<section class="report-section">
-<h2>Evaluate the generated deck and the next revision separately</h2>
-<p><a href="https://arxiv.org/abs/2501.03936v3">PPTAgent</a> proposes analyzing reference decks and generating editing actions, with evaluation across content, design, and coherence. Its problem framing is useful: correct prose alone does not establish presentation quality. Its evaluation does not guarantee compliance with a particular company's template or the time an employee will need for revisions.</p>
-<p>For practical acceptance, I recommend a small revision task in addition to reviewing the rendered slides. For the weekly report, change one source value, update its chart, correct a note, and reopen the deck in the recipient's application. Inspect visual changes and numerical consistency, and check whether the owner can make the edit without returning to the generation environment.</p>
-<p>A deck regenerated for every use may benefit more from a reproducible generation procedure than from individual editing. A deck frequently revised by its recipient during meetings gives editable elements greater value. The deciding factor is the revision the document will actually undergo.</p>
+<h2>A useful deck lets its recipient carry the judgment forward</h2>
+<p>The weekly-report owner needs attractive pages, the evidence behind the figures, the reasons for the comparison, and identifiable places to update. Those make it possible to check the deck's purpose after a change. Tracing the underlying argument matters when appearance stays intact but meaning becomes stale.</p>
+<p>My recommendation is to define the next revision first, then choose the outline, images, editable elements, templates, and checks that support it. Verify generation and display, and extend acceptance through the recipient's ability to correct the content and keep using the presentation.</p>
 </section>

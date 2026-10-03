@@ -1,47 +1,69 @@
 <section class="report-section">
-<h2>What should a reviewer check when delegating a fix?</h2>
-<p>A coding agent may install dependencies, run tests, and create commits as well as propose code. In that setting, supervision needs a more precise meaning than receiving a completion notification. This article separates opportunities to correct a plan, limits on executable actions, and validation of the returned change.</p>
-<p>Consider a hypothetical task to fix sorting on a list page. If the engineer expects a display-layer change but the agent plans a database schema change, correcting the direction before implementation is valuable. That does not make the same review necessary for every small edit. The task's scope and the consequences of a mistake should guide the choice.</p>
+<h2>You delegated one bug</h2>
+<p>Reloading a list changes the order of rows with the same timestamp. An engineer delegates the fix to a coding agent and returns to other work, then receives a large diff including a database schema change. This is a hypothetical design example. A passing-test notification leaves work behind if the engineer must investigate why the change was necessary and how it resolved the original defect.</p>
+<p>This article follows that task through investigation, planning, execution, intervention, and acceptance using material published by OpenAI, Anthropic, GitHub, Google, and AWS by April 13, 2026. It does not rank products measured on the same task. Alongside code-generation capability, compare what progresses while the engineer is away and what can be decided on return.</p>
+<p>My judgment is to assess repair capability together with the design that makes the work usable by its owner. Connecting opportunities to redirect work, visible execution boundaries, and evidence that the change answers the request can support broader delegation. Running for a long time is not itself evidence that the job is resolved.</p>
 </section>
 <section class="report-section">
-<h2>Accepting a fix requires more than one check</h2>
+<h2>Interactive repairs and work that progresses while you are away</h2>
+<p>OpenAI's <a href="https://openai.com/index/introducing-the-codex-app/">February 2 Codex app announcement</a> presents project-organized tasks, diff review, and worktrees that provide separate working copies. Its interface helps people oversee multiple tasks and return where needed. It also describes skills for extending procedures, without establishing that every task in the app executes in the cloud.</p>
+<p>The <a href="https://openai.com/index/introducing-gpt-5-3-codex-spark/">February 12 Codex-Spark announcement</a> introduces a research preview for iterating on targeted changes interactively. Its default working style does not run tests automatically unless requested. Rapid editing and returning a verified fix need separate assessment.</p>
+<p>Google's <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/jules/">May 2025 Jules announcement</a> describes cloning code into a cloud VM, working asynchronously, and returning plans and diffs. Its <a href="https://blog.google/innovation-and-ai/models-and-research/google-labs/jules-now-available/">August public launch</a> also describes reusing previous environment setups. Product-managed preparation provides a comparison with interactive work on the engineer's machine.</p>
+<p>For one localized list change checked immediately on screen, short interactive exchanges remain a candidate. Background execution may help when investigation, dependency installation, and relevant tests take longer. Include waiting and rework if the environment cannot subsequently be reproduced and validation must start again.</p>
+</section>
+<section class="report-section">
+<h2>Plans need enough detail to judge the size of a change</h2>
+<p><a href="https://github.blog/changelog/2026-04-01-research-plan-and-code-with-copilot-cloud-agent/">GitHub's April 1 update</a> describes Copilot cloud agent working on a branch without creating a PR and producing a plan before code when requested. People can approve or amend the approach, inspect the diff, and then create a PR. Research-only sessions also separate completing an investigation from publishing code.</p>
+<p>In the hypothetical task, reproduce ordering with equal timestamps and investigate presentation logic versus ordering during retrieval. If existing identifiers can resolve ties, ask why a schema change is needed. Do not exclude a necessary database-query change; connect the cause with the proposed scope.</p>
+<p>“Fix sorting and test it” gives little basis for recognizing an excessive change. Reproduction conditions, affected areas, and a definition of success help the engineer redirect implementation before it begins. Jules also describes changing plans before and during execution, but visibility alone does not establish mandatory explicit approval in every configuration. Check start and stop conditions in the configuration actually used.</p>
+</section>
+<section class="report-section">
+<h2>Separate branch history from executable access</h2>
+<p>A Git branch separates change history. A worktree creates another working copy, and a VM separates the place commands execute. Collapsing them into “isolation” encourages assuming that separate history also prevents network or credential use. Supplying production credentials requires separately examining paths to external services.</p>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/claude-code-auto-mode">March 25 auto mode explanation</a> describes warnings for retrieved content and a classifier for executable actions. Allowlisted operations and edits within the project can bypass that classifier. Model judgments retain errors; this is not a fixed boundary applying the same inspection to every operation.</p>
+<p>The Codex app announcement also describes configurable sandboxing and permissions. For the list repair, consider repository and test-environment access separately from authority to change production data. Writing “do not change the schema,” reviewing a plan, and restricting connectivity serve different purposes. Inspect the relevant files, destinations, and operations concretely.</p>
+</section>
+<section class="report-section">
+<h2>Give verification a running application and criteria</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/harness-design-long-running-apps">March 24 long-running development report</a> separates planner, generator, and evaluator roles, agreeing on completion criteria for chunks before implementation. The evaluator exercises the application through Playwright and reports defects such as rectangle filling affecting only drag endpoints. This concretely distinguishes a function existing in code from its being usable on screen.</p>
+<p>Compared runs also differ in duration, cost, and the feature scope expanded by planning. The report does not measure three roles making every repair cheaper, faster, and more accurate. A separate evaluator can still miss a mistake if both roles adopt the same incorrect specification.</p>
+<p>For the list repair, define expected behavior with equal timestamps, reloads, page navigation, and existing sorting controls. Exercise the screen with fixed data alongside code inspection. Whether one test suffices or another person or evaluator is needed depends on change scope and the consequences of missed errors.</p>
+<p>When dividing investigation, implementation, and verification among specialized agents, return more than short conclusions: include revision, reproduction conditions, executed checks, and unknowns. A test passing on another working copy does not establish the integrated diff passes. Recheck what the combined change affects and include handoff effort when judging specialization.</p>
+</section>
+<section class="report-section">
+<h2>The receiving engineer has five different questions</h2>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Plan</h3>
-<p>Check what will change and what will not. This is the information needed to return an out-of-scope database change before implementation.</p>
-</article>
-<article class="comparison-card">
-<h3>Execution environment and permissions</h3>
-<p>Check accessible files, credentials, and networks. A branch name or the presence of a VM does not itself establish that external operations are prevented.</p>
-</article>
-<article class="comparison-card">
-<h3>Diff and origin</h3>
-<p>Read whether the change remains in scope and, when needed, verify its origin through a signature. A signature does not decide whether the change is correct.</p>
-</article>
-<article class="comparison-card">
-<h3>Test record</h3>
-<p>Retain executed tests, the revision, results, omitted-check reasons, and environment conditions. A passing notification does not expand the verified scope by itself.</p>
-</article>
-<article class="comparison-card">
-<h3>Acceptance decision</h3>
-<p>Apply the change after the original defect is resolved, relevant checks pass, and remaining uncertainty is understood. This is a decision by the owner receiving the earlier evidence.</p>
-</article>
+<article class="comparison-card"><h3>Cause and plan</h3><p>Under what conditions was the bug reproduced, and why is the change necessary? Ask for reasons when scope extends beyond the request.</p></article>
+<article class="comparison-card"><h3>Environment and authority</h3><p>Which revision, dependencies, resources, and destinations were used? Inspect working-copy separation separately from restrictions on external operations.</p></article>
+<article class="comparison-card"><h3>Diff and origin</h3><p>What changed, and with whom is the record associated? Establishing origin leaves the content decision to be made.</p></article>
+<article class="comparison-card"><h3>Behavior and tests</h3><p>Does the original bug disappear, and do related features pass? Distinguish completed checks from checks that could not run.</p></article>
+<article class="comparison-card"><h3>Acceptance and remaining work</h3><p>What can be applied, and who continues what? Keep implementation, review, and publication distinct from a single completion notification.</p></article>
 </div>
+<p>This is the article's organization of the evidence an engineer needs, not five guarantees automatically supplied by a product. Even a small change can briefly show the original defect and checked outcome. The purpose is to make decision-relevant information findable, rather than require reading every log.</p>
+<p>GitHub's <a href="https://github.blog/changelog/2024-11-12-persistent-commit-signature-verification-now-in-public-preview/">persistent signature-verification announcement</a> describes retaining verification records associated with commits. A Verified badge does not decide whether list ordering is correct. Diff and behavior review remain necessary after checking origin.</p>
+<p>Its <a href="https://github.blog/changelog/2026-04-10-copilot-cloud-agents-validation-tools-are-now-20-faster/">April 10 Copilot update</a> describes parallel CodeQL, dependency vulnerability checks, secret scanning, and code review, claiming 20% shorter validation time. This concerns its validation tools, not a measured 20% reduction across implementation and human review. These checks and the list's expected-behavior test detect different problems.</p>
 </section>
 <section class="report-section">
-<h2>Reading a plan and preventing execution are different controls</h2>
-<p><a href="https://jules.google/docs/review-plan/">Jules' plan-review documentation</a> describes showing a plan before code changes and accepting user feedback. It also describes timed automatic approval. The presence of a review screen therefore does not establish that execution always waits for explicit human approval.</p>
-<p>If database changes are outside the sorting task's scope, inspect whether the execution environment can reach production, as well as stating the constraint in the request. An opportunity for human review and an enforced restriction serve different functions. Product settings and behavior can change, so test the stopping condition in the configuration actually used.</p>
+<h2>Returning to work differs from reversing execution</h2>
+<p>The <a href="https://github.blog/changelog/2026-04-01-github-mobile-stay-in-flow-with-a-refreshed-copilot-tab-and-native-session-logs/">April 1 GitHub Mobile update</a> covers session logs, PR creation and review, and stopping execution. The <a href="https://github.blog/changelog/2026-04-13-remote-control-cli-sessions-on-web-and-mobile-in-public-preview/">April 13 CLI remote-control public preview</a> supports messages and permission decisions from another device for a session running on the original machine. Their availability conditions differ; remote control does not relocate execution to the cloud.</p>
+<p>If investigation turns toward a schema change in the hypothetical task, the engineer can ask why and adjust scope. Stopping does not establish that completed file changes or external operations were reversed. Inspect progress and remaining work before deciding how to continue.</p>
+<p>Reopening a session, resuming conversation, and restoring work in another execution environment are also different capabilities. Check revision, amended plan, and incomplete tests before continuing. Remote supervision gains value from reaching relevant evidence at the right point, rather than from notification volume.</p>
 </section>
 <section class="report-section">
-<h2>Branches, virtual machines, and signatures provide different guarantees</h2>
-<p>A Git branch separates change history; it does not isolate the files a command can read or the networks it can reach. <a href="https://jules.google/docs/environment">Jules' environment documentation</a> describes a short-lived VM for cloning repositories, installing dependencies, and running tests. Branch separation and execution-environment separation should not be collapsed into one claim of isolation.</p>
-<p>A VM or container may still modify external services through credentials supplied to it. Inspect the accessible files, credentials, and destinations as well as the execution location. Where required, separate authority to create a fix in a test environment from authority to deploy it to production.</p>
-<p>A Verified commit badge answers another question. <a href="https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification">GitHub's signature documentation</a> describes cryptographic verification of the signature. The badge does not establish that the sorting fix is correct or sufficiently tested. Reviewing the diff and behavior remains necessary after checking its origin.</p>
+<h2>Operational investigation changes what a diff means</h2>
+<p>AWS's <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/aws-devops-agent-generally-available/">March 31 DevOps Agent general availability announcement</a> describes investigating problems across observability, runbooks, code, CI/CD, and deployment information. This extends product support for examining operational events before proposing a code repair. The article does not measure fully autonomous incident response or shorter recovery time.</p>
+<p>If the list defect appeared immediately after deployment, dependencies, configuration, and retrieved-data conditions may deserve investigation alongside changed code. Temporal proximity alone does not establish causation. Pass observations leading to a repair candidate separately from unverified hypotheses.</p>
+<p>The engineer needs more than “the database is the cause.” Knowing which logs and revision were inspected, what was reproduced, and which proposed change can be tested enables the next action. Broader operational access also requires separating investigative reads from authority to change shared systems.</p>
 </section>
 <section class="report-section">
-<h2>Report execution conditions alongside test results</h2>
-<p>Environment configuration also affects performance evaluation. In its February 5, 2026 <a href="https://www.anthropic.com/engineering/infrastructure-noise">experiment report</a>, Anthropic held the Claude model, harness, and Terminal-Bench 2.0 task set constant while changing resources. Success differed by six percentage points between strict limits and an uncapped configuration. This is a result under the reported conditions, not a universal effect across models or business tasks.</p>
-<p>For an internal fix, distinguish incorrect code from failed dependency installation or insufficient memory. Recording the tests, revision, results, and reasons for omitted checks lets a reviewer identify the verified scope. A statement that testing is complete does not convey that scope by itself.</p>
-<p>For the sorting example, reproduce the original defect, run relevant existing checks, and inspect whether the diff stays within the requested scope. Plans, permissions, signatures, and tests answer different questions. Keeping those questions distinct helps the engineer combine the checks needed to accept an agent's work.</p>
+<h2>Compare through acceptance in the same repository</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/infrastructure-noise">February 5 experiment report</a> compares six resource configurations with the same Claude model, harness, and Terminal-Bench 2.0 tasks. Success differs by six percentage points between strict limits and uncapped resources. Its explanation includes fewer infrastructure failures and enabling more resource-intensive strategies. The magnitude cannot be transferred to every model or internal repair task.</p>
+<p>For an internal trial, match defect, repository revision, dependencies, time and spending caps, and executable permissions. Record investigation, plan intervention, diff review, and repeated validation alongside turnaround time. Include corrections and failed dependency installation rather than selecting only a successful demonstration.</p>
+<p>To compare models, match execution environments and procedures where possible. To select products, also record differences in setup and intervention, evaluating total time and acceptable outcomes. Mixing these questions prevents attributing a single score solely to model quality.</p>
+<p>For the hypothetical list repair, acceptance requires the original defect no longer reproducing, related checks passing, and understanding remaining uncertainty. Test names, revision, results, and reasons for unexecuted checks show the verified scope. This is a trial proposal, not results from testing every product under these conditions.</p>
+</section>
+<section class="report-section">
+<h2>Let the engineer take over from the right point</h2>
+<p>Public material shows planning, execution environments, diffs, intervention, and behavioral verification being incorporated alongside code generation. I read these as designs for delegating work under human supervision. This does not imply identical guarantees across products or that model repair capability has become unimportant.</p>
+<p>Delegate one defect, correct direction when needed, and receive the change with supporting evidence. Broaden delegation from the scope where that sequence works. A coding agent's value includes letting the engineer choose what to accept and what to continue without restarting the entire investigation.</p>
 </section>

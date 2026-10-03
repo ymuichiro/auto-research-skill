@@ -1,14 +1,14 @@
 {
   "slug": "agent-architecture-matters-more-than-model-novelty",
   "date": "2026-03-01",
-  "titleJa": "エージェントの比較で、モデル以外に固定すべき条件",
-  "titleEn": "What to hold constant besides the model in an agent comparison",
-  "summaryJa": "モデル、道具、観測範囲、時間予算、再試行、採点条件を同時に変えると、改善理由を区別できない。RE-Bench、BrowserGym、AgentKitを手がかりに、何を固定し何を記録するかを整理する。",
-  "summaryEn": "Changing models, tools, observations, time budgets, retries, and grading together obscures the cause of an improvement. RE-Bench, BrowserGym, and AgentKit clarify what to hold constant and record.",
-  "seoDescriptionJa": "エージェント比較でモデル以外に固定すべき道具、観測範囲、時間予算、再試行、採点条件を、RE-BenchとBrowserGymから整理する。",
-  "seoDescriptionEn": "RE-Bench and BrowserGym clarify which tools, observations, time budgets, retries, and graders to hold constant besides the model.",
-  "teaserJa": "モデルを比べるには、道具、時間、観測範囲、採点も同じ条件に置く。",
-  "teaserEn": "Comparing models also requires holding tools, time, observations, and grading constant.",
+  "titleJa": "AIエージェントの成績は、モデルと検索・試行の組合せで比べる",
+  "titleEn": "Comparing AI agents: models, retrieval, and trial allocation",
+  "summaryJa": "新モデルと再検索で成績が上がったとき、何が効いたのか。BrowserGymの観測・操作、RE-Benchの時間配分を手掛かりに、モデルと手順の分離比較、組合せの効果、候補を選ぶ負担から採用を考える。",
+  "summaryEn": "When a new model and extra retrieval improve results, what caused the gain? BrowserGym and RE-Bench ground comparisons of observations, procedures, trial allocation, interactions, and the burden of selecting a usable answer.",
+  "seoDescriptionJa": "AIエージェントのモデル・検索・再試行を同条件で比較。BrowserGymとRE-Benchから観測、時間配分、候補の選別、実用構成の採用を考える。",
+  "seoDescriptionEn": "Compare AI agent models, retrieval, observations, and trial budgets with BrowserGym and RE-Bench, including interactions and answer-selection costs.",
+  "teaserJa": "新モデルが良かったのか、根拠を探し直したから良かったのか。改善の原因と、使う構成の選定を分けて考える。",
+  "teaserEn": "Did the new model help, or did another search? Separate explaining the gain from choosing the configuration to use.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -18,16 +18,28 @@
   ],
   "publishedSources": [
     {
-      "label": "RE-Bench: Evaluating Frontier AI R&D Capabilities of Language Model Agents against Human Experts",
-      "url": "https://arxiv.org/abs/2411.15114v1",
+      "label": "The BrowserGym Ecosystem for Web Agent Research",
+      "url": "https://arxiv.org/html/2412.05467v1",
+      "type": "paper",
+      "publishedAt": "2024-12-06"
+    },
+    {
+      "label": "RE-Bench: Evaluating frontier AI R&D capabilities of language model agents against human experts",
+      "url": "https://arxiv.org/html/2411.15114v1",
       "type": "paper",
       "publishedAt": "2024-11-22"
     },
     {
-      "label": "The BrowserGym Ecosystem for Web Agent Research",
-      "url": "https://arxiv.org/abs/2412.05467v1",
-      "type": "paper",
-      "publishedAt": "2024-12-06"
+      "label": "MCP 2025-06-18: Tools",
+      "url": "https://modelcontextprotocol.io/specification/2025-06-18/server/tools",
+      "type": "official",
+      "publishedAt": "2025-06-18"
+    },
+    {
+      "label": "Anthropic: Writing effective tools for agents",
+      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "type": "official",
+      "publishedAt": "2025-09-11"
     },
     {
       "label": "OpenAI: Introducing AgentKit",

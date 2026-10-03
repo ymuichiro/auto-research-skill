@@ -1,59 +1,67 @@
 <section class="report-section">
-<h2>Which CRM field does a meeting statement support?</h2>
-<p>“The customer wants deployment next month” does not establish that the deal will close next month. Treating a preference, a seller's forecast, and an agreed date as equivalent can turn a readable summary into an incorrect opportunity record.</p>
-<p>This article examines preparing CRM updates from meeting material. Review what the agent extracted, which customer and opportunity it refers to, and which field it proposes to change. The aim is to decide the scope of CRM-update automation, not to reduce the value of all sales AI to one metric.</p>
+<h2>Does “deployment next month” justify a close date?</h2>
+<p>A meeting ends with the note, “Wants deployment next month; quotation to be revised.” An AI proposes a month-end close date. The customer has two open opportunities, and another seller is also updating the CRM. A concise summary does not settle whether the proposed change should be saved.</p>
+<p>This is a scenario for explaining mechanisms, not a reported incident or measured deployment. A customer's preference, a seller's forecast, and an agreed date differ. After a meeting, the question extends from what was extracted to who confirms which field in which opportunity.</p>
+<p>AWS, Microsoft, Salesforce, and OpenAI material available through June 8, 2026 describes different operations. My recommendation is to separate source-based candidates from seller interpretation and evaluate the path through the saved record. That lets us assess entry effort alongside the seller's ability to stand behind the record's meaning.</p>
 </section>
 <section class="report-section">
-<h2>Connect six checks from proposal through saved result</h2>
+<h2>AWS prepares creation of a new opportunity from documents</h2>
+<p>AWS's May 15 <a href="https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/">Partner Central agents announcement</a> describes taking meeting notes, proposals, and call transcripts, extracting opportunity information, enriching customer details, and recommending improvements before creating an opportunity. It includes natural-language requests and cloning existing opportunities, with console and MCP access. The destination is Partner Central for co-selling with AWS.</p>
+<p>The March 16 <a href="https://aws.amazon.com/blogs/apn/introducing-aws-partner-central-agents/">service explanation</a> describes creating an opportunity after Partner confirmation. It provides a concrete pattern of preparing inputs from documents, reviewing them, and registering the deal. Claims about shorter entry time and sales cycles are vendor statements, not field accuracy measured under shared comparison conditions.</p>
+<p>Evaluate how accurately the approach fills the required inputs and returns missing information to the seller. Document intake does not establish correct translation of a preferred deployment date into a closing forecast. Confirmation for new opportunity creation also cannot be assumed for every write in an existing CRM.</p>
+</section>
+<section class="report-section">
+<h2>Salesforce connects an existing opportunity to its next activity</h2>
+<p>Salesforce's March 16 <a href="https://www.salesforce.com/news/stories/agentforce-sales-announcement/">Agentforce Sales announcement</a> describes its Pipeline Management agent updating opportunity fields and recommending next steps from sales activity. Maintaining a continuing deal adds a different comparison target from registering a new one. The company also says sellers have visibility and final approval over agent actions.</p>
+<p>When meeting information informs the next quotation or contact, a record becomes material for the next owner's decision. The announcement does not establish identical review interfaces or field-level evidence for every operation. Inspect the fields and actions that will actually be used.</p>
+<p>Salesforce also presents time and business-outcome claims. Those cannot substitute for accuracy in updating records from meeting notes. Outreach and opportunity-creation counts differ from the proportion of existing deals that avoided an incorrect date. Choose results corresponding to the work being delegated.</p>
+</section>
+<section class="report-section">
+<h2>Microsoft and OpenAI cover activity saving and work across apps</h2>
+<p>Microsoft Sales agent's <a href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-outlook-activities-crm.md">Outlook activity workflow</a> saves emails or meetings to Dynamics 365 or Salesforce, selecting related records through suggestions or search. Associating an activity with a record differs from extracting and changing a close date from meeting text.</p>
+<p>Its <a href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/use-sales-copilot-app-during-meeting.md">Teams meeting workflow</a> also describes opening the connected CRM record and editing it manually. Saying the product only saves activities would be inaccurate. Separating manual record editing from automatic application of model-proposed fields shows which work a person still performs.</p>
+<p>OpenAI's June 2 <a href="https://openai.com/index/codex-for-every-role-tool-workflow/">role-specific Codex plugin announcement</a> bundles apps, skills, and instructions for customer research, meeting preparation, follow-ups, customer-record updates, and deal-risk review. It names tools including Salesforce, HubSpot, and Slack; Business and Enterprise administrators control underlying app permissions. Its scope differs from a feature confined to one CRM interface.</p>
+<p>Working across apps offers a route to carrying pre-meeting context into subsequent work. It also requires specifying which records to read and where to return changes. An announcement listing updates does not establish unique opportunity matching or field-level evidence for every action.</p>
+</section>
+<section class="report-section">
+<h2>Matching the customer does not match the opportunity</h2>
+<p>Microsoft's <a href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/connect-contact.md">contact connection workflow</a> distinguishes an email address matching one CRM contact, none, or several. One match is connected automatically; multiple matches require a person to select the correct contact. With no match, it directs the person toward creating a contact rather than guessing a different existing one.</p>
+<p>This specifies contact matching, not unique opportunity selection. With two open deals, the right email address still leaves a question about which deployment was discussed. Participants, subject, product, and proposal identifiers can help; unresolved choices must return to the seller.</p>
+<p>I would avoid showing only a company name with the candidate. An opportunity name, target, current stage, and selection reason help a reviewer detect “right customer, wrong deal.” This is an interface recommendation, not an effect measured across the products.</p>
+</section>
+<section class="report-section">
+<h2>Preserve the statement and identify who made the forecast</h2>
+<p>“Wants deployment next month” supports a preferred period. It does not alone establish a month-end closing commitment, an agreed amount, or completed internal approval. Preserving a preference as a note differs from a seller using other information to decide the forecast close date.</p>
+<p>I recommend attaching the source statement, current and proposed values, unresolved points, and the seller's added judgment. Inference is not always unnecessary: it can serve a sales forecast. It should still be distinguished from a fact agreed with the customer, with the person and reasoning behind the forecast identifiable.</p>
+<p>Notes and transcripts can themselves be wrong. A supporting quotation does not settle accuracy. Important amounts, dates, and agreements should be traceable to source material or the owner's confirmation. Reviewing extraction and making a sales forecast are different jobs.</p>
+<p>Microsoft's <a href="https://github.com/MicrosoftDocs/microsoft-salescopilot-docs/blob/c0d4450fde4cc94d8a3711b5734cf09a7621c51a/articles/save-additional-details-outlook.md">save configuration documentation</a> lets administrators select activity saving, categorization fields, and attachment behavior. Permission to save material does not mean every available document belongs on the opportunity. Preserve evidence needed by the next owner while separating material belonging to unrelated deals.</p>
+</section>
+<section class="report-section">
+<h2>Handle changes after review and reconcile the saved result</h2>
+<p>Even a correct opportunity and value can become stale when another seller changes the CRM after proposal generation. Refreshing helps, but a change can also occur between that read and the write. Approval of an old proposal does not justify overwriting new information.</p>
+<p><a href="https://www.rfc-editor.org/rfc/rfc9110.html">RFC 9110's conditional requests</a> describe If-Match for preventing accidental concurrent overwrites by conditioning an operation on the target's entity tag. If the destination API supports this or equivalent version checks, a different version can be detected and returned to review. This article has not verified support in each operation of the sales products.</p>
+<p>Without such support, re-reading alone does not eliminate conflicts; update ownership or timing also needs coordination. A communication failure during saving must not immediately trigger another submission. Check destination state, including duplicate creation or partially applied fields, before deciding what to do.</p>
+</section>
+<section class="report-section">
+<h2>Do not score four products as one identical operation</h2>
+<p>Start with the operation to delegate. Separate creation, activity association, and updates to existing opportunity fields, then define a correct result for each. These four considerations are my proposed organization for the checks.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>1. Extract from the meeting note</h3>
-<p>Separate customer statements, a seller's forecast, and agreed conditions as candidates. Do not equate a read statement with a confirmed CRM value.</p>
-</article>
-<article class="comparison-card">
-<h3>2. Match the opportunity</h3>
-<p>Use participants, subject, and timing to narrow target opportunities. Record when more than one opportunity for the customer remains plausible.</p>
-</article>
-<article class="comparison-card">
-<h3>3. Attach field-level evidence</h3>
-<p>Show the supporting statement for a close date, amount, or next action, and return unsupported inferences as unresolved.</p>
-</article>
-<article class="comparison-card">
-<h3>4. Check current values and conflicts</h3>
-<p>Reconcile CRM changes made after proposal generation. When conditional updates are available, detect a write based on an obsolete value.</p>
-</article>
-<article class="comparison-card">
-<h3>5. Confirm the approved change</h3>
-<p>The owner selects after seeing the opportunity, current and proposed values, and evidence. Do not extend approval of displayed candidates to unrelated fields.</p>
-</article>
-<article class="comparison-card">
-<h3>6. Reconcile the saved result</h3>
-<p>Compare saved fields with the approval. On a communication error, do not assume success; inspect the destination state.</p>
-</article>
+<article class="comparison-card"><h3>Matching</h3><p>Was the right customer and opportunity chosen? Count separately whether unresolved multiple candidates returned to a person.</p></article>
+<article class="comparison-card"><h3>Field meaning</h3><p>Inspect amounts, dates, stages, and next actions individually. Record confusion between statements, forecasts, and agreements.</p></article>
+<article class="comparison-card"><h3>Saved result</h3><p>Did the reviewed target and fields reach the CRM? Separate conflicts, duplicates, partial updates, and unknown outcomes.</p></article>
+<article class="comparison-card"><h3>Human work</h3><p>Count corrections, evidence investigations, and opportunity reselection. Record time spent reviewing and repairing.</p></article>
 </div>
-<p>These six steps are the article's hypothetical meeting-note-to-CRM workflow, not a comparison claiming that every product supplies the same screens or steps.</p>
+<p>Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">agent evaluation explanation</a> also separates execution records, final outcomes, and grader limitations. Applied to sales testing, a plausible proposed answer is not a successful save: inspect the resulting record. These are proposed tests, not measured update-accuracy results for the four vendors.</p>
+<p>Use the same materials and opportunities to test ordinary inputs, ambiguous statements, multiple deals, intervening changes, and communication failures. Separate Japanese and English, short notes and long transcripts. Averages over straightforward cases should not conceal consequential date or amount errors.</p>
 </section>
 <section class="report-section">
-<h2>The products act on different kinds of records</h2>
-<p>AWS's May 15, 2026 Partner Central agents announcement describes extracting opportunity information from meeting notes, proposals, and call transcripts, enriching customer details, and recommending improvements. The target operation is creating an opportunity in Partner Central. <a href="https://aws.amazon.com/about-aws/whats-new/2026/05/aws-partner-central-agents-oppo/">AWS announcement</a></p>
-<p>Microsoft Sales agent's save workflow stores Outlook emails and meetings in Dynamics 365 or Salesforce and lets a person select or search for a related record. Associating an email with an opportunity is a different operation from extracting an amount and changing a deal field. <a href="https://learn.microsoft.com/en-us/microsoft-sales-copilot/save-outlook-activities-crm">Microsoft save workflow</a></p>
-<p>Salesforce's Agentforce Sales announcement describes a Pipeline Management agent that updates fields and recommends next steps based on sales activity. Its target is ongoing maintenance of an existing opportunity. <a href="https://www.salesforce.com/news/stories/agentforce-sales-announcement/">Salesforce announcement</a></p>
-<p>The comparison calls for separate evaluation of opportunity creation, activity association, and field updates. A manual selection or approval mechanism documented for one operation must not be assumed for every other product. Inspect the target record, permissions, review interface, and saved result for the operation being deployed.</p>
+<h2>Use proposed updates to decide what to delegate</h2>
+<p>Initially, let AI prepare candidates and evidence while sellers update through their usual workflow. Compare review and correction work with manual entry, existing forms, and fixed extraction rules. Predictable inputs do not necessarily need more discretionary model decisions.</p>
+<p>Once usable candidates are understood, test applying selected fields to a reviewed opportunity. Creation, stage changes, amount updates, and customer communication differ in impact and repair. Success in one operation does not justify automatic execution of the others.</p>
+<p>More entries or summaries offer little help if sellers repeatedly reread the source and repair the wrong deal. Ask whether the next owner can understand the prepared record and carry the necessary judgment forward with manageable corrections. Revenue and conversion effects require measurement separately from update accuracy.</p>
 </section>
 <section class="report-section">
-<h2>A hypothetical review of an update proposal</h2>
-<p>This example illustrates review criteria, not measured product behavior. A customer has two open opportunities. A meeting note says, “Wants deployment next month; quotation to be revised.” An agent proposes setting the close date to the end of next month. The reviewer checks three things.</p>
-<ol>
-<li>Destination: which opportunity matches the participants and subject? The company name alone is insufficient. A person selects the target if it remains ambiguous.</li>
-<li>Evidence: the note supports a preferred period, not a month-end closing commitment. Preserve it as a preference or seek clarification before changing the close date.</li>
-<li>Current value: has another seller updated the date since the meeting? If so, reconcile the new information and regenerate the proposal.</li>
-</ol>
-<p>We recommend attaching current and proposed values, the supporting passage, and unresolved points to each candidate. This is a design recommendation, not a claim that every product above presents the same review format.</p>
-<p>A field can change even after approval and before the write. Use a version-based conditional update when the destination supports it, returning conflicts to review. Without that mechanism, re-reading alone cannot eliminate races; the workflow also needs a way to avoid concurrent updates.</p>
-</section>
-<section class="report-section">
-<h2>Start with proposals and measure correction effort</h2>
-<p>Initially, generate candidates and evidence while sellers continue making CRM changes through their normal workflow. Measure correct opportunity selection, field errors, uncertain statements treated as confirmed, and review time. Move toward applying approved updates in operations that consistently produce accurate candidates with manageable review.</p>
-<p>After saving, compare stored fields with the approved changes and inspect for duplicates or partial updates. If a communication error leaves the result unknown, check the destination rather than reporting success or retrying unconditionally.</p>
-<p>More automated updates do not help if repairing wrong records and detecting unsupported inferences consume more time. Measure the benefit of preparing candidates together with the cost of checking and applying them to decide which CRM work to delegate.</p>
+<h2>Let the seller stand behind the record's meaning</h2>
+<p>In the opening example, delegation can begin with extracting the preferred period and quotation revision as candidates. Identify the opportunity, distinguish preference from forecast, reconcile the other seller's changes, and then save. That sequence reveals where entry work can shrink and where sales judgment must remain.</p>
+<p>I expect sales AI to preserve the customer's meaning as it passes information into the next task. Account for the differences between creation, activity saving, and field updating, and delegate first where the right opportunity can retain a record its owner can explain.</p>
 </section>

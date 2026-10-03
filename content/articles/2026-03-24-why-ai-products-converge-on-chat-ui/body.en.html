@@ -1,40 +1,62 @@
 <section class="report-section">
-<h2>Describing an intention and pointing to an edit are different actions</h2>
-<p>“Make this explanation easier to read” leaves several choices open: length, tone, and structure. Conversation lets a user state the goal and refine it after seeing a proposal. Once the request becomes “shorten only this paragraph,” selecting that paragraph can reduce the need to describe its location in words.</p>
-<p>That distinction is useful when designing AI interfaces. My interpretation is that conversation can express goals and exceptions while direct manipulation identifies the object or passage to change. The product announcements below do not establish that chat is the cheapest interface to build or the easiest for every task.</p>
+<h2>The request is understood, but the edit target is not</h2>
+<p>Suppose an AI drafts a proposal and you want only its second paragraph shortened. You write “cut this to half the length,” but the assistant interprets “this” as another passage and changes material you wanted to preserve. You explain the location again, compare versions, and restore the lost wording. This hypothetical example separates describing a change from identifying its target.</p>
+<p>Conversation lets a consultation start before the goal is precise. Once a draft exists and the edit target is known, however, the flexibility of describing a goal gives way to the need to point accurately. An input method that helps at the beginning need not suit every later action.</p>
+<p>This article compares product announcements and research available by March 24, 2026, examining why conversation can remain the entry point while drafts, shared versions, and editable plans become visible. The criterion is what users can see and correct after making a request. A one-off consultation and repeated revisions of drafts or plans also carry different costs of learning additional controls.</p>
 </section>
 <section class="report-section">
-<h2>Split the work of producing one report across three surfaces</h2>
+<h2>Conversation accepts requests before their goal is settled</h2>
+<p>Before writing a proposal, even the appropriate output may be undecided. You ask what to explain to a customer, inspect suggestions, then request a comparison table with cost conditions. A fixed input form would need separate operations for such changes of purpose. Conversation can keep consultation, creation, and correction within an exchange of language.</p>
+<p><a href="https://openai.com/index/introducing-apps-in-chatgpt/">OpenAI's Apps announcement</a> describes invoking apps through natural language and using interactive maps or playlists inside a conversation. Microsoft's <a href="https://www.microsoft.com/en-us/copilot/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/">Copilot Chat announcement</a> also presents agents accessible from chat. These are product examples of one entry point leading into different kinds of work.</p>
+<p>I interpret that breadth as a design advantage when a goal changes during a task. It does not establish that writing a request is faster when users already know the available choices. Nor do a few announcements measure adoption across the market. Compare which stage's burden conversation can reduce rather than assigning its popularity to one cost or usability advantage.</p>
+</section>
+<section class="report-section">
+<h2>Use language for the change and selection for its target</h2>
+<p>For the opening example, selecting the second paragraph and asking for a shorter version avoids restating its location. <a href="https://openai.com/index/introducing-canvas/">OpenAI's canvas announcement</a> describes selecting passages, directly editing text or code, and restoring earlier versions. <a href="https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/">Gemini Canvas's announcement</a> also shows highlighting a paragraph to adjust concision or tone.</p>
+<p>Conversation and selection supply different information. “Use simpler language for this customer” expresses the intended change; “this paragraph” identifies the object. Selecting it could reduce repeated paragraph numbers or quoted passages. Test that possibility by comparing target-selection tasks on the same draft.</p>
+<p>Selection does not establish that the edit is substantively correct. Removing a sentence containing a condition can alter meaning even within the selected passage. Users need to inspect the change and retained conditions, then restore the previous text if necessary. Precise targeting and judging the revised content remain different tasks.</p>
+</section>
+<section class="report-section">
+<h2>A visible artifact and a team's current version serve different needs</h2>
+<p>Repeated revisions create another task: deciding which response contains the accepted text. Anthropic's <a href="https://www.anthropic.com/news/claude-3-5-sonnet">announcement introducing Artifacts</a> describes code, documents, and web designs appearing in a dedicated window alongside conversation. It provides a product example of working with a visible artifact beyond reading a response.</p>
+<p>If another person edits the draft, visibility alone is insufficient. Microsoft's <a href="https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/">Copilot Pages announcement</a> describes retaining AI-generated content in a page that people can edit, extend, and share. An artifact for personal inspection and an object for collaborative updates should be compared separately.</p>
+<p>In the hypothetical proposal task, retaining the accepted text in one place while colleagues update it could reduce explanations about which version to use. Exporting and emailing a file is different: revising the original surface need not update the recipient's copy. Decide whether the shared page, exported file, or sent attachment is authoritative.</p>
+<p>This distinction also prevents similar product labels from obscuring different capabilities. Dedicated display, personal editing, and joint updates are separate things to check. A feature announcement cannot quantify the reduction in version mistakes. Test the handoff through the point where the recipient opens the intended content.</p>
+</section>
+<section class="report-section">
+<h2>Sometimes the research plan needs revision before the prose does</h2>
+<p>A draft's problem may lie in the research sequence rather than its wording. <a href="https://arxiv.org/html/2412.10999v1">Cocoa v1</a> proposes collaboratively editing and executing plans in a document. Intermediate work becomes an editable object alongside the final text.</p>
+<p>Its study had 16 researchers spend 25 minutes per condition on literature-informed tasks. Both interfaces used GPT-4o and the same tools; chat also had a document editor. Median five-point self-reported steerability was 3 for chat and 4 for Cocoa, with a significant difference. Ease of use and general output utility showed no significant difference. These results do not measure business completion rates or speed.</p>
+<p>A visible plan can support replacing the competitor-research step while retaining the customer requirements already collected. But changing the earlier research while retaining conclusions derived from it does not restore consistency. The interface needs to expose which step changed and which dependent passages require review. This is a design example informed by the research.</p>
+<p>A short consultation may not benefit from learning a planning interface. Separate work requiring intervention in individual steps from work seeking an immediate answer. A non-significant difference also does not prove equivalence; retain the limits of the tasks and measurements.</p>
+</section>
+<section class="report-section">
+<h2>Analysis can require several conditions to be visible together</h2>
+<p>Consider checking a proposal's cost table while changing customer segment, reporting period, and calculation method. A conversation-only design can place an earlier condition and a new aggregation in separate responses. Reading the wrong table for the selected conditions invalidates the comparison even if its explanation sounds fluent.</p>
+<p><a href="https://arxiv.org/abs/2602.00947v1">The Keyhole Effect</a> offers a theoretical account of how hidden conditions and displaced content burden understanding in multi-step, state-dependent analysis. It presents design patterns and testable hypotheses, rather than a new controlled experiment measuring chat's inferiority. I use it to motivate evaluating how well users can inspect conditions and results together.</p>
+<p>Placing the period and filters beside a table can make its assumptions easier to check. Yet if the displayed conditions differ from those used in the calculation, a polished screen could make errors easier to miss. Check both the visibility of the assumptions and their actual application.</p>
+<p>Showing everything on one screen is not the answer either. Unused settings and old tables create more objects to search through. Compare a conversation-only design with one that keeps the current comparison's conditions and results together while making earlier versions available when needed.</p>
+</section>
+<section class="report-section">
+<h2>Repeated requests can also benefit from a form</h2>
+<p>The first proposal may require discussion of its purpose, while a weekly report may already have a fixed period, owner, and destination. A screen for checking those fields could fit better than rewriting them in prose. Using conversation as an entry point and making every input free text are separate choices.</p>
+<p><a href="https://claude.com/blog/cowork-plugins-across-enterprise">Cowork's February 24, 2026 announcement</a> describes commands for reports or dashboards launching with structured forms. It shows a conversational product adding field-based input for repeated requests. This does not establish a general usability advantage for forms; choose according to how consistently the input can be structured.</p>
+<p>Displaying a required reporting period creates an opportunity to notice an omission. But retaining the previous period as a default can introduce another mistake if the user proceeds without checking. Compare required fields, defaults, and review after entry with a free-text request. A design can combine conversation for exceptions with fields for recurring conditions.</p>
+</section>
+<section class="report-section">
+<h2>Show executing actions separately from completed text</h2>
+<p>When a request expands from preparing a report to delivering it, the draft is no longer the only object to inspect. The <a href="https://openai.com/index/introducing-chatgpt-agent/">ChatGPT agent announcement</a> describes on-screen narration, interruptions, and browser takeover. It offers a product example of users intervening in work started through conversation.</p>
+<p>A plan saying “save,” an ongoing save operation, and a saved result should not collapse into one status. In the proposal example, the editable version, an unsent recipient, and the saved file are different inspection targets. When the request changes, distinguish actions still open to revision from actions already performed.</p>
 <div class="comparison-grid">
-<article class="comparison-card">
-<h3>Conversation starts the request</h3>
-<p>It conveys a goal, reader, and exceptions, as in “make this a customer-facing report and place the conclusion first.” It is a place to refine conditions after seeing a draft, not necessarily to identify an exact edit target.</p>
-</article>
-<article class="comparison-card">
-<h3>The artifact surface revises and shares</h3>
-<p>A user selects the second paragraph, requests a shorter version, and passes the chosen draft to a collaborator. The relevant state is which text changed and whether both people see the same version.</p>
-</article>
-<article class="comparison-card">
-<h3>A plan or queue surface monitors and approves</h3>
-<p>It exposes collection, drafting, review, and delivery as steps, so a user can stop or approve the still-pending delivery. Cocoa's plan editing is one example of making an intermediate unit of work visible.</p>
-</article>
+<article class="comparison-card"><h3>Change the goal in conversation</h3><p>Express an intention such as “make this internal-facing.” Check which draft and planned actions should receive the change.</p></article>
+<article class="comparison-card"><h3>Revise part of a draft or plan</h3><p>Select the passage or step. Inspect its revision and the later material that depends on its result.</p></article>
+<article class="comparison-card"><h3>Check the work's result</h3><p>Verify the accepted version, saved destination, and executed actions. A plan's wording alone is not completion.</p></article>
 </div>
-<p>This division is the article's design example, not a claim that the three products provide the same interface. The necessary surface changes with whether the work concerns an artifact, a plan, or an external change.</p>
+<p>These roles are this article's proposal, not a requirement for three separate screens. They can be implemented by placing an artifact beside conversation or adding conversation to an existing editor. Place information near the particular unit the user needs to correct.</p>
 </section>
 <section class="report-section">
-<h2>Canvas selects the passage; Pages keeps a shared editing target</h2>
-<p>Google's <a href="https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/">Canvas announcement</a> shows highlighting a paragraph and requesting a change in concision or tone. Language describes the change while selection identifies its target. The document remains an editing surface instead of being only another response to read in a conversation.</p>
-<p>Microsoft's <a href="https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/">Copilot Pages announcement</a> describes retaining AI-generated content so people can edit, add to, and share it. The relevant distinction is a common editing target that persists as conversation continues. In a hypothetical team proposal, contributors could collect changes on the same page instead of explaining which response should count as the latest draft.</p>
-<p>These are different capabilities: selecting a revision target and retaining a shared document. They are product descriptions, not experiments measuring time savings or error reductions. Test their value on an actual draft by checking whether the intended passage is easy to identify and whether unrelated content changes.</p>
-</section>
-<section class="report-section">
-<h2>A plan can also become an object of direct editing</h2>
-<p>Sometimes the desired change concerns upcoming work rather than the document itself. The <a href="https://arxiv.org/abs/2412.10999v1">first version of the Cocoa paper</a> proposes collaboratively creating plans and executing their steps with an agent inside a document editor. In an evaluation with 16 researchers on scientific-research tasks, the authors reported improved agent steerability against a strong chat baseline without sacrificing ease of use.</p>
-<p>The result does not establish that a plan interface is better for every user or task. It concerns work with multiple steps that users can inspect and redirect. I take it as a reason to test interfaces exposing the particular unit a user wants to change: a paragraph for writing, or a plan step for research. The appropriate unit depends on the work.</p>
-</section>
-<section class="report-section">
-<h2>Add an interface where revisions actually happen</h2>
-<p>A short definition or one-off consultation may work well with answers and corrections in the conversation itself. A separate editor is not automatically necessary. Revising one passage in a long document, jointly updating a draft, or changing an intermediate plan creates a clearer reason to keep the target visible.</p>
-<p>A small evaluation task could ask a user to state a report's purpose in conversation, revise one paragraph, and hand the latest document to a colleague. If external delivery can wait for approval, separately check the revision and the sending operation. Count explanations needed to identify the target, check for changes elsewhere, verify that the recipient opens the same version, and check whether an unapproved delivery can be stopped. This is a proposed test, not a measured comparison of the products above.</p>
-<p>Start with what users need to see and change. That separates work for which a conversation is sufficient from work that benefits from selection, editing, and sharing controls. Judge those additions by whether they make the intended revision and its result easier to verify.</p>
+<h2>Evaluate usability through revisions after the request</h2>
+<p>For the opening proposal, test discussing its goal, shortening one paragraph, and handing the accepted version to a colleague. Record repeated explanations needed to identify the target, lost conditions, and whether unchanged passages require rereading. Verify that the recipient opens the same version to separate personal editing from handoff costs. This is a proposed evaluation, not a measured product ranking.</p>
+<p>An unsettled consultation, a local edit in a long document, analysis across several conditions, and a routine report have different burdens. With the same task and model, compare conversation alone, an editor with selectable targets, and an editable plan. Look beyond the speed of the first draft to how people find errors, repair them, and pass work on.</p>
+<p>Conversation can remain a place to develop a request that is not yet precise. Once the edit target is known, test whether pointing directly to the passage or step helps. I recommend combining controls around what users need to see and correct during work, rather than declaring chat the final product form. The person who delegated the proposal should be able to fix the intended paragraph without explaining the entire document again.</p>
 </section>

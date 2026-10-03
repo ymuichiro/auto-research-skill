@@ -77,6 +77,16 @@ function validateMeta(meta, articleDirName, errors) {
     errors.push(`${articleId}: date must use YYYY-MM-DD.`);
   }
 
+  if ("publishedAt" in meta) {
+    const value = meta.publishedAt;
+    const pattern = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?(?:Z|[+-]\d{2}:\d{2})$/;
+    const validTimestamp = typeof value === "string" && pattern.test(value) && !Number.isNaN(Date.parse(value));
+    const calendarDate = validTimestamp ? new Date(`${value.slice(0, 10)}T00:00:00Z`).toISOString().slice(0, 10) : null;
+    if (!validTimestamp || calendarDate !== value.slice(0, 10)) {
+      errors.push(`${articleId}: publishedAt must be a verified ISO 8601 publication timestamp with a timezone.`);
+    }
+  }
+
   const expectedDirName = `${meta.date}-${meta.slug}`;
   if (meta.date && meta.slug && articleDirName !== expectedDirName) {
     errors.push(`${articleId}: directory name must be "${expectedDirName}".`);
@@ -185,7 +195,8 @@ export async function loadArticles() {
       sourceDirName: articleDirName,
       bodies,
       seo,
-      publishedAtIso: fallbackArticleDateTime(meta.date),
+      // The research cutoff in date is not evidence of first publication.
+      publishedAtIso: meta.publishedAt,
       lastModified,
       outputPaths
     });

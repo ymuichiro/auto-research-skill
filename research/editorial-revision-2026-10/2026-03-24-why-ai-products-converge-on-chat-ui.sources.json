@@ -1,0 +1,296 @@
+{
+  "article_id": "2026-03-24-why-ai-products-converge-on-chat-ui",
+  "target_date": "2026-03-24",
+  "observed_at_utc": "2026-10-02T18:12:47.517929+00:00",
+  "sources": [
+    {
+      "url": "https://openai.com/index/introducing-operator/",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": "verified_via_web_tool",
+      "publication_date": "2025-01-23",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked."
+    },
+    {
+      "url": "https://openai.com/index/introducing-deep-research/",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": "verified_via_web_tool",
+      "publication_date": "2025-02-02",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked."
+    },
+    {
+      "url": "https://openai.com/index/introducing-chatgpt-agent/",
+      "role": "public: visible execution and interruption",
+      "status": "verified_via_web_tool",
+      "publication_date": "2025-07-17",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked."
+    },
+    {
+      "url": "https://cdn.openai.com/pdf/6bcccca6-3b64-43cb-a66e-4647073142d7/chatgpt_agent_system_card_launch.pdf",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://cdn.openai.com/pdf/6bcccca6-3b64-43cb-a66e-4647073142d7/chatgpt_agent_system_card_launch.pdf",
+      "page_title": "ChatGPT agent system card (PDF)",
+      "publication_date": "2025-07-17",
+      "eligible_for_target_date": true,
+      "date_evidence": "PDF linked from the dated July 2025 ChatGPT agent launch; used as background, no performance claim included."
+    },
+    {
+      "url": "https://openai.com/index/introducing-apps-in-chatgpt/",
+      "role": "public: conversation entry point",
+      "status": "verified_via_web_tool",
+      "publication_date": "2025-10-06",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/",
+      "role": "public: visible artifact or shared editing object",
+      "status": "verified_via_web_tool",
+      "publication_date": "2024-09-16",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/",
+      "role": "public: conversation entry point",
+      "status": "verified_via_web_tool",
+      "publication_date": "2025-01-15",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "final_url": "https://www.microsoft.com/en-us/copilot/blog/2025/01/15/copilot-for-all-introducing-microsoft-365-copilot-chat/"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": "verified_via_web_tool",
+      "publication_date": "2024-11-19",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "final_url": "https://www.microsoft.com/en-us/copilot/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/gemini/new-gemini-app-features-march-2025/",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://blog.google/products-and-platforms/products/gemini/new-gemini-app-features-march-2025/",
+      "page_title": "Gemini app updates: Deep Research, connected apps, personalization",
+      "date_candidates": [
+        "2025-03-13T16:00:00+00:00"
+      ],
+      "publication_date": "2025-03-13",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/",
+      "role": "public: selected editing target",
+      "status": 200,
+      "final_url": "https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/",
+      "page_title": "New Gemini features: Canvas and Audio Overview",
+      "date_candidates": [
+        "2025-03-18T16:00:00+00:00"
+      ],
+      "publication_date": "2025-03-18",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/devices/google-nest/google-home-app-gemini-redesign/",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://blog.google/products-and-platforms/devices/google-nest/google-home-app-gemini-redesign/",
+      "page_title": "Google launches new Google Home app, redesigned for Gemini",
+      "date_candidates": [
+        "2025-10-01T13:00:00+00:00"
+      ],
+      "publication_date": "2025-10-01",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://www.anthropic.com/news/projects",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://www.anthropic.com/news/projects",
+      "page_title": "Collaborate with Claude on Projects \\ Anthropic",
+      "date_candidates": [
+        "2024-06-25T18:19:00.000Z"
+      ],
+      "publication_date": "2024-06-25",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://claude.com/blog/artifacts",
+      "role": "excluded",
+      "status": "unverified",
+      "error": "HTTP Error 404: Not Found",
+      "eligible_for_target_date": false,
+      "reason": "404"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "page_title": "Building Effective AI Agents \\ Anthropic",
+      "date_candidates": [
+        "2024-12-19T00:00:00.000Z"
+      ],
+      "publication_date": "2024-12-19",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://www.anthropic.com/news/3-5-models-and-computer-use",
+      "page_title": "Introducing computer use, a new Claude 3.5 Sonnet, and Claude 3.5 Haiku \\ Anthropic",
+      "date_candidates": [
+        "2024-10-22T15:51:00.000Z"
+      ],
+      "publication_date": "2024-10-22",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://claude.com/blog/cowork-research-preview",
+      "role": "excluded",
+      "status": 200,
+      "final_url": "https://claude.com/product/cowork",
+      "page_title": "Claude Cowork | Claude by Anthropic",
+      "date_candidates": [],
+      "eligible_for_target_date": false,
+      "reason": "Redirects to a mutable product page; no dated launch content verified."
+    },
+    {
+      "url": "https://claude.com/blog/cowork-plugins",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://claude.com/blog/cowork-plugins",
+      "page_title": "Customize Cowork with plugins | Claude by Anthropic",
+      "date_candidates": [
+        "Jan 30"
+      ],
+      "publication_date": "2026-01-30",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://claude.com/blog/cowork-plugins-across-enterprise",
+      "role": "public: structured forms for repeated requests",
+      "status": 200,
+      "final_url": "https://claude.com/blog/cowork-plugins-across-enterprise",
+      "page_title": "Cowork and plugins for teams across the enterprise | Claude by Anthropic",
+      "date_candidates": [
+        "Feb 24"
+      ],
+      "publication_date": "2026-02-24",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://arxiv.org/abs/2304.08103v1",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2304.08103v1",
+      "page_title": "[2304.08103v1] Low-code LLM: Visual Programming over LLMs",
+      "date_candidates": [],
+      "date_evidence": "[v1] \n        Mon, 17 Apr 2023 09:27:40 UTC",
+      "publication_date": "2023-04-17",
+      "eligible_for_target_date": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2407.15673v1",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2407.15673v1",
+      "page_title": "[2407.15673v1] IDA: Breaking Barriers in No-code UI Automation Through Large Language Models and Human-Centric Design",
+      "date_candidates": [],
+      "date_evidence": "[v1] \n        Mon, 22 Jul 2024 14:41:32 UTC",
+      "publication_date": "2024-07-22",
+      "eligible_for_target_date": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.10999v1",
+      "role": "public: editable execution plan and bounded comparison",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2412.10999v1",
+      "page_title": "[2412.10999v1] Cocoa: Co-Planning and Co-Execution with AI Agents",
+      "date_candidates": [],
+      "date_evidence": "[v1] \n        Sat, 14 Dec 2024 23:59:42 UTC",
+      "publication_date": "2024-12-14",
+      "eligible_for_target_date": true,
+      "full_text_url": "https://arxiv.org/html/2412.10999v1",
+      "checked_sections": [
+        "5.2 Baseline System",
+        "5.3 Research Task",
+        "5.4 Procedure",
+        "6.1 Steerability, Ease of Use, and Utility"
+      ]
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.00947v1",
+      "role": "public: theoretical limit of serial chat for state-dependent analysis",
+      "status": "verified_via_web_tool",
+      "publication_date": "2026-02-01",
+      "eligible_for_target_date": true,
+      "date_evidence": "Versioned arXiv submission history",
+      "direct_transport_error": "HTTP Error 406: Not Acceptable",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "evidence_kind": "conceptual framework and falsifiable hypotheses, not a new controlled empirical experiment"
+    },
+    {
+      "url": "https://openai.com/index/introducing-canvas/",
+      "role": "public: selected editing target",
+      "status": "verified_via_web_tool",
+      "publication_date": "2024-10-03",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked."
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "role": "public: visible artifact or shared editing object",
+      "status": 200,
+      "final_url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "page_title": "Introducing Claude 3.5 Sonnet \\ Anthropic",
+      "date_candidates": [
+        "2024-06-21T03:28:00.000Z"
+      ],
+      "publication_date": "2024-06-21",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim."
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/",
+      "role": "background: interface, artifact, plan, or execution control comparison",
+      "status": "verified_via_web_tool",
+      "publication_date": "2019-05",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked."
+    }
+  ],
+  "verified_inventory_count": 23
+}

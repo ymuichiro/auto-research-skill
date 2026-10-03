@@ -1,30 +1,64 @@
 <section class="report-section">
-  <p class="section-kicker">Question</p>
-  <h2>Why should multi-agent work be designed as an operating model rather than a role diagram?</h2>
-  <p>Adding roles does not create coordination. A system needs dependencies on earlier work, inputs and evidence passed in a handoff, someone to integrate and verify results, and conditions to stop or return work to a person. Azure AI Foundry Agent Service, Responses API updates, and <a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernel orchestration</a> in May 2025 treated such components as implementation and operational concerns. This article uses “operating model” to mean a design that makes work reproducible, auditable, and stoppable, not a set of role names.</p>
+  <p class="section-kicker">Combining work into one report</p>
+  <h2>Does divided research reduce the work of reaching a conclusion?</h2>
+  <p>Several AI participants research energy-efficient models. One collects training energy measurements; another collects inference measurements. Both return sources, but placing the numbers together does not create a valid comparison. This is my hypothetical design example. Faster collection brings the report no closer to completion if the user still has to discover the difference in measurement scope.</p>
+  <p><a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernel’s May 27 announcement</a> presents a framework for implementing sequential, concurrent, conversational, handoff, and dynamically coordinated multi-agent work. Azure AI Foundry Agent Service becoming generally available and the Responses API updates also add components for connecting tools and following longer tasks. Using them requires defining dependencies before choosing how many participants to add.</p>
+  <p>I propose dividing independent collection, preserving comparison conditions through handoffs, and returning work for additional evidence when integration exposes a gap. The value of several participants cannot be measured by the number of outputs. It should be assessed by the research, checking, and correction a person needs before reaching one usable judgment.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Sequence and concurrency</p>
+  <h2>Starting together does not help work that needs an earlier output</h2>
+  <p>Semantic Kernel illustrates sequential processing with document summarization, translation, and quality assurance. Each participant receives the preceding output. In concurrent processing, several participants independently handle the same input and their results are collected, providing different proposals or perspectives. These are descriptions and implementation patterns, not an experiment comparing time or quality on the same document.</p>
+  <p>For the opening report, separate primary sources can be searched in parallel after target models and measurement scope are defined. Comparison calculations wait for the necessary values and conditions. Prose review follows the connection between conclusions and evidence. Starting all participants together cannot give a writer a comparison that does not yet exist.</p>
+  <p>A sequence alone is also insufficient. If a summary omits measurement conditions, translating it and checking its grammar will not recover them. Participants need access to the original and outputs must retain the information subsequent work requires. Execution order and handoff content belong in the same design.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Changing the path during work</p>
+  <h2>A missing fact can require returning to collection instead of moving forward</h2>
+  <p>The same announcement illustrates Magentic orchestration with a report comparing machine-learning models’ energy efficiency and CO₂ emissions. A manager assigns research, delegates analysis to a coding participant, and coordinates repeated research and computation as needed. It describes work whose complete path cannot be fixed at the start. The example is not a measured demonstration that the resulting energy comparison is correct.</p>
+  <p>The underlying <a href="https://arxiv.org/html/2411.04468v1">Magentic-One paper</a> uses a task ledger and a progress ledger. The former organizes known facts, guesses, information needed, and a plan. The latter selects participants and checks progress. Stalls can trigger replanning. Compared with a list of role names, this design can change the next action based on what has been learned.</p>
+  <p>A manager can still make a wrong judgment. Declaring completion with missing evidence or repeating the same search can increase review burden as more participants are added. Conditions for returning to research, limits on attempts, and reporting absent evidence must be defined. A fixed sequence may be easier to inspect when the sources and processing are already known.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Managing tools and execution</p>
+  <h2>Separate reading and changing data through the actual tool connections</h2>
+  <p>Microsoft’s May 19 <a href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/">Developer Essentials announcement</a> describes knowledge tools and action tools alongside Foundry Agent Service’s general availability. Connections retrieve information from systems such as SharePoint and Azure AI Search or execute work through Logic Apps and Azure Functions. Tracing, evaluation, and monitoring are also development and operating capabilities.</p>
+  <p>In the hypothetical report, a researcher only needs to read sources. A drafting participant may need to write to a working document. Updating the publication destination can have a separate permission. This is my proposed design, not a claim that Foundry automatically derives permissions from role names.</p>
+  <p>More tools introduce different places for errors. Returning an inaccessible document, an empty search, and a failed calculation under the same “no evidence” label leaves the writer unable to identify the cause. Traces should make it possible to investigate which input and tool caused the stop. An execution record does not by itself make an argument verifiable, so the evidence used in the prose must also be retained.</p>
+  <p>The scope of general availability matters too. <a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-agents-are-now-generally-available/">Semantic Kernel’s April announcement</a> describes general availability of the core Agent API. That status cannot automatically be extended to every orchestration pattern introduced in May. Verify the features and implementation version being used, then examine an entire job.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Following longer execution</p>
+  <h2>A completed response and a usable report are different conditions</h2>
+  <p>The May 21 <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">Responses API update</a> adds remote MCP server support, Code Interpreter, and background mode for starting longer tasks asynchronously. Applications can poll response objects for completion or follow events to catch up on execution. These are components for waiting on work involving research and calculation.</p>
+  <p>The mechanism addresses execution progress. Whether enough evidence was collected and calculation assumptions match requires separate checks. A successfully finished calculation can still produce an unusable conclusion if it compares values with different units. Handling communication and waiting does not define business completion.</p>
+  <p>I would connect displays such as researching, calculating, and awaiting review to actual processing. These user-facing states are my proposal. Showing missing evidence or an outstanding human decision, instead of declaring the report finished when internal calls end, lets the user decide whether to wait or change the conditions.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">A hypothetical report design</p>
+  <h2>Passing numbers alone makes the integrator repeat the search for conditions</h2>
+  <p>Follow the energy-comparison report as a concrete design example. Research participants return primary-source URLs, publication dates, and relevant passages, together with the model, hardware, processing scope, and measurement units. Unverified conditions remain visible. If training and inference measurements are mixed, the inputs must be aligned before calculation or separated into different comparisons.</p>
+  <p>The calculation participant returns the values used and the conversion method. The writer distinguishes measured facts from conclusions derived under specified conditions. A reviewer checks whether the conclusion exceeds the original scope. Voting for the participant with the largest number does not resolve incompatible measurements.</p>
+  <p>Adding a reviewer does not guarantee quality. If every participant reads the same summary with omitted conditions, they share the omission. Give the reviewer original passages as well as the draft so measurement scope can be checked. Confidence expressed by a collector should not be inherited as evidence strength. Removing conclusions where conditions do not align should be part of the review role.</p>
+  <p>Insufficient evidence returns from review to collection. If the missing material cannot be found, the report retains the part that cannot be compared. Completion of every participant’s response therefore does not become completion of the conclusion. The user can assess what is and is not comparable, as well as which figures are supported.</p>
+  <p>Division helps when there is enough independent exploration to justify it. A report based on one short source may acquire unnecessary handoff and integration work. Roles organize the work; they do not each have to run as a separate agent.</p>
+</section>
+
+<section class="report-section">
+  <p class="section-kicker">Deciding whether to divide work</p>
+  <h2>Compare the burden of completion before adding more participants</h2>
+  <p><a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> recommends starting with the simplest structure that fits the problem. A single-participant baseline and a divided design should face the same report task. Record time spent collecting, handing over, integrating, reviewing, and repeating work, alongside model usage.</p>
+  <p>Align sources, available tools, models, and completion criteria in that comparison. If the divided design receives more research time or a different model, those differences also contribute to the result. They cannot be attributed solely to adding participants. Retaining stage-level differences, such as faster collection followed by slower integration, helps identify which work to divide next.</p>
+  <p>Assess source correspondence, omitted conditions, and unsupported conclusions. Include missing material and disagreement between participants. A faster draft is hard to call an improvement if a person must search for more originals afterward. Conversely, work that reduces waiting through parallel exploration while preserving conditions during integration has a reason to be divided.</p>
   <div class="comparison-grid mt-6">
-    <article class="comparison-card"><h3>Dependencies</h3><p>Separate work that can run in parallel from work that must wait for earlier evidence.</p></article>
-    <article class="comparison-card"><h3>Handoffs</h3><p>Pass inputs, sources, unresolved points, and permission scope, not a summary alone.</p></article>
-    <article class="comparison-card"><h3>Integration and stopping</h3><p>Decide who checks conflicts and what counts as completion, return, or human handoff.</p></article>
+    <article class="comparison-card"><h3>Independence</h3><p>Find collection that can proceed without an earlier output and run it in parallel.</p></article>
+    <article class="comparison-card"><h3>Evidence to hand over</h3><p>Attach comparison conditions, sources, and unresolved points to numbers and summaries.</p></article>
+    <article class="comparison-card"><h3>Conditions for returning work</h3><p>When integration reveals a gap, seek more evidence or report that the comparison cannot be made.</p></article>
   </div>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Scope of the published material</p>
-  <h2>Coordination features enable role separation; they do not guarantee sound operation</h2>
-  <p>Azure AI Foundry material, Responses API updates, and Semantic Kernel orchestration document components for agents, tools, execution records, and flows across roles. Google multi-system agents and A2A address work handed to another system. They do not establish that an organization’s roles, permissions, and quality criteria already exist.</p>
-  <p><a href="https://arxiv.org/abs/2411.04468">Magentic-One</a> and <a href="https://arxiv.org/abs/2406.12045">tau-bench</a> show that work involving several tools, roles, or a user has meaningful intermediate paths as well as outcomes. Their benchmarks should not be substituted for an organization’s performance; they support the design implication that dependencies, state, and user negotiation must be evaluated.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Hypothetical example</p>
-  <h2>For a research report, define what passes between collection, writing, and review</h2>
-  <p>This is a design example. A collection role returns primary-source URLs, publication dates, relevant passages, and unresolved points. A writing role drafts from that evidence; a review role checks the relation of claims to sources, outdated material, and speculative language. Collection can run in parallel, but a conclusion waits for evidence. A review finding that evidence is insufficient returns work to collection rather than ending it.</p>
-  <p>A short summary alone is insufficient for this flow. Pass sources, citable facts, author interpretation, and unresolved conditions separately. An integrator resolves conflicts and a person makes the final publication decision. For a small report that one role can finish, the cost of handoffs outweighs the benefit, so it should remain a single-role task.</p>
-</section>
-
-<section class="report-section">
-  <p class="section-kicker">Conclusion</p>
-  <h2>The value of multiple agents lies in being able to stop and inspect work, not in the number of workers</h2>
-  <p>Making a role design an operating model means recording dependencies, handoffs, integration, and stopping conditions, rather than merely parallelizing steps. Platforms can help implement this. Quality, authority, approval, and responsibility for exceptions remain with the application and organization. Start with a single-role baseline, then add roles only where division improves time, error handling, or supervision.</p>
+  <p>May’s announcements expand the choices for placing work coordination into code and service configuration. Using those choices well requires moving from participant counts to dependencies that lead to a completed artifact. Division improves the job when it also reduces the user’s burden of reorganizing multiple answers.</p>
 </section>

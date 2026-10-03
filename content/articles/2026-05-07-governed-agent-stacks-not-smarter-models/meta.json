@@ -1,14 +1,14 @@
 {
   "slug": "governed-agent-stacks-not-smarter-models",
   "date": "2026-05-07",
-  "titleJa": "AIエージェント基盤を選ぶとき、権限・承認・評価をどう確かめるか",
-  "titleEn": "How to compare permissions, approvals, and evaluation in agent platforms",
-  "summaryJa": "GoogleとAWSの発表を起点に、社内チケット更新の想定例で、身元、権限、実行、観測と評価を分け、基盤・接続先・開発チームが担う処理を切り分ける。",
-  "summaryEn": "Google and AWS announcements frame a ticket-update example that separates identity, permissions, execution, and observation and evaluation across platform, connected system, and development team.",
-  "seoDescriptionJa": "AIエージェント基盤の機能一覧を、チケット更新の具体的な検証に置き換える。権限、承認、実行記録、評価、既存システムの責任分担を整理。",
-  "seoDescriptionEn": "Use a ticket-update task to compare agent platform permissions, approvals, traces, and evaluation, including responsibilities left to existing systems.",
-  "teaserJa": "機能名の比較から、業務の一往復で権限と承認を検証する比較へ。",
-  "teaserEn": "Test permissions and approvals through a complete ticket-update task.",
+  "titleJa": "AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる",
+  "titleEn": "What an agent platform takes responsibility for: five approaches to one business task",
+  "summaryJa": "OpenAI、Anthropic、Microsoft、Google、AWSのSDKと管理サービスを比較。問い合わせからチケット保存までを想定し、実行、許可、評価、保守を誰が担うかで選択を考える。",
+  "summaryEn": "Compare SDKs and managed services from five vendors through an inquiry-to-ticket scenario, tracing responsibility for execution, permissions, evaluation, and maintenance.",
+  "seoDescriptionJa": "AIエージェント基盤の五社比較。SDK、長時間実行、固定手順、権限、登録、評価を一件のチケット業務へ当てはめ、利用側に残る責任を考える。",
+  "seoDescriptionEn": "Compare five agent platforms through one ticket task: SDKs, execution, permissions, registries, evaluation, and the maintenance left to adopting teams.",
+  "teaserJa": "回答の便利さから、業務の結果と保守の責任までを比べる。",
+  "teaserEn": "Compare useful answers with responsibility for complete tasks and maintenance.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,19 +20,70 @@
   ],
   "publishedSources": [
     {
-      "label": "Anthropic Engineering: Building effective agents",
-      "url": "https://www.anthropic.com/engineering/building-effective-agents",
-      "type": "official"
+      "label": "OpenAI: The next evolution of the Agents SDK",
+      "url": "https://openai.com/index/the-next-evolution-of-the-agents-sdk/",
+      "type": "official",
+      "publishedAt": "2026-04-15"
     },
     {
-      "label": "Google Cloud Blog: Introducing Gemini Enterprise Agent Platform",
+      "label": "Anthropic: Effective harnesses for long-running agents",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents",
+      "type": "official",
+      "publishedAt": "2025-11-26"
+    },
+    {
+      "label": "Anthropic: Scaling Managed Agents: Decoupling the brain from the hands",
+      "url": "https://www.anthropic.com/engineering/managed-agents",
+      "type": "official",
+      "publishedAt": "2026-04-08"
+    },
+    {
+      "label": "Microsoft: Agent Framework Version 1.0",
+      "url": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/",
+      "type": "official",
+      "publishedAt": "2026-04-03"
+    },
+    {
+      "label": "Microsoft: Agent Governance Toolkit",
+      "url": "https://opensource.microsoft.com/blog/2026/04/02/introducing-the-agent-governance-toolkit-open-source-runtime-security-for-ai-agents/",
+      "type": "official",
+      "publishedAt": "2026-04-02"
+    },
+    {
+      "label": "Google Cloud: Introducing Gemini Enterprise Agent Platform",
       "url": "https://cloud.google.com/blog/products/ai-machine-learning/introducing-gemini-enterprise-agent-platform",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-04-22"
     },
     {
-      "label": "AWS What's New: Amazon Bedrock AgentCore Evaluations is now generally available",
+      "label": "AWS: Agent Registry preview",
+      "url": "https://aws.amazon.com/blogs/machine-learning/the-future-of-managing-agents-at-scale-aws-agent-registry-now-in-preview/",
+      "type": "official",
+      "publishedAt": "2026-04-09"
+    },
+    {
+      "label": "AWS: Policy in Amazon Bedrock AgentCore is now generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/",
+      "type": "official",
+      "publishedAt": "2026-03-03"
+    },
+    {
+      "label": "AWS: AgentCore Evaluations generally available",
       "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2026-03-31"
+    },
+    {
+      "label": "Anthropic: Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "type": "official",
+      "publishedAt": "2026-01-09"
+    },
+    {
+      "label": "Anthropic: Building effective agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "type": "official",
+      "publishedAt": "2024-12-19"
     }
   ],
   "draft": false

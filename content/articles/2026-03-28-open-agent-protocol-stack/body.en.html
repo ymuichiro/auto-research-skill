@@ -1,45 +1,65 @@
 <section class="report-section">
-<h2>Start with the recipient and the information being exchanged</h2>
-<p>On March 13, AWS <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/">announced AG-UI support in AgentCore Runtime</a>, alongside its existing MCP and A2A support. The addition handles communication with user-facing applications, including streamed text, tool results, and processing updates. It is a concrete example of one runtime hosting all three protocols.</p>
-<p>That does not mean installing all three automatically produces coordinated agents with correctly enforced human approval. This article compares three interactions: calling a tool, requesting work from another agent, and updating a user interface. These are useful design categories, not three mutually exclusive layers mandated by the specifications.</p>
+<h2>Once connected, who is waiting for what?</h2>
+<p>Consider a hypothetical refund workflow: find an invoice, investigate an exception, and present an amount to the user. Splitting it across services can obscure how much has actually finished, even when communication succeeds. Has the investigator delivered a proposal, has the user approved it, or has the refund been issued? The same completion label can leave a person with very different work to do next.</p>
+<p>On March 13, AWS <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/amazon-bedrock-agentcore-runtime-ag-ui-protocol/">announced AG-UI support in AgentCore Runtime</a>, alongside existing MCP and A2A support. Common specifications increasingly connect tools, other agents, and user interfaces. The announcement describes those connections; it does not measure whether a refund workflow became faster.</p>
+<p>My judgment is that common protocols derive their value from passing work in progress and results between implementations. Counting supported protocol names tells us less. To realize that value, applications must align what a call, an investigation, and a display each mean by completion, so users understand why they are waiting and what to do next.</p>
 </section>
 <section class="report-section">
-<h2>What each recipient receives in a refund workflow</h2>
+<h2>MCP aligns tool inputs and outputs</h2>
+<p>The <a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCP 2025-11-25 tools specification</a> defines tool discovery, input formats, invocation, and returned results. An invoice search receives search parameters and returns what the service found. Whether its implementation queries a database or uses AI is a separate choice. An AI implementation alone does not establish a reason to use A2A.</p>
+<p>An <code>outputSchema</code> describing the result is optional, but a server providing one must return conforming structured results. The specification also distinguishes protocol errors from execution errors reported through <code>isError</code>. A receiver preserving these distinctions can handle an empty search differently from a search service that could not be called.</p>
+<p>Still, a numeric amount field does not prove that the right invoice was selected. In this example, the application must check the invoice number, relevant period, currency, and amount before treating the result as grounds for a refund. A returned tool result cannot stand in for completion of the entire business process.</p>
+</section>
+<section class="report-section">
+<h2>A2A tracks the other party's work as a task</h2>
+<p>An agent investigating an exception may need more information than an invoice retrieval does. <a href="https://a2a-protocol.org/dev/blog/2026/03/12/a2a-protocol-ships-v10-production-ready-standard-for-agent-to-agent-communication/">A2A 1.0, released on March 12</a>, was announced as the first stable version for agent communication. It changes interactions from the earlier 0.3 series; the announcement describes advertising both versions for an incremental migration. A stable release does not guarantee compatibility with every counterpart.</p>
+<p>The <a href="https://github.com/a2aproject/A2A/blob/173695755607e884aa9acf8ce4feed90e32727a1/docs/specification.md">1.0.0 specification</a> uses an Agent Card to describe abilities and interfaces, and exchanges task states and artifacts. A task can pause for additional input, with identifiers connecting the answer to the relevant task and conversation. Requests, clarification, and results can continue without directly operating the investigator's internal implementation.</p>
+<p>Suppose the investigator asks which contract clause applies. The user's answer should return to that investigation. Sending it as an unrelated new request could leave two investigations running. A successful investigation task, meanwhile, indicates success within that task's scope. Receiving a refund proposal as an artifact need not mean money has been transferred.</p>
+<p>Nor does an Agent Card advertising invoice investigation prove the quality of that investigation. Information used to select a worker differs from checks used to accept its output. The common format provides a way to contact the counterpart; the business application still has to establish what its result means.</p>
+</section>
+<section class="report-section">
+<h2>Duration alone does not choose the protocol</h2>
+<p>MCP introduced <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks">experimental Tasks</a> in its 2025-11-25 version, supporting status tracking and deferred results. Both ends must support the relevant capabilities. Servers identifying the same protocol version need not all implement task listing or cancellation. A rule such as “use A2A whenever the work takes a long time” therefore misses overlapping features.</p>
+<p>A task-enabled tool may suffice when the caller needs a predefined invoice search result later. A2A becomes a useful comparison when the caller needs to discover a counterpart's abilities, answer questions during its work, and delegate an investigation involving conversation and artifacts. These are selection criteria proposed here, rather than three strictly separate layers mandated by the protocols.</p>
+<p>Cancellation deserves particular care. MCP Tasks requires the task to transition to cancelled for a valid cancellation request, and to retain that state even if execution continues. A screen saying “cancelled” therefore does not establish that an external refund has been reversed. Requesting a stop, proving execution stopped, and reversing an already completed operation require separate checks.</p>
+</section>
+<section class="report-section">
+<h2>AG-UI aligns events reaching the interface</h2>
+<p>An investigation running and a result ready for judgment are different experiences for the user. AG-UI's <a href="https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/events.mdx">event documentation pinned to March 28</a> defines events for run lifecycle, text fragments, tool calls, and results. A consequential distinction is between <code>TOOL_CALL_END</code>, which ends transmission of the arguments, and <code>TOOL_CALL_RESULT</code>, which delivers the execution result.</p>
+<p>In this example, a screen interpreting the former as “refund completed” could lead the user to believe the process was finished. Ending one run also need not complete the entire request. The application must map events to business states: “review the refund proposal” when the investigation arrives, or “select a contract” when more input is required.</p>
+<p>Displaying an approval button does not itself authorize execution. The executing application needs to associate the approving person with the invoice, amount, and destination being refunded. Connecting the display, the user's response, and the actual refund result remains application work.</p>
+</section>
+<section class="report-section">
+<h2>Follow one refund request through four exchanges</h2>
 <div class="comparison-grid">
 <article class="comparison-card">
-<h3>MCP: connect to invoice data</h3>
-<p>The requesting agent searches invoice numbers or contract conditions. It exchanges search criteria and tool results, rather than a decision that a refund is permitted.</p>
+<h3>Retrieve invoice information</h3>
+<p>Send search parameters to an MCP tool and receive the invoice number, period, currency, and amount. Distinguish retrieval failure from no match, and let the subsequent investigation address the same invoice.</p>
 </article>
 <article class="comparison-card">
-<h3>A2A: request an investigation</h3>
-<p>An invoice or policy specialist receives an investigation task, additional required input, progress, and an artifact. This represents the exchange where the recipient needs to be another agent.</p>
+<h3>Investigate the exception</h3>
+<p>Delegate through A2A and track the task and conversation. Return missing information to the original investigation, then receive a refund proposal and its supporting explanation as an artifact.</p>
 </article>
 <article class="comparison-card">
-<h3>AG-UI: update the user</h3>
-<p>The application receives that research is in progress, the amount found, and why confirmation is required. Being displayed does not mean that a refund was authorized.</p>
+<h3>Show the user's next action</h3>
+<p>Map AG-UI events and state to investigation in progress, additional input needed, or proposal review. Distinguish occasions when the user can wait from those requiring an answer.</p>
 </article>
 <article class="comparison-card">
-<h3>The application: bind approval to execution</h3>
-<p>It verifies who approved which invoice, amount, and destination, and ties that approval to the refund API call. It also defines rejection, expiry, and a user leaving the screen.</p>
+<h3>Check the actual refund result</h3>
+<p>The application connects approval to execution. Treat an unknown outcome as being checked; closing the screen or receiving a message alone does not establish success or failure.</p>
 </article>
 </div>
-<p>This is a hypothetical use of the specifications, not a claim that a refund service needs all three connections. A small workflow may need only search and its existing interface.</p>
+<p>These four exchanges form a hypothetical illustration, not a requirement for four agents or all three protocols. Passing information that identifies the same invoice and request could reduce the effort of reconstructing the process from separate service logs. That benefit should be checked against actual outcomes and the time people spend investigating them.</p>
 </section>
 <section class="report-section">
-<h2>MCP tool calls and A2A task exchanges</h2>
-<p><a href="https://modelcontextprotocol.io/specification/2025-11-25/server/tools">MCP's tool specification</a> defines listing available tools, describing their arguments, invoking them, and returning results. An invoice-search tool, for example, accepts search criteria and returns matches. Its implementation could itself use AI, so the presence of an AI system on the other end does not distinguish MCP from A2A.</p>
-<p>The <a href="https://a2a-protocol.org/v0.3.0/specification/">A2A 0.3.0 specification</a> describes capabilities through an Agent Card and exchanges task status and artifacts. Its states include <code>input-required</code>. Those interactions matter when a separate agent investigates an invoice, requests missing information during the work, and returns its findings.</p>
-<p>A long-running operation does not by itself require A2A. The <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/utilities/tasks">2025-11-25 MCP specification</a> also includes experimental tasks for tracking execution and retrieving results later. Compare whether a function call is sufficient, whether capability descriptions and ongoing dialogue are needed, and which versions and features both endpoints actually support.</p>
+<h2>Can the outcome still be checked after disconnection?</h2>
+<p>Closing the screen or losing the connection does not imply that every intermediate update will be replayed. A2A 1.0 explicitly warns that a reconnecting client may miss status messages and that messages must not serve as a reliable delivery mechanism for critical information. In this example, the application needs a way to retrieve the current task and artifacts using the investigation's identifier, then reconcile them with business records.</p>
+<p>AG-UI's <a href="https://github.com/ag-ui-protocol/ag-ui/blob/fe6505700a87bdc2574fec9302909fe2e994ce4d/docs/concepts/state.mdx">state synchronization</a> distinguishes snapshots replacing the full current state from incremental changes applied in order. Its documentation describes requesting a fresh snapshot if interface and agent state diverge. Separately, the application must establish whether that refreshed state correctly includes the external refund outcome.</p>
+<p>If only the refund response was lost, assuming failure and issuing a new refund could duplicate the operation. Tell the returning user that the original outcome is being checked. A proposal with a changed invoice or amount also needs more than the old approval. Common communication formats leave the distinction between continuing a request and starting a new operation to the application.</p>
 </section>
 <section class="report-section">
-<h2>Displaying progress does not authorize a refund</h2>
-<p>While a remote agent works, the user may not know what it is waiting for. AWS's AG-UI announcement describes streaming text and tool results, along with synchronizing information that can update progress indicators. This connection makes intermediate processing information available to the application interface.</p>
-<p>Consider a hypothetical refund following an invoice investigation. Showing an amount and an approval button does not establish that the refund API cannot run before approval. The execution system must verify who approved which invoice and amount, then bind that approval to the actual call. Handling rejection or a closed window is also an application responsibility.</p>
-<p>In this scenario, MCP could provide invoice access, A2A could carry the investigation request, and AG-UI could carry information to the interface. The protocol names do not determine refund permissions or approval conditions. MCP itself requires server-side access controls and does not mandate a particular user interface.</p>
-</section>
-<section class="report-section">
-<h2>Adopt the connections needed and align their business meaning</h2>
-<p>Simply searching invoices and displaying them may not require delegating work to another agent; adding A2A would then have little purpose. If an existing interface and API communicate progress adequately, replacing them with AG-UI should also depend on a demonstrated benefit.</p>
-<p>When connecting implementations, agree on what “investigation complete” means in addition to establishing communication. Distinguish a proposed refund, an approved refund, and an executed refund, and retain records that connect them to the same request. Shared message formats do not automatically align those business meanings.</p>
-<p>The useful comparison is which exchanges each specification can support. Identify the recipient and information first, then adopt features missing from the existing implementation. That keeps the number of supported protocols separate from the work the system can actually finish.</p>
+<h2>Start with necessary connections and measure the cost of change</h2>
+<p>Use an existing search API and interface as the baseline if they already retrieve invoices effectively. Compare A2A when an investigation needs another worker, and AG-UI when several execution environments need to report progress to the same interface. AWS's announcement does not specify an A2A version: do not infer 1.0 support, and check versions and optional capabilities at both ends.</p>
+<p>A trial should include ordinary investigations, additional input, disconnection, cancellation, and replacing a counterpart. Alongside final correctness, measure waiting time, repeated inputs, and the time people spend rechecking outcomes. Examine what must change in the interface and invoice retrieval when the investigator is replaced. These are proposed checks, not measured improvements demonstrated for a particular product.</p>
+<p>If common specifications confine changes to a manageable part of the connection, they can make it easier to update the implementation while preserving the user's workflow. If ambiguous intermediate states still force people to reconstruct what happened, adding connections may leave their burden intact. Protocol selection should consider what an exchange allows the next person to understand and do, as well as what it can transmit.</p>
 </section>

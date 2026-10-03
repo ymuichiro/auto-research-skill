@@ -1,44 +1,66 @@
 <section class="report-section">
-<h2>When a save leaves the screen unresponsive</h2>
-<p>An application without an API can still be a candidate for automation through screen reading, field selection, and button clicks. Anthropic's October 2024 computer-use announcement describes looking at screens, moving the cursor, clicking, and typing, while identifying the capability as experimental and error-prone. <a href="https://www.anthropic.com/news/3-5-models-and-computer-use">Anthropic announcement</a></p>
-<p>Entering data is only part of the task. If the screen freezes after Save, did the operation succeed? Repeating it without knowing can create a duplicate record. This article uses hypothetical invoice entry to examine checks before and after saving.</p>
+<h2>What if the screen stops after Save?</h2>
+<p>An AI reads supplier, invoice number, and amount, enters them in a business application, and clicks Save. The screen stops responding. Was the record created? Would another click finish the job or produce a duplicate? This is a scenario for examining mechanisms, not an incident report or a measured deployment benefit.</p>
+<p>Screen control gives applications without APIs another route to less manual entry. Yet automation through the button click continues into the work of establishing a correct registration. If people must investigate every save afterward, the reduction in their work needs separate assessment.</p>
+<p>Material available through June 30, 2026 distinguishes three jobs: visual control, a managed place to operate, and verification of business results. My recommendation is to delegate short intervals where those jobs can connect. Alongside application reach, use the extent to which a person can explain entered values and saved results as an adoption criterion.</p>
 </section>
 <section class="report-section">
-<h2>Seven checks before unattended invoice entry</h2>
+<h2>What does a screen-reading model observe?</h2>
+<p>Anthropic's <a href="https://www.anthropic.com/research/developing-computer-use">October 2024 research explanation</a> describes Claude interpreting screenshots, estimating pixel movement, and operating a mouse and keyboard. Selecting actions from a visible interface offers value without requiring a custom integration for each application.</p>
+<p>The explanation also notes that successive images can miss brief notifications because they are not continuous video. In the invoice scenario, the screen after a save notification disappears may not settle whether registration happened. That motivates keeping the observed screen, interpreted values, and saved result separately.</p>
+<p>Screens also display text created by people other than the requester. Anthropic describes the risk of malicious instructions diverting the model from its task. Text on a page opened to read an invoice should not acquire unrestricted authority to change destinations or processing instructions.</p>
+</section>
+<section class="report-section">
+<h2>AWS manages the place where applications run</h2>
+<p>AWS's <a href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/">June 30 general-availability announcement</a> describes Amazon WorkSpaces for AI agents as a managed desktop for ERP, CRM, mainframe, and other applications. It combines existing identity and network controls with live activity visibility, access revocation, and an Active Directory identity configuration.</p>
+<p>The announcement also includes forwarding MCP calls to applications and the operating system. Choosing a managed desktop is distinct from performing every operation through the mouse. Where structured operations exist, they can be combined with visual control. Accuracy, latency, and cost improvements are AWS's statements, not measured comparisons for this invoice process.</p>
+<p>In this configuration, administrators manage places and identities while business owners define correct suppliers, amounts, and completion conditions. Revoking access does not establish whether a record already created is correct. Environment management does not replace interpretation of fields or reconciliation after registration.</p>
+</section>
+<section class="report-section">
+<h2>Read Microsoft's workspace and control tool separately</h2>
+<p>Microsoft announced the US-only public preview of Windows 365 for Agents on <a href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-365-for-agents-now-in-public-preview-run-ai-agents-securely-at-scale/4513479">May 1</a>, providing an Intune-managed Cloud PC for agent execution. Its <a href="https://blogs.windows.com/windowsexperience/2026/01/22/windows-365-for-agents-the-cloud-pcs-next-chapter/">January architecture explanation</a> describes borrowing and returning PCs from pools and human takeover during a run.</p>
+<p>The <a href="https://techcommunity.microsoft.com/blog/copilot-studio-blog/computer-using-agents-in-microsoft-copilot-studio-are-now-generally-available/4519427">May 13 Copilot Studio announcement</a>, meanwhile, describes general availability of computer use. It addresses permitted sites and applications, credentials, approval situations, human checkpoints, and execution history. Collapsing workspace and control-tool availability into one “generally available” claim obscures which capability and conditions are being selected.</p>
+<p>AWS and Microsoft both indicate a direction toward managed operating environments, access, and intervention. Yet a business still needs to decide which invoice fields an approval presents and who reviews them. Available screens and permissions do not establish correctness of saved content.</p>
+</section>
+<section class="report-section">
+<h2>Graebel's reported workflow includes work before entry</h2>
+<p>The same Copilot Studio announcement describes Graebel's service-order processing. It extracts information from free-form emails, checks business rules, and enters data through the UI of Global Connect, which cannot support an API integration. Exceptions and low-confidence cases return to people.</p>
+<p>This is a deployment account published by Microsoft. It describes less manual work and faster processing, but does not measure wrong-record rates or review time under matched inputs. It nevertheless gives a concrete decomposition into interpreting materials, checking business requirements, entering data, and handing work to people.</p>
+<p>That decomposition also helps the hypothetical invoice workflow. Choosing the pretax amount or invoice total differs from locating a clickable field. A model that selects the right field can still create a wrong record by misunderstanding the value. Recording where judgment was needed helps distinguish improvements to visual recognition from changes to source materials or business rules.</p>
+</section>
+<section class="report-section">
+<h2>Progress and completion diverge on long tasks</h2>
+<p><a href="https://arxiv.org/abs/2606.29537v1">OSWorld 2.0 version 1</a> evaluates 108 long computer-use workflows. With a 500-step limit, Claude Opus 4.8 at maximum thinking with batched tool calls achieved 20.6% binary completion and a 54.8% partial score. Full completion requires the final state to satisfy every scoring checkpoint. Progress and finished work therefore produce different numbers.</p>
+<p>The paper's expense-reimbursement case gathers requirements and information from policy documents, emailed receipts, bank records, and a previous claim before submission. Even after submission, field and attachment discrepancies leave a partial score. This is an execution example in a research task, not production evidence from a company.</p>
+<p>The study cannot predict a company's invoice-entry success rate because tasks, environments, and action budgets differ. My design inference is to preserve required conditions across screens and check the result after saving. Establish “submitted” and “all required information is correct” separately.</p>
+</section>
+<section class="report-section">
+<h2>Divide invoice entry into three checkable intervals</h2>
+<p>Before entry, identify the company, supplier, and invoice number, then look for an existing registration. If number variations or multiple candidates remain unresolved, do not declare absence and create a new record. Include target reselection among the conditions for human handoff.</p>
+<p>Before saving, compare the supplier, amount, tax, and due date in the fields with the source. In initial trials, have an owner inspect differences and evidence before authorizing Save. If values or the target change afterward, review the changed content. Do not reuse approval of an earlier version for a changed record.</p>
+<p>After saving, reopen the created record and reconcile its target and principal fields. Use reports or exported data when available. The same visual recognition used for entry and inspection can repeat the same mistake. When another checking route is unavailable, state the limitation and retain human review.</p>
+<p>These three intervals are a proposal for invoice processing, not a universal sequence for every computer-use task. Read-only work may not need presave approval. For updates, determine what becomes committed and which record establishes the result alongside the required clicks.</p>
+</section>
+<section class="report-section">
+<h2>Separate stopping from restoring business data</h2>
+<p>If the connection breaks immediately after Save, search for the invoice number. An absent result alone does not prove failure: delayed search visibility or different filters may be involved. If uncertainty remains, do not save again; pass the last screen, entered values, attempted action, and unresolved result to the owner.</p>
+<p>When a person takes over, reread the current screen and record before the agent resumes. Applying the old plan to a target the person corrected can overwrite that correction. Intervention needs a corresponding decision about what to refresh on resumption.</p>
+<p>Revoking access or resetting a Cloud PC controls subsequent activity or the workspace. It may not undo writes already made to an external business system. For duplicates or wrong records, an owner should identify the target and choose the correction or cancellation procedure. Record successful stopping separately from completed business-data recovery.</p>
+</section>
+<section class="report-section">
+<h2>Count time spent investigating results in acceptance tests</h2>
+<p>The following are proposed evaluation dimensions, not a product comparison measured against four metrics. Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">agent evaluation explanation</a> also distinguishes execution records, final outcomes, and grader limitations. Alongside correct invoice saves, record where uncertainty arose and who repaired it.</p>
 <div class="comparison-grid">
-<article class="comparison-card"><h3>Identify the target</h3><p>Establish one invoice from supplier and invoice number.</p></article>
-<article class="comparison-card"><h3>Look for duplicates</h3><p>Check whether the same invoice already exists before saving.</p></article>
-<article class="comparison-card"><h3>Reconcile entered values</h3><p>Compare supplier, number, and amount with the invoice.</p></article>
-<article class="comparison-card"><h3>Authorize the save</h3><p>For the initial trial, define who reviews the differences before saving.</p></article>
-<article class="comparison-card"><h3>Independently inspect the result</h3><p>Reopen the record or use a report to compare number, supplier, and amount.</p></article>
-<article class="comparison-card"><h3>Stop on an uncertain result</h3><p>On a freeze or disconnect, do not resave unconditionally; return to search and reconciliation.</p></article>
-<article class="comparison-card"><h3>Hand over to a person</h3><p>Pass the last screen, entered values, and uncertainty about the save for a person to decide.</p></article>
+<article class="comparison-card"><h3>Field meaning</h3><p>Were the supplier and invoice selected and amount, tax, and date interpreted correctly? Keep a count of ambiguous candidates returned to people.</p></article>
+<article class="comparison-card"><h3>Actual result</h3><p>Could the saved record be reconciled? Separate correct registrations, wrong records, duplicates, and unknown outcomes.</p></article>
+<article class="comparison-card"><h3>Interruption and recovery</h3><p>Could the system stop or resume after disconnects, layout changes, expired sessions, and takeover? Did it repeat an already completed operation?</p></article>
+<article class="comparison-card"><h3>Owner workload</h3><p>Measure time spent reviewing, reselecting targets, investigating evidence, and correcting records. Stop counts alone do not establish effort.</p></article>
 </div>
-<p>These are seven proposed acceptance checks for invoice entry, not a requirement that every computer-use task follow the same order. When the target application lacks independent save verification, retain human review for that constraint.</p>
+<p>Use an environment that cannot alter live data to test normal invoices, duplicates, similar suppliers, changed layouts, and disconnects immediately after saving. Compare manual entry and existing automation with the same initial states and materials. Separate Japanese and English documents and simple invoices from complex line items so averages do not conceal consequential errors.</p>
 </section>
 <section class="report-section">
-<h2>What a managed desktop contributes</h2>
-<p>AWS announced general availability of Amazon WorkSpaces for AI agents on June 30, 2026. It provides managed desktops with identity controls and network isolation, and describes visibility into activity and the ability to revoke access during a session. <a href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/">AWS announcement</a></p>
-<p>These controls manage where an agent operates and what it can access. They do not guarantee accurate invoice extraction or recognition of a successful save. An administrator can restrict applications and destinations while a business owner defines the target invoice and completion conditions. Environment controls and result verification perform different jobs.</p>
-</section>
-<section class="report-section">
-<h2>Keep the conditions attached to long-task results</h2>
-<p>The first OSWorld 2.0 version evaluates 108 long computer-use workflows. Its average of 318 tool calls refers to Claude Opus 4.7 with maximum thinking, not a universal task requirement. Under the primary binary-completion metric and a 500-step limit, Claude Opus 4.8 with maximum thinking and batched tool calls scored 20.6%. <a href="https://arxiv.org/abs/2606.29537v1">OSWorld 2.0, version 1</a></p>
-<p>The paper identifies lost constraints, missed information arriving during a task, and skipped verification. Its results are not a forecast of a company's invoice-entry success rate. Our design inference is to inspect intermediate conditions and saved results as well as individual clicks.</p>
-</section>
-<section class="report-section">
-<h2>Check invoice entry in three intervals</h2>
-<p>This is a hypothetical design, not a deployment report. Suppose one application receives supplier, invoice number, and amount. Begin in a test environment that cannot change live records.</p>
-<ol>
-<li>Before entry, identify the company and invoice number and look for an existing record. Stop when the target cannot be identified unambiguously.</li>
-<li>Before saving, compare entered values with the invoice. In the initial trial, have a person review the differences and authorize the save.</li>
-<li>After saving, reopen the created record and compare its number, supplier, and amount. Use a report or exported data as another check when available.</li>
-</ol>
-<p>Using the same visual recognition for entry and verification can repeat the same mistake. Where no independent check is available, retain human review in light of that limitation. A success message alone does not establish that the correct record was created.</p>
-<p>If the save response is unclear, search for the invoice number to establish the result. If uncertainty remains, do not save again: hand over the entered values and last confirmed screen. Resetting a desktop does not necessarily undo writes already made to the business system.</p>
-</section>
-<section class="report-section">
-<h2>Choose unattended scope from observed results</h2>
-<p>Test duplicates, changed layouts, expired sessions, and disconnects immediately after saving alongside normal input. Separate correct registrations, wrong or duplicate records, and stops caused by uncertainty. Measure review time against manual entry as well.</p>
-<p>Consider unattended operation in intervals with dependable independent checks, keeping unresolved operations with people. A managed desktop and a capable screen-control model do not establish that this invoice process can run unattended when its saved results cannot be checked. Expand from verified work rather than the breadth of applications a product can click.</p>
+<h2>Expand delegation from work whose results can be checked</h2>
+<p>Existing RPA or batch import may be easier to manage for fixed screens and input formats. Where part of an API is available, use it for reconciliation or saving and reserve visual control for the necessary portions. Moving every task to a visual model should not itself become the objective.</p>
+<p>Initially delegate reading and proposed fields, then have a person review and save while measuring correction work. Consider delegating saves in intervals where target identification and postsave reconciliation become dependable. Hand unresolved outcomes to owners with the information needed to decide.</p>
+<p>Computer-use AI offers a route into applications that are difficult to modernize. Realizing that value requires designing the operating environment, field interpretation, and evidence after registration together. Begin with intervals that leave the owner able to account for what happened after Save.</p>
 </section>

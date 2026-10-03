@@ -1,14 +1,14 @@
 {
   "slug": "agent-discovery-and-approval-shape-adoption",
   "date": "2026-04-27",
-  "titleJa": "ストアで見つけたAIエージェントを、組織で使うまでの確認事項",
-  "titleEn": "From an agent listing to an approved organizational trial",
-  "summaryJa": "Claude、AWS Marketplace、Microsoft Agent Storeの公開資料から、候補発見、接続・購入・配布、変更時の再確認、停止を区別し、商談メモの想定例で承認範囲を考える。",
-  "summaryEn": "Separate discovery, connection, purchase, distribution, change review, and withdrawal, then use a sales-note example to define approval scope.",
-  "seoDescriptionJa": "AIエージェントの掲載、接続、購入、組織への配布は別の手続き。一次資料と商談メモの例から、試用の権限・費用・更新・停止を整理する。",
-  "seoDescriptionEn": "Separate agent discovery, connection, purchase, and distribution. Define permissions, costs, changes, and withdrawal for an organizational trial.",
-  "teaserJa": "カタログの説明を、誰が何を許可するかという具体的な試用条件に変える。",
-  "teaserEn": "Turn catalog descriptions into a clear scope of access and an actionable trial decision.",
+  "titleJa": "AIエージェントを見つけ、部署で試す：五社のストアと導入判断",
+  "titleEn": "Find an agent and trial it at work: five ecosystems and adoption decisions",
+  "summaryJa": "商談メモを整理する想定例から、OpenAI、Anthropic、Microsoft、Google Cloud、AWSの発見・配布・調達を比較。候補の説明を試用条件に変え、品質、権限、費用、変更を判断する。",
+  "summaryEn": "A meeting-note scenario compares discovery, distribution and procurement across five ecosystems, turning listings into trial conditions for quality, access, cost and change.",
+  "seoDescriptionJa": "AIエージェントのストア、ディレクトリ、マーケットプレイスを五社の一次資料で比較。掲載審査と社内承認、接続と調達、業務品質を分け、部署で試す条件を解説。",
+  "seoDescriptionEn": "Compare five agent ecosystems: app discovery, internal distribution and procurement. Turn listings into workplace trials for quality, access, cost and changes.",
+  "teaserJa": "使いたい候補を、具体的な仕事と許可範囲、評価条件へ落とし込む。",
+  "teaserEn": "Turn a promising listing into a specific task, access scope, and decision to trial.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,19 +20,58 @@
   ],
   "publishedSources": [
     {
-      "label": "Anthropic: Connector directory (July 2025)",
+      "label": "OpenAI: Introducing apps in ChatGPT and the new Apps SDK",
+      "url": "https://openai.com/index/introducing-apps-in-chatgpt/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "OpenAI: Developers can now submit apps to ChatGPT",
+      "url": "https://openai.com/index/developers-can-now-submit-apps-to-chatgpt/",
+      "type": "official",
+      "publishedAt": "2025-12-17"
+    },
+    {
+      "label": "Anthropic: Discover tools that work with Claude",
       "url": "https://claude.com/blog/connectors-directory",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-07-14"
     },
     {
-      "label": "AWS: AI agents and tools in Marketplace (July 2025)",
+      "label": "Google Cloud: Scaling AI agents with Marketplace and Gemini Enterprise",
+      "url": "https://cloud.google.com/blog/topics/partners/google-cloud-ai-agent-marketplace",
+      "type": "official",
+      "publishedAt": "2025-10-14"
+    },
+    {
+      "label": "AWS: Introducing AI agents and tools in Marketplace",
       "url": "https://aws.amazon.com/about-aws/whats-new/2025/07/ai-agents-tools-aws-marketplace/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-07-16"
     },
     {
-      "label": "Microsoft: Set up Agent Store",
-      "url": "https://learn.microsoft.com/en-us/microsoft-365/copilot/copilot-agent-store",
-      "type": "official"
+      "label": "AWS: Marketplace pricing flexibility and simplified deployment",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2025/10/aws-marketplace-pricing-ai-agents-tools/",
+      "type": "official",
+      "publishedAt": "2025-10-31"
+    },
+    {
+      "label": "AWS: Marketplace agent mode and AI-enhanced search",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2025/11/aws-marketplace-agent-mode-ai-enhanced-search/",
+      "type": "official",
+      "publishedAt": "2025-11-30"
+    },
+    {
+      "label": "Microsoft: Introducing the Agent Store",
+      "url": "https://devblogs.microsoft.com/microsoft365dev/introducing-the-agent-store-build-publish-and-discover-agents-in-microsoft-365-copilot/",
+      "type": "official",
+      "publishedAt": "2025-05-22"
+    },
+    {
+      "label": "Microsoft: Agent Store, April 27 cutoff snapshot",
+      "url": "https://github.com/MicrosoftDocs/microsoft-365-docs/blob/79dbe66d278ce0f9fc407ae7fd4909dd8ff94d76/copilot/copilot-agent-store.md",
+      "type": "official",
+      "publishedAt": "2026-04-20"
     }
   ],
   "draft": false

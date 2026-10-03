@@ -1,0 +1,301 @@
+{
+  "status": "local_verified",
+  "article_pairs": 36,
+  "bodies": 72,
+  "checks": [
+    "primary inventory >=20 unique URLs per pair",
+    "published source eligibility with explicit verified aliases",
+    "JA/EN body-source parity",
+    "generated body exact match"
+  ],
+  "articles": [
+    {
+      "id": "2025-01-01-agents-shift-to-measurable-systems",
+      "title_ja": "AIエージェントの評価　道具の成功と仕事の完了を分ける",
+      "title_en": "Evaluating AI agents: a successful tool call is not a finished job",
+      "sources": 10,
+      "ja_characters": 4035,
+      "en_words": 1433
+    },
+    {
+      "id": "2025-02-01-browser-agents-enter-the-product-roadmap",
+      "title_ja": "ブラウザ操作エージェント　APIのない画面で仕事を引き継ぐ",
+      "title_en": "Browser agents: using existing screens without losing the job",
+      "sources": 9,
+      "ja_characters": 4207,
+      "en_words": 1643
+    },
+    {
+      "id": "2025-03-01-agent-evaluation-becomes-a-gating-layer",
+      "title_ja": "AIエージェントの評価　平均点が上がっても配備を見送る理由",
+      "title_en": "Agent evaluation: when a higher score is not enough to deploy",
+      "sources": 9,
+      "ja_characters": 3985,
+      "en_words": 1526
+    },
+    {
+      "id": "2025-04-01-managed-agent-primitives-arrive-together",
+      "title_ja": "OpenAIとBedrockで比べる、エージェント基盤に任せる仕事",
+      "title_en": "OpenAI and Bedrock: what work to delegate to an agent platform",
+      "sources": 8,
+      "ja_characters": 3972,
+      "en_words": 1500
+    },
+    {
+      "id": "2025-05-01-open-runtimes-and-managed-platforms-converge",
+      "title_ja": "A2Aで別のAIエージェントへ依頼するとき、何を引き継ぐか",
+      "title_en": "A2A handover: what must travel with an agent request",
+      "sources": 6,
+      "ja_characters": 3948,
+      "en_words": 1473
+    },
+    {
+      "id": "2025-06-01-multi-agent-design-turns-into-an-operating-model",
+      "title_ja": "複数エージェントで調査報告を作るなら、どう仕事を分けるか",
+      "title_en": "Multi-agent research: dividing work that leads to one usable report",
+      "sources": 6,
+      "ja_characters": 3847,
+      "en_words": 1434
+    },
+    {
+      "id": "2025-07-01-interoperability-leaves-the-roadmap",
+      "title_ja": "MCPとA2A：接続先の交換で変えてはいけないこと",
+      "title_en": "MCP and A2A: what must survive a change of provider",
+      "sources": 8,
+      "ja_characters": 3652,
+      "en_words": 1410
+    },
+    {
+      "id": "2025-08-01-agent-ops-gets-promoted-to-a-control-layer",
+      "title_ja": "AgentOps：通信が切れた後、何をやり直してよいか",
+      "title_en": "AgentOps after a connection loss: deciding what can be retried",
+      "sources": 8,
+      "ja_characters": 3883,
+      "en_words": 1430
+    },
+    {
+      "id": "2025-09-01-coding-and-research-agents-broaden-the-scope",
+      "title_ja": "AIが書いたコードから、比較できる実験結果へ",
+      "title_en": "From AI-written code to comparable experiment results",
+      "sources": 4,
+      "ja_characters": 3727,
+      "en_words": 1322
+    },
+    {
+      "id": "2025-10-01-agent-sdks-expand-beyond-coding",
+      "title_ja": "Agent SDKを業務へ移す：AIに選ばせる手順、固定する条件",
+      "title_en": "Agent SDKs in business workflows: adaptive steps, fixed conditions",
+      "sources": 6,
+      "ja_characters": 3843,
+      "en_words": 1417
+    },
+    {
+      "id": "2025-11-01-workflow-tooling-catches-up-with-agent-complexity",
+      "title_ja": "AgentKitで試作が速くなると、公開前に何を確かめるか",
+      "title_en": "AgentKit and agent toolkits: from quick prototypes to verified releases",
+      "sources": 4,
+      "ja_characters": 3868,
+      "en_words": 1390
+    },
+    {
+      "id": "2025-12-01-multi-agent-workflows-become-a-product-surface",
+      "title_ja": "Foundryの複数エージェント設計：工程の間で値と根拠を渡す",
+      "title_en": "Foundry multi-agent workflows: passing values with evidence",
+      "sources": 3,
+      "ja_characters": 3785,
+      "en_words": 1376
+    },
+    {
+      "id": "2026-01-01-the-2025-signal-is-operational-boundaries",
+      "title_ja": "2025年のAIエージェント開発で、任せられる仕事はどう変わったか",
+      "title_en": "AI agents in 2025: what changed the work we can delegate?",
+      "sources": 8,
+      "ja_characters": 4074,
+      "en_words": 1585
+    },
+    {
+      "id": "2026-02-01-control-planes-and-evals-set-the-pace",
+      "title_ja": "エージェントの更新で、改善と後退をどう見分けるか",
+      "title_en": "Agent updates: distinguishing improvements from regressions",
+      "sources": 5,
+      "ja_characters": 3705,
+      "en_words": 1423
+    },
+    {
+      "id": "2026-03-01-agent-architecture-matters-more-than-model-novelty",
+      "title_ja": "AIエージェントの成績は、モデルと検索・試行の組合せで比べる",
+      "title_en": "Comparing AI agents: models, retrieval, and trial allocation",
+      "sources": 5,
+      "ja_characters": 3735,
+      "en_words": 1464
+    },
+    {
+      "id": "2026-03-21-enterprise-ai-agents-readiness",
+      "title_ja": "AIエージェントの企業導入は、任せる仕事と戻し先から決める",
+      "title_en": "Enterprise AI agents: define the job and who takes it back",
+      "sources": 6,
+      "ja_characters": 4285,
+      "en_words": 1643
+    },
+    {
+      "id": "2026-03-23-agent-security-becomes-a-shipping-gate",
+      "title_ja": "エージェントの安全性は、外部の指示が実行へ届く経路で確かめる",
+      "title_en": "Agent security: trace external instructions through to execution",
+      "sources": 5,
+      "ja_characters": 4376,
+      "en_words": 1580
+    },
+    {
+      "id": "2026-03-24-why-ai-products-converge-on-chat-ui",
+      "title_ja": "生成AIのチャットUIに、いつ編集や計画の画面を足すか",
+      "title_en": "AI chat UI: when to add an editor or a visible plan",
+      "sources": 10,
+      "ja_characters": 4552,
+      "en_words": 1650
+    },
+    {
+      "id": "2026-03-25-cowork-signals-the-execution-layer-of-work-ai",
+      "title_ja": "Coworkが引き受ける会議準備：情報収集から資料と予定まで",
+      "title_en": "Meeting preparation with Cowork: connecting evidence, analysis, and action",
+      "sources": 5,
+      "ja_characters": 4035,
+      "en_words": 1652
+    },
+    {
+      "id": "2026-03-26-agent-identity-becomes-an-auth-control-plane",
+      "title_ja": "エージェントIDと利用者の委任：誰の権限を渡し、どこで取り消すか",
+      "title_en": "Agent identity and user delegation: whose access is granted, and where it ends",
+      "sources": 7,
+      "ja_characters": 4461,
+      "en_words": 1630
+    },
+    {
+      "id": "2026-03-28-open-agent-protocol-stack",
+      "title_ja": "MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか",
+      "title_en": "Connecting work with MCP, A2A, and AG-UI: what has finished?",
+      "sources": 7,
+      "ja_characters": 3786,
+      "en_words": 1446
+    },
+    {
+      "id": "2026-03-28-video-generation-ai-product-landscape",
+      "title_ja": "動画生成AIは修正まで比べる：参照・音声・編集で変わる制作の仕事",
+      "title_en": "Compare video AI through revision: references, sound, and editing",
+      "sources": 15,
+      "ja_characters": 4342,
+      "en_words": 1601
+    },
+    {
+      "id": "2026-03-30-subagents-become-the-practical-unit-of-work-ai",
+      "title_ja": "AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ",
+      "title_en": "Delegating to subagents: turn completed research into usable decisions",
+      "sources": 8,
+      "ja_characters": 4306,
+      "en_words": 1628
+    },
+    {
+      "id": "2026-04-06-voice-agents-become-operational-systems",
+      "title_ja": "音声AIの予約変更を、通話の最後まで比べる：訂正・割り込み・保存・引き継ぎ",
+      "title_en": "Compare voice booking agents through corrections, interruption, and completion",
+      "sources": 9,
+      "ja_characters": 4477,
+      "en_words": 1630
+    },
+    {
+      "id": "2026-04-08-agent-memory-shifts-to-layered-systems",
+      "title_ja": "AIエージェントのメモリ設計　正しい検索が誤った判断になる理由",
+      "title_en": "Agent memory design: why correct recall can still lead to the wrong decision",
+      "sources": 12,
+      "ja_characters": 5361,
+      "en_words": 1825
+    },
+    {
+      "id": "2026-04-13-coding-agents-become-supervised-runtime-systems",
+      "title_ja": "コーディングAIへ一件の修正を任せる：計画から、人が引き取れる差分まで",
+      "title_en": "Delegate one bug to a coding agent: from plan to a reviewable repair",
+      "sources": 13,
+      "ja_characters": 4955,
+      "en_words": 1663
+    },
+    {
+      "id": "2026-04-20-agents-compete-on-work-continuity",
+      "title_ja": "AIエージェントの仕事を翌日へ引き継ぐ：記憶、成果物、再開の条件",
+      "title_en": "Carry an agent’s work into tomorrow: memory, artifacts, and recovery",
+      "sources": 8,
+      "ja_characters": 4610,
+      "en_words": 1653
+    },
+    {
+      "id": "2026-04-27-agent-discovery-and-approval-shape-adoption",
+      "title_ja": "AIエージェントを見つけ、部署で試す：五社のストアと導入判断",
+      "title_en": "Find an agent and trial it at work: five ecosystems and adoption decisions",
+      "sources": 9,
+      "ja_characters": 4410,
+      "en_words": 1487
+    },
+    {
+      "id": "2026-05-07-governed-agent-stacks-not-smarter-models",
+      "title_ja": "AIエージェント基盤は何を引き受けるか：五社を一件の業務で比べる",
+      "title_en": "What an agent platform takes responsibility for: five approaches to one business task",
+      "sources": 11,
+      "ja_characters": 4845,
+      "en_words": 1665
+    },
+    {
+      "id": "2026-05-08-presentation-generation-becomes-artifact-workflow",
+      "title_ja": "AIで作るプレゼン資料：伝える判断と、次の修正を残す",
+      "title_en": "AI-generated presentations: preserve the argument and the next edit",
+      "sources": 13,
+      "ja_characters": 4635,
+      "en_words": 1661
+    },
+    {
+      "id": "2026-06-08-sales-agents-turn-notes-into-crm-actions",
+      "title_ja": "営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ",
+      "title_en": "Sales AI CRM updates: carry statements, forecasts, and agreements forward",
+      "sources": 10,
+      "ja_characters": 4349,
+      "en_words": 1506
+    },
+    {
+      "id": "2026-06-30-agents-operate-legacy-desktop-workflows",
+      "title_ja": "画面操作AIに任せる業務：入力から保存の確認までつなぐ",
+      "title_en": "Delegating desktop work to AI: connect entry with verification",
+      "sources": 7,
+      "ja_characters": 4234,
+      "en_words": 1518
+    },
+    {
+      "id": "2026-07-11-agent-evaluation-measures-execution-path",
+      "title_ja": "AIエージェント評価を、仕事の直し方につなげる",
+      "title_en": "Use AI agent evaluation to decide what work needs repair",
+      "sources": 7,
+      "ja_characters": 4022,
+      "en_words": 1404
+    },
+    {
+      "id": "2026-08-01-ai-collaboration-starts-with-first-artifact",
+      "title_ja": "AIにうまく頼めない仕事では、小さな案から希望を具体化する",
+      "title_en": "When an AI request is hard to specify, start with something judgeable",
+      "sources": 8,
+      "ja_characters": 4349,
+      "en_words": 1667
+    },
+    {
+      "id": "2026-08-12-beyond-ai-agents-hacw",
+      "title_ja": "人とAIが仕事を引き継ぐHACW　実行の先に残る協働の課題",
+      "title_en": "HACW: helping people and AI continue the same work",
+      "sources": 11,
+      "ja_characters": 5534,
+      "en_words": 2137
+    },
+    {
+      "id": "2026-09-21-jev-decision-api",
+      "title_ja": "LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える",
+      "title_en": "Should LLMs replace every if statement? Understanding Jev’s decision API",
+      "sources": 12,
+      "ja_characters": 4852,
+      "en_words": 1840
+    }
+  ]
+}

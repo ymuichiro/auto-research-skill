@@ -1,0 +1,318 @@
+{
+  "article_id": "2026-08-12-beyond-ai-agents-hacw",
+  "target_date": "2026-08-12",
+  "observed_at_utc": "2026-10-02T18:39:11.940138+00:00",
+  "sources": [
+    {
+      "url": "https://openai.com/index/introducing-chatgpt-agent/",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": "verified_via_web_tool",
+      "publication_date": "2025-07-17",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://openai.com/index/introducing-apps-in-chatgpt/",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": "verified_via_web_tool",
+      "publication_date": "2025-10-06",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/copilot/blog/2024/09/16/microsoft-365-copilot-wave-2-pages-python-in-excel-and-agents/",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": "verified_via_web_tool",
+      "publication_date": "2024-09-16",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/microsoft-365/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": "verified_via_web_tool",
+      "publication_date": "2024-11-19",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "final_url": "https://www.microsoft.com/en-us/copilot/blog/2024/11/19/introducing-copilot-actions-new-agents-and-tools-to-empower-it-teams/",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": 200,
+      "final_url": "https://blog.google/products-and-platforms/products/gemini/gemini-collaboration-features/",
+      "page_title": "New Gemini features: Canvas and Audio Overview",
+      "date_candidates": [
+        "2025-03-18T16:00:00+00:00"
+      ],
+      "publication_date": "2025-03-18",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://www.anthropic.com/news/projects",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": 200,
+      "final_url": "https://www.anthropic.com/news/projects",
+      "page_title": "Collaborate with Claude on Projects \\ Anthropic",
+      "date_candidates": [
+        "2024-06-25T18:19:00.000Z"
+      ],
+      "publication_date": "2024-06-25",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": 200,
+      "final_url": "https://www.anthropic.com/engineering/building-effective-agents",
+      "page_title": "Building Effective AI Agents \\ Anthropic",
+      "date_candidates": [
+        "2024-12-19T00:00:00.000Z"
+      ],
+      "publication_date": "2024-12-19",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://claude.com/blog/cowork-plugins-across-enterprise",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": 200,
+      "final_url": "https://claude.com/blog/cowork-plugins-across-enterprise",
+      "page_title": "Cowork and plugins for teams across the enterprise | Claude by Anthropic",
+      "date_candidates": [
+        "Feb 24"
+      ],
+      "publication_date": "2026-02-24",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.10999v1",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2412.10999v1",
+      "page_title": "[2412.10999v1] Cocoa: Co-Planning and Co-Execution with AI Agents",
+      "date_candidates": [],
+      "date_evidence": "[v1] \n        Sat, 14 Dec 2024 23:59:42 UTC",
+      "publication_date": "2024-12-14",
+      "eligible_for_target_date": true,
+      "full_text_url": "https://arxiv.org/html/2412.10999v1",
+      "checked_sections": [
+        "5.2 Baseline System",
+        "5.3 Research Task",
+        "5.4 Procedure",
+        "6.1 Steerability, Ease of Use, and Utility"
+      ],
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://openai.com/index/introducing-canvas/",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": "verified_via_web_tool",
+      "publication_date": "2024-10-03",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": 200,
+      "final_url": "https://www.anthropic.com/news/claude-3-5-sonnet",
+      "page_title": "Introducing Claude 3.5 Sonnet \\ Anthropic",
+      "date_candidates": [
+        "2024-06-21T03:28:00.000Z"
+      ],
+      "publication_date": "2024-06-21",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "url": "https://www.microsoft.com/en-us/research/publication/guidelines-for-human-ai-interaction/",
+      "role": "background: collaborative workspace, visible artifact, plan, or workflow boundary",
+      "status": "verified_via_web_tool",
+      "publication_date": "2019-05",
+      "eligible_for_target_date": true,
+      "date_evidence": "Dated original announcement; omit contemporary navigation and later updates from the historical claim.",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "verification_method": "Primary page content read through web tool; direct urllib transport was blocked.",
+      "verification_provenance": "Reused primary source read in the immediately preceding UI revision in the same execution"
+    },
+    {
+      "label": "Workspace Agents",
+      "url": "https://openai.com/index/introducing-workspace-agents-in-chatgpt/",
+      "publication_date": "2026-04-22",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": "verified_via_web_tool",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "eligible_for_target_date": true,
+      "verification_method": "Official dated primary page or newsroom article read with web tool; direct request blocked",
+      "claim_boundary": "Use original April 22 feature narrative; omit added current general availability notice. Rippling time estimate is a vendor-hosted customer comment, not independently measured."
+    },
+    {
+      "label": "CLEO v1",
+      "url": "https://arxiv.org/html/2603.02050v1",
+      "publication_date": "2026-03-02",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/html/2603.02050v1",
+      "page_title": "“When to Hand Off, When to Work Together”:Expanding Human-Agent Co-Creative Collaboration through Concurrent Interaction",
+      "date_evidence": [
+        "Dated official announcement verified through web tool"
+      ],
+      "eligible_for_target_date": true,
+      "claim_boundary": "Two exploratory studies with 10 professional designers each; Study 2 uses a two-day probe and recall interviews; no general performance ranking."
+    },
+    {
+      "label": "Pista v1",
+      "url": "https://arxiv.org/html/2604.20070v1",
+      "publication_date": "2026-04-22",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/html/2604.20070v1",
+      "page_title": "Auditing and Controlling AI Agent Actions in Spreadsheets",
+      "date_evidence": [
+        "Dated official announcement verified through web tool"
+      ],
+      "eligible_for_target_date": true,
+      "claim_boundary": "16-person within-subjects study, baseline strips interaction features from Pista, spreadsheet tasks; prompting count is not completion time; 12 participants graduate students."
+    },
+    {
+      "label": "CHAP v1",
+      "url": "https://arxiv.org/html/2606.09751v1",
+      "publication_date": "2026-06-08",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/html/2606.09751v1",
+      "page_title": "Collaborative Human-Agent Protocol (CHAP)An open protocol for auditable, structured multi-human and multi-agent collaboration",
+      "date_evidence": [
+        "Dated official announcement verified through web tool"
+      ],
+      "eligible_for_target_date": true,
+      "claim_boundary": "Protocol proposal and reference implementation; publication does not establish an adopted industry standard or correctness of every logged decision."
+    },
+    {
+      "label": "Magentic-UI v1",
+      "url": "https://arxiv.org/abs/2507.22358v1",
+      "publication_date": "2025-07-30",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2507.22358v1",
+      "page_title": "[2507.22358v1] Magentic-UI: Towards Human-in-the-loop Agentic Systems",
+      "date_evidence": [
+        "30 Jul 2025]"
+      ],
+      "eligible_for_target_date": true
+    },
+    {
+      "label": "Reflexion v4",
+      "url": "https://arxiv.org/abs/2303.11366v4",
+      "publication_date": "2023-10-10",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": "verified_via_web_tool",
+      "final_url": "https://arxiv.org/abs/2303.11366v1",
+      "page_title": "[2303.11366v1] Reflexion: an autonomous agent with dynamic memory and self-reflection",
+      "date_evidence": [
+        "Version 4 revised October 10, 2023"
+      ],
+      "eligible_for_target_date": true,
+      "verification_method": "Pinned v4 abstract and revision history read through web tool"
+    },
+    {
+      "label": "ExpeL v1",
+      "url": "https://arxiv.org/abs/2308.10144v1",
+      "publication_date": "2023-08-20",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": 200,
+      "final_url": "https://arxiv.org/abs/2308.10144v1",
+      "page_title": "[2308.10144v1] ExpeL: LLM Agents Are Experiential Learners",
+      "date_evidence": [
+        "20 Aug 2023 (this version), "
+      ],
+      "eligible_for_target_date": true
+    },
+    {
+      "label": "Anthropic multi-agent research",
+      "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "publication_date": "2025-06-13",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": 200,
+      "final_url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "page_title": "How we built our multi-agent research system \\ Anthropic",
+      "date_evidence": [
+        "\"2025-06-13T00:00:00.000Z\",\"dateModified\":\"2026-01-06T15:09:32.000Z\",\"author\":{\"",
+        "\\\\\\\"2025-06-13T00:00:00.000Z\\\\\\\",\\\\\\\"dateModified\\\\\\\":\\\\\\\"2026-01-06T15:09:32.00"
+      ],
+      "eligible_for_target_date": true
+    },
+    {
+      "label": "Anthropic evals",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "publication_date": "2026-01-09",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": 200,
+      "final_url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents",
+      "page_title": "Demystifying evals for AI agents \\ Anthropic",
+      "date_evidence": [
+        "\"2026-01-09T00:00:00.000Z\",\"dateModified\":\"2026-03-18T18:48:35.000Z\",\"author\":{\"",
+        "\\\\\\\"2026-01-09T00:00:00.000Z\\\\\\\",\\\\\\\"dateModified\\\\\\\":\\\\\\\"2026-03-18T18:48:35.00"
+      ],
+      "eligible_for_target_date": true
+    },
+    {
+      "label": "AgentCore Policy preview",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-bedrock-agentcore-policy-evaluations-preview/",
+      "publication_date": "2025-12-02",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": 200,
+      "final_url": "https://aws.amazon.com/about-aws/whats-new/2025/12/amazon-bedrock-agentcore-policy-evaluations-preview/",
+      "page_title": "Amazon Bedrock AgentCore now includes Policy (preview), Evaluations (preview) and more - AWS",
+      "date_evidence": [
+        "Dated official announcement verified through web tool"
+      ],
+      "eligible_for_target_date": true
+    },
+    {
+      "label": "Gartner collaboration scenarios",
+      "url": "https://www.gartner.com/en/newsroom/press-releases/2025-11-11-gartner-says-leaders-must-create-four-scenarios-for-human-artificial-intelligence-collaboration-at-work",
+      "publication_date": "2025-11-11",
+      "role": "candidate primary evidence",
+      "primary": true,
+      "status": "verified_via_web_tool",
+      "direct_transport_error": "HTTP Error 403: Forbidden",
+      "eligible_for_target_date": true,
+      "verification_method": "Official dated primary page or newsroom article read with web tool; direct request blocked"
+    }
+  ]
+}

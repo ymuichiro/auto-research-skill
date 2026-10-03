@@ -1,14 +1,14 @@
 {
   "slug": "agent-identity-becomes-an-auth-control-plane",
   "date": "2026-03-26",
-  "titleJa": "エージェントのIDと、利用者の権限をどう分けるか",
-  "titleEn": "Separating agent identity from delegated user permissions",
-  "summaryJa": "固有IDの発行、利用者からの委任、接続先での権限確認は何が違うのか。MicrosoftとAWSの発表、MCPの認可仕様から、文書検索と外部送信の権限を設計する際の判断を整理する。",
-  "summaryEn": "Microsoft and AWS announcements and MCP authorization requirements show why agent identity, delegated user access, and downstream permission checks need separate decisions.",
-  "seoDescriptionJa": "エージェントIDと利用者の委任権限を区別し、MCPから外部APIへ接続する際のトークンとアクセス制御を、文書検索の例で解説する。",
-  "seoDescriptionEn": "Separate agent identity, user delegation, and downstream API permissions using Microsoft, AWS, and MCP examples for document search and external sending.",
-  "teaserJa": "IDが分かることと、操作が許されることは別。文書検索と外部送信から、委任と権限判定を整理する。",
-  "teaserEn": "An identifiable agent still needs permission. Follow document search and external sending to distinguish identity, delegation, and enforcement.",
+  "titleJa": "エージェントIDと利用者の委任：誰の権限を渡し、どこで取り消すか",
+  "titleEn": "Agent identity and user delegation: whose access is granted, and where it ends",
+  "summaryJa": "専用ID、利用者の委任、接続先の認可を文書検索の例で比較する。Microsoft、AWS、Auth0、MCPの一次資料から、権限の付与だけでなく、担当交代、認証情報の失効、取得済み資料の扱いまで考える。",
+  "summaryEn": "Compare dedicated agent identity, user delegation, and downstream authorization through document search. Follow Microsoft, AWS, Auth0, and MCP evidence from access grants to responsibility changes, revocation, and retained information.",
+  "seoDescriptionJa": "エージェントID、利用者の委任、MCPと外部APIの権限を解説。認証情報の取消と取得済み資料まで追い、必要な仕事を続けながら不要なアクセスを止める条件を考える。",
+  "seoDescriptionEn": "Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.",
+  "teaserJa": "文書検索を頼む人が変わっても、権限と保存済みの結果を切り分けられるか。付与から取消までの条件を追う。",
+  "teaserEn": "When the requester changes, can permissions and saved results remain separate? Follow access from granting it to ending it.",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -20,19 +20,46 @@
   ],
   "publishedSources": [
     {
-      "label": "Microsoft: Build 2025 announcements",
+      "label": "Microsoft Build 2025: Entra Agent ID preview",
       "url": "https://blogs.microsoft.com/blog/2025/05/19/microsoft-build-2025-the-age-of-ai-agents-and-building-the-open-agentic-web/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-05-19"
     },
     {
-      "label": "AWS: Introducing Amazon Bedrock AgentCore (July 16, 2025)",
+      "label": "Microsoft Ignite 2025 Book of News: section 5.2.1 Entra",
+      "url": "https://news.microsoft.com/ignite-2025-book-of-news/",
+      "type": "official",
+      "publishedAt": "2025-11-18"
+    },
+    {
+      "label": "AWS: Introducing Amazon Bedrock AgentCore (preview)",
       "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-07-16"
+    },
+    {
+      "label": "Auth0 Token Vault: Secure Token Exchange for AI Agents",
+      "url": "https://auth0.com/blog/auth0-token-vault-secure-token-exchange-for-ai-agents/",
+      "type": "official",
+      "publishedAt": "2025-10-09"
     },
     {
       "label": "MCP 2025-11-25: Authorization",
       "url": "https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2025-11-25"
+    },
+    {
+      "label": "IETF RFC 7009: OAuth 2.0 Token Revocation",
+      "url": "https://www.rfc-editor.org/rfc/rfc7009.html",
+      "type": "official",
+      "publishedAt": "2013-08-22"
+    },
+    {
+      "label": "AWS: Policy in Amazon Bedrock AgentCore is now generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/",
+      "type": "official",
+      "publishedAt": "2026-03-03"
     }
   ],
   "draft": false

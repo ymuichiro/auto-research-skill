@@ -1,14 +1,14 @@
 {
   "slug": "control-planes-and-evals-set-the-pace",
   "date": "2026-02-01",
-  "titleJa": "エージェントの変更を判断するために、何を比較し記録するか",
-  "titleEn": "What to compare and record before accepting an agent change",
-  "summaryJa": "新しい問い合わせで改善しても、既存の返金や引き継ぎを壊していないとは限らない。能力評価と回帰評価、処理定義と採点基準の版、実行トレース、承認条件を対応付けて、変更候補を判断する方法を整理する。",
-  "summaryEn": "An improvement on a new inquiry does not prove that established refund and escalation behavior survived. This article links capability and regression suites, versions of workflows and graders, execution traces, and approval conditions for deciding on a candidate change.",
-  "seoDescriptionJa": "エージェントの変更候補を、能力評価・回帰評価・採点器・実行トレース・承認条件でどう比較するかを問い合わせ対応の例で解説。",
-  "seoDescriptionEn": "How to compare an agent change with capability and regression tests, graders, traces, and approval conditions in a support scenario.",
-  "teaserJa": "新しい仕事の改善と、既存業務を壊していない確認は別の評価で行う。",
-  "teaserEn": "Improving a new task and preserving established work require different evaluation evidence.",
+  "titleJa": "エージェントの更新で、改善と後退をどう見分けるか",
+  "titleEn": "Agent updates: distinguishing improvements from regressions",
+  "summaryJa": "新商品の回答は良くなったが、返品相談の引き継ぎを失った。そんな変更候補を、能力評価と回帰評価、実際の成果、採点の妥当性、版と実行記録で調べる。古い規則を維持すべきでない場合や、人の再調査負担まで考える。",
+  "summaryEn": "A support update improves product answers but loses return escalations. Examine the candidate through capability and regression tests, actual outcomes, grading validity, versions, and traces, including changed policies and human rework.",
+  "seoDescriptionJa": "AIエージェントの更新を能力評価・回帰評価・採点・実行記録で比較。新機能の改善が既存の引き継ぎや成果を壊していないかを確かめる。",
+  "seoDescriptionEn": "Evaluate AI agent updates with capability and regression tests, outcomes, graders, and traces, including changed policies and human rework.",
+  "teaserJa": "新しい質問に答えられても、以前の引き継ぎが残ったとは限らない。変更の受け入れを何で判断するか。",
+  "teaserEn": "Answering a new question does not prove that an established escalation survived. What evidence should decide acceptance?",
   "category": "AI Agents",
   "tags": [
     "AI Agent",
@@ -28,6 +28,24 @@
       "url": "https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/",
       "type": "official",
       "publishedAt": "2025-11-25"
+    },
+    {
+      "label": "OpenAI: Introducing AgentKit",
+      "url": "https://openai.com/index/introducing-agentkit/",
+      "type": "official",
+      "publishedAt": "2025-10-06"
+    },
+    {
+      "label": "AWS: AgentCore adds quality evaluations and policy controls (preview)",
+      "url": "https://aws.amazon.com/blogs/aws/amazon-bedrock-agentcore-adds-quality-evaluations-and-policy-controls-for-deploying-trusted-ai-agents/",
+      "type": "official",
+      "publishedAt": "2025-12-02"
+    },
+    {
+      "label": "Anthropic: Writing effective tools for agents",
+      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents",
+      "type": "official",
+      "publishedAt": "2025-09-11"
     }
   ],
   "draft": false

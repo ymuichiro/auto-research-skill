@@ -33,6 +33,7 @@ Each article lives in:
 
 Optional metadata for the public generator:
 
+- `publishedAt` for a verified first-publication ISO 8601 timestamp with a timezone. `date` remains the research cutoff and URL date. If first publication is unknown, omit this field; do not derive it from `date` or a source-file addition alone.
 - `seoTitleJa` / `seoTitleEn` for shorter `<title>` and social titles when the editorial title is too long
 - `seoDescriptionJa` / `seoDescriptionEn` for search and social description copy
 - `teaserJa` / `teaserEn` for article cards and listing surfaces

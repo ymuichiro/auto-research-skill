@@ -1,14 +1,14 @@
 {
   "slug": "enterprise-ai-agents-readiness",
   "date": "2026-03-21",
-  "titleJa": "AIエージェントの導入判断を、自社の完了条件で測る",
-  "titleEn": "Evaluate agent readiness against the work your organization must complete",
-  "summaryJa": "SWE-bench、τ-bench、WebArenaが検証する仕事の型を手がかりに、限定試行と組織横断の運用に必要な条件を分ける。配送先変更を例に、例外、再試行、人への引き継ぎ、費用を固定手順の処理と比較する。",
-  "summaryEn": "Use the task shapes in SWE-bench, τ-bench, and WebArena to separate the conditions for a limited trial from those for cross-organizational operation, then test an address-change workflow for exceptions, retries, escalation, and review cost.",
-  "seoDescriptionJa": "AIエージェントの導入判断で、公開評価が検証する仕事の型と、自社で測る完了条件、例外、再試行、人への引き継ぎを整理する。",
-  "seoDescriptionEn": "Use public agent benchmarks to define workflow-specific completion, exceptions, retries, escalation, and review cost before rollout.",
-  "teaserJa": "高い評価を自社での成功率に読み替えない。完了条件と例外を定め、単純な処理との違いを測る。",
-  "teaserEn": "A benchmark score is a starting point. Define completion and exceptions, then compare the agent with a simpler workflow.",
+  "titleJa": "AIエージェントの企業導入は、任せる仕事と戻し先から決める",
+  "titleEn": "Enterprise AI agents: define the job and who takes it back",
+  "summaryJa": "SWE-bench、WebArena、τ-benchの成功判定と、Frontier、AgentCore Policyの企業向け機能を比較する。配送先変更の想定例から、成果、実行権限、例外の担当、確認費用を結び付け、限定試行から導入範囲を広げる条件を考える。",
+  "summaryEn": "Compare benchmark completion criteria with Frontier and AgentCore Policy, then use an address-change scenario to connect outcomes, permissions, exception ownership, and review cost before expanding adoption.",
+  "seoDescriptionJa": "AIエージェントの企業導入で、公開評価と自社の完了条件を分け、実行権限、例外の引き継ぎ、費用、導入範囲を広げる条件を考える。",
+  "seoDescriptionEn": "Evaluate enterprise AI agents through completion criteria, execution permissions, exception ownership, and review cost before expanding adoption.",
+  "teaserJa": "通常の依頼が成功しても、例外の仕事は残る。誰が何を引き取るかまで、導入の条件に含める。",
+  "teaserEn": "A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.",
   "category": "AI Agents",
   "tags": [
     "LLM",
@@ -20,24 +20,40 @@
   ],
   "publishedSources": [
     {
-      "label": "SWE-bench (v1)",
-      "url": "https://arxiv.org/abs/2310.06770v1",
-      "type": "paper"
+      "label": "SWE-bench: Can Language Models Resolve Real-World GitHub Issues? (v1)",
+      "url": "https://arxiv.org/html/2310.06770v1",
+      "type": "paper",
+      "publishedAt": "2023-10-10"
     },
     {
-      "label": "τ-bench (v1)",
-      "url": "https://arxiv.org/abs/2406.12045v1",
-      "type": "paper"
+      "label": "WebArena: A Realistic Web Environment for Building Autonomous Agents",
+      "url": "https://arxiv.org/html/2307.13854v2",
+      "type": "paper",
+      "publishedAt": "2023-10-24"
     },
     {
-      "label": "WebArena (v1)",
-      "url": "https://arxiv.org/abs/2307.13854v1",
-      "type": "paper"
+      "label": "tau-bench: A Benchmark for Tool-Agent-User Interaction in Real-World Domains",
+      "url": "https://arxiv.org/html/2406.12045v1",
+      "type": "paper",
+      "publishedAt": "2024-06-17"
+    },
+    {
+      "label": "OpenAI: Introducing OpenAI Frontier",
+      "url": "https://openai.com/index/introducing-openai-frontier/",
+      "type": "official",
+      "publishedAt": "2026-02-05"
+    },
+    {
+      "label": "AWS: Policy in Amazon Bedrock AgentCore is now generally available",
+      "url": "https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/",
+      "type": "official",
+      "publishedAt": "2026-03-03"
     },
     {
       "label": "Anthropic: Building effective agents",
       "url": "https://www.anthropic.com/engineering/building-effective-agents",
-      "type": "official"
+      "type": "official",
+      "publishedAt": "2024-12-19"
     }
   ],
   "draft": false
