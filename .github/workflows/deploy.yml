@@ -65,3 +65,6 @@ jobs:
           fi
           git commit -m "Deploy site from ${GITHUB_SHA}"
           git push origin HEAD:gh-pages
+
+      - name: Verify public delivery of this build
+        run: pnpm verify:public --attempts 15 --delay-ms 30000

@@ -31,6 +31,10 @@ export const trustPageOrder = [
 export const siteConfig = {
   name: "Auto Research Digest",
   owner: "Auto Research Digest Editorial Desk",
+  repositoryUrl: "https://github.com/ymuichiro/auto-research-skill",
+  maintainerUrl: "https://github.com/ymuichiro",
+  // Substantive article metadata/authorship update, not the build timestamp.
+  articleMetadataUpdatedAt: "2026-10-11T01:18:42+09:00",
   defaultLocale: "ja",
   locales: ["ja", "en"],
   pagination: {

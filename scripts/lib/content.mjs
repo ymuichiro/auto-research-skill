@@ -3,6 +3,7 @@ import { execFile } from "node:child_process";
 import path from "node:path";
 import { promisify } from "node:util";
 import { resolveArticleSeo } from "./seo-snippets.mjs";
+import { siteConfig } from "./site-config.mjs";
 import { readJson, sortedByDateDesc } from "./utils.mjs";
 
 const contentRoot = path.resolve("content/articles");
@@ -150,9 +151,12 @@ async function resolveLastModified(articleDir, meta) {
       cwd: contentRoot
     });
     const value = stdout.trim();
-    return value || fallbackArticleDateTime(meta.date);
+    const contentModified = value || fallbackArticleDateTime(meta.date);
+    return Date.parse(contentModified) > Date.parse(siteConfig.articleMetadataUpdatedAt)
+      ? contentModified
+      : siteConfig.articleMetadataUpdatedAt;
   } catch {
-    return fallbackArticleDateTime(meta.date);
+    return siteConfig.articleMetadataUpdatedAt;
   }
 }
 

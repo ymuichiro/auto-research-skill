@@ -10,6 +10,7 @@
     "build:css": "tailwindcss -c tailwind.config.mjs -i ./src/styles/input.css -o ./public/assets/site.css --minify",
     "build": "pnpm run clean && pnpm run build:site && pnpm run build:css && pnpm run validate",
     "validate": "node scripts/validate.mjs",
+    "verify:public": "node scripts/verify-public.mjs",
     "dev": "node scripts/dev.mjs",
     "new:article": "node scripts/new-article.mjs"
   },

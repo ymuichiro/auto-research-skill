@@ -332,7 +332,6 @@ function pageSchemas({
   article,
   pageType,
   breadcrumbs,
-  imageUrl,
   schemaType,
   listItems = []
 }) {
@@ -353,8 +352,7 @@ function pageSchemas({
       mainEntityOfPage: canonicalUrl,
       publisher: publisherSchema(),
       author: authorSchema(locale),
-      url: canonicalUrl,
-      image: [imageUrl]
+      url: canonicalUrl
     });
   } else {
     const collectionPayload = {
@@ -418,7 +416,6 @@ export function renderPage({
     article,
     pageType,
     breadcrumbs,
-    imageUrl: pageImageUrl,
     schemaType,
     listItems
   });
@@ -649,10 +646,16 @@ function renderEditorialBriefing(
   </section>`;
 }
 
-function renderArticleAuthorship(locale) {
+function renderArticleAuthorship(article, locale) {
   const copy = localeCopy[locale];
   const aboutHref = localizedPath(locale, trustPagePaths.about);
   const policyHref = localizedPath(locale, trustPagePaths.editorialPolicy);
+  const sourcePath = `content/articles/${article.sourceDirName}`;
+  const sourceHref = `${siteConfig.repositoryUrl}/blob/main/${sourcePath}/body.${locale}.html`;
+  const historyHref = `${siteConfig.repositoryUrl}/commits/main/${sourcePath}`;
+  const provenance = locale === "ja"
+    ? "公開リポジトリの管理者は ymuichiro です。この記事の本文と出典、修正履歴を公開しています。資料から確認できた結果と本稿の解釈は本文で区別し、説明用の想定例にはその旨を記しています。"
+    : "The public repository is maintained by ymuichiro. The article text, references, and revision history are available for inspection. The body distinguishes sourced results from editorial interpretation and labels explanatory scenarios.";
 
   return `<section class="panel-block article-authorship">
     <div>
@@ -661,9 +664,13 @@ function renderArticleAuthorship(locale) {
     </div>
     <div>
       <p class="panel-copy">${escapeHtml(copy.articleAuthorIntro)}</p>
+      <p class="panel-copy mt-3">${escapeHtml(provenance)}</p>
       <div class="mt-4 flex flex-wrap gap-x-5 gap-y-3">
         <a class="text-link" href="${aboutHref}">${escapeHtml(copy.articleAuthorAbout)}</a>
         <a class="text-link" href="${policyHref}">${escapeHtml(copy.articleAuthorPolicy)}</a>
+        <a class="text-link" href="${siteConfig.maintainerUrl}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "管理者の公開プロフィール" : "Maintainer profile"}</a>
+        <a class="text-link" href="${sourceHref}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "この記事の本文ソース" : "Article source"}</a>
+        <a class="text-link" href="${historyHref}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "この記事の変更履歴" : "Article revision history"}</a>
       </div>
     </div>
   </section>`;
@@ -1819,7 +1826,7 @@ export function renderArticlePage(article, locale, articles = []) {
     ${renderTopicBacklink(article, locale, topicHub)}
     ${renderRelatedArticles(article, locale, articles)}
     ${renderSources(article, locale)}
-    ${renderArticleAuthorship(locale)}
+    ${renderArticleAuthorship(article, locale)}
   </article>`;
 
   return renderPage({

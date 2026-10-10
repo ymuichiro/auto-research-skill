@@ -120,6 +120,8 @@ async function buildFaviconAssets() {
   ]);
 
   await writeBufferFile(path.join(iconRoot, "favicon.ico"), icoBuffer);
+  // Browsers and older crawls can request the conventional root path.
+  await writeBufferFile(path.join(outputRoot, "favicon.ico"), icoBuffer);
 }
 
 async function buildSocialCardAsset() {
@@ -127,6 +129,8 @@ async function buildSocialCardAsset() {
   const targetPath = path.join(outputRoot, siteConfig.ogImage);
   const imageBuffer = await readFile(sourcePath);
   await writeBufferFile(targetPath, imageBuffer);
+  // Keep the previously published image URL usable for existing links.
+  await writeBufferFile(path.join(outputRoot, "assets", "og-twitter-card.png"), imageBuffer);
 }
 
 async function buildArticleShareScript() {

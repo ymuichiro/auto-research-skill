@@ -1,4 +1,4 @@
-import { trustPageOrder, trustPagePaths } from "./site-config.mjs";
+import { siteConfig, trustPageOrder, trustPagePaths } from "./site-config.mjs";
 
 const repositoryUrl = "https://github.com/ymuichiro/auto-research-skill";
 const issuesUrl = `${repositoryUrl}/issues/new`;
@@ -8,10 +8,11 @@ function localizedText(ja, en) {
   return { ja, en };
 }
 
-function noticeBody(locale) {
+function noticeBody(locale, reviewedAt) {
+  const date = reviewedAt.slice(0, 10);
   return locale === "ja"
-    ? "このページは 2026-08-19 時点の公開運用をもとに記載しています。公開面の運用を変える場合は、この説明も合わせて更新します。"
-    : "This page describes the current public operation of Auto Research Digest as of 2026-08-19. If the public operation changes, this explanation is updated as well.";
+    ? `このページは ${date} 時点の公開運用をもとに記載しています。公開面の運用を変える場合は、この説明も合わせて更新します。`
+    : `This page describes the public operation of Auto Research Digest as of ${date}. If the public operation changes, this explanation is updated as well.`;
 }
 
 const trustPages = {
@@ -30,6 +31,14 @@ const trustPages = {
     noticeTitle: localizedText("運用メモ", "Operational note"),
     sections: {
       ja: [
+        {
+          title: "管理者と編集責任",
+          paragraphs: [
+            "公開リポジトリの管理者は GitHub アカウント ymuichiro です。Auto Research Digest Editorial Desk は、このサイトで調査記事の編集責任を示す名称です。公開プロフィール、本文ソース、変更履歴、訂正窓口を通じて、読者が制作内容を確認できます。",
+            "生成AIを資料整理、草稿、翻訳、推敲に使用しています。根拠となる公開資料と、資料を比較して導く記事の判断は区別します。引用した論文の測定結果を、このサイトが実施した実験として紹介することはありません。"
+          ],
+          resources: [{ label: "管理者の公開プロフィール", url: siteConfig.maintainerUrl, description: "ymuichiro の公開プロフィールと公開リポジトリを確認できます。" }]
+        },
         {
           title: "何を公開するサイトか",
           paragraphs: [
@@ -71,6 +80,14 @@ const trustPages = {
         }
       ],
       en: [
+        {
+          title: "Maintainer and editorial responsibility",
+          paragraphs: [
+            "The public repository is maintained by the GitHub account ymuichiro. Auto Research Digest Editorial Desk is the name used to identify editorial responsibility for this publication. The public profile, article sources, revision history, and correction channel let readers inspect the work.",
+            "Generative AI assists with organizing sources, drafting, translation, and editing. Articles distinguish public evidence from judgments formed by comparing that evidence. Measurements reported in a cited paper are not presented as experiments performed by this publication."
+          ],
+          resources: [{ label: "Maintainer profile", url: siteConfig.maintainerUrl, description: "Inspect ymuichiro's public profile and public repositories." }]
+        },
         {
           title: "What the site publishes",
           paragraphs: [
@@ -144,12 +161,14 @@ const trustPages = {
           title: "執筆と表現のルール",
           paragraphs: [
             "本文では、中立的な編集誌面を保ち、誇張や断定調を避けます。確定した事実、観測される傾向、推定や含意を混ぜずに書くことを優先します。",
-            "構成は、何が起きているか、何が変わったのか、何が根拠なのか、実務判断にどう関係するか、という順で整理することを基本とします。"
+            "各記事は一つの問いを持ち、出典で確認できる具体例、比較条件、そこから導く判断、判断が成り立つ限界をつなぎます。出典の紹介だけで結論を代替せず、短く読むための表現と判断に必要な詳しさを両立させます。"
           ],
           bullets: [
             "根拠欄に載せていない情報を、既知の事実のように断定しません。",
             "日英版は直訳ではなくても、論旨と温度感をそろえます。",
-            "公開頻度は品質基準を下げる理由にしません。"
+            "公開頻度は品質基準を下げる理由にしません。",
+            "製品の実際の挙動、引用資料の実験、著者が考えた想定例を区別します。想定例で説明した結果を、本番環境で確認した結果として扱いません。",
+            "生成AIは資料整理、草稿、翻訳、推敲を支援します。各記事の本文ソースと変更履歴を公開し、根拠と解釈の対応を読者が確認できるようにします。"
           ]
         },
         {
@@ -178,12 +197,14 @@ const trustPages = {
           title: "Writing and expression rules",
           paragraphs: [
             "The public tone stays neutral and avoids hype, overstatement, and unsupported certainty. Confirmed facts, observed patterns, and implications are written as different things, not collapsed into one claim.",
-            "Articles are generally structured around what happened, what changed, what the evidence is, and why that matters for operational or business decisions."
+            "Each article connects one question to a concrete sourced case, the comparison conditions, the judgment derived from them, and the limits of that judgment. Introducing sources alone does not replace a conclusion; concise expression preserves the detail needed to make a decision."
           ],
           bullets: [
             "Information that is not backed by the published evidence list is not presented as settled fact.",
             "Japanese and English versions stay aligned in meaning and tone even when they are not literal translations.",
-            "Publishing cadence is not treated as a reason to lower the evidence threshold."
+            "Publishing cadence is not treated as a reason to lower the evidence threshold.",
+            "Actual product behavior, experiments in cited material, and explanatory scenarios are identified separately. An outcome illustrated by a scenario is not presented as verified production behavior.",
+            "Generative AI assists with organizing sources, drafting, translation, and editing. Article sources and revision histories are public so readers can inspect how evidence supports the interpretation."
           ]
         },
         {
@@ -591,9 +612,9 @@ export function trustPageForLocale(pageId, locale) {
     heading: page.heading[locale],
     intro: page.intro[locale],
     noticeTitle: page.noticeTitle[locale],
-    noticeBody: noticeBody(locale),
+    noticeBody: noticeBody(locale, ["about", "editorialPolicy"].includes(pageId) ? siteConfig.articleMetadataUpdatedAt : lastReviewed),
     sections: page.sections[locale],
-    lastModified: lastReviewed
+    lastModified: ["about", "editorialPolicy"].includes(pageId) ? siteConfig.articleMetadataUpdatedAt : lastReviewed
   };
 }
 

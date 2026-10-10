@@ -267,7 +267,9 @@ async function validateBuiltOutput(articles) {
     "assets/article-share.js",
     siteConfig.ogImage,
     "assets/og-default.svg",
-    "assets/favicon.svg"
+    "assets/favicon.svg",
+    "favicon.ico",
+    "assets/og-twitter-card.png"
   ]
     .concat(siteConfig.cname ? ["CNAME"] : [])
     .concat(listingPagePaths(articles))
@@ -888,9 +890,21 @@ async function validateBuiltOutput(articles) {
   }
 
   for (const article of articles) {
-    assertJsonLdUrlsAreAbsolute(await readBuiltFile(article.outputPaths.ja), `Japanese article ${article.slug}`);
-    assertJsonLdUrlsAreAbsolute(await readBuiltFile(article.outputPaths.en), `English article ${article.slug}`);
+    for (const locale of ["ja", "en"]) {
+      const markup = await readBuiltFile(article.outputPaths[locale]);
+      const label = `${locale} article ${article.slug}`;
+      assertJsonLdUrlsAreAbsolute(markup, label);
+      const blocks = [...markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
+      const articleSchema = blocks.map((match) => JSON.parse(match[1])).find((item) => item["@type"] === "NewsArticle");
+      assertCondition(articleSchema && !JSON.stringify(articleSchema.image ?? []).includes(absoluteUrl(siteConfig.ogImage)), `${label} must not identify the publication logo as its article image.`);
+      assertContains(markup, `${siteConfig.repositoryUrl}/blob/main/content/articles/${article.sourceDirName}/body.${locale}.html`, `${label} is missing its public source link.`);
+      assertContains(markup, `${siteConfig.repositoryUrl}/commits/main/content/articles/${article.sourceDirName}`, `${label} is missing its revision history.`);
+      assertContains(markup, siteConfig.maintainerUrl, `${label} is missing the maintainer profile.`);
+      assertCondition(Date.parse(articleSchema.dateModified) >= Date.parse(siteConfig.articleMetadataUpdatedAt), `${label} does not reflect the substantive metadata update.`);
+    }
   }
+  assertCondition((await readFile(path.join(outputRoot, "favicon.ico"))).equals(await readFile(path.join(outputRoot, "assets/favicon.ico"))), "Root favicon must match its current asset.");
+  assertCondition((await readFile(path.join(outputRoot, "assets/og-twitter-card.png"))).equals(await readFile(path.join(outputRoot, siteConfig.ogImage))), "Legacy social image must match its current asset.");
 }
 
 async function validate() {
