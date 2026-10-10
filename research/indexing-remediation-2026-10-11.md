@@ -33,3 +33,13 @@ Google公式の[Article説明](https://developers.google.com/search/docs/appeara
 GSCの登録済み件数はGoogle側の選択結果で、コード変更から即時の改善を保証できない。新たな外部リンク、実在の著者の資格、製品の実運用結果は今回作成していない。DNS・ホスティングの移行、GSC削除、検証トークン削除、Google Indexing APIの一般記事への使用、継続監視の自動化は実施しない。
 
 既存のローカル監査データ、アカウント情報を含み得るGSC画面、作業中の未追跡ファイルは、この変更のコミットへまとめて追加しない。
+
+## 公開後の確認結果
+
+- 実装コミット: `171b1c4f536e125d764b993bdbd029f1da10d172`。`origin/main`へpush済み。
+- [Deploy Site](https://github.com/ymuichiro/auto-research-skill/actions/runs/38067635623)は成功。[GitHub Pagesの配信デプロイ](https://github.com/ymuichiro/auto-research-skill/actions/runs/38067656662)も成功。
+- 2026年10月11日01:26:55 JST、正規102ページを含む112/112件がHTTP 200かつローカルビルドとSHA-256一致。公開更新の伝播前は14/112件一致で失敗し、3回目に全件一致した。旧favicon・OGの404解消もこの照合に含む。
+- 公開後に既存GSCプロパティへ`sitemap.xml`を再送信し、「サイトマップを送信しました」を確認。受付の証跡はローカル`output/gsc-sitemap-submitted-2026-10-11.jpg`に保存し、リポジトリには含めない。
+- 同時点のインデックス集計は最終更新2026年10月4日、登録済み0・未登録102（クロール済み34、検出68）。今回の公開変更を評価した結果ではない。
+- サイトマップ画面の最終読み込みはroot/articlesが9月19日、pagesが9月24日。送信受付から新しい読み込み・登録に進んだことは未確認。
+- 残る判断: Googleによる登録回復、記事の競争上の独自価値、ホスト側の非正規URLのHTTP301。今回の修正と公開成功を、その3点の解決と同一視しない。
