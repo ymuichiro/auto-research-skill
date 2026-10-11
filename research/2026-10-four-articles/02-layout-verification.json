@@ -1,0 +1,86 @@
+[
+  {
+    "lang": "ja",
+    "name": "desktop",
+    "title": "AIの脆弱性修正：再現試験・回帰検証・保守担当のレビュー | Auto Research Digest",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "h1": "AIの脆弱性修正を開発工程へ：再現試験から公開まで",
+    "canonical": "https://research.notelligent.app/2026-10-11-ai-security-patches-in-the-development-process.html",
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure/",
+      "https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/",
+      "https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/",
+      "https://github.blog/changelog/2026-07-10-agentic-autofix-for-code-scanning-alerts-in-public-preview/",
+      "https://docs.github.com/en/enterprise-cloud%40latest/code-security/concepts/code-scanning/autofix-for-code-scanning",
+      "https://arxiv.org/abs/2609.04075",
+      "https://www.darpa.mil/news/2025/aixcc-results",
+      "https://arxiv.org/abs/2606.04460"
+    ]
+  },
+  {
+    "lang": "ja",
+    "name": "mobile",
+    "title": "AIの脆弱性修正：再現試験・回帰検証・保守担当のレビュー | Auto Research Digest",
+    "width": 390,
+    "scrollWidth": 390,
+    "h1": "AIの脆弱性修正を開発工程へ：再現試験から公開まで",
+    "canonical": "https://research.notelligent.app/2026-10-11-ai-security-patches-in-the-development-process.html",
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure/",
+      "https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/",
+      "https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/",
+      "https://github.blog/changelog/2026-07-10-agentic-autofix-for-code-scanning-alerts-in-public-preview/",
+      "https://docs.github.com/en/enterprise-cloud%40latest/code-security/concepts/code-scanning/autofix-for-code-scanning",
+      "https://arxiv.org/abs/2609.04075",
+      "https://www.darpa.mil/news/2025/aixcc-results",
+      "https://arxiv.org/abs/2606.04460"
+    ]
+  },
+  {
+    "lang": "en",
+    "name": "desktop",
+    "title": "AI security patches: reproduction, validation, and maintainer review | Auto Research Digest EN",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "h1": "AI security patches in development: from reproduction to release",
+    "canonical": "https://research.notelligent.app/en/2026-10-11-ai-security-patches-in-the-development-process.html",
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure/",
+      "https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/",
+      "https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/",
+      "https://github.blog/changelog/2026-07-10-agentic-autofix-for-code-scanning-alerts-in-public-preview/",
+      "https://docs.github.com/en/enterprise-cloud%40latest/code-security/concepts/code-scanning/autofix-for-code-scanning",
+      "https://arxiv.org/abs/2609.04075",
+      "https://www.darpa.mil/news/2025/aixcc-results",
+      "https://arxiv.org/abs/2606.04460"
+    ]
+  },
+  {
+    "lang": "en",
+    "name": "mobile",
+    "title": "AI security patches: reproduction, validation, and maintainer review | Auto Research Digest EN",
+    "width": 390,
+    "scrollWidth": 390,
+    "h1": "AI security patches in development: from reproduction to release",
+    "canonical": "https://research.notelligent.app/en/2026-10-11-ai-security-patches-in-the-development-process.html",
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure/",
+      "https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/",
+      "https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/",
+      "https://github.blog/changelog/2026-07-10-agentic-autofix-for-code-scanning-alerts-in-public-preview/",
+      "https://docs.github.com/en/enterprise-cloud%40latest/code-security/concepts/code-scanning/autofix-for-code-scanning",
+      "https://arxiv.org/abs/2609.04075",
+      "https://www.darpa.mil/news/2025/aixcc-results",
+      "https://arxiv.org/abs/2606.04460"
+    ]
+  }
+]

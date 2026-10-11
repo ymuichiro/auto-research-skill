@@ -1,0 +1,62 @@
+{
+  "slug": "ai-security-patches-in-the-development-process",
+  "date": "2026-10-11",
+  "titleJa": "AIの脆弱性修正を開発工程へ：再現試験から公開まで",
+  "titleEn": "AI security patches in development: from reproduction to release",
+  "summaryJa": "Googleの変更ごとの検査、MozillaのFirefox修正、CodeMender、GitHubを比較。PatchBenchの反証も踏まえ、原因の修正と回帰検証を保守担当へ渡す方法、導入効果の測り方を考える。",
+  "summaryEn": "Compare Google, Mozilla, CodeMender, and GitHub with PatchBench’s counterevidence. Examine reproducible reports, root-cause repair, regression checks, maintainer acceptance, and release.",
+  "seoTitleJa": "AIの脆弱性修正：再現試験・回帰検証・保守担当のレビュー",
+  "seoTitleEn": "AI security patches: reproduction, validation, and maintainer review",
+  "seoDescriptionJa": "Google、Mozilla、GitHubの事例とPatchBenchから、AIの脆弱性発見を原因の修正、回帰検証、公開へつなぐ開発工程を考える。",
+  "seoDescriptionEn": "Compare Google, Mozilla, GitHub, and PatchBench to connect AI findings with reproducible tests, root-cause repairs, validation, and release.",
+  "category": "AI Security",
+  "tags": [
+    "AI Agent",
+    "Security",
+    "Software Engineering",
+    "Evaluation"
+  ],
+  "publishedSources": [
+    {
+      "label": "Google infrastructure security",
+      "url": "https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure/",
+      "type": "official"
+    },
+    {
+      "label": "CodeMender",
+      "url": "https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/",
+      "type": "official"
+    },
+    {
+      "label": "Mozilla maintainer report",
+      "url": "https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/",
+      "type": "official"
+    },
+    {
+      "label": "GitHub autofix docs",
+      "url": "https://docs.github.com/en/enterprise-cloud%40latest/code-security/concepts/code-scanning/autofix-for-code-scanning",
+      "type": "official"
+    },
+    {
+      "label": "GitHub agentic autofix preview",
+      "url": "https://github.blog/changelog/2026-07-10-agentic-autofix-for-code-scanning-alerts-in-public-preview/",
+      "type": "official"
+    },
+    {
+      "label": "PatchBench",
+      "url": "https://arxiv.org/abs/2609.04075",
+      "type": "paper"
+    },
+    {
+      "label": "CyberGymE2E",
+      "url": "https://arxiv.org/abs/2606.04460",
+      "type": "paper"
+    },
+    {
+      "label": "DARPA AIxCC results",
+      "url": "https://www.darpa.mil/news/2025/aixcc-results",
+      "type": "official"
+    }
+  ],
+  "draft": false
+}

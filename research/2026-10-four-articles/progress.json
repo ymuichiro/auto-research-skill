@@ -12,13 +12,17 @@
       "order": 1,
       "topic": "science",
       "slug": "ai-science-candidate-search-and-experimental-validation",
-      "status": "validated"
+      "status": "published",
+      "commit": "dd560a173c5bf790631b0167e380d36580954067",
+      "deployment_run": 38104133505,
+      "verified_at": "2026-10-11T02:08:50.067Z",
+      "public_url": "https://research.notelligent.app/2026-10-11-ai-science-candidate-search-and-experimental-validation.html"
     },
     {
       "order": 2,
       "topic": "security",
       "slug": "ai-security-patches-in-the-development-process",
-      "status": "pending"
+      "status": "validating"
     },
     {
       "order": 3,

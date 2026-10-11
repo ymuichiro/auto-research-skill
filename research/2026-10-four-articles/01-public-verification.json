@@ -1,0 +1,26 @@
+{
+  "checked_at": "2026-10-11T02:08:50.067Z",
+  "results": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 52540,
+      "match": true,
+      "sha256": "d666dd414865b0acc76fa3353ace50af0f72e6a463fe690329ca31df58402a11"
+    },
+    {
+      "path": "2026-10-11-ai-science-candidate-search-and-experimental-validation.html",
+      "status": 200,
+      "bytes": 36810,
+      "match": true,
+      "sha256": "008582da1f971dbe9c9c2a7e038a66c03be8e37e82f97aa0ef4fd9e00e89e98a"
+    },
+    {
+      "path": "en/2026-10-11-ai-science-candidate-search-and-experimental-validation.html",
+      "status": 200,
+      "bytes": 34757,
+      "match": true,
+      "sha256": "a7a4c9a0241cb565c11b38a0f47294c2a9d7b64bd9dd18fdbedb8e1be21df4b0"
+    }
+  ]
+}

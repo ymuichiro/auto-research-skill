@@ -1,0 +1,161 @@
+{
+  "topic": "security",
+  "cutoff": "2026-10-11",
+  "collection_note": "Primary URLs collected through official pages and indexed paper abstracts. Public claims are based on reviewed source text; the Project Zero archive is background only. No quantitative claim is derived from unreviewed material.",
+  "sources": [
+    {
+      "label": "Google infrastructure security",
+      "url": "https://cloud.google.com/blog/topics/systems/using-ai-agents-to-secure-google-infrastructure/",
+      "type": "official",
+      "role": "Change-based scanning and human-reviewed fixes",
+      "published": true
+    },
+    {
+      "label": "CodeMender",
+      "url": "https://deepmind.google/blog/introducing-codemender-an-ai-agent-for-code-security/",
+      "type": "official",
+      "role": "Root-cause repair and layered validation",
+      "published": true
+    },
+    {
+      "label": "Mozilla maintainer report",
+      "url": "https://blog.mozilla.org/en/firefox/hardening-firefox-anthropic-red-team/",
+      "type": "official",
+      "role": "Minimal reproductions and shipped Firefox fixes",
+      "published": true
+    },
+    {
+      "label": "Anthropic Firefox research",
+      "url": "https://www.anthropic.com/news/mozilla-firefox-security",
+      "type": "official",
+      "role": "Researcher account of discovery",
+      "published": false
+    },
+    {
+      "label": "Anthropic exploit research",
+      "url": "https://www.anthropic.com/research/exploit",
+      "type": "official",
+      "role": "Distinguish detection from exploitation",
+      "published": false
+    },
+    {
+      "label": "Mozilla continued analysis",
+      "url": "https://blog.mozilla.org/en/firefox/ai-security-zero-day-vulnerabilities/",
+      "type": "official",
+      "role": "Follow-up rather than initial case",
+      "published": false
+    },
+    {
+      "label": "GitHub autofix docs",
+      "url": "https://docs.github.com/en/enterprise-cloud%40latest/code-security/concepts/code-scanning/autofix-for-code-scanning",
+      "type": "official",
+      "role": "Current capabilities and query validation limits",
+      "published": true
+    },
+    {
+      "label": "GitHub agentic autofix preview",
+      "url": "https://github.blog/changelog/2026-07-10-agentic-autofix-for-code-scanning-alerts-in-public-preview/",
+      "type": "official",
+      "role": "Draft pull request workflow",
+      "published": true
+    },
+    {
+      "label": "GitHub responsible use",
+      "url": "https://docs.github.com/en/code-security/responsible-use/security-and-quality-ai-features",
+      "type": "official",
+      "role": "Human verification and applicability",
+      "published": false
+    },
+    {
+      "label": "GitHub alert triage",
+      "url": "https://docs.github.com/en/code-security/how-tos/manage-security-alerts/manage-code-scanning-alerts/triage-alerts-in-pull-requests",
+      "type": "official",
+      "role": "Alert handling and unsupported queries",
+      "published": false
+    },
+    {
+      "label": "GitHub autofix engineering",
+      "url": "https://github.blog/engineering/platform-security/fixing-security-vulnerabilities-with-ai/",
+      "type": "official",
+      "role": "Earlier suggestion architecture",
+      "published": false
+    },
+    {
+      "label": "GitHub validation tools",
+      "url": "https://github.blog/changelog/2026-03-18-configure-copilot-coding-agents-validation-tools/",
+      "type": "official",
+      "role": "Security tools available to coding agents",
+      "published": false
+    },
+    {
+      "label": "PatchBench",
+      "url": "https://arxiv.org/abs/2609.04075",
+      "type": "paper",
+      "role": "PoC-only validation inflates measured solve rate",
+      "published": true
+    },
+    {
+      "label": "CyberGymE2E",
+      "url": "https://arxiv.org/abs/2606.04460",
+      "type": "paper",
+      "role": "Discovery, reproduction, repair benchmark",
+      "published": true
+    },
+    {
+      "label": "CyberGym",
+      "url": "https://arxiv.org/abs/2506.02548",
+      "type": "paper",
+      "role": "Reproduction task differs from complete remediation",
+      "published": false
+    },
+    {
+      "label": "All You Need Is A Fuzzing Brain",
+      "url": "https://arxiv.org/abs/2509.07225",
+      "type": "paper",
+      "role": "AIxCC system design",
+      "published": false
+    },
+    {
+      "label": "Just-in-Time detection and remediation",
+      "url": "https://arxiv.org/abs/2608.16187",
+      "type": "paper",
+      "role": "Synthetic generated-code pipeline limits",
+      "published": false
+    },
+    {
+      "label": "Google OSS-Fuzz results",
+      "url": "https://security.googleblog.com/2024/11/leveling-up-fuzzing-finding-more.html",
+      "type": "official",
+      "role": "AI expands existing fuzzing rather than replaces it",
+      "published": false
+    },
+    {
+      "label": "Project Zero November announcement",
+      "url": "https://googleprojectzero.blogspot.com/2024/11/?m=0",
+      "type": "official",
+      "role": "Big Sleep discovery announcement archive",
+      "published": false
+    },
+    {
+      "label": "DARPA AIxCC results",
+      "url": "https://www.darpa.mil/news/2025/aixcc-results",
+      "type": "official",
+      "role": "Synthetic and non-synthetic results reported separately",
+      "published": true
+    },
+    {
+      "label": "DARPA scoring guide",
+      "url": "https://www.darpa.mil/news/2025/ai-cyber-challenge-scoring",
+      "type": "official",
+      "role": "Competition scoring context",
+      "published": false
+    },
+    {
+      "label": "NIST SSDF 1.1",
+      "url": "https://csrc.nist.gov/pubs/sp/800/218/final",
+      "type": "official",
+      "role": "Secure development lifecycle background",
+      "published": false
+    }
+  ]
+}
