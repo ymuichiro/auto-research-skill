@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>買い物AIの注文と決済：UCP・ACP・AP2の役割と許可 | Auto Research Digest</title>
+    <meta name="description" content="UCP、ACP、AP2 v0.2、StripeのSPTから、買い物AIの注文・支払いの許可、予算制限、配送と返品、失敗時の復旧を考える。">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Auto Research Digest Editorial Desk">
+    <meta name="theme-color" content="#0d0f14">
+    <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
+    <meta property="og:type" content="article">
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:site_name" content="Auto Research Digest">
+    <meta property="og:title" content="買い物AIの注文と決済：UCP・ACP・AP2の役割と許可 | Auto Research Digest">
+    <meta property="og:description" content="UCP、ACP、AP2 v0.2、StripeのSPTから、買い物AIの注文・支払いの許可、予算制限、配送と返品、失敗時の復旧を考える。">
+    <meta property="og:url" content="https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html">
+    <meta property="og:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="628">
+    <meta property="og:image:alt" content="買い物AIの注文と決済：UCP・ACP・AP2の役割と許可">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="買い物AIの注文と決済：UCP・ACP・AP2の役割と許可 | Auto Research Digest">
+    <meta name="twitter:description" content="UCP、ACP、AP2 v0.2、StripeのSPTから、買い物AIの注文・支払いの許可、予算制限、配送と返品、失敗時の復旧を考える。">
+    <meta name="twitter:image" content="https://research.notelligent.app/assets/og-twitter-card-1200x628.png">
+    <meta name="twitter:image:alt" content="買い物AIの注文と決済：UCP・ACP・AP2の役割と許可">
+    <link rel="canonical" href="https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html">
+    <link rel="alternate" hreflang="ja" href="https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html">
+    <link rel="alternate" hreflang="en" href="https://research.notelligent.app/en/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html">
+    <link rel="alternate" hreflang="x-default" href="https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html">
+    <link rel="icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" sizes="any">
+    <link rel="icon" href="/assets/favicon-32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="/assets/favicon-16.png" type="image/png" sizes="16x16">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" sizes="180x180">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/feed.xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/article-share.js" defer></script>
+    <meta property="article:modified_time" content="2026-10-11T11:20:47+09:00">
+    <meta property="article:section" content="Agentic Commerce">
+    <meta property="article:tag" content="AI Agent">
+    <meta property="article:tag" content="Commerce">
+    <meta property="article:tag" content="Payments">
+    <meta property="article:tag" content="UCP">
+    <meta property="article:tag" content="ACP">
+    <meta property="article:tag" content="AP2">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか","description":"UCP、ACP、AP2 v0.2、StripeのSPTから、買い物AIの注文・支払いの許可、予算制限、配送と返品、失敗時の復旧を考える。","dateModified":"2026-10-11T11:20:47+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"Agentic Commerce","keywords":"AI Agent, Commerce, Payments, UCP, ACP, AP2","mainEntityOfPage":"https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"Agentic Commerce","item":"https://research.notelligent.app/topics/agentic-commerce/"},{"@type":"ListItem","position":4,"name":"買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか","item":"https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html"}],"inLanguage":"ja"}</script>
+  </head>
+  <body>
+    <div class="page-shell">
+      <div class="hero-backdrop"></div>
+      <header class="site-header">
+        <a class="brand-mark" href="/">
+          <span class="brand-badge">AR /</span>
+          <span class="brand-copy">Auto Research Digest</span>
+        </a>
+        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/topics/">トピック</a><a class="nav-link " href="/timeline/">タイムライン</a></nav>
+        <a class="lang-switch" href="/en/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html">English</a>
+      </header>
+      <main class="site-main">
+        <section class="hero-panel ">
+          <p class="section-kicker">Research Signal</p>
+          <h1 class="hero-title">買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか</h1>
+          <p class="hero-copy">UCP、ACP、AP2 v0.2とStripeの支払いトークンを比較。商品の希望を注文・支払いの許可へ変え、送料変更、追加認証、応答待ち、返品まで同じ取引から追う方法を考える。</p>
+        </section>
+        <div class="content-stack">
+          <article class="article-shell">
+    <section class="article-meta">
+      <div class="meta-row">
+        <a class="meta-pill is-accent article-topic-link" href="/topics/agentic-commerce/">Agentic Commerce</a>
+        <time class="mono-note" datetime="2026-10-11">調査対象日 2026年10月11日</time>
+        
+        
+      </div>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Commerce</span><span class="meta-chip">Payments</span><span class="meta-chip">UCP</span><span class="meta-chip">ACP</span><span class="meta-chip">AP2</span></div>
+    </section>
+    <section class="article-share" aria-label="記事を共有">
+    <a class="share-button" href="https://twitter.com/intent/tweet?text=%E8%B2%B7%E3%81%84%E7%89%A9AI%E3%81%AB%E6%94%AF%E6%89%95%E3%81%84%E3%82%92%E4%BB%BB%E3%81%9B%E3%82%8B%E2%80%95%E2%80%95%E4%BA%88%E7%AE%97%E3%80%81%E6%B3%A8%E6%96%87%E3%80%81%E8%BF%94%E5%93%81%E3%82%92%E3%81%A9%E3%81%86%E3%81%A4%E3%81%AA%E3%81%90%E3%81%8B&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-10-11-agentic-commerce-purchase-and-payment-authorization.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
+  </svg></span>
+    </a>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="共有メニューを開く"
+      data-native-share
+      data-share-title="買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか"
+      data-share-text="買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか"
+      data-share-url="https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html"
+      hidden
+    >
+      <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M18 16.08C17.24 16.08 16.56 16.38 16.04 16.86L8.91 12.7C8.96 12.47 9 12.24 9 12C9 11.76 8.96 11.53 8.91 11.3L15.96 7.19C16.5 7.69 17.21 8 18 8C19.66 8 21 6.66 21 5C21 3.34 19.66 2 18 2C16.34 2 15 3.34 15 5C15 5.24 15.04 5.47 15.09 5.7L8.04 9.81C7.5 9.31 6.79 9 6 9C4.34 9 3 10.34 3 12C3 13.66 4.34 15 6 15C6.79 15 7.5 14.69 8.04 14.19L15.16 18.36C15.11 18.57 15.08 18.78 15.08 19C15.08 20.61 16.39 21.92 18 21.92C19.61 21.92 20.92 20.61 20.92 19C20.92 17.39 19.61 16.08 18 16.08Z"></path>
+  </svg></span>
+    </button>
+    <button
+      class="share-button"
+      type="button"
+      aria-label="記事タイトルとリンクをコピー"
+      data-copy-share
+      data-state="idle"
+      data-share-title="買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか"
+      data-share-url="https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html"
+      data-copy-label-default="記事タイトルとリンクをコピー"
+      data-copy-label-success="コピーしました"
+      data-copy-status-success="コピーしました"
+      data-copy-status-error="コピーに失敗しました"
+    >
+      <span class="share-button-icon-stack" aria-hidden="true">
+        <span class="share-button-icon share-button-icon-copy"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M16 1H6C4.9 1 4 1.9 4 3V17H6V3H16V1ZM19 5H10C8.9 5 8 5.9 8 7V21C8 22.1 8.9 23 10 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H10V7H19V21Z"></path>
+  </svg></span>
+        <span class="share-button-icon share-button-icon-success"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+    <path d="M9 16.17L4.83 12L3.41 13.41L9 19L21 7L19.59 5.59L9 16.17Z"></path>
+  </svg></span>
+      </span>
+    </button>
+    <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
+  </section>
+    <section class="article-body"><section class="report-section">
+  <h2>買う商品を薦める仕事から、購入を完了する仕事へ</h2>
+  <p>買い物AIに「雨の日にも使える上着を、送料込みで2万円以内で探して」と頼む。候補を比べるだけなら、説明の質が中心になる。購入まで任せると、サイズ、在庫、配送、税や送料を含む金額、支払い手段、返品条件を確定し、どこまで利用者が許可したかを残す必要がある。会話の中の希望を、販売店と決済サービスが検証できる取引へ変える仕事が加わる。</p>
+  <p><a href="https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/">Googleが1月に発表したUniversal Commerce Protocol（UCP）</a>は、商品発見から購入後の対応までをつなぐ共通仕様として登場した。<a href="https://ucp.dev/documentation/core-concepts/">UCPの現行文書</a>では、販売店が提供する機能を宣言し、アプリやエージェントが対応範囲を見つけて利用する構成が示されている。個々のAIサービスに合わせて販売店が別々の接続を作る負担を減らす狙いだ。</p>
+  <p>筆者は、この変化を「AIが商品を理解する能力」と「取引を実行する権限」をつなぐ試みと捉える。接続の共通化は、同じ購入条件を複数の参加者が扱うための土台になる。ただし、同じ仕様を掲げるだけで、全販売店の決済方法や追加認証が通るわけではない。どの機能と版を双方が扱えるかは、取引ごとに確認しなければならない。</p>
+</section>
+<section class="report-section">
+  <h2>価格と注文の事実は、販売店から受け取る</h2>
+  <p><a href="https://www.agenticcommerce.dev/docs/concepts/architecture">Agentic Commerce Protocol（ACP）の構成</a>では、AI側が希望を読み取り、購入画面を表示し、注文手続きを進める。販売店側は在庫、価格、税、送料、決済処理、商品の発送を管理する。AIが購入の窓口になっても、販売店の既存の処理を置き換える設計ではない。</p>
+  <p><a href="https://www.agenticcommerce.dev/docs/reference/checkout">ACPのCheckout API</a>は、商品の追加や配送方法の変更のたびに、販売店が管理する最新の注文手続きの内容を返す。さらに<a href="https://www.agenticcommerce.dev/docs/concepts/lifecycle">注文手続きの状態</a>には、必要な情報が不足している段階、支払い可能な段階、決済処理中、支払いが成功して注文が作成された段階がある。支払いに失敗すれば、支払い可能な段階へ戻る場合もある。</p>
+  <p>この区別は会話の表示にも効く。「候補が見つかった」「購入条件がそろった」「支払い中」「注文が確定した」は別の事実である。AIの返答が流暢でも、決済処理中に購入完了と言ってはいけない。利用者へ示す金額と完了表示は、販売店や決済側の応答に基づく必要がある。モデルは説明を作れても、取引が成立した事実を自分の文章だけで作れない。</p>
+</section>
+<section class="report-section">
+  <h2>注文への許可と支払いへの許可を結び付ける</h2>
+  <p>販売店が提示した注文内容に対して、誰が何を許可したのか。その証拠を扱うのが<a href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md">Agent Payments Protocol（AP2）の現行v0.2仕様</a>だ。中心になるのは、注文内容の購入を許可するCheckout Mandateと、その注文への支払いを許可するPayment Mandateの二つである。販売店が署名した注文データのハッシュを使い、購入と支払いを同じ注文に結び付ける。</p>
+  <p>AP2は、利用者が同意する画面を、LLMに判断を委ねないTrusted Surfaceとして定義する。許可や制約の検証も、決定的に動くコードで実行するよう求めている。AIが「この支払いは許可された」と説明するだけでは足りず、受け取った側が署名や対象の注文を確認する構成である。</p>
+  <p>ここで確かめられるのは、購入・支払いが許可された条件に対応することだ。利用者に合う商品を選べたか、広告の説明が正確か、商品が約束通り届くかは、署名とは別の問題として残る。筆者は、取引の許可を確認する処理と、商品の適合性を評価する処理を、同じ「AIの信頼性」という言葉でまとめない方がよいと考える。</p>
+</section>
+<section class="report-section">
+  <h2>毎回確認する購入と、条件を先に許可する購入</h2>
+  <p><a href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md">AP2の実行例</a>は、利用者が特定の注文と支払いを直接確認する方式と、許可した条件の中でAIが購入する方式を分ける。後者では、利用者が先に未確定の注文に対する制約を承認し、AIが後から具体的な注文に結び付ける。確認なしで自由に買えるのではなく、先に与えた許可から今回の購入までを追えるようにする。</p>
+  <p><a href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md">Checkout Mandateの文書</a>には許可する販売店や商品・数量の制約があり、<a href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md">Payment Mandateの文書</a>には金額の範囲、通貨、支払先などの制約がある。<a href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md">許可の検証規則</a>では、解釈できない制約を不合格として扱う。分からない条件を読み飛ばして購入してよい、という設計ではない。</p>
+  <p>決済側の具体的な仕組みとして、<a href="https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent">StripeのShared Payment Token（SPT）</a>は、販売店を指定し、通貨、最大金額、有効期限を付けた支払い手段へのアクセスを渡す。追加の本人認証が必要になれば、利用者の操作を待つ状態にもなる。トークンの発行は購入完了を意味しない。また、金額上限は守れても、「雨の日にも使える」という希望を満たすかは、その制限だけでは判断できない。</p>
+  <p>このため、曖昧な希望を具体的な許可へ変換する段階が重要になる。商品候補を利用者に示して許可範囲を狭めるか、仕様として検証できる条件を定めるか。条件にできない好みが残るなら、購入前に確認へ戻す設計が妥当だ。AP2の実行例にも、未解決の制約を理由に利用者の直接確認へ戻す方法が示されている。</p>
+</section>
+<section class="report-section">
+  <h2>送料の変更と応答の遅れを、上着の購入で考える</h2>
+  <p>冒頭の上着を購入する仮想例で、許可の境界を見てみる。利用者が確認した候補は1万8,000円でも、配送先を入れると送料が3,000円になるかもしれない。AIは、商品価格だけを見て予算内だと判断せず、販売店が返した合計を確認する。送料込み2万円という条件を満たさなければ、別の商品を探すか、予算変更を利用者に確認する。</p>
+  <p>すでに特定の注文を確認してもらった後で、サイズ、数量、配送方法、合計額が変わった場合も、同じ許可で処理できると決めつけない。今回の内容が許可した条件に含まれるかを検証する。この例は、すべての変更で確認画面が必要だという意味ではない。先に許可した範囲で自動購入できる場合と、範囲を超えて確認が必要な場合を分けるための例である。</p>
+  <p>決済完了の応答が遅れた場合には、さらに別の判断がある。画面に結果が届かないことと、販売店が注文を作っていないことは同じではない。ACPのAPIには重複処理を防ぐ再試行用の識別子がある。実装では取引の識別子を保ち、現在の注文内容と状態を照会してから再試行する必要がある。利用者には結果が未確定であることを伝え、二重注文を作らずに復旧する経路を用意したい。</p>
+  <p><a href="https://www.agenticcommerce.dev/docs/concepts/capability-negotiation">ACPの対応機能の調整</a>も、この経路に関係する。双方が扱える追加認証や決済方法を確認することで、購入の最後に必要な操作を表示できない事態を早めに見つけられる。共通仕様の価値は、成功時の呼び出しをそろえることに加え、どこで止まり、誰が続きの操作をするかを説明できることにある。</p>
+</section>
+<section class="report-section">
+  <h2>購入後も、約束と実際の出来事を追う</h2>
+  <p>注文が確定しても、買い物は終わらない。<a href="https://ucp.dev/latest/specification/shopping/order/">UCPのOrder仕様</a>は、購入した商品、配送の予定、実際の配送イベント、返品や返金などの注文後の変更を記録する。予定と実際の出来事を別に扱うので、「金曜に届く予定」と「金曜に配送済み」を区別できる。返金の情報も、配送とは独立して扱われる。</p>
+  <p><a href="https://www.agenticcommerce.dev/docs/reference/webhooks">ACPの注文通知</a>では、販売店が署名付きで注文の全体を送信し、購入窓口へ現在の情報を渡す。これは購入後にAIが利用者へ説明するための具体的な接続である。ただし、返品や返金を表現できることから、あらゆる店でAIが返品を自動実行できるとは言えない。対応する操作、店の規則、実際に完了した結果を確認する必要がある。</p>
+  <p>利用者にとっては、何を承認したかと、何が実際に起きたかを同じ注文からたどれることが役立つ。支払いの許可、販売店の注文番号、配送の更新、返金の結果を結び付ければ、会話が途中で終わっても確認先が残る。ここまでつながることで、購入を代行するAIは、購入後の問い合わせにも根拠を持って答えられる。</p>
+</section>
+<section class="report-section">
+  <h2>便利さは、購入完了と復旧までで測る</h2>
+  <p>以上の仕様から、購入を進める部品と許可を検証する部品が具体化していることは確認できる。一方、利用者の時間がどれだけ減るか、選んだ商品への満足が上がるか、返品や確認の負担が減るかは、仕様書だけでは分からない。対応を表明した企業の数も、同じ条件で購入が完了する取引の割合を示すものではない。</p>
+  <p>筆者なら、まず利用者が毎回注文を確認する方式で、既存の購入画面と比較する。送料変更、在庫切れ、追加認証、応答待ち、返品・返金の更新までを含め、誤った完了表示や二重処理、途中で人がやり直した回数を記録する。自動購入は、利用者が理解して許可でき、受け手が機械的に検証できる条件から広げる。成功例だけを数えると、確認と復旧の手間が見えなくなる。</p>
+  <p>買い物AIに必要なのは、希望を理解して薦める力と、その希望から生まれた許可を注文・支払い・購入後の事実へつなぐ仕組みである。UCPとACPは販売店とのやり取りを、AP2は許可の証拠を、SPTは制限付きの支払い手段を具体化している。これらをつないだ後で、利用者が条件を確認しやすく、失敗しても同じ注文から復旧できるかを評価したい。</p>
+</section>
+</section>
+    <section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">テーマハブ</p>
+      <h2 class="panel-title">テーマ別に戻る</h2>
+      <p class="panel-copy">このレポートが属するテーマハブから、同じテーマの公開記事をまとめて追えます。</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">Agentic Commerce</span>
+      <span class="mono-note">記事数: 1</span>
+      <a class="text-link" href="/topics/agentic-commerce/">テーマハブを開く</a>
+    </div>
+  </section>
+    <section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">関連記事</p>
+      <h2 class="panel-title">関連記事</h2>
+      <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/2026-10-11-ai-science-candidate-search-and-experimental-validation.html" aria-label="AIが見つけた酵素システム：候補探索から実験検証へ">
+    <div class="article-card-main">
+      <p class="section-kicker">ひとつ古い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Research</span>
+        <time class="mono-note" datetime="2026-10-11">調査対象日 2026年10月11日</time>
+      </div>
+      <h3 class="article-card-title">AIが見つけた酵素システム：候補探索から実験検証へ</h3>
+      <p class="article-card-copy">AIが候補を広く探せるとき、研究者は何を実験で確かめるか。酵素システム探索と仮説生成の実例から考える。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">AI for Science</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Multi-Agent</span><span class="meta-chip">Research</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 9</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-10-11-ai-security-patches-in-the-development-process.html" aria-label="AIの脆弱性修正を開発工程へ：再現試験から公開まで">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Security</span>
+        <time class="mono-note" datetime="2026-10-11">調査対象日 2026年10月11日</time>
+      </div>
+      <h3 class="article-card-title">AIの脆弱性修正を開発工程へ：再現試験から公開まで</h3>
+      <p class="article-card-copy">Googleの変更ごとの検査、MozillaのFirefox修正、CodeMender、GitHubを比較。PatchBenchの反証も踏まえ、原因の修正と回帰検証を保守担当へ渡す方法、導入効果の測り方を考える。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Security</span><span class="meta-chip">Software Engineering</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 8</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-09-21-jev-decision-api.html" aria-label="LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-09-21">調査対象日 2026年9月21日</time>
+      </div>
+      <h3 class="article-card-title">LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える</h3>
+      <p class="article-card-copy">問い合わせの意味を読む仕事と、請求記録を確かめて処理する仕事。Jevの判断APIは、その分担をどう変えるか。</p>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">Classification</span><span class="meta-chip">AI Architecture</span><span class="meta-chip">Evaluation</span><span class="meta-chip">AI Agent</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 12</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a>
+    </div>
+  </section>
+    <section class="panel-block">
+    <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+      <div>
+        <p class="section-kicker">公開根拠</p>
+        <h2 class="panel-title">公開根拠</h2>
+      </div>
+      <p class="panel-copy max-w-xl md:mt-0">公開ページでは、公式ドキュメントまたは論文として確認できた根拠のみを掲載しています。</p>
+    </div>
+    <div class="mt-6 grid gap-4">
+      <a class="source-row" href="https://ucp.dev/documentation/core-concepts/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">UCP core concepts</p>
+              <p class="source-url">https://ucp.dev/documentation/core-concepts/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://ucp.dev/latest/specification/shopping/order/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">UCP order</p>
+              <p class="source-url">https://ucp.dev/latest/specification/shopping/order/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AP2 v0.2 specification</p>
+              <p class="source-url">https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AP2 agent authorization</p>
+              <p class="source-url">https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AP2 checkout mandate</p>
+              <p class="source-url">https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AP2 payment mandate</p>
+              <p class="source-url">https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">AP2 flow examples</p>
+              <p class="source-url">https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.agenticcommerce.dev/docs/concepts/architecture" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">ACP architecture</p>
+              <p class="source-url">https://www.agenticcommerce.dev/docs/concepts/architecture</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.agenticcommerce.dev/docs/concepts/capability-negotiation" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">ACP capability negotiation</p>
+              <p class="source-url">https://www.agenticcommerce.dev/docs/concepts/capability-negotiation</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.agenticcommerce.dev/docs/concepts/lifecycle" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">ACP lifecycle</p>
+              <p class="source-url">https://www.agenticcommerce.dev/docs/concepts/lifecycle</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.agenticcommerce.dev/docs/reference/checkout" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">ACP checkout reference</p>
+              <p class="source-url">https://www.agenticcommerce.dev/docs/reference/checkout</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://www.agenticcommerce.dev/docs/reference/webhooks" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">ACP webhooks</p>
+              <p class="source-url">https://www.agenticcommerce.dev/docs/reference/webhooks</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Google UCP launch</p>
+              <p class="source-url">https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a><a class="source-row" href="https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent" target="_blank" rel="noopener noreferrer">
+            <div>
+              <div class="meta-row">
+                <span class="source-kind is-official">official</span>
+                
+              </div>
+              <p class="source-title">Stripe shared payment tokens</p>
+              <p class="source-url">https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent</p>
+            </div>
+            <span class="source-action">開く</span>
+          </a>
+    </div>
+  </section>
+    <section class="panel-block article-authorship">
+    <div>
+      <p class="section-kicker">編集・検証</p>
+      <h2 class="panel-title">この記事の編集責任</h2>
+    </div>
+    <div>
+      <p class="panel-copy">Auto Research Digest Editorial Desk が公開根拠を直接確認し、確認できた事実、比較から導く解釈、未解決点を区別して編集しています。</p>
+      <p class="panel-copy mt-3">公開リポジトリの管理者は ymuichiro です。この記事の本文と出典、修正履歴を公開しています。資料から確認できた結果と本稿の解釈は本文で区別し、説明用の想定例にはその旨を記しています。</p>
+      <div class="mt-4 flex flex-wrap gap-x-5 gap-y-3">
+        <a class="text-link" href="/about.html">このサイトについて</a>
+        <a class="text-link" href="/editorial-policy.html">調査・編集方針</a>
+        <a class="text-link" href="https://github.com/ymuichiro" target="_blank" rel="noopener noreferrer">管理者の公開プロフィール</a>
+        <a class="text-link" href="https://github.com/ymuichiro/auto-research-skill/blob/main/content/articles/2026-10-11-agentic-commerce-purchase-and-payment-authorization/body.ja.html" target="_blank" rel="noopener noreferrer">この記事の本文ソース</a>
+        <a class="text-link" href="https://github.com/ymuichiro/auto-research-skill/commits/main/content/articles/2026-10-11-agentic-commerce-purchase-and-payment-authorization" target="_blank" rel="noopener noreferrer">この記事の変更履歴</a>
+      </div>
+    </div>
+  </section>
+  </article>
+        </div>
+      </main>
+      <footer class="footer-panel">
+        <div class="footer-meta">
+          <a class="footer-brand" href="/">AR / Auto Research Digest</a>
+          <p class="footer-copy">AIエージェントと生成AIの業務導入を、一次情報から考える</p>
+        </div>
+        <nav class="footer-links" aria-label="フッターナビゲーション"><a class="footer-link" href="/topics/">トピック</a><a class="footer-link" href="/sitemap.html">サイトマップ</a><a class="footer-link" href="/about.html">このサイトについて</a><a class="footer-link" href="/editorial-policy.html">調査・編集方針</a><a class="footer-link" href="/contact.html">お問い合わせ</a><a class="footer-link" href="/privacy-policy.html">プライバシーポリシー</a><a class="footer-link" href="/terms.html">利用規約</a><a class="footer-link" href="/disclaimer.html">免責事項</a><a class="footer-link" href="/advertising-policy.html">広告掲載方針</a></nav>
+      </footer>
+    </div>
+  </body>
+</html>

@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Oct 2026 02:14:47 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 02:20:47 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Letting shopping agents pay: connecting budgets, orders, and returns</title>
+      <link>https://research.notelligent.app/en/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html</guid>
+      
+      <description>Compare UCP, ACP, AP2 v0.2, and Stripe SPT to understand purchase authorization, budget limits, order updates, returns, and recovery.</description>
+      <category>Agentic Commerce</category>
+    </item>
     <item>
       <title>An enzyme system found by AI: from candidate search to experimental validation</title>
       <link>https://research.notelligent.app/en/2026-10-11-ai-science-candidate-search-and-experimental-validation.html</link>
@@ -157,14 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
       
       <description>Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>Meeting preparation with Cowork: connecting evidence, analysis, and action</title>
-      <link>https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html</guid>
-      
-      <description>Compare Cowork for meeting preparation: context, Excel and PowerPoint, computer use, and changes across artifacts. Include human review when judging value.</description>
       <category>AI Agents</category>
     </item>
   </channel>
