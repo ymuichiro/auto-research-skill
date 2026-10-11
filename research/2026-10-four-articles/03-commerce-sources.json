@@ -1,0 +1,210 @@
+{
+  "topic": "commerce",
+  "cutoff": "2026-10-11",
+  "collection_note": "29 primary URLs collected before drafting. AP2 mandate text was also read from official raw GitHub files after rendered-page timeouts. Scope reflects AP2 v0.2, not the older three-mandate model. Specifications are not evidence of universal adoption or measured consumer benefit.",
+  "sources": [
+    {
+      "label": "UCP overview",
+      "url": "https://ucp.dev/",
+      "type": "official",
+      "role": "Commerce lifecycle and merchant control",
+      "published": false
+    },
+    {
+      "label": "UCP core concepts",
+      "url": "https://ucp.dev/documentation/core-concepts/",
+      "type": "official",
+      "role": "Discovery, shared capabilities and participant roles",
+      "published": true
+    },
+    {
+      "label": "UCP and AP2",
+      "url": "https://ucp.dev/documentation/ucp-and-ap2/",
+      "type": "official",
+      "role": "Complementary commerce and authorization mechanisms",
+      "published": false
+    },
+    {
+      "label": "UCP checkout",
+      "url": "https://ucp.dev/latest/specification/shopping/checkout/",
+      "type": "official",
+      "role": "Checkout contents and completion",
+      "published": false
+    },
+    {
+      "label": "UCP order",
+      "url": "https://ucp.dev/latest/specification/shopping/order/",
+      "type": "official",
+      "role": "Fulfillment expectations, actual events and adjustments",
+      "published": true
+    },
+    {
+      "label": "UCP catalog",
+      "url": "https://ucp.dev/latest/specification/shopping/catalog/",
+      "type": "official",
+      "role": "Product discovery background",
+      "published": false
+    },
+    {
+      "label": "UCP cart",
+      "url": "https://ucp.dev/latest/specification/shopping/cart/",
+      "type": "official",
+      "role": "Cart building background",
+      "published": false
+    },
+    {
+      "label": "UCP identity linking",
+      "url": "https://ucp.dev/latest/specification/common/identity-linking/",
+      "type": "official",
+      "role": "Account linking is distinct from a purchase mandate",
+      "published": false
+    },
+    {
+      "label": "AP2 v0.2 specification",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md",
+      "type": "official",
+      "role": "Two mandates, trusted consent surface, deterministic validation",
+      "published": true
+    },
+    {
+      "label": "AP2 agent authorization",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md",
+      "type": "official",
+      "role": "Open constraints, closed transactions and unknown-constraint rejection",
+      "published": true
+    },
+    {
+      "label": "AP2 checkout mandate",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md",
+      "type": "official",
+      "role": "Allowed merchants and item constraints",
+      "published": true
+    },
+    {
+      "label": "AP2 payment mandate",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md",
+      "type": "official",
+      "role": "Amount, currency, payee and recurrence budget constraints",
+      "published": true
+    },
+    {
+      "label": "AP2 flow examples",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md",
+      "type": "official",
+      "role": "Direct and autonomous authorization; return to human approval",
+      "published": true
+    },
+    {
+      "label": "ACP introduction",
+      "url": "https://www.agenticcommerce.dev/docs",
+      "type": "official",
+      "role": "Common checkout APIs and existing merchant back ends",
+      "published": false
+    },
+    {
+      "label": "ACP architecture",
+      "url": "https://www.agenticcommerce.dev/docs/concepts/architecture",
+      "type": "official",
+      "role": "Seller-controlled price/inventory and delegated tokens",
+      "published": true
+    },
+    {
+      "label": "ACP capability negotiation",
+      "url": "https://www.agenticcommerce.dev/docs/concepts/capability-negotiation",
+      "type": "official",
+      "role": "Mutually supported authentication and payment features",
+      "published": true
+    },
+    {
+      "label": "ACP extensions",
+      "url": "https://www.agenticcommerce.dev/docs/concepts/extensions",
+      "type": "official",
+      "role": "Optional capability interoperability",
+      "published": false
+    },
+    {
+      "label": "ACP lifecycle",
+      "url": "https://www.agenticcommerce.dev/docs/concepts/lifecycle",
+      "type": "official",
+      "role": "In-progress payment differs from completed order",
+      "published": true
+    },
+    {
+      "label": "ACP security",
+      "url": "https://www.agenticcommerce.dev/docs/concepts/security",
+      "type": "official",
+      "role": "Bearer authentication is not product suitability evidence",
+      "published": false
+    },
+    {
+      "label": "ACP checkout reference",
+      "url": "https://www.agenticcommerce.dev/docs/reference/checkout",
+      "type": "official",
+      "role": "Authoritative checkout state and safe retries",
+      "published": true
+    },
+    {
+      "label": "ACP delegated payment",
+      "url": "https://www.agenticcommerce.dev/docs/reference/payments",
+      "type": "official",
+      "role": "Constrained payment token model",
+      "published": false
+    },
+    {
+      "label": "ACP webhooks",
+      "url": "https://www.agenticcommerce.dev/docs/reference/webhooks",
+      "type": "official",
+      "role": "Merchant-signed full order updates",
+      "published": true
+    },
+    {
+      "label": "ACP quickstart",
+      "url": "https://www.agenticcommerce.dev/docs/getting-started/quickstart",
+      "type": "official",
+      "role": "Implementation background",
+      "published": false
+    },
+    {
+      "label": "ACP sellers",
+      "url": "https://www.agenticcommerce.dev/docs/getting-started/sellers",
+      "type": "official",
+      "role": "Seller integration background",
+      "published": false
+    },
+    {
+      "label": "ACP changelog",
+      "url": "https://www.agenticcommerce.dev/docs/changelog",
+      "type": "official",
+      "role": "Changing protocol coverage",
+      "published": false
+    },
+    {
+      "label": "Google UCP launch",
+      "url": "https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/",
+      "type": "official",
+      "role": "January launch context and merchant of record",
+      "published": true
+    },
+    {
+      "label": "Stripe commerce suite",
+      "url": "https://stripe.com/use-cases/agentic-commerce",
+      "type": "official",
+      "role": "Product context and geographic distinction",
+      "published": false
+    },
+    {
+      "label": "Stripe commerce documentation",
+      "url": "https://docs.stripe.com/agentic-commerce",
+      "type": "official",
+      "role": "UCP/ACP support and agent private preview",
+      "published": false
+    },
+    {
+      "label": "Stripe shared payment tokens",
+      "url": "https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent",
+      "type": "official",
+      "role": "Seller scope, amount, currency, expiry and customer action",
+      "published": true
+    }
+  ]
+}

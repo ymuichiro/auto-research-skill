@@ -1,0 +1,130 @@
+[
+  {
+    "lang": "ja",
+    "name": "desktop",
+    "title": "買い物AIの注文と決済：UCP・ACP・AP2の役割と許可 | Auto Research Digest",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "h1": "買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか",
+    "canonical": "https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html",
+    "hreflang": [
+      "ja",
+      "en",
+      "x-default"
+    ],
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/",
+      "https://ucp.dev/documentation/core-concepts/",
+      "https://www.agenticcommerce.dev/docs/concepts/architecture",
+      "https://www.agenticcommerce.dev/docs/reference/checkout",
+      "https://www.agenticcommerce.dev/docs/concepts/lifecycle",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md",
+      "https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent",
+      "https://www.agenticcommerce.dev/docs/concepts/capability-negotiation",
+      "https://ucp.dev/latest/specification/shopping/order/",
+      "https://www.agenticcommerce.dev/docs/reference/webhooks"
+    ]
+  },
+  {
+    "lang": "ja",
+    "name": "mobile",
+    "title": "買い物AIの注文と決済：UCP・ACP・AP2の役割と許可 | Auto Research Digest",
+    "width": 390,
+    "scrollWidth": 390,
+    "h1": "買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか",
+    "canonical": "https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html",
+    "hreflang": [
+      "ja",
+      "en",
+      "x-default"
+    ],
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/",
+      "https://ucp.dev/documentation/core-concepts/",
+      "https://www.agenticcommerce.dev/docs/concepts/architecture",
+      "https://www.agenticcommerce.dev/docs/reference/checkout",
+      "https://www.agenticcommerce.dev/docs/concepts/lifecycle",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md",
+      "https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent",
+      "https://www.agenticcommerce.dev/docs/concepts/capability-negotiation",
+      "https://ucp.dev/latest/specification/shopping/order/",
+      "https://www.agenticcommerce.dev/docs/reference/webhooks"
+    ]
+  },
+  {
+    "lang": "en",
+    "name": "desktop",
+    "title": "Shopping-agent payments: UCP, ACP, AP2, and authorization | Auto Research Digest EN",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "h1": "Letting shopping agents pay: connecting budgets, orders, and returns",
+    "canonical": "https://research.notelligent.app/en/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html",
+    "hreflang": [
+      "en",
+      "ja",
+      "x-default"
+    ],
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/",
+      "https://ucp.dev/documentation/core-concepts/",
+      "https://www.agenticcommerce.dev/docs/concepts/architecture",
+      "https://www.agenticcommerce.dev/docs/reference/checkout",
+      "https://www.agenticcommerce.dev/docs/concepts/lifecycle",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md",
+      "https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent",
+      "https://www.agenticcommerce.dev/docs/concepts/capability-negotiation",
+      "https://ucp.dev/latest/specification/shopping/order/",
+      "https://www.agenticcommerce.dev/docs/reference/webhooks"
+    ]
+  },
+  {
+    "lang": "en",
+    "name": "mobile",
+    "title": "Shopping-agent payments: UCP, ACP, AP2, and authorization | Auto Research Digest EN",
+    "width": 390,
+    "scrollWidth": 390,
+    "h1": "Letting shopping agents pay: connecting budgets, orders, and returns",
+    "canonical": "https://research.notelligent.app/en/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html",
+    "hreflang": [
+      "en",
+      "ja",
+      "x-default"
+    ],
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/",
+      "https://ucp.dev/documentation/core-concepts/",
+      "https://www.agenticcommerce.dev/docs/concepts/architecture",
+      "https://www.agenticcommerce.dev/docs/reference/checkout",
+      "https://www.agenticcommerce.dev/docs/concepts/lifecycle",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md",
+      "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md",
+      "https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent",
+      "https://www.agenticcommerce.dev/docs/concepts/capability-negotiation",
+      "https://ucp.dev/latest/specification/shopping/order/",
+      "https://www.agenticcommerce.dev/docs/reference/webhooks"
+    ]
+  }
+]

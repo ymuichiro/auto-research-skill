@@ -1,0 +1,27 @@
+{
+  "checked_at": "2026-10-11T02:15:25.494Z",
+  "passed": false,
+  "results": [
+    {
+      "url": "https://research.notelligent.app/",
+      "status": 200,
+      "sha256": "d666dd414865b0acc76fa3353ace50af0f72e6a463fe690329ca31df58402a11",
+      "expected_sha256": "43c447f5ebb906e47c46fc513664d728caf4c128d1708f74d6f17a42d4ff1507",
+      "ok": false
+    },
+    {
+      "url": "https://research.notelligent.app/2026-10-11-ai-security-patches-in-the-development-process.html",
+      "status": 404,
+      "sha256": "c6966ce1c1b6590bb37d6e91c6db54fe67ac8c2d20335c64f605cc7b330de995",
+      "expected_sha256": "04d04ebc98f4511ed9e1d018ff2d241ae5ad9a2c32d5e12c44bb3944c59158e5",
+      "ok": false
+    },
+    {
+      "url": "https://research.notelligent.app/en/2026-10-11-ai-security-patches-in-the-development-process.html",
+      "status": 404,
+      "sha256": "c6966ce1c1b6590bb37d6e91c6db54fe67ac8c2d20335c64f605cc7b330de995",
+      "expected_sha256": "a76e79efd060b15ef2b9303187db5ad0e47c2a48b52d6d0c3915c4ea6974e7b9",
+      "ok": false
+    }
+  ]
+}

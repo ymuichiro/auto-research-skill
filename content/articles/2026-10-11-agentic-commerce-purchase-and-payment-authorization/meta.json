@@ -1,0 +1,94 @@
+{
+  "slug": "agentic-commerce-purchase-and-payment-authorization",
+  "date": "2026-10-11",
+  "titleJa": "買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか",
+  "titleEn": "Letting shopping agents pay: connecting budgets, orders, and returns",
+  "summaryJa": "UCP、ACP、AP2 v0.2とStripeの支払いトークンを比較。商品の希望を注文・支払いの許可へ変え、送料変更、追加認証、応答待ち、返品まで同じ取引から追う方法を考える。",
+  "summaryEn": "Compare UCP, ACP, AP2 v0.2, and Stripe payment tokens. Follow preferences into authorized purchases, changing totals, authentication, delayed responses, delivery, and returns.",
+  "seoTitleJa": "買い物AIの注文と決済：UCP・ACP・AP2の役割と許可",
+  "seoTitleEn": "Shopping-agent payments: UCP, ACP, AP2, and authorization",
+  "seoDescriptionJa": "UCP、ACP、AP2 v0.2、StripeのSPTから、買い物AIの注文・支払いの許可、予算制限、配送と返品、失敗時の復旧を考える。",
+  "seoDescriptionEn": "Compare UCP, ACP, AP2 v0.2, and Stripe SPT to understand purchase authorization, budget limits, order updates, returns, and recovery.",
+  "category": "Agentic Commerce",
+  "tags": [
+    "AI Agent",
+    "Commerce",
+    "Payments",
+    "UCP",
+    "ACP",
+    "AP2"
+  ],
+  "publishedSources": [
+    {
+      "label": "UCP core concepts",
+      "url": "https://ucp.dev/documentation/core-concepts/",
+      "type": "official"
+    },
+    {
+      "label": "UCP order",
+      "url": "https://ucp.dev/latest/specification/shopping/order/",
+      "type": "official"
+    },
+    {
+      "label": "AP2 v0.2 specification",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/specification.md",
+      "type": "official"
+    },
+    {
+      "label": "AP2 agent authorization",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/agent_authorization.md",
+      "type": "official"
+    },
+    {
+      "label": "AP2 checkout mandate",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/checkout_mandate.md",
+      "type": "official"
+    },
+    {
+      "label": "AP2 payment mandate",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/payment_mandate.md",
+      "type": "official"
+    },
+    {
+      "label": "AP2 flow examples",
+      "url": "https://github.com/google-agentic-commerce/AP2/blob/main/docs/ap2/flows.md",
+      "type": "official"
+    },
+    {
+      "label": "ACP architecture",
+      "url": "https://www.agenticcommerce.dev/docs/concepts/architecture",
+      "type": "official"
+    },
+    {
+      "label": "ACP capability negotiation",
+      "url": "https://www.agenticcommerce.dev/docs/concepts/capability-negotiation",
+      "type": "official"
+    },
+    {
+      "label": "ACP lifecycle",
+      "url": "https://www.agenticcommerce.dev/docs/concepts/lifecycle",
+      "type": "official"
+    },
+    {
+      "label": "ACP checkout reference",
+      "url": "https://www.agenticcommerce.dev/docs/reference/checkout",
+      "type": "official"
+    },
+    {
+      "label": "ACP webhooks",
+      "url": "https://www.agenticcommerce.dev/docs/reference/webhooks",
+      "type": "official"
+    },
+    {
+      "label": "Google UCP launch",
+      "url": "https://blog.google/products/ads-commerce/agentic-commerce-ai-tools-protocol-retailers-platforms/",
+      "type": "official"
+    },
+    {
+      "label": "Stripe shared payment tokens",
+      "url": "https://docs.stripe.com/agentic-commerce/concepts/shared-payment-tokens.md?agent-seller=agent",
+      "type": "official"
+    }
+  ],
+  "draft": false
+}
