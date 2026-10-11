@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 11 Oct 2026 02:07:38 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 02:14:47 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>AIが見つけた酵素システム：候補探索から実験検証へ</title>
@@ -14,6 +14,14 @@
       
       <description>AnthropicのARTとGoogle Co-Scientistを比較。候補探索、仮説選別、実験検証を分け、AIによる科学研究の成果と再現性・費用を考える。</description>
       <category>AI Research</category>
+    </item>
+    <item>
+      <title>AIの脆弱性修正を開発工程へ：再現試験から公開まで</title>
+      <link>https://research.notelligent.app/2026-10-11-ai-security-patches-in-the-development-process.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-10-11-ai-security-patches-in-the-development-process.html</guid>
+      
+      <description>Google、Mozilla、GitHubの事例とPatchBenchから、AIの脆弱性発見を原因の修正、回帰検証、公開へつなぐ開発工程を考える。</description>
+      <category>AI Security</category>
     </item>
     <item>
       <title>LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える</title>
@@ -158,14 +166,6 @@
       
       <description>Coworkの会議準備を、業務情報への接続、ExcelとPowerPointの整合、画面操作、変更の波及から分析。人の確認と修正を含む価値を考える。</description>
       <category>AI Agents</category>
-    </item>
-    <item>
-      <title>生成AIのチャットUIに、いつ編集や計画の画面を足すか</title>
-      <link>https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/2026-03-24-why-ai-products-converge-on-chat-ui.html</guid>
-      
-      <description>生成AIのチャットUIとCanvas、Pages、Artifactsを比較。Cocoaの同一モデルによる評価とKeyhole Effectの理論を区別し、部分編集、共同作業、計画、定型フォームを足す条件を分析する。</description>
-      <category>AI Strategy</category>
     </item>
   </channel>
 </rss>
