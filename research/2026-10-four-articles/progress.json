@@ -1,0 +1,37 @@
+{
+  "requested_order": [
+    "science",
+    "security",
+    "commerce",
+    "on-device"
+  ],
+  "research_cutoff": "2026-10-11",
+  "publication_authorized": true,
+  "articles": [
+    {
+      "order": 1,
+      "topic": "science",
+      "slug": "ai-science-candidate-search-and-experimental-validation",
+      "status": "validated"
+    },
+    {
+      "order": 2,
+      "topic": "security",
+      "slug": "ai-security-patches-in-the-development-process",
+      "status": "pending"
+    },
+    {
+      "order": 3,
+      "topic": "commerce",
+      "slug": "agentic-commerce-purchase-and-payment-authorization",
+      "status": "pending"
+    },
+    {
+      "order": 4,
+      "topic": "on-device",
+      "slug": "on-device-llms-as-native-app-features",
+      "status": "pending"
+    }
+  ],
+  "evidence_boundary": "Complete one bilingual article and its publication checks before the next. Public delivery does not establish Google indexing. Unrelated working files are preserved."
+}

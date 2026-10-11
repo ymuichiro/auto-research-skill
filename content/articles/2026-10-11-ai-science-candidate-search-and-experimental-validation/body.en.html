@@ -1,0 +1,57 @@
+<section class="report-section">
+  <h2>A known enzyme had overlooked clues next to it</h2>
+  <p>DNA databases contain genes whose existence is recorded but whose functions remain poorly understood. Scientists compare them with known proteins and examine neighboring genes for clues to unfamiliar systems. Reading a large collection and identifying a difference worth testing are separate achievements.</p>
+  <p><a href="https://www.anthropic.com/news/claude-discovers-novel-enzyme-system" target="_blank" rel="noopener noreferrer">Anthropic’s September 23 report</a> makes that distinction concrete. The reverse transcriptase, an enzyme that copies RNA into DNA, that attracted Claude’s attention was already known. The newly recognized features involved nearby DNA repeats and an accessory protein forming an associated system. Anthropic calls it ART and continues to investigate its function.</p>
+  <p>For research adoption, asking whether AI has become a scientist is insufficient. <strong>When AI widens the candidate search, how efficiently does it narrow the results into hypotheses people can test?</strong> This article compares sequence search, literature-based hypothesis generation, instrument-connected experiments, and research evaluation. Our judgment is that the handoff into verification should be measured as part of the research outcome.</p>
+</section>
+
+<section class="report-section">
+  <h2>What the ART search automated, and what remains unresolved</h2>
+  <p>Anthropic reports that Claude collected more than 200,000 reverse transcriptases, selected 3,500 candidate systems, and analyzed 20 in detail. Approximately 950 agents spent 21 hours and 210 million tokens on the search. These are company-reported figures, not counts of experimentally confirmed candidates.</p>
+  <p>Initial ART experiments showed that the repeat array produces short RNAs. The company also states that the primary function remains unknown and that human scientists perform all laboratory work. An observation that repeats resemble CRISPR cannot be treated as a completed gene-editing technology.</p>
+  <p>That distinction does not diminish the contribution of identifying an overlooked system. Exploring the neighborhood of a known enzyme can change what scientists investigate. But the report they receive must distinguish established facts, newly observed relationships, proposed functions, and unresolved questions. Persuasiveness alone does not tell them which experiment to choose.</p>
+</section>
+
+<section class="report-section">
+  <h2>Co-Scientist compares hypotheses before experimental selection</h2>
+  <p>Where the ART search identifies unusual combinations in sequence data, Google’s <a href="https://www.nature.com/articles/s41586-026-10644-y" target="_blank" rel="noopener noreferrer">Co-Scientist paper</a> describes generating hypotheses from research objectives and existing literature, then repeatedly critiquing, ranking, and refining them. Scientists provide objectives and constraints and can redirect the work. Comparisons between agents are a selection stage before experiments.</p>
+  <p>The paper examines drug repurposing, novel treatment targets, and mechanisms of antimicrobial resistance. It reports in vitro validation of drug candidates and combinations for acute myeloid leukemia. These cases cross from judging a written hypothesis into checking it against external observations. Results in cells do not establish clinical effectiveness in people.</p>
+  <p>Both approaches separate candidate creation from the work that adds evidence for adoption. Their entry points differ: relationships in sequence data versus hypotheses connecting existing knowledge. A research institution’s choice should depend on whether its clues sit in insufficiently explored data or whether it needs explanations and experimental proposals spanning the literature.</p>
+  <p>Co-Scientist’s authors identify missing access to paywalled literature and negative results, source quality, hallucinations, and preliminary validation as limitations. A high internal ranking can incorporate gaps in the material searched. Our interpretation is that rankings should travel with a record of both their supporting material and important material that was unavailable.</p>
+</section>
+
+<section class="report-section">
+  <h2>Instrument-connected autonomy and computational autonomy differ</h2>
+  <p>Obtaining external observations requires translating a hypothesis into experimental work. <a href="https://www.nature.com/articles/s41586-023-06792-0" target="_blank" rel="noopener noreferrer">Coscientist research</a> demonstrated tasks involving chemical information, hardware documentation, cloud laboratories, and liquid-handling instruments. <a href="https://www.nature.com/articles/s42256-024-00832-8" target="_blank" rel="noopener noreferrer">ChemCrow</a> connected chemistry tools to an LLM and examined tasks including synthesis with expert evaluation. Instruments and specialized tools connect language generation to externally testable actions.</p>
+  <p>A computational environment can let the same agent take responsibility for more of the experiment. <a href="https://arxiv.org/abs/2504.08066" target="_blank" rel="noopener noreferrer">The AI Scientist-v2</a> connects hypotheses, computational experiments, analysis, and manuscript generation. Its authors report submitting three manuscripts to an ICLR workshop, with one exceeding the acceptance threshold. This demonstrates an integrated computational research process; it does not establish automation of all laboratory work or biological validation.</p>
+  <div class="comparison-grid">
+    <article class="comparison-card"><h3>ART search</h3><p>Select candidates and relationships in sequences. External checks concern associated-system features and biological function.</p></article>
+    <article class="comparison-card"><h3>Co-Scientist</h3><p>Generate and compare literature-based hypotheses. Check experimental results and reproducibility externally.</p></article>
+    <article class="comparison-card"><h3>Chemistry tools and instruments</h3><p>Connect investigation to protocols and operations. Verify actual reactions and measurements.</p></article>
+    <article class="comparison-card"><h3>AI Scientist-v2</h3><p>Connect computational experiments and writing. Check execution results, research validity, and peer review.</p></article>
+  </div>
+  <p>This is not a performance ranking. Equipment, samples, data, and assessment methods differ, so systems described as autonomous take responsibility for different work. Adoption requires mapping what AI can operate and what the responsible scientist must verify onto the institution’s own process.</p>
+</section>
+
+<section class="report-section">
+  <h2>Measure knowledge, executed analysis, and discovery separately</h2>
+  <p>The differences also appear in evaluation. <a href="https://arxiv.org/abs/2407.10362" target="_blank" rel="noopener noreferrer">LAB-Bench</a> uses multiple-choice questions to assess biology research skills involving literature, figures, databases, and sequences. <a href="https://arxiv.org/abs/2503.00096" target="_blank" rel="noopener noreferrer">BixBench</a> tests analysis of biological data and interpretation through open answers. Answering the former correctly and completing the latter’s analysis are different outcomes.</p>
+  <p><a href="https://arxiv.org/abs/2410.05080" target="_blank" rel="noopener noreferrer">ScienceAgentBench</a> extracts 102 tasks from 44 peer-reviewed papers and assesses programs, execution results, and costs. <a href="https://arxiv.org/abs/2504.01848" target="_blank" rel="noopener noreferrer">PaperBench</a> evaluates replication of existing AI research through code development and experimental execution, using rubrics developed with original authors. Both provide ways to assess completion beyond a plausible explanation.</p>
+  <p>These evaluations neither disprove the ART finding nor reduce current model capability to one score. Their models, attempts, tools, and disciplines differ. The transferable idea is to distinguish answering a knowledge question, executing analysis, reproducing an established result, and validating a new hypothesis.</p>
+  <p>Giving a candidate-search agent established results to reproduce can check whether its methods meet basic conditions. That still does not establish that a new candidate is correct. Recording method checks and hypothesis checks separately makes failures easier to investigate.</p>
+</section>
+
+<section class="report-section">
+  <h2>Count experimental and review work when expanding the search</h2>
+  <p>To evaluate adoption, compare the normal human procedure, existing search and analysis tools, and an AI-assisted procedure under the same data, research objective, time, and cost conditions. This is our proposed evaluation method, not an experiment this publication performed on ART or Co-Scientist. For some tasks, a fixed analysis program is a cheaper and more traceable baseline.</p>
+  <p>Record candidates, duplicates, previously known findings, rejection reasons, and candidates advanced to experiments. More candidates do not accelerate the whole process if they expand the expert-review queue or the laboratory backlog. Conversely, narrowing a search to useful candidates without more experiments can have value even with a smaller output count.</p>
+  <p>Time should include source checking, protocol corrections, experimental waiting, and repeated experiments. Cost should include expert review and laboratory materials as well as inference and computation. The reported 21 hours and token count describe the search’s scale; they do not determine the return on the entire research process.</p>
+  <p>For tested candidates, retain results that support the initial hypothesis and results that require another explanation. Without negative findings and revised hypotheses feeding back into later searches, AI may repeatedly offer appealing proposals that people must reject again. We judge reusable rejection evidence to be part of making large-scale hypothesis generation useful.</p>
+</section>
+
+<section class="report-section">
+  <h2>Make discovery reports useful for choosing the next experiment</h2>
+  <p>The ART search shows that scientists can receive unusual combinations as research targets without personally following every sequence. Co-Scientist offers another way to compare hypotheses connecting prior knowledge. In both cases, work that establishes research value continues after the AI finishes its report.</p>
+  <p>We favor starting with candidate search within one protein family or comparisons of explanations for a narrowly defined phenomenon. Clear inputs, established checks, experiments, and responsible reviewers let the same record show whether broader search outweighs additional verification work. Missing literature and unknown functions belong in that record.</p>
+  <p><strong>Evaluating AI research as progress requires following generated hypotheses into observations that support, revise, or reject them, and identifying who performed those checks.</strong> ART’s continuing functional investigation illustrates that distinction. Connecting a discovery announcement to a report that helps choose the next experiment makes broad AI exploration usable within scientists’ limited time and equipment.</p>
+</section>

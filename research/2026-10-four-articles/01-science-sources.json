@@ -1,0 +1,174 @@
+{
+  "cutoff": "2026-10-11",
+  "inventory_count": 21,
+  "sources": [
+    {
+      "label": "Anthropic: Claude discovers a novel enzyme system",
+      "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+      "type": "official",
+      "role": "ART case, selection, human experiments and unresolved function",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Accelerating scientific discovery with Co-Scientist",
+      "url": "https://www.nature.com/articles/s41586-026-10644-y",
+      "type": "paper",
+      "role": "Hypothesis ranking, experimental validation and literature limits",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Co-Scientist: A multi-agent AI partner to accelerate research",
+      "url": "https://deepmind.google/blog/co-scientist-a-multi-agent-ai-partner-to-accelerate-research/",
+      "type": "official",
+      "role": "Product context and research release",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Towards an AI co-scientist",
+      "url": "https://arxiv.org/abs/2502.18864",
+      "type": "paper",
+      "role": "Original design and revision provenance",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Accelerating Scientific Research with Gemini in the Real-World",
+      "url": "https://arxiv.org/abs/2608.26701",
+      "type": "paper",
+      "role": "Broader experimental integration and remaining structural confirmation",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Autonomous chemical research with large language models",
+      "url": "https://www.nature.com/articles/s41586-023-06792-0",
+      "type": "paper",
+      "role": "Coscientist instrument and cloud laboratory connection",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Augmenting large language models with chemistry tools",
+      "url": "https://www.nature.com/articles/s42256-024-00832-8",
+      "type": "paper",
+      "role": "ChemCrow domain tools and expert evaluation",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search",
+      "url": "https://arxiv.org/abs/2504.08066",
+      "type": "paper",
+      "role": "Computational research autonomy versus wet-lab validation",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "LAB-Bench: Measuring Capabilities of Language Models for Biology Research",
+      "url": "https://arxiv.org/abs/2407.10362",
+      "type": "paper",
+      "role": "Research skills as multiple-choice evaluation",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "ScienceAgentBench",
+      "url": "https://arxiv.org/abs/2410.05080",
+      "type": "paper",
+      "role": "Executable scientific tasks and cost",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "BixBench",
+      "url": "https://arxiv.org/abs/2503.00096",
+      "type": "paper",
+      "role": "Open-answer analysis of biological data",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "PaperBench",
+      "url": "https://arxiv.org/abs/2504.01848",
+      "type": "paper",
+      "role": "Research replication with author-developed rubrics",
+      "public": true,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "SciAgentGym",
+      "url": "https://arxiv.org/abs/2602.12984",
+      "type": "paper",
+      "role": "Multi-step scientific tool-use comparison",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "The AI Scientist: Towards Fully Automated Open-Ended Scientific Discovery",
+      "url": "https://arxiv.org/abs/2408.06292",
+      "type": "paper",
+      "role": "Original computational experimentation baseline",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Towards end-to-end automation of AI research",
+      "url": "https://www.nature.com/articles/s41586-026-10265-5",
+      "type": "paper",
+      "role": "Peer-reviewed version of computational research architecture",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Sakana AI: The AI Scientist, now published in Nature",
+      "url": "https://sakana.ai/ai-scientist-nature/",
+      "type": "official",
+      "role": "Publication history and limits",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Sakana AI: The AI Scientist",
+      "url": "https://sakana.ai/ai-scientist/",
+      "type": "official",
+      "role": "Original template-based system behavior",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "SakanaAI/AI-Scientist-v2",
+      "url": "https://github.com/SakanaAI/AI-Scientist-v2",
+      "type": "official",
+      "role": "Implementation of experimentation and manuscript generation",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "SakanaAI/AI-Scientist",
+      "url": "https://github.com/SakanaAI/AI-Scientist",
+      "type": "official",
+      "role": "Baseline templates and all-run release",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Google Research: Accelerating scientific breakthroughs with an AI co-scientist",
+      "url": "https://research.google/blog/accelerating-scientific-breakthroughs-with-an-ai-co-scientist/",
+      "type": "official",
+      "role": "Original biological collaboration and goal-setting",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    },
+    {
+      "label": "Risks of AI scientists: prioritizing safeguarding over autonomy",
+      "url": "https://www.nature.com/articles/s41467-025-63913-1",
+      "type": "paper",
+      "role": "Counterargument on autonomy and oversight",
+      "public": false,
+      "verification": "Primary page or primary indexed abstract reviewed with web tools on 2026-10-11; public items verified in full page or abstract."
+    }
+  ]
+}

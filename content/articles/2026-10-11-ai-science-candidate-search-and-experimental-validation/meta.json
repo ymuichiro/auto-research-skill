@@ -1,0 +1,70 @@
+{
+  "slug": "ai-science-candidate-search-and-experimental-validation",
+  "date": "2026-10-11",
+  "titleJa": "AIが見つけた酵素システム：候補探索から実験検証へ",
+  "titleEn": "An enzyme system found by AI: from candidate search to experimental validation",
+  "summaryJa": "AnthropicのART探索、GoogleのCo-Scientist、化学実験と研究評価を比較する。大量の候補から検証可能な仮説へ絞る仕事を追い、発見の新しさ、人の実験、再現性、費用から科学研究への導入を考える。",
+  "summaryEn": "Compare Anthropic’s ART search, Google’s Co-Scientist, chemistry systems, and research benchmarks. Follow candidates into testable hypotheses and examine novelty, human experiments, reproducibility, and cost.",
+  "seoTitleJa": "AIの科学研究：酵素発見とCo-Scientistの実験検証",
+  "seoTitleEn": "AI for science: enzyme discovery and experimental validation",
+  "seoDescriptionJa": "AnthropicのARTとGoogle Co-Scientistを比較。候補探索、仮説選別、実験検証を分け、AIによる科学研究の成果と再現性・費用を考える。",
+  "seoDescriptionEn": "Compare ART and Co-Scientist to distinguish candidate search, hypothesis selection, experimental validation, reproducibility, and research cost.",
+  "teaserJa": "AIが候補を広く探せるとき、研究者は何を実験で確かめるか。酵素システム探索と仮説生成の実例から考える。",
+  "teaserEn": "When AI searches more candidates, which ones should scientists test? Enzyme discovery and hypothesis-generation systems offer different answers.",
+  "category": "AI Research",
+  "tags": [
+    "AI Agent",
+    "AI for Science",
+    "Evaluation",
+    "Multi-Agent",
+    "Research"
+  ],
+  "publishedSources": [
+    {
+      "label": "Anthropic: Claude discovers a novel enzyme system",
+      "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+      "type": "official"
+    },
+    {
+      "label": "Accelerating scientific discovery with Co-Scientist",
+      "url": "https://www.nature.com/articles/s41586-026-10644-y",
+      "type": "paper"
+    },
+    {
+      "label": "Autonomous chemical research with large language models",
+      "url": "https://www.nature.com/articles/s41586-023-06792-0",
+      "type": "paper"
+    },
+    {
+      "label": "Augmenting large language models with chemistry tools",
+      "url": "https://www.nature.com/articles/s42256-024-00832-8",
+      "type": "paper"
+    },
+    {
+      "label": "The AI Scientist-v2: Workshop-Level Automated Scientific Discovery via Agentic Tree Search",
+      "url": "https://arxiv.org/abs/2504.08066",
+      "type": "paper"
+    },
+    {
+      "label": "LAB-Bench: Measuring Capabilities of Language Models for Biology Research",
+      "url": "https://arxiv.org/abs/2407.10362",
+      "type": "paper"
+    },
+    {
+      "label": "ScienceAgentBench",
+      "url": "https://arxiv.org/abs/2410.05080",
+      "type": "paper"
+    },
+    {
+      "label": "BixBench",
+      "url": "https://arxiv.org/abs/2503.00096",
+      "type": "paper"
+    },
+    {
+      "label": "PaperBench",
+      "url": "https://arxiv.org/abs/2504.01848",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}
