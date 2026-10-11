@@ -1,0 +1,189 @@
+{
+  "topic": "on-device",
+  "cutoff": "2026-10-11",
+  "collection_note": "26 primary URLs collected before drafting. Apple core documentation was reviewed through official Markdown endpoints after HTML returned JS shells. API availability is verified separately from model-family announcements. No device performance experiment was performed for this article.",
+  "sources": [
+    {
+      "label": "Apple Foundation Models framework",
+      "url": "https://developer.apple.com/foundation-models-framework/",
+      "type": "official",
+      "role": "Native Swift API, on-device/cloud models and Dynamic Profiles",
+      "published": true
+    },
+    {
+      "label": "Apple third-generation foundation models",
+      "url": "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+      "type": "official",
+      "role": "Different total/active parameter architectures; announcement not API entitlement",
+      "published": true
+    },
+    {
+      "label": "Apple generation and availability",
+      "url": "https://developer.apple.com/documentation/foundationmodels/generating-content-and-performing-tasks-with-foundation-models",
+      "type": "official",
+      "role": "Supported tasks, model readiness and fallback",
+      "published": true
+    },
+    {
+      "label": "Apple language support",
+      "url": "https://developer.apple.com/documentation/foundationmodels/supporting-languages-and-locales-with-foundation-models",
+      "type": "official",
+      "role": "Runtime locale support differs from task accuracy",
+      "published": true
+    },
+    {
+      "label": "Apple guided generation",
+      "url": "https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation",
+      "type": "official",
+      "role": "Swift types and constrained output shape",
+      "published": true
+    },
+    {
+      "label": "Apple tool calling",
+      "url": "https://developer.apple.com/documentation/foundationmodels/expanding-generation-with-tool-calling",
+      "type": "official",
+      "role": "External code and side effects; local inference does not constrain tool paths",
+      "published": true
+    },
+    {
+      "label": "WWDC26 framework updates",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/241/",
+      "type": "official",
+      "role": "Model abstraction and native integration background",
+      "published": false
+    },
+    {
+      "label": "WWDC26 Evaluations",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/298/",
+      "type": "official",
+      "role": "Feature datasets, metrics and model judges",
+      "published": true
+    },
+    {
+      "label": "WWDC26 evaluation iteration",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/335/",
+      "type": "official",
+      "role": "Judge/human drift and comparative evaluation",
+      "published": false
+    },
+    {
+      "label": "WWDC26 Private Cloud Compute",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/319/",
+      "type": "official",
+      "role": "Task-based model choice and fallback",
+      "published": false
+    },
+    {
+      "label": "WWDC26 profiling",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/243/",
+      "type": "official",
+      "role": "Prompt processing, generation, tool loops and total latency",
+      "published": true
+    },
+    {
+      "label": "Apple structured content tutorial",
+      "url": "https://developer.apple.com/tutorials/develop-in-swift/generate-structured-content",
+      "type": "official",
+      "role": "Native feature example background",
+      "published": false
+    },
+    {
+      "label": "Apple intelligent app example",
+      "url": "https://developer.apple.com/documentation/foundationmodels/adding-intelligent-app-features-with-generative-models",
+      "type": "official",
+      "role": "Structured app content with tools",
+      "published": false
+    },
+    {
+      "label": "Apple Generative AI design",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/generative-ai/",
+      "type": "official",
+      "role": "Design discovery only; no claims from JS shell",
+      "published": false
+    },
+    {
+      "label": "Android Gemini Nano",
+      "url": "https://developer.android.com/ai/gemini-nano",
+      "type": "official",
+      "role": "Platform integration background",
+      "published": false
+    },
+    {
+      "label": "ML Kit GenAI overview",
+      "url": "https://developers.google.com/ml-kit/genai",
+      "type": "official",
+      "role": "Shared AICore model, hardware versions, foreground and battery quota",
+      "published": true
+    },
+    {
+      "label": "ML Kit Prompt API",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android",
+      "type": "official",
+      "role": "Custom tasks versus fine-tuned feature APIs; beta",
+      "published": true
+    },
+    {
+      "label": "ML Kit Summarization",
+      "url": "https://developers.google.com/ml-kit/genai/summarization/android",
+      "type": "official",
+      "role": "One-to-three bullets, Japanese support and feature readiness",
+      "published": true
+    },
+    {
+      "label": "ML Kit Proofreading",
+      "url": "https://developers.google.com/ml-kit/genai/proofreading/android",
+      "type": "official",
+      "role": "Keyboard/voice-specific suggestions background",
+      "published": false
+    },
+    {
+      "label": "ML Kit Rewriting",
+      "url": "https://developers.google.com/ml-kit/genai/rewriting/android",
+      "type": "official",
+      "role": "Predefined styles background",
+      "published": false
+    },
+    {
+      "label": "ML Kit Image Description",
+      "url": "https://developers.google.com/ml-kit/genai/image-description/android",
+      "type": "official",
+      "role": "Image feature background",
+      "published": false
+    },
+    {
+      "label": "ML Kit Prompt evaluation",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android/evaluate-prompt",
+      "type": "official",
+      "role": "Task inputs/expected outputs evaluated across Nano versions",
+      "published": true
+    },
+    {
+      "label": "ML Kit Prompt setup",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android/get-started",
+      "type": "official",
+      "role": "Model download and runtime status",
+      "published": true
+    },
+    {
+      "label": "ML Kit Structured Output",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android/structured-output",
+      "type": "official",
+      "role": "Kotlin annotated types, alpha and separate availability check",
+      "published": true
+    },
+    {
+      "label": "ML Kit model selection",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android/select-model",
+      "type": "official",
+      "role": "Device/model compatibility background",
+      "published": false
+    },
+    {
+      "label": "ML Kit prompt design",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android/prompt-design",
+      "type": "official",
+      "role": "Task constraints background",
+      "published": false
+    }
+  ]
+}

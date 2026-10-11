@@ -1,0 +1,130 @@
+[
+  {
+    "lang": "ja",
+    "name": "desktop",
+    "title": "端末内LLMのアプリ機能：Apple・Androidの要約と抽出 | Auto Research Digest",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "h1": "端末内LLMで、アプリのどの仕事を引き受けられるか",
+    "canonical": "https://research.notelligent.app/2026-10-11-on-device-llms-as-native-app-features.html",
+    "hreflang": [
+      "ja",
+      "en",
+      "x-default"
+    ],
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://developer.apple.com/documentation/foundationmodels/generating-content-and-performing-tasks-with-foundation-models",
+      "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+      "https://developers.google.com/ml-kit/genai/prompt/android",
+      "https://developers.google.com/ml-kit/genai/summarization/android",
+      "https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation",
+      "https://developers.google.com/ml-kit/genai/prompt/android/structured-output",
+      "https://developer.apple.com/foundation-models-framework/",
+      "https://developer.apple.com/documentation/foundationmodels/expanding-generation-with-tool-calling",
+      "https://developers.google.com/ml-kit/genai/prompt/android/get-started",
+      "https://developers.google.com/ml-kit/genai",
+      "https://developer.apple.com/documentation/foundationmodels/supporting-languages-and-locales-with-foundation-models",
+      "https://developers.google.com/ml-kit/genai/prompt/android/evaluate-prompt",
+      "https://developer.apple.com/videos/play/wwdc2026/298/",
+      "https://developer.apple.com/videos/play/wwdc2026/243/"
+    ]
+  },
+  {
+    "lang": "ja",
+    "name": "mobile",
+    "title": "端末内LLMのアプリ機能：Apple・Androidの要約と抽出 | Auto Research Digest",
+    "width": 390,
+    "scrollWidth": 390,
+    "h1": "端末内LLMで、アプリのどの仕事を引き受けられるか",
+    "canonical": "https://research.notelligent.app/2026-10-11-on-device-llms-as-native-app-features.html",
+    "hreflang": [
+      "ja",
+      "en",
+      "x-default"
+    ],
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://developer.apple.com/documentation/foundationmodels/generating-content-and-performing-tasks-with-foundation-models",
+      "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+      "https://developers.google.com/ml-kit/genai/prompt/android",
+      "https://developers.google.com/ml-kit/genai/summarization/android",
+      "https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation",
+      "https://developers.google.com/ml-kit/genai/prompt/android/structured-output",
+      "https://developer.apple.com/foundation-models-framework/",
+      "https://developer.apple.com/documentation/foundationmodels/expanding-generation-with-tool-calling",
+      "https://developers.google.com/ml-kit/genai/prompt/android/get-started",
+      "https://developers.google.com/ml-kit/genai",
+      "https://developer.apple.com/documentation/foundationmodels/supporting-languages-and-locales-with-foundation-models",
+      "https://developers.google.com/ml-kit/genai/prompt/android/evaluate-prompt",
+      "https://developer.apple.com/videos/play/wwdc2026/298/",
+      "https://developer.apple.com/videos/play/wwdc2026/243/"
+    ]
+  },
+  {
+    "lang": "en",
+    "name": "desktop",
+    "title": "On-device LLM app features: Apple, Android, and native tasks | Auto Research Digest EN",
+    "width": 1440,
+    "scrollWidth": 1440,
+    "h1": "Which native app tasks can on-device LLMs take on?",
+    "canonical": "https://research.notelligent.app/en/2026-10-11-on-device-llms-as-native-app-features.html",
+    "hreflang": [
+      "en",
+      "ja",
+      "x-default"
+    ],
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://developer.apple.com/documentation/foundationmodels/generating-content-and-performing-tasks-with-foundation-models",
+      "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+      "https://developers.google.com/ml-kit/genai/prompt/android",
+      "https://developers.google.com/ml-kit/genai/summarization/android",
+      "https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation",
+      "https://developers.google.com/ml-kit/genai/prompt/android/structured-output",
+      "https://developer.apple.com/foundation-models-framework/",
+      "https://developer.apple.com/documentation/foundationmodels/expanding-generation-with-tool-calling",
+      "https://developers.google.com/ml-kit/genai/prompt/android/get-started",
+      "https://developers.google.com/ml-kit/genai",
+      "https://developer.apple.com/documentation/foundationmodels/supporting-languages-and-locales-with-foundation-models",
+      "https://developers.google.com/ml-kit/genai/prompt/android/evaluate-prompt",
+      "https://developer.apple.com/videos/play/wwdc2026/298/",
+      "https://developer.apple.com/videos/play/wwdc2026/243/"
+    ]
+  },
+  {
+    "lang": "en",
+    "name": "mobile",
+    "title": "On-device LLM app features: Apple, Android, and native tasks | Auto Research Digest EN",
+    "width": 390,
+    "scrollWidth": 390,
+    "h1": "Which native app tasks can on-device LLMs take on?",
+    "canonical": "https://research.notelligent.app/en/2026-10-11-on-device-llms-as-native-app-features.html",
+    "hreflang": [
+      "en",
+      "ja",
+      "x-default"
+    ],
+    "sections": 7,
+    "noindex": false,
+    "links": [
+      "https://developer.apple.com/documentation/foundationmodels/generating-content-and-performing-tasks-with-foundation-models",
+      "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+      "https://developers.google.com/ml-kit/genai/prompt/android",
+      "https://developers.google.com/ml-kit/genai/summarization/android",
+      "https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation",
+      "https://developers.google.com/ml-kit/genai/prompt/android/structured-output",
+      "https://developer.apple.com/foundation-models-framework/",
+      "https://developer.apple.com/documentation/foundationmodels/expanding-generation-with-tool-calling",
+      "https://developers.google.com/ml-kit/genai/prompt/android/get-started",
+      "https://developers.google.com/ml-kit/genai",
+      "https://developer.apple.com/documentation/foundationmodels/supporting-languages-and-locales-with-foundation-models",
+      "https://developers.google.com/ml-kit/genai/prompt/android/evaluate-prompt",
+      "https://developer.apple.com/videos/play/wwdc2026/298/",
+      "https://developer.apple.com/videos/play/wwdc2026/243/"
+    ]
+  }
+]

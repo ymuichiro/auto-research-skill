@@ -32,13 +32,17 @@
       "order": 3,
       "topic": "commerce",
       "slug": "agentic-commerce-purchase-and-payment-authorization",
-      "status": "validating"
+      "status": "published",
+      "commit": "f203d62802d9b069926e6bb25499e5e4e3762f94",
+      "deployment_run": 38104855248,
+      "verified_at": "2026-10-11T02:21:35.066Z",
+      "public_url": "https://research.notelligent.app/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html"
     },
     {
       "order": 4,
       "topic": "on-device",
       "slug": "on-device-llms-as-native-app-features",
-      "status": "pending"
+      "status": "validating"
     }
   ],
   "evidence_boundary": "Complete one bilingual article and its publication checks before the next. Public delivery does not establish Google indexing. Unrelated working files are preserved."

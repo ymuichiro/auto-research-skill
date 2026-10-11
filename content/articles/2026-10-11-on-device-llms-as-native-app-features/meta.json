@@ -1,0 +1,93 @@
+{
+  "slug": "on-device-llms-as-native-app-features",
+  "date": "2026-10-11",
+  "titleJa": "端末内LLMで、アプリのどの仕事を引き受けられるか",
+  "titleEn": "Which native app tasks can on-device LLMs take on?",
+  "summaryJa": "Apple Foundation ModelsとAndroid ML Kitを比較。要約・抽出・分類をネイティブ機能へつなぎ、構造化出力、日本語の品質、対応端末、処理時間、クラウドへのデータ経路から導入を考える。",
+  "summaryEn": "Compare Apple Foundation Models and Android ML Kit. Connect summarization, extraction, and classification to native features, then examine typed output, Japanese quality, availability, latency, and data paths.",
+  "seoTitleJa": "端末内LLMのアプリ機能：Apple・Androidの要約と抽出",
+  "seoTitleEn": "On-device LLM app features: Apple, Android, and native tasks",
+  "seoDescriptionJa": "Apple Foundation ModelsとAndroid ML Kitから、端末内LLMの要約・抽出・分類、構造化出力、日本語評価、利用可否とデータ経路を考える。",
+  "seoDescriptionEn": "Compare Apple Foundation Models and Android ML Kit for native tasks, typed outputs, Japanese evaluation, device availability, latency, and data paths.",
+  "category": "On-Device AI",
+  "tags": [
+    "On-Device AI",
+    "Native Apps",
+    "Apple",
+    "Android",
+    "Evaluation"
+  ],
+  "publishedSources": [
+    {
+      "label": "Apple Foundation Models framework",
+      "url": "https://developer.apple.com/foundation-models-framework/",
+      "type": "official"
+    },
+    {
+      "label": "Apple third-generation foundation models",
+      "url": "https://machinelearning.apple.com/research/introducing-third-generation-of-apple-foundation-models",
+      "type": "official"
+    },
+    {
+      "label": "Apple generation and availability",
+      "url": "https://developer.apple.com/documentation/foundationmodels/generating-content-and-performing-tasks-with-foundation-models",
+      "type": "official"
+    },
+    {
+      "label": "Apple language support",
+      "url": "https://developer.apple.com/documentation/foundationmodels/supporting-languages-and-locales-with-foundation-models",
+      "type": "official"
+    },
+    {
+      "label": "Apple guided generation",
+      "url": "https://developer.apple.com/documentation/foundationmodels/generating-swift-data-structures-with-guided-generation",
+      "type": "official"
+    },
+    {
+      "label": "Apple tool calling",
+      "url": "https://developer.apple.com/documentation/foundationmodels/expanding-generation-with-tool-calling",
+      "type": "official"
+    },
+    {
+      "label": "WWDC26 Evaluations",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/298/",
+      "type": "official"
+    },
+    {
+      "label": "WWDC26 profiling",
+      "url": "https://developer.apple.com/videos/play/wwdc2026/243/",
+      "type": "official"
+    },
+    {
+      "label": "ML Kit GenAI overview",
+      "url": "https://developers.google.com/ml-kit/genai",
+      "type": "official"
+    },
+    {
+      "label": "ML Kit Prompt API",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android",
+      "type": "official"
+    },
+    {
+      "label": "ML Kit Summarization",
+      "url": "https://developers.google.com/ml-kit/genai/summarization/android",
+      "type": "official"
+    },
+    {
+      "label": "ML Kit Prompt evaluation",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android/evaluate-prompt",
+      "type": "official"
+    },
+    {
+      "label": "ML Kit Prompt setup",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android/get-started",
+      "type": "official"
+    },
+    {
+      "label": "ML Kit Structured Output",
+      "url": "https://developers.google.com/ml-kit/genai/prompt/android/structured-output",
+      "type": "official"
+    }
+  ],
+  "draft": false
+}
