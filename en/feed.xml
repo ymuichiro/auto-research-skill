@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sun, 11 Oct 2026 02:20:47 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 02:32:20 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Letting shopping agents pay: connecting budgets, orders, and returns</title>
@@ -30,6 +30,14 @@
       
       <description>Compare Google, Mozilla, GitHub, and PatchBench to connect AI findings with reproducible tests, root-cause repairs, validation, and release.</description>
       <category>AI Security</category>
+    </item>
+    <item>
+      <title>Which native app tasks can on-device LLMs take on?</title>
+      <link>https://research.notelligent.app/en/2026-10-11-on-device-llms-as-native-app-features.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-10-11-on-device-llms-as-native-app-features.html</guid>
+      
+      <description>Compare Apple Foundation Models and Android ML Kit for native tasks, typed outputs, Japanese evaluation, device availability, latency, and data paths.</description>
+      <category>On-Device AI</category>
     </item>
     <item>
       <title>Should LLMs replace every if statement? Understanding Jev’s decision API</title>
@@ -158,14 +166,6 @@
       
       <description>Compare video AI references, audio, footage modification, and editing. Examine versions, limitations, and the work needed for an acceptable revision.</description>
       <category>AI Strategy</category>
-    </item>
-    <item>
-      <title>Agent identity and user delegation: whose access is granted, and where it ends</title>
-      <link>https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
-      
-      <description>Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.</description>
-      <category>AI Agents</category>
     </item>
   </channel>
 </rss>

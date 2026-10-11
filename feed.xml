@@ -5,7 +5,7 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sun, 11 Oct 2026 02:20:47 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 02:32:20 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか</title>
@@ -30,6 +30,14 @@
       
       <description>Google、Mozilla、GitHubの事例とPatchBenchから、AIの脆弱性発見を原因の修正、回帰検証、公開へつなぐ開発工程を考える。</description>
       <category>AI Security</category>
+    </item>
+    <item>
+      <title>端末内LLMで、アプリのどの仕事を引き受けられるか</title>
+      <link>https://research.notelligent.app/2026-10-11-on-device-llms-as-native-app-features.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-10-11-on-device-llms-as-native-app-features.html</guid>
+      
+      <description>Apple Foundation ModelsとAndroid ML Kitから、端末内LLMの要約・抽出・分類、構造化出力、日本語評価、利用可否とデータ経路を考える。</description>
+      <category>On-Device AI</category>
     </item>
     <item>
       <title>LLMはすべてのif文を置き換えるのか。Jevの判断APIを考える</title>
@@ -158,14 +166,6 @@
       
       <description>動画生成AIを参照、音声、既存映像の変更、編集で比較。Runway・Veo・Firefly・Luma・Soraの版と制約から、修正を含む制作の評価を考える。</description>
       <category>AI Strategy</category>
-    </item>
-    <item>
-      <title>エージェントIDと利用者の委任：誰の権限を渡し、どこで取り消すか</title>
-      <link>https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/2026-03-26-agent-identity-becomes-an-auth-control-plane.html</guid>
-      
-      <description>エージェントID、利用者の委任、MCPと外部APIの権限を解説。認証情報の取消と取得済み資料まで追い、必要な仕事を続けながら不要なアクセスを止める条件を考える。</description>
-      <category>AI Agents</category>
     </item>
   </channel>
 </rss>
