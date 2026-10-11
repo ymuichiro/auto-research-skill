@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Oct 2026 16:18:42 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 02:07:38 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>An enzyme system found by AI: from candidate search to experimental validation</title>
+      <link>https://research.notelligent.app/en/2026-10-11-ai-science-candidate-search-and-experimental-validation.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-10-11-ai-science-candidate-search-and-experimental-validation.html</guid>
+      
+      <description>Compare ART and Co-Scientist to distinguish candidate search, hypothesis selection, experimental validation, reproducibility, and research cost.</description>
+      <category>AI Research</category>
+    </item>
     <item>
       <title>Should LLMs replace every if statement? Understanding Jev’s decision API</title>
       <link>https://research.notelligent.app/en/2026-09-21-jev-decision-api.html</link>
@@ -158,14 +166,6 @@
       
       <description>Compare AI chat UI, Canvas, Pages, and Artifacts. Examine Cocoa’s controlled study and the Keyhole Effect theory to decide when to add editing, plans, or forms.</description>
       <category>AI Strategy</category>
-    </item>
-    <item>
-      <title>Agent security: trace external instructions through to execution</title>
-      <link>https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-23-agent-security-becomes-a-shipping-gate.html</guid>
-      
-      <description>Evaluate agent security through prompt-injection detection, authorization, communication limits, human review, and tests of permitted and prohibited actions.</description>
-      <category>AI Agents</category>
     </item>
   </channel>
 </rss>
