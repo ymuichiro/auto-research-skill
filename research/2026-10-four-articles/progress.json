@@ -42,8 +42,14 @@
       "order": 4,
       "topic": "on-device",
       "slug": "on-device-llms-as-native-app-features",
-      "status": "validating"
+      "status": "published",
+      "commit": "72e8858b9a1bfcbd2708d4d7633e28c78e95e8ed",
+      "deployment_run": 38105484880,
+      "verified_at": "2026-10-11T02:33:24.538Z",
+      "public_url": "https://research.notelligent.app/2026-10-11-on-device-llms-as-native-app-features.html"
     }
   ],
-  "evidence_boundary": "Complete one bilingual article and its publication checks before the next. Public delivery does not establish Google indexing. Unrelated working files are preserved."
+  "evidence_boundary": "Complete one bilingual article and its publication checks before the next. Public delivery does not establish Google indexing. Unrelated working files are preserved.",
+  "completed": true,
+  "completed_at": "2026-10-11T02:33:24.538Z"
 }

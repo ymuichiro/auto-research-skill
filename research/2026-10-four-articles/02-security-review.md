@@ -1,6 +1,6 @@
 # Security editorial and publication review
 
-- 22 primary URLs collected before drafting; 9 used publicly.
+- 22 primary URLs collected before drafting; 8 used publicly.
 - JA/EN have the same seven claims, cases and confidence limits.
 - Google scale is attributed to Google; Mozilla confirms maintainer acceptance and release.
 - CodeMender count is not converted to an all-attempt success rate.

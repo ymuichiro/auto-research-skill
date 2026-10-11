@@ -1,0 +1,70 @@
+{
+  "cutoff": "2026-10-11",
+  "articles": [
+    {
+      "order": 1,
+      "slug": "ai-science-candidate-search-and-experimental-validation",
+      "research_sources": 21,
+      "public_sources": 9,
+      "languages": {
+        "ja": {
+          "characters": 3989,
+          "sections": 7
+        },
+        "en": {
+          "characters": 9665,
+          "sections": 7
+        }
+      }
+    },
+    {
+      "order": 2,
+      "slug": "ai-security-patches-in-the-development-process",
+      "research_sources": 22,
+      "public_sources": 8,
+      "languages": {
+        "ja": {
+          "characters": 3688,
+          "sections": 7
+        },
+        "en": {
+          "characters": 8172,
+          "sections": 7
+        }
+      }
+    },
+    {
+      "order": 3,
+      "slug": "agentic-commerce-purchase-and-payment-authorization",
+      "research_sources": 29,
+      "public_sources": 14,
+      "languages": {
+        "ja": {
+          "characters": 3817,
+          "sections": 7
+        },
+        "en": {
+          "characters": 8529,
+          "sections": 7
+        }
+      }
+    },
+    {
+      "order": 4,
+      "slug": "on-device-llms-as-native-app-features",
+      "research_sources": 26,
+      "public_sources": 14,
+      "languages": {
+        "ja": {
+          "characters": 3819,
+          "sections": 7
+        },
+        "en": {
+          "characters": 8253,
+          "sections": 7
+        }
+      }
+    }
+  ],
+  "passed": true
+}
