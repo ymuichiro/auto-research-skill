@@ -14,7 +14,46 @@ import { stageArticle, paintMotion } from './article-motion.js';
   let frame = 0;
   let suspended = false;
   let controller;
-  let pendingFragment;
+  let entrySequence = 0;
+  let entryKey = history.state?.readingKey ?? `reading-${Date.now()}`;
+  const positions = new Map();
+  let restoring = false;
+  try {
+    const saved = JSON.parse(sessionStorage.getItem(`ard-reading:${entryKey}`));
+    if (saved?.article === first.dataset.articleId && Number.isFinite(saved.readingOffset)) positions.set(entryKey, saved);
+  } catch { /* Reading still works when tab storage is unavailable. */ }
+  // The same URL can now represent an article far down this document or the
+  // first article after reload. Native absolute-Y restoration cannot cover both.
+  history.scrollRestoration = 'manual';
+  history.replaceState({...(history.state ?? {}), articleStream:true, readingKey:entryKey, article:first.dataset.articleId}, '');
+
+  function rememberPosition(rect = stageArticle(active).getBoundingClientRect()) {
+    const position = {article:active.dataset.articleId, readingOffset:-rect.top};
+    positions.set(entryKey, position);
+    return position;
+  }
+
+  function savePosition() {
+    const position = rememberPosition();
+    history.replaceState({...(history.state ?? {}), ...position, articleStream:true, readingKey:entryKey}, '');
+    // Navigation may snapshot history.state before pagehide's replaceState.
+    // Tab-scoped storage carries the final article-relative position through reload.
+    try { sessionStorage.setItem(`ard-reading:${entryKey}`, JSON.stringify(position)); } catch {}
+  }
+
+  function restorePosition(position) {
+    const owner = [...stream.querySelectorAll('[data-article-id]')].find(node => node.dataset.articleId === position?.article);
+    if (!owner) return;
+    active = owner;
+    setHead(records.get(owner.dataset.articleId));
+    if (Number.isFinite(position.readingOffset)) {
+      scrollTo({top:stageArticle(owner).getBoundingClientRect().top + scrollY + position.readingOffset, behavior:'instant'});
+    } else if (location.hash) {
+      const id = decodeURIComponent(location.hash.slice(1));
+      const target = document.getElementById(owner === first ? id : `${owner.dataset.articleId}--${id}`);
+      target?.scrollIntoView({block:'start',behavior:'instant'});
+    }
+  }
 
   function snapshotHead() {
     return { title: document.title, nodes: [...document.head.querySelectorAll('meta[name="description"], meta[property^="og:"], meta[name^="twitter:"], meta[property^="article:"], link[rel="canonical"], link[hreflang], script[type="application/ld+json"]')].map((node) => node.outerHTML).join('') };
@@ -123,18 +162,19 @@ import { stageArticle, paintMotion } from './article-motion.js';
 
   function updateActive() {
     frame = 0;
-    if (suspended) return;
+    if (suspended || restoring) return;
     const readingLine = Math.min(innerHeight * 0.3, 220);
-    let candidate = active;
     const articles = [...stream.querySelectorAll('[data-article-id]')];
+    let candidate = articles[0];
     const geometry = new Map(articles.map(article => [article, stageArticle(article).getBoundingClientRect()]));
     const previews = [...stream.querySelectorAll('.next-article-preview')].map(node => [node, node.parentElement.getBoundingClientRect()]);
     articles.forEach((article) => {
       const rect = geometry.get(article);
-      if (rect.top <= readingLine && rect.bottom > readingLine) candidate = article;
+      if (rect.top <= readingLine) candidate = article;
     });
     articles.forEach((article) => {
       article.dataset.current = String(article === candidate);
+      if (article !== candidate) article.querySelectorAll('.reading-map a[aria-current]').forEach(link=>link.removeAttribute('aria-current'));
       paintMotion(article, geometry.get(article), innerHeight, reducedMotion.matches);
     });
     previews.forEach(([node, rect]) => paintMotion(node, rect, innerHeight, reducedMotion.matches));
@@ -147,34 +187,45 @@ import { stageArticle, paintMotion } from './article-motion.js';
     if (candidate !== active && candidate) {
       active = candidate;
       setHead(records.get(active.dataset.articleId));
-      const fragment = pendingFragment?.owner === active && performance.now() < pendingFragment.until ? pendingFragment.hash : '';
-      history.replaceState({ ...(history.state ?? {}), articleStream: true, article: active.dataset.articleId }, '', active.dataset.articlePath + fragment);
+      history.replaceState({ ...(history.state ?? {}), ...rememberPosition(geometry.get(active)), articleStream:true, readingKey:entryKey, fragment:'' }, '', active.dataset.articlePath);
     }
+    rememberPosition(geometry.get(active));
   }
 
   stream.addEventListener('click', (event) => {
     const retry = event.target.closest('[data-stream-retry]');
     if (retry) void loadNext(retry.closest('[data-next-url]'));
-    const anchor = event.target.closest('a[data-original-fragment]');
-    if (anchor && !event.metaKey && !event.ctrlKey && !event.shiftKey) {
-      const target = document.getElementById(anchor.getAttribute('href').slice(1));
+    const anchor = event.target.closest('a[href^="#"]');
+    if (anchor && !event.defaultPrevented && event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey && !anchor.target && !anchor.hasAttribute('download')) {
+      const target = document.getElementById(decodeURIComponent(anchor.getAttribute('href').slice(1)));
+      const owner = anchor.closest('[data-article-id]');
+      if (!owner) return;
       if (!target) return;
       event.preventDefault();
-      target.scrollIntoView({block:'start',behavior:reducedMotion.matches?'instant':'smooth'});
-      const owner = anchor.closest('[data-article-id]');
-      pendingFragment = {owner,hash:anchor.dataset.originalFragment,until:performance.now()+2000};
+      savePosition();
+      entryKey = `reading-${Date.now()}-${++entrySequence}`;
       active = owner;
       setHead(records.get(owner.dataset.articleId));
-      history.replaceState({...(history.state ?? {}),articleStream:true,article:owner.dataset.articleId},'',owner.dataset.articlePath+anchor.dataset.originalFragment);
+      const fragment = anchor.dataset.originalFragment ?? anchor.getAttribute('href');
+      history.pushState({articleStream:true,readingKey:entryKey,article:owner.dataset.articleId,fragment},'',owner.dataset.articlePath+fragment);
+      target.scrollIntoView({block:'start',behavior:'instant'});
+      savePosition();
+      updateActive();
     }
   });
   addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(updateActive); }, { passive: true });
   addEventListener('resize', updateActive);
+  addEventListener('popstate', event => {
+    if (!event.state?.articleStream) return;
+    entryKey = event.state.readingKey;
+    const position = positions.get(entryKey) ?? event.state;
+    restoring = true;
+    requestAnimationFrame(() => { restoring = false; restorePosition(position); updateActive(); });
+  });
   // replaceState keeps the preceding navigation entry intact. BFCache retains the
   // stream and scroll position; a reload opens the actual active article URL.
   addEventListener('pagehide', () => {
-    history.replaceState({ ...(history.state ?? {}), articleStream: true, article: active.dataset.articleId,
-      readingOffset: Math.max(0, -active.getBoundingClientRect().top) }, '');
+    savePosition();
     suspended = true; controller?.abort(); observer.disconnect();
     stream.querySelectorAll('[data-next-url]').forEach((boundary) => {
       if (requests.has(boundary)) {
@@ -186,9 +237,11 @@ import { stageArticle, paintMotion } from './article-motion.js';
   });
   addEventListener('pageshow', (event) => {
     suspended = false;
-    if (!event.persisted && history.state?.article === first.dataset.articleId && history.state.readingOffset != null) {
-      const offset = history.state.readingOffset;
-      document.fonts.ready.then(() => requestAnimationFrame(() => scrollTo({top:first.getBoundingClientRect().top + scrollY + offset,behavior:'instant'})));
+    entryKey = history.state?.readingKey ?? entryKey;
+    if (history.state?.readingOffset != null || location.hash) {
+      const position = positions.get(entryKey) ?? history.state;
+      restoring = true;
+      document.fonts.ready.then(() => requestAnimationFrame(() => { restoring = false; restorePosition(position); updateActive(); }));
     }
     observeNext(); updateActive();
   });
