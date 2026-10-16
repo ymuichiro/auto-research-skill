@@ -10,6 +10,8 @@ for (const height of [640,844,900]) {
   samples.slice(1).forEach((sample,i)=>assert(sample.scale > samples[i].scale));
   assert.equal(samples.at(-1).scale,1);
   assert.equal(sampleMotion({top:line-1,bottom:line+1},height).scale,1,'Even a short article settles flat');
+  const exits=Array.from({length:11},(_,i)=>sampleMotion({top:-10000,bottom:line-(line+80)*i/10},height));
+  exits.slice(1).forEach((sample,i)=>assert(sample.scale<exits[i].scale,'Departure is continuous'));
   assert.deepEqual(sampleMotion({top:height,bottom:height+20},height),sampleMotion({top:height,bottom:height+10000},height),'Arrival is independent of article length');
 }
 const preview = await serveBuild();
@@ -46,8 +48,21 @@ try {
         await page.waitForTimeout(100);
         assert.equal(await article.evaluate(el=>new DOMMatrix(getComputedStyle(el).transform).a),reversed,'Motion stops with scrolling');
         if(locale==='ja'&&[390,1440].includes(width))await page.screenshot({path:`${output}/${engine}-${width}-arrival.png`});
+        const first=page.locator('[data-article-id]').first();
+        const bottom=await first.evaluate(el=>el.parentElement.getBoundingClientRect().bottom+scrollY);
+        const exits=[];
+        for(const target of [200,120,40,-80]){
+          await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),bottom-target);await frames(page);
+          exits.push(await first.evaluate(el=>({scale:new DOMMatrix(getComputedStyle(el).transform).a,bottom:el.parentElement.getBoundingClientRect().bottom+scrollY,phase:el.dataset.motionPhase})));
+          assert(Math.abs(exits.at(-1).bottom-bottom)<1,'Departure does not collapse the layout');
+        }
+        exits.slice(1).forEach((state,i)=>assert(state.scale<exits[i].scale,'Earlier articles recede continuously'));
+        await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),bottom-300);await frames(page);
+        assert.equal(await first.evaluate(el=>getComputedStyle(el).transform),'none','Returning to the reading zone restores the full article');
+        assert.equal(await first.getAttribute('data-motion-phase'),'reading');
+        assert(page.url().includes(await first.getAttribute('data-article-id')),'Reverse scrolling restores the active article');
         assert.deepEqual(errors,[]);
-        records.push({engine,width,locale,states,reversed});await page.close();
+        records.push({engine,width,locale,states,reversed,exits});await page.close();
       }
     } finally {await browser.close();}
   }
