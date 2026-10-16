@@ -74,7 +74,7 @@ import { stageArticle, paintMotion } from './article-motion.js';
   history.replaceState({...(history.state ?? {}), articleStream:true, readingKey:entryKey, article:first.dataset.articleId}, '');
 
   function rememberPosition(rect = stageArticle(active).getBoundingClientRect()) {
-    const position = {article:active.dataset.articleId, readingOffset:-rect.top};
+    const position = {article:active.dataset.articleId, readingOffset:-rect.top, tocOpen:!!active.querySelector('.reading-toc')?.open};
     positions.set(entryKey, position);
     return position;
   }
@@ -92,6 +92,8 @@ import { stageArticle, paintMotion } from './article-motion.js';
     if (!owner) return;
     active = owner;
     setHead(records.get(owner.dataset.articleId));
+    const toc = owner.querySelector('.reading-toc');
+    if (toc && typeof position.tocOpen === 'boolean') toc.open = position.tocOpen;
     if (Number.isFinite(position.readingOffset)) {
       scrollTo({top:stageArticle(owner).getBoundingClientRect().top + scrollY + position.readingOffset, behavior:'instant'});
     } else if (location.hash) {

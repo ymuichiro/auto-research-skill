@@ -62,8 +62,8 @@ export function renderOutline(body, locale) {
   const items = articleOutline(body);
   if (!items.length) return "";
   return `<nav class="reading-map" aria-label="${locale === "ja" ? "この記事の章" : "Briefing sections"}">
-    <p class="reading-map-label">${locale === "ja" ? "記事の構成" : "Sections"}</p>
-    <ol style="--section-count:${items.length}">${items.map((item, index) => `<li><a href="#${escapeHtml(item.id)}" aria-label="${escapeHtml(item.label)}" title="${escapeHtml(item.label)}"${index === 0 ? ' aria-current="location"' : ""}><span class="reading-map-number">${String(index + 1).padStart(2, "0")}</span></a></li>`).join("")}</ol>
+    <details class="reading-toc"><summary class="reading-map-label">${locale === "ja" ? "目次" : "Contents"}</summary>
+    <ol>${items.map((item, index) => `<li><a href="#${escapeHtml(item.id)}" aria-label="${escapeHtml(item.label)}"${index === 0 ? ' aria-current="location"' : ""}><span class="reading-map-number" aria-hidden="true">${String(index + 1).padStart(2, "0")}</span><span class="reading-map-title">${escapeHtml(item.label)}</span></a></li>`).join("")}</ol></details>
   </nav>`;
 }
 

@@ -1524,20 +1524,17 @@
   .reading-title { margin: 1.15rem 0 .4rem; color: var(--ard-text-strong); font: 500 clamp(1.8rem,3.5vw,2.85rem)/1.48 var(--ard-font-reading); letter-spacing: -.025em; overflow-wrap: anywhere; }
   .reading-duration { margin-top: .6rem; color: var(--ard-muted); font-size: .78rem; }
   .reading-lead { margin-top: 1.35rem; font: 400 1.05rem/1.95 var(--ard-font-reading); color: #405562; }
-  .reading-map { min-width: 0; margin-top: 1.8rem; padding: .9rem 0 .5rem; }
-  .reading-map-label { margin: 0 0 .55rem; color: #45616d; font: 600 .76rem/1.5 var(--ard-font-ui); letter-spacing: .025em; }
-  .reading-map ol { position: relative; display: grid; width: 100%; grid-template-columns: repeat(var(--section-count),minmax(0,1fr)); align-items: stretch; list-style: none; margin: 0; padding: 0; }
-  .reading-map ol::before { position: absolute; z-index: 0; top: .46rem; right: calc(50% / var(--section-count)); left: calc(50% / var(--section-count)); height: 1px; background: linear-gradient(90deg, rgba(63,145,140,.58), rgba(169,202,211,.68)); content: ""; }
-  .reading-map li { position: relative; z-index: 1; min-width: 0; }
-  .reading-map a { display: grid; width: 100%; min-height: 2rem; grid-template-rows: .82rem .95rem; justify-items: center; align-content: start; gap: .2rem; padding: .05rem 0 .2rem; border-radius: 999px; color: #71838c; font: 400 .68rem/1.4 var(--ard-font-ui); text-align: center; text-decoration: none; transition: color .2s ease; }
-  .reading-map a::before { z-index: 1; grid-row: 1; align-self: center; width: .68rem; height: .68rem; border: 2px solid #b9d0d8; border-radius: 50%; background: #f9fcfd; content: ""; transition: background .2s ease, border-color .2s ease, box-shadow .2s ease, transform .2s ease; }
-  .reading-map-number { grid-row: 2; color: #71838c; font-size: .63rem; font-variant-numeric: tabular-nums; line-height: .95rem; }
-  .reading-map a:hover { color: #315a68; }
-  .reading-map a:focus-visible { position: relative; z-index: 2; outline-offset: 2px; }
-  .reading-map a[aria-current="location"] { color: #245f60; font-weight: 600; }
-  .reading-map a[aria-current="location"]::before { transform: scale(1.08); border-color: #368d83; background: #70b8a9; box-shadow: 0 0 0 4px rgba(77,157,145,.13), 0 0 0 6px #f9fcfd; }
-  .reading-map a[aria-current="location"] .reading-map-number { color: #2e7778; font-weight: 600; }
-  .reading-map a[aria-current="location"] .reading-map-title { font-weight: 600; }
+  .reading-map { min-width: 0; margin-top: 1.8rem; border: 1px solid #d3e2e7; border-radius: .8rem; background: #f8fbfc; }
+  .reading-map-label { min-height: 48px; padding: .75rem 1rem; color: #345864; font: 600 .84rem/1.6 var(--ard-font-ui); cursor: pointer; }
+  .reading-map-label::marker { color: #32877f; }
+  .reading-map ol { list-style: none; margin: 0; padding: 0 .6rem .6rem; }
+  .reading-map li { min-width: 0; }
+  .reading-map a { display: grid; grid-template-columns: 2ch minmax(0,1fr); width: 100%; min-height: 44px; align-items: baseline; gap: .75rem; padding: .65rem .6rem; border-left: 2px solid transparent; border-radius: .3rem; color: #34515e; font: 500 .86rem/1.65 var(--ard-font-ui); text-align: left; text-decoration: none; }
+  .reading-map-number { color: #5d7480; font-size: .72rem; font-variant-numeric: tabular-nums; }
+  .reading-map-title { min-width: 0; overflow-wrap: anywhere; }
+  .reading-map a:hover { background: #f0f6f7; }
+  .reading-map a:focus-visible { outline-offset: 1px; }
+  .reading-map a[aria-current="location"] { color: #245f60; border-color: #32877f; background: #eaf4f1; }
   .article-share { margin-top: 1.15rem; }
   .article-body { display: block; color: #354a58; font-family: var(--ard-font-reading); }
   .article-body section { margin-top: 3.35rem; }
@@ -1647,9 +1644,7 @@
   .reading-header { margin-bottom: .75rem; padding-bottom: .4rem; }
   .reading-title { font-size: clamp(1.55rem,6vw,1.9rem); line-height: 1.58; }
   .reading-lead { font-size: 1rem; line-height: 1.95; }
-  .reading-map { margin-top: 1.35rem; padding-top: .7rem; }
-  .reading-map-label { margin-bottom: .5rem; font-size: .74rem; }
-  .reading-map a { min-height: 2rem; }
+  .reading-map { margin-top: 1.35rem; }
   .article-body p, .article-body section > ul, .article-body section > ol { font-size: 1rem; line-height: 2; }
   .article-body h2 { gap: .6rem; margin-top: 2.5rem; font-size: 1.2rem; }
   .panel-copy, .article-card-copy, .editorial-briefing-copy { font-size: .93rem; line-height: 1.9; }

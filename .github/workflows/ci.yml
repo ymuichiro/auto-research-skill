@@ -48,3 +48,4 @@ jobs:
           pnpm test:arrival
           pnpm test:navigation
           pnpm test:quality --functional-only
+          pnpm verify:disclosures
