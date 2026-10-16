@@ -1849,7 +1849,7 @@ export function renderArticleContinuation(article, locale, articles) {
     : ({ topic: "Earlier in this topic", "same-day": "Related briefing from the same research date", related: "An earlier article on a related topic", archive: "Continue into the archive" }[relation]);
   return `<section class="article-continuation" data-next-url="${assetPath(`assets/articles/${locale}/${next.sourceDirName}.json`)}" data-next-id="${escapeHtml(next.sourceDirName)}">
     <p class="stream-boundary">${relationLabel}</p>
-    <a class="next-article-preview" href="${localizedArticleHref(next, locale)}"><span class="next-article-kicker">${escapeHtml(relationLabel)}</span><time datetime="${next.date}">${escapeHtml(formatDisplayDate(next.date, locale))}</time><h2>${escapeHtml(locale === "ja" ? next.titleJa : next.titleEn)}</h2><p>${escapeHtml(next.seo?.[locale]?.teaser ?? (locale === "ja" ? next.summaryJa : next.summaryEn))}</p><span class="text-link">${locale === "ja" ? "下へスクロールして読む" : "Scroll to continue"}</span></a>
+    <div class="article-mount"><a class="next-article-preview" href="${localizedArticleHref(next, locale)}"><time datetime="${next.date}">${escapeHtml(formatDisplayDate(next.date, locale))}</time><h2>${escapeHtml(locale === "ja" ? next.titleJa : next.titleEn)}</h2><p>${escapeHtml(next.seo?.[locale]?.teaser ?? (locale === "ja" ? next.summaryJa : next.summaryEn))}</p><span class="text-link">${locale === "ja" ? "記事を読む" : "Read briefing"}</span></a></div>
     <p class="stream-status" role="status" aria-live="polite"></p><button class="reading-related-button" type="button" data-stream-retry hidden>${locale === "ja" ? "再試行" : "Retry"}</button>
   </section>`;
 }
