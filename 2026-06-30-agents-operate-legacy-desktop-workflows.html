@@ -7,7 +7,7 @@
     <meta name="description" content="APIのない業務アプリをAIで操作する際、入力と保存結果をどう確かめるか。AWSとMicrosoft、導入報告と研究から、担当者の負担まで考える。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
-    <meta name="theme-color" content="#0d0f14">
+    <meta name="theme-color" content="#edf3f7">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="ja_JP">
@@ -39,9 +39,11 @@
     <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/site-ui.js" defer></script>
     <script src="/assets/article-share.js" defer></script>
+    <script src="/assets/article-stream.js" defer></script>
     <meta property="article:modified_time" content="2026-10-11T01:18:42+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="AI Agent">
@@ -53,35 +55,39 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"画面操作AIに任せる業務：入力から保存の確認までつなぐ","description":"APIのない業務アプリをAIで操作する際、入力と保存結果をどう確かめるか。AWSとMicrosoft、導入報告と研究から、担当者の負担まで考える。","dateModified":"2026-10-11T01:18:42+09:00","inLanguage":"ja","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"AI Agent, Computer Use, Desktop Automation, Human Approval, Legacy Systems, Governance","mainEntityOfPage":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/about.html"},"url":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"画面操作AIに任せる業務：入力から保存の確認までつなぐ","item":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html"}],"inLanguage":"ja"}</script>
   </head>
-  <body>
+  <body data-page-type="article">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">本文へ</a>
       <header class="site-header">
         <a class="brand-mark" href="/">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/topics/">トピック</a><a class="nav-link " href="/timeline/">タイムライン</a></nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>メニュー</button>
+        <nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/topics/">トピック</a><a class="nav-link " href="/timeline/">タイムライン</a></nav>
         <a class="lang-switch" href="/en/2026-06-30-agents-operate-legacy-desktop-workflows.html">English</a>
       </header>
-      <main class="site-main">
-        <section class="hero-panel ">
-          <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">画面操作AIに任せる業務：入力から保存の確認までつなぐ</h1>
-          <p class="hero-copy">APIのない業務アプリを動かすAIを、AWSとMicrosoftの管理環境、Graebelの導入報告、長時間課題の研究から分析。入力の意味、保存結果、人の修正負担をつなげて任せる範囲を考える。</p>
-        </section>
+      <main class="site-main" id="main">
+        
         <div class="content-stack">
-          <article class="article-shell">
-    <section class="article-meta">
+          <div class="article-stream" data-article-stream data-locale="ja"><article class="reading-article" data-article-id="2026-06-30-agents-operate-legacy-desktop-workflows" data-article-path="/2026-06-30-agents-operate-legacy-desktop-workflows.html">
+    <header class="reading-header">
+      <div class="reading-actions"><a class="text-link" href="/topics/ai-workflows/">← テーマへ</a><button class="reading-related-button" data-open-related type="button" hidden>関連の流れ</button></div>
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/topics/ai-workflows/">AI Workflows</a>
         <time class="mono-note" datetime="2026-06-30">調査対象日 2026年6月30日</time>
         
         <time class="mono-note" datetime="2026-10-11">最終更新 2026年10月11日</time>
       </div>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
-    </section>
-    <section class="article-share" aria-label="記事を共有">
+      <h1 class="reading-title">画面操作AIに任せる業務：入力から保存の確認までつなぐ</h1>
+      <p class="reading-duration">読了目安 9分</p>
+      <p class="reading-lead">APIのない業務アプリを動かすAIを、AWSとMicrosoftの管理環境、Graebelの導入報告、長時間課題の研究から分析。入力の意味、保存結果、人の修正負担をつなげて任せる範囲を考える。</p>
+      <nav class="reading-map" aria-label="この記事の章">
+    <p class="reading-map-label">記事の構成</p>
+    <ol style="--section-count:10"><li><a href="#section-1" aria-label="保存ボタンの後に、画面が止まったら" title="保存ボタンの後に、画面が止まったら" aria-current="location"><span class="reading-map-number">01</span></a></li><li><a href="#section-2" aria-label="画面を見るモデルは、何を観測しているか" title="画面を見るモデルは、何を観測しているか"><span class="reading-map-number">02</span></a></li><li><a href="#section-3" aria-label="AWSは業務アプリを動かす場所を管理する" title="AWSは業務アプリを動かす場所を管理する"><span class="reading-map-number">03</span></a></li><li><a href="#section-4" aria-label="Microsoftでは作業場所と操作ツールを分けて読む" title="Microsoftでは作業場所と操作ツールを分けて読む"><span class="reading-map-number">04</span></a></li><li><a href="#section-5" aria-label="Graebelの報告では、画面入力の前にも仕事がある" title="Graebelの報告では、画面入力の前にも仕事がある"><span class="reading-map-number">05</span></a></li><li><a href="#section-6" aria-label="長い課題では、途中まで進むことと完了が離れる" title="長い課題では、途中まで進むことと完了が離れる"><span class="reading-map-number">06</span></a></li><li><a href="#section-7" aria-label="請求書入力を、三つの確かめられる区間にする" title="請求書入力を、三つの確かめられる区間にする"><span class="reading-map-number">07</span></a></li><li><a href="#section-8" aria-label="止める操作と、元に戻す作業を区別する" title="止める操作と、元に戻す作業を区別する"><span class="reading-map-number">08</span></a></li><li><a href="#section-9" aria-label="受入試験では、人が調べ直す時間まで数える" title="受入試験では、人が調べ直す時間まで数える"><span class="reading-map-number">09</span></a></li><li><a href="#section-10" aria-label="任せる範囲は、確かめられる仕事から広げる" title="任せる範囲は、確かめられる仕事から広げる"><span class="reading-map-number">10</span></a></li></ol>
+  </nav>
+      <section class="article-share" aria-label="記事を共有">
     <a class="share-button" href="https://twitter.com/intent/tweet?text=%E7%94%BB%E9%9D%A2%E6%93%8D%E4%BD%9CAI%E3%81%AB%E4%BB%BB%E3%81%9B%E3%82%8B%E6%A5%AD%E5%8B%99%EF%BC%9A%E5%85%A5%E5%8A%9B%E3%81%8B%E3%82%89%E4%BF%9D%E5%AD%98%E3%81%AE%E7%A2%BA%E8%AA%8D%E3%81%BE%E3%81%A7%E3%81%A4%E3%81%AA%E3%81%90&url=https%3A%2F%2Fresearch.notelligent.app%2F2026-06-30-agents-operate-legacy-desktop-workflows.html" target="_blank" rel="noopener noreferrer" aria-label="X で共有">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
@@ -125,8 +131,9 @@
     </button>
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
-    <section class="article-body"><section class="report-section">
-<h2>保存ボタンの後に、画面が止まったら</h2>
+    </header>
+    <div class="article-body"><section class="report-section">
+<h2 id="section-1">保存ボタンの後に、画面が止まったら</h2>
 <p>請求書から取引先、番号、金額を読み、業務アプリへ入力する。
 AIが保存ボタンを押したところで画面が止まった。
 登録は終わったのか。
@@ -140,7 +147,7 @@ AIが保存ボタンを押したところで画面が止まった。
 対象アプリの広さに加えて、入力の意味と保存結果を人が説明できる範囲を導入の基準にしたい。</p>
 </section>
 <section class="report-section">
-<h2>画面を見るモデルは、何を観測しているか</h2>
+<h2 id="section-2">画面を見るモデルは、何を観測しているか</h2>
 <p>Anthropicの<a href="https://www.anthropic.com/research/developing-computer-use">2024年10月の研究説明</a>では、Claudeがスクリーンショットを解釈し、移動すべき画素数を求めてマウスやキーボードを操作する。
 個々のアプリに専用の接続処理を用意しなくても、画面から操作を選べることがこの方式の価値だ。</p>
 <p>同じ説明は、連続した映像ではなく画像を順に見るため、短く表示される通知を見逃し得ることも挙げる。
@@ -151,7 +158,7 @@ Anthropicは、そこに含まれる悪意ある指示によって本来の依�
 請求書を読む目的で開いた画面の文章が、送信先や処理手順を自由に変える権限まで持つとは扱わない。</p>
 </section>
 <section class="report-section">
-<h2>AWSは業務アプリを動かす場所を管理する</h2>
+<h2 id="section-3">AWSは業務アプリを動かす場所を管理する</h2>
 <p>AWSの<a href="https://aws.amazon.com/about-aws/whats-new/2026/06/amazon-workspaces-ai/">6月30日の一般提供発表</a>は、Amazon WorkSpaces for AI agentsを、ERP、CRM、メインフレームなどを操作する管理デスクトップとして説明する。
 既存のID管理やネットワーク分離に加え、実行中の活動の確認とアクセスの取り消し、Active DirectoryのIDを使う構成を挙げている。</p>
 <p>発表には、画面操作に加えて、MCPの呼び出しをアプリやOSへ転送する機能もある。
@@ -163,7 +170,7 @@ Anthropicは、そこに含まれる悪意ある指示によって本来の依�
 環境の管理は、入力内容の判断や登録後の照合を置き換えるものではない。</p>
 </section>
 <section class="report-section">
-<h2>Microsoftでは作業場所と操作ツールを分けて読む</h2>
+<h2 id="section-4">Microsoftでは作業場所と操作ツールを分けて読む</h2>
 <p>Microsoftは<a href="https://techcommunity.microsoft.com/blog/windows-itpro-blog/windows-365-for-agents-now-in-public-preview-run-ai-agents-securely-at-scale/4513479">5月1日</a>、Windows 365 for Agentsの米国限定公開プレビューを発表した。
 Intuneで管理するCloud PCを、エージェントの実行場所として提供する。
 <a href="https://blogs.windows.com/windowsexperience/2026/01/22/windows-365-for-agents-the-cloud-pcs-next-chapter/">1月の設計説明</a>には、プールからPCを借りて返す仕組みと、途中で人が操作を引き継ぐ構成がある。</p>
@@ -175,7 +182,7 @@ Cloud PCの提供状態と操作ツールの提供状態を一つの「一般提
 確認できる画面と権限がそろったことから、保存内容まで正しいとは結論できない。</p>
 </section>
 <section class="report-section">
-<h2>Graebelの報告では、画面入力の前にも仕事がある</h2>
+<h2 id="section-5">Graebelの報告では、画面入力の前にも仕事がある</h2>
 <p>同じCopilot Studioの発表は、Graebelのサービス注文処理を紹介している。
 APIで接続できないGlobal Connectへ、自由形式のメールから情報を取り出し、業務ルールを検査して画面から入力する。
 例外や確信度の低い案件は人へ戻す、という構成だ。</p>
@@ -188,7 +195,7 @@ APIで接続できないGlobal Connectへ、自由形式のメールから情報
 どの段階で人の判断が必要だったかを残すと、画面認識だけを改善すべきか、資料や業務ルールを見直すべきかを分けられる。</p>
 </section>
 <section class="report-section">
-<h2>長い課題では、途中まで進むことと完了が離れる</h2>
+<h2 id="section-6">長い課題では、途中まで進むことと完了が離れる</h2>
 <p><a href="https://arxiv.org/abs/2606.29537v1">OSWorld 2.0の初版</a>は、108件の長い画面操作課題を評価する。
 500ステップを上限に、Claude Opus 4.8をmaximum thinkingと一括ツール呼び出しで動かした設定では、完全完了率が20.6%、部分得点が54.8%だった。
 完全完了は、最終状態がすべての採点項目を満たした場合に数える。
@@ -202,7 +209,7 @@ APIで接続できないGlobal Connectへ、自由形式のメールから情報
 「提出済み」と「必要な情報が正しくそろった」を別に確かめる。</p>
 </section>
 <section class="report-section">
-<h2>請求書入力を、三つの確かめられる区間にする</h2>
+<h2 id="section-7">請求書入力を、三つの確かめられる区間にする</h2>
 <p>入力前には、対象会社、取引先、請求番号を特定し、同じ請求が登録済みでないか調べる。
 番号の表記揺れや複数の候補を扱えなければ、該当なしと断定して新規登録へ進まない。
 対象を選び直す仕事を、人へ戻す条件に含める。</p>
@@ -219,7 +226,7 @@ APIで接続できないGlobal Connectへ、自由形式のメールから情報
 更新のある作業では、クリック数に加えて、何が確定し、どの記録で結果を確かめるかを決める。</p>
 </section>
 <section class="report-section">
-<h2>止める操作と、元に戻す作業を区別する</h2>
+<h2 id="section-8">止める操作と、元に戻す作業を区別する</h2>
 <p>保存直後に通信が切れたら、同じ請求番号で登録の有無を調べる。
 見つからなくても、検索の遅れや別の表示条件が考えられるため、検索結果だけで未保存と断定しない。
 それでも決められなければ再保存せず、最後の画面、入力値、試みた操作、結果が不明な点を担当者へ渡す。</p>
@@ -232,7 +239,7 @@ APIで接続できないGlobal Connectへ、自由形式のメールから情報
 停止できたことと、業務データの復旧が終わったことを分けて記録する。</p>
 </section>
 <section class="report-section">
-<h2>受入試験では、人が調べ直す時間まで数える</h2>
+<h2 id="section-9">受入試験では、人が調べ直す時間まで数える</h2>
 <p>次は本稿が提案する評価観点であり、四つの指標で測定済みの製品比較ではない。
 <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">Anthropicの評価説明</a>も、実行記録、最終結果、採点方法の限界を区別する。
 請求入力では、正常な保存の件数に加えて、どこで不明になり誰が直したかを残したい。</p>
@@ -247,7 +254,7 @@ APIで接続できないGlobal Connectへ、自由形式のメールから情報
 日本語と英語の資料、短い請求書と複雑な明細を分ければ、平均に埋もれる誤りも見つけやすい。</p>
 </section>
 <section class="report-section">
-<h2>任せる範囲は、確かめられる仕事から広げる</h2>
+<h2 id="section-10">任せる範囲は、確かめられる仕事から広げる</h2>
 <p>固定された画面や入力形式なら、既存のRPAや一括取込の方が扱いやすい場合がある。
 APIが一部でも使えるなら、照合や保存はその経路を利用し、画面操作を必要な部分へ絞る選択もある。
 あらゆる業務を視覚モデルへ移すこと自体を目標にしない。</p>
@@ -258,75 +265,9 @@ APIが一部でも使えるなら、照合や保存はその経路を利用し�
 その価値を現場で確かめるには、操作できる場所、入力の意味、登録後の証拠を一緒に設計する必要がある。
 保存ボタンの後で担当者が困らない区間から、仕事を任せていく。</p>
 </section>
-</section>
-    <section class="panel-block topic-backlink">
-    <div>
-      <p class="section-kicker">テーマハブ</p>
-      <h2 class="panel-title">テーマ別に戻る</h2>
-      <p class="panel-copy">このレポートが属するテーマハブから、同じテーマの公開記事をまとめて追えます。</p>
-    </div>
-    <div class="topic-backlink-actions">
-      <span class="meta-pill is-accent">AI Workflows</span>
-      <span class="mono-note">記事数: 4</span>
-      <a class="text-link" href="/topics/ai-workflows/">テーマハブを開く</a>
-    </div>
-  </section>
-    <section class="panel-block related-articles">
-    <div>
-      <p class="section-kicker">関連記事</p>
-      <h2 class="panel-title">関連記事</h2>
-      <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
-    </div>
-    <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="AIエージェント評価を、仕事の直し方につなげる">
-    <div class="article-card-main">
-      <p class="section-kicker">より新しい記事</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-07-11">調査対象日 2026年7月11日</time>
-      </div>
-      <h3 class="article-card-title">AIエージェント評価を、仕事の直し方につなげる</h3>
-      <p class="article-card-copy">得点が上がったとき、仕事の何がよくなったのか。実行記録から修正する場所を選ぶ。</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">根拠数: 7</span>
-      <span class="text-link">レポートを開く</span>
-    </div>
-  </a><a class="article-card " href="/2026-06-08-sales-agents-turn-notes-into-crm-actions.html" aria-label="営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ">
-    <div class="article-card-main">
-      <p class="section-kicker">ひとつ古い記事</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-06-08">調査対象日 2026年6月8日</time>
-      </div>
-      <h3 class="article-card-title">営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ</h3>
-      <p class="article-card-copy">顧客の希望を成約見込みへ変える前に、どの案件と判断を引き継ぐかを確かめる。</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Sales</span><span class="meta-chip">CRM</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Workflow</span><span class="meta-chip">Enterprise AI</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">根拠数: 10</span>
-      <span class="text-link">レポートを開く</span>
-    </div>
-  </a><a class="article-card " href="/2026-08-01-ai-collaboration-starts-with-first-artifact.html" aria-label="AIにうまく頼めない仕事では、小さな案から希望を具体化する">
-    <div class="article-card-main">
-      <p class="section-kicker">テーマが近い記事</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-08-01">調査対象日 2026年8月1日</time>
-      </div>
-      <h3 class="article-card-title">AIにうまく頼めない仕事では、小さな案から希望を具体化する</h3>
-      <p class="article-card-copy">完璧な依頼を待つより、条件を確かめ、小さな案で残す説明と直す点を選ぶ。</p>
-      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">AI Workflow</span><span class="meta-chip">Prompting</span><span class="meta-chip">Evaluation</span><span class="meta-chip">LLM</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">根拠数: 8</span>
-      <span class="text-link">レポートを開く</span>
-    </div>
-  </a>
-    </div>
-  </section>
-    <section class="panel-block">
+</div>
+    <details class="reading-evidence"><summary>出典と編集責任 <span>7</span></summary>
+      <section class="panel-block">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="section-kicker">公開根拠</p>
@@ -407,8 +348,7 @@ APIが一部でも使えるなら、照合や保存はその経路を利用し�
             <span class="source-action">開く</span>
           </a>
     </div>
-  </section>
-    <section class="panel-block article-authorship">
+  </section><section class="panel-block article-authorship">
     <div>
       <p class="section-kicker">編集・検証</p>
       <h2 class="panel-title">この記事の編集責任</h2>
@@ -425,7 +365,82 @@ APIが一部でも使えるなら、照合や保存はその経路を利用し�
       </div>
     </div>
   </section>
-  </article>
+    </details>
+    <details class="reading-evidence"><summary>関連記事</summary><section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">テーマハブ</p>
+      <h2 class="panel-title">テーマ別に戻る</h2>
+      <p class="panel-copy">このレポートが属するテーマハブから、同じテーマの公開記事をまとめて追えます。</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Workflows</span>
+      <span class="mono-note">記事数: 4</span>
+      <a class="text-link" href="/topics/ai-workflows/">テーマハブを開く</a>
+    </div>
+  </section><section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">関連記事</p>
+      <h2 class="panel-title">関連記事</h2>
+      <p class="panel-copy">前後の公開記事と、テーマの近い記事を自動表示しています。</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/2026-07-11-agent-evaluation-measures-execution-path.html" aria-label="AIエージェント評価を、仕事の直し方につなげる">
+    <div class="article-card-main">
+      <p class="section-kicker">より新しい記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-07-11">調査対象日 2026年7月11日</time>
+      </div>
+      <h3 class="article-card-title">AIエージェント評価を、仕事の直し方につなげる</h3>
+      <p class="article-card-copy">得点が上がったとき、仕事の何がよくなったのか。実行記録から修正する場所を選ぶ。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 7</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-06-08-sales-agents-turn-notes-into-crm-actions.html" aria-label="営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ">
+    <div class="article-card-main">
+      <p class="section-kicker">ひとつ古い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Workflows</span>
+        <time class="mono-note" datetime="2026-06-08">調査対象日 2026年6月8日</time>
+      </div>
+      <h3 class="article-card-title">営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ</h3>
+      <p class="article-card-copy">顧客の希望を成約見込みへ変える前に、どの案件と判断を引き継ぐかを確かめる。</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Sales</span><span class="meta-chip">CRM</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Workflow</span><span class="meta-chip">Enterprise AI</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 10</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a><a class="article-card " href="/2026-08-01-ai-collaboration-starts-with-first-artifact.html" aria-label="AIにうまく頼めない仕事では、小さな案から希望を具体化する">
+    <div class="article-card-main">
+      <p class="section-kicker">テーマが近い記事</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Workflows</span>
+        <time class="mono-note" datetime="2026-08-01">調査対象日 2026年8月1日</time>
+      </div>
+      <h3 class="article-card-title">AIにうまく頼めない仕事では、小さな案から希望を具体化する</h3>
+      <p class="article-card-copy">完璧な依頼を待つより、条件を確かめ、小さな案で残す説明と直す点を選ぶ。</p>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">AI Workflow</span><span class="meta-chip">Prompting</span><span class="meta-chip">Evaluation</span><span class="meta-chip">LLM</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">根拠数: 8</span>
+      <span class="text-link">レポートを開く</span>
+    </div>
+  </a>
+    </div>
+  </section></details>
+    <dialog class="related-dialog" data-related-dialog aria-label="関連の流れ">
+      <div class="related-dialog-head"><h2>関連の流れ</h2><form method="dialog"><button class="reading-related-button" type="submit">閉じる</button></form></div>
+      <p class="panel-copy">AI Workflows</p><ol class="related-flow"><li><a href="/2026-08-01-ai-collaboration-starts-with-first-artifact.html"><span class="related-flow-relation">同じテーマ</span><time datetime="2026-08-01">2026年8月1日</time><h3>AIにうまく頼めない仕事では、小さな案から希望を具体化する</h3><p>完璧な依頼を待つより、条件を確かめ、小さな案で残す説明と直す点を選ぶ。</p></a></li><li class="is-current"><a href="/2026-06-30-agents-operate-legacy-desktop-workflows.html" aria-current="page"><span class="related-flow-relation">閲覧中</span><time datetime="2026-06-30">2026年6月30日</time><h3>画面操作AIに任せる業務：入力から保存の確認までつなぐ</h3><p>保存ボタンの後で困らないために。操作、管理環境、業務結果の照合を分けてつなぐ。</p></a></li><li><a href="/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"><span class="related-flow-relation">同じテーマ</span><time datetime="2026-06-08">2026年6月8日</time><h3>営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ</h3><p>顧客の希望を成約見込みへ変える前に、どの案件と判断を引き継ぐかを確かめる。</p></a></li><li><a href="/2026-05-08-presentation-generation-becomes-artifact-workflow.html"><span class="related-flow-relation">同じテーマ</span><time datetime="2026-05-08">2026年5月8日</time><h3>AIで作るプレゼン資料：伝える判断と、次の修正を残す</h3><p>数字と注記を一度直して、見栄えの先にある資料の使いやすさを確かめる。</p></a></li></ol>
+    </dialog>
+  </article><section class="article-continuation" data-next-url="/assets/articles/ja/2026-06-08-sales-agents-turn-notes-into-crm-actions.json" data-next-id="2026-06-08-sales-agents-turn-notes-into-crm-actions">
+    <p class="stream-boundary">このテーマのひとつ前の記事</p>
+    <a class="next-article-preview" href="/2026-06-08-sales-agents-turn-notes-into-crm-actions.html"><span class="next-article-kicker">このテーマのひとつ前の記事</span><time datetime="2026-06-08">2026年6月8日</time><h2>営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ</h2><p>顧客の希望を成約見込みへ変える前に、どの案件と判断を引き継ぐかを確かめる。</p><span class="text-link">下へスクロールして読む</span></a>
+    <p class="stream-status" role="status" aria-live="polite"></p><button class="reading-related-button" type="button" data-stream-retry hidden>再試行</button>
+  </section></div>
         </div>
       </main>
       <footer class="footer-panel">

@@ -7,7 +7,7 @@
     <meta name="description" content="Compare Jev with classifiers and structured LLM outputs. Understand Choice, Noul, Score, calibration, automated coverage, and the work that remains in code.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
-    <meta name="theme-color" content="#0d0f14">
+    <meta name="theme-color" content="#edf3f7">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
@@ -39,9 +39,11 @@
     <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/site-ui.js" defer></script>
     <script src="/assets/article-share.js" defer></script>
+    <script src="/assets/article-stream.js" defer></script>
     <meta property="article:modified_time" content="2026-10-11T01:18:42+09:00">
     <meta property="article:section" content="AI Strategy">
     <meta property="article:tag" content="LLM">
@@ -52,35 +54,39 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Should LLMs replace every if statement? Understanding Jev’s decision API","description":"Compare Jev with classifiers and structured LLM outputs. Understand Choice, Noul, Score, calibration, automated coverage, and the work that remains in code.","dateModified":"2026-10-11T01:18:42+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Strategy","keywords":"LLM, Classification, AI Architecture, Evaluation, AI Agent","mainEntityOfPage":"https://research.notelligent.app/en/2026-09-21-jev-decision-api.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-09-21-jev-decision-api.html"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/en/topics/ai-strategy/"},{"@type":"ListItem","position":4,"name":"Should LLMs replace every if statement? Understanding Jev’s decision API","item":"https://research.notelligent.app/en/2026-09-21-jev-decision-api.html"}],"inLanguage":"en"}</script>
   </head>
-  <body>
+  <body data-page-type="article">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">Skip to content</a>
       <header class="site-header">
         <a class="brand-mark" href="/en/">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu</button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
         <a class="lang-switch" href="/2026-09-21-jev-decision-api.html">日本語</a>
       </header>
-      <main class="site-main">
-        <section class="hero-panel ">
-          <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Should LLMs replace every if statement? Understanding Jev’s decision API</h1>
-          <p class="hero-copy">Jev turns language interpretation into probabilistic decisions for software. A customer inquiry connects comparisons with classifiers and generative LLMs to calibration, execution conditions, and adoption evaluation.</p>
-        </section>
+      <main class="site-main" id="main">
+        
         <div class="content-stack">
-          <article class="article-shell">
-    <section class="article-meta">
+          <div class="article-stream" data-article-stream data-locale="en"><article class="reading-article" data-article-id="2026-09-21-jev-decision-api" data-article-path="/en/2026-09-21-jev-decision-api.html">
+    <header class="reading-header">
+      <div class="reading-actions"><a class="text-link" href="/en/topics/ai-strategy/">← Back to topic</a><button class="reading-related-button" data-open-related type="button" hidden>Related timeline</button></div>
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-strategy/">AI Strategy</a>
         <time class="mono-note" datetime="2026-09-21">Research cutoff September 21, 2026</time>
         
         <time class="mono-note" datetime="2026-10-11">Updated October 11, 2026</time>
       </div>
-      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">Classification</span><span class="meta-chip">AI Architecture</span><span class="meta-chip">Evaluation</span><span class="meta-chip">AI Agent</span></div>
-    </section>
-    <section class="article-share" aria-label="Share article">
+      <h1 class="reading-title">Should LLMs replace every if statement? Understanding Jev’s decision API</h1>
+      <p class="reading-duration">9 min read</p>
+      <p class="reading-lead">Jev turns language interpretation into probabilistic decisions for software. A customer inquiry connects comparisons with classifiers and generative LLMs to calibration, execution conditions, and adoption evaluation.</p>
+      <nav class="reading-map" aria-label="Briefing sections">
+    <p class="reading-map-label">Sections</p>
+    <ol style="--section-count:10"><li><a href="#section-1" aria-label="Understanding a request does not determine the action" title="Understanding a request does not determine the action" aria-current="location"><span class="reading-map-number">01</span></a></li><li><a href="#section-2" aria-label="Classification without new training is not the whole innovation" title="Classification without new training is not the whole innovation"><span class="reading-map-number">02</span></a></li><li><a href="#section-3" aria-label="Generative LLMs can also return predefined structures" title="Generative LLMs can also return predefined structures"><span class="reading-map-number">03</span></a></li><li><a href="#section-4" aria-label="The three outputs answer different questions" title="The three outputs answer different questions"><span class="reading-map-number">04</span></a></li><li><a href="#section-5" aria-label="Separate probability concentration from observed accuracy" title="Separate probability concentration from observed accuracy"><span class="reading-map-number">05</span></a></li><li><a href="#section-6" aria-label="Decomposition leaves responsibility for inputs and candidates" title="Decomposition leaves responsibility for inputs and candidates"><span class="reading-map-number">06</span></a></li><li><a href="#section-7" aria-label="Connect the decision API to an executable procedure" title="Connect the decision API to an executable procedure"><span class="reading-map-number">07</span></a></li><li><a href="#section-8" aria-label="Read vendor comparisons through their definition of correctness" title="Read vendor comparisons through their definition of correctness"><span class="reading-map-number">08</span></a></li><li><a href="#section-9" aria-label="Measure automated coverage and errors together" title="Measure automated coverage and errors together"><span class="reading-map-number">09</span></a></li><li><a href="#section-10" aria-label="Define the judgment before removing the if statements" title="Define the judgment before removing the if statements"><span class="reading-map-number">10</span></a></li></ol>
+  </nav>
+      <section class="article-share" aria-label="Share article">
     <a class="share-button" href="https://twitter.com/intent/tweet?text=Should%20LLMs%20replace%20every%20if%20statement%3F%20Understanding%20Jev%E2%80%99s%20decision%20API&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-09-21-jev-decision-api.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
@@ -124,29 +130,30 @@
     </button>
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
-    <section class="article-body"><section class="report-section">
-  <h2>Understanding a request does not determine the action</h2>
+    </header>
+    <div class="article-body"><section class="report-section">
+  <h2 id="section-1">Understanding a request does not determine the action</h2>
   <p>“You charged me twice. I did not use the service last month. I want to cancel.” A reader can identify a billing concern and a cancellation request. But routing the inquiry, checking payment records, deciding whether a refund is allowed, and writing a reply are different jobs. The following scenario illustrates that division; it is not evidence of a deployed Jev system.</p>
   <p>Asking a generative LLM to handle everything can mix flexible explanation with business execution in one response. Routing by keywords alone can miss negation and multiple requests. What software needs is a connection between interpreting ambiguous language and invoking established procedures. That makes Jev, the decision model TypeSafe AI announced on September 15, worth examining.</p>
   <p>The argument here is not that Jev should replace every if statement. <strong>Separating interpretation into probabilistic decisions can make it easier to distinguish the code that enforces rules from the LLM that writes text.</strong> A correctly typed answer and permission to act on that answer still require different checks.</p>
 </section>
 
 <section class="report-section">
-  <h2>Classification without new training is not the whole innovation</h2>
+  <h2 id="section-2">Classification without new training is not the whole innovation</h2>
   <p>Classifiers have long provided this connection. The <a href="https://arxiv.org/abs/1810.04805v1" target="_blank" rel="noopener noreferrer">BERT paper</a> describes adding a classification layer to a text representation and fine-tuning with labeled examples. If categories are stable and enough labeled data exists, a dedicated classifier should remain in the comparison. Jev's arrival does not make established methods redundant.</p>
   <p>Classifying text from label descriptions without task-specific training is also an established idea. <a href="https://aclanthology.org/D19-1404/" target="_blank" rel="noopener noreferrer">Yin and colleagues' zero-shot classification research</a> formulates classification across topics, emotions, and situations as a relationship between text and labels. It includes an evaluation setting without task-specific training data. “No additional training required” alone does not identify Jev's distinctive value.</p>
   <p>The interesting design is that callers supply questions and candidates and receive decisions ordinary software can consume. When categories change between cases, this could reduce the burden of rebuilding a fixed classifier. It does not remove the need to define candidates or prepare inputs. Adoption should depend on where that work moves, as well as on what work disappears.</p>
 </section>
 
 <section class="report-section">
-  <h2>Generative LLMs can also return predefined structures</h2>
+  <h2 id="section-3">Generative LLMs can also return predefined structures</h2>
   <p>Typed responses are not exclusive to Jev. <a href="https://openai.com/index/introducing-structured-outputs-in-the-api/" target="_blank" rel="noopener noreferrer">OpenAI's Structured Outputs</a> constrains generation to a developer-supplied JSON Schema. Its announcement also explains that refusals and incomplete generation need separate handling, and that values inside a valid structure can still be wrong. Structural conformity should not be confused with semantic correctness.</p>
   <p>TypeSafe describes Jev as returning bounded decisions in parallel rather than generating text. One potential benefit is reducing the work of parsing a long response afterward. A generative LLM with constrained output can nevertheless provide a similar connection. The comparison should cover whether it completes the same job with the required accuracy, latency, and cost, as well as whether integration is possible.</p>
   <p>In the opening scenario, Jev could interpret the request, code could check the billing records, and a generative LLM could draft a reply from verified results. Keep text generation where explanation is required, and compare Jev where only a decision is needed. Defining the necessary output comes before selecting one model for the entire process.</p>
 </section>
 
 <section class="report-section">
-  <h2>The three outputs answer different questions</h2>
+  <h2 id="section-4">The three outputs answer different questions</h2>
   <p>The published <a href="https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_schemas/models.py" target="_blank" rel="noopener noreferrer">SDK API schema</a> defines Choice, Noul, and Score answers. Each contains numbers, but those numbers serve different purposes. Applying them to the opening inquiry makes the distinction concrete.</p>
   <div class="comparison-grid">
     <article class="comparison-card"><h3>Choice: select one candidate</h3><p>Select the primary issue from “billing,” “technical support,” and “other,” with probabilities for the candidates. If several issues may simultaneously apply, do not force that question into a single Choice.</p></article>
@@ -158,35 +165,35 @@
 </section>
 
 <section class="report-section">
-  <h2>Separate probability concentration from observed accuracy</h2>
+  <h2 id="section-5">Separate probability concentration from observed accuracy</h2>
   <p>Choice and Score also have confidence values, but reading them as the probability that the whole business process is correct is unsafe. For example, the official comparison <a href="https://github.com/typesafe-ai/system-one-adapter-python/blob/adffc2eab300a4fa3c0e92252d4ffd6ceaa53700/src/system_one_adapter/_utils/confidence_metrics.py" target="_blank" rel="noopener noreferrer">LLM adapter implementation</a> computes Choice confidence from concentration relative to a uniform distribution. With three candidate probabilities of 0.8, 0.1, and 0.1, its confidence calculation returns 0.7. This is a worked calculation, not a measurement of Jev's server output.</p>
   <p><a href="https://arxiv.org/abs/1706.04599v1" target="_blank" rel="noopener noreferrer">Calibration as defined by Guo and colleagues</a>, by contrast, concerns the relationship between predicted probabilities and observed accuracy. Among cases predicted at about 0.8, roughly eight in ten should be correct. A score of 0.8 on a single inquiry does not prove that inquiry was classified correctly. Checking calibration also requires enough cases and appropriate ground truth.</p>
   <p>Correctly classifying the issue does not establish refund eligibility. Stale billing records, an omitted candidate, or missing execution authority can still cause failure. Recording output probabilities, concentration, and business outcomes separately makes it easier to locate what needs repair when something goes wrong.</p>
 </section>
 
 <section class="report-section">
-  <h2>Decomposition leaves responsibility for inputs and candidates</h2>
+  <h2 id="section-6">Decomposition leaves responsibility for inputs and candidates</h2>
   <p><a href="https://github.com/typesafe-ai/skills/blob/65a39f393687675ce170e6094757de20370365b9/skills/typesafe-ai/SKILL.md" target="_blank" rel="noopener noreferrer">TypeSafe's development guide</a> recommends leaving known rules, calculations, exact lookups, and execution in code while isolating semantic interpretation into questions. It also explains that questions in the same call are evaluated independently rather than reading one another's answers. Parallel responses do not eliminate the order in which required checks must happen.</p>
   <p>“Does the customer want to cancel?” and “Is the customer unhappy about billing?” can be asked separately about the same text. A condition that requires payment records must wait until those records are retrieved. If an earlier decision changes the next input, code must receive the answer, update the state, and make the next call.</p>
   <p>Candidate coverage matters too. Supplying only “billing” and “technical support” cannot enable selection of an absent category. Design an “other” option or an abstention route, and test inputs with missing information. Splitting a task into smaller questions is useful when each question has the evidence it needs and a defined use for its answer.</p>
 </section>
 
 <section class="report-section">
-  <h2>Connect the decision API to an executable procedure</h2>
+  <h2 id="section-7">Connect the decision API to an executable procedure</h2>
   <p>Returning to the scenario, collect the inquiry and necessary records, then ask Jev about the issue and cancellation request. Code checks the correspondence between the customer and charges, the contract status, and established conditions. Missing information sends the case to review. Once an allowable action is determined, a generative LLM can draft a reply from the result. Recognizing the word “refund” should not itself trigger a refund.</p>
   <p>This connection can fail without an incorrect model decision. The <a href="https://github.com/typesafe-ai/typesafe-sdk-python/blob/0ffd094c72ed9445223060b24ffd7a56aa781fb4/src/typesafe_sdk/_core/client/sync/client.py" target="_blank" rel="noopener noreferrer">SDK call contract</a> distinguishes connection and timeout errors, API failures, and response-validation failures. The application also needs to check that required answers are present, identify the model used, and prevent execution from continuing after a failure.</p>
   <p>The division changes human work as well. Reviewing every inquiry is different from examining uncertain cases. Showing the reason for review and the input evidence can help an operator decide; passing over numbers alone may require a fresh investigation. Automation should be measured by the work it removes after checking and correction are included, as well as by API speed.</p>
 </section>
 
 <section class="report-section">
-  <h2>Read vendor comparisons through their definition of correctness</h2>
+  <h2 id="section-8">Read vendor comparisons through their definition of correctness</h2>
   <p>The <a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" target="_blank" rel="noopener noreferrer">Jev announcement</a> describes comparing models within the same workflows, using averaged predictions from strong external models as reference probabilities. This is an interesting comparison of models embedded in fixed procedures. Those references differ from independently established business ground truth, however, so the result is not a success rate for processing real customer inquiries.</p>
   <p>The announcement notes potential bias from the capabilities team designing evaluations, favorable short and information-dense demonstration inputs, and speed measurements from the US West Coast. These caveats determine whether results transfer to another environment. Long Japanese inquiries and workflows that retrieve records require their own checks.</p>
   <p>The comparison <a href="https://github.com/typesafe-ai/system-one-adapter-python/blob/adffc2eab300a4fa3c0e92252d4ffd6ceaa53700/README.md" target="_blank" rel="noopener noreferrer">LLM adapter</a> supports both probability outputs and discrete answers. Requesting probabilities is a different latency and cost condition from requesting one issue label. Align necessary outputs, inputs, retries, and connection conditions to avoid either overstating or understating Jev's performance.</p>
 </section>
 
 <section class="report-section">
-  <h2>Measure automated coverage and errors together</h2>
+  <h2 id="section-9">Measure automated coverage and errors together</h2>
   <p>To decide on adoption, collect cases from the actual task. Have people define candidates, correct answers, and missing-information conditions that require review. Use one portion to adjust questions and thresholds, and another for evaluation. Fix the model, question wording, candidates, and input preparation, and separate results for Japanese, English, multiple issues, and unknown issues. Average accuracy alone cannot show where troublesome cases remain.</p>
   <p><a href="https://arxiv.org/abs/1705.08500v1" target="_blank" rel="noopener noreferrer">Selective classification research</a> evaluates a classifier that can abstain through the relationship between errors on accepted cases and the fraction accepted. That perspective is useful for automated processing. It does not transfer the paper's guarantees to Jev; it asks how many of our own cases can proceed and how often those decisions fail.</p>
   <p>For example, automatically processing 400 of 1,000 cases with four errors gives 40% coverage and a 1% error rate among accepted cases. Tightening conditions to process 200 cases with one error gives 20% coverage and a 0.5% accepted-case error rate. These are hypothetical values illustrating the comparison. The better option depends on error consequences and the time people spend reviewing the rest. Higher thresholds can still leave confident errors, so inspect their substance as well.</p>
@@ -194,80 +201,14 @@
 </section>
 
 <section class="report-section">
-  <h2>Define the judgment before removing the if statements</h2>
+  <h2 id="section-10">Define the judgment before removing the if statements</h2>
   <p>Jev points toward using language interpretation in software decisions separately from text generation. It is most worth comparing where candidates can be defined, handwritten rules struggle with meaning, and uncertain cases have another route. A dedicated classifier for stable categories and a generative LLM for explanations remain alternatives that need evaluation.</p>
   <p>In the opening inquiry, the brittle branch worth replacing is one that routes to billing whenever the word “twice” appears. Branches that verify records, enforce established conditions, and check completion of required steps should remain. Making them explicit allows the system to locate and repair problems when interpretation fails.</p>
   <p>Adopting a decision API should serve a concrete objective: <strong>improve the handling of ambiguous language, preserve visible conditions for people and code to verify, and reduce processing errors and repair work.</strong> An answer to that question would make Jev more than another model announcement; it would make it a practical choice for changing how work gets done.</p>
 </section>
-</section>
-    <section class="panel-block topic-backlink">
-    <div>
-      <p class="section-kicker">Topic hub</p>
-      <h2 class="panel-title">Back to topic</h2>
-      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
-    </div>
-    <div class="topic-backlink-actions">
-      <span class="meta-pill is-accent">AI Strategy</span>
-      <span class="mono-note">Articles: 4</span>
-      <a class="text-link" href="/en/topics/ai-strategy/">Open topic hub</a>
-    </div>
-  </section>
-    <section class="panel-block related-articles">
-    <div>
-      <p class="section-kicker">Continue reading</p>
-      <h2 class="panel-title">Continue reading</h2>
-      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
-    </div>
-    <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-10-11-on-device-llms-as-native-app-features.html" aria-label="Which native app tasks can on-device LLMs take on?">
-    <div class="article-card-main">
-      <p class="section-kicker">Newer briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">On-Device AI</span>
-        <time class="mono-note" datetime="2026-10-11">Research cutoff October 11, 2026</time>
-      </div>
-      <h3 class="article-card-title">Which native app tasks can on-device LLMs take on?</h3>
-      <p class="article-card-copy">Compare Apple Foundation Models and Android ML Kit. Connect summarization, extraction, and classification to native features</p>
-      <div class="meta-tags"><span class="meta-chip">On-Device AI</span><span class="meta-chip">Native Apps</span><span class="meta-chip">Apple</span><span class="meta-chip">Android</span><span class="meta-chip">Evaluation</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 14</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2026-08-12-beyond-ai-agents-hacw.html" aria-label="HACW: helping people and AI continue the same work">
-    <div class="article-card-main">
-      <p class="section-kicker">Older briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Strategy</span>
-        <time class="mono-note" datetime="2026-08-12">Research cutoff August 12, 2026</time>
-      </div>
-      <h3 class="article-card-title">HACW: helping people and AI continue the same work</h3>
-      <p class="article-card-copy">A finished AI draft does not by itself pass its assumptions to the next owner.</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">HACW</span><span class="meta-chip">AI Workspace</span><span class="meta-chip">Orchestration</span><span class="meta-chip">AI Governance</span><span class="meta-chip">Evaluation</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 11</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2026-03-24-why-ai-products-converge-on-chat-ui.html" aria-label="AI chat UI: when to add an editor or a visible plan">
-    <div class="article-card-main">
-      <p class="section-kicker">Related briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Strategy</span>
-        <time class="mono-note" datetime="2026-03-24">Research cutoff March 24, 2026</time>
-      </div>
-      <h3 class="article-card-title">AI chat UI: when to add an editor or a visible plan</h3>
-      <p class="article-card-copy">A conversational request and a precise edit solve different problems. Compare drafts, shared versions, editable plans, and recurring forms.</p>
-      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Chat Interface</span><span class="meta-chip">Product Design</span><span class="meta-chip">Workflow</span><span class="meta-chip">UX</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 10</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a>
-    </div>
-  </section>
-    <section class="panel-block">
+</div>
+    <details class="reading-evidence"><summary>Sources and editorial review <span>12</span></summary>
+      <section class="panel-block">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="section-kicker">Published evidence</p>
@@ -398,8 +339,7 @@
             <span class="source-action">Open</span>
           </a>
     </div>
-  </section>
-    <section class="panel-block article-authorship">
+  </section><section class="panel-block article-authorship">
     <div>
       <p class="section-kicker">Editorial review</p>
       <h2 class="panel-title">How this briefing is reviewed</h2>
@@ -416,7 +356,82 @@
       </div>
     </div>
   </section>
-  </article>
+    </details>
+    <details class="reading-evidence"><summary>Continue reading</summary><section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Strategy</span>
+      <span class="mono-note">Articles: 4</span>
+      <a class="text-link" href="/en/topics/ai-strategy/">Open topic hub</a>
+    </div>
+  </section><section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-10-11-on-device-llms-as-native-app-features.html" aria-label="Which native app tasks can on-device LLMs take on?">
+    <div class="article-card-main">
+      <p class="section-kicker">Newer briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">On-Device AI</span>
+        <time class="mono-note" datetime="2026-10-11">Research cutoff October 11, 2026</time>
+      </div>
+      <h3 class="article-card-title">Which native app tasks can on-device LLMs take on?</h3>
+      <p class="article-card-copy">Compare Apple Foundation Models and Android ML Kit. Connect summarization, extraction, and classification to native features</p>
+      <div class="meta-tags"><span class="meta-chip">On-Device AI</span><span class="meta-chip">Native Apps</span><span class="meta-chip">Apple</span><span class="meta-chip">Android</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 14</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-08-12-beyond-ai-agents-hacw.html" aria-label="HACW: helping people and AI continue the same work">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-08-12">Research cutoff August 12, 2026</time>
+      </div>
+      <h3 class="article-card-title">HACW: helping people and AI continue the same work</h3>
+      <p class="article-card-copy">A finished AI draft does not by itself pass its assumptions to the next owner.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">HACW</span><span class="meta-chip">AI Workspace</span><span class="meta-chip">Orchestration</span><span class="meta-chip">AI Governance</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 11</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-24-why-ai-products-converge-on-chat-ui.html" aria-label="AI chat UI: when to add an editor or a visible plan">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-03-24">Research cutoff March 24, 2026</time>
+      </div>
+      <h3 class="article-card-title">AI chat UI: when to add an editor or a visible plan</h3>
+      <p class="article-card-copy">A conversational request and a precise edit solve different problems. Compare drafts, shared versions, editable plans, and recurring forms.</p>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Chat Interface</span><span class="meta-chip">Product Design</span><span class="meta-chip">Workflow</span><span class="meta-chip">UX</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 10</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section></details>
+    <dialog class="related-dialog" data-related-dialog aria-label="Related timeline">
+      <div class="related-dialog-head"><h2>Related timeline</h2><form method="dialog"><button class="reading-related-button" type="submit">Close</button></form></div>
+      <p class="panel-copy">AI Strategy</p><ol class="related-flow"><li class="is-current"><a href="/en/2026-09-21-jev-decision-api.html" aria-current="page"><span class="related-flow-relation">Reading</span><time datetime="2026-09-21">September 21, 2026</time><h3>Should LLMs replace every if statement? Understanding Jev’s decision API</h3><p>Interpreting a customer request and verifying the action are different jobs. How does Jev’s decision API change their division?</p></a></li><li><a href="/en/2026-08-12-beyond-ai-agents-hacw.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-08-12">August 12, 2026</time><h3>HACW: helping people and AI continue the same work</h3><p>A finished AI draft does not by itself pass its assumptions to the next owner.</p></a></li><li><a href="/en/2026-03-28-video-generation-ai-product-landscape.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-28">March 28, 2026</time><h3>Compare video AI through revision: references, sound, and editing</h3><p>Change the background, and the product changes too. Compare preservation, revision, and handoff through documented features from five vendors.</p></a></li><li><a href="/en/2026-03-24-why-ai-products-converge-on-chat-ui.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-24">March 24, 2026</time><h3>AI chat UI: when to add an editor or a visible plan</h3><p>A conversational request and a precise edit solve different problems. Compare drafts, shared versions, editable plans, and recurring forms.</p></a></li></ol>
+    </dialog>
+  </article><section class="article-continuation" data-next-url="/assets/articles/en/2026-08-12-beyond-ai-agents-hacw.json" data-next-id="2026-08-12-beyond-ai-agents-hacw">
+    <p class="stream-boundary">Earlier in this topic</p>
+    <a class="next-article-preview" href="/en/2026-08-12-beyond-ai-agents-hacw.html"><span class="next-article-kicker">Earlier in this topic</span><time datetime="2026-08-12">August 12, 2026</time><h2>HACW: helping people and AI continue the same work</h2><p>A finished AI draft does not by itself pass its assumptions to the next owner.</p><span class="text-link">Scroll to continue</span></a>
+    <p class="stream-status" role="status" aria-live="polite"></p><button class="reading-related-button" type="button" data-stream-retry hidden>Retry</button>
+  </section></div>
         </div>
       </main>
       <footer class="footer-panel">

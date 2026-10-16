@@ -7,7 +7,7 @@
     <meta name="description" content="Use Semantic Kernel, Foundry, and Responses API examples to design multi-agent research with dependencies, evidence handoffs, review, and return to collection.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
-    <meta name="theme-color" content="#0d0f14">
+    <meta name="theme-color" content="#edf3f7">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
@@ -39,9 +39,11 @@
     <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/site-ui.js" defer></script>
     <script src="/assets/article-share.js" defer></script>
+    <script src="/assets/article-stream.js" defer></script>
     <meta property="article:modified_time" content="2026-10-11T01:18:42+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
@@ -51,35 +53,39 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Multi-agent research: dividing work that leads to one usable report","description":"Use Semantic Kernel, Foundry, and Responses API examples to design multi-agent research with dependencies, evidence handoffs, review, and return to collection.","dateModified":"2026-10-11T01:18:42+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Orchestration, Evaluation","mainEntityOfPage":"https://research.notelligent.app/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Multi-agent research: dividing work that leads to one usable report","item":"https://research.notelligent.app/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"}],"inLanguage":"en"}</script>
   </head>
-  <body>
+  <body data-page-type="article">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">Skip to content</a>
       <header class="site-header">
         <a class="brand-mark" href="/en/">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu</button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
         <a class="lang-switch" href="/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">日本語</a>
       </header>
-      <main class="site-main">
-        <section class="hero-panel ">
-          <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Multi-agent research: dividing work that leads to one usable report</h1>
-          <p class="hero-copy">Compare Semantic Kernel orchestration, Foundry tools and traces, and Responses API background work to examine dependencies, evidence handoffs, and report quality.</p>
-        </section>
+      <main class="site-main" id="main">
+        
         <div class="content-stack">
-          <article class="article-shell">
-    <section class="article-meta">
+          <div class="article-stream" data-article-stream data-locale="en"><article class="reading-article" data-article-id="2025-06-01-multi-agent-design-turns-into-an-operating-model" data-article-path="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html">
+    <header class="reading-header">
+      <div class="reading-actions"><a class="text-link" href="/en/topics/ai-agents/">← Back to topic</a><button class="reading-related-button" data-open-related type="button" hidden>Related timeline</button></div>
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2025-06-01">Research cutoff June 1, 2025</time>
         
         <time class="mono-note" datetime="2026-10-11">Updated October 11, 2026</time>
       </div>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Evaluation</span></div>
-    </section>
-    <section class="article-share" aria-label="Share article">
+      <h1 class="reading-title">Multi-agent research: dividing work that leads to one usable report</h1>
+      <p class="reading-duration">7 min read</p>
+      <p class="reading-lead">Compare Semantic Kernel orchestration, Foundry tools and traces, and Responses API background work to examine dependencies, evidence handoffs, and report quality.</p>
+      <nav class="reading-map" aria-label="Briefing sections">
+    <p class="reading-map-label">Sections</p>
+    <ol style="--section-count:7"><li><a href="#section-1" aria-label="Does divided research reduce the work of reaching a conclusion?" title="Does divided research reduce the work of reaching a conclusion?" aria-current="location"><span class="reading-map-number">01</span></a></li><li><a href="#section-2" aria-label="Starting together does not help work that needs an earlier output" title="Starting together does not help work that needs an earlier output"><span class="reading-map-number">02</span></a></li><li><a href="#section-3" aria-label="A missing fact can require returning to collection instead of moving forward" title="A missing fact can require returning to collection instead of moving forward"><span class="reading-map-number">03</span></a></li><li><a href="#section-4" aria-label="Separate reading and changing data through the actual tool connections" title="Separate reading and changing data through the actual tool connections"><span class="reading-map-number">04</span></a></li><li><a href="#section-5" aria-label="A completed response and a usable report are different conditions" title="A completed response and a usable report are different conditions"><span class="reading-map-number">05</span></a></li><li><a href="#section-6" aria-label="Passing numbers alone makes the integrator repeat the search for conditions" title="Passing numbers alone makes the integrator repeat the search for conditions"><span class="reading-map-number">06</span></a></li><li><a href="#section-7" aria-label="Compare the burden of completion before adding more participants" title="Compare the burden of completion before adding more participants"><span class="reading-map-number">07</span></a></li></ol>
+  </nav>
+      <section class="article-share" aria-label="Share article">
     <a class="share-button" href="https://twitter.com/intent/tweet?text=Multi-agent%20research%3A%20dividing%20work%20that%20leads%20to%20one%20usable%20report&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2025-06-01-multi-agent-design-turns-into-an-operating-model.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
@@ -123,9 +129,10 @@
     </button>
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
-    <section class="article-body"><section class="report-section">
+    </header>
+    <div class="article-body"><section class="report-section">
   <p class="section-kicker">Combining work into one report</p>
-  <h2>Does divided research reduce the work of reaching a conclusion?</h2>
+  <h2 id="section-1">Does divided research reduce the work of reaching a conclusion?</h2>
   <p>Several AI participants research energy-efficient models. One collects training energy measurements; another collects inference measurements. Both return sources, but placing the numbers together does not create a valid comparison. This is my hypothetical design example. Faster collection brings the report no closer to completion if the user still has to discover the difference in measurement scope.</p>
   <p><a href="https://devblogs.microsoft.com/semantic-kernel/semantic-kernel-multi-agent-orchestration/">Semantic Kernel’s May 27 announcement</a> presents a framework for implementing sequential, concurrent, conversational, handoff, and dynamically coordinated multi-agent work. Azure AI Foundry Agent Service becoming generally available and the Responses API updates also add components for connecting tools and following longer tasks. Using them requires defining dependencies before choosing how many participants to add.</p>
   <p>I propose dividing independent collection, preserving comparison conditions through handoffs, and returning work for additional evidence when integration exposes a gap. The value of several participants cannot be measured by the number of outputs. It should be assessed by the research, checking, and correction a person needs before reaching one usable judgment.</p>
@@ -133,7 +140,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Sequence and concurrency</p>
-  <h2>Starting together does not help work that needs an earlier output</h2>
+  <h2 id="section-2">Starting together does not help work that needs an earlier output</h2>
   <p>Semantic Kernel illustrates sequential processing with document summarization, translation, and quality assurance. Each participant receives the preceding output. In concurrent processing, several participants independently handle the same input and their results are collected, providing different proposals or perspectives. These are descriptions and implementation patterns, not an experiment comparing time or quality on the same document.</p>
   <p>For the opening report, separate primary sources can be searched in parallel after target models and measurement scope are defined. Comparison calculations wait for the necessary values and conditions. Prose review follows the connection between conclusions and evidence. Starting all participants together cannot give a writer a comparison that does not yet exist.</p>
   <p>A sequence alone is also insufficient. If a summary omits measurement conditions, translating it and checking its grammar will not recover them. Participants need access to the original and outputs must retain the information subsequent work requires. Execution order and handoff content belong in the same design.</p>
@@ -141,7 +148,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Changing the path during work</p>
-  <h2>A missing fact can require returning to collection instead of moving forward</h2>
+  <h2 id="section-3">A missing fact can require returning to collection instead of moving forward</h2>
   <p>The same announcement illustrates Magentic orchestration with a report comparing machine-learning models’ energy efficiency and CO₂ emissions. A manager assigns research, delegates analysis to a coding participant, and coordinates repeated research and computation as needed. It describes work whose complete path cannot be fixed at the start. The example is not a measured demonstration that the resulting energy comparison is correct.</p>
   <p>The underlying <a href="https://arxiv.org/html/2411.04468v1">Magentic-One paper</a> uses a task ledger and a progress ledger. The former organizes known facts, guesses, information needed, and a plan. The latter selects participants and checks progress. Stalls can trigger replanning. Compared with a list of role names, this design can change the next action based on what has been learned.</p>
   <p>A manager can still make a wrong judgment. Declaring completion with missing evidence or repeating the same search can increase review burden as more participants are added. Conditions for returning to research, limits on attempts, and reporting absent evidence must be defined. A fixed sequence may be easier to inspect when the sources and processing are already known.</p>
@@ -149,7 +156,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Managing tools and execution</p>
-  <h2>Separate reading and changing data through the actual tool connections</h2>
+  <h2 id="section-4">Separate reading and changing data through the actual tool connections</h2>
   <p>Microsoft’s May 19 <a href="https://devblogs.microsoft.com/foundry/announcing-developer-essentials-for-agents-and-apps-in-azure-ai-foundry/">Developer Essentials announcement</a> describes knowledge tools and action tools alongside Foundry Agent Service’s general availability. Connections retrieve information from systems such as SharePoint and Azure AI Search or execute work through Logic Apps and Azure Functions. Tracing, evaluation, and monitoring are also development and operating capabilities.</p>
   <p>In the hypothetical report, a researcher only needs to read sources. A drafting participant may need to write to a working document. Updating the publication destination can have a separate permission. This is my proposed design, not a claim that Foundry automatically derives permissions from role names.</p>
   <p>More tools introduce different places for errors. Returning an inaccessible document, an empty search, and a failed calculation under the same “no evidence” label leaves the writer unable to identify the cause. Traces should make it possible to investigate which input and tool caused the stop. An execution record does not by itself make an argument verifiable, so the evidence used in the prose must also be retained.</p>
@@ -158,7 +165,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Following longer execution</p>
-  <h2>A completed response and a usable report are different conditions</h2>
+  <h2 id="section-5">A completed response and a usable report are different conditions</h2>
   <p>The May 21 <a href="https://openai.com/index/new-tools-and-features-in-the-responses-api/">Responses API update</a> adds remote MCP server support, Code Interpreter, and background mode for starting longer tasks asynchronously. Applications can poll response objects for completion or follow events to catch up on execution. These are components for waiting on work involving research and calculation.</p>
   <p>The mechanism addresses execution progress. Whether enough evidence was collected and calculation assumptions match requires separate checks. A successfully finished calculation can still produce an unusable conclusion if it compares values with different units. Handling communication and waiting does not define business completion.</p>
   <p>I would connect displays such as researching, calculating, and awaiting review to actual processing. These user-facing states are my proposal. Showing missing evidence or an outstanding human decision, instead of declaring the report finished when internal calls end, lets the user decide whether to wait or change the conditions.</p>
@@ -166,7 +173,7 @@
 
 <section class="report-section">
   <p class="section-kicker">A hypothetical report design</p>
-  <h2>Passing numbers alone makes the integrator repeat the search for conditions</h2>
+  <h2 id="section-6">Passing numbers alone makes the integrator repeat the search for conditions</h2>
   <p>Follow the energy-comparison report as a concrete design example. Research participants return primary-source URLs, publication dates, and relevant passages, together with the model, hardware, processing scope, and measurement units. Unverified conditions remain visible. If training and inference measurements are mixed, the inputs must be aligned before calculation or separated into different comparisons.</p>
   <p>The calculation participant returns the values used and the conversion method. The writer distinguishes measured facts from conclusions derived under specified conditions. A reviewer checks whether the conclusion exceeds the original scope. Voting for the participant with the largest number does not resolve incompatible measurements.</p>
   <p>Adding a reviewer does not guarantee quality. If every participant reads the same summary with omitted conditions, they share the omission. Give the reviewer original passages as well as the draft so measurement scope can be checked. Confidence expressed by a collector should not be inherited as evidence strength. Removing conclusions where conditions do not align should be part of the review role.</p>
@@ -176,7 +183,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Deciding whether to divide work</p>
-  <h2>Compare the burden of completion before adding more participants</h2>
+  <h2 id="section-7">Compare the burden of completion before adding more participants</h2>
   <p><a href="https://www.anthropic.com/engineering/building-effective-agents">Building effective agents</a> recommends starting with the simplest structure that fits the problem. A single-participant baseline and a divided design should face the same report task. Record time spent collecting, handing over, integrating, reviewing, and repeating work, alongside model usage.</p>
   <p>Align sources, available tools, models, and completion criteria in that comparison. If the divided design receives more research time or a different model, those differences also contribute to the result. They cannot be attributed solely to adding participants. Retaining stage-level differences, such as faster collection followed by slower integration, helps identify which work to divide next.</p>
   <p>Assess source correspondence, omitted conditions, and unsupported conclusions. Include missing material and disagreement between participants. A faster draft is hard to call an improvement if a person must search for more originals afterward. Conversely, work that reduces waiting through parallel exploration while preserving conditions during integration has a reason to be divided.</p>
@@ -187,75 +194,9 @@
   </div>
   <p>May’s announcements expand the choices for placing work coordination into code and service configuration. Using those choices well requires moving from participant counts to dependencies that lead to a completed artifact. Division improves the job when it also reduces the user’s burden of reorganizing multiple answers.</p>
 </section>
-</section>
-    <section class="panel-block topic-backlink">
-    <div>
-      <p class="section-kicker">Topic hub</p>
-      <h2 class="panel-title">Back to topic</h2>
-      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
-    </div>
-    <div class="topic-backlink-actions">
-      <span class="meta-pill is-accent">AI Agents</span>
-      <span class="mono-note">Articles: 28</span>
-      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
-    </div>
-  </section>
-    <section class="panel-block related-articles">
-    <div>
-      <p class="section-kicker">Continue reading</p>
-      <h2 class="panel-title">Continue reading</h2>
-      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
-    </div>
-    <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2025-07-01-interoperability-leaves-the-roadmap.html" aria-label="MCP and A2A: what must survive a change of provider">
-    <div class="article-card-main">
-      <p class="section-kicker">Newer briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-07-01">Research cutoff July 1, 2025</time>
-      </div>
-      <h3 class="article-card-title">MCP and A2A: what must survive a change of provider</h3>
-      <p class="article-card-copy">After replacing a search provider, can users still interpret its results under the same conditions?</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span><span class="meta-chip">Interoperability</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 8</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html" aria-label="A2A handover: what must travel with an agent request">
-    <div class="article-card-main">
-      <p class="section-kicker">Older briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-05-01">Research cutoff May 1, 2025</time>
-      </div>
-      <h3 class="article-card-title">A2A handover: what must travel with an agent request</h3>
-      <p class="article-card-copy">Connect delegation to request meaning, validation after edits, and the progress users need to see.</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Runtime</span><span class="meta-chip">Approval</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 6</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2026-02-01-control-planes-and-evals-set-the-pace.html" aria-label="Agent updates: distinguishing improvements from regressions">
-    <div class="article-card-main">
-      <p class="section-kicker">Related briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-02-01">Research cutoff February 1, 2026</time>
-      </div>
-      <h3 class="article-card-title">Agent updates: distinguishing improvements from regressions</h3>
-      <p class="article-card-copy">Answering a new question does not prove that an established escalation survived. What evidence should decide acceptance?</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Control Plane</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 5</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a>
-    </div>
-  </section>
-    <section class="panel-block">
+</div>
+    <details class="reading-evidence"><summary>Sources and editorial review <span>6</span></summary>
+      <section class="panel-block">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="section-kicker">Published evidence</p>
@@ -326,8 +267,7 @@
             <span class="source-action">Open</span>
           </a>
     </div>
-  </section>
-    <section class="panel-block article-authorship">
+  </section><section class="panel-block article-authorship">
     <div>
       <p class="section-kicker">Editorial review</p>
       <h2 class="panel-title">How this briefing is reviewed</h2>
@@ -344,7 +284,82 @@
       </div>
     </div>
   </section>
-  </article>
+    </details>
+    <details class="reading-evidence"><summary>Continue reading</summary><section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Agents</span>
+      <span class="mono-note">Articles: 28</span>
+      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
+    </div>
+  </section><section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2025-07-01-interoperability-leaves-the-roadmap.html" aria-label="MCP and A2A: what must survive a change of provider">
+    <div class="article-card-main">
+      <p class="section-kicker">Newer briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-07-01">Research cutoff July 1, 2025</time>
+      </div>
+      <h3 class="article-card-title">MCP and A2A: what must survive a change of provider</h3>
+      <p class="article-card-copy">After replacing a search provider, can users still interpret its results under the same conditions?</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Protocol</span><span class="meta-chip">MCP</span><span class="meta-chip">Interoperability</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 8</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html" aria-label="A2A handover: what must travel with an agent request">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-05-01">Research cutoff May 1, 2025</time>
+      </div>
+      <h3 class="article-card-title">A2A handover: what must travel with an agent request</h3>
+      <p class="article-card-copy">Connect delegation to request meaning, validation after edits, and the progress users need to see.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Interoperability</span><span class="meta-chip">Runtime</span><span class="meta-chip">Approval</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 6</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-02-01-control-planes-and-evals-set-the-pace.html" aria-label="Agent updates: distinguishing improvements from regressions">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-02-01">Research cutoff February 1, 2026</time>
+      </div>
+      <h3 class="article-card-title">Agent updates: distinguishing improvements from regressions</h3>
+      <p class="article-card-copy">Answering a new question does not prove that an established escalation survived. What evidence should decide acceptance?</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Control Plane</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 5</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section></details>
+    <dialog class="related-dialog" data-related-dialog aria-label="Related timeline">
+      <div class="related-dialog-head"><h2>Related timeline</h2><form method="dialog"><button class="reading-related-button" type="submit">Close</button></form></div>
+      <p class="panel-copy">AI Agents</p><ol class="related-flow"><li><a href="/en/2026-07-11-agent-evaluation-measures-execution-path.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-07-11">July 11, 2026</time><h3>Use AI agent evaluation to decide what work needs repair</h3><p>When a score rises, what work improved? Use execution evidence to choose what to repair.</p></a></li><li><a href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-05-07">May 7, 2026</time><h3>What an agent platform takes responsibility for: five approaches to one business task</h3><p>Compare useful answers with responsibility for complete tasks and maintenance.</p></a></li><li><a href="/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-27">April 27, 2026</time><h3>Find an agent and trial it at work: five ecosystems and adoption decisions</h3><p>Turn a promising listing into a specific task, access scope, and decision to trial.</p></a></li><li><a href="/en/2026-04-20-agents-compete-on-work-continuity.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-20">April 20, 2026</time><h3>Carry an agent’s work into tomorrow: memory, artifacts, and recovery</h3><p>Carry forward usable work and its rationale, while checking what changed overnight.</p></a></li><li><a href="/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-13">April 13, 2026</time><h3>Delegate one bug to a coding agent: from plan to a reviewable repair</h3><p>After a passing-test notification, what does the engineer still need to investigate?</p></a></li><li><a href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-08">April 8, 2026</time><h3>Agent memory design: why correct recall can still lead to the wrong decision</h3><p>Useful memory must preserve corrections and applicability, not just retrieve the right record.</p></a></li><li><a href="/en/2026-04-06-voice-agents-become-operational-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-06">April 6, 2026</time><h3>Compare voice booking agents through corrections, interruption, and completion</h3><p>After “another day,” track what is heard, what is saved, and what the next person knows.</p></a></li><li><a href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-30">March 30, 2026</time><h3>Delegating to subagents: turn completed research into usable decisions</h3><p>Define inputs, independent scope, and evidence returned before adding investigators.</p></a></li><li><a href="/en/2026-03-28-open-agent-protocol-stack.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-28">March 28, 2026</time><h3>Connecting work with MCP, A2A, and AG-UI: what has finished?</h3><p>The investigation finished. Was the refund issued? Compare the completion signals and information the next person needs.</p></a></li><li><a href="/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-26">March 26, 2026</time><h3>Agent identity and user delegation: whose access is granted, and where it ends</h3><p>When the requester changes, can permissions and saved results remain separate? Follow access from granting it to ending it.</p></a></li><li><a href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-25">March 25, 2026</time><h3>Meeting preparation with Cowork: connecting evidence, analysis, and action</h3><p>From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p></a></li><li><a href="/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-23">March 23, 2026</time><h3>Agent security: trace external instructions through to execution</h3><p>Recognizing an injection does not establish that transmission stopped. Verify that permitted work can still finish.</p></a></li><li><a href="/en/2026-03-21-enterprise-ai-agents-readiness.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-21">March 21, 2026</time><h3>Enterprise AI agents: define the job and who takes it back</h3><p>A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p></a></li><li><a href="/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-01">March 1, 2026</time><h3>Comparing AI agents: models, retrieval, and trial allocation</h3><p>Did the new model help, or did another search? Separate explaining the gain from choosing the configuration to use.</p></a></li><li><a href="/en/2026-02-01-control-planes-and-evals-set-the-pace.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-02-01">February 1, 2026</time><h3>Agent updates: distinguishing improvements from regressions</h3><p>Answering a new question does not prove that an established escalation survived. What evidence should decide acceptance?</p></a></li><li><a href="/en/2026-01-01-the-2025-signal-is-operational-boundaries.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-01-01">January 1, 2026</time><h3>AI agents in 2025: what changed the work we can delegate?</h3><p>More components became available. Choose the next task to delegate by whether its output advances human judgment.</p></a></li><li><a href="/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-12-01">December 1, 2025</time><h3>Foundry multi-agent workflows: passing values with evidence</h3><p>A well-formed value need not be a fact the next agent may trust.</p></a></li><li><a href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-11-01">November 1, 2025</time><h3>AgentKit and agent toolkits: from quick prototypes to verified releases</h3><p>Saving a workflow does not ensure that its policy source and interface reflect the same change.</p></a></li><li><a href="/en/2025-10-01-agent-sdks-expand-beyond-coding.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-10-01">October 1, 2025</time><h3>Agent SDKs in business workflows: adaptive steps, fixed conditions</h3><p>Allowing an AI to explore does not require letting it change revenue definitions or submission conditions.</p></a></li><li><a href="/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-09-01">September 1, 2025</time><h3>From AI-written code to comparable experiment results</h3><p>A good score alone cannot settle adoption. Connect data, conditions, and results, retaining experiments without improvement too.</p></a></li><li><a href="/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-08-01">August 1, 2025</time><h3>AgentOps after a connection loss: deciding what can be retried</h3><p>History alone cannot justify a retry. Distinguish committed changes from unknown outcomes so people can continue the work.</p></a></li><li><a href="/en/2025-07-01-interoperability-leaves-the-roadmap.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-07-01">July 1, 2025</time><h3>MCP and A2A: what must survive a change of provider</h3><p>After replacing a search provider, can users still interpret its results under the same conditions?</p></a></li><li class="is-current"><a href="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html" aria-current="page"><span class="related-flow-relation">Reading</span><time datetime="2025-06-01">June 1, 2025</time><h3>Multi-agent research: dividing work that leads to one usable report</h3><p>Faster collection can leave more checking to the user. Choose division from the dependencies needed to finish the report.</p></a></li><li><a href="/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-05-01">May 1, 2025</time><h3>A2A handover: what must travel with an agent request</h3><p>Connect delegation to request meaning, validation after edits, and the progress users need to see.</p></a></li><li><a href="/en/2025-04-01-managed-agent-primitives-arrive-together.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-04-01">April 1, 2025</time><h3>OpenAI and Bedrock: what work to delegate to an agent platform</h3><p>Connecting tools and specialists still leaves work to finish. Compare what the platform executes with what the application must supply.</p></a></li><li><a href="/en/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-03-01">March 1, 2025</time><h3>Agent evaluation: when a higher score is not enough to deploy</h3><p>An improved average leaves deployment questions open. Read repeated failures, grading conditions, and the effort required from users.</p></a></li><li><a href="/en/2025-02-01-browser-agents-enter-the-product-roadmap.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-02-01">February 1, 2025</time><h3>Browser agents: using existing screens without losing the job</h3><p>More screens mean more outcomes to verify. Compare the breadth of browser access with the effort needed to continue each job.</p></a></li><li><a href="/en/2025-01-01-agents-shift-to-measurable-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-01-01">January 1, 2025</time><h3>Evaluating AI agents: a successful tool call is not a finished job</h3><p>A successful search may still leave the person’s question unanswered.</p></a></li></ol>
+    </dialog>
+  </article><section class="article-continuation" data-next-url="/assets/articles/en/2025-05-01-open-runtimes-and-managed-platforms-converge.json" data-next-id="2025-05-01-open-runtimes-and-managed-platforms-converge">
+    <p class="stream-boundary">Earlier in this topic</p>
+    <a class="next-article-preview" href="/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"><span class="next-article-kicker">Earlier in this topic</span><time datetime="2025-05-01">May 1, 2025</time><h2>A2A handover: what must travel with an agent request</h2><p>Connect delegation to request meaning, validation after edits, and the progress users need to see.</p><span class="text-link">Scroll to continue</span></a>
+    <p class="stream-status" role="status" aria-live="polite"></p><button class="reading-related-button" type="button" data-stream-retry hidden>Retry</button>
+  </section></div>
         </div>
       </main>
       <footer class="footer-panel">

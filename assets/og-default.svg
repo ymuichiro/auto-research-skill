@@ -1,24 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Auto Research Digest</title>
-  <desc id="desc">Research Signal</desc>
-  <defs>
-    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
-      <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#1f2433" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="1200" height="630" fill="#0d0f14"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <rect x="104" y="116" width="992" height="392" rx="28" fill="#13161f" stroke="#1f2433"/>
-  <text x="138" y="168" fill="#4af0d4" font-size="24" font-family="'DM Mono', monospace" letter-spacing="10">RESEARCH SIGNAL</text>
-  <text x="138" y="248" fill="#eef2ff" font-size="66" font-weight="500" font-family="'Noto Sans JP', sans-serif">Auto Research Digest</text>
-  <text x="138" y="316" fill="#c0cce0" font-size="28" font-family="'Noto Sans JP', sans-serif">Neutral research briefings for LLM, AI, and AI agents.</text>
-  <rect x="138" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
-  <rect x="454" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
-  <rect x="770" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
-  <text x="166" y="415" fill="#4af0d4" font-size="18" font-family="'DM Mono', monospace" letter-spacing="4">SIGNAL</text>
-  <text x="166" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Official docs / Papers</text>
-  <text x="482" y="415" fill="#4af0d4" font-size="18" font-family="'DM Mono', monospace" letter-spacing="4">FORMAT</text>
-  <text x="482" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Static HTML editorial pages</text>
-  <text x="798" y="415" fill="#4af0d4" font-size="18" font-family="'DM Mono', monospace" letter-spacing="4">OUTPUT</text>
-  <text x="798" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Bilingual research briefings</text>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="628" viewBox="0 0 1200 628" role="img" aria-labelledby="title desc">
+    <title id="title">Auto Research Digest</title><desc id="desc">Research briefings connected through time.</desc>
+    <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#e8f1f7"/><stop offset="1" stop-color="#edf7f3"/></linearGradient></defs>
+    <rect width="1200" height="628" fill="url(#bg)"/>
+    <rect x="180" y="75" width="840" height="445" rx="24" fill="#fff" opacity=".42"/>
+    <rect x="140" y="105" width="920" height="445" rx="24" fill="#fff" opacity=".64"/>
+    <rect x="90" y="145" width="1020" height="395" rx="24" fill="#fff" stroke="#c9dfe7"/>
+    <text x="145" y="215" fill="#267f82" font-size="22" font-family="sans-serif" letter-spacing="4">RESEARCH / EVIDENCE / CONTEXT</text>
+    <text x="145" y="316" fill="#172b3d" font-size="62" font-family="'Noto Sans JP',sans-serif">Auto Research Digest</text>
+    <text x="148" y="378" fill="#51697b" font-size="25" font-family="sans-serif">LLM, AI, and agents. Primary sources. Clear perspectives.</text>
+    <path d="M150 451H1040" stroke="#ccdfe7"/><circle cx="150" cy="451" r="7" fill="#2a8d83"/><circle cx="470" cy="451" r="5" fill="#87b1c4"/><circle cx="750" cy="451" r="4" fill="#afccd7"/>
+    <text x="150" y="492" fill="#567587" font-size="18" font-family="sans-serif">Japanese / English</text>
+  </svg>

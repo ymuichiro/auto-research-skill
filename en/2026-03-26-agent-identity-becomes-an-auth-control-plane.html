@@ -7,7 +7,7 @@
     <meta name="description" content="Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
-    <meta name="theme-color" content="#0d0f14">
+    <meta name="theme-color" content="#edf3f7">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
@@ -39,9 +39,11 @@
     <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/site-ui.js" defer></script>
     <script src="/assets/article-share.js" defer></script>
+    <script src="/assets/article-stream.js" defer></script>
     <meta property="article:modified_time" content="2026-10-11T01:18:42+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
@@ -53,35 +55,39 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent identity and user delegation: whose access is granted, and where it ends","description":"Compare agent identity, delegated access, and MCP authorization. Trace revocation and retained information while preserving necessary work.","dateModified":"2026-10-11T01:18:42+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Identity, Authentication, Authorization, Governance, OAuth","mainEntityOfPage":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent identity and user delegation: whose access is granted, and where it ends","item":"https://research.notelligent.app/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"}],"inLanguage":"en"}</script>
   </head>
-  <body>
+  <body data-page-type="article">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">Skip to content</a>
       <header class="site-header">
         <a class="brand-mark" href="/en/">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu</button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
         <a class="lang-switch" href="/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">日本語</a>
       </header>
-      <main class="site-main">
-        <section class="hero-panel ">
-          <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Agent identity and user delegation: whose access is granted, and where it ends</h1>
-          <p class="hero-copy">Compare dedicated agent identity, user delegation, and downstream authorization through document search. Follow Microsoft, AWS, Auth0, and MCP evidence from access grants to responsibility changes, revocation, and retained information.</p>
-        </section>
+      <main class="site-main" id="main">
+        
         <div class="content-stack">
-          <article class="article-shell">
-    <section class="article-meta">
+          <div class="article-stream" data-article-stream data-locale="en"><article class="reading-article" data-article-id="2026-03-26-agent-identity-becomes-an-auth-control-plane" data-article-path="/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html">
+    <header class="reading-header">
+      <div class="reading-actions"><a class="text-link" href="/en/topics/ai-agents/">← Back to topic</a><button class="reading-related-button" data-open-related type="button" hidden>Related timeline</button></div>
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-03-26">Research cutoff March 26, 2026</time>
         
         <time class="mono-note" datetime="2026-10-11">Updated October 11, 2026</time>
       </div>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Identity</span><span class="meta-chip">Authentication</span><span class="meta-chip">Authorization</span><span class="meta-chip">Governance</span><span class="meta-chip">OAuth</span></div>
-    </section>
-    <section class="article-share" aria-label="Share article">
+      <h1 class="reading-title">Agent identity and user delegation: whose access is granted, and where it ends</h1>
+      <p class="reading-duration">8 min read</p>
+      <p class="reading-lead">Compare dedicated agent identity, user delegation, and downstream authorization through document search. Follow Microsoft, AWS, Auth0, and MCP evidence from access grants to responsibility changes, revocation, and retained information.</p>
+      <nav class="reading-map" aria-label="Briefing sections">
+    <p class="reading-map-label">Sections</p>
+    <ol style="--section-count:8"><li><a href="#section-1" aria-label="The same agent can have different document access for different users" title="The same agent can have different document access for different users" aria-current="location"><span class="reading-map-number">01</span></a></li><li><a href="#section-2" aria-label="Use identity as a unit for granting access, stopping work, and investigating" title="Use identity as a unit for granting access, stopping work, and investigating"><span class="reading-map-number">02</span></a></li><li><a href="#section-3" aria-label="Separate scheduled workload permissions from authority borrowed from a user" title="Separate scheduled workload permissions from authority borrowed from a user"><span class="reading-map-number">03</span></a></li><li><a href="#section-4" aria-label="Access to MCP and access to its downstream API belong to different connections" title="Access to MCP and access to its downstream API belong to different connections"><span class="reading-map-number">04</span></a></li><li><a href="#section-5" aria-label="Connect four questions for each operation" title="Connect four questions for each operation"><span class="reading-map-number">05</span></a></li><li><a href="#section-6" aria-label="After disconnecting, check issued credentials and previously retrieved information" title="After disconnecting, check issued credentials and previously retrieved information"><span class="reading-map-number">06</span></a></li><li><a href="#section-7" aria-label="Access decisions and content inspection serve different purposes" title="Access decisions and content inspection serve different purposes"><span class="reading-map-number">07</span></a></li><li><a href="#section-8" aria-label="Continue permitted work while ending delegation that is no longer needed" title="Continue permitted work while ending delegation that is no longer needed"><span class="reading-map-number">08</span></a></li></ol>
+  </nav>
+      <section class="article-share" aria-label="Share article">
     <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20identity%20and%20user%20delegation%3A%20whose%20access%20is%20granted%2C%20and%20where%20it%20ends&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-03-26-agent-identity-becomes-an-auth-control-plane.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
@@ -125,35 +131,36 @@
     </button>
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
-    <section class="article-body"><section class="report-section">
-<h2>The same agent can have different document access for different users</h2>
+    </header>
+    <div class="article-body"><section class="report-section">
+<h2 id="section-1">The same agent can have different document access for different users</h2>
 <p>Consider an agent that finds and summarizes internal documents. A sales representative looking for a customer's contract and an employee in another department asking the same question may be entitled to different results. This is the article's hypothetical example. Using the same agent does not justify giving both people the same document access.</p>
 <p>Adding external delivery creates a second decision: permission to read and permission to send. The user's ability to sign in, the ability to identify the agent, and authorization to send a particular document are distinct questions. Authentication at the entrance may not preserve individual access boundaries if the downstream connection can read documents for the whole organization.</p>
 <p>In my interpretation, agent identity matters beyond giving software a name. It can make the authority used for a request, and the point where that delegation can be revoked, objects of management. This article separates dedicated identity, user delegation, and downstream authorization, then follows them through changes in responsibilities and permissions.</p>
 </section>
 <section class="report-section">
-<h2>Use identity as a unit for granting access, stopping work, and investigating</h2>
+<h2 id="section-2">Use identity as a unit for granting access, stopping work, and investigating</h2>
 <p>At <a href="https://blogs.microsoft.com/blog/2025/05/19/microsoft-build-2025-the-age-of-ai-agents-and-building-the-open-agentic-web/">Build 2025</a>, Microsoft introduced an Entra Agent ID preview assigning unique identities to agents created in Copilot Studio or Azure AI Foundry. Its <a href="https://news.microsoft.com/ignite-2025-book-of-news/">Ignite 2025 Entra announcement</a> describes a preview through Agent 365 covering inventory, lifecycle management, and protection of resource access. These illustrate an expansion from identifying software to managing it.</p>
 <p>The permissions attached to a registered identity still require a decision. In the document-search example, stopping search alone differs from stopping delivery by the same agent as well. Without a correspondence between identities, connections, and permitted operations, a name in a management screen may not let an operator isolate the intended work.</p>
 <p>Conventional service accounts can also help when separated by workload, granted narrow permissions, and associated with traceable activity. A dedicated agent identity is not automatically superior. Sharing one powerful credential across several jobs can make stopping one interrupt the others, or make it difficult to identify what must stop. The useful comparison concerns the units available for grants, suspension, and investigation.</p>
 <p>Those units should also connect to human responsibilities. Establishing who defines the purpose, configures connections, and reviews continued use helps determine whether an unused permission still has a reason to exist. This is the article's operating recommendation, not a product guarantee that registration discovers every unnecessary permission.</p>
 </section>
 <section class="report-section">
-<h2>Separate scheduled workload permissions from authority borrowed from a user</h2>
+<h2 id="section-3">Separate scheduled workload permissions from authority borrowed from a user</h2>
 <p>A nightly job saving a fixed report to a specified location has a different basis for permission from a search of contracts its requester can read. One possible design gives the first dedicated workload permissions for an organizationally defined purpose and destination. The second needs to preserve access conditions corresponding to the requester. This is a design comparison, not a claim that every product implements the paths identically.</p>
 <p><a href="https://aws.amazon.com/blogs/aws/introducing-amazon-bedrock-agentcore-securely-deploy-and-operate-ai-agents-at-any-scale/">AWS's July 2025 AgentCore announcement</a> describes Identity creating a unique workload identity and supporting access scoped to user or agent context. It discusses access to external services on behalf of users or with pre-authorized consent, along with a vault for user tokens. The announcement's architecture example does not establish equivalent enforcement across every external service.</p>
 <p>A token is a credential presented to an access target. Delegation does not require placing long-lived external-service credentials in the model's conversation. <a href="https://auth0.com/blog/auth0-token-vault-secure-token-exchange-for-ai-agents/">Auth0's Token Vault explanation</a> describes centralized management of provider tokens: the application obtains the access token it needs without directly handling that provider's refresh token. It provides a concrete example of separating credential storage and renewal from the model interpreting the assignment.</p>
 <p>This mechanism leaves a problem if the resulting permissions are too broad. A task does not necessarily need every document its requester can read, and readable documents cannot necessarily be sent to any recipient. After establishing who requested the work, narrowing the relevant resources and operations aligns delegation with its business purpose.</p>
 </section>
 <section class="report-section">
-<h2>Access to MCP and access to its downstream API belong to different connections</h2>
+<h2 id="section-4">Access to MCP and access to its downstream API belong to different connections</h2>
 <p>The <a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization">MCP 2025-11-25 authorization specification</a> defines an authorization flow for HTTP connections. Servers must validate that presented tokens were issued for them. A call to another API uses a separate token issued for that API; the server must not pass through the token received from its client.</p>
 <p>For document search, examine the agent-to-MCP connection separately from the MCP-to-storage connection. Identifying the user on the first leaves a further question if the second can retrieve organization-wide documents: where are that user's access conditions enforced? The design needs to explain whether storage permissions make this decision or the search service restricts the documents it returns.</p>
 <p>The specification requires 401 for invalid or expired tokens and 403 for insufficient permissions. Converting these failures into zero search results obscures the distinction between missing and inaccessible material. It mixes cases requiring permission changes with cases requiring another search. Separately control whether an explanation may reveal the title or content of inaccessible documents.</p>
 <p>Authorization is optional for MCP implementations overall, and this OAuth procedure is not imposed uniformly on local standard-input/output connections. An “MCP-compatible” label establishes neither the authentication method nor permission scope. Inspect the actual transport and access conditions.</p>
 </section>
 <section class="report-section">
-<h2>Connect four questions for each operation</h2>
+<h2 id="section-5">Connect four questions for each operation</h2>
 <p>Apply these distinctions to the hypothetical path from search to external delivery. The following four questions are the article's review framework; they do not require placing all the information in a single token.</p>
 <div class="comparison-grid">
 <article class="comparison-card">
@@ -176,93 +183,27 @@
 <p>These relationships help distinguish revoking a user's delegation from disabling a particular connection. Increasing permissions is only one aspect of management. Preserving necessary work while isolating unwanted resources or operations also demonstrates what can be controlled.</p>
 </section>
 <section class="report-section">
-<h2>After disconnecting, check issued credentials and previously retrieved information</h2>
+<h2 id="section-6">After disconnecting, check issued credentials and previously retrieved information</h2>
 <p>A staff member transfers departments, a user withdraws delegation, or a recurring job loses its purpose. Each change requires deciding which access should end. A search borrowing the user's authority and a report the organization intends to continue can require different treatment after the same transfer. Continuing the latter requires reviewing its purpose and next responsible operator.</p>
 <p>Removing a connection in a management interface does not establish that every issued credential immediately becomes unusable. <a href="https://www.rfc-editor.org/rfc/rfc7009.html">RFC 7009 on OAuth token revocation</a> discusses propagation delays and differences between access-token designs. It also notes configurations in which revoking a refresh token does not immediately invalidate an access token.</p>
 <p>The check proposed here distinguishes preventing new credential acquisition from refusing access with credentials already issued. It also measures the interval from requesting suspension to access being refused, and identifies which connections received the change. This is a condition to verify in each implementation, not a measurement of the named products' revocation delays.</p>
 <p>Invalidating credentials does not necessarily delete previously retrieved documents or summaries. Decide how stored material is retained or removed, and prevent results saved for one user from being reused for another without the appropriate access conditions. Stopping future access and handling information already held each need their own checks.</p>
 </section>
 <section class="report-section">
-<h2>Access decisions and content inspection serve different purposes</h2>
+<h2 id="section-7">Access decisions and content inspection serve different purposes</h2>
 <p>Generated-content inspection cannot replace this permission design. Checking a summary for problematic language and deciding whether its source may be read examine different things. Retrieval with valid permissions still leaves the accuracy of the summary and purpose of sharing to be assessed.</p>
 <p>As a product example separating operation permission from the model's response, <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/policy-amazon-bedrock-agentcore-generally-available/">AgentCore Policy, generally available from March 3</a>, describes evaluating tool access and input conditions through Gateway, outside agent code. It illustrates handling identity and permission for a particular call through distinct mechanisms. Controls attached to that Gateway cannot be presumed to cover another connection path or the treatment of previously retrieved material.</p>
 <p>Comparing enterprise products is easier when identity issuance, operation authorization, content inspection, and record management are treated as separate functions. For our search example, compare who enforces the user's document access, who constrains recipients, and where access is refused after revocation. The useful question is whether the required decisions are placed along the actual work path.</p>
 </section>
 <section class="report-section">
-<h2>Continue permitted work while ending delegation that is no longer needed</h2>
+<h2 id="section-8">Continue permitted work while ending delegation that is no longer needed</h2>
 <p>A trial should include two people with different document access using the same agent. Check that search results and saved summaries do not mix, and that accessible and inaccessible documents are correctly distinguished. Add an attempt to send an accessible document to an unauthorized recipient, and identify which component refuses it.</p>
 <p>Then revoke delegation or disable the connection and separately examine new retrieval, access with issued credentials, and reuse of saved results. Also verify that users and recurring jobs outside the suspension continue their necessary work. This is the article's proposed test, not a claim that a particular product passed it. The operator should be able to explain the scope of suspension and what remains unresolved from its results.</p>
 <p>Agent identity management has value beyond the moment access is granted. It matters when a change in purpose or responsibility still leaves people able to decide whose authority is used, what continues, and what ends. A configuration that meets those conditions can let an operator stop one delegation while preserving the other necessary work.</p>
 </section>
-</section>
-    <section class="panel-block topic-backlink">
-    <div>
-      <p class="section-kicker">Topic hub</p>
-      <h2 class="panel-title">Back to topic</h2>
-      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
-    </div>
-    <div class="topic-backlink-actions">
-      <span class="meta-pill is-accent">AI Agents</span>
-      <span class="mono-note">Articles: 28</span>
-      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
-    </div>
-  </section>
-    <section class="panel-block related-articles">
-    <div>
-      <p class="section-kicker">Continue reading</p>
-      <h2 class="panel-title">Continue reading</h2>
-      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
-    </div>
-    <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-03-28-video-generation-ai-product-landscape.html" aria-label="Compare video AI through revision: references, sound, and editing">
-    <div class="article-card-main">
-      <p class="section-kicker">Newer briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Strategy</span>
-        <time class="mono-note" datetime="2026-03-28">Research cutoff March 28, 2026</time>
-      </div>
-      <h3 class="article-card-title">Compare video AI through revision: references, sound, and editing</h3>
-      <p class="article-card-copy">Change the background, and the product changes too. Compare preservation, revision, and handoff through documented features from five vendors.</p>
-      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Video Generation</span><span class="meta-chip">Creative Tools</span><span class="meta-chip">AI Product</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 15</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Meeting preparation with Cowork: connecting evidence, analysis, and action">
-    <div class="article-card-main">
-      <p class="section-kicker">Older briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-25">Research cutoff March 25, 2026</time>
-      </div>
-      <h3 class="article-card-title">Meeting preparation with Cowork: connecting evidence, analysis, and action</h3>
-      <p class="article-card-copy">From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Cowork</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">Workflow</span><span class="meta-chip">Productivity</span><span class="meta-chip">Governance</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 5</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="Enterprise AI agents: define the job and who takes it back">
-    <div class="article-card-main">
-      <p class="section-kicker">Related briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-21">Research cutoff March 21, 2026</time>
-      </div>
-      <h3 class="article-card-title">Enterprise AI agents: define the job and who takes it back</h3>
-      <p class="article-card-copy">A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p>
-      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Use Case</span><span class="meta-chip">Governance</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 6</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a>
-    </div>
-  </section>
-    <section class="panel-block">
+</div>
+    <details class="reading-evidence"><summary>Sources and editorial review <span>7</span></summary>
+      <section class="panel-block">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="section-kicker">Published evidence</p>
@@ -343,8 +284,7 @@
             <span class="source-action">Open</span>
           </a>
     </div>
-  </section>
-    <section class="panel-block article-authorship">
+  </section><section class="panel-block article-authorship">
     <div>
       <p class="section-kicker">Editorial review</p>
       <h2 class="panel-title">How this briefing is reviewed</h2>
@@ -361,7 +301,82 @@
       </div>
     </div>
   </section>
-  </article>
+    </details>
+    <details class="reading-evidence"><summary>Continue reading</summary><section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Agents</span>
+      <span class="mono-note">Articles: 28</span>
+      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
+    </div>
+  </section><section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-03-28-video-generation-ai-product-landscape.html" aria-label="Compare video AI through revision: references, sound, and editing">
+    <div class="article-card-main">
+      <p class="section-kicker">Newer briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Strategy</span>
+        <time class="mono-note" datetime="2026-03-28">Research cutoff March 28, 2026</time>
+      </div>
+      <h3 class="article-card-title">Compare video AI through revision: references, sound, and editing</h3>
+      <p class="article-card-copy">Change the background, and the product changes too. Compare preservation, revision, and handoff through documented features from five vendors.</p>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Video Generation</span><span class="meta-chip">Creative Tools</span><span class="meta-chip">AI Product</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 15</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html" aria-label="Meeting preparation with Cowork: connecting evidence, analysis, and action">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-25">Research cutoff March 25, 2026</time>
+      </div>
+      <h3 class="article-card-title">Meeting preparation with Cowork: connecting evidence, analysis, and action</h3>
+      <p class="article-card-copy">From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Cowork</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">Workflow</span><span class="meta-chip">Productivity</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 5</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-03-21-enterprise-ai-agents-readiness.html" aria-label="Enterprise AI agents: define the job and who takes it back">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-21">Research cutoff March 21, 2026</time>
+      </div>
+      <h3 class="article-card-title">Enterprise AI agents: define the job and who takes it back</h3>
+      <p class="article-card-copy">A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p>
+      <div class="meta-tags"><span class="meta-chip">LLM</span><span class="meta-chip">AI Agent</span><span class="meta-chip">Benchmark</span><span class="meta-chip">Orchestration</span><span class="meta-chip">Use Case</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 6</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section></details>
+    <dialog class="related-dialog" data-related-dialog aria-label="Related timeline">
+      <div class="related-dialog-head"><h2>Related timeline</h2><form method="dialog"><button class="reading-related-button" type="submit">Close</button></form></div>
+      <p class="panel-copy">AI Agents</p><ol class="related-flow"><li><a href="/en/2026-07-11-agent-evaluation-measures-execution-path.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-07-11">July 11, 2026</time><h3>Use AI agent evaluation to decide what work needs repair</h3><p>When a score rises, what work improved? Use execution evidence to choose what to repair.</p></a></li><li><a href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-05-07">May 7, 2026</time><h3>What an agent platform takes responsibility for: five approaches to one business task</h3><p>Compare useful answers with responsibility for complete tasks and maintenance.</p></a></li><li><a href="/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-27">April 27, 2026</time><h3>Find an agent and trial it at work: five ecosystems and adoption decisions</h3><p>Turn a promising listing into a specific task, access scope, and decision to trial.</p></a></li><li><a href="/en/2026-04-20-agents-compete-on-work-continuity.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-20">April 20, 2026</time><h3>Carry an agent’s work into tomorrow: memory, artifacts, and recovery</h3><p>Carry forward usable work and its rationale, while checking what changed overnight.</p></a></li><li><a href="/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-13">April 13, 2026</time><h3>Delegate one bug to a coding agent: from plan to a reviewable repair</h3><p>After a passing-test notification, what does the engineer still need to investigate?</p></a></li><li><a href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-08">April 8, 2026</time><h3>Agent memory design: why correct recall can still lead to the wrong decision</h3><p>Useful memory must preserve corrections and applicability, not just retrieve the right record.</p></a></li><li><a href="/en/2026-04-06-voice-agents-become-operational-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-06">April 6, 2026</time><h3>Compare voice booking agents through corrections, interruption, and completion</h3><p>After “another day,” track what is heard, what is saved, and what the next person knows.</p></a></li><li><a href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-30">March 30, 2026</time><h3>Delegating to subagents: turn completed research into usable decisions</h3><p>Define inputs, independent scope, and evidence returned before adding investigators.</p></a></li><li><a href="/en/2026-03-28-open-agent-protocol-stack.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-28">March 28, 2026</time><h3>Connecting work with MCP, A2A, and AG-UI: what has finished?</h3><p>The investigation finished. Was the refund issued? Compare the completion signals and information the next person needs.</p></a></li><li class="is-current"><a href="/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html" aria-current="page"><span class="related-flow-relation">Reading</span><time datetime="2026-03-26">March 26, 2026</time><h3>Agent identity and user delegation: whose access is granted, and where it ends</h3><p>When the requester changes, can permissions and saved results remain separate? Follow access from granting it to ending it.</p></a></li><li><a href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-25">March 25, 2026</time><h3>Meeting preparation with Cowork: connecting evidence, analysis, and action</h3><p>From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p></a></li><li><a href="/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-23">March 23, 2026</time><h3>Agent security: trace external instructions through to execution</h3><p>Recognizing an injection does not establish that transmission stopped. Verify that permitted work can still finish.</p></a></li><li><a href="/en/2026-03-21-enterprise-ai-agents-readiness.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-21">March 21, 2026</time><h3>Enterprise AI agents: define the job and who takes it back</h3><p>A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p></a></li><li><a href="/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-01">March 1, 2026</time><h3>Comparing AI agents: models, retrieval, and trial allocation</h3><p>Did the new model help, or did another search? Separate explaining the gain from choosing the configuration to use.</p></a></li><li><a href="/en/2026-02-01-control-planes-and-evals-set-the-pace.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-02-01">February 1, 2026</time><h3>Agent updates: distinguishing improvements from regressions</h3><p>Answering a new question does not prove that an established escalation survived. What evidence should decide acceptance?</p></a></li><li><a href="/en/2026-01-01-the-2025-signal-is-operational-boundaries.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-01-01">January 1, 2026</time><h3>AI agents in 2025: what changed the work we can delegate?</h3><p>More components became available. Choose the next task to delegate by whether its output advances human judgment.</p></a></li><li><a href="/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-12-01">December 1, 2025</time><h3>Foundry multi-agent workflows: passing values with evidence</h3><p>A well-formed value need not be a fact the next agent may trust.</p></a></li><li><a href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-11-01">November 1, 2025</time><h3>AgentKit and agent toolkits: from quick prototypes to verified releases</h3><p>Saving a workflow does not ensure that its policy source and interface reflect the same change.</p></a></li><li><a href="/en/2025-10-01-agent-sdks-expand-beyond-coding.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-10-01">October 1, 2025</time><h3>Agent SDKs in business workflows: adaptive steps, fixed conditions</h3><p>Allowing an AI to explore does not require letting it change revenue definitions or submission conditions.</p></a></li><li><a href="/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-09-01">September 1, 2025</time><h3>From AI-written code to comparable experiment results</h3><p>A good score alone cannot settle adoption. Connect data, conditions, and results, retaining experiments without improvement too.</p></a></li><li><a href="/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-08-01">August 1, 2025</time><h3>AgentOps after a connection loss: deciding what can be retried</h3><p>History alone cannot justify a retry. Distinguish committed changes from unknown outcomes so people can continue the work.</p></a></li><li><a href="/en/2025-07-01-interoperability-leaves-the-roadmap.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-07-01">July 1, 2025</time><h3>MCP and A2A: what must survive a change of provider</h3><p>After replacing a search provider, can users still interpret its results under the same conditions?</p></a></li><li><a href="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-06-01">June 1, 2025</time><h3>Multi-agent research: dividing work that leads to one usable report</h3><p>Faster collection can leave more checking to the user. Choose division from the dependencies needed to finish the report.</p></a></li><li><a href="/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-05-01">May 1, 2025</time><h3>A2A handover: what must travel with an agent request</h3><p>Connect delegation to request meaning, validation after edits, and the progress users need to see.</p></a></li><li><a href="/en/2025-04-01-managed-agent-primitives-arrive-together.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-04-01">April 1, 2025</time><h3>OpenAI and Bedrock: what work to delegate to an agent platform</h3><p>Connecting tools and specialists still leaves work to finish. Compare what the platform executes with what the application must supply.</p></a></li><li><a href="/en/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-03-01">March 1, 2025</time><h3>Agent evaluation: when a higher score is not enough to deploy</h3><p>An improved average leaves deployment questions open. Read repeated failures, grading conditions, and the effort required from users.</p></a></li><li><a href="/en/2025-02-01-browser-agents-enter-the-product-roadmap.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-02-01">February 1, 2025</time><h3>Browser agents: using existing screens without losing the job</h3><p>More screens mean more outcomes to verify. Compare the breadth of browser access with the effort needed to continue each job.</p></a></li><li><a href="/en/2025-01-01-agents-shift-to-measurable-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-01-01">January 1, 2025</time><h3>Evaluating AI agents: a successful tool call is not a finished job</h3><p>A successful search may still leave the person’s question unanswered.</p></a></li></ol>
+    </dialog>
+  </article><section class="article-continuation" data-next-url="/assets/articles/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.json" data-next-id="2026-03-25-cowork-signals-the-execution-layer-of-work-ai">
+    <p class="stream-boundary">Earlier in this topic</p>
+    <a class="next-article-preview" href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html"><span class="next-article-kicker">Earlier in this topic</span><time datetime="2026-03-25">March 25, 2026</time><h2>Meeting preparation with Cowork: connecting evidence, analysis, and action</h2><p>From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p><span class="text-link">Scroll to continue</span></a>
+    <p class="stream-status" role="status" aria-live="polite"></p><button class="reading-related-button" type="button" data-stream-retry hidden>Retry</button>
+  </section></div>
         </div>
       </main>
       <footer class="footer-panel">

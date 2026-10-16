@@ -7,7 +7,7 @@
     <meta name="description" content="An index page tying together the main site pages, topic hubs, and every published briefing.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
-    <meta name="theme-color" content="#0d0f14">
+    <meta name="theme-color" content="#edf3f7">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="en_US">
@@ -39,25 +39,27 @@
     <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
-
+    <script src="/assets/site-ui.js" defer></script>
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"Sitemap","description":"An index page tying together the main site pages, topic hubs, and every published briefing.","inLanguage":"en","url":"https://research.notelligent.app/en/sitemap.html","isPartOf":{"@type":"WebSite","name":"Auto Research Digest","url":"https://research.notelligent.app/"},"publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"mainEntity":{"@context":"https://schema.org","@type":"ItemList","name":"Sitemap","itemListOrder":"https://schema.org/ItemListOrderDescending","numberOfItems":11,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","name":"AI Agent and Generative AI Adoption, Evaluation, and Operations","url":"https://research.notelligent.app/en/","description":"A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.","inLanguage":"en"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","name":"Timeline","url":"https://research.notelligent.app/en/timeline/","description":"Published briefings grouped by research month to follow changes in their topics.","inLanguage":"en"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","name":"Topics","url":"https://research.notelligent.app/en/topics/","description":"Browse the published briefings by their main themes so readers can follow topic continuity beyond the latest post.","inLanguage":"en"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","name":"Sitemap","url":"https://research.notelligent.app/en/sitemap.html","description":"An index page tying together the main site pages, topic hubs, and every published briefing.","inLanguage":"en"}},{"@type":"ListItem","position":5,"item":{"@type":"WebPage","name":"About","url":"https://research.notelligent.app/en/about.html","description":"Explaining the purpose, audience, and publishing scope of Auto Research Digest.","inLanguage":"en"}},{"@type":"ListItem","position":6,"item":{"@type":"WebPage","name":"Editorial Policy","url":"https://research.notelligent.app/en/editorial-policy.html","description":"Explaining the research standards, evidence rules, and correction approach for Auto Research Digest.","inLanguage":"en"}},{"@type":"ListItem","position":7,"item":{"@type":"WebPage","name":"Contact","url":"https://research.notelligent.app/en/contact.html","description":"Explaining how to contact Auto Research Digest and what kinds of inquiries fit the site.","inLanguage":"en"}},{"@type":"ListItem","position":8,"item":{"@type":"WebPage","name":"Privacy Policy","url":"https://research.notelligent.app/en/privacy-policy.html","description":"Explaining how personal information is handled on the public site and which third-party services are involved in normal browsing.","inLanguage":"en"}},{"@type":"ListItem","position":9,"item":{"@type":"WebPage","name":"Terms","url":"https://research.notelligent.app/en/terms.html","description":"Explaining the basic operating terms for using the public pages of Auto Research Digest.","inLanguage":"en"}},{"@type":"ListItem","position":10,"item":{"@type":"WebPage","name":"Disclaimer","url":"https://research.notelligent.app/en/disclaimer.html","description":"Explaining the nature of the public information, the responsibility boundary, and how external links are treated.","inLanguage":"en"}},{"@type":"ListItem","position":11,"item":{"@type":"WebPage","name":"Advertising Policy","url":"https://research.notelligent.app/en/advertising-policy.html","description":"Explaining how advertising or sponsorship would be handled and how editorial independence is maintained.","inLanguage":"en"}}]}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Sitemap","item":"https://research.notelligent.app/en/sitemap.html"}],"inLanguage":"en"}</script>
   </head>
-  <body>
+  <body data-page-type="page">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">Skip to content</a>
       <header class="site-header">
         <a class="brand-mark" href="/en/">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link " href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu</button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link " href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
         <a class="lang-switch" href="/sitemap.html">日本語</a>
       </header>
-      <main class="site-main">
+      <main class="site-main" id="main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">Sitemap</h1>
@@ -80,7 +82,7 @@
     <div class="article-card-main">
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">Site page</span>
-        <span class="mono-note">October 11, 2026</span>
+        <span class="mono-note">October 17, 2026</span>
       </div>
       <h3 class="article-card-title">AI Agent and Generative AI Adoption, Evaluation, and Operations</h3>
       <p class="article-card-copy discovery-link-copy">A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</p>
@@ -93,7 +95,7 @@
     <div class="article-card-main">
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">Site page</span>
-        <span class="mono-note">October 11, 2026</span>
+        <span class="mono-note">October 17, 2026</span>
       </div>
       <h3 class="article-card-title">Timeline</h3>
       <p class="article-card-copy discovery-link-copy">Published briefings grouped by research month to follow changes in their topics.</p>
@@ -106,7 +108,7 @@
     <div class="article-card-main">
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">Site page</span>
-        <span class="mono-note">October 11, 2026</span>
+        <span class="mono-note">October 17, 2026</span>
       </div>
       <h3 class="article-card-title">Topics</h3>
       <p class="article-card-copy discovery-link-copy">Browse the published briefings by their main themes so readers can follow topic continuity beyond the latest post.</p>
@@ -119,7 +121,7 @@
     <div class="article-card-main">
       <div class="meta-row justify-between">
         <span class="meta-pill is-accent">Site page</span>
-        <span class="mono-note">October 11, 2026</span>
+        <span class="mono-note">October 17, 2026</span>
       </div>
       <h3 class="article-card-title">Sitemap</h3>
       <p class="article-card-copy discovery-link-copy">An index page tying together the main site pages, topic hubs, and every published briefing.</p>
@@ -289,7 +291,7 @@
       <h3 class="article-card-title">On-Device AI</h3>
       <p class="article-card-copy">A topic hub grouping published briefings in On-Device AI around the main practical questions.</p>
       <div class="topic-card-stats">
-        <p class="mono-note">Latest update: October 11, 2026</p>
+        <p class="mono-note">Latest update: October 17, 2026</p>
       </div>
       <div class="meta-tags"><span class="meta-chip">Android</span><span class="meta-chip">Apple</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Native Apps</span></div>
     </div>

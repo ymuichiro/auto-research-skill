@@ -7,7 +7,7 @@
     <meta name="description" content="Auto Research Digest への連絡方法と受け付ける内容を案内します。">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
-    <meta name="theme-color" content="#0d0f14">
+    <meta name="theme-color" content="#edf3f7">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="ja_JP">
@@ -39,25 +39,27 @@
     <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
-
+    <script src="/assets/site-ui.js" defer></script>
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"ContactPage","name":"お問い合わせ","description":"Auto Research Digest への連絡方法と受け付ける内容を案内します。","inLanguage":"ja","url":"https://research.notelligent.app/contact.html","isPartOf":{"@type":"WebSite","name":"Auto Research Digest","url":"https://research.notelligent.app/"},"publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"お問い合わせ","item":"https://research.notelligent.app/contact.html"}],"inLanguage":"ja"}</script>
   </head>
-  <body>
+  <body data-page-type="page">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">本文へ</a>
       <header class="site-header">
         <a class="brand-mark" href="/">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/topics/">トピック</a><a class="nav-link " href="/timeline/">タイムライン</a></nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>メニュー</button>
+        <nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション"><a class="nav-link is-active" href="/">トップ</a><a class="nav-link " href="/topics/">トピック</a><a class="nav-link " href="/timeline/">タイムライン</a></nav>
         <a class="lang-switch" href="/en/contact.html">English</a>
       </header>
-      <main class="site-main">
+      <main class="site-main" id="main">
         <section class="hero-panel ">
           <p class="section-kicker">Research Signal</p>
           <h1 class="hero-title">お問い合わせ</h1>

@@ -7,7 +7,7 @@
     <meta name="description" content="Compare OpenAI, Google, AWS, and Anthropic agent evaluation through booking traces, tool order and arguments, saved results, and regression checks.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
-    <meta name="theme-color" content="#0d0f14">
+    <meta name="theme-color" content="#edf3f7">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
@@ -39,9 +39,11 @@
     <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/site-ui.js" defer></script>
     <script src="/assets/article-share.js" defer></script>
+    <script src="/assets/article-stream.js" defer></script>
     <meta property="article:modified_time" content="2026-10-11T01:18:42+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
@@ -53,35 +55,39 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Use AI agent evaluation to decide what work needs repair","description":"Compare OpenAI, Google, AWS, and Anthropic agent evaluation through booking traces, tool order and arguments, saved results, and regression checks.","dateModified":"2026-10-11T01:18:42+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Evaluation, Observability, Tool Use, Governance, LLM","mainEntityOfPage":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Use AI agent evaluation to decide what work needs repair","item":"https://research.notelligent.app/en/2026-07-11-agent-evaluation-measures-execution-path.html"}],"inLanguage":"en"}</script>
   </head>
-  <body>
+  <body data-page-type="article">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">Skip to content</a>
       <header class="site-header">
         <a class="brand-mark" href="/en/">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu</button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
         <a class="lang-switch" href="/2026-07-11-agent-evaluation-measures-execution-path.html">日本語</a>
       </header>
-      <main class="site-main">
-        <section class="hero-panel ">
-          <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Use AI agent evaluation to decide what work needs repair</h1>
-          <p class="hero-copy">The same booking answer can hide different approvals and saves. Compare four providers and τ-bench to separate records, judgments, and outcomes and choose repairs.</p>
-        </section>
+      <main class="site-main" id="main">
+        
         <div class="content-stack">
-          <article class="article-shell">
-    <section class="article-meta">
+          <div class="article-stream" data-article-stream data-locale="en"><article class="reading-article" data-article-id="2026-07-11-agent-evaluation-measures-execution-path" data-article-path="/en/2026-07-11-agent-evaluation-measures-execution-path.html">
+    <header class="reading-header">
+      <div class="reading-actions"><a class="text-link" href="/en/topics/ai-agents/">← Back to topic</a><button class="reading-related-button" data-open-related type="button" hidden>Related timeline</button></div>
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-07-11">Research cutoff July 11, 2026</time>
         
         <time class="mono-note" datetime="2026-10-11">Updated October 11, 2026</time>
       </div>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Observability</span><span class="meta-chip">Tool Use</span><span class="meta-chip">Governance</span><span class="meta-chip">LLM</span></div>
-    </section>
-    <section class="article-share" aria-label="Share article">
+      <h1 class="reading-title">Use AI agent evaluation to decide what work needs repair</h1>
+      <p class="reading-duration">7 min read</p>
+      <p class="reading-lead">The same booking answer can hide different approvals and saves. Compare four providers and τ-bench to separate records, judgments, and outcomes and choose repairs.</p>
+      <nav class="reading-map" aria-label="Briefing sections">
+    <p class="reading-map-label">Sections</p>
+    <ol style="--section-count:10"><li><a href="#section-1" aria-label="The same “changed” answer can conceal different work" title="The same “changed” answer can conceal different work" aria-current="location"><span class="reading-map-number">01</span></a></li><li><a href="#section-2" aria-label="Separate the request, execution, and remaining result" title="Separate the request, execution, and remaining result"><span class="reading-map-number">02</span></a></li><li><a href="#section-3" aria-label="OpenAI tracing collects events for subsequent judgment" title="OpenAI tracing collects events for subsequent judgment"><span class="reading-map-number">03</span></a></li><li><a href="#section-4" aria-label="Google&#39;s matching modes change which paths are allowed" title="Google&#39;s matching modes change which paths are allowed"><span class="reading-map-number">04</span></a></li><li><a href="#section-5" aria-label="AWS separates expected answers from session behavior" title="AWS separates expected answers from session behavior"><span class="reading-map-number">05</span></a></li><li><a href="#section-6" aria-label="Inspect why the grader declares a pass" title="Inspect why the grader declares a pass"><span class="reading-map-number">06</span></a></li><li><a href="#section-7" aria-label="Measure saved results and repeated reliability" title="Measure saved results and repeated reliability"><span class="reading-map-number">07</span></a></li><li><a href="#section-8" aria-label="Compare which conditions improve after a change" title="Compare which conditions improve after a change"><span class="reading-map-number">08</span></a></li><li><a href="#section-9" aria-label="Turn production observations into reproducible cases" title="Turn production observations into reproducible cases"><span class="reading-map-number">09</span></a></li><li><a href="#section-10" aria-label="Make evaluation evidence useful for repairing work" title="Make evaluation evidence useful for repairing work"><span class="reading-map-number">10</span></a></li></ol>
+  </nav>
+      <section class="article-share" aria-label="Share article">
     <a class="share-button" href="https://twitter.com/intent/tweet?text=Use%20AI%20agent%20evaluation%20to%20decide%20what%20work%20needs%20repair&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-07-11-agent-evaluation-measures-execution-path.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
@@ -125,14 +131,15 @@
     </button>
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
-    <section class="article-body"><section class="report-section">
-<h2>The same “changed” answer can conceal different work</h2>
+    </header>
+    <div class="article-body"><section class="report-section">
+<h2 id="section-1">The same “changed” answer can conceal different work</h2>
 <p>Compare two AIs that return “Your booking has been moved to Friday.” Both change a verified customer's booking R42 and save the same time and price. This service requires presenting the time and price and obtaining approval before saving.</p>
 <p>The first run checks availability, presents the change, obtains approval, and saves. The second saves before asking for approval. This is a hypothetical evaluation example, not a measurement of a particular product. Although the answer and saved state match, the second run violates the service's conditions.</p>
 <p>OpenAI, Google, AWS, and Anthropic material available through July 11, 2026 describes evaluating execution records and tool use alongside answers. My recommendation is to compare records with business expectations and choose repairs by the condition violated. Treating a better answer as better work requires evidence that explains actual operations.</p>
 </section>
 <section class="report-section">
-<h2>Separate the request, execution, and remaining result</h2>
+<h2 id="section-2">Separate the request, execution, and remaining result</h2>
 <p>An aggregate booking score can let a natural answer offset an approval-order violation. This article records three distinct checks. They are an organizational choice for explaining verdicts, not an industry-wide taxonomy.</p>
 <div class="comparison-grid">
 <article class="comparison-card"><h3>Request conditions</h3><p>The target is the customer's booking R42. Present the new time and price and obtain approval before saving. Do not alter other bookings. Define initial data and permitted operations.</p></article>
@@ -142,124 +149,58 @@
 <p>A changed price can justify another lookup and renewed approval. If the customer refuses, leaving the booking unchanged can be correct. Define results from requests and conditions rather than requiring identical operations every time.</p>
 </section>
 <section class="report-section">
-<h2>OpenAI tracing collects events for subsequent judgment</h2>
+<h2 id="section-3">OpenAI tracing collects events for subsequent judgment</h2>
 <p>OpenAI Agents SDK <a href="https://github.com/openai/openai-agents-python/blob/08859339ee3a7cd6529e9a86f85a1be2d6dc4a6c/docs/tracing.md">tracing documentation</a> records generations, function-tool calls, handoffs, and guardrails. It connects an operation's identifier with individual spans carrying start and end times, and supports custom events.</p>
 <p>Those records do not automatically establish a correct booking change. The service needs to connect presented content, the approval target, save requests, and saved results. Do not assume standard SDK instrumentation captures every business approval or external-system write.</p>
 <p>Even with the correct booking ID, a price changed after approval is not covered by the earlier approval. Alongside names and timestamps, inspect which version of which content was approved. Execution evidence becomes useful when it identifies decisions and corresponding updates as well as order.</p>
 <p>Traces can contain inputs and outputs, so design the necessary evidence together with its capture scope. The SDK provides settings controlling sensitive-data inclusion. Consider reviewed reproduction data or sufficient identifiers where retaining entire original contents is unnecessary.</p>
 </section>
 <section class="report-section">
-<h2>Google's matching modes change which paths are allowed</h2>
+<h2 id="section-4">Google's matching modes change which paths are allowed</h2>
 <p>Google ADK’s <a href="https://github.com/google/adk-docs/blob/508e742f84ac0a07b318b12a56bd7b8d2805ac52/docs/evaluate/criteria.md">evaluation criteria</a> describe comparing expected and actual tool calls. It offers exact matching, required calls appearing in order, and required calls appearing in any order. Exact matching is the default; answer similarity and model-judged quality are separate metrics.</p>
 <p>The <a href="https://github.com/google/adk-python/blob/57e1ba66ee5f762e22cf5aa727f10fea3485a572/src/google/adk/evaluation/trajectory_evaluator.py">matching implementation</a> compares arguments as well as function names. A save to R43 does not match an expected save to R42 even with the same function name. This goes beyond checking names, but depends on supplying correct expected arguments.</p>
 <p>Exact matching can reject a repeat lookup needed after a price changes. In-order matching can allow that addition while checking required calls. However, a save to another booking among the allowed extras may still leave the required subsequence matching.</p>
 <p>“Approval preceded saving” therefore differs from “no unapproved save occurred.” Independent reads may not require a fixed order, while prohibited writes need their own checks. Looser matching should come with explicit decisions about allowed alternatives and additional inspections.</p>
 </section>
 <section class="report-section">
-<h2>AWS separates expected answers from session behavior</h2>
+<h2 id="section-5">AWS separates expected answers from session behavior</h2>
 <p>The AWS AgentCore SDK <a href="https://github.com/aws/bedrock-agentcore-sdk-python/blob/738eb0fe8a49a737e18103f583967ba2f39b6d57/src/bedrock_agentcore/evaluation/client.py">evaluation client</a> accepts expected responses, lists of tool names, and assertions about required behavior. Responses can be associated with a particular trace, while tool trajectories and conditions apply to a session. The client collects CloudWatch spans and submits them to specified evaluators.</p>
 <p>Its trajectory input is a list of names, not structured arguments containing booking IDs or amounts. Do not equate that input with Google ADK's argument comparison. The booking case needs separate reconciliation of approved content, save parameters, and actual reservation data.</p>
 <p>The <a href="https://aws.amazon.com/about-aws/whats-new/2026/03/agentcore-evaluations-generally-available/">general-availability announcement</a> describes evaluating specified interactions on demand and sampling production records online. Session-wide, response-level, and tool-call-level scopes expose different possible violations. An evaluation capability does not establish that every action is authorized before execution.</p>
 </section>
 <section class="report-section">
-<h2>Inspect why the grader declares a pass</h2>
+<h2 id="section-6">Inspect why the grader declares a pass</h2>
 <p>Rules can check explicit identifiers and tool ordering. People or model judges can help assess whether a price change was explained clearly. The choice depends on what is being judged and which paraphrases are acceptable.</p>
 <p>Anthropic's <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">evaluation explanation</a> distinguishes execution transcripts, graders, and final outcomes, including grader errors. If a grader rejects a correct alternative phrasing or accepts a plausible success report, increasing its score may not improve the work.</p>
 <p>For the scenario, prepare a correct save of approved values to the right ID and a confusable record that saves before approval. Compare the owner's expected judgments with the grader and investigate disagreements. Recheck the same records after changing rules or the judge model. This is a proposed check, not a measured accuracy result for a particular grader.</p>
 </section>
 <section class="report-section">
-<h2>Measure saved results and repeated reliability</h2>
+<h2 id="section-7">Measure saved results and repeated reliability</h2>
 <p><a href="https://arxiv.org/html/2406.12045v1">τ-bench version 1</a> compares the final database with an annotated goal state. It also distinguishes success in at least one attempt from consistent success across repeated attempts. Fluent answers or success once make it difficult to judge whether the same work can be delegated repeatedly.</p>
 <p>Final-state evaluation still does not replace approval-order checks. The opening runs leave identical data yet differ on order. Conversely, correct call ordering can still end with an unsuccessful save when a tool fails. Inspect appropriate execution and actual outcomes together.</p>
 <p>Restore the same initial data for repeated runs, separating correct changes, appropriate refusals or stops, wrong actions, and missing evidence. Evaluating only successful runs hides how often difficult cases stop. With an interrupted save response, also inspect whether the agent resends before establishing the first operation's result.</p>
 </section>
 <section class="report-section">
-<h2>Compare which conditions improve after a change</h2>
+<h2 id="section-8">Compare which conditions improve after a change</h2>
 <p>Include customer refusal, changed prices, missing permissions, similar booking IDs, and interrupted save responses alongside ordinary changes. Record versions of the model, instructions, tools, and grading rules, then compare before and after with matched initial data and action budgets. Changing everything together makes the cause harder to explain.</p>
 <p>Use the failure breakdown to choose a repair. Wrong targets suggest inspecting lookup and identification; postapproval changes suggest binding approval to saved content; false completion reports suggest checking results. Do not reduce every failure to a need for a larger model.</p>
 <p>Report answer quality, trajectory violations, saved results, missing evidence, latency, and cost separately. A high score for a concise answer must not cancel a wrong-booking update. Measuring the owner's investigation time and user clarification requests also reveals whether effort increases despite maintained success.</p>
 </section>
 <section class="report-section">
-<h2>Turn production observations into reproducible cases</h2>
+<h2 id="section-9">Turn production observations into reproducible cases</h2>
 <p>Production records help find failures absent from a fixed evaluation set. A violation absent from a sample may still occur elsewhere. Show which actions were observable, including capture scope and missing records.</p>
 <p>Review and anonymize necessary information from a new failure, then create a reproduction with initial state, request, expected operations, forbidden conditions, and outcome. Verify the next repair and check whether later changes bring the failure back. Passing accumulated cases cannot guarantee safety in situations not yet collected.</p>
 <p>More traces can also mean more reading for owners. Supporting a repair decision requires reaching the violated condition and its evidence. Showing which booking, approval, and save ceased to correspond can make investigation easier than presenting every record.</p>
 </section>
 <section class="report-section">
-<h2>Make evaluation evidence useful for repairing work</h2>
+<h2 id="section-10">Make evaluation evidence useful for repairing work</h2>
 <p>The four providers support different methods for recording execution and comparing it with expected behavior. Their materials do not establish a product ranking under shared conditions or a common complete audit capability. Select records and judgments from the booking service's own requirements.</p>
 <p>Start with a small set of cases expressing the success and forbidden conditions owners consider consequential. Include disagreements among answers, execution, and saved results, with inspectable reasons for verdicts. Use existing procedures and deterministic rules where they suffice.</p>
 <p>The goal extends beyond watching scores rise. Explain what improved, where it worsened, and what to repair next. A booking-change “completion” should connect to work the customer and owner can establish.</p>
 </section>
-</section>
-    <section class="panel-block topic-backlink">
-    <div>
-      <p class="section-kicker">Topic hub</p>
-      <h2 class="panel-title">Back to topic</h2>
-      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
-    </div>
-    <div class="topic-backlink-actions">
-      <span class="meta-pill is-accent">AI Agents</span>
-      <span class="mono-note">Articles: 28</span>
-      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
-    </div>
-  </section>
-    <section class="panel-block related-articles">
-    <div>
-      <p class="section-kicker">Continue reading</p>
-      <h2 class="panel-title">Continue reading</h2>
-      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
-    </div>
-    <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html" aria-label="When an AI request is hard to specify, start with something judgeable">
-    <div class="article-card-main">
-      <p class="section-kicker">Newer briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-08-01">Research cutoff August 1, 2026</time>
-      </div>
-      <h3 class="article-card-title">When an AI request is hard to specify, start with something judgeable</h3>
-      <p class="article-card-copy">Clarify known constraints and use small artifacts to choose what to retain and repair.</p>
-      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">AI Workflow</span><span class="meta-chip">Prompting</span><span class="meta-chip">Evaluation</span><span class="meta-chip">LLM</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 8</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2026-06-30-agents-operate-legacy-desktop-workflows.html" aria-label="Delegating desktop work to AI: connect entry with verification">
-    <div class="article-card-main">
-      <p class="section-kicker">Older briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Workflows</span>
-        <time class="mono-note" datetime="2026-06-30">Research cutoff June 30, 2026</time>
-      </div>
-      <h3 class="article-card-title">Delegating desktop work to AI: connect entry with verification</h3>
-      <p class="article-card-copy">After Save, can the owner establish what happened? Connect visual control, managed workspaces, and verification.</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 7</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="What an agent platform takes responsibility for: five approaches to one business task">
-    <div class="article-card-main">
-      <p class="section-kicker">Related briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-05-07">Research cutoff May 7, 2026</time>
-      </div>
-      <h3 class="article-card-title">What an agent platform takes responsibility for: five approaches to one business task</h3>
-      <p class="article-card-copy">Compare useful answers with responsibility for complete tasks and maintenance.</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 11</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a>
-    </div>
-  </section>
-    <section class="panel-block">
+</div>
+    <details class="reading-evidence"><summary>Sources and editorial review <span>7</span></summary>
+      <section class="panel-block">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="section-kicker">Published evidence</p>
@@ -340,8 +281,7 @@
             <span class="source-action">Open</span>
           </a>
     </div>
-  </section>
-    <section class="panel-block article-authorship">
+  </section><section class="panel-block article-authorship">
     <div>
       <p class="section-kicker">Editorial review</p>
       <h2 class="panel-title">How this briefing is reviewed</h2>
@@ -358,7 +298,82 @@
       </div>
     </div>
   </section>
-  </article>
+    </details>
+    <details class="reading-evidence"><summary>Continue reading</summary><section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Agents</span>
+      <span class="mono-note">Articles: 28</span>
+      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
+    </div>
+  </section><section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-08-01-ai-collaboration-starts-with-first-artifact.html" aria-label="When an AI request is hard to specify, start with something judgeable">
+    <div class="article-card-main">
+      <p class="section-kicker">Newer briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Workflows</span>
+        <time class="mono-note" datetime="2026-08-01">Research cutoff August 1, 2026</time>
+      </div>
+      <h3 class="article-card-title">When an AI request is hard to specify, start with something judgeable</h3>
+      <p class="article-card-copy">Clarify known constraints and use small artifacts to choose what to retain and repair.</p>
+      <div class="meta-tags"><span class="meta-chip">Generative AI</span><span class="meta-chip">Human-AI Collaboration</span><span class="meta-chip">AI Workflow</span><span class="meta-chip">Prompting</span><span class="meta-chip">Evaluation</span><span class="meta-chip">LLM</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 8</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-06-30-agents-operate-legacy-desktop-workflows.html" aria-label="Delegating desktop work to AI: connect entry with verification">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Workflows</span>
+        <time class="mono-note" datetime="2026-06-30">Research cutoff June 30, 2026</time>
+      </div>
+      <h3 class="article-card-title">Delegating desktop work to AI: connect entry with verification</h3>
+      <p class="article-card-copy">After Save, can the owner establish what happened? Connect visual control, managed workspaces, and verification.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Computer Use</span><span class="meta-chip">Desktop Automation</span><span class="meta-chip">Human Approval</span><span class="meta-chip">Legacy Systems</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 7</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html" aria-label="What an agent platform takes responsibility for: five approaches to one business task">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-05-07">Research cutoff May 7, 2026</time>
+      </div>
+      <h3 class="article-card-title">What an agent platform takes responsibility for: five approaches to one business task</h3>
+      <p class="article-card-copy">Compare useful answers with responsibility for complete tasks and maintenance.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Governance</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Enterprise AI</span><span class="meta-chip">MCP</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 11</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section></details>
+    <dialog class="related-dialog" data-related-dialog aria-label="Related timeline">
+      <div class="related-dialog-head"><h2>Related timeline</h2><form method="dialog"><button class="reading-related-button" type="submit">Close</button></form></div>
+      <p class="panel-copy">AI Agents</p><ol class="related-flow"><li class="is-current"><a href="/en/2026-07-11-agent-evaluation-measures-execution-path.html" aria-current="page"><span class="related-flow-relation">Reading</span><time datetime="2026-07-11">July 11, 2026</time><h3>Use AI agent evaluation to decide what work needs repair</h3><p>When a score rises, what work improved? Use execution evidence to choose what to repair.</p></a></li><li><a href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-05-07">May 7, 2026</time><h3>What an agent platform takes responsibility for: five approaches to one business task</h3><p>Compare useful answers with responsibility for complete tasks and maintenance.</p></a></li><li><a href="/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-27">April 27, 2026</time><h3>Find an agent and trial it at work: five ecosystems and adoption decisions</h3><p>Turn a promising listing into a specific task, access scope, and decision to trial.</p></a></li><li><a href="/en/2026-04-20-agents-compete-on-work-continuity.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-20">April 20, 2026</time><h3>Carry an agent’s work into tomorrow: memory, artifacts, and recovery</h3><p>Carry forward usable work and its rationale, while checking what changed overnight.</p></a></li><li><a href="/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-13">April 13, 2026</time><h3>Delegate one bug to a coding agent: from plan to a reviewable repair</h3><p>After a passing-test notification, what does the engineer still need to investigate?</p></a></li><li><a href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-08">April 8, 2026</time><h3>Agent memory design: why correct recall can still lead to the wrong decision</h3><p>Useful memory must preserve corrections and applicability, not just retrieve the right record.</p></a></li><li><a href="/en/2026-04-06-voice-agents-become-operational-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-06">April 6, 2026</time><h3>Compare voice booking agents through corrections, interruption, and completion</h3><p>After “another day,” track what is heard, what is saved, and what the next person knows.</p></a></li><li><a href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-30">March 30, 2026</time><h3>Delegating to subagents: turn completed research into usable decisions</h3><p>Define inputs, independent scope, and evidence returned before adding investigators.</p></a></li><li><a href="/en/2026-03-28-open-agent-protocol-stack.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-28">March 28, 2026</time><h3>Connecting work with MCP, A2A, and AG-UI: what has finished?</h3><p>The investigation finished. Was the refund issued? Compare the completion signals and information the next person needs.</p></a></li><li><a href="/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-26">March 26, 2026</time><h3>Agent identity and user delegation: whose access is granted, and where it ends</h3><p>When the requester changes, can permissions and saved results remain separate? Follow access from granting it to ending it.</p></a></li><li><a href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-25">March 25, 2026</time><h3>Meeting preparation with Cowork: connecting evidence, analysis, and action</h3><p>From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p></a></li><li><a href="/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-23">March 23, 2026</time><h3>Agent security: trace external instructions through to execution</h3><p>Recognizing an injection does not establish that transmission stopped. Verify that permitted work can still finish.</p></a></li><li><a href="/en/2026-03-21-enterprise-ai-agents-readiness.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-21">March 21, 2026</time><h3>Enterprise AI agents: define the job and who takes it back</h3><p>A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p></a></li><li><a href="/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-01">March 1, 2026</time><h3>Comparing AI agents: models, retrieval, and trial allocation</h3><p>Did the new model help, or did another search? Separate explaining the gain from choosing the configuration to use.</p></a></li><li><a href="/en/2026-02-01-control-planes-and-evals-set-the-pace.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-02-01">February 1, 2026</time><h3>Agent updates: distinguishing improvements from regressions</h3><p>Answering a new question does not prove that an established escalation survived. What evidence should decide acceptance?</p></a></li><li><a href="/en/2026-01-01-the-2025-signal-is-operational-boundaries.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-01-01">January 1, 2026</time><h3>AI agents in 2025: what changed the work we can delegate?</h3><p>More components became available. Choose the next task to delegate by whether its output advances human judgment.</p></a></li><li><a href="/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-12-01">December 1, 2025</time><h3>Foundry multi-agent workflows: passing values with evidence</h3><p>A well-formed value need not be a fact the next agent may trust.</p></a></li><li><a href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-11-01">November 1, 2025</time><h3>AgentKit and agent toolkits: from quick prototypes to verified releases</h3><p>Saving a workflow does not ensure that its policy source and interface reflect the same change.</p></a></li><li><a href="/en/2025-10-01-agent-sdks-expand-beyond-coding.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-10-01">October 1, 2025</time><h3>Agent SDKs in business workflows: adaptive steps, fixed conditions</h3><p>Allowing an AI to explore does not require letting it change revenue definitions or submission conditions.</p></a></li><li><a href="/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-09-01">September 1, 2025</time><h3>From AI-written code to comparable experiment results</h3><p>A good score alone cannot settle adoption. Connect data, conditions, and results, retaining experiments without improvement too.</p></a></li><li><a href="/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-08-01">August 1, 2025</time><h3>AgentOps after a connection loss: deciding what can be retried</h3><p>History alone cannot justify a retry. Distinguish committed changes from unknown outcomes so people can continue the work.</p></a></li><li><a href="/en/2025-07-01-interoperability-leaves-the-roadmap.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-07-01">July 1, 2025</time><h3>MCP and A2A: what must survive a change of provider</h3><p>After replacing a search provider, can users still interpret its results under the same conditions?</p></a></li><li><a href="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-06-01">June 1, 2025</time><h3>Multi-agent research: dividing work that leads to one usable report</h3><p>Faster collection can leave more checking to the user. Choose division from the dependencies needed to finish the report.</p></a></li><li><a href="/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-05-01">May 1, 2025</time><h3>A2A handover: what must travel with an agent request</h3><p>Connect delegation to request meaning, validation after edits, and the progress users need to see.</p></a></li><li><a href="/en/2025-04-01-managed-agent-primitives-arrive-together.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-04-01">April 1, 2025</time><h3>OpenAI and Bedrock: what work to delegate to an agent platform</h3><p>Connecting tools and specialists still leaves work to finish. Compare what the platform executes with what the application must supply.</p></a></li><li><a href="/en/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-03-01">March 1, 2025</time><h3>Agent evaluation: when a higher score is not enough to deploy</h3><p>An improved average leaves deployment questions open. Read repeated failures, grading conditions, and the effort required from users.</p></a></li><li><a href="/en/2025-02-01-browser-agents-enter-the-product-roadmap.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-02-01">February 1, 2025</time><h3>Browser agents: using existing screens without losing the job</h3><p>More screens mean more outcomes to verify. Compare the breadth of browser access with the effort needed to continue each job.</p></a></li><li><a href="/en/2025-01-01-agents-shift-to-measurable-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-01-01">January 1, 2025</time><h3>Evaluating AI agents: a successful tool call is not a finished job</h3><p>A successful search may still leave the person’s question unanswered.</p></a></li></ol>
+    </dialog>
+  </article><section class="article-continuation" data-next-url="/assets/articles/en/2026-05-07-governed-agent-stacks-not-smarter-models.json" data-next-id="2026-05-07-governed-agent-stacks-not-smarter-models">
+    <p class="stream-boundary">Earlier in this topic</p>
+    <a class="next-article-preview" href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"><span class="next-article-kicker">Earlier in this topic</span><time datetime="2026-05-07">May 7, 2026</time><h2>What an agent platform takes responsibility for: five approaches to one business task</h2><p>Compare useful answers with responsibility for complete tasks and maintenance.</p><span class="text-link">Scroll to continue</span></a>
+    <p class="stream-status" role="status" aria-live="polite"></p><button class="reading-related-button" type="button" data-stream-retry hidden>Retry</button>
+  </section></div>
         </div>
       </main>
       <footer class="footer-panel">

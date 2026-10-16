@@ -7,7 +7,7 @@
     <meta name="description" content="Evaluate AI agent updates with capability and regression tests, outcomes, graders, and traces, including changed policies and human rework.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
     <meta name="author" content="Auto Research Digest Editorial Desk">
-    <meta name="theme-color" content="#0d0f14">
+    <meta name="theme-color" content="#edf3f7">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
     <meta property="og:type" content="article">
     <meta property="og:locale" content="en_US">
@@ -39,9 +39,11 @@
     <link rel="alternate" type="application/rss+xml" title="Auto Research Digest RSS" href="/en/feed.xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <script src="/assets/site-ui.js" defer></script>
     <script src="/assets/article-share.js" defer></script>
+    <script src="/assets/article-stream.js" defer></script>
     <meta property="article:modified_time" content="2026-10-11T01:18:42+09:00">
     <meta property="article:section" content="AI Agents">
     <meta property="article:tag" content="AI Agent">
@@ -51,35 +53,39 @@
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"Agent updates: distinguishing improvements from regressions","description":"Evaluate AI agent updates with capability and regression tests, outcomes, graders, and traces, including changed policies and human rework.","dateModified":"2026-10-11T01:18:42+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Agents","keywords":"AI Agent, Roundup, Evaluation, Control Plane","mainEntityOfPage":"https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Agents","item":"https://research.notelligent.app/en/topics/ai-agents/"},{"@type":"ListItem","position":4,"name":"Agent updates: distinguishing improvements from regressions","item":"https://research.notelligent.app/en/2026-02-01-control-planes-and-evals-set-the-pace.html"}],"inLanguage":"en"}</script>
   </head>
-  <body>
+  <body data-page-type="article">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">Skip to content</a>
       <header class="site-header">
         <a class="brand-mark" href="/en/">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">Auto Research Digest</span>
         </a>
-        <nav class="site-nav"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu</button>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
         <a class="lang-switch" href="/2026-02-01-control-planes-and-evals-set-the-pace.html">日本語</a>
       </header>
-      <main class="site-main">
-        <section class="hero-panel ">
-          <p class="section-kicker">Research Signal</p>
-          <h1 class="hero-title">Agent updates: distinguishing improvements from regressions</h1>
-          <p class="hero-copy">A support update improves product answers but loses return escalations. Examine the candidate through capability and regression tests, actual outcomes, grading validity, versions, and traces, including changed policies and human rework.</p>
-        </section>
+      <main class="site-main" id="main">
+        
         <div class="content-stack">
-          <article class="article-shell">
-    <section class="article-meta">
+          <div class="article-stream" data-article-stream data-locale="en"><article class="reading-article" data-article-id="2026-02-01-control-planes-and-evals-set-the-pace" data-article-path="/en/2026-02-01-control-planes-and-evals-set-the-pace.html">
+    <header class="reading-header">
+      <div class="reading-actions"><a class="text-link" href="/en/topics/ai-agents/">← Back to topic</a><button class="reading-related-button" data-open-related type="button" hidden>Related timeline</button></div>
       <div class="meta-row">
         <a class="meta-pill is-accent article-topic-link" href="/en/topics/ai-agents/">AI Agents</a>
         <time class="mono-note" datetime="2026-02-01">Research cutoff February 1, 2026</time>
         
         <time class="mono-note" datetime="2026-10-11">Updated October 11, 2026</time>
       </div>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Evaluation</span><span class="meta-chip">Control Plane</span></div>
-    </section>
-    <section class="article-share" aria-label="Share article">
+      <h1 class="reading-title">Agent updates: distinguishing improvements from regressions</h1>
+      <p class="reading-duration">7 min read</p>
+      <p class="reading-lead">A support update improves product answers but loses return escalations. Examine the candidate through capability and regression tests, actual outcomes, grading validity, versions, and traces, including changed policies and human rework.</p>
+      <nav class="reading-map" aria-label="Briefing sections">
+    <p class="reading-map-label">Sections</p>
+    <ol style="--section-count:8"><li><a href="#section-1" aria-label="Fixing a new inquiry lost an established escalation" title="Fixing a new inquiry lost an established escalation" aria-current="location"><span class="reading-map-number">01</span></a></li><li><a href="#section-2" aria-label="Separate capabilities to improve from behavior to retain" title="Separate capabilities to improve from behavior to retain"><span class="reading-map-number">02</span></a></li><li><a href="#section-3" aria-label="Record what changed and what stayed fixed" title="Record what changed and what stayed fixed"><span class="reading-map-number">03</span></a></li><li><a href="#section-4" aria-label="Grade a good reply separately from a completed action" title="Grade a good reply separately from a completed action"><span class="reading-map-number">04</span></a></li><li><a href="#section-5" aria-label="Which step produced the difference?" title="Which step produced the difference?"><span class="reading-map-number">05</span></a></li><li><a href="#section-6" aria-label="With a stopping mechanism, still test whether valid cases proceed" title="With a stopping mechanism, still test whether valid cases proceed"><span class="reading-map-number">06</span></a></li><li><a href="#section-7" aria-label="Preserving behavior differs from preserving an outdated policy" title="Preserving behavior differs from preserving an outdated policy"><span class="reading-map-number">07</span></a></li><li><a href="#section-8" aria-label="Explain the remaining burden before users discover a regression" title="Explain the remaining burden before users discover a regression"><span class="reading-map-number">08</span></a></li></ol>
+  </nav>
+      <section class="article-share" aria-label="Share article">
     <a class="share-button" href="https://twitter.com/intent/tweet?text=Agent%20updates%3A%20distinguishing%20improvements%20from%20regressions&url=https%3A%2F%2Fresearch.notelligent.app%2Fen%2F2026-02-01-control-planes-and-evals-set-the-pace.html" target="_blank" rel="noopener noreferrer" aria-label="Share on X">
       <span class="share-button-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
     <path d="M18.901 2.998H22.58L14.544 12.18L24 21.002H16.593L10.79 13.418L4.157 21.002H0.476L9.072 11.174L0 2.998H7.595L12.841 9.93L18.901 2.998ZM17.61 18.8H19.649L6.487 5.085H4.298L17.61 18.8Z"></path>
@@ -123,9 +129,10 @@
     </button>
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
-    <section class="article-body"><section class="report-section">
+    </header>
+    <div class="article-body"><section class="report-section">
   <p class="section-kicker">A problem introduced by a change</p>
-  <h2>Fixing a new inquiry lost an established escalation</h2>
+  <h2 id="section-1">Fixing a new inquiry lost an established escalation</h2>
   <p>A team changes its routing instructions to answer questions about a new product. The questions it tries now receive detailed answers. Yet the agent also starts answering return cases that it previously handed to staff. This is a hypothetical example from this article. Improvement on new work and deterioration on established work arise from the same change.</p>
   <p>The reviewer needs more than an increase in the average score. Can the team use the new-product answers while reliably receiving return cases with unclear conditions? Deciding which change to accept, and what to hold until corrected, requires examining improved tasks separately from behavior that must remain.</p>
   <p>This article connects evaluation design, versions and execution records, and action restrictions to that decision. It does not present measured evidence that organizations with evaluations necessarily deploy faster. The priority is to make the effect of a change explainable, without leaving users responsible for discovering regressions.</p>
@@ -133,7 +140,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Improvement and preservation</p>
-  <h2>Separate capabilities to improve from behavior to retain</h2>
+  <h2 id="section-2">Separate capabilities to improve from behavior to retain</h2>
   <p>Anthropic's January 9 <a href="https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents">guide to agent evaluations</a> distinguishes capability evaluations for difficult work from regression evaluations that preserve work an agent already handles. It reports that Descript's video-editing agent uses separate suites for quality benchmarking and regression testing. This is a vendor-reported operational example, rather than a controlled comparison showing that two suites accelerate deployment.</p>
   <p>For support, reading the new product's conditions and giving appropriate guidance can belong in the capability suite. Escalating unclear return conditions, avoiding another customer's order, and not reporting an unprocessed refund as complete can belong in the regression suite. Answer quality and permission to proceed with an action should not be blended into one score.</p>
   <p>Some changes cannot be accepted merely because improvements outnumber regressions. Ten better product explanations would not offset one refund to the wrong customer. Those counts are hypothetical. The business owner needs to define in advance which failures cannot be traded off and must block acceptance.</p>
@@ -151,7 +158,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Comparable conditions</p>
-  <h2>Record what changed and what stayed fixed</h2>
+  <h2 id="section-3">Record what changed and what stayed fixed</h2>
   <p>Anthropic distinguishes tasks, trials, graders, transcripts, and outcomes. I would apply these distinctions to a comparison between the candidate and current version. Use the same request, initial order state, available material, and expected outcome, and run each version repeatedly. Customer information or processing results left by one trial should not become the starting point of the next.</p>
   <p>The comparison record should connect versions of the tasks and grading criteria, model and instructions, tools, sources, branch conditions, and environment. Even if the team intended only to change routing instructions, a change in the return policy read by a tool prevents attributing the score difference to the instructions alone. Conversely, a grader using an outdated policy might reject a correct answer.</p>
   <p>This record does not aim to freeze every condition indefinitely. It explains what changed and what is being compared for the purpose of this update. If evaluation needs a new policy, evaluate the current version under that policy too. Do not directly treat an old score and a new score under different criteria as the size of an improvement.</p>
@@ -159,7 +166,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Judging the outcome</p>
-  <h2>Grade a good reply separately from a completed action</h2>
+  <h2 id="section-4">Grade a good reply separately from a completed action</h2>
   <p>A courteous “Your refund is complete” does not complete a refund if the external order system has no refund record. In this scenario, I would separate checks of the actual customer, order, amount, and processing state from judgments of explanation accuracy and clarity. High-quality prose cannot substitute for successful processing.</p>
   <p>Anthropic explains that code graders can be brittle to valid variations, while model graders are non-deterministic and need calibration against human judgment. Here, defined procedures can compare order IDs and refund states; criteria checked against human assessment can judge the clarity of the guidance. Every item does not need the same grader.</p>
   <p>Before correcting a candidate that failed grading, establish whether a known correct action or answer passes the grader. If it rejects a valid paraphrase of an escalation message, the expected string might be the problem. But even an excellent explanation does not meet this scenario's outcome requirements if no case was created for the recipient. A reviewer should be able to recheck the evidence used to declare failure.</p>
@@ -167,7 +174,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Returning to the cause</p>
-  <h2>Which step produced the difference?</h2>
+  <h2 id="section-5">Which step produced the difference?</h2>
   <p>The <a href="https://devblogs.microsoft.com/foundry/introducing-multi-agent-workflows-in-foundry-agent-service/">Foundry multi-agent workflows public preview</a> describes immutable versions on saving and traces of variables and branches. Its initial observability focuses on individual Foundry agents within the workflow. The <a href="https://openai.com/index/introducing-agentkit/">AgentKit announcement</a> also presents procedure versioning and trace-based evaluation. Agent Builder is in beta, however, with availability different from ChatKit and Evals.</p>
   <p>These features provide material for investigating causes that the outcome alone cannot explain. When a return case is not escalated, examine whether it was reclassified as an ordinary inquiry, whether the branch changed despite the same classification, or whether the escalation tool failed. Depending on the cause, the correction belongs in the instructions, procedure definition, or external connection.</p>
   <p>The coverage of an execution record matters too. Seeing a tool call on screen does not necessarily prove that the external system saved a case. Connect the call's input and response to the external outcome. A product's observation features cannot establish complete verification of every external action.</p>
@@ -175,7 +182,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Restrictions and evaluation</p>
-  <h2>With a stopping mechanism, still test whether valid cases proceed</h2>
+  <h2 id="section-6">With a stopping mechanism, still test whether valid cases proceed</h2>
   <p>The <a href="https://aws.amazon.com/blogs/aws/amazon-bedrock-agentcore-adds-quality-evaluations-and-policy-controls-for-deploying-trusted-ai-agents/">AgentCore Policy and Evaluations preview announcement</a> describes restricting tool calls through an associated Gateway and evaluating execution quality. Policy offers enforcement and logging-only modes. The role and amount below 200 in its refund example are conditions for deciding whether an action is permitted.</p>
   <p>Those conditions alone do not detect a refund to the wrong customer that is within the amount limit. Conversely, a restriction that blocks every valid refund makes the job unusable, even with zero prohibited actions. This scenario should evaluate both proceeding on eligible cases and stopping on ineligible ones.</p>
   <p>Pre-execution restrictions, subsequent quality evaluation, and handoffs to people serve different purposes. Quality evaluation of sampled executions in the same announcement is not evidence that every call was authorized beforehand. Even a candidate that passes evaluation will not enforce restrictions in production if configured for logging only. Check that the evaluated configuration matches the one being released.</p>
@@ -183,7 +190,7 @@
 
 <section class="report-section">
   <p class="section-kicker">Updating criteria too</p>
-  <h2>Preserving behavior differs from preserving an outdated policy</h2>
+  <h2 id="section-7">Preserving behavior differs from preserving an outdated policy</h2>
   <p>Regression evaluation need not freeze every historical output. Suppose the return window changes from fourteen to thirty days. Retaining an old answer that rejects an otherwise eligible day-twenty request could pass a regression check while violating the new business rule. Preserve conformity with the approved rule, rather than the old reply itself.</p>
   <p>Record the policy change and establish product conditions and the starting date before updating expected outcomes. Distinguish this from relaxing criteria merely because the candidate failed. A request for clarification when the deadline cannot be established should not count as failure if it is appropriate stopping behavior. If reviewers cannot explain a unique acceptable judgment, specify the task's conditions first.</p>
   <p>Anthropic's <a href="https://www.anthropic.com/engineering/writing-tools-for-agents">guide to writing tools for agents</a> recommends representative tasks with verifiable outcomes and checks using held-out evaluation tasks. Here, I would test unused wording and conditions alongside the return cases used to revise the instructions. This distinguishes fitting the answer to a known failure from consistently preserving the required behavior.</p>
@@ -191,80 +198,14 @@
 
 <section class="report-section">
   <p class="section-kicker">The acceptance decision</p>
-  <h2>Explain the remaining burden before users discover a regression</h2>
+  <h2 id="section-8">Explain the remaining burden before users discover a regression</h2>
   <p>The initial candidate should not be accepted unchanged if it improves product explanations but loses necessary escalation. Correct the cause, then recheck improvement and preservation tasks under the same conditions. Also examine excessive handoffs, latency and cost, and the investigation staff must repeat. Optimizing automation rate alone can reduce necessary handoffs along with unnecessary ones.</p>
   <p>Creating and maintaining evaluations takes time. A team can begin with work affected by the change and conditions where failure imposes a large burden, rather than grading every possible job immediately. Add real inquiries that automated evaluations missed from production records and staff reports. Passing pre-release evaluation does not guarantee performance on every unknown input.</p>
   <p>Aligning versions, execution records, and grading does more than make scores manageable. It enables an explanation of what improved, what remains, and which conditions changed, so a team can accept or hold a candidate. Can it reduce the work of waiting for user complaints and investigating again after each change? Answering that question connects having evaluations to better support work.</p>
 </section>
-</section>
-    <section class="panel-block topic-backlink">
-    <div>
-      <p class="section-kicker">Topic hub</p>
-      <h2 class="panel-title">Back to topic</h2>
-      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
-    </div>
-    <div class="topic-backlink-actions">
-      <span class="meta-pill is-accent">AI Agents</span>
-      <span class="mono-note">Articles: 28</span>
-      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
-    </div>
-  </section>
-    <section class="panel-block related-articles">
-    <div>
-      <p class="section-kicker">Continue reading</p>
-      <h2 class="panel-title">Continue reading</h2>
-      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
-    </div>
-    <div class="mt-6 grid gap-5 xl:grid-cols-3">
-      <a class="article-card " href="/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html" aria-label="Comparing AI agents: models, retrieval, and trial allocation">
-    <div class="article-card-main">
-      <p class="section-kicker">Newer briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-03-01">Research cutoff March 1, 2026</time>
-      </div>
-      <h3 class="article-card-title">Comparing AI agents: models, retrieval, and trial allocation</h3>
-      <p class="article-card-copy">Did the new model help, or did another search? Separate explaining the gain from choosing the configuration to use.</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Architecture</span><span class="meta-chip">Governance</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 5</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2026-01-01-the-2025-signal-is-operational-boundaries.html" aria-label="AI agents in 2025: what changed the work we can delegate?">
-    <div class="article-card-main">
-      <p class="section-kicker">Older briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2026-01-01">Research cutoff January 1, 2026</time>
-      </div>
-      <h3 class="article-card-title">AI agents in 2025: what changed the work we can delegate?</h3>
-      <p class="article-card-copy">More components became available. Choose the next task to delegate by whether its output advances human judgment.</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Operations</span><span class="meta-chip">Strategy</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 8</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a><a class="article-card " href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="AgentKit and agent toolkits: from quick prototypes to verified releases">
-    <div class="article-card-main">
-      <p class="section-kicker">Related briefing</p>
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">AI Agents</span>
-        <time class="mono-note" datetime="2025-11-01">Research cutoff November 1, 2025</time>
-      </div>
-      <h3 class="article-card-title">AgentKit and agent toolkits: from quick prototypes to verified releases</h3>
-      <p class="article-card-copy">Saving a workflow does not ensure that its policy source and interface reflect the same change.</p>
-      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">Sources: 4</span>
-      <span class="text-link">Open briefing</span>
-    </div>
-  </a>
-    </div>
-  </section>
-    <section class="panel-block">
+</div>
+    <details class="reading-evidence"><summary>Sources and editorial review <span>5</span></summary>
+      <section class="panel-block">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
         <p class="section-kicker">Published evidence</p>
@@ -325,8 +266,7 @@
             <span class="source-action">Open</span>
           </a>
     </div>
-  </section>
-    <section class="panel-block article-authorship">
+  </section><section class="panel-block article-authorship">
     <div>
       <p class="section-kicker">Editorial review</p>
       <h2 class="panel-title">How this briefing is reviewed</h2>
@@ -343,7 +283,82 @@
       </div>
     </div>
   </section>
-  </article>
+    </details>
+    <details class="reading-evidence"><summary>Continue reading</summary><section class="panel-block topic-backlink">
+    <div>
+      <p class="section-kicker">Topic hub</p>
+      <h2 class="panel-title">Back to topic</h2>
+      <p class="panel-copy">Return to the topic hub to continue with other published briefings in the same category.</p>
+    </div>
+    <div class="topic-backlink-actions">
+      <span class="meta-pill is-accent">AI Agents</span>
+      <span class="mono-note">Articles: 28</span>
+      <a class="text-link" href="/en/topics/ai-agents/">Open topic hub</a>
+    </div>
+  </section><section class="panel-block related-articles">
+    <div>
+      <p class="section-kicker">Continue reading</p>
+      <h2 class="panel-title">Continue reading</h2>
+      <p class="panel-copy">Automatically showing the adjacent briefings plus one thematically related article.</p>
+    </div>
+    <div class="mt-6 grid gap-5 xl:grid-cols-3">
+      <a class="article-card " href="/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html" aria-label="Comparing AI agents: models, retrieval, and trial allocation">
+    <div class="article-card-main">
+      <p class="section-kicker">Newer briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-03-01">Research cutoff March 1, 2026</time>
+      </div>
+      <h3 class="article-card-title">Comparing AI agents: models, retrieval, and trial allocation</h3>
+      <p class="article-card-copy">Did the new model help, or did another search? Separate explaining the gain from choosing the configuration to use.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Architecture</span><span class="meta-chip">Governance</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 5</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2026-01-01-the-2025-signal-is-operational-boundaries.html" aria-label="AI agents in 2025: what changed the work we can delegate?">
+    <div class="article-card-main">
+      <p class="section-kicker">Older briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2026-01-01">Research cutoff January 1, 2026</time>
+      </div>
+      <h3 class="article-card-title">AI agents in 2025: what changed the work we can delegate?</h3>
+      <p class="article-card-copy">More components became available. Choose the next task to delegate by whether its output advances human judgment.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Operations</span><span class="meta-chip">Strategy</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 8</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a><a class="article-card " href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html" aria-label="AgentKit and agent toolkits: from quick prototypes to verified releases">
+    <div class="article-card-main">
+      <p class="section-kicker">Related briefing</p>
+      <div class="meta-row justify-between">
+        <span class="meta-pill is-accent">AI Agents</span>
+        <time class="mono-note" datetime="2025-11-01">Research cutoff November 1, 2025</time>
+      </div>
+      <h3 class="article-card-title">AgentKit and agent toolkits: from quick prototypes to verified releases</h3>
+      <p class="article-card-copy">Saving a workflow does not ensure that its policy source and interface reflect the same change.</p>
+      <div class="meta-tags"><span class="meta-chip">AI Agent</span><span class="meta-chip">Roundup</span><span class="meta-chip">Workflow</span><span class="meta-chip">Runtime</span><span class="meta-chip">Evaluation</span></div>
+    </div>
+    <div class="article-card-foot">
+      <span class="mono-note">Sources: 4</span>
+      <span class="text-link">Open briefing</span>
+    </div>
+  </a>
+    </div>
+  </section></details>
+    <dialog class="related-dialog" data-related-dialog aria-label="Related timeline">
+      <div class="related-dialog-head"><h2>Related timeline</h2><form method="dialog"><button class="reading-related-button" type="submit">Close</button></form></div>
+      <p class="panel-copy">AI Agents</p><ol class="related-flow"><li><a href="/en/2026-07-11-agent-evaluation-measures-execution-path.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-07-11">July 11, 2026</time><h3>Use AI agent evaluation to decide what work needs repair</h3><p>When a score rises, what work improved? Use execution evidence to choose what to repair.</p></a></li><li><a href="/en/2026-05-07-governed-agent-stacks-not-smarter-models.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-05-07">May 7, 2026</time><h3>What an agent platform takes responsibility for: five approaches to one business task</h3><p>Compare useful answers with responsibility for complete tasks and maintenance.</p></a></li><li><a href="/en/2026-04-27-agent-discovery-and-approval-shape-adoption.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-27">April 27, 2026</time><h3>Find an agent and trial it at work: five ecosystems and adoption decisions</h3><p>Turn a promising listing into a specific task, access scope, and decision to trial.</p></a></li><li><a href="/en/2026-04-20-agents-compete-on-work-continuity.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-20">April 20, 2026</time><h3>Carry an agent’s work into tomorrow: memory, artifacts, and recovery</h3><p>Carry forward usable work and its rationale, while checking what changed overnight.</p></a></li><li><a href="/en/2026-04-13-coding-agents-become-supervised-runtime-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-13">April 13, 2026</time><h3>Delegate one bug to a coding agent: from plan to a reviewable repair</h3><p>After a passing-test notification, what does the engineer still need to investigate?</p></a></li><li><a href="/en/2026-04-08-agent-memory-shifts-to-layered-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-08">April 8, 2026</time><h3>Agent memory design: why correct recall can still lead to the wrong decision</h3><p>Useful memory must preserve corrections and applicability, not just retrieve the right record.</p></a></li><li><a href="/en/2026-04-06-voice-agents-become-operational-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-04-06">April 6, 2026</time><h3>Compare voice booking agents through corrections, interruption, and completion</h3><p>After “another day,” track what is heard, what is saved, and what the next person knows.</p></a></li><li><a href="/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-30">March 30, 2026</time><h3>Delegating to subagents: turn completed research into usable decisions</h3><p>Define inputs, independent scope, and evidence returned before adding investigators.</p></a></li><li><a href="/en/2026-03-28-open-agent-protocol-stack.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-28">March 28, 2026</time><h3>Connecting work with MCP, A2A, and AG-UI: what has finished?</h3><p>The investigation finished. Was the refund issued? Compare the completion signals and information the next person needs.</p></a></li><li><a href="/en/2026-03-26-agent-identity-becomes-an-auth-control-plane.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-26">March 26, 2026</time><h3>Agent identity and user delegation: whose access is granted, and where it ends</h3><p>When the requester changes, can permissions and saved results remain separate? Follow access from granting it to ending it.</p></a></li><li><a href="/en/2026-03-25-cowork-signals-the-execution-layer-of-work-ai.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-25">March 25, 2026</time><h3>Meeting preparation with Cowork: connecting evidence, analysis, and action</h3><p>From email to analysis, slides, and calendars: what must stay connected when one assignment spans the work?</p></a></li><li><a href="/en/2026-03-23-agent-security-becomes-a-shipping-gate.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-23">March 23, 2026</time><h3>Agent security: trace external instructions through to execution</h3><p>Recognizing an injection does not establish that transmission stopped. Verify that permitted work can still finish.</p></a></li><li><a href="/en/2026-03-21-enterprise-ai-agents-readiness.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-21">March 21, 2026</time><h3>Enterprise AI agents: define the job and who takes it back</h3><p>A successful ordinary request leaves exceptions to handle. Include the receiving person and remaining work in the adoption criteria.</p></a></li><li><a href="/en/2026-03-01-agent-architecture-matters-more-than-model-novelty.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-03-01">March 1, 2026</time><h3>Comparing AI agents: models, retrieval, and trial allocation</h3><p>Did the new model help, or did another search? Separate explaining the gain from choosing the configuration to use.</p></a></li><li class="is-current"><a href="/en/2026-02-01-control-planes-and-evals-set-the-pace.html" aria-current="page"><span class="related-flow-relation">Reading</span><time datetime="2026-02-01">February 1, 2026</time><h3>Agent updates: distinguishing improvements from regressions</h3><p>Answering a new question does not prove that an established escalation survived. What evidence should decide acceptance?</p></a></li><li><a href="/en/2026-01-01-the-2025-signal-is-operational-boundaries.html"><span class="related-flow-relation">Same topic</span><time datetime="2026-01-01">January 1, 2026</time><h3>AI agents in 2025: what changed the work we can delegate?</h3><p>More components became available. Choose the next task to delegate by whether its output advances human judgment.</p></a></li><li><a href="/en/2025-12-01-multi-agent-workflows-become-a-product-surface.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-12-01">December 1, 2025</time><h3>Foundry multi-agent workflows: passing values with evidence</h3><p>A well-formed value need not be a fact the next agent may trust.</p></a></li><li><a href="/en/2025-11-01-workflow-tooling-catches-up-with-agent-complexity.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-11-01">November 1, 2025</time><h3>AgentKit and agent toolkits: from quick prototypes to verified releases</h3><p>Saving a workflow does not ensure that its policy source and interface reflect the same change.</p></a></li><li><a href="/en/2025-10-01-agent-sdks-expand-beyond-coding.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-10-01">October 1, 2025</time><h3>Agent SDKs in business workflows: adaptive steps, fixed conditions</h3><p>Allowing an AI to explore does not require letting it change revenue definitions or submission conditions.</p></a></li><li><a href="/en/2025-09-01-coding-and-research-agents-broaden-the-scope.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-09-01">September 1, 2025</time><h3>From AI-written code to comparable experiment results</h3><p>A good score alone cannot settle adoption. Connect data, conditions, and results, retaining experiments without improvement too.</p></a></li><li><a href="/en/2025-08-01-agent-ops-gets-promoted-to-a-control-layer.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-08-01">August 1, 2025</time><h3>AgentOps after a connection loss: deciding what can be retried</h3><p>History alone cannot justify a retry. Distinguish committed changes from unknown outcomes so people can continue the work.</p></a></li><li><a href="/en/2025-07-01-interoperability-leaves-the-roadmap.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-07-01">July 1, 2025</time><h3>MCP and A2A: what must survive a change of provider</h3><p>After replacing a search provider, can users still interpret its results under the same conditions?</p></a></li><li><a href="/en/2025-06-01-multi-agent-design-turns-into-an-operating-model.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-06-01">June 1, 2025</time><h3>Multi-agent research: dividing work that leads to one usable report</h3><p>Faster collection can leave more checking to the user. Choose division from the dependencies needed to finish the report.</p></a></li><li><a href="/en/2025-05-01-open-runtimes-and-managed-platforms-converge.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-05-01">May 1, 2025</time><h3>A2A handover: what must travel with an agent request</h3><p>Connect delegation to request meaning, validation after edits, and the progress users need to see.</p></a></li><li><a href="/en/2025-04-01-managed-agent-primitives-arrive-together.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-04-01">April 1, 2025</time><h3>OpenAI and Bedrock: what work to delegate to an agent platform</h3><p>Connecting tools and specialists still leaves work to finish. Compare what the platform executes with what the application must supply.</p></a></li><li><a href="/en/2025-03-01-agent-evaluation-becomes-a-gating-layer.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-03-01">March 1, 2025</time><h3>Agent evaluation: when a higher score is not enough to deploy</h3><p>An improved average leaves deployment questions open. Read repeated failures, grading conditions, and the effort required from users.</p></a></li><li><a href="/en/2025-02-01-browser-agents-enter-the-product-roadmap.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-02-01">February 1, 2025</time><h3>Browser agents: using existing screens without losing the job</h3><p>More screens mean more outcomes to verify. Compare the breadth of browser access with the effort needed to continue each job.</p></a></li><li><a href="/en/2025-01-01-agents-shift-to-measurable-systems.html"><span class="related-flow-relation">Same topic</span><time datetime="2025-01-01">January 1, 2025</time><h3>Evaluating AI agents: a successful tool call is not a finished job</h3><p>A successful search may still leave the person’s question unanswered.</p></a></li></ol>
+    </dialog>
+  </article><section class="article-continuation" data-next-url="/assets/articles/en/2026-01-01-the-2025-signal-is-operational-boundaries.json" data-next-id="2026-01-01-the-2025-signal-is-operational-boundaries">
+    <p class="stream-boundary">Earlier in this topic</p>
+    <a class="next-article-preview" href="/en/2026-01-01-the-2025-signal-is-operational-boundaries.html"><span class="next-article-kicker">Earlier in this topic</span><time datetime="2026-01-01">January 1, 2026</time><h2>AI agents in 2025: what changed the work we can delegate?</h2><p>More components became available. Choose the next task to delegate by whether its output advances human judgment.</p><span class="text-link">Scroll to continue</span></a>
+    <p class="stream-status" role="status" aria-live="polite"></p><button class="reading-related-button" type="button" data-stream-retry hidden>Retry</button>
+  </section></div>
         </div>
       </main>
       <footer class="footer-panel">
