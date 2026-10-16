@@ -43,7 +43,7 @@ export const siteConfig = {
   siteUrl,
   basePath,
   cname,
-  themeColor: "#0d0f14",
+  themeColor: "#edf3f7",
   ogImage: "assets/og-twitter-card-1200x628.png",
   ogImageWidth: 1200,
   ogImageHeight: 628,

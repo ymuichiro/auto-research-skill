@@ -44,6 +44,9 @@ function startTailwindWatch() {
 function contentType(filePath) {
   if (filePath.endsWith(".html")) return "text/html; charset=utf-8";
   if (filePath.endsWith(".css")) return "text/css; charset=utf-8";
+  if (filePath.endsWith(".js")) return "text/javascript; charset=utf-8";
+  if (filePath.endsWith(".json")) return "application/json; charset=utf-8";
+  if (filePath.endsWith(".png")) return "image/png";
   if (filePath.endsWith(".xml")) return "application/xml; charset=utf-8";
   if (filePath.endsWith(".svg")) return "image/svg+xml";
   if (filePath.endsWith(".txt")) return "text/plain; charset=utf-8";
@@ -73,7 +76,7 @@ function startServer() {
     }
   });
 
-  server.listen(port, () => {
+  server.listen(port, "127.0.0.1", () => {
     console.log(`Dev server: http://localhost:${port}${siteConfig.basePath || "/"}`);
   });
 
@@ -104,7 +107,9 @@ async function main() {
 
   const watchers = [
     watch(path.join(projectRoot, "content"), { recursive: true }, scheduleBuild),
-    watch(path.join(projectRoot, "scripts"), { recursive: true }, scheduleBuild)
+    watch(path.join(projectRoot, "scripts"), { recursive: true }, scheduleBuild),
+    watch(path.join(projectRoot, "src/assets"), { recursive: true }, scheduleBuild),
+    watch(path.join(projectRoot, "templates"), { recursive: true }, scheduleBuild)
   ];
 
   const shutdown = () => {

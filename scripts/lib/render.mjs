@@ -14,6 +14,7 @@ import {
 import { resolveArticleSeo } from "./seo-snippets.mjs";
 import { buildTopicHubs } from "./topic-hubs.mjs";
 import { escapeHtml, formatDisplayDate, formatXml } from "./utils.mjs";
+import { prepareArticleBody, articleReadingMinutes, renderOutline, nextStreamArticle, readingSequence } from "./article-template.mjs";
 
 const localeCopy = {
   ja: {
@@ -210,7 +211,7 @@ function languageToggle(locale, canonicalPath) {
   };
 }
 
-function pageTitle(title, locale) {
+export function pageTitle(title, locale) {
   if (title === siteConfig.name) {
     return locale === "ja" ? siteConfig.name : `${siteConfig.name} EN`;
   }
@@ -243,16 +244,14 @@ function renderSharedHeadAssets(locale) {
     <link rel="alternate" type="application/rss+xml" title="${escapeHtml(feedLinkTitle(locale))}" href="${feedHref}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${assetPath("assets/site.css")}">`;
 }
 
 function renderSharedPageScript(pageType) {
-  if (pageType !== "article") {
-    return "";
-  }
-
-  return `    <script src="${assetPath("assets/article-share.js")}" defer></script>`;
+  return `    <script src="${assetPath("assets/site-ui.js")}" defer></script>${pageType === "article" ? `
+    <script src="${assetPath("assets/article-share.js")}" defer></script>
+    <script src="${assetPath("assets/article-stream.js")}" defer></script>` : ""}`;
 }
 
 function localeTag(locale) {
@@ -438,7 +437,7 @@ export function renderPage({
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${escapeHtml(pageTitle(title, locale))}</title>
     <meta name="description" content="${escapeHtml(metaDescription(description, locale))}">
-    <meta name="robots" content="${escapeHtml(robotsContent)}">
+    <meta name="robots" content="${process.env.PREVIEW_ARTICLE ? "noindex,nofollow" : escapeHtml(robotsContent)}">
     <meta name="author" content="${escapeHtml(siteConfig.owner)}">
     <meta name="theme-color" content="${siteConfig.themeColor}">
     <meta name="google-site-verification" content="pGpaqomDQhOY9S0FpVai7gdUDKDtDe-g0eMbrpNUkTs">
@@ -473,23 +472,25 @@ ${renderSharedPageScript(pageType)}
       : ""}
     ${schemaBlocks}
   </head>
-  <body>
+  <body data-page-type="${pageType}">
     <div class="page-shell">
       <div class="hero-backdrop"></div>
+      <a class="skip-link" href="#main">${locale === "ja" ? "本文へ" : "Skip to content"}</a>
       <header class="site-header">
         <a class="brand-mark" href="${localizedPath(locale, "")}">
-          <span class="brand-badge">AR /</span>
+          <span class="brand-badge" aria-hidden="true">≋</span>
           <span class="brand-copy">${escapeHtml(siteConfig.name)}</span>
         </a>
-        <nav class="site-nav">${navLinks}</nav>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>${locale === "ja" ? "メニュー" : "Menu"}</button>
+        <nav class="site-nav" id="site-navigation" aria-label="${locale === "ja" ? "メインナビゲーション" : "Main navigation"}">${navLinks}</nav>
         <a class="lang-switch" href="${toggle.href}">${escapeHtml(toggle.label)}</a>
       </header>
-      <main class="site-main">
-        <section class="hero-panel ${pageType === "home" ? "hero-panel-home" : ""}">
+      <main class="site-main" id="main">
+        ${pageType === "article" ? "" : `<section class="hero-panel ${pageType === "home" ? "hero-panel-home" : ""}">
           <p class="section-kicker">${escapeHtml(siteConfig.heroKicker[locale])}</p>
           <h1 class="hero-title">${escapeHtml(pageHeading)}</h1>
           <p class="hero-copy">${escapeHtml(pageIntro)}</p>
-        </section>
+        </section>`}
         <div class="content-stack">
           ${body}
         </div>
@@ -602,7 +603,8 @@ function renderEditorialBriefing(
     headingTag = "h3",
     panelClassName = "",
     categoryHref = "",
-    secondaryAction = null
+    secondaryAction = null,
+    depthArticles = []
   } = {}
 ) {
   const copy = localeCopy[locale];
@@ -610,7 +612,8 @@ function renderEditorialBriefing(
   const articleHref = localizedArticleHref(article, locale);
   const articleTitle = locale === "ja" ? article.titleJa : article.titleEn;
 
-  return `<section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
+  const depth = depthArticles.length ? `<div class="home-exploration"><div class="exploration-depth">${depthArticles.slice(0, 2).reverse().map((item) => `<a class="exploration-plane" href="${localizedArticleHref(item, locale)}"><time>${escapeHtml(formatDisplayDate(item.date, locale))}</time><span>${escapeHtml(locale === "ja" ? item.titleJa : item.titleEn)}</span></a>`).join("")}</div>` : "";
+  return `${depth}<section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
     <div class="editorial-briefing-head">
       <div>
         ${kicker ? `<p class="section-kicker">${escapeHtml(kicker)}</p>` : ""}
@@ -643,7 +646,7 @@ function renderEditorialBriefing(
         <a class="text-link" href="${articleHref}">${escapeHtml(copy.readReport)}</a>
       </div>
     </div>
-  </section>`;
+  </section>${depth ? "</div>" : ""}`;
 }
 
 function renderArticleAuthorship(article, locale) {
@@ -1412,6 +1415,9 @@ export function renderIndexPage(locale, articles, pagination = {}) {
         headingTag: "h3",
         panelClassName: "home-featured-briefing",
         categoryHref: featuredTopicHub ? topicHubHref(locale, featuredTopicHub) : "",
+        depthArticles: featuredTopicHub?.articleCount > 1
+          ? featuredTopicHub.articles.filter((item) => item.sourceDirName !== featuredArticle.sourceDirName).slice(0, 2)
+          : listingArticles.slice(0, 2),
         secondaryAction: featuredTopicHub
           ? { href: topicHubHref(locale, featuredTopicHub), label: copy.topicsOpenHub }
           : null
@@ -1789,67 +1795,77 @@ function renderTopicBacklink(article, locale, hub) {
   </section>`;
 }
 
-export function renderArticlePage(article, locale, articles = []) {
+export function renderReadingArticle(article, locale, articles = [], { initial = false } = {}) {
   const copy = localeCopy[locale];
   const title = locale === "ja" ? article.titleJa : article.titleEn;
   const summary = locale === "ja" ? article.summaryJa : article.summaryEn;
+  const body = locale === "ja" ? article.bodies.ja : article.bodies.en;
+  const relativePath = article.outputPaths[locale];
+  const topicHub = buildTopicHubs(articles).find((hub) => hub.category === article.category);
+  const topicHubLink = topicHub ? topicHubHref(locale, topicHub) : localizedPath(locale, topicIndexRelativePath(locale).replace(/^en\//, ""));
+  const updatedAt = article.lastModified.slice(0, 10);
+  const minutes = articleReadingMinutes(body, locale);
+  const sequence = readingSequence(articles, article);
+  return `<article class="reading-article" data-article-id="${escapeHtml(article.sourceDirName)}" data-article-path="${localizedArticleHref(article, locale)}">
+    <header class="reading-header">
+      <div class="reading-actions"><a class="text-link" href="${topicHubLink}">${locale === "ja" ? "← テーマへ" : "← Back to topic"}</a><button class="reading-related-button" data-open-related type="button" hidden>${locale === "ja" ? "関連の流れ" : "Related timeline"}</button></div>
+      <div class="meta-row">
+        ${renderTopicPill(locale, article.category, topicHubLink)}
+        <time class="mono-note" datetime="${article.date}">${escapeHtml(copy.articleSnapshotLabel)} ${escapeHtml(formatDisplayDate(article.date, locale))}</time>
+        ${article.publishedAtIso ? `<time class="mono-note" datetime="${escapeHtml(article.publishedAtIso)}">${escapeHtml(copy.articlePublishedLabel)} ${escapeHtml(formatDisplayDate(article.publishedAtIso.slice(0, 10), locale))}</time>` : ""}
+        ${updatedAt !== article.date ? `<time class="mono-note" datetime="${updatedAt}">${escapeHtml(copy.articleUpdatedLabel)} ${escapeHtml(formatDisplayDate(updatedAt, locale))}</time>` : ""}
+      </div>
+      <${initial ? "h1" : "h2"} class="reading-title">${escapeHtml(title)}</${initial ? "h1" : "h2"}>
+      <p class="reading-duration">${locale === "ja" ? `読了目安 ${minutes}分` : `${minutes} min read`}</p>
+      <p class="reading-lead">${escapeHtml(summary)}</p>
+      ${renderOutline(body, locale)}
+      ${renderArticleShare(article, locale, relativePath)}
+    </header>
+    <div class="article-body">${prepareArticleBody(body)}</div>
+    <details class="reading-evidence"><summary>${locale === "ja" ? "出典と編集責任" : "Sources and editorial review"} <span>${article.publishedSources.length}</span></summary>
+      ${renderSources(article, locale)}${renderArticleAuthorship(article, locale)}
+    </details>
+    <details class="reading-evidence"><summary>${escapeHtml(copy.relatedHeading)}</summary>${renderTopicBacklink(article, locale, topicHub)}${renderRelatedArticles(article, locale, articles)}</details>
+    <dialog class="related-dialog" data-related-dialog aria-label="${locale === "ja" ? "関連の流れ" : "Related timeline"}">
+      <div class="related-dialog-head"><h2>${locale === "ja" ? "関連の流れ" : "Related timeline"}</h2><form method="dialog"><button class="reading-related-button" type="submit">${locale === "ja" ? "閉じる" : "Close"}</button></form></div>
+      <p class="panel-copy">${escapeHtml(article.category)}</p><ol class="related-flow">${sequence.map((item) => {
+        const isCurrent = item.sourceDirName === article.sourceDirName;
+        const relation = isCurrent ? (locale === "ja" ? "閲覧中" : "Reading") : item.category === article.category
+          ? (locale === "ja" ? "同じテーマ" : "Same topic")
+          : item.date === article.date ? (locale === "ja" ? "同じ調査日" : "Same date")
+            : (locale === "ja" ? "関連テーマ" : "Related topic");
+        return `<li${isCurrent ? ' class="is-current"' : ""}><a href="${localizedArticleHref(item, locale)}"${isCurrent ? ' aria-current="page"' : ""}><span class="related-flow-relation">${relation}</span><time datetime="${item.date}">${escapeHtml(formatDisplayDate(item.date, locale))}</time><h3>${escapeHtml(locale === "ja" ? item.titleJa : item.titleEn)}</h3><p>${escapeHtml(item.seo?.[locale]?.teaser ?? (locale === "ja" ? item.summaryJa : item.summaryEn))}</p></a></li>`;
+      }).join("")}</ol>
+    </dialog>
+  </article>`;
+}
+
+export function renderArticleContinuation(article, locale, articles) {
+  const selection = nextStreamArticle(articles, article);
+  if (!selection) return `<div class="stream-end"><p>${locale === "ja" ? "公開済みの記事をすべて読みました" : "You have reached the end of the archive"}</p><a class="text-link" href="${localizedPath(locale, topicIndexRelativePath(locale).replace(/^en\//, ""))}">${locale === "ja" ? "ほかのテーマを探す" : "Explore other topics"}</a></div>`;
+  const { article: next, relation } = selection;
+  const relationLabel = locale === "ja"
+    ? ({ topic: "このテーマのひとつ前の記事", "same-day": "同じ調査日の関連記事", related: "関連する過去の記事", archive: "続いて読める過去の記事" }[relation])
+    : ({ topic: "Earlier in this topic", "same-day": "Related briefing from the same research date", related: "An earlier article on a related topic", archive: "Continue into the archive" }[relation]);
+  return `<section class="article-continuation" data-next-url="${assetPath(`assets/articles/${locale}/${next.sourceDirName}.json`)}" data-next-id="${escapeHtml(next.sourceDirName)}">
+    <p class="stream-boundary">${relationLabel}</p>
+    <a class="next-article-preview" href="${localizedArticleHref(next, locale)}"><span class="next-article-kicker">${escapeHtml(relationLabel)}</span><time datetime="${next.date}">${escapeHtml(formatDisplayDate(next.date, locale))}</time><h2>${escapeHtml(locale === "ja" ? next.titleJa : next.titleEn)}</h2><p>${escapeHtml(next.seo?.[locale]?.teaser ?? (locale === "ja" ? next.summaryJa : next.summaryEn))}</p><span class="text-link">${locale === "ja" ? "下へスクロールして読む" : "Scroll to continue"}</span></a>
+    <p class="stream-status" role="status" aria-live="polite"></p><button class="reading-related-button" type="button" data-stream-retry hidden>${locale === "ja" ? "再試行" : "Retry"}</button>
+  </section>`;
+}
+
+export function renderArticlePage(article, locale, articles = []) {
+  const title = locale === "ja" ? article.titleJa : article.titleEn;
   const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
-  const relativePath = locale === "ja" ? article.outputPaths.ja : article.outputPaths.en;
+  const relativePath = article.outputPaths[locale];
   const topicHub = buildTopicHubs(articles).find((hub) => hub.category === article.category);
   const topicHubPath = topicHub ? topicHubRelativePath(locale, topicHub.slug) : null;
-  const topicHubLink = topicHubPath ? localizedPath(locale, topicHubPath.replace(/^en\//, "")) : null;
-  const updatedAt = article.lastModified.slice(0, 10);
-  const body = `<article class="article-shell">
-    <section class="article-meta">
-      <div class="meta-row">
-        ${
-          topicHubLink
-            ? `<a class="meta-pill is-accent article-topic-link" href="${topicHubLink}">${escapeHtml(article.category)}</a>`
-            : `<span class="meta-pill is-accent">${escapeHtml(article.category)}</span>`
-        }
-        <time class="mono-note" datetime="${article.date}">${escapeHtml(localeCopy[locale].articleSnapshotLabel)} ${escapeHtml(formatDisplayDate(article.date, locale))}</time>
-        ${article.publishedAtIso ? `<time class="mono-note" datetime="${escapeHtml(article.publishedAtIso)}">${escapeHtml(copy.articlePublishedLabel)} ${escapeHtml(formatDisplayDate(article.publishedAtIso.slice(0, 10), locale))}</time>` : ""}
-        ${
-          updatedAt !== article.date
-            ? `<time class="mono-note" datetime="${updatedAt}">${escapeHtml(copy.articleUpdatedLabel)} ${escapeHtml(
-                formatDisplayDate(updatedAt, locale)
-              )}</time>`
-            : ""
-        }
-      </div>
-      <div class="meta-tags">${article.tags
-        .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
-        .join("")}</div>
-    </section>
-    ${renderArticleShare(article, locale, relativePath)}
-    <section class="article-body">${locale === "ja" ? article.bodies.ja : article.bodies.en}</section>
-    ${renderTopicBacklink(article, locale, topicHub)}
-    ${renderRelatedArticles(article, locale, articles)}
-    ${renderSources(article, locale)}
-    ${renderArticleAuthorship(article, locale)}
-  </article>`;
-
   return renderPage({
-    locale,
-    relativePath,
-    title: seo.title,
-    description: seo.description,
-    pageHeading: title,
-    pageIntro: summary,
-    body,
-    currentNavPath: localeCopy[locale].homePath,
-    article,
-    imagePath: siteConfig.ogImage,
-    breadcrumbs: [
-      { name: localeCopy[locale].homeTitle, path: localeCopy[locale].homePath },
-      ...(topicHubPath
-        ? [
-            { name: localeCopy[locale].topicsTitle, path: topicIndexRelativePath(locale) },
-            { name: article.category, path: topicHubPath }
-          ]
-        : []),
-      { name: title, path: relativePath }
-    ],
+    locale, relativePath, title: seo.title, description: seo.description,
+    pageHeading: title, pageIntro: locale === "ja" ? article.summaryJa : article.summaryEn,
+    body: `<div class="article-stream" data-article-stream data-locale="${locale}">${renderReadingArticle(article, locale, articles, { initial: true })}${renderArticleContinuation(article, locale, articles)}</div>`,
+    currentNavPath: localeCopy[locale].homePath, article, imagePath: siteConfig.ogImage,
+    breadcrumbs: [{ name: localeCopy[locale].homeTitle, path: localeCopy[locale].homePath }, ...(topicHubPath ? [{ name: localeCopy[locale].topicsTitle, path: topicIndexRelativePath(locale) }, { name: article.category, path: topicHubPath }] : []), { name: title, path: relativePath }],
     pageType: "article"
   });
 }
@@ -2000,93 +2016,30 @@ Sitemap: ${absoluteUrl("sitemap.xml")}
 }
 
 export function renderDefaultOgSvg() {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
-  <title id="title">Auto Research Digest</title>
-  <desc id="desc">Research Signal</desc>
-  <defs>
-    <pattern id="grid" width="42" height="42" patternUnits="userSpaceOnUse">
-      <path d="M 42 0 L 0 0 0 42" fill="none" stroke="#1f2433" stroke-width="1"/>
-    </pattern>
-  </defs>
-  <rect width="1200" height="630" fill="#0d0f14"/>
-  <rect width="1200" height="630" fill="url(#grid)"/>
-  <rect x="104" y="116" width="992" height="392" rx="28" fill="#13161f" stroke="#1f2433"/>
-  <text x="138" y="168" fill="#4af0d4" font-size="24" font-family="'DM Mono', monospace" letter-spacing="10">RESEARCH SIGNAL</text>
-  <text x="138" y="248" fill="#eef2ff" font-size="66" font-weight="500" font-family="'Noto Sans JP', sans-serif">Auto Research Digest</text>
-  <text x="138" y="316" fill="#c0cce0" font-size="28" font-family="'Noto Sans JP', sans-serif">Neutral research briefings for LLM, AI, and AI agents.</text>
-  <rect x="138" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
-  <rect x="454" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
-  <rect x="770" y="378" width="282" height="96" rx="18" fill="#10131b" stroke="#1f2433"/>
-  <text x="166" y="415" fill="#4af0d4" font-size="18" font-family="'DM Mono', monospace" letter-spacing="4">SIGNAL</text>
-  <text x="166" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Official docs / Papers</text>
-  <text x="482" y="415" fill="#4af0d4" font-size="18" font-family="'DM Mono', monospace" letter-spacing="4">FORMAT</text>
-  <text x="482" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Static HTML editorial pages</text>
-  <text x="798" y="415" fill="#4af0d4" font-size="18" font-family="'DM Mono', monospace" letter-spacing="4">OUTPUT</text>
-  <text x="798" y="450" fill="#eef2ff" font-size="26" font-family="'Noto Sans JP', sans-serif">Bilingual research briefings</text>
-</svg>`;
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="628" viewBox="0 0 1200 628" role="img" aria-labelledby="title desc">
+    <title id="title">Auto Research Digest</title><desc id="desc">Research briefings connected through time.</desc>
+    <defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#e8f1f7"/><stop offset="1" stop-color="#edf7f3"/></linearGradient></defs>
+    <rect width="1200" height="628" fill="url(#bg)"/>
+    <rect x="180" y="75" width="840" height="445" rx="24" fill="#fff" opacity=".42"/>
+    <rect x="140" y="105" width="920" height="445" rx="24" fill="#fff" opacity=".64"/>
+    <rect x="90" y="145" width="1020" height="395" rx="24" fill="#fff" stroke="#c9dfe7"/>
+    <text x="145" y="215" fill="#267f82" font-size="22" font-family="sans-serif" letter-spacing="4">RESEARCH / EVIDENCE / CONTEXT</text>
+    <text x="145" y="316" fill="#172b3d" font-size="62" font-family="'Noto Sans JP',sans-serif">Auto Research Digest</text>
+    <text x="148" y="378" fill="#51697b" font-size="25" font-family="sans-serif">LLM, AI, and agents. Primary sources. Clear perspectives.</text>
+    <path d="M150 451H1040" stroke="#ccdfe7"/><circle cx="150" cy="451" r="7" fill="#2a8d83"/><circle cx="470" cy="451" r="5" fill="#87b1c4"/><circle cx="750" cy="451" r="4" fill="#afccd7"/>
+    <text x="150" y="492" fill="#567587" font-size="18" font-family="sans-serif">Japanese / English</text>
+  </svg>`;
 }
 
 export function renderFaviconSvg() {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
-  <title id="title">Auto Research Digest favicon</title>
-  <desc id="desc">AR monogram on a dark grid with a cyan signal slash.</desc>
-  <defs>
-    <linearGradient id="bg" x1="32" y1="22" x2="224" y2="232" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#071018"/>
-      <stop offset="0.55" stop-color="#0a1822"/>
-      <stop offset="1" stop-color="#08111b"/>
-    </linearGradient>
-    <radialGradient id="glow" cx="50%" cy="44%" r="72%">
-      <stop offset="0" stop-color="#0f3342" stop-opacity="0.75"/>
-      <stop offset="0.62" stop-color="#0a1822" stop-opacity="0.28"/>
-      <stop offset="1" stop-color="#08111b" stop-opacity="0"/>
-    </radialGradient>
-    <linearGradient id="metal" x1="70" y1="70" x2="198" y2="192" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#ffffff"/>
-      <stop offset="0.38" stop-color="#f2f7ff"/>
-      <stop offset="1" stop-color="#cfd7e6"/>
-    </linearGradient>
-    <linearGradient id="slash" x1="84" y1="162" x2="208" y2="110" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#00a9b0"/>
-      <stop offset="0.5" stop-color="#12d9df"/>
-      <stop offset="1" stop-color="#66ffe8"/>
-    </linearGradient>
-    <pattern id="grid" width="26" height="26" patternUnits="userSpaceOnUse">
-      <path d="M 26 0 L 0 0 0 26" fill="none" stroke="#1a4b61" stroke-width="1.2" opacity="0.85"/>
-    </pattern>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="10" stdDeviation="8" flood-color="#000000" flood-opacity="0.35"/>
-    </filter>
-    <filter id="slashGlow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#25f4ee" flood-opacity="0.5"/>
-    </filter>
-  </defs>
-  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
-  <rect width="256" height="256" rx="56" fill="url(#glow)"/>
-  <rect width="256" height="256" rx="56" fill="url(#grid)" opacity="0.92"/>
-  <g fill="#2df7ff" opacity="0.9">
-    <circle cx="48" cy="54" r="2.7"/>
-    <circle cx="78" cy="158" r="2.3"/>
-    <circle cx="124" cy="112" r="1.9"/>
-    <circle cx="186" cy="76" r="2.2"/>
-    <circle cx="208" cy="164" r="2.4"/>
-  </g>
-  <g fill="#2df7ff" opacity="0.45">
-    <circle cx="66" cy="92" r="1.1"/>
-    <circle cx="96" cy="66" r="1"/>
-    <circle cx="164" cy="54" r="1"/>
-    <circle cx="214" cy="104" r="1.1"/>
-    <circle cx="168" cy="188" r="1.2"/>
-  </g>
-  <g filter="url(#shadow)">
-    <path d="M44 188 102 80h24l-58 108Z" fill="url(#metal)"/>
-    <path d="m122 80 22 45-18 8-22-53Z" fill="url(#metal)"/>
-    <path d="M132 188 105 135l21-10 31 63Z" fill="url(#metal)"/>
-    <path d="M138 80h58c24 0 38 13 38 34v11c0 19-10 31-28 35l31 28h-31l-29-28h-19v28h-25Zm25 20v40h31c10 0 15-3 19-8 4-4 6-10 6-16v-2c0-10-5-14-10-16-4-2-9-2-16-2Z" fill="url(#metal)"/>
-  </g>
-  <path d="m82 162 118-49 14 10-118 49Z" fill="url(#slash)" filter="url(#slashGlow)"/>
-  <rect x="0.75" y="0.75" width="254.5" height="254.5" rx="55.25" fill="none" stroke="#08121c" stroke-width="1.5"/>
-</svg>`;
+    <title id="title">Auto Research Digest favicon</title><desc id="desc">Layered research planes in blue and green.</desc>
+    <rect width="256" height="256" rx="56" fill="#eef5f8"/>
+    <path d="m44 92 84-44 84 44-84 44Z" fill="#95b8ca"/>
+    <path d="m44 121 84-44 84 44-84 44Z" fill="#6b9eaf"/>
+    <path d="m44 154 84-44 84 44-84 44Z" fill="#34898a"/>
+    <path d="m44 187 84-44 84 44-84 44Z" fill="#d5e9e7"/>
+  </svg>`;
 }
 
 export function renderWebManifest() {

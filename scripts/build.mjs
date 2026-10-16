@@ -6,6 +6,9 @@ import pngToIco from "png-to-ico";
 import { loadArticles, publishedArticles } from "./lib/content.mjs";
 import {
   renderArticlePage,
+  renderReadingArticle,
+  renderArticleContinuation,
+  pageTitle,
   renderDefaultOgSvg,
   renderFaviconSvg,
   renderFeed,
@@ -127,7 +130,8 @@ async function buildFaviconAssets() {
 async function buildSocialCardAsset() {
   const sourcePath = path.resolve("src/assets/og-twitter-card.png");
   const targetPath = path.join(outputRoot, siteConfig.ogImage);
-  const imageBuffer = await readFile(sourcePath);
+  const sharp = await loadSharp();
+  const imageBuffer = sharp ? await sharp(Buffer.from(renderDefaultOgSvg())).png().toBuffer() : await readFile(sourcePath);
   await writeBufferFile(targetPath, imageBuffer);
   // Keep the previously published image URL usable for existing links.
   await writeBufferFile(path.join(outputRoot, "assets", "og-twitter-card.png"), imageBuffer);
@@ -138,6 +142,9 @@ async function buildArticleShareScript() {
   const targetPath = path.join(outputRoot, "assets", "article-share.js");
   const scriptText = await readFile(sourcePath, "utf8");
   await writeTextFile(targetPath, scriptText);
+  for (const name of ["site-ui.js", "article-stream.js"]) {
+    await writeTextFile(path.join(outputRoot, "assets", name), await readFile(path.resolve("src/assets", name), "utf8"));
+  }
 }
 
 async function buildSite() {
@@ -209,8 +216,18 @@ async function buildSite() {
   }
 
   for (const article of liveArticles) {
-    await writeTextFile(path.join(outputRoot, article.outputPaths.ja), renderArticlePage(article, "ja", liveArticles));
-    await writeTextFile(path.join(outputRoot, article.outputPaths.en), renderArticlePage(article, "en", liveArticles));
+    for (const locale of siteConfig.locales) {
+      const markup = renderArticlePage(article, locale, liveArticles);
+      await writeTextFile(path.join(outputRoot, article.outputPaths[locale]), markup);
+      const headMarkup = markup.match(/<head>([\s\S]*?)<\/head>/)[1];
+      const nodes = [...headMarkup.matchAll(/<meta\s[^>]*(?:name="(?:description|twitter:[^"]+)"|property="(?:og:|article:)[^"]+")[^>]*>|<link\s[^>]*(?:rel="canonical"|hreflang="[^"]+")[^>]*>|<script type="application\/ld\+json">[\s\S]*?<\/script>/g)].map((match) => match[0]).join("");
+      await writeTextFile(path.join(outputRoot, "assets/articles", locale, `${article.sourceDirName}.json`), JSON.stringify({
+        id: article.sourceDirName, locale,
+        head: { title: pageTitle(article.seo[locale].title, locale), nodes },
+        html: renderReadingArticle(article, locale, liveArticles),
+        continuation: renderArticleContinuation(article, locale, liveArticles)
+      }));
+    }
   }
 
   const pageSitemapEntries = [
