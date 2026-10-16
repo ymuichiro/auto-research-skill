@@ -22,6 +22,7 @@ try{for(const [engine,type,executablePath] of [['chromium',chromium,process.env.
     assert((await page.locator('.lang-switch').getAttribute('href')).includes(id));
     assert((await article.locator('[data-copy-share]').getAttribute('data-share-url')).includes(id));
     assert((await page.locator('script[type="application/ld+json"]').allTextContents()).some(text=>text.includes(id)));
+    await article.locator('.reading-map summary').click();
     const link=article.locator('.reading-map a').nth(1);await link.scrollIntoViewIfNeeded();await frames(page);
     const before=await page.evaluate(()=>scrollY);
     const fragment=await link.getAttribute('data-original-fragment');
@@ -38,6 +39,7 @@ try{for(const [engine,type,executablePath] of [['chromium',chromium,process.env.
     const offset=await article.evaluate(el=>-el.parentElement.getBoundingClientRect().top);
     await page.reload();await frames(page);
     assert.equal(await page.locator('[data-article-id]').first().getAttribute('data-article-id'),id);
+    assert(await page.locator('.reading-toc').first().evaluate(el=>el.open),'Reload retains contents expansion so the same offset shows the same passage');
     await page.waitForFunction(y=>Math.abs(-document.querySelector('[data-article-id]').parentElement.getBoundingClientRect().top-y)<3,offset).catch(async error=>{
       console.error({engine,width,locale,offset,actual:await page.evaluate(()=>({scroll:scrollY,top:document.querySelector('[data-article-id]').parentElement.getBoundingClientRect().top,state:history.state}))});throw error;
     });

@@ -71,6 +71,7 @@ try {
         assert.deepEqual(duplicated,[],'Appended outline and diagram IDs do not collide');
         const jsonLd=await page.locator('script[type="application/ld+json"]').allTextContents();
         assert(jsonLd.some(text=>text.includes(nextId)),'Structured metadata follows current article');
+        await appended.locator('.reading-map summary').click();
         await appended.locator('.reading-map a').first().click();
         assert(!new URL(page.url()).hash.includes('--'),'Public anchor links do not expose internal namespaced IDs');
         await page.locator(`[data-article-id="${firstId}"]`).evaluate(el=>el.scrollIntoView({block:'start',behavior:'instant'}));
@@ -104,6 +105,21 @@ try {
       const page=await offline.newPage();await page.goto(base+entry);
       assert((await page.locator('.article-body').innerText()).length>1000,'No-JavaScript reading preserves full article');
       assert(await page.locator('.next-article-preview').isVisible(),'No-JavaScript reader retains ordinary continuation link');
+      await page.locator('.reading-map summary').click();
+      const nativeLink=page.locator('.reading-map a').nth(1);
+      assert((await nativeLink.innerText()).trim().length>4,'No-JavaScript contents names the destination');
+      const nativeFragment=await nativeLink.getAttribute('href');
+      await nativeLink.click();
+      await page.waitForURL(url=>url.hash===nativeFragment);
+      // Page-side RAF polling is unavailable with JavaScript disabled. Poll
+      // browser geometry from the test driver while the native scroll settles.
+      let nativeVisible=false;
+      for(let attempt=0;attempt<100;attempt++){
+        nativeVisible=await page.locator(nativeFragment).evaluate(el=>{const top=el.getBoundingClientRect().top;return top>=document.querySelector('.site-header').getBoundingClientRect().bottom&&top<innerHeight/2;});
+        if(nativeVisible)break;
+        await page.waitForTimeout(50);
+      }
+      assert(nativeVisible,'Native contents navigation reaches a visible heading below the fixed header');
       await offline.close();
       for (const width of [360,390,768,1440]) {
         const fixturePage = await browser.newPage({viewport:{width,height:900}});

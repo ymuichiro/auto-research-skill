@@ -3,7 +3,7 @@ import { mkdtemp, readFile, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { execFileSync } from 'node:child_process';
 import path from 'node:path';
-import { topicSequence, nextTopicArticle, prepareArticleBody } from './lib/article-template.mjs';
+import { topicSequence, nextTopicArticle, prepareArticleBody, articleOutline, renderOutline } from './lib/article-template.mjs';
 import { renderArticlePage, renderReadingArticle } from './lib/render.mjs';
 import { loadArticles, publishedArticles } from './lib/content.mjs';
 
@@ -11,6 +11,12 @@ const { articles, errors } = await loadArticles();
 assert.deepEqual(errors, []);
 const live = publishedArticles(articles);
 for (const article of live) {
+  for(const locale of ['ja','en']){
+    const body=article.bodies[locale];
+    const outline=articleOutline(body);const rendered=renderOutline(body,locale);
+    assert.equal((rendered.match(/class="reading-map-title"/g)||[]).length,outline.length,'Every real heading has a readable contents label');
+    assert(!rendered.includes('--section-count'),'The unlabeled graphical timeline is removed');
+  }
   const visited = new Set();
   let current = article;
   while (current) {

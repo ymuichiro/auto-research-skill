@@ -60,6 +60,7 @@ try{for(const [engine,type,executablePath] of [['chromium',chromium,process.env.
     assert(await button.evaluate(el=>document.activeElement===el),'Scrolling does not steal keyboard focus');
     assert.equal(await article.evaluate(el=>getComputedStyle(el).transform),'none','Keyboard-focused content stays flat');
     await button.tap();await page.keyboard.press('Escape');assert(await button.evaluate(el=>document.activeElement===el));
+    await article.locator('.reading-map summary').click();
     const link=article.locator('.reading-map a').nth(1);await link.focus();await page.keyboard.press('Enter');await frames(page);
     assert.equal(await page.evaluate(()=>document.activeElement?.tagName),'H2','Keyboard navigation continues at the selected heading');
     await page.emulateMedia({reducedMotion:'reduce'});await page.setViewportSize({width:900,height:390});await frames(page);
