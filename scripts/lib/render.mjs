@@ -251,7 +251,7 @@ function renderSharedHeadAssets(locale) {
 function renderSharedPageScript(pageType) {
   return `    <script src="${assetPath("assets/site-ui.js")}" defer></script>${pageType === "article" ? `
     <script src="${assetPath("assets/article-share.js")}" defer></script>
-    <script src="${assetPath("assets/article-stream.js")}" defer></script>` : ""}`;
+    <script type="module" src="${assetPath("assets/article-stream.js")}"></script>` : ""}`;
 }
 
 function localeTag(locale) {

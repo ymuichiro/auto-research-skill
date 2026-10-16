@@ -1,3 +1,5 @@
+import { stageArticle, paintMotion } from './article-motion.js';
+
 (() => {
   const stream = document.querySelector('[data-article-stream]');
   if (!stream || !('IntersectionObserver' in window)) return;
@@ -7,6 +9,7 @@
   const records = new Map();
   const requests = new WeakMap();
   const first = stream.querySelector('[data-article-id]');
+  stageArticle(first);
   let active = first;
   let frame = 0;
   let suspended = false;
@@ -85,6 +88,7 @@
       boundary.removeAttribute('data-next-url');
       boundary.removeAttribute('data-next-id');
       boundary.append(article);
+      stageArticle(article);
       boundary.classList.add('is-loaded');
       const continuation = document.createElement('template');
       continuation.innerHTML = payload.continuation;
@@ -120,20 +124,14 @@
     const readingLine = Math.min(innerHeight * 0.3, 220);
     let candidate = active;
     const articles = [...stream.querySelectorAll('[data-article-id]')];
+    const geometry = new Map(articles.map(article => [article, stageArticle(article).getBoundingClientRect()]));
     articles.forEach((article) => {
-      const rect = article.getBoundingClientRect();
+      const rect = geometry.get(article);
       if (rect.top <= readingLine && rect.bottom > readingLine) candidate = article;
     });
     articles.forEach((article) => {
-      if (article === candidate) {
-        article.classList.remove('is-approaching', 'is-receding');
-      } else if (article.getBoundingClientRect().top > readingLine) {
-        article.classList.add('is-approaching');
-        article.classList.remove('is-receding');
-      } else {
-        article.classList.add('is-receding');
-        article.classList.remove('is-approaching');
-      }
+      article.classList.remove('is-approaching', 'is-receding');
+      paintMotion(article, geometry.get(article), innerHeight, reducedMotion.matches);
     });
     const headings = [...candidate.querySelectorAll('.article-body h2')];
     const section = headings.filter((heading) => heading.getBoundingClientRect().top <= readingLine + 36).at(-1) ?? headings[0];
