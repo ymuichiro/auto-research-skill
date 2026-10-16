@@ -1581,7 +1581,9 @@
   .reading-evidence > summary { min-height: 44px; padding: .85rem 1rem; color: #385969; font-size: .84rem; font-weight: 500; }
   .reading-evidence > summary span { margin-left: .5rem; color: #71838c; }
   .reading-evidence .panel-block { margin: .75rem; border-color: rgba(194,214,222,.5); background: rgba(255,255,255,.74); box-shadow: none; }
-  .article-continuation { position: relative; z-index: 0; margin: -4.1rem 0 0; padding: 0 0 1.5rem; }
+  .article-continuation { position: relative; z-index: 0; margin: 2.75rem 0 0; padding: 0 0 1.5rem; overflow-anchor: none; }
+  .article-mount { display: flow-root; }
+  .article-mount .next-article-preview { transform: none; transform-origin: top center; transition: box-shadow .2s ease; }
   .stream-boundary { max-width: 800px; margin: 1.25rem auto .55rem; padding-left: .4rem; color: #52717e; font: 500 .76rem/1.5 var(--ard-font-ui); letter-spacing: .015em; }
   .next-article-preview { display: block; max-width: 800px; margin: 0 auto; padding: clamp(1.5rem,4.4vw,3.25rem); transform: translateY(1.8rem) scale(.965); border: 1px solid rgba(255,255,255,.92); border-radius: 1.2rem; background: linear-gradient(145deg, rgba(255,255,255,.78), rgba(232,245,248,.72)); box-shadow: inset 0 0 0 1px rgba(177,207,218,.44), 0 22px 54px rgba(59,98,119,.12); color: var(--ard-text-strong); text-decoration: none; backdrop-filter: blur(18px) saturate(125%); transition: transform .7s cubic-bezier(.2,.75,.2,1), opacity .6s ease, box-shadow .6s ease; }
   .next-article-preview:hover, .next-article-preview:focus-visible { transform: translateY(.25rem) scale(.99); box-shadow: inset 0 0 0 1px rgba(134,185,190,.55), 0 26px 64px rgba(59,98,119,.16); }
@@ -1666,7 +1668,7 @@
   .article-body table { table-layout: fixed; font-size: .78rem; }
   .article-body td, .article-body th { padding: .6rem .4rem; }
   .related-dialog { width: 100%; max-width: 100%; max-height: 86dvh; margin: auto 0 0; padding: 1.35rem 1rem max(1.35rem,env(safe-area-inset-bottom)); border-radius: 1.2rem 1.2rem 0 0; }
-  .article-continuation { margin-top: -4.1rem; }
+  .article-continuation { margin-top: 2rem; }
   .stream-boundary { margin-top: 0; margin-bottom: .25rem; }
   .next-article-preview { padding: 1.4rem 1.2rem; transform: translateY(1.2rem) scale(.985); }
   .home-exploration { padding-top: 4.5rem; }

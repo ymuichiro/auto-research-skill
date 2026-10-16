@@ -32,7 +32,7 @@ try {
         const article=page.locator(`[data-article-id="${id}"]`);await article.waitFor();
         const top=await article.evaluate(el=>el.parentElement.getBoundingClientRect().top+scrollY);
         const states=[];
-        for(const target of [820,650,450,220]){
+        for(const target of [820,650,450,200]){
           await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),top-target);await frames(page);
           states.push(await article.evaluate(el=>{const t=new DOMMatrix(getComputedStyle(el).transform);return {scale:t.a,y:t.f,opacity:Number(getComputedStyle(el).opacity),top:el.parentElement.getBoundingClientRect().top+scrollY,phase:el.dataset.motionPhase};}));
           assert(Math.abs(states.at(-1).top-top)<1,'Transforms must not move layout geometry');
