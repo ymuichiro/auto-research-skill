@@ -77,17 +77,20 @@ import { stageArticle, paintMotion } from './article-motion.js';
       template.innerHTML = payload.html;
       const article = template.content.querySelector('[data-article-id]');
       if (!article || article.dataset.articleId !== id) throw new Error('Invalid article');
+      const mount = boundary.querySelector('.article-mount');
+      if (!mount) throw new Error('Missing article mount');
       namespaceIds(article, id);
-      article.classList.add('is-approaching');
       records.set(id, payload.head);
       loaded.add(id);
       observer.unobserve(boundary);
-      boundary.querySelector('.next-article-preview')?.remove();
+      // Keep the preview's top anchor and minimum footprint while its contents
+      // expand downward. Removing an ancestor would disturb scroll anchoring.
+      mount.style.minHeight = `${mount.getBoundingClientRect().height}px`;
+      mount.replaceChildren(article);
       status.remove();
       retry.remove();
       boundary.removeAttribute('data-next-url');
       boundary.removeAttribute('data-next-id');
-      boundary.append(article);
       stageArticle(article);
       boundary.classList.add('is-loaded');
       const continuation = document.createElement('template');
@@ -112,7 +115,7 @@ import { stageArticle, paintMotion } from './article-motion.js';
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => { if (entry.isIntersecting) void loadNext(entry.target); });
-  }, { rootMargin: '500px 0px', threshold: 0 });
+  }, { rootMargin: '1000px 0px', threshold: 0 });
 
   function observeNext() {
     stream.querySelectorAll('[data-next-url]').forEach((boundary) => observer.observe(boundary));
@@ -125,6 +128,7 @@ import { stageArticle, paintMotion } from './article-motion.js';
     let candidate = active;
     const articles = [...stream.querySelectorAll('[data-article-id]')];
     const geometry = new Map(articles.map(article => [article, stageArticle(article).getBoundingClientRect()]));
+    const previews = [...stream.querySelectorAll('.next-article-preview')].map(node => [node, node.parentElement.getBoundingClientRect()]);
     articles.forEach((article) => {
       const rect = geometry.get(article);
       if (rect.top <= readingLine && rect.bottom > readingLine) candidate = article;
@@ -133,6 +137,7 @@ import { stageArticle, paintMotion } from './article-motion.js';
       article.classList.remove('is-approaching', 'is-receding');
       paintMotion(article, geometry.get(article), innerHeight, reducedMotion.matches);
     });
+    previews.forEach(([node, rect]) => paintMotion(node, rect, innerHeight, reducedMotion.matches));
     const headings = [...candidate.querySelectorAll('.article-body h2')];
     const section = headings.filter((heading) => heading.getBoundingClientRect().top <= readingLine + 36).at(-1) ?? headings[0];
     candidate.querySelectorAll('.reading-map a').forEach((link) => {
