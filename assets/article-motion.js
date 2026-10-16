@@ -1,0 +1,31 @@
+// Geometry belongs to the untransformed stage. Motion never feeds its own
+// transformed bounds back into progress, even on very long articles.
+export function sampleMotion({ top, bottom }, height, reduced = false) {
+  const line = Math.min(height * .3, 220);
+  const entry = Math.max(0, Math.min(1, (top - line) / Math.max(1, height - line)));
+  const eased = entry * entry * (3 - 2 * entry);
+  return {
+    phase: top > line ? 'approaching' : bottom <= line ? 'past' : 'reading',
+    entry,
+    y: reduced ? 0 : eased * Math.min(110, height * .14),
+    scale: reduced ? 1 : 1 - eased * .085,
+    opacity: reduced ? 1 : 1 - eased * .16
+  };
+}
+
+export function stageArticle(article) {
+  if (article.parentElement.classList.contains('article-stage')) return article.parentElement;
+  const stage = document.createElement('div');
+  stage.className = 'article-stage';
+  article.before(stage);
+  stage.append(article);
+  return stage;
+}
+
+export function paintMotion(article, rect, height, reduced) {
+  const motion = sampleMotion(rect, height, reduced);
+  article.dataset.motionPhase = motion.phase;
+  article.style.transform = motion.y ? `translateY(${motion.y}px) scale(${motion.scale})` : 'none';
+  article.style.opacity = String(motion.opacity);
+  return motion;
+}
