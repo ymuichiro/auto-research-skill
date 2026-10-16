@@ -134,6 +134,7 @@ import { stageArticle, paintMotion } from './article-motion.js';
       if (rect.top <= readingLine && rect.bottom > readingLine) candidate = article;
     });
     articles.forEach((article) => {
+      article.dataset.current = String(article === candidate);
       paintMotion(article, geometry.get(article), innerHeight, reducedMotion.matches);
     });
     previews.forEach(([node, rect]) => paintMotion(node, rect, innerHeight, reducedMotion.matches));
