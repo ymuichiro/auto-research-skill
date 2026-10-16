@@ -232,5 +232,6 @@ export async function loadArticles() {
 }
 
 export function publishedArticles(articles) {
-  return articles.filter((article) => !article.draft);
+  // Opt-in local authoring preview. Normal builds never include drafts.
+  return articles.filter((article) => !article.draft || article.sourceDirName === process.env.PREVIEW_ARTICLE);
 }

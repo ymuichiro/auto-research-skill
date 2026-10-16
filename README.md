@@ -69,7 +69,13 @@ pnpm new:article --date YYYY-MM-DD --slug topic-slug
 pnpm build
 pnpm validate
 pnpm dev
+pnpm test:design
+pnpm verify:design  # ローカルサーバーを起動した状態で全ページを確認
 ```
+
+本文にはデザイン用のクラスや色を指定する必要はありません。
+[記事テンプレートの使い方](guidelines/article-template.md)と[内容構造の雛形](templates/article/visual-blocks.html)を使い、`PREVIEW_ARTICLE=YYYY-MM-DD-topic-slug pnpm dev`で下書きを確認できます。
+ブラウザー検証の初回は`pnpm exec playwright install chromium webkit`を実行します。
 
 ## Codex ルール
 

@@ -11,19 +11,19 @@ export default {
       fontFamily: {
         sans: ['"Noto Sans JP"', "ui-sans-serif", "system-ui", "sans-serif"],
         display: ['"Noto Sans JP"', "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ['"DM Mono"', "ui-monospace", "SFMono-Regular", "monospace"]
+        mono: ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"]
       },
       colors: {
-        obsidian: "#0d0f14",
-        surface: "#13161f",
-        line: "#1f2433",
-        signal: "#4af0d4",
-        fog: "#c0cce0",
-        paper: "#eef2ff",
-        dim: "#4a5570"
+        obsidian: "#edf3f7",
+        surface: "#ffffff",
+        line: "#d6e3eb",
+        signal: "#237f82",
+        fog: "#344657",
+        paper: "#172b3d",
+        dim: "#526879"
       },
       boxShadow: {
-        panel: "0 24px 60px rgba(5, 8, 12, 0.35)"
+        panel: "0 24px 60px rgba(69, 106, 137, 0.12)"
       }
     }
   },
@@ -32,14 +32,14 @@ export default {
     themes: [
       {
         ardeditorial: {
-          primary: "#eef2ff",
-          secondary: "#4af0d4",
-          accent: "#4af0d4",
-          neutral: "#13161f",
-          "base-100": "#0d0f14",
-          "base-200": "#13161f",
-          "base-300": "#1f2433",
-          "base-content": "#c0cce0",
+          primary: "#172b3d",
+          secondary: "#237f82",
+          accent: "#237f82",
+          neutral: "#ffffff",
+          "base-100": "#edf3f7",
+          "base-200": "#ffffff",
+          "base-300": "#d6e3eb",
+          "base-content": "#344657",
           info: "#7dd3fc",
           success: "#4ade80",
           warning: "#facc15",

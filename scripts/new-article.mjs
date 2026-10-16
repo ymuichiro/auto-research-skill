@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 function parseArgs(argv) {
@@ -30,7 +30,7 @@ async function main() {
     throw new Error("Pass --slug in lowercase kebab-case.");
   }
 
-  const articleDir = path.resolve("content/articles", `${date}-${slug}`);
+  const articleDir = path.resolve(args.root ?? "content/articles", `${date}-${slug}`);
   await mkdir(articleDir, { recursive: false });
 
   const meta = {
@@ -53,26 +53,10 @@ async function main() {
   };
 
   await writeFile(path.join(articleDir, "meta.json"), `${JSON.stringify(meta, null, 2)}\n`, "utf8");
-  await writeFile(
-    path.join(articleDir, "body.ja.html"),
-    `<section class="report-section">
-  <p class="section-kicker">Overview</p>
-  <h2>論点を記入</h2>
-  <p>本文の下書きをここに追加します。</p>
-</section>
-`,
-    "utf8"
-  );
-  await writeFile(
-    path.join(articleDir, "body.en.html"),
-    `<section class="report-section">
-  <p class="section-kicker">Overview</p>
-  <h2>Add the key question</h2>
-  <p>Add the English draft body here.</p>
-</section>
-`,
-    "utf8"
-  );
+  for (const locale of ["ja", "en"]) {
+    const template = await readFile(new URL(`../templates/article/body.${locale}.html`, import.meta.url), "utf8");
+    await writeFile(path.join(articleDir, `body.${locale}.html`), template, "utf8");
+  }
 
   console.log(`Created ${articleDir}`);
 }

@@ -21,6 +21,15 @@
   <p>This is a hypothetical implementation example. A note says, “Online meeting with Tanaka tomorrow at 15:00.” The model extracts a person, time, and location candidate. The application displays the original text alongside it and identifies the reference date and time zone used for “tomorrow.” If note creation and processing occurred on different days, silently choosing a reference and saving would be inappropriate.</p>
   <p>The user corrects the date and selects Save. Only after the calendar operation succeeds does the application report that it added the event. The model provides a candidate; application code establishes the save outcome. Text containing no event, or a vague wish to talk sometime next week, should support no extraction or an unresolved candidate rather than a fabricated definite date.</p>
   <p>This separates text recognition, candidate generation, correction, and calendar storage for evaluation. High extraction accuracy may still fail to save time if checking the result takes too long. Preserving the original text and providing a route back to ordinary editing are part of the value of native integration.</p>
+<figure>
+  <figcaption>From a note to a calendar entry (conceptual diagram of the hypothetical example)</figcaption>
+  <ol>
+    <li><strong>Read the source</strong>Retain the original time and person, together with the reference date.</li>
+    <li><strong>Generate candidates</strong>Display the model's extraction as candidates before saving.</li>
+    <li><strong>Ask for review</strong>Check against the source and correct the time or place.</li>
+    <li><strong>Confirm saving</strong>Report an addition only after the calendar operation succeeds.</li>
+  </ol>
+</figure>
 </section>
 <section class="report-section">
   <h2>Local inference differs from an entirely local feature</h2>
