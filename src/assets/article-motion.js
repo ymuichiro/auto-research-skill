@@ -24,11 +24,20 @@ export function stageArticle(article) {
   return stage;
 }
 
+const painted = new WeakMap();
 export function paintMotion(article, rect, height, reduced) {
   const motion = sampleMotion(rect, height, reduced);
-  article.dataset.motionPhase = motion.phase;
-  article.style.transformOrigin = motion.exit > 0 ? 'center bottom' : 'center top';
-  article.style.transform = motion.y ? `translateY(${motion.y}px) scale(${motion.scale})` : 'none';
-  article.style.opacity = String(motion.opacity);
+  const next = {
+    phase:motion.phase,
+    origin:motion.exit > 0 ? 'center bottom' : 'center top',
+    transform:motion.y ? `translateY(${motion.y}px) scale(${motion.scale})` : 'none',
+    opacity:String(motion.opacity)
+  };
+  const previous = painted.get(article) ?? {};
+  if (previous.phase !== next.phase) article.dataset.motionPhase = next.phase;
+  if (previous.origin !== next.origin) article.style.transformOrigin = next.origin;
+  if (previous.transform !== next.transform) article.style.transform = next.transform;
+  if (previous.opacity !== next.opacity) article.style.opacity = next.opacity;
+  painted.set(article,next);
   return motion;
 }

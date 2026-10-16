@@ -1,4 +1,4 @@
-import { readFile, mkdir, writeFile } from "node:fs/promises";
+import { readFile, readdir, mkdir, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
 import { siteConfig } from "./lib/site-config.mjs";
@@ -20,8 +20,11 @@ if (!Number.isInteger(attempts) || attempts < 1 || attempts > 15 || !Number.isFi
 const sitemapPaths = ["sitemap.xml", "sitemap-pages.xml", "sitemap-articles.xml"];
 const sitemaps = await Promise.all(sitemapPaths.map((file) => readFile(path.join("public", file), "utf8")));
 const pages = [...new Set(sitemaps.slice(1).flatMap((xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])))];
-const paths = [...pages.map((url) => new URL(url).pathname.slice(new URL(siteConfig.siteUrl).pathname.length)), ...sitemapPaths,
-  "robots.txt", "favicon.ico", "assets/favicon.ico", "assets/og-twitter-card.png", siteConfig.ogImage, "assets/site.css", "assets/article-share.js"];
+const payloads = (await Promise.all(["ja", "en"].map(async locale =>
+  (await readdir(path.join("public/assets/articles", locale))).filter(file => file.endsWith(".json")).map(file => `assets/articles/${locale}/${file}`)))).flat();
+const paths = [...new Set([...pages.map((url) => new URL(url).pathname.slice(new URL(siteConfig.siteUrl).pathname.length)), ...sitemapPaths,
+  "robots.txt", "favicon.ico", "assets/favicon.ico", "assets/og-twitter-card.png", siteConfig.ogImage, "assets/site.css", "assets/article-share.js",
+  "assets/site-ui.js", "assets/article-stream.js", "assets/article-motion.js", ...payloads])];
 const digest = (bytes) => createHash("sha256").update(bytes).digest("hex");
 let report;
 for (let attempt = 1; attempt <= attempts; attempt += 1) {
