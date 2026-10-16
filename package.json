@@ -17,6 +17,7 @@
     "test:motion": "node scripts/test-motion.mjs",
     "test:arrival": "node scripts/test-arrival.mjs",
     "test:navigation": "node scripts/test-navigation.mjs",
+    "test:quality": "node scripts/test-motion-quality.mjs",
     "verify:design": "node scripts/verify-design.mjs",
     "test:authoring": "node scripts/test-authoring.mjs",
     "verify:disclosures": "node scripts/verify-disclosures.mjs"

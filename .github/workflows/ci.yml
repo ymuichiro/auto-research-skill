@@ -37,3 +37,14 @@ jobs:
 
       - name: Validate content and output
         run: pnpm validate
+
+      - name: Install browser test runtimes
+        run: pnpm exec playwright install --with-deps chromium webkit
+
+      - name: Verify reading, motion and keyboard flows
+        run: |
+          pnpm test:design
+          pnpm test:motion
+          pnpm test:arrival
+          pnpm test:navigation
+          pnpm test:quality --functional-only

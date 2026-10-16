@@ -17,7 +17,53 @@ import { stageArticle, paintMotion } from './article-motion.js';
   let entrySequence = 0;
   let entryKey = history.state?.readingKey ?? `reading-${Date.now()}`;
   const positions = new Map();
-  let restoring = false;
+  // Resize/font notifications may arrive before pageshow. Do not let an early
+  // frame overwrite the position that this navigation still needs to restore.
+  let restoring = history.state?.readingOffset != null || !!location.hash;
+  let restoreGeneration = 0;
+  let layoutDirty = true;
+  let layouts = [];
+  let previewLayouts = [];
+  let markedLink;
+  const resizeObserver = 'ResizeObserver' in window ? new ResizeObserver(invalidateLayout) : null;
+  resizeObserver?.observe(document.body);
+  function scheduleUpdate() {
+    if (!frame && !suspended) frame = requestAnimationFrame(updateActive);
+  }
+  function invalidateLayout() { layoutDirty = true; scheduleUpdate(); }
+
+  function measureLayout() {
+    const scroll = scrollY;
+    layouts = [...stream.querySelectorAll('[data-article-id]')].map(article => {
+      const stage = stageArticle(article);
+      resizeObserver?.observe(stage);
+      const rect = stage.getBoundingClientRect();
+      const headings = [...article.querySelectorAll('.article-body h2')].map(node => {
+        let offset = 0;
+        for (let parent = node; parent && parent !== stage; parent = parent.offsetParent) offset += parent.offsetTop;
+        return {node, top:rect.top + scroll + offset};
+      });
+      const links = [...article.querySelectorAll('.reading-map a')];
+      links.forEach(link => { if (link !== markedLink) link.removeAttribute('aria-current'); });
+      return {article, top:rect.top + scroll, bottom:rect.bottom + scroll, headings, links};
+    });
+    previewLayouts = [...stream.querySelectorAll('.next-article-preview')].map(node => {
+      const rect = node.parentElement.getBoundingClientRect();
+      return {node, top:rect.top + scroll, bottom:rect.bottom + scroll};
+    });
+    layoutDirty = false;
+  }
+
+  function requestRestore(position, waitForFonts = false) {
+    const generation = ++restoreGeneration;
+    restoring = true;
+    (waitForFonts ? document.fonts.ready : Promise.resolve()).then(() => requestAnimationFrame(() => {
+      if (generation !== restoreGeneration || suspended) return;
+      restoring = false;
+      restorePosition(position);
+      invalidateLayout();
+    }));
+  }
   try {
     const saved = JSON.parse(sessionStorage.getItem(`ard-reading:${entryKey}`));
     if (saved?.article === first.dataset.articleId && Number.isFinite(saved.readingOffset)) positions.set(entryKey, saved);
@@ -137,6 +183,7 @@ import { stageArticle, paintMotion } from './article-motion.js';
       stream.append(continuation.content);
       document.dispatchEvent(new CustomEvent('article-added', { detail: article }));
       observeNext();
+      layoutDirty = true;
       updateActive();
     } catch (error) {
       if (suspended || requests.get(boundary) !== requestController) return;
@@ -163,33 +210,32 @@ import { stageArticle, paintMotion } from './article-motion.js';
   function updateActive() {
     frame = 0;
     if (suspended || restoring) return;
+    if (layoutDirty || !resizeObserver) measureLayout();
     const readingLine = Math.min(innerHeight * 0.3, 220);
-    const articles = [...stream.querySelectorAll('[data-article-id]')];
-    let candidate = articles[0];
-    const geometry = new Map(articles.map(article => [article, stageArticle(article).getBoundingClientRect()]));
-    const previews = [...stream.querySelectorAll('.next-article-preview')].map(node => [node, node.parentElement.getBoundingClientRect()]);
-    articles.forEach((article) => {
-      const rect = geometry.get(article);
-      if (rect.top <= readingLine) candidate = article;
+    const scroll = scrollY;
+    const current = layouts.filter(item => item.top - scroll <= readingLine).at(-1) ?? layouts[0];
+    const candidate = current.article;
+    const section = current.headings.filter(item => item.top - scroll <= readingLine + 36).at(-1) ?? current.headings[0];
+    const link = current.links.find(node => node.getAttribute('href') === `#${section?.node.id}`);
+    const keyboardOwner = document.activeElement?.matches(':focus-visible') ? document.activeElement.closest('[data-article-id]') : null;
+    const staticMotion = reducedMotion.matches || !!stream.querySelector('dialog[open]');
+    layouts.forEach(({article,top,bottom}) => {
+      const value = String(article === candidate);
+      if (article.dataset.current !== value) article.dataset.current = value;
+      paintMotion(article, {top:top-scroll,bottom:bottom-scroll}, innerHeight, staticMotion || article === keyboardOwner);
     });
-    articles.forEach((article) => {
-      article.dataset.current = String(article === candidate);
-      if (article !== candidate) article.querySelectorAll('.reading-map a[aria-current]').forEach(link=>link.removeAttribute('aria-current'));
-      paintMotion(article, geometry.get(article), innerHeight, reducedMotion.matches);
-    });
-    previews.forEach(([node, rect]) => paintMotion(node, rect, innerHeight, reducedMotion.matches));
-    const headings = [...candidate.querySelectorAll('.article-body h2')];
-    const section = headings.filter((heading) => heading.getBoundingClientRect().top <= readingLine + 36).at(-1) ?? headings[0];
-    candidate.querySelectorAll('.reading-map a').forEach((link) => {
-      if (section && link.getAttribute('href') === `#${section.id}`) link.setAttribute('aria-current', 'location');
-      else link.removeAttribute('aria-current');
-    });
+    previewLayouts.forEach(({node,top,bottom}) => paintMotion(node, {top:top-scroll,bottom:bottom-scroll}, innerHeight, staticMotion));
+    if (markedLink !== link) {
+      markedLink?.removeAttribute('aria-current');
+      link?.setAttribute('aria-current','location');
+      markedLink = link;
+    }
     if (candidate !== active && candidate) {
       active = candidate;
       setHead(records.get(active.dataset.articleId));
-      history.replaceState({ ...(history.state ?? {}), ...rememberPosition(geometry.get(active)), articleStream:true, readingKey:entryKey, fragment:'' }, '', active.dataset.articlePath);
+      history.replaceState({ ...(history.state ?? {}), ...rememberPosition({top:current.top-scroll}), articleStream:true, readingKey:entryKey, fragment:'' }, '', active.dataset.articlePath);
     }
-    rememberPosition(geometry.get(active));
+    rememberPosition({top:current.top-scroll});
   }
 
   stream.addEventListener('click', (event) => {
@@ -208,19 +254,30 @@ import { stageArticle, paintMotion } from './article-motion.js';
       setHead(records.get(owner.dataset.articleId));
       const fragment = anchor.dataset.originalFragment ?? anchor.getAttribute('href');
       history.pushState({articleStream:true,readingKey:entryKey,article:owner.dataset.articleId,fragment},'',owner.dataset.articlePath+fragment);
+      target.setAttribute('tabindex','-1');
+      target.focus({preventScroll:true});
       target.scrollIntoView({block:'start',behavior:'instant'});
       savePosition();
       updateActive();
     }
   });
-  addEventListener('scroll', () => { if (!frame) frame = requestAnimationFrame(updateActive); }, { passive: true });
-  addEventListener('resize', updateActive);
+  addEventListener('scroll', scheduleUpdate, { passive: true });
+  addEventListener('resize', invalidateLayout);
+  addEventListener('load', invalidateLayout, true);
+  stream.addEventListener('toggle', invalidateLayout, true);
+  stream.addEventListener('focusin', scheduleUpdate);
+  stream.addEventListener('focusout', scheduleUpdate);
+  document.fonts.ready.then(invalidateLayout);
+  document.fonts.addEventListener('loadingdone', invalidateLayout);
+  window.visualViewport?.addEventListener('resize', invalidateLayout);
+  for (const type of ['wheel','touchstart','keydown']) addEventListener(type, () => {
+    if (restoring) { ++restoreGeneration; restoring = false; invalidateLayout(); }
+  }, {passive:true});
   addEventListener('popstate', event => {
     if (!event.state?.articleStream) return;
     entryKey = event.state.readingKey;
     const position = positions.get(entryKey) ?? event.state;
-    restoring = true;
-    requestAnimationFrame(() => { restoring = false; restorePosition(position); updateActive(); });
+    requestRestore(position);
   });
   // replaceState keeps the preceding navigation entry intact. BFCache retains the
   // stream and scroll position; a reload opens the actual active article URL.
@@ -240,9 +297,9 @@ import { stageArticle, paintMotion } from './article-motion.js';
     entryKey = history.state?.readingKey ?? entryKey;
     if (history.state?.readingOffset != null || location.hash) {
       const position = positions.get(entryKey) ?? history.state;
-      restoring = true;
-      document.fonts.ready.then(() => requestAnimationFrame(() => { restoring = false; restorePosition(position); updateActive(); }));
+      requestRestore(position,true);
     }
+    layoutDirty = true;
     observeNext(); updateActive();
   });
   reducedMotion.addEventListener('change', updateActive);

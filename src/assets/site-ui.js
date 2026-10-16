@@ -23,7 +23,11 @@ function initReadingControls(root = document) {
     button.hidden = false;
     button.dataset.initialized = 'true';
     button.addEventListener('click', () => dialog.showModal());
-    dialog.addEventListener('close', () => button.focus({ preventScroll: true }));
+    dialog.addEventListener('close', () => {
+      // Native close already restores focus. A queued close event must not take
+      // focus back after the reader has moved on to another control or heading.
+      if (document.activeElement === document.body || dialog.contains(document.activeElement)) button.focus({ preventScroll:true });
+    });
     dialog.addEventListener('click', (event) => {
       if (event.target === dialog) {
         const rect = dialog.getBoundingClientRect();
