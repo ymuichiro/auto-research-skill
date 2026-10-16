@@ -46,13 +46,13 @@ try {
         assert.equal(await page.locator('[data-article-id][data-current="true"]').count(),1,'Only one article is foreground');
         assert.equal(await article.evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(255, 255, 255)','Reading text has an opaque background');
         assert.equal(await article.locator('[data-open-related]').evaluate(el=>el.getBoundingClientRect().height>=44),true,'Settled controls retain their tap size');
-        if(locale==='ja'&&[390,1440].includes(width))await page.screenshot({path:`${output}/${engine}-${width}-reading.png`});
+        if(locale==='ja')await page.screenshot({path:`${output}/${engine}-${width}-reading.png`});
         await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),top-650);await frames(page);
         const reversed=await article.evaluate(el=>new DOMMatrix(getComputedStyle(el).transform).a);
         assert(Math.abs(reversed-states[1].scale)<.001,'Reverse scrolling restores the same depth');
         await page.waitForTimeout(100);
         assert.equal(await article.evaluate(el=>new DOMMatrix(getComputedStyle(el).transform).a),reversed,'Motion stops with scrolling');
-        if(locale==='ja'&&[390,1440].includes(width))await page.screenshot({path:`${output}/${engine}-${width}-arrival.png`});
+        if(locale==='ja')await page.screenshot({path:`${output}/${engine}-${width}-arrival.png`});
         const first=page.locator('[data-article-id]').first();
         const bottom=await first.evaluate(el=>el.parentElement.getBoundingClientRect().bottom+scrollY);
         const exits=[];
