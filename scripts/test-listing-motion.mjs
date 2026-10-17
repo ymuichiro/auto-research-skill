@@ -147,10 +147,11 @@ try {
           });
           await page.reload();
           await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
-          await page.keyboard.press('PageDown'); await page.waitForTimeout(150);
+          await page.keyboard.press('PageDown'); await page.waitForTimeout(500);
           const userY = await page.evaluate(() => scrollY);
           await page.evaluate(() => window.releaseListingFonts()); await page.waitForTimeout(150);
-          assert(Math.abs(await page.evaluate(() => scrollY)-userY) < 2, 'User input cancels delayed position restoration');
+          const afterFonts = await page.evaluate(() => scrollY);
+          assert(Math.abs(afterFonts-userY) < 2, `User input cancels delayed position restoration: ${userY} -> ${afterFonts}`);
         }
         assert.deepEqual(errors, []);
         console.log(`${engine} ${width}px ${locale}: home, continuation, topic and navigation passed`);
