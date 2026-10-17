@@ -614,14 +614,14 @@ function renderEditorialBriefing(
   const articleTitle = locale === "ja" ? article.titleJa : article.titleEn;
 
   const depth = depthArticles.length ? `<div class="exploration-depth">${depthArticles.slice(0, 2).reverse().map((item) => `<a class="exploration-plane" href="${localizedArticleHref(item, locale)}"><time>${escapeHtml(formatDisplayDate(item.date, locale))}</time><span>${escapeHtml(locale === "ja" ? item.titleJa : item.titleEn)}</span></a>`).join("")}</div>` : "";
-  return `<div class="listing-stage"><div${depth ? ' class="home-exploration"' : ""} data-listing-motion="featured">${depth}<section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
-    <div class="editorial-briefing-head">
+  const introMarkup = `<div class="editorial-briefing-head news-intro">
       <div>
         ${kicker ? `<p class="section-kicker">${escapeHtml(kicker)}</p>` : ""}
         <h2 class="panel-title">${escapeHtml(title)}</h2>
         ${intro ? `<p class="panel-copy">${escapeHtml(intro)}</p>` : ""}
       </div>
-    </div>
+    </div>`;
+  const card = `<div class="listing-stage"><div${depth ? ' class="home-exploration"' : ""} data-listing-motion="featured">${depth}<section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
     <div class="editorial-briefing-grid">
       <div class="editorial-briefing-main">
         <div class="meta-row justify-between">
@@ -648,6 +648,7 @@ function renderEditorialBriefing(
       </div>
     </div>
   </section></div></div>`;
+  return {intro:introMarkup, card};
 }
 
 function renderArticleAuthorship(article, locale) {
@@ -706,6 +707,12 @@ function renderArticleCard(article, locale, { featured = false, eyebrow = "", he
 
 function topicHubHref(locale, hub) {
   return localizedPath(locale, topicHubRelativePath(locale, hub.slug).replace(/^en\//, ""));
+}
+
+function renderNewsSequence(feature, cards, intro, pagination = "") {
+  return `${feature.intro ?? ""}${intro}<section class="news-sequence" data-news-sequence>
+    <div class="news-viewport"><div class="news-deck">${feature.card ?? ""}${cards}</div></div>
+  </section>${pagination}`;
 }
 
 function renderTopicTagRow(hub) {
@@ -1405,10 +1412,10 @@ export function renderIndexPage(locale, articles, pagination = {}) {
   const listingOffset = (pagination.startIndex ?? 0) + (featuredArticle ? 1 : 0);
   const rangeStart = listingArticles.length > 0 ? listingOffset + 1 : 0;
   const rangeEnd = listingArticles.length > 0 ? listingOffset + listingArticles.length : 0;
-  const cards = listingArticles.map((article) => renderArticleCard(article, locale)).join("");
+  const cards = listingArticles.map((article) => renderArticleCard(article, locale)).join("") || (!featuredArticle ? `<div class="empty-state">${escapeHtml(copy.emptyState)}</div>` : "");
   const showListingSection = !featuredArticle || listingArticles.length > 0;
   const listItems = articleListItems(locale, featuredArticle ? [featuredArticle, ...listingArticles] : listingArticles);
-  const body = `${featuredArticle
+  const feature = featuredArticle
     ? renderEditorialBriefing(featuredArticle, locale, {
         kicker: copy.featuredBriefingKicker,
         title: copy.featuredBriefingTitle,
@@ -1423,8 +1430,9 @@ export function renderIndexPage(locale, articles, pagination = {}) {
           ? { href: topicHubHref(locale, featuredTopicHub), label: copy.topicsOpenHub }
           : null
       })
-    : ""}${currentPage <= 1 ? renderTopicsOverview(locale, topicHubs) : ""}${showListingSection
-    ? `<section class="panel-block">
+    : "";
+  const intro = showListingSection
+    ? `<section class="news-intro">
     <div class="listing-panel-head">
       <div>
         <p class="section-kicker">${escapeHtml(copy.listingTitle)}</p>
@@ -1436,10 +1444,9 @@ export function renderIndexPage(locale, articles, pagination = {}) {
         <p class="search-hint">${escapeHtml(listingRangeText(locale, rangeStart, rangeEnd, totalArticles))}</p>
       </div>
     </div>
-    <div class="mt-8 grid gap-5">${cards || `<div class="empty-state">${escapeHtml(copy.emptyState)}</div>`}</div>
-    ${renderPagination(locale, currentPage, totalPages)}
   </section>`
-    : ""}`;
+    : "";
+  const body = `${renderNewsSequence(feature, cards, intro, renderPagination(locale, currentPage, totalPages))}${currentPage <= 1 ? renderTopicsOverview(locale, topicHubs) : ""}`;
 
   return renderPage({
     locale,
@@ -1507,7 +1514,7 @@ export function renderTopicHubPage(locale, hub) {
   const remainingArticles = hub.articles.slice(1);
   const topicIndexPath = topicIndexRelativePath(locale);
   const listItems = articleListItems(locale, hub.articles);
-  const body = `<section class="panel-block">
+  const overview = `<section class="panel-block">
     <div class="listing-panel-head">
       <div>
         <p class="section-kicker">${escapeHtml(copy.topicsHubLabel)}</p>
@@ -1523,8 +1530,8 @@ export function renderTopicHubPage(locale, hub) {
     </div>
     ${renderTopicTagRow(hub)}
   </section>
-  ${renderTopicGuide(locale, hub.guide?.[locale])}
-  ${featuredArticle
+  ${renderTopicGuide(locale, hub.guide?.[locale])}`;
+  const feature = featuredArticle
     ? renderEditorialBriefing(featuredArticle, locale, {
         kicker: copy.topicsHubLatestLabel,
         title: copy.topicsHubFeatureTitle,
@@ -1536,19 +1543,18 @@ export function renderTopicHubPage(locale, hub) {
           label: copy.topicsOpenIndex
         }
       })
-    : ""}
-  ${remainingArticles.length
-    ? `<section class="panel-block">
+    : "";
+  const intro = remainingArticles.length
+    ? `<section class="news-intro">
     <div>
       <p class="section-kicker">${escapeHtml(copy.topicsHubListTitle)}</p>
       <h2 class="panel-title">${escapeHtml(copy.topicsHubListTitle)}</h2>
       <p class="panel-copy">${escapeHtml(copy.topicsHubListIntro)}</p>
     </div>
-    <div class="mt-8 grid gap-5">${remainingArticles
-      .map((article) => renderArticleCard(article, locale, { headingTag: "h3" }))
-      .join("")}</div>
   </section>`
-    : ""}`;
+    : "";
+  const cards = remainingArticles.map(article => renderArticleCard(article, locale, {headingTag:"h3"})).join("");
+  const body = overview + renderNewsSequence(feature, cards, intro);
 
   return renderPage({
     locale,
