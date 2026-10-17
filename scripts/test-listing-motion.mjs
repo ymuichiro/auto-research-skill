@@ -100,11 +100,13 @@ try {
         // Native navigation must keep the list's place, on both back and reload.
         const card = page.locator('[data-listing-motion="card"]').first();
         const target = await card.getAttribute('href');
+        const listingUrl = page.url();
         const before = await page.evaluate(() => scrollY);
         const original = await snapshot(card);
         await (mobile ? card.tap() : card.click());
         await page.waitForURL(new URL(target, base).href);
-        await page.goBack(); await settle(page);
+        await page.waitForFunction(() => history.state?.articleStream === true);
+        await page.goBack(); await page.waitForURL(listingUrl); await settle(page);
         await page.waitForFunction(y => Math.abs(scrollY-y) < 3, before);
         assert(Math.abs((await snapshot(page.locator('[data-listing-motion="card"]').first())).scale-original.scale) < .001);
         await page.reload(); await settle(page);
@@ -121,7 +123,8 @@ try {
         await restored.evaluate(el => el.focus({preventScroll:true})); await frames(page);
         assert.equal((await snapshot(restored)).scale, 1, 'Keyboard-focused card stays flat');
         await page.keyboard.press('Enter'); await page.waitForURL(new URL(target, base).href);
-        await page.goBack(); await settle(page);
+        await page.waitForFunction(() => history.state?.articleStream === true);
+        await page.goBack(); await page.waitForURL(listingUrl); await settle(page);
         await page.setViewportSize({width:844, height:390}); await settle(page);
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
         assert.deepEqual(errors, []);
