@@ -110,7 +110,15 @@ try {
         await page.waitForFunction(y => Math.abs(scrollY-y) < 3, before);
         assert(Math.abs((await snapshot(page.locator('[data-listing-motion="card"]').first())).scale-original.scale) < .001);
         await page.reload(); await settle(page);
-        await page.waitForFunction(y => Math.abs(scrollY-y) < 3, before);
+        // Fonts may be cached differently across reload. Preserve the visible
+        // card's reading point, rather than require the same absolute page Y.
+        try {
+          await page.waitForFunction(top => Math.abs(document.querySelector('[data-listing-motion="card"]').parentElement.getBoundingClientRect().top-top) < 3, original.top-before);
+        } catch (error) {
+          console.error(JSON.stringify({engine,width,locale,before,expectedTop:original.top-before,actual:await page.evaluate(() => ({y:scrollY,top:document.querySelector('[data-listing-motion="card"]').parentElement.getBoundingClientRect().top,restoration:history.scrollRestoration}))}));
+          throw error;
+        }
+        assert(Math.abs((await snapshot(page.locator('[data-listing-motion="card"]').first())).scale-original.scale) < .001);
         // Settings, focus and rotation must not disable reading or selection.
         const restored = page.locator('[data-listing-motion="card"]').first();
         const top = (await snapshot(restored)).top;
