@@ -15,6 +15,7 @@
     "new:article": "node scripts/new-article.mjs",
     "test:design": "node scripts/test-design.mjs && node scripts/test-reading.mjs",
     "test:motion": "node scripts/test-motion.mjs",
+    "test:listing": "node scripts/test-listing-motion.mjs",
     "test:arrival": "node scripts/test-arrival.mjs",
     "test:navigation": "node scripts/test-navigation.mjs",
     "test:quality": "node scripts/test-motion-quality.mjs",

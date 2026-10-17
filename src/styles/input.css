@@ -1485,6 +1485,11 @@
   .article-card-foot { border-color: rgba(187,208,217,.65); }
 
   .home-exploration { position: relative; isolation: isolate; padding-top: 5.5rem; }
+  .listing-stage { position: relative; display: flow-root; min-width: 0; overflow-anchor: none; }
+  [data-listing-motion] { position: relative; transform-origin: center top; }
+  .listing-stage > .article-card { background: #fff; transition: border-color .2s ease, box-shadow .2s ease; }
+  .listing-stage > .article-card:hover, .listing-stage > .article-card:focus-visible { transform: none; }
+  [data-listing-phase="reading"] > .editorial-briefing, .article-card[data-listing-phase="reading"] { background: #fff; }
   .exploration-depth { position: absolute; z-index: 0; inset: 0 3% auto; height: 9rem; }
   .exploration-plane {
     position: absolute; inset: 0; height: 6rem; overflow: hidden; padding: 1rem 1.5rem;
@@ -1664,5 +1669,5 @@
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
-  .reading-article, .next-article-preview { transform: none !important; opacity: 1 !important; }
+  .reading-article, .next-article-preview, [data-listing-motion] { transform: none !important; opacity: 1 !important; }
 }
