@@ -110,7 +110,7 @@ try{for(const [engine,type]of[['chromium',chromium],['webkit',webkit]]){
   const fallback=await browser.newPage({viewport:{width:360,height:664},isMobile:true,hasTouch:true,reducedMotion:'no-preference'});
   await fallback.route(/fonts\.(googleapis|gstatic)\.com/,route=>route.abort());
   await fallback.goto(base);await ready(fallback);
-  assert.equal(await fallback.locator('[data-news-sequence]').getAttribute('data-scene-mode'),'pinned','Web-font failure must not silently disable a normal phone scene');
+  assert.equal(await fallback.locator('[data-news-sequence]').getAttribute('data-scene-mode'),'pinned',`Font fallback: ${await fallback.locator('[data-news-sequence]').evaluate(e=>JSON.stringify({style:e.getAttribute('style'),header:document.querySelector('.site-header').clientHeight,natural:[...e.querySelectorAll('[data-listing-motion]')].map(n=>n.parentElement.getBoundingClientRect().height)}))}`);
   assert(await fallback.locator('.site-header').evaluate(e=>e.clientHeight<80),'Fallback font keeps the closed mobile header in one row');
   await fallback.close();
   const p=await browser.newPage({viewport:{width:390,height:844},javaScriptEnabled:false});await p.goto(base);

@@ -1661,9 +1661,12 @@
 }
 
 @media (max-width: 768px) {
-  .site-header { min-height: 64px; padding: .6rem 1rem; gap: .5rem; }
-  .site-header .lang-switch { margin-left: auto; border: 0; padding-inline: .55rem; }
-  .site-header .nav-toggle { padding-inline: .4rem; }
+  .site-header { display: grid; grid-template-columns: minmax(0,1fr) auto auto; min-height: 64px; padding: .6rem 1rem; gap: .5rem; }
+  .site-header .brand-mark { min-width: 0; grid-column: 1; grid-row: 1; }
+  .site-header .brand-copy { min-width: 0; }
+  .site-header .lang-switch { grid-column: 2; grid-row: 1; margin-left: auto; border: 0; padding-inline: .55rem; }
+  .site-header .nav-toggle { grid-column: 3; grid-row: 1; padding-inline: .4rem; }
+  .site-header .site-nav { grid-column: 1 / -1; grid-row: 2; }
   .has-site-ui .nav-toggle { display: inline-block; order: 2; }
   .has-site-ui .site-header .site-nav { display: none; }
   .has-site-ui .nav-toggle[aria-expanded="true"] ~ .site-nav { display: flex; flex-wrap: wrap; }
