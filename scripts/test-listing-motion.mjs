@@ -37,7 +37,7 @@ try{for(const [engine,type]of[['chromium',chromium],['webkit',webkit]]){
     for(const [kind,url]of[['home',null],['page-2',next],['topic',topic]]){
       if(url){await p.goto(new URL(url,base).href);await ready(p);}
       const scene=p.locator('[data-news-sequence]');
-      assert.equal(await scene.getAttribute('data-scene-mode'),'pinned',`${engine} ${width} ${locale} ${kind}: news must pin`);
+      assert.equal(await scene.getAttribute('data-scene-mode'),'pinned',`${engine} ${width} ${locale} ${kind}: ${await scene.evaluate(e=>JSON.stringify({style:e.getAttribute('style'),header:document.querySelector('.site-header').clientHeight,natural:[...e.querySelectorAll('[data-listing-motion]')].map(n=>n.parentElement.getBoundingClientRect().height)}))}`);
       const contents=await scene.locator('[data-listing-motion]').evaluateAll(nodes=>nodes.map(n=>n.textContent));
       const samples=[];
       for(const value of[.1,.4,.6,.8,1.1,1.6,2.1]){await move(p,scene,value);samples.push(await state(scene));}
@@ -107,6 +107,12 @@ try{for(const [engine,type]of[['chromium',chromium],['webkit',webkit]]){
     }
     assert.deepEqual(errors,[]);await context.close();console.log(`${engine} ${width}px ${locale}: fixed frame, scrub/reverse/stop and navigation passed`);
   }
+  const fallback=await browser.newPage({viewport:{width:360,height:664},isMobile:true,hasTouch:true,reducedMotion:'no-preference'});
+  await fallback.route(/fonts\.(googleapis|gstatic)\.com/,route=>route.abort());
+  await fallback.goto(base);await ready(fallback);
+  assert.equal(await fallback.locator('[data-news-sequence]').getAttribute('data-scene-mode'),'pinned','Web-font failure must not silently disable a normal phone scene');
+  assert(await fallback.locator('.site-header').evaluate(e=>e.clientHeight<80),'Fallback font keeps the closed mobile header in one row');
+  await fallback.close();
   const p=await browser.newPage({viewport:{width:390,height:844},javaScriptEnabled:false});await p.goto(base);
   const card=p.locator('[data-listing-motion="card"]').first(),target=await card.getAttribute('href');
   assert.equal(await p.locator('.is-pinned').count(),0);await p.evaluate(()=>document.fonts.ready);
