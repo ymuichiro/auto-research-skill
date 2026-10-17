@@ -142,7 +142,7 @@ async function buildArticleShareScript() {
   const targetPath = path.join(outputRoot, "assets", "article-share.js");
   const scriptText = await readFile(sourcePath, "utf8");
   await writeTextFile(targetPath, scriptText);
-  for (const name of ["site-ui.js", "article-stream.js", "article-motion.js"]) {
+  for (const name of ["site-ui.js", "article-stream.js", "article-motion.js", "listing-motion.js"]) {
     await writeTextFile(path.join(outputRoot, "assets", name), await readFile(path.resolve("src/assets", name), "utf8"));
   }
 }

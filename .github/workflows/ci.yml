@@ -45,6 +45,7 @@ jobs:
         run: |
           pnpm test:design
           pnpm test:motion
+          pnpm test:listing
           pnpm test:arrival
           pnpm test:navigation
           pnpm test:quality --functional-only

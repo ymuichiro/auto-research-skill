@@ -251,7 +251,8 @@ function renderSharedHeadAssets(locale) {
 function renderSharedPageScript(pageType) {
   return `    <script src="${assetPath("assets/site-ui.js")}" defer></script>${pageType === "article" ? `
     <script src="${assetPath("assets/article-share.js")}" defer></script>
-    <script type="module" src="${assetPath("assets/article-stream.js")}"></script>` : ""}`;
+    <script type="module" src="${assetPath("assets/article-stream.js")}"></script>` : `
+    <script type="module" src="${assetPath("assets/listing-motion.js")}"></script>`}`;
 }
 
 function localeTag(locale) {
@@ -612,8 +613,8 @@ function renderEditorialBriefing(
   const articleHref = localizedArticleHref(article, locale);
   const articleTitle = locale === "ja" ? article.titleJa : article.titleEn;
 
-  const depth = depthArticles.length ? `<div class="home-exploration"><div class="exploration-depth">${depthArticles.slice(0, 2).reverse().map((item) => `<a class="exploration-plane" href="${localizedArticleHref(item, locale)}"><time>${escapeHtml(formatDisplayDate(item.date, locale))}</time><span>${escapeHtml(locale === "ja" ? item.titleJa : item.titleEn)}</span></a>`).join("")}</div>` : "";
-  return `${depth}<section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
+  const depth = depthArticles.length ? `<div class="exploration-depth">${depthArticles.slice(0, 2).reverse().map((item) => `<a class="exploration-plane" href="${localizedArticleHref(item, locale)}"><time>${escapeHtml(formatDisplayDate(item.date, locale))}</time><span>${escapeHtml(locale === "ja" ? item.titleJa : item.titleEn)}</span></a>`).join("")}</div>` : "";
+  return `<div class="listing-stage"><div${depth ? ' class="home-exploration"' : ""} data-listing-motion="featured">${depth}<section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
     <div class="editorial-briefing-head">
       <div>
         ${kicker ? `<p class="section-kicker">${escapeHtml(kicker)}</p>` : ""}
@@ -646,7 +647,7 @@ function renderEditorialBriefing(
         <a class="text-link" href="${articleHref}">${escapeHtml(copy.readReport)}</a>
       </div>
     </div>
-  </section>${depth ? "</div>" : ""}`;
+  </section></div></div>`;
 }
 
 function renderArticleAuthorship(article, locale) {
@@ -685,7 +686,7 @@ function renderArticleCard(article, locale, { featured = false, eyebrow = "", he
   const copy = localeCopy[locale];
   const href = localizedArticleHref(article, locale);
 
-  return `<a class="article-card ${featured ? "article-card-featured" : ""}" href="${href}" aria-label="${escapeHtml(title)}">
+  return `<div class="listing-stage"><a class="article-card ${featured ? "article-card-featured" : ""}" href="${href}" aria-label="${escapeHtml(title)}" data-listing-motion="card">
     <div class="article-card-main">
       ${eyebrow ? `<p class="section-kicker">${escapeHtml(eyebrow)}</p>` : ""}
       <div class="meta-row justify-between">
@@ -700,7 +701,7 @@ function renderArticleCard(article, locale, { featured = false, eyebrow = "", he
       <span class="mono-note">${copy.sourceCount}: ${article.publishedSources.length}</span>
       <span class="text-link">${escapeHtml(copy.readReport)}</span>
     </div>
-  </a>`;
+  </a></div>`;
 }
 
 function topicHubHref(locale, hub) {
