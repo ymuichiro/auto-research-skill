@@ -135,6 +135,23 @@ try {
         await page.goBack(); await page.waitForURL(listingUrl); await settle(page);
         await page.setViewportSize({width:844, height:390}); await settle(page);
         assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+        if (width === 390 && locale === 'ja') {
+          // Hold font readiness across reload, then let real keyboard input
+          // cancel restoration. Releasing the delayed callback must not jump.
+          await page.addInitScript(() => {
+            const original = document.fonts.ready;
+            let release;
+            const held = new Promise(resolve => { release = resolve; });
+            Object.defineProperty(document.fonts, 'ready', {get:() => Promise.all([original, held])});
+            window.releaseListingFonts = release;
+          });
+          await page.reload();
+          await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
+          await page.keyboard.press('PageDown'); await page.waitForTimeout(150);
+          const userY = await page.evaluate(() => scrollY);
+          await page.evaluate(() => window.releaseListingFonts()); await page.waitForTimeout(150);
+          assert(Math.abs(await page.evaluate(() => scrollY)-userY) < 2, 'User input cancels delayed position restoration');
+        }
         assert.deepEqual(errors, []);
         console.log(`${engine} ${width}px ${locale}: home, continuation, topic and navigation passed`);
         await context.close();

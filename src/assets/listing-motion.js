@@ -23,6 +23,17 @@ if (surfaces.length) {
   const painted = new WeakMap();
   const header = document.querySelector('.site-header');
   let layouts = [], dirty = true, frame = 0, suspended = false, headerHeight = 70;
+  const entryKey = history.state?.listingKey ?? `listing-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+  const storageKey = `ard-listing:${entryKey}`;
+  let saved = history.state?.listingPosition;
+  try { saved = JSON.parse(sessionStorage.getItem(storageKey)) ?? saved; } catch {}
+  if (typeof saved?.href !== 'string' || !Number.isFinite(saved.top)) saved = undefined;
+  history.replaceState({...history.state, listingKey:entryKey}, '');
+  // Native restoration can anchor to a temporarily transformed card and land
+  // at a different Y after reload. Restore the untransformed reading point.
+  let restoring = !!saved && !location.hash, restoreGeneration = 0, restoreCancelled = false;
+  if (restoring) history.scrollRestoration = 'manual';
+  const href = node => node.getAttribute('href') ?? node.querySelector('.editorial-briefing-link')?.getAttribute('href');
   function schedule() {
     if (!frame && !suspended) frame = requestAnimationFrame(update);
   }
@@ -35,6 +46,32 @@ if (surfaces.length) {
       return {node, top:rect.top + scroll, bottom:rect.bottom + scroll};
     });
     dirty = false;
+  }
+  function savePosition() {
+    if (restoring) return;
+    if (dirty) measure();
+    const line = Math.max(headerHeight + 24, innerHeight * .32);
+    const item = layouts.filter(item => item.top-scrollY <= line).at(-1) ?? layouts[0];
+    saved = {href:href(item.node), top:item.top-scrollY};
+    history.replaceState({...history.state, listingPosition:saved}, '');
+    // Reload can snapshot history.state before pagehide. Tab storage preserves
+    // the final point; history.state remains a fallback if storage is blocked.
+    try { sessionStorage.setItem(storageKey, JSON.stringify(saved)); } catch {}
+  }
+  function restorePosition() {
+    if (!saved || location.hash || restoreCancelled) { restoring = false; return; }
+    const position = saved, generation = ++restoreGeneration;
+    restoring = true;
+    history.scrollRestoration = 'manual';
+    document.fonts.ready.then(() => requestAnimationFrame(() => {
+      if (suspended || generation !== restoreGeneration) return;
+      const node = surfaces.find(node => href(node) === position.href);
+      if (node && Number.isFinite(position.top)) {
+        scrollTo({top:node.parentElement.getBoundingClientRect().top + scrollY - position.top, behavior:'instant'});
+      }
+      restoring = false;
+      invalidate();
+    }));
   }
   function update() {
     frame = 0;
@@ -68,13 +105,19 @@ if (surfaces.length) {
   document.fonts.ready.then(invalidate);
   document.fonts.addEventListener('loadingdone', invalidate);
   reduced.addEventListener('change', schedule);
-  // Native scroll restoration owns position. Repaint after BFCache/history and
-  // font/layout changes instead of moving the document to simulate a transition.
+  document.addEventListener('click', event => {
+    if (event.target.closest('a[href]')) savePosition();
+  }, true);
+  for (const type of ['wheel','touchstart','keydown']) addEventListener(type, () => {
+    if (restoring) { ++restoreGeneration; restoring = false; restoreCancelled = true; invalidate(); }
+  }, {passive:true});
   addEventListener('pagehide', () => {
+    savePosition();
+    restoreCancelled = false;
     suspended = true;
     cancelAnimationFrame(frame);
     frame = 0;
   });
-  addEventListener('pageshow', () => { suspended = false; invalidate(); });
+  addEventListener('pageshow', () => { suspended = false; restorePosition(); invalidate(); });
   invalidate();
 }
