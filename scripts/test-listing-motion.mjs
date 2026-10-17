@@ -1,176 +1,123 @@
 import assert from 'node:assert/strict';
-import { mkdir, writeFile } from 'node:fs/promises';
-import { chromium, webkit } from 'playwright';
-import { serveBuild } from './lib/test-server.mjs';
-
-const args = process.argv.slice(2);
-const option = (name, fallback) => args.includes(name) ? args[args.indexOf(name) + 1] : fallback;
-const preview = args.includes('--base-url') ? null : await serveBuild();
-const base = option('--base-url', preview?.base);
-const output = option('--output', 'output/home-motion');
-const selectedEngine = option('--engine', 'all');
-assert(['all', 'chromium', 'webkit'].includes(selectedEngine), 'Unknown browser engine');
-await mkdir(output, {recursive:true});
-const records = [];
-const frames = page => page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-const settle = async page => { await page.evaluate(() => document.fonts.ready); await frames(page); };
-async function snapshot(node) {
-  return node.evaluate(el => ({
-    scale:new DOMMatrix(getComputedStyle(el).transform).a,
-    y:new DOMMatrix(getComputedStyle(el).transform).f,
-    opacity:Number(getComputedStyle(el).opacity),
-    top:el.parentElement.getBoundingClientRect().top + scrollY,
-    bottom:el.parentElement.getBoundingClientRect().bottom + scrollY,
-    phase:el.dataset.listingPhase
-  }));
-}
-async function motion(page, node) {
-  const geometry = await snapshot(node);
-  const height = await page.evaluate(() => innerHeight);
-  const states = [];
-  // The home feature is already partly visible at scrollY=0. Do not ask the
-  // browser for negative scroll positions to manufacture a full entry path.
-  const start = Math.min(geometry.top, height * .89), end = height * .25;
-  const targets = [start, start*.7+end*.3, start*.35+end*.65, end];
-  for (const target of targets) {
-    await page.evaluate(y => scrollTo({top:y, behavior:'instant'}), geometry.top - target);
-    await frames(page);
-    const state = await snapshot(node);
-    assert(Math.abs(state.top - geometry.top) < 1, 'Motion must not move the layout anchor');
-    states.push(state);
-  }
-  states.slice(1).forEach((state, index) => assert(state.scale > states[index].scale, 'Arrival follows scroll continuously'));
-  assert(states[0].scale < (start >= height * .89 - 1 ? .9 : 1), 'Arrival has visible depth');
-  assert.equal(states.at(-1).scale, 1, 'Reading plane is full size');
-  assert.equal(states.at(-1).opacity, 1);
-  await page.evaluate(y => scrollTo({top:y, behavior:'instant'}), geometry.top - targets[1]);
-  await frames(page);
-  assert(Math.abs((await snapshot(node)).scale - states[1].scale) < .001, 'Reverse restores the same depth');
-  const stopped = await snapshot(node);
-  await page.waitForTimeout(80);
-  assert.deepEqual(await snapshot(node), stopped, 'Motion stops when scrolling stops');
-  const header = await page.locator('.site-header').evaluate(el => el.getBoundingClientRect().height);
-  const exits = [];
-  for (const offset of [0, 45, 100]) {
-    await page.evaluate(y => scrollTo({top:y, behavior:'instant'}), geometry.bottom - header + offset);
-    await frames(page);
-    const state = await snapshot(node);
-    assert(Math.abs(state.bottom - geometry.bottom) < 1, 'Departure keeps the layout anchor');
-    exits.push(state);
-  }
-  exits.slice(1).forEach((state, index) => assert(state.scale < exits[index].scale, 'Earlier cards recede continuously'));
-  await page.evaluate(y => scrollTo({top:y, behavior:'instant'}), geometry.top - height * .25);
-  await frames(page);
-  assert.equal((await snapshot(node)).scale, 1, 'Reverse returns to a readable surface');
-  return {states, exits};
-}
-try {
-  for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
-    if (selectedEngine !== 'all' && selectedEngine !== engine) continue;
-    const browser = await type.launch();
-    try {
-      for (const width of [360, 390, 768, 1440]) for (const locale of ['ja', 'en']) {
-        const mobile = width < 768;
-        const context = await browser.newContext({viewport:{width, height:844}, isMobile:mobile, hasTouch:mobile, reducedMotion:'no-preference'});
-        const page = await context.newPage();
-        const errors = [];
-        page.on('pageerror', error => errors.push(error.message));
-        await page.goto(`${base}/${locale === 'en' ? 'en/' : ''}`);
-        await settle(page);
-        assert.equal(await page.locator('.topic-card[data-listing-motion]').count(), 0, 'Do not animate category navigation as article cards');
-        // WebKit emulates TouchEvents/coarse pointers but reports maxTouchPoints
-        // as zero on macOS. Assert capabilities and exercise tap below instead.
-        if (mobile) assert(await page.evaluate(() => 'ontouchstart' in window && matchMedia('(pointer: coarse)').matches), 'Use touch emulation, not only a narrow viewport');
-        const topic = await page.locator('.topic-card .text-link').first().getAttribute('href');
-        const nextPage = await page.locator('.pagination-edge[href]').last().getAttribute('href');
-        for (const [kind, href] of [['home', null], ['page-2', nextPage], ['topic', topic]]) {
-          if (href) { await page.goto(new URL(href, base).href); await settle(page); }
-          const links = await page.locator('[data-listing-motion="card"]').evaluateAll(nodes => nodes.map(el => ({href:el.getAttribute('href'), text:el.textContent})));
-          assert(links.length > 0, `${kind} has real article cards`);
-          const featured = page.locator('[data-listing-motion="featured"]');
-          const featuredMotion = await featured.count() ? await motion(page, featured) : null;
-          const card = page.locator('[data-listing-motion="card"]').first();
-          const result = await motion(page, card);
-          assert.equal(await card.evaluate(el => getComputedStyle(el).backgroundColor), 'rgb(255, 255, 255)', 'Readable card is opaque');
-          assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false, 'No horizontal overflow');
-          assert.deepEqual(await page.locator('[data-listing-motion="card"]').evaluateAll(nodes => nodes.map(el => ({href:el.getAttribute('href'), text:el.textContent}))), links, 'Motion preserves content and order');
-          if (locale === 'ja') await page.screenshot({path:`${output}/${engine}-${width}-${kind}.png`});
-          records.push({engine, version:browser.version(), width, mobile, locale, kind, featuredMotion, ...result});
-        }
-        // Native navigation must keep the list's place, on both back and reload.
-        const card = page.locator('[data-listing-motion="card"]').first();
-        const target = await card.getAttribute('href');
-        const listingUrl = page.url();
-        const before = await page.evaluate(() => scrollY);
-        const original = await snapshot(card);
-        await (mobile ? card.tap() : card.click());
-        await page.waitForURL(new URL(target, base).href);
-        await page.waitForFunction(() => history.state?.articleStream === true);
-        await page.goBack(); await page.waitForURL(listingUrl); await settle(page);
-        await page.waitForFunction(y => Math.abs(scrollY-y) < 3, before);
-        assert(Math.abs((await snapshot(page.locator('[data-listing-motion="card"]').first())).scale-original.scale) < .001);
-        await page.reload(); await settle(page);
-        // Fonts may be cached differently across reload. Preserve the visible
-        // card's reading point, rather than require the same absolute page Y.
-        try {
-          await page.waitForFunction(top => Math.abs(document.querySelector('[data-listing-motion="card"]').parentElement.getBoundingClientRect().top-top) < 3, original.top-before);
-        } catch (error) {
-          console.error(JSON.stringify({engine,width,locale,before,expectedTop:original.top-before,actual:await page.evaluate(() => ({y:scrollY,top:document.querySelector('[data-listing-motion="card"]').parentElement.getBoundingClientRect().top,restoration:history.scrollRestoration}))}));
-          throw error;
-        }
-        assert(Math.abs((await snapshot(page.locator('[data-listing-motion="card"]').first())).scale-original.scale) < .001);
-        // Settings, focus and rotation must not disable reading or selection.
-        const restored = page.locator('[data-listing-motion="card"]').first();
-        const top = (await snapshot(restored)).top;
-        await page.evaluate(y => scrollTo({top:y, behavior:'instant'}), top-844*.73); await frames(page);
-        await page.emulateMedia({reducedMotion:'reduce'}); await frames(page);
-        assert(await page.locator('[data-listing-motion]').evaluateAll(nodes => nodes.every(el => getComputedStyle(el).transform === 'none' && getComputedStyle(el).opacity === '1')));
-        await page.emulateMedia({reducedMotion:'no-preference'}); await frames(page);
-        assert((await snapshot(restored)).scale < 1, 'Runtime setting changes restore motion');
-        await page.keyboard.press('Tab');
-        await restored.evaluate(el => el.focus({preventScroll:true})); await frames(page);
-        assert.equal((await snapshot(restored)).scale, 1, 'Keyboard-focused card stays flat');
-        await page.keyboard.press('Enter'); await page.waitForURL(new URL(target, base).href);
-        await page.waitForFunction(() => history.state?.articleStream === true);
-        await page.goBack(); await page.waitForURL(listingUrl); await settle(page);
-        await page.setViewportSize({width:844, height:390}); await settle(page);
-        assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
-        if (width === 390 && locale === 'ja') {
-          // Hold font readiness across reload, then let real keyboard input
-          // cancel restoration. Releasing the delayed callback must not jump.
-          await page.addInitScript(() => {
-            const original = document.fonts.ready;
-            let release;
-            const held = new Promise(resolve => { release = resolve; });
-            Object.defineProperty(document.fonts, 'ready', {get:() => Promise.all([original, held])});
-            window.releaseListingFonts = release;
-          });
-          await page.reload();
-          await page.evaluate(() => { document.documentElement.style.scrollBehavior = 'auto'; });
-          await page.keyboard.press('PageDown'); await page.waitForTimeout(500);
-          const userY = await page.evaluate(() => scrollY);
-          await page.evaluate(() => window.releaseListingFonts()); await page.waitForTimeout(150);
-          const afterFonts = await page.evaluate(() => scrollY);
-          assert(Math.abs(afterFonts-userY) < 2, `User input cancels delayed position restoration: ${userY} -> ${afterFonts}`);
-        }
-        assert.deepEqual(errors, []);
-        console.log(`${engine} ${width}px ${locale}: home, continuation, topic and navigation passed`);
-        await context.close();
+import {mkdir,writeFile} from 'node:fs/promises';
+import {chromium,webkit} from 'playwright';
+import {serveBuild} from './lib/test-server.mjs';
+const args=process.argv.slice(2),option=(key,fallback)=>args.includes(key)?args[args.indexOf(key)+1]:fallback;
+const selected=option('--engine','all');assert(['all','chromium','webkit'].includes(selected));
+const server=args.includes('--base-url')?null:await serveBuild(),base=option('--base-url',server?.base);
+const output=option('--output','output/pinned-news');await mkdir(output,{recursive:true});
+const results=[];
+const frames=p=>p.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+async function ready(p){await p.evaluate(()=>document.fonts.ready);await frames(p);}
+async function geometry(scene){return scene.evaluate(e=>({
+  start:e.getBoundingClientRect().top+scrollY-parseFloat(e.style.getPropertyValue('--scene-top')),
+  step:(parseFloat(e.style.getPropertyValue('--scene-span'))-parseFloat(e.style.getPropertyValue('--scene-height')))/(e.querySelectorAll('[data-listing-motion]').length-1+.45)
+}));}
+async function move(p,scene,value){const g=await geometry(scene);await p.evaluate(y=>scrollTo({top:y,behavior:'instant'}),g.start+g.step*value);await frames(p);}
+async function state(scene){return scene.evaluate(e=>{
+  const frame=e.querySelector('.news-viewport').getBoundingClientRect();
+  return {scrollY,top:frame.top,left:frame.left,width:frame.width,height:frame.height,progress:Number(e.dataset.sceneProgress),
+    nodes:[...e.querySelectorAll('[data-listing-motion]')].slice(0,4).map(node=>{
+      const surface=node.querySelector('.editorial-briefing')??node;
+      return {scale:new DOMMatrix(getComputedStyle(node).transform).a,opacity:getComputedStyle(node).opacity,
+        y:new DOMMatrix(getComputedStyle(node).transform).f,front:node.dataset.sceneFront,top:surface.getBoundingClientRect().top,
+        fits:surface.scrollHeight<=surface.clientHeight+1,client:surface.clientHeight,scroll:surface.scrollHeight};
+    })};
+});}
+try{for(const [engine,type]of[['chromium',chromium],['webkit',webkit]]){
+  if(selected!=='all'&&selected!==engine)continue;
+  const browser=await type.launch();
+  try{for(const [width,height]of[[360,664],[390,844],[768,900],[1440,900]])for(const locale of['ja','en']){
+    const mobile=width<768,context=await browser.newContext({viewport:{width,height},isMobile:mobile,hasTouch:mobile,reducedMotion:'no-preference'});
+    const p=await context.newPage(),errors=[];p.on('pageerror',e=>errors.push(e.message));
+    await p.goto(`${base}/${locale==='en'?'en/':''}`);await ready(p);
+    if(mobile)assert(await p.evaluate(()=>matchMedia('(pointer: coarse)').matches&&'ontouchstart'in window));
+    const topic=await p.locator('.topic-card .text-link').first().getAttribute('href');
+    const next=await p.locator('.pagination-edge[href]').last().getAttribute('href');
+    for(const [kind,url]of[['home',null],['page-2',next],['topic',topic]]){
+      if(url){await p.goto(new URL(url,base).href);await ready(p);}
+      const scene=p.locator('[data-news-sequence]');
+      assert.equal(await scene.getAttribute('data-scene-mode'),'pinned',`${engine} ${width} ${locale} ${kind}: ${await scene.evaluate(e=>JSON.stringify({style:e.getAttribute('style'),header:document.querySelector('.site-header').clientHeight,natural:[...e.querySelectorAll('[data-listing-motion]')].map(n=>n.parentElement.getBoundingClientRect().height)}))}`);
+      const contents=await scene.locator('[data-listing-motion]').evaluateAll(nodes=>nodes.map(n=>n.textContent));
+      const samples=[];
+      for(const value of[.1,.4,.6,.8,1.1,1.6,2.1]){await move(p,scene,value);samples.push(await state(scene));}
+      assert(samples.at(-1).scrollY-samples[0].scrollY>400,'The browser really scrolls while its scene stays fixed');
+      for(const sample of samples){
+        assert(Math.abs(sample.top-samples[0].top)<1,'Pinned frame must NOT travel upward with page scroll');
+        assert.equal(sample.left,samples[0].left);assert.equal(sample.width,samples[0].width);
       }
-      const noJS = await browser.newPage({viewport:{width:390, height:844}, javaScriptEnabled:false});
-      await noJS.goto(`${base}/`);
-      const link = noJS.locator('[data-listing-motion="card"]').first();
-      const href = await link.getAttribute('href');
-      assert.equal(await link.evaluate(el => getComputedStyle(el).transform), 'none');
-      await noJS.evaluate(() => document.fonts.ready);
-      await link.evaluate(el => el.scrollIntoView({block:'center', behavior:'instant'}));
-      // Avoid Playwright's implicit smooth-scroll/navigation wait on a deep
-      // no-JS page; still activate the real link and verify its destination.
-      await link.click({noWaitAfter:true});
-      await noJS.waitForURL(new URL(href, base).href, {waitUntil:'domcontentloaded'});
-      await noJS.close();
-    } finally { await browser.close(); }
+      assert(samples[2].nodes[0].scale<samples[1].nodes[0].scale,'Foreground recedes with input');
+      assert(samples[2].nodes[1].y<samples[1].nodes[1].y,'Incoming card rises within the fixed frame');
+      assert(samples[2].nodes[1].scale>samples[1].nodes[1].scale);
+      for(const [sample,index]of[[samples[0],0],[samples[4],1],[samples[6],2]]){
+        assert.equal(sample.nodes[index].scale,1);assert.equal(sample.nodes[index].opacity,'1');
+        assert(sample.nodes[index].fits,`${engine} ${width} ${locale} ${kind} card ${index}: ${JSON.stringify(sample.nodes[index])}`);
+        assert(Math.abs(sample.nodes[index].top-samples[0].nodes[0].top)<1,'Each new reading card settles into the SAME screen position');
+      }
+      await move(p,scene,.6);assert.deepEqual((await state(scene)).nodes,samples[2].nodes,'Reverse precisely rewinds');
+      const stopped=await state(scene);await p.waitForTimeout(100);assert.deepEqual(await state(scene),stopped,'Stopped input stops animation');
+      if(locale==='ja')await p.screenshot({path:`${output}/${engine}-${width}-${kind}-transition.png`});
+      await move(p,scene,1.1);
+      const front=scene.locator('[data-scene-front="true"]');
+      assert.equal(await front.evaluate(el=>getComputedStyle(el).backgroundColor),'rgb(255, 255, 255)');
+      assert(await front.evaluate(el=>el.scrollHeight<=el.clientHeight+1),'Reading content must fit rather than be clipped');
+      assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+      assert.deepEqual(await scene.locator('[data-listing-motion]').evaluateAll(nodes=>nodes.map(n=>n.textContent)),contents);
+      if(locale==='ja')await p.screenshot({path:`${output}/${engine}-${width}-${kind}-reading.png`});
+      results.push({engine,version:browser.version(),width,height,mobile,locale,kind,samples});
+    }
+    const scene=p.locator('[data-news-sequence]');await move(p,scene,1.1);
+    const listUrl=p.url(),before=await state(scene),card=scene.locator('[data-scene-front="true"]');
+    const target=await card.getAttribute('href');assert(target);
+    await(mobile?card.tap():card.click());await p.waitForURL(new URL(target,base).href);await p.waitForFunction(()=>history.state?.articleStream===true);
+    await p.goBack();await p.waitForURL(listUrl);await ready(p);
+    await p.waitForFunction(value=>Math.abs(Number(document.querySelector('[data-news-sequence]').dataset.sceneProgress)-value)<.01,before.progress);
+    await p.reload();await ready(p);
+    await p.waitForFunction(value=>Math.abs(Number(document.querySelector('[data-news-sequence]').dataset.sceneProgress)-value)<.01,before.progress);
+    // Runtime accessibility changes keep the selected article and ordinary flow.
+    await p.emulateMedia({reducedMotion:'reduce'});await frames(p);
+    assert.equal(await scene.getAttribute('data-scene-mode'),'static');
+    assert(await scene.locator('[data-listing-motion]').evaluateAll(nodes=>nodes.every(n=>getComputedStyle(n).transform==='none'&&getComputedStyle(n).opacity==='1')));
+    await p.emulateMedia({reducedMotion:'no-preference'});await frames(p);
+    assert.equal(await scene.getAttribute('data-scene-mode'),'pinned');
+    await p.keyboard.press('Tab');
+    const far=scene.locator('[data-listing-motion]').nth(3);await far.focus();await frames(p);
+    await p.waitForFunction(()=>document.activeElement?.dataset.sceneFront==='true');
+    assert.equal(await far.getAttribute('data-scene-front'),'true','Keyboard can select a card outside the visible layers');
+    assert.equal(await far.evaluate(el=>new DOMMatrix(getComputedStyle(el).transform).a),1);
+    const farTarget=await far.getAttribute('href');
+    await p.keyboard.press('Enter');await p.waitForURL(new URL(farTarget,base).href);
+    // Navigate back explicitly after verifying the article stream initialized.
+    await p.waitForFunction(()=>history.state?.articleStream===true);await p.goBack();await p.waitForURL(listUrl);await ready(p);
+    await p.setViewportSize({width:844,height:390});await ready(p);
+    assert.equal(await scene.getAttribute('data-scene-mode'),'static','Short landscape/zoom views keep every item readable');
+    assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);
+    if(width===390&&locale==='ja'){
+      await p.addInitScript(()=>{
+        const original=document.fonts.ready;let release;
+        const held=new Promise(resolve=>{release=resolve;});
+        Object.defineProperty(document.fonts,'ready',{get:()=>Promise.all([original,held])});
+        window.releaseSceneFonts=release;
+      });
+      await p.reload();await p.evaluate(()=>{document.documentElement.style.scrollBehavior='auto';});
+      await p.keyboard.press('PageDown');await p.waitForTimeout(500);
+      const y=await p.evaluate(()=>scrollY);
+      await p.evaluate(()=>window.releaseSceneFonts());await p.waitForTimeout(150);
+      assert(Math.abs(await p.evaluate(()=>scrollY)-y)<2,'Input cancels delayed restoration');
+    }
+    assert.deepEqual(errors,[]);await context.close();console.log(`${engine} ${width}px ${locale}: fixed frame, scrub/reverse/stop and navigation passed`);
   }
-} finally { await preview?.close(); }
-await writeFile(`${output}/report.json`, JSON.stringify({boundary:'Browser emulation including mobile/touch; not physical smartphone verification', records}, null, 2));
-console.log(`${records.length} listing cases passed: home/continuation/topic, arrival/departure/reverse/stop, navigation, reduced motion, keyboard, rotation and no-JS.`);
+  const fallback=await browser.newPage({viewport:{width:360,height:664},isMobile:true,hasTouch:true,reducedMotion:'no-preference'});
+  await fallback.route(/fonts\.(googleapis|gstatic)\.com/,route=>route.abort());
+  await fallback.goto(base);await ready(fallback);
+  assert.equal(await fallback.locator('[data-news-sequence]').getAttribute('data-scene-mode'),'pinned',`Font fallback: ${await fallback.locator('[data-news-sequence]').evaluate(e=>JSON.stringify({style:e.getAttribute('style'),header:document.querySelector('.site-header').clientHeight,natural:[...e.querySelectorAll('[data-listing-motion]')].map(n=>n.parentElement.getBoundingClientRect().height)}))}`);
+  assert(await fallback.locator('.site-header').evaluate(e=>e.clientHeight<80),'Fallback font keeps the closed mobile header in one row');
+  await fallback.close();
+  const p=await browser.newPage({viewport:{width:390,height:844},javaScriptEnabled:false});await p.goto(base);
+  const card=p.locator('[data-listing-motion="card"]').first(),target=await card.getAttribute('href');
+  assert.equal(await p.locator('.is-pinned').count(),0);await p.evaluate(()=>document.fonts.ready);
+  await card.evaluate(el=>el.scrollIntoView({block:'center',behavior:'instant'}));await card.click({noWaitAfter:true});await p.waitForURL(new URL(target,base).href,{waitUntil:'domcontentloaded'});await p.close();
+  }finally{await browser.close();}
+}}finally{await server?.close();}
+await writeFile(`${output}/report.json`,JSON.stringify({boundary:'Browser mobile/touch emulation; not physical phone validation',results},null,2));
+console.log(`${results.length} pinned-scene cases passed; stationary frame and reading coordinates, scrub, reverse, stop, history, reduced motion, keyboard, landscape and no-JS.`);
