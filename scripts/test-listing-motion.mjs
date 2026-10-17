@@ -39,6 +39,12 @@ try{for(const [engine,type]of[['chromium',chromium],['webkit',webkit]]){
       const scene=p.locator('[data-news-sequence]');
       assert.equal(await scene.getAttribute('data-scene-mode'),'pinned',`${engine} ${width} ${locale} ${kind}: ${await scene.evaluate(e=>JSON.stringify({style:e.getAttribute('style'),header:document.querySelector('.site-header').clientHeight,natural:[...e.querySelectorAll('[data-listing-motion]')].map(n=>n.parentElement.getBoundingClientRect().height)}))}`);
       const contents=await scene.locator('[data-listing-motion]').evaluateAll(nodes=>nodes.map(n=>n.textContent));
+      const identities=await scene.locator('[data-listing-motion]').evaluateAll(nodes=>nodes.map(n=>({
+        href:n.getAttribute('href')??n.querySelector('.editorial-briefing-link').getAttribute('href'),
+        title:(n.querySelector('.editorial-briefing-title,.article-card-title')).textContent.trim()
+      })));
+      assert.equal(new Set(identities.map(n=>n.href)).size,identities.length,'An article has one card in the sequence');
+      for(const {title} of identities)assert.equal(await scene.evaluate((e,title)=>e.textContent.split(title).length-1,title),1,'Upcoming article titles must not also appear on decorative background copies');
       const samples=[];
       for(const value of[.1,.4,.6,.8,1.1,1.6,2.1]){await move(p,scene,value);samples.push(await state(scene));}
       assert(samples.at(-1).scrollY-samples[0].scrollY>400,'The browser really scrolls while its scene stays fixed');

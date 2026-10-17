@@ -65,7 +65,7 @@ if (roots.length) {
         node.parentElement.style.zIndex = '';
         delete node.dataset.sceneFront;
       });
-      const natural = Math.max(...scene.nodes.map(node => node.parentElement.getBoundingClientRect().height + (node.dataset.listingMotion === 'card' ? 36 : 0)));
+      const natural = Math.max(...scene.nodes.map(node => node.parentElement.getBoundingClientRect().height));
       scene.pinned = !reduced.matches && scene.nodes.length > 1 && natural <= height-24;
       scene.height = height;
       scene.step = Math.max(260, Math.min(560, height * .62));
