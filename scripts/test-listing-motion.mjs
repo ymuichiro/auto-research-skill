@@ -8,6 +8,8 @@ const option = (name, fallback) => args.includes(name) ? args[args.indexOf(name)
 const preview = args.includes('--base-url') ? null : await serveBuild();
 const base = option('--base-url', preview?.base);
 const output = option('--output', 'output/home-motion');
+const selectedEngine = option('--engine', 'all');
+assert(['all', 'chromium', 'webkit'].includes(selectedEngine), 'Unknown browser engine');
 await mkdir(output, {recursive:true});
 const records = [];
 const frames = page => page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
@@ -64,6 +66,7 @@ async function motion(page, node) {
 }
 try {
   for (const [engine, type] of [['chromium', chromium], ['webkit', webkit]]) {
+    if (selectedEngine !== 'all' && selectedEngine !== engine) continue;
     const browser = await type.launch();
     try {
       for (const width of [360, 390, 768, 1440]) for (const locale of ['ja', 'en']) {
@@ -130,7 +133,12 @@ try {
       const link = noJS.locator('[data-listing-motion="card"]').first();
       const href = await link.getAttribute('href');
       assert.equal(await link.evaluate(el => getComputedStyle(el).transform), 'none');
-      await link.click(); await noJS.waitForURL(new URL(href, base).href);
+      await noJS.evaluate(() => document.fonts.ready);
+      await link.evaluate(el => el.scrollIntoView({block:'center', behavior:'instant'}));
+      // Avoid Playwright's implicit smooth-scroll/navigation wait on a deep
+      // no-JS page; still activate the real link and verify its destination.
+      await link.click({noWaitAfter:true});
+      await noJS.waitForURL(new URL(href, base).href, {waitUntil:'domcontentloaded'});
       await noJS.close();
     } finally { await browser.close(); }
   }
