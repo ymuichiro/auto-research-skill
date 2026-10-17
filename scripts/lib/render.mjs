@@ -604,8 +604,7 @@ function renderEditorialBriefing(
     headingTag = "h3",
     panelClassName = "",
     categoryHref = "",
-    secondaryAction = null,
-    depthArticles = []
+    secondaryAction = null
   } = {}
 ) {
   const copy = localeCopy[locale];
@@ -613,7 +612,6 @@ function renderEditorialBriefing(
   const articleHref = localizedArticleHref(article, locale);
   const articleTitle = locale === "ja" ? article.titleJa : article.titleEn;
 
-  const depth = depthArticles.length ? `<div class="exploration-depth">${depthArticles.slice(0, 2).reverse().map((item) => `<a class="exploration-plane" href="${localizedArticleHref(item, locale)}"><time>${escapeHtml(formatDisplayDate(item.date, locale))}</time><span>${escapeHtml(locale === "ja" ? item.titleJa : item.titleEn)}</span></a>`).join("")}</div>` : "";
   const introMarkup = `<div class="editorial-briefing-head news-intro">
       <div>
         ${kicker ? `<p class="section-kicker">${escapeHtml(kicker)}</p>` : ""}
@@ -621,7 +619,7 @@ function renderEditorialBriefing(
         ${intro ? `<p class="panel-copy">${escapeHtml(intro)}</p>` : ""}
       </div>
     </div>`;
-  const card = `<div class="listing-stage"><div${depth ? ' class="home-exploration"' : ""} data-listing-motion="featured">${depth}<section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
+  const card = `<div class="listing-stage"><div data-listing-motion="featured"><section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
     <div class="editorial-briefing-grid">
       <div class="editorial-briefing-main">
         <div class="meta-row justify-between">
@@ -1423,9 +1421,6 @@ export function renderIndexPage(locale, articles, pagination = {}) {
         headingTag: "h3",
         panelClassName: "home-featured-briefing",
         categoryHref: featuredTopicHub ? topicHubHref(locale, featuredTopicHub) : "",
-        depthArticles: featuredTopicHub?.articleCount > 1
-          ? featuredTopicHub.articles.filter((item) => item.sourceDirName !== featuredArticle.sourceDirName).slice(0, 2)
-          : listingArticles.slice(0, 2),
         secondaryAction: featuredTopicHub
           ? { href: topicHubHref(locale, featuredTopicHub), label: copy.topicsOpenHub }
           : null
