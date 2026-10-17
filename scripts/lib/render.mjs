@@ -1409,9 +1409,9 @@ export function renderIndexPage(locale, articles, pagination = {}) {
   const featuredArticle = currentPage === 1 ? articles[0] ?? null : null;
   const featuredTopicHub = featuredArticle ? topicHubs.find((hub) => hub.category === featuredArticle.category) : null;
   const listingArticles = featuredArticle ? articles.slice(1) : articles;
-  const listingOffset = (pagination.startIndex ?? 0) + (featuredArticle ? 1 : 0);
-  const rangeStart = listingArticles.length > 0 ? listingOffset + 1 : 0;
-  const rangeEnd = listingArticles.length > 0 ? listingOffset + listingArticles.length : 0;
+  const listingOffset = pagination.startIndex ?? 0;
+  const rangeStart = articles.length > 0 ? listingOffset + 1 : 0;
+  const rangeEnd = articles.length > 0 ? listingOffset + articles.length : 0;
   const cards = listingArticles.map((article) => renderArticleCard(article, locale)).join("") || (!featuredArticle ? `<div class="empty-state">${escapeHtml(copy.emptyState)}</div>` : "");
   const showListingSection = !featuredArticle || listingArticles.length > 0;
   const listItems = articleListItems(locale, featuredArticle ? [featuredArticle, ...listingArticles] : listingArticles);
