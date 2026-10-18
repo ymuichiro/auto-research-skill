@@ -9,7 +9,7 @@
     "build:site": "node scripts/build.mjs",
     "build:css": "tailwindcss -c tailwind.config.mjs -i ./src/styles/input.css -o ./public/assets/site.css --minify",
     "build": "pnpm run clean && pnpm run build:site && pnpm run build:css && pnpm run validate",
-    "validate": "node scripts/validate.mjs",
+    "validate": "node scripts/validate.mjs && node scripts/verify-illustrations.mjs",
     "verify:public": "node scripts/verify-public.mjs",
     "dev": "node scripts/dev.mjs",
     "new:article": "node scripts/new-article.mjs",
@@ -26,7 +26,9 @@
     "test:authoring": "node scripts/test-authoring.mjs",
     "verify:disclosures": "node scripts/verify-disclosures.mjs",
     "test:chapter-scroll": "node scripts/test-chapter-scroll.mjs",
-    "test:topics-evidence": "node scripts/test-topics-evidence.mjs"
+    "test:topics-evidence": "node scripts/test-topics-evidence.mjs",
+    "verify:illustrations": "node scripts/verify-illustrations.mjs",
+    "test:illustrations": "node scripts/test-illustrations.mjs"
   },
   "devDependencies": {
     "daisyui": "^4.12.24",

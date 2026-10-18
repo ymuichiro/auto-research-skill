@@ -1,3 +1,4 @@
+import {illustrationPath} from './spatial-site.mjs';
 import {
   absoluteUrl,
   assetPath,
@@ -1237,7 +1238,7 @@ export function renderReadingArticle(article, locale, articles = [], { initial =
       ${renderOutline(body, locale)}
       ${renderArticleShare(article, locale, relativePath)}
     </header>
-    <div class="article-body">${prepareArticleBody(body)}</div>
+    <div class="article-body">${illustrationPath('article',article.sourceDirName)?`<figure class="article-illustration"><img src="${illustrationPath('article',article.sourceDirName)}" width="1200" height="800" alt="" loading="lazy" decoding="async"></figure>`:''}${prepareArticleBody(body)}</div>
     <details class="reading-evidence"><summary>${locale === "ja" ? "出典と編集責任" : "Sources and editorial review"} <span>${article.publishedSources.length}</span></summary>
       ${renderSources(article, locale)}
     </details>

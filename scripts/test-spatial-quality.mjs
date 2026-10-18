@@ -138,7 +138,7 @@ async function basePath(){
     assert.ok((await page.locator('#spatial-language').getAttribute('href')).startsWith('/preview/en/'));
     await ready(page,preview.base+'/topics/?topic=ai-workflows');
     assert.equal(await page.locator('.topic-selector button').count(),catalogs.ja.topics.length);
-    assert.ok(await page.locator('.topic-article img').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0&&new URL(image.src).pathname.startsWith('/preview/assets/'))),'topic illustrations honor the base path');
+    assert.ok(await page.locator('.topic-article img').evaluateAll(images=>images.every(image=>image.complete&&image.naturalWidth>0&&new URL(image.src).pathname.startsWith('/preview/assets/illustrations/'))),'topic illustrations honor the base path');
   }finally{if(browser)await browser.close();if(preview)await preview.close();await rm(temp,{recursive:true,force:true});}
   results.push({suite:'deployment-base-path',path:prefix,status:'passed'});console.log('base path passed');
 }

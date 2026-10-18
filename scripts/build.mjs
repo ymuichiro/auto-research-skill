@@ -137,7 +137,9 @@ async function buildSocialCardAsset() {
 }
 
 async function buildSpatialAssets() {
-  for(const name of ['flow','execution'])await writeBufferFile(path.join(outputRoot,`assets/topic-${name}.webp`),await readFile(path.resolve(`src/assets/topics/topic-${name}.webp`)));
+  const illustrations=JSON.parse(await readFile('src/assets/illustrations/manifest.json','utf8'));
+  for(const item of illustrations.items){const file=`${item.kind}/${item.id}.webp`;await writeBufferFile(path.join(outputRoot,'assets/illustrations',file),await readFile(path.resolve('src/assets/illustrations',file)));}
+  for(const name of ['flow','execution'])await rm(path.join(outputRoot,`assets/topic-${name}.webp`),{force:true});
   for(const name of ['article-share.js','article-stream.js','article-motion.js','listing-motion.js']) {
     await rm(path.join(outputRoot,'assets',name),{force:true});
   }

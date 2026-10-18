@@ -138,11 +138,11 @@ async function start(config) {
   }
   for(const a of articles) {
     const node=document.createElement('article');node.className='paper article-paper';node.dataset.article=a.id;
-    node.innerHTML=`<header class="paper-head"><div class="paper-meta"><span class="paper-category">${esc(a.category)}</span><span class="relation-label"></span><time datetime="${a.date}" title="${copy.research}">${date(a.date)}</time></div><h2 class="article-title"><a class="title-open" data-read="${a.id}" href="${a.url}">${esc(a.title)}</a></h2></header><div class="paper-preview"><p class="preview-copy">${esc(a.teaser)}</p><div class="paper-tags">${a.tags.slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="preview-actions"><span>${copy.sources(a.sourceCount)}</span><a class="read-button" data-read="${a.id}" href="${a.url}">${copy.read} <span aria-hidden="true">↗</span></a></div></div><div class="read-pane"></div>`;
+    node.innerHTML=`<header class="paper-head"><div class="paper-meta"><span class="paper-category">${esc(a.category)}</span><span class="relation-label"></span><time datetime="${a.date}" title="${copy.research}">${date(a.date)}</time></div><h2 class="article-title"><a class="title-open" data-read="${a.id}" href="${a.url}">${esc(a.title)}</a></h2></header><div class="paper-preview">${a.illustration?`<img class="preview-illustration" src="${esc(a.illustration)}" width="480" height="320" alt="" loading="lazy" decoding="async">`:''}<p class="preview-copy">${esc(a.teaser)}</p><div class="paper-tags">${a.tags.slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="preview-actions"><span>${copy.sources(a.sourceCount)}</span><a class="read-button" data-read="${a.id}" href="${a.url}">${copy.read} <span aria-hidden="true">↗</span></a></div></div><div class="read-pane"></div>`;
     document.getElementById('article-space').append(node);articleNodes.set(a.id,node);
   }
   const topicOverview=document.createElement('section');topicOverview.className='topics-overview';topicOverview.hidden=true;
-  topicOverview.innerHTML=`<h2 class="topics-heading">${copy.topics}</h2><div class="topics-layout"><nav class="topic-selector" aria-label="${copy.topics}">${topics.map(t=>`<button data-select-topic="${t.id}" aria-pressed="false"><span class="topic-symbol" aria-hidden="true">${{'ai-agents':'◈','ai-strategy':'▥','ai-workflows':'⌘','on-device-ai':'▣','agentic-commerce':'◇','ai-security':'⬡','ai-research':'◫'}[t.id]??'◈'}</span><span>${esc(t.title)}</span></button>`).join('')}</nav><section class="topic-results" aria-label="${copy.topics}"></section></div>`;
+  topicOverview.innerHTML=`<h2 class="topics-heading">${copy.topics}</h2><div class="topics-layout"><nav class="topic-selector" aria-label="${copy.topics}">${topics.map(t=>`<button data-select-topic="${t.id}" aria-pressed="false"><img class="topic-symbol" src="${esc(t.illustration)}" width="48" height="48" alt="" loading="lazy" decoding="async"><span>${esc(t.title)}</span></button>`).join('')}</nav><section class="topic-results" aria-label="${copy.topics}"></section></div>`;
   workspace.append(topicOverview);let shownTopic='';
   function drawTopics(){
     const t=topics[focusIndex()],results=topicOverview.querySelector('.topic-results');
@@ -150,8 +150,7 @@ async function start(config) {
     if(shownTopic===t.id)return;shownTopic=t.id;
     const recent=t.articles.map(id=>byId.get(id)).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date)||a.id.localeCompare(b.id)).slice(0,4);
     results.setAttribute('aria-label',t.title);
-    const imageUrl=new URL('../topic-flow.webp',new URL(config.catalog,location.href));
-    results.innerHTML=`<div class="topic-results-heading"><h2>${esc(t.title)}</h2><a data-open-topic="${t.id}" href="${t.url}">${copy.theme} ↗</a></div><div class="topic-articles">${recent.map((a,i)=>`<article class="topic-article ${i===0?'is-featured':''}" style="--peek:${i}"><a data-read="${a.id}" href="${a.url}" class="topic-article-link"><img src="${/workflows|crm|security|commerce/.test(a.id)?new URL('topic-execution.webp',imageUrl):imageUrl}" alt="" width="480" height="320" style="object-position:${i%2?'80%':'25%'} center"/><div class="topic-article-copy"><time datetime="${a.date}">${date(a.date)}</time><h3>${esc(a.title)}</h3>${i===0?`<p>${esc(a.teaser)}</p><span class="topic-read">${copy.read} ↗</span>`:''}</div></a></article>`).join('')}</div>`;
+    results.innerHTML=`<div class="topic-results-heading"><h2>${esc(t.title)}</h2><a data-open-topic="${t.id}" href="${t.url}">${copy.theme} ↗</a></div><div class="topic-articles">${recent.map((a,i)=>`<article class="topic-article ${i===0?'is-featured':''}" style="--peek:${i}"><a data-read="${a.id}" href="${a.url}" class="topic-article-link">${a.illustration?`<img src="${esc(a.illustration)}" alt="" width="480" height="320"/>`:''}<div class="topic-article-copy"><time datetime="${a.date}">${date(a.date)}</time><h3>${esc(a.title)}</h3>${i===0?`<p>${esc(a.teaser)}</p><span class="topic-read">${copy.read} ↗</span>`:''}</div></a></article>`).join('')}</div>`;
     if(!reduced.matches)results.querySelectorAll('.topic-article').forEach((node,i)=>node.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:320,delay:i*35,easing:'ease-out'}));
   }
   let documentKey='';
@@ -185,6 +184,7 @@ async function start(config) {
       const section=document.createElement('section');section.className='chapter';section.dataset.chapter=i;
       section.dataset.fragment=fragment;section.id=fragment;
       section.innerHTML=`<h3><button class="chapter-toggle" data-chapter="${i}" aria-expanded="false"><span class="chapter-number">${String(i+1).padStart(2,'0')}</span><span class="chapter-name">${esc(name)}</span></button></h3><div class="chapter-body" tabindex="0" role="region" aria-label="${esc(name)}">${source.innerHTML}</div>`;
+      if(i===0&&id!=='__document'&&a.illustration){const figure=document.createElement('figure');figure.className='article-illustration';figure.innerHTML=`<img src="${esc(a.illustration)}" width="960" height="640" alt="" decoding="async">`;section.querySelector('.chapter-body').prepend(figure);}
       list.append(section);
     });
     if(id!=='__document') {

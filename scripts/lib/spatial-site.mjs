@@ -1,9 +1,12 @@
+import {readFileSync} from 'node:fs';
 import {assetPath, localizedPath, listingRelativePath, topicHubRelativePath, topicIndexRelativePath, siteConfig} from './site-config.mjs';
+const illustrationItems=JSON.parse(readFileSync(new URL('../../src/assets/illustrations/manifest.json',import.meta.url),'utf8')).items;
+export function illustrationPath(kind,id){if(!illustrationItems.some(item=>item.kind===kind&&item.id===id))return undefined;return assetPath(`assets/illustrations/${kind}/${id}.webp`);}
 
 export function spatialCatalog(articles, hubs, locale) {
   const local = path => localizedPath(locale,path.replace(/^en\//,''));
   const entries=articles.map(a=>({id:a.sourceDirName,date:a.date,title:locale==='ja'?a.titleJa:a.titleEn,
-    teaser:a.seo[locale].teaser,category:a.category,tags:a.tags,sourceCount:a.publishedSources.length,
+    teaser:a.seo[locale].teaser,illustration:illustrationPath('article',a.sourceDirName),category:a.category,tags:a.tags,sourceCount:a.publishedSources.length,
     url:local(a.outputPaths[locale]),alternate:localizedPath(locale==='ja'?'en':'ja',a.outputPaths.ja),
     payload:assetPath(`assets/articles/${locale}/${a.sourceDirName}.json`)}))
     .sort((a,b)=>b.date.localeCompare(a.date)||a.id.localeCompare(b.id));
@@ -12,7 +15,7 @@ export function spatialCatalog(articles, hubs, locale) {
       articles:entries.filter(a=>a.date.startsWith(id)).map(a=>a.id),
       categories:[...new Set(entries.filter(a=>a.date.startsWith(id)).map(a=>a.category))]})),
     topics:hubs.map(h=>({id:h.slug,title:h.category,description:h.descriptions[locale],
-      guide:Boolean(h.guide?.[locale]),articles:h.articles.map(a=>a.sourceDirName),url:local(topicHubRelativePath(locale,h.slug))})),
+      illustration:illustrationPath('category',h.slug),guide:Boolean(h.guide?.[locale]),articles:h.articles.map(a=>a.sourceDirName),url:local(topicHubRelativePath(locale,h.slug))})),
     paths:{home:local(''),timeline:local(''),topics:local(topicIndexRelativePath(locale))},
     pages:Array.from({length:Math.max(1,Math.ceil(articles.length/siteConfig.pagination.articleListPageSize))},(_,i)=>({
       url:local(listingRelativePath(locale,i+1)),articles:articles.slice(i*siteConfig.pagination.articleListPageSize,(i+1)*siteConfig.pagination.articleListPageSize).map(a=>a.sourceDirName)})),
