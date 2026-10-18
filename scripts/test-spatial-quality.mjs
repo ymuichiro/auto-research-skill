@@ -28,7 +28,7 @@ async function corpus(){
         assert.equal(await page.locator('.reading .chapter').count(),expected.sections+1);
         for(const p of expected.paragraphs)assert.ok(normalize(content).includes(normalize(p)),`${locale}/${a.id}: paragraph retained`);
         for(let i=0;i<=expected.sections;i++){
-          if(i)await page.locator('.reading .chapter.next .chapter-toggle').click();
+          if(i){await page.locator('.reading [data-action=toc]').click();await page.locator('.reading [data-chapter="'+i+'"] .chapter-toggle').click();}
           // Chapter sizing is applied by ResizeObserver/requestAnimationFrame.
           // Measure after that layout, not the preceding chapter's grid height.
           await page.evaluate(()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve))));

@@ -100,7 +100,6 @@ async function start(config) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const monthNodes = new Map(), articleNodes = new Map(), readPositions = new Map();
   const pendingPoses=new Map();
-  const readerObservers=new WeakMap();let readerLayoutFrame=0;
   const bodyRestores=new WeakMap();let inputRevision=0;
   const clamp = (n,a=0,b=1) => Math.max(a,Math.min(b,n));
   const ease = n => n*n*(3-2*n);
@@ -129,7 +128,7 @@ async function start(config) {
   function focusIndex() { return clamp(Math.round(state.progress),0,ids().length-1); }
   function focusId() { return ids()[focusIndex()]; }
   function snapshot() {
-    const body=articleNodes.get(state.mode==='document'?'__document':state.article)?.querySelector('.chapter.active .chapter-body'),restore=body&&bodyRestores.get(body);
+    const body=articleNodes.get(state.mode==='document'?'__document':state.article),restore=body&&bodyRestores.get(body);
     return {...state,bodyScroll:restore?.token===generation&&restore.revision===inputRevision?restore.top:body?.scrollTop??0};
   }
   function hash() {
@@ -210,8 +209,6 @@ async function start(config) {
     pane.querySelectorAll('.evidence-chapter .panel-block > div:first-child').forEach(el=>el.className='evidence-heading');
     pane.querySelectorAll('.chapter-body').forEach(body=>{
       const content=document.createElement('div');content.className='chapter-content';content.append(...body.childNodes);body.append(content);
-      const preview=document.createElement('p');preview.className='chapter-preview';preview.setAttribute('aria-hidden','true');
-      preview.textContent=(content.querySelector('p')?.textContent??'').trim().slice(0,180);body.before(preview);
     });
     const names=new Map();pane.querySelectorAll('[id]').forEach(el=>{names.set(el.id,`${id}--${el.id}`);el.id=names.get(el.id);});
     pane.querySelectorAll('*').forEach(el=>{
@@ -222,137 +219,20 @@ async function start(config) {
       }
     });
     pane.dataset.built='true';
-    readerObservers.get(node)?.disconnect();
-    const observer=new ResizeObserver(queueReaderLayout);observer.observe(list);readerObservers.set(node,observer);
   }
   function chapters() {
     const id=state.mode==='document'?'__document':state.article,node=articleNodes.get(id);buildReader(id);
-    const all=[...node.querySelectorAll('.chapter')],short=workspace.clientHeight<620;
+    const all=[...node.querySelectorAll('.chapter')];
     state.chapter=clamp(state.chapter,0,all.length-1);
     all.forEach((el,i)=>{
       el.classList.toggle('active',i===state.chapter);
-      el.classList.toggle('previous',i===state.chapter-1&&!short);
+      el.classList.toggle('previous',i===state.chapter-1);
       el.classList.toggle('next',i===state.chapter+1);
-      el.querySelector('button').setAttribute('aria-expanded',String(i===state.chapter&&!state.toc));
+      el.querySelector('button').setAttribute('aria-expanded',String(!el.classList.contains('collapsed')&&!state.toc));
     });
     node.classList.toggle('toc-open',state.toc);
     node.querySelector('[data-action=toc]').setAttribute('aria-pressed',String(state.toc));
-    const list=node.querySelector('.chapter-list');
-    const foldHeight=innerHeight<540?'36px':'48px';
-    list.style.setProperty('--prev-height',state.chapter>0&&!short?foldHeight:'0px');
-    list.style.setProperty('--next-height',state.chapter<all.length-1?foldHeight:'0px');
-    queueReaderLayout();
   }
-
-  function queueReaderLayout(){
-    if(readerLayoutFrame)return;
-    readerLayoutFrame=requestAnimationFrame(()=>{
-      readerLayoutFrame=0;
-      const node=app.querySelector('.reading');if(!node||state.toc)return;
-      const list=node.querySelector('.chapter-list'),active=list.querySelector('.chapter.active'),body=active.querySelector('.chapter-body');
-      const heading=active.querySelector('h3').offsetHeight,fold=innerHeight<540?36:48;
-      const previous=active.previousElementSibling&&workspace.clientHeight>=620?fold:0;
-      const next=active.nextElementSibling?(list.clientHeight-previous-heading>=200?104:fold):0;
-      const natural=body.querySelector('.chapter-content').offsetHeight+parseFloat(getComputedStyle(body).paddingTop)+parseFloat(getComputedStyle(body).paddingBottom);
-      list.style.setProperty('--prev-height',`${previous}px`);list.style.setProperty('--next-height',`${next}px`);
-      list.style.setProperty('--active-height',`${Math.min(heading+Math.max(96,natural),Math.max(heading,list.clientHeight-previous-next))}px`);
-      list.dataset.preview=String(next>fold);
-    });
-  }
-
-  const chapterPull={energy:0,direction:0,target:null,body:null,list:null,timer:0,release:0,locked:false,lastWheel:0,lockUntil:0};
-  let chapterTouch=null;
-  function resetChapterPull(animate=false){
-    clearTimeout(chapterPull.timer);clearTimeout(chapterPull.release);
-    const {target,body}=chapterPull;
-    if(target){
-      const transform=target.style.transform;
-      if(animate&&!reduced.matches&&transform)target.animate([{transform},{transform:'translateY(0)'}],{duration:110,easing:'ease-out'});
-      target.style.transform='';
-      if(animate)chapterPull.release=setTimeout(()=>target.classList.remove('pull-previous'),110);else target.classList.remove('pull-previous');
-    }
-    if(body){
-      const transform=body.style.transform;
-      if(animate&&!reduced.matches&&transform)body.animate([{transform},{transform:'translateY(0)'}],{duration:110,easing:'ease-out'});
-      body.style.transform='';
-    }
-    chapterPull.energy=0;chapterPull.direction=0;chapterPull.target=null;chapterPull.body=null;chapterPull.list=null;
-  }
-  function readerInput(event){
-    if(!['read','document'].includes(state.mode)||state.toc||menu.open)return null;
-    const list=event.target.closest?.('.chapter-list');if(!list||!list.closest('.reading'))return null;
-    const body=list.querySelector('.chapter.active .chapter-body');
-    return {list,body,max:Math.max(0,body.scrollHeight-body.clientHeight)};
-  }
-  function canReadScroll(body,max,direction){return direction>0?body.scrollTop<max-2:body.scrollTop>2;}
-  function nestedScroll(event,body,direction){
-    for(let el=event.target;el&&el!==body&&body.contains(el);el=el.parentElement){
-      if(el.scrollHeight>el.clientHeight+2&&/auto|scroll/.test(getComputedStyle(el).overflowY)&&canReadScroll(el,el.scrollHeight-el.clientHeight,direction))return true;
-    }
-    return false;
-  }
-  function paintChapterPull(input,delta,kind,eligible=true){
-    const direction=Math.sign(delta),active=input.list.querySelector('.chapter.active');
-    const target=direction>0?active.nextElementSibling:active.previousElementSibling;
-    if(!target){resetChapterPull(true);return;}
-    if(chapterPull.direction&&chapterPull.direction!==direction)resetChapterPull();
-    clearTimeout(chapterPull.timer);clearTimeout(chapterPull.release);
-    app.querySelectorAll('.pull-previous').forEach(el=>el.classList.remove('pull-previous'));
-    chapterPull.direction=direction;chapterPull.target=target;chapterPull.body=input.body;chapterPull.list=input.list;
-    chapterPull.energy+=Math.min(Math.abs(delta),kind==='wheel'?48:60);
-    const threshold=kind==='wheel'?90:60;
-    const progress=clamp(chapterPull.energy/threshold);
-    if(!reduced.matches){
-      if(direction<0)target.classList.add('pull-previous');
-      const distance=16*(1-Math.exp(-progress*1.6));
-      target.style.transform=`translateY(${-direction*distance}px)`;
-      input.body.style.transform=`translateY(${-direction*distance*.18}px)`;
-    }
-    if(eligible&&progress>=1){
-      resetChapterPull();
-      selectChapter(state.chapter+direction,undefined,{direction});
-      chapterPull.locked=true;chapterPull.lastWheel=performance.now();chapterPull.lockUntil=performance.now()+420;
-      if(chapterTouch)chapterTouch.committed=true;
-    }else if(kind==='wheel')chapterPull.timer=setTimeout(()=>resetChapterPull(true),200);
-  }
-
-  app.addEventListener('wheel',event=>{
-    const input=readerInput(event);if(!input||event.ctrlKey||Math.abs(event.deltaX)>Math.abs(event.deltaY))return;
-    const now=performance.now();
-    if(chapterPull.locked){
-      if(now<chapterPull.lockUntil||now-chapterPull.lastWheel<240){chapterPull.lastWheel=now;event.preventDefault();return;}
-      chapterPull.locked=false;
-    }
-    const delta=event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?input.body.clientHeight:1);if(!delta)return;
-    const direction=Math.sign(delta);
-    if(nestedScroll(event,input.body,direction))return;
-    if(canReadScroll(input.body,input.max,direction)){
-      resetChapterPull();
-      if(!input.body.contains(event.target)){input.body.scrollTop+=delta;event.preventDefault();}
-      return;
-    }
-    event.preventDefault();paintChapterPull(input,delta,'wheel');
-  },{passive:false});
-  app.addEventListener('touchstart',event=>{
-    resetChapterPull();chapterTouch=null;
-    const input=readerInput(event);if(!input||event.touches.length!==1)return;
-    const touch=event.touches[0];chapterTouch={x:touch.clientX,y:touch.clientY,lastY:touch.clientY,top:input.body.scrollTop<=2,end:input.body.scrollTop>=input.max-2,committed:false};
-  },{passive:true});
-  app.addEventListener('touchmove',event=>{
-    const input=readerInput(event);if(!input||!chapterTouch||event.touches.length!==1)return;
-    const touch=event.touches[0],delta=chapterTouch.lastY-touch.clientY;chapterTouch.lastY=touch.clientY;
-    if(Math.abs(touch.clientX-chapterTouch.x)>Math.abs(touch.clientY-chapterTouch.y)||Math.abs(touch.clientY-chapterTouch.y)<6)return;
-    if(chapterTouch.committed){event.preventDefault();return;}
-    const direction=Math.sign(delta);if(!direction||nestedScroll(event,input.body,direction))return;
-    if(canReadScroll(input.body,input.max,direction)){
-      resetChapterPull();
-      if(!input.body.contains(event.target)){input.body.scrollTop+=delta;event.preventDefault();}
-      return;
-    }
-    event.preventDefault();paintChapterPull(input,delta,'touch',direction>0?chapterTouch.end:chapterTouch.top);
-  },{passive:false});
-  const finishChapterTouch=()=>{resetChapterPull(true);chapterTouch=null;};
-  app.addEventListener('touchend',finishChapterTouch,{passive:true});app.addEventListener('touchcancel',finishChapterTouch,{passive:true});
 
   function crumb(text,action,extra='') {return `<button data-action="${action}" ${extra}>${esc(text)}</button>`;}
   function updateChrome() {
@@ -499,7 +379,6 @@ async function start(config) {
     return value.mode==='timeline'||value.mode==='month'?paths.timeline:value.mode==='topics'?paths.topics:value.mode==='document'?(value.documentPath??config.path):value.path;
   }
   async function navigate(next,{push=true,animate=true,save=true,focus=true}={}) {
-    resetChapterPull();chapterPull.locked=false;chapterTouch=null;
     clearTimeout(saveTimer);
     if(save)remember();
     const token=++generation;
@@ -529,7 +408,7 @@ async function start(config) {
       }
       configureScroll();draw();setHead(record);
       const current=articleNodes.get(state.mode==='document'?'__document':state.article);
-      const body=current?.querySelector('.chapter.active .chapter-body');
+      const body=current;
       if(body&&['read','document'].includes(state.mode))restoreBody(body,state.bodyScroll);
       if(focus){const target=current?.classList.contains('reading')?current.querySelector('.article-title'):workspace;target.setAttribute('tabindex','-1');target.focus({preventScroll:true});}
       history[push?'pushState':'replaceState']({spatial:snapshot()},'',hash());
@@ -542,11 +421,13 @@ async function start(config) {
   }
   // A surface changes width while unfolding. Restore again after that reflow,
   // but never override a scroll or keyboard action performed by the reader.
-  function restoreBody(body,top) {
+  function restoreBody(body,top,{anchor=false}={}) {
     const record={top,token:generation,revision:inputRevision};bodyRestores.set(body,record);
     const apply=()=>{
-      if(record.token!==generation||record.revision!==inputRevision||!body.closest('.reading')||!body.closest('.chapter').classList.contains('active'))return;
-      body.scrollTop=top;return true;
+      if(record.token!==generation||record.revision!==inputRevision||!body.closest('.reading'))return;
+      body.scrollTop=top;
+      if(anchor&&state.fragment){const target=document.getElementById(`${body.dataset.article}--${state.fragment}`);if(target)body.scrollTop+=target.getBoundingClientRect().top-body.getBoundingClientRect().top-16;}
+      return true;
     };
     apply();document.fonts.ready.then(()=>requestAnimationFrame(()=>{if(apply())remember();}));
     setTimeout(()=>{if(apply()){bodyRestores.delete(body);remember();}},app.classList.contains('switching')?740:0);
@@ -595,13 +476,15 @@ async function start(config) {
       const chapter=fragmentChapter(id,fragment,state.chapter);event.preventDefault();selectChapter(chapter,fragment);return;
     }
     if(button.dataset.chapter!==undefined){
-      selectChapter(Number(button.dataset.chapter));return;
+      if(state.toc)selectChapter(Number(button.dataset.chapter));
+      else {button.closest('.chapter').classList.toggle('collapsed');chapters();remember();}
+      return;
     }
     switch(button.dataset.action){
       case'timeline':void navigate({mode:'timeline',progress:state.mode==='timeline'?state.progress:monthStart(state.month),fragment:''});break;
       case'month':void openMonth(state.mode==='related'?byId.get(state.origin).date.slice(0,7):state.month);break;
       case'back':back();break;
-      case'toc':resetChapterPull();state.toc=!state.toc;draw();break;
+      case'toc':state.toc=!state.toc;draw();break;
       case'related':void navigate({mode:'related',origin:state.article,progress:0,fragment:''});break;
       case'guide':void navigate({mode:'document',documentPath:state.path,guide:true,chapter:0,fragment:'topic-guide',progress:0});break;
       case'menu':menu.showModal();break;
@@ -610,26 +493,16 @@ async function start(config) {
       case'share':void share();break;
     }
   });
-  function selectChapter(chapter,fragment,{direction=0}={}) {
-    resetChapterPull();
+  function selectChapter(chapter,fragment) {
     ++inputRevision;
     const id=state.mode==='document'?'__document':state.article,node=articleNodes.get(id);
-    state.chapter=chapter;state.toc=false;state.fragment=fragment??node.querySelector(`.chapter[data-chapter="${chapter}"]`).dataset.fragment;
-    if(!direction)node.querySelector('.chapter-list').animate([{opacity:.25,transform:'translateY(10px)'},{opacity:1,transform:'translateY(0)'}],{duration:reduced.matches?0:280,easing:'ease-out'});
-    draw();
-    const body=node.querySelector('.chapter.active .chapter-body');
-    const target=fragment?document.getElementById(`${id}--${fragment}`):null;
-    if(target&&body.contains(target))body.scrollTop+=target.getBoundingClientRect().top-body.getBoundingClientRect().top;
-    if(direction){
-      const selectedChapter=state.chapter,selectedGeneration=generation;
-      requestAnimationFrame(()=>{
-        if(generation!==selectedGeneration||state.chapter!==selectedChapter||!node.classList.contains('reading'))return;
-        body.scrollTop=direction>0?0:body.scrollHeight;body.tabIndex=0;body.focus({preventScroll:true});
-        if(!reduced.matches)body.animate([{opacity:.35,transform:`translateY(${direction*18}px)`},{opacity:1,transform:'translateY(0)'}],{duration:280,easing:'ease-out'});
-        readPositions.set(id,{chapter:state.chapter,fragment:state.fragment,bodyScroll:body.scrollTop});remember();
-      });
-    }else node.querySelector('.chapter.active .chapter-toggle').focus({preventScroll:true});
-    readPositions.set(id,{chapter:state.chapter,fragment:state.fragment,bodyScroll:body.scrollTop});remember();
+    const section=node.querySelector(`.chapter[data-chapter="${chapter}"]`);
+    state.chapter=chapter;state.toc=false;state.fragment=fragment??section.dataset.fragment;
+    section.classList.remove('collapsed');draw();
+    const target=fragment?document.getElementById(`${id}--${fragment}`):section;
+    if(target)node.scrollTop+=target.getBoundingClientRect().top-node.getBoundingClientRect().top-16;
+    section.querySelector('.chapter-toggle').focus({preventScroll:true});
+    readPositions.set(id,{chapter:state.chapter,fragment:state.fragment,bodyScroll:node.scrollTop});remember();
   }
   async function share() {
     const a=byId.get(state.article),url=new URL(a.url,canonicalOrigin);url.hash=state.fragment;
@@ -703,12 +576,12 @@ async function start(config) {
   document.body.classList.add('spatial-active');document.documentElement.classList.add('spatial-active');fallback.inert=true;fallback.setAttribute('aria-hidden','true');
   configureScroll();draw();app.style.visibility='visible';
   document.getElementById('spatial-startup').hidden=true;dispatchEvent(new Event('spatial-ready'));
-  const initialBody=app.querySelector('.reading .chapter.active .chapter-body');if(initialBody)restoreBody(initialBody,state.bodyScroll??0);
+  const initialBody=app.querySelector('.reading');if(initialBody)restoreBody(initialBody,state.bodyScroll??0,{anchor:!saved});
   remember();
   app.addEventListener('scroll',event=>{
-    if(!event.target.matches?.('.chapter-body'))return;
+    if(!event.target.matches?.('.reading'))return;
     const id=state.mode==='document'?'__document':state.article;
-    if(event.target.closest('.reading')!==articleNodes.get(id)||!event.target.closest('.chapter').classList.contains('active'))return;
+    if(event.target.closest('.reading')!==articleNodes.get(id))return;
     readPositions.set(id,{chapter:state.chapter,fragment:state.fragment,bodyScroll:event.target.scrollTop});
     clearTimeout(saveTimer);saveTimer=setTimeout(remember,160);
   },{capture:true,passive:true});
