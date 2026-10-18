@@ -71,7 +71,7 @@ async function start(config) {
   const menuLinks=[...new Map([...catalog.navigation,...catalog.footer].map(n=>[n.url,n])).values()].map(n=>`<a href="${esc(n.url)}">${esc(n.label)}</a>`).join('');
   app.innerHTML=`<a class="spatial-skip" href="#workspace">${copy.skip}</a><header class="app-header">
     <a class="brand" href="${paths.home}"><img class="brand-logo" src="${new URL('../favicon.svg',new URL(config.catalog,location.href))}" width="28" height="28" alt="" aria-hidden="true">AUTO RESEARCH DIGEST</a>
-    <div class="header-actions"><button class="back-button" data-action="back">${copy.back}</button><a id="spatial-language" class="language-link" href="${fallback.querySelector('.lang-switch').getAttribute('href')}">${copy.language}</a><button data-action="menu" aria-haspopup="dialog">${copy.menu}</button></div></header>
+    <div class="header-actions"><a id="spatial-language" class="language-link" href="${fallback.querySelector('.lang-switch').getAttribute('href')}">${copy.language}</a><button data-action="menu" aria-haspopup="dialog">${copy.menu}</button></div></header>
     <nav id="breadcrumbs" class="breadcrumbs" aria-label="${copy.workspace}"></nav>
     <main id="workspace" aria-label="${copy.workspace}" tabindex="-1"><h1 id="workspace-heading" class="sr-only">${esc(config.title)}</h1><div class="time-line" aria-hidden="true"></div><svg id="relations" aria-hidden="true"></svg><div id="month-space"></div><div id="article-space"></div></main>
     <nav id="month-rail" class="month-rail" aria-label="${copy.months}"></nav><div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
@@ -353,7 +353,6 @@ async function start(config) {
       html+=`<span class="spatial-pagination">${page>0?`<a href="${catalog.pages[page-1].url}" aria-label="${copy.previous}">←</a>`:''}${page>=0&&page<catalog.pages.length-1?`<a href="${catalog.pages[page+1].url}" aria-label="${copy.next}">→</a>`:''}</span>`;
     }
     if(crumbs.innerHTML!==html)crumbs.innerHTML=html;
-    app.querySelector('.back-button').hidden=['timeline','topics'].includes(state.mode)||(state.mode==='feed'&&!state.topic&&state.depth===0);
     const current=['timeline','feed','month'].includes(state.mode)?byId.get(focusId()).date.slice(0,7):(a?a.date.slice(0,7):state.month);
     for(const button of rail.children) {
       if(button.dataset.openMonth===current)button.setAttribute('aria-current','date');else button.removeAttribute('aria-current');
