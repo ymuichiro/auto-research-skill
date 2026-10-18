@@ -523,8 +523,9 @@ async function start(config) {
         // Commit the current pose before changing modes. WebKit can otherwise
         // coalesce the starting geometry and expanded geometry into one paint.
         const openingSurface=articleNodes.get(proposed.mode==='document'?'__document':proposed.article);
+        app.classList.add('switching');
         openingSurface?.getBoundingClientRect();
-        app.classList.add('switching');clearTimeout(switchTimer);switchTimer=setTimeout(()=>app.classList.remove('switching'),720);
+        clearTimeout(switchTimer);switchTimer=setTimeout(()=>app.classList.remove('switching'),720);
       }
       configureScroll();draw();setHead(record);
       const current=articleNodes.get(state.mode==='document'?'__document':state.article);

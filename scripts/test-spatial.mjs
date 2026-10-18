@@ -72,7 +72,7 @@ async function journey(engine,locale,viewport){
     await page.locator('.article-paper[data-front=true]').click({position:{x:25,y:200}});await waitMode(page,'read');
     await settled(page);
     const opening=await page.evaluate(()=>window.testOpeningFrames);
-    check('article unfolds through intermediate geometry',opening.length>2&&['h','y'].some(key=>Math.max(...opening.map(r=>r[key]))-Math.min(...opening.map(r=>r[key]))>2));
+    check('article unfolds through intermediate geometry '+JSON.stringify(opening),opening.length>2&&['h','y'].some(key=>Math.max(...opening.map(r=>r[key]))-Math.min(...opening.map(r=>r[key]))>2));
     check('same article surface opens',await page.evaluate(()=>document.querySelector('#spatial-app .reading')===window.originalSurface));
     check('uses published article URL',new URL(page.url()).pathname===article.url);
     check('language link follows article',new URL(await page.locator('#spatial-language').getAttribute('href'),server.base).pathname===article.alternate);
