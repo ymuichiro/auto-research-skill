@@ -45,6 +45,8 @@ jobs:
         run: |
           pnpm test:authoring
           pnpm test:spatial
+          pnpm test:timeline-preview
+          pnpm test:navigation-drawer
           pnpm test:illustrations
           pnpm test:topics-evidence
           pnpm test:chapter-scroll

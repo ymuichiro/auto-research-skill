@@ -60,11 +60,11 @@ async function journey(engine,locale,viewport){
     // Sample in the browser: WebKit on a busy CI runner may finish the
     // transition before the first geometry request reaches it over the wire.
     await page.evaluate(()=>{
-      window.testOpeningFrames=[];const started=performance.now();let opened;
+      window.testOpeningFrames=[];window.sampleOpening=true;
       function sample(){
         const node=document.querySelector('#spatial-app .reading');
-        if(node){opened??=performance.now();const r=node.getBoundingClientRect();window.testOpeningFrames.push({h:r.height,y:r.y});}
-        if((!opened&&performance.now()-started<30000)||(opened&&performance.now()-opened<850))requestAnimationFrame(sample);
+        if(node){const r=node.getBoundingClientRect();window.testOpeningFrames.push({h:r.height,y:r.y});}
+        if(window.sampleOpening)requestAnimationFrame(sample);
       }
       requestAnimationFrame(sample);
     });
@@ -72,7 +72,7 @@ async function journey(engine,locale,viewport){
     await page.locator('.article-paper[data-front=true]').click({position:{x:25,y:200}});await waitMode(page,'read');
     await settled(page);
     await page.waitForFunction(()=>window.testOpeningFrames.length>2);
-    const opening=await page.evaluate(()=>window.testOpeningFrames);
+    const opening=await page.evaluate(()=>{window.sampleOpening=false;return window.testOpeningFrames;});
     check('article unfolds through intermediate geometry',opening.length>2&&['h','y'].some(key=>Math.max(...opening.map(r=>r[key]))-Math.min(...opening.map(r=>r[key]))>2));
     check('same article surface opens',await page.evaluate(()=>document.querySelector('#spatial-app .reading')===window.originalSurface));
     check('uses published article URL',new URL(page.url()).pathname===article.url);
@@ -90,11 +90,11 @@ async function journey(engine,locale,viewport){
     check('contents exposes chapters',await page.locator('.reading .chapter-toggle:visible').count()>=7);
     await page.locator('.reading [data-chapter="3"] .chapter-toggle').click();await page.waitForTimeout(320);
     check('chapter selection updates shareable fragment',new URL(page.url()).hash==='#section-4');
-    const body='.reading .chapter.active .chapter-body';
+    const body='.reading';
     if(mobile&&engine===chromium)await swipe(page,body,100);
     else if(mobile){await page.locator(body).focus();await page.keyboard.press('PageDown');await page.waitForTimeout(300);}
     else {const b=await page.locator(body).boundingBox();await page.mouse.move(b.x+b.width*.5,b.y+b.height*.5);await page.mouse.wheel(0,240);await page.waitForTimeout(300);}
-    const scroll=await page.locator(body).evaluate(e=>({top:e.scrollTop,max:e.scrollHeight-e.clientHeight,h:e.clientHeight}));
+    let scroll=await page.locator(body).evaluate(e=>({top:e.scrollTop,max:e.scrollHeight-e.clientHeight,h:e.clientHeight}));
     check('body is readable',scroll.h>=100);if(scroll.max>2)check('native input scrolls body',scroll.top>0);
     check('body scroll does not advance workspace',await page.evaluate(()=>scrollY===0));
     check('no standalone copy button',await page.locator('.reading [data-action=copy]').count()===0);
@@ -102,6 +102,7 @@ async function journey(engine,locale,viewport){
     await page.evaluate(()=>Object.defineProperty(navigator,'share',{configurable:true,value:undefined}));
     await page.locator('.reading [data-action=share]').click();
     check('share fallback copies canonical chapter URL',await page.evaluate(()=>window.testCopied.includes('#section-4')&&window.testCopied.includes('https://research.notelligent.app/')));
+    scroll=await page.locator(body).evaluate(e=>({top:e.scrollTop,max:e.scrollHeight-e.clientHeight,h:e.clientHeight}));
     await page.locator('.reading [data-action=related]').click();await waitMode(page,'related');await settled(page);
     await page.screenshot({path:`${out}/${name}-related.png`});
     const target=(await getState(page)).focus;
