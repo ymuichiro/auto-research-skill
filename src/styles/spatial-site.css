@@ -202,3 +202,5 @@ body.spatial-active.topics-mode #spatial-app .time-line{display:none}
 }
 #spatial-app .evidence-chapter .panel-block>.mt-6{margin-top:16px;gap:0}
 #spatial-app .evidence-chapter .source-url{letter-spacing:0}
+#spatial-app .chapter-body .article-topic-link{display:inline-flex;align-items:center;min-height:32px;padding:5px 11px;border:0;border-radius:6px;background:#e7f4f1;color:#287e7d;text-decoration:none;box-shadow:none;letter-spacing:.035em}
+#spatial-app .chapter-body .article-topic-link:hover{background:#d9eeea;color:#205f64;text-decoration:none}
