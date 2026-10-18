@@ -21,11 +21,6 @@ const localeCopy = {
     homeTitle: "トップ",
     listingTitle: "公開レポート",
     listingIntro: "公開済みレポートを調査対象日が新しい順に一覧化しています。",
-    featuredBriefingKicker: "注目ブリーフィング",
-    featuredBriefingTitle: "最新公開のブリーフィング",
-    featuredBriefingIntro: "まずは最新公開レポートの要点と導線を、短く整理した編集枠から確認できます。",
-    briefingSummaryKicker: "ブリーフィング概要",
-    briefingSummaryTitle: "このレポートで先に確認できること",
     articleAuthorKicker: "編集・検証",
     articleAuthorTitle: "この記事の編集責任",
     articleAuthorIntro:
@@ -35,7 +30,6 @@ const localeCopy = {
     articleUpdatedLabel: "最終更新",
     articleSnapshotLabel: "調査対象日",
     articlePublishedLabel: "初公開",
-    pageStatus: "ページ",
     rangeLabel: "表示範囲",
     paginationPrevious: "前へ",
     paginationNext: "次へ",
@@ -47,7 +41,6 @@ const localeCopy = {
     readReport: "レポートを開く",
     sourceCount: "根拠数",
     relatedHeading: "関連記事",
-    relatedIntro: "前後の公開記事と、テーマの近い記事を自動表示しています。",
     newerArticle: "より新しい記事",
     olderArticle: "ひとつ古い記事",
     relatedArticle: "テーマが近い記事",
@@ -65,21 +58,12 @@ const localeCopy = {
     openExternal: "開く",
     topicsTitle: "トピック",
     topicsIntro: "公開済みレポートを主要テーマごとにまとめています。新着だけでなく、カテゴリ単位で論点の流れをたどれます。",
-    topicsPreviewIntro: "主要カテゴリから、公開済みレポートの流れをまとめてたどれます。",
     topicsKicker: "トピック案内",
     topicsOpenHub: "テーマハブを開く",
     topicsOpenIndex: "トピック一覧へ",
     topicsRepresentativeArticle: "代表記事",
     topicsLatestLabel: "最新更新",
     topicsCountLabel: "記事数",
-    topicsHubLabel: "テーマハブ",
-    topicsHubLatestLabel: "最新記事",
-    topicsHubFeatureTitle: "このテーマの最新ブリーフィング",
-    topicsHubFeatureIntro: "このテーマで直近に公開したレポートの要点を、読む前に短く確認できます。",
-    topicsHubListTitle: "このテーマの公開レポート",
-    topicsHubListIntro: "同じテーマに属する公開済みレポートを新しい順に一覧しています。",
-    topicsBacklinkTitle: "テーマ別に戻る",
-    topicsBacklinkIntro: "このレポートが属するテーマハブから、同じテーマの公開記事をまとめて追えます。",
     sitemapTitle: "サイトマップ",
     sitemapIntro: "主要固定ページ、トピックハブ、公開レポートへの導線をまとめた構造索引ページです。",
     sitemapPagesTitle: "主要ページ",
@@ -92,8 +76,6 @@ const localeCopy = {
     sitemapBrowseTimeline: "タイムラインを見る",
     timelineTitle: "タイムライン",
     timelineIntro: "公開済みレポートを調査対象の月ごとに整理し、テーマの変化を追えるページです。",
-    timelineSummaryTitle: "調査テーマの流れ",
-    timelineSummaryIntro: "各調査対象月の記事数と主なテーマを、記事へのリンクと合わせて追えます。",
     timelineBrowseSitemap: "サイトマップを見る",
     timelineStatArticles: "公開レポート",
     timelineStatMonths: "調査対象月",
@@ -112,11 +94,6 @@ const localeCopy = {
     homeTitle: "Home",
     listingTitle: "Published Briefings",
     listingIntro: "Published briefings, ordered by their research cutoff.",
-    featuredBriefingKicker: "Featured briefing",
-    featuredBriefingTitle: "Latest published briefing",
-    featuredBriefingIntro: "Start with a compact editorial frame for the newest published briefing before moving into the full list.",
-    briefingSummaryKicker: "Briefing summary",
-    briefingSummaryTitle: "What this briefing helps you get to quickly",
     articleAuthorKicker: "Editorial review",
     articleAuthorTitle: "How this briefing is reviewed",
     articleAuthorIntro:
@@ -126,7 +103,6 @@ const localeCopy = {
     articleUpdatedLabel: "Updated",
     articleSnapshotLabel: "Research cutoff",
     articlePublishedLabel: "First published",
-    pageStatus: "Page",
     rangeLabel: "Showing",
     paginationPrevious: "Previous",
     paginationNext: "Next",
@@ -139,7 +115,6 @@ const localeCopy = {
     readReport: "Open briefing",
     sourceCount: "Sources",
     relatedHeading: "Continue reading",
-    relatedIntro: "Automatically showing the adjacent briefings plus one thematically related article.",
     newerArticle: "Newer briefing",
     olderArticle: "Older briefing",
     relatedArticle: "Related briefing",
@@ -157,21 +132,12 @@ const localeCopy = {
     openExternal: "Open",
     topicsTitle: "Topics",
     topicsIntro: "Browse the published briefings by their main themes so readers can follow topic continuity beyond the latest post.",
-    topicsPreviewIntro: "Start from the major categories to follow the published briefings as organized topic streams.",
     topicsKicker: "Topic navigation",
     topicsOpenHub: "Open topic hub",
     topicsOpenIndex: "Browse all topics",
     topicsRepresentativeArticle: "Representative article",
     topicsLatestLabel: "Latest update",
     topicsCountLabel: "Articles",
-    topicsHubLabel: "Topic hub",
-    topicsHubLatestLabel: "Latest article",
-    topicsHubFeatureTitle: "Latest briefing in this topic",
-    topicsHubFeatureIntro: "Scan the newest briefing in this topic first, with the teaser and evidence count kept in view.",
-    topicsHubListTitle: "Published briefings in this topic",
-    topicsHubListIntro: "Published briefings in the same category, listed in reverse chronological order.",
-    topicsBacklinkTitle: "Back to topic",
-    topicsBacklinkIntro: "Return to the topic hub to continue with other published briefings in the same category.",
     sitemapTitle: "Sitemap",
     sitemapIntro: "An index page tying together the main site pages, topic hubs, and every published briefing.",
     sitemapPagesTitle: "Main pages",
@@ -184,8 +150,6 @@ const localeCopy = {
     sitemapBrowseTimeline: "View timeline",
     timelineTitle: "Timeline",
     timelineIntro: "Published briefings grouped by research month to follow changes in their topics.",
-    timelineSummaryTitle: "Research timeline",
-    timelineSummaryIntro: "Article counts and themes for each research month, with links to the briefings.",
     timelineBrowseSitemap: "View sitemap",
     timelineStatArticles: "Briefings",
     timelineStatMonths: "Research months",
@@ -384,6 +348,15 @@ function pageSchemas({
   return payloads.map((payload) => jsonLdBlock(payload)).join("\n    ");
 }
 
+function renderPageHeading(text, locale) {
+  if (locale !== "ja") return escapeHtml(text);
+  // Keep the site's key terms together while balancing the heading. The
+  // wrapper can still shrink at large text sizes; it never forces overflow.
+  const terms = new Set(["AIエージェント", "生成AI", "一次情報"]);
+  return text.split(/(AIエージェント|生成AI|一次情報)/).map(part => terms.has(part)
+    ? `<span class="hero-term">${escapeHtml(part)}</span>` : escapeHtml(part)).join("");
+}
+
 export function renderPage({
   locale,
   relativePath,
@@ -391,6 +364,7 @@ export function renderPage({
   description,
   pageHeading,
   pageIntro,
+  pageMeta = "",
   body,
   currentNavPath,
   article,
@@ -488,9 +462,9 @@ ${renderSharedPageScript(pageType)}
       </header>
       <main class="site-main" id="main">
         ${pageType === "article" ? "" : `<section class="hero-panel ${pageType === "home" ? "hero-panel-home" : ""}">
-          <p class="section-kicker">${escapeHtml(siteConfig.heroKicker[locale])}</p>
-          <h1 class="hero-title">${escapeHtml(pageHeading)}</h1>
-          <p class="hero-copy">${escapeHtml(pageIntro)}</p>
+          <h1 class="hero-title">${renderPageHeading(pageHeading, locale)}</h1>
+          ${pageIntro ? `<p class="hero-copy">${escapeHtml(pageIntro)}</p>` : ""}
+          ${pageMeta}
         </section>`}
         <div class="content-stack">
           ${body}
@@ -498,8 +472,7 @@ ${renderSharedPageScript(pageType)}
       </main>
       <footer class="footer-panel">
         <div class="footer-meta">
-          <a class="footer-brand" href="${localizedPath(locale, "")}">AR / ${escapeHtml(siteConfig.name)}</a>
-          <p class="footer-copy">${escapeHtml(siteConfig.taglines[locale])}</p>
+          <a class="footer-brand" href="${localizedPath(locale, "")}">${escapeHtml(siteConfig.name)}</a>
         </div>
         <nav class="footer-links" aria-label="${escapeHtml(copy.footerNavLabel)}">${footerLinks}</nav>
       </footer>
@@ -598,13 +571,9 @@ function renderEditorialBriefing(
   article,
   locale,
   {
-    kicker = "",
-    title,
-    intro = "",
-    headingTag = "h3",
+    headingTag = "h2",
     panelClassName = "",
-    categoryHref = "",
-    secondaryAction = null
+    categoryHref = ""
   } = {}
 ) {
   const copy = localeCopy[locale];
@@ -612,14 +581,7 @@ function renderEditorialBriefing(
   const articleHref = localizedArticleHref(article, locale);
   const articleTitle = locale === "ja" ? article.titleJa : article.titleEn;
 
-  const introMarkup = `<div class="editorial-briefing-head news-intro">
-      <div>
-        ${kicker ? `<p class="section-kicker">${escapeHtml(kicker)}</p>` : ""}
-        <h2 class="panel-title">${escapeHtml(title)}</h2>
-        ${intro ? `<p class="panel-copy">${escapeHtml(intro)}</p>` : ""}
-      </div>
-    </div>`;
-  const card = `<div class="listing-stage"><div data-listing-motion="featured"><section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
+  return `<div class="listing-stage"><div data-listing-motion="featured"><section class="panel-block editorial-briefing${panelClassName ? ` ${panelClassName}` : ""}">
     <div class="editorial-briefing-grid">
       <div class="editorial-briefing-main">
         <div class="meta-row justify-between">
@@ -637,16 +599,10 @@ function renderEditorialBriefing(
           <span class="mono-note">${escapeHtml(copy.sourceCount)}</span>
           <p class="editorial-briefing-stat-value">${article.publishedSources.length}</p>
         </div>
-        ${
-          secondaryAction
-            ? `<a class="text-link" href="${secondaryAction.href}">${escapeHtml(secondaryAction.label)}</a>`
-            : ""
-        }
         <a class="text-link" href="${articleHref}">${escapeHtml(copy.readReport)}</a>
       </div>
     </div>
   </section></div></div>`;
-  return {intro:introMarkup, card};
 }
 
 function renderArticleAuthorship(article, locale) {
@@ -707,19 +663,13 @@ function topicHubHref(locale, hub) {
   return localizedPath(locale, topicHubRelativePath(locale, hub.slug).replace(/^en\//, ""));
 }
 
-function renderNewsSequence(feature, cards, intro, pagination = "") {
-  return `${feature.intro ?? ""}${intro}<section class="news-sequence" data-news-sequence>
-    <div class="news-viewport"><div class="news-deck">${feature.card ?? ""}${cards}</div></div>
-  </section>${pagination}`;
+function renderNewsSequence(feature, cards, locale) {
+  return `<section class="news-sequence" data-news-sequence aria-label="${escapeHtml(localeCopy[locale].listingTitle)}">
+    <div class="news-viewport"><div class="news-deck">${feature}${cards}</div></div>
+  </section>`;
 }
 
-function renderTopicTagRow(hub) {
-  return `<div class="meta-tags">${hub.representativeTags
-    .map((tag) => `<span class="meta-chip">${escapeHtml(tag)}</span>`)
-    .join("")}</div>`;
-}
-
-function renderTopicCard(hub, locale) {
+function renderTopicCard(hub, locale, { headingTag = "h3" } = {}) {
   const copy = localeCopy[locale];
   const hubHref = topicHubHref(locale, hub);
   const representativeArticle = hub.latestArticle;
@@ -732,17 +682,15 @@ function renderTopicCard(hub, locale) {
   return `<article class="article-card topic-card">
     <div class="article-card-main">
       <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">${escapeHtml(hub.category)}</span>
         <span class="mono-note">${escapeHtml(copy.topicsCountLabel)}: ${hub.articleCount}</span>
       </div>
-      <h3 class="article-card-title">${escapeHtml(hub.category)}</h3>
+      <${headingTag} class="article-card-title">${escapeHtml(hub.category)}</${headingTag}>
       <p class="article-card-copy">${escapeHtml(hub.descriptions[locale])}</p>
       <div class="topic-card-stats">
         <p class="mono-note">${escapeHtml(copy.topicsLatestLabel)}: ${escapeHtml(
           formatDisplayDate(hub.latestModified.slice(0, 10), locale)
         )}</p>
       </div>
-      ${renderTopicTagRow(hub)}
     </div>
     <div class="article-card-foot topic-card-foot">
       <a class="text-link" href="${hubHref}">${escapeHtml(copy.topicsOpenHub)}</a>
@@ -766,9 +714,7 @@ function renderTopicsOverview(locale, topicHubs) {
   return `<section class="panel-block">
     <div class="listing-panel-head">
       <div>
-        <p class="section-kicker">${escapeHtml(copy.topicsKicker)}</p>
         <h2 class="panel-title">${escapeHtml(copy.topicsTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.topicsPreviewIntro)}</p>
       </div>
       <div class="listing-page-meta">
         <a class="text-link" href="${topicsIndexHref}">${escapeHtml(copy.topicsOpenIndex)}</a>
@@ -864,12 +810,12 @@ function summarizeMonthGroup(group, locale) {
   if (locale === "ja") {
     const categorySentence = leadingCategories.length ? `主なテーマは ${joinInlineList(leadingCategories, locale)}。` : "";
     const tagSentence = leadingTags.length ? `目立つタグは ${joinInlineList(leadingTags, locale)}。` : "";
-    return `この月は ${group.articleCount} 本公開しました。${categorySentence}${tagSentence}`.trim();
+    return `${categorySentence}${tagSentence}`.trim();
   }
 
   const categorySentence = leadingCategories.length ? `The month centered on ${joinInlineList(leadingCategories, locale)}.` : "";
   const tagSentence = leadingTags.length ? `Notable tags: ${joinInlineList(leadingTags, locale)}.` : "";
-  return `${group.articleCount} published briefings. ${categorySentence} ${tagSentence}`.trim();
+  return `${categorySentence} ${tagSentence}`.trim();
 }
 
 function renderDiscoveryLinkCard(entry, locale) {
@@ -949,7 +895,6 @@ function renderChronologySections(locale, monthGroups, topicHubMap) {
       return `<section class="panel-block chronology-group">
         <div class="listing-panel-head">
           <div>
-            <p class="section-kicker">${escapeHtml(year)}</p>
             <h2 class="panel-title">${escapeHtml(year)}</h2>
             <p class="panel-copy">${escapeHtml(
               locale === "ja"
@@ -957,16 +902,10 @@ function renderChronologySections(locale, monthGroups, topicHubMap) {
                 : `Grouping ${months.length} publishing months and ${articleCount} briefings in this year.`
             )}</p>
           </div>
-          <div class="listing-page-meta">
-            <p class="search-count">${articleCount} ${escapeHtml(copy.timelineStatArticles)}</p>
-            <p class="search-hint">${months.length} ${escapeHtml(copy.timelineStatMonths)}</p>
-          </div>
         </div>
         <div class="timeline chronology-timeline">
           ${months
             .map((group) => {
-              const leadingCategories = group.categories.slice(0, 2).map(({ category }) => category);
-
               return `<div class="timeline-item chronology-item">
                 <div class="timeline-year">${escapeHtml(formatMonthLabel(group.monthKey, locale))}</div>
                 <div>
@@ -974,16 +913,6 @@ function renderChronologySections(locale, monthGroups, topicHubMap) {
                     locale === "ja" ? `${group.articleCount} 本の公開` : `${group.articleCount} published briefings`
                   )}</h3>
                   <p>${escapeHtml(summarizeMonthGroup(group, locale))}</p>
-                  <div class="chronology-meta">
-                    <span class="mono-note">${escapeHtml(copy.timelineMonthCount)}: ${group.articleCount}</span>
-                    ${
-                      leadingCategories.length
-                        ? `<span class="mono-note">${escapeHtml(copy.timelineMonthThemes)}: ${escapeHtml(
-                            joinInlineList(leadingCategories, locale)
-                          )}</span>`
-                        : ""
-                    }
-                  </div>
                   <div class="chronology-entry-list">
                     ${group.articles.map((article) => renderDiscoveryArticleRow(article, locale, topicHubMap)).join("")}
                   </div>
@@ -999,72 +928,16 @@ function renderChronologySections(locale, monthGroups, topicHubMap) {
 
 function renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHref = "") {
   const copy = localeCopy[locale];
-  const latestArticle = articles[0] ?? null;
-  const latestValue = latestArticle ? formatMonthLabel(latestArticle.date.slice(0, 7), locale) : "—";
   const stats = [
-    {
-      value: String(articles.length),
-      title: copy.timelineStatArticles,
-      note:
-        locale === "ja"
-          ? "公開中の全レポート件数です。"
-          : "The total number of live briefings currently on the site."
-    },
-    {
-      value: String(monthGroups.length),
-      title: copy.timelineStatMonths,
-      note:
-        locale === "ja"
-          ? "公開記事の調査対象になった月を数えています。"
-          : "Counting research months covered by published briefings."
-    },
-    {
-      value: String(topicHubs.length),
-      title: copy.timelineStatTopics,
-      note:
-        locale === "ja"
-          ? "トピックハブとして追える主要テーマ数です。"
-          : "The number of major themes available as topic hubs."
-    },
-    {
-      value: latestValue,
-      title: copy.timelineStatLatest,
-      note:
-        latestArticle
-          ? locale === "ja"
-            ? `${latestArticle.titleJa} を含む最新の調査対象月です。`
-            : `The latest research month, including ${latestArticle.titleEn}.`
-          : locale === "ja"
-            ? "まだ公開レポートはありません。"
-            : "No published briefings yet."
-    }
+    [copy.timelineStatArticles, String(articles.length)],
+    [copy.timelineStatMonths, String(monthGroups.length)],
+    [copy.timelineStatTopics, String(topicHubs.length)],
+    [copy.timelineStatLatest, articles[0] ? formatMonthLabel(articles[0].date.slice(0, 7), locale) : "—"]
   ];
-
-  return `<section class="panel-block">
-    <div class="listing-panel-head">
-      <div>
-        <p class="section-kicker">${escapeHtml(copy.timelineTitle)}</p>
-        <h2 class="panel-title">${escapeHtml(copy.timelineSummaryTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.timelineSummaryIntro)}</p>
-      </div>
-      ${sitemapHref
-        ? `<div class="listing-page-meta">
-        <a class="text-link" href="${sitemapHref}">${escapeHtml(copy.timelineBrowseSitemap)}</a>
-      </div>`
-        : ""}
-    </div>
-    <div class="infographic-grid discovery-stat-grid">
-      ${stats
-        .map(
-          (stat) => `<article class="stat-card">
-            <p class="stat-value">${escapeHtml(stat.value)}</p>
-            <h3 class="stat-title">${escapeHtml(stat.title)}</h3>
-            <p class="stat-note">${escapeHtml(stat.note)}</p>
-          </article>`
-        )
-        .join("")}
-    </div>
-  </section>`;
+  return `<div class="timeline-overview">
+    <dl class="timeline-stats">${stats.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>
+    ${sitemapHref ? `<a class="text-link" href="${sitemapHref}">${escapeHtml(copy.timelineBrowseSitemap)}</a>` : ""}
+  </div>`;
 }
 
 function monthAnchorId(monthKey) {
@@ -1113,7 +986,6 @@ function renderSitemapArticleDirectory(locale, monthGroups, topicHubMap, timelin
       return `<section class="panel-block sitemap-directory-group">
         <div class="listing-panel-head">
           <div>
-            <p class="section-kicker">${escapeHtml(year)}</p>
             <h2 class="panel-title">${escapeHtml(year)}</h2>
             <p class="panel-copy">${escapeHtml(
               locale === "ja"
@@ -1289,14 +1161,7 @@ function renderRelatedArticles(article, locale, articles) {
     return "";
   }
 
-  const copy = localeCopy[locale];
-
-  return `<section class="panel-block related-articles">
-    <div>
-      <p class="section-kicker">${escapeHtml(copy.relatedHeading)}</p>
-      <h2 class="panel-title">${escapeHtml(copy.relatedHeading)}</h2>
-      <p class="panel-copy">${escapeHtml(copy.relatedIntro)}</p>
-    </div>
+  return `<div class="related-articles">
     <div class="mt-6 grid gap-5 xl:grid-cols-3">
       ${relatedArticles
         .map(({ article: relatedArticle, relation }) =>
@@ -1307,7 +1172,7 @@ function renderRelatedArticles(article, locale, articles) {
         )
         .join("")}
     </div>
-  </section>`;
+  </div>`;
 }
 
 function listingPageHref(locale, pageNumber) {
@@ -1385,11 +1250,11 @@ function renderPagination(locale, currentPage, totalPages) {
   const previousLink =
     currentPage > 1
       ? `<a class="pagination-link pagination-edge" href="${listingPageHref(locale, currentPage - 1)}">${escapeHtml(copy.paginationPrevious)}</a>`
-      : `<span class="pagination-link pagination-edge is-disabled" aria-disabled="true">${escapeHtml(copy.paginationPrevious)}</span>`;
+      : "";
   const nextLink =
     currentPage < totalPages
       ? `<a class="pagination-link pagination-edge" href="${listingPageHref(locale, currentPage + 1)}">${escapeHtml(copy.paginationNext)}</a>`
-      : `<span class="pagination-link pagination-edge is-disabled" aria-disabled="true">${escapeHtml(copy.paginationNext)}</span>`;
+      : "";
 
   return `<nav class="pagination-nav" aria-label="${escapeHtml(copy.listingTitle)} ${escapeHtml(copy.paginationPage)}">
     ${previousLink}
@@ -1411,45 +1276,26 @@ export function renderIndexPage(locale, articles, pagination = {}) {
   const rangeStart = articles.length > 0 ? listingOffset + 1 : 0;
   const rangeEnd = articles.length > 0 ? listingOffset + articles.length : 0;
   const cards = listingArticles.map((article) => renderArticleCard(article, locale)).join("") || (!featuredArticle ? `<div class="empty-state">${escapeHtml(copy.emptyState)}</div>` : "");
-  const showListingSection = !featuredArticle || listingArticles.length > 0;
   const listItems = articleListItems(locale, featuredArticle ? [featuredArticle, ...listingArticles] : listingArticles);
   const feature = featuredArticle
     ? renderEditorialBriefing(featuredArticle, locale, {
-        kicker: copy.featuredBriefingKicker,
-        title: copy.featuredBriefingTitle,
-        intro: copy.featuredBriefingIntro,
-        headingTag: "h3",
         panelClassName: "home-featured-briefing",
-        categoryHref: featuredTopicHub ? topicHubHref(locale, featuredTopicHub) : "",
-        secondaryAction: featuredTopicHub
-          ? { href: topicHubHref(locale, featuredTopicHub), label: copy.topicsOpenHub }
-          : null
+        categoryHref: featuredTopicHub ? topicHubHref(locale, featuredTopicHub) : ""
       })
     : "";
-  const intro = showListingSection
-    ? `<section class="news-intro">
-    <div class="listing-panel-head">
-      <div>
-        <p class="section-kicker">${escapeHtml(copy.listingTitle)}</p>
-        <h2 class="panel-title">${escapeHtml(copy.listingTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.listingIntro)}</p>
-      </div>
-      <div class="listing-page-meta">
-        <p class="search-count">${escapeHtml(copy.pageStatus)} ${currentPage} / ${totalPages}</p>
-        <p class="search-hint">${escapeHtml(listingRangeText(locale, rangeStart, rangeEnd, totalArticles))}</p>
-      </div>
-    </div>
-  </section>`
-    : "";
-  const body = `${renderNewsSequence(feature, cards, intro, renderPagination(locale, currentPage, totalPages))}${currentPage <= 1 ? renderTopicsOverview(locale, topicHubs) : ""}`;
+  const footer = articles.length ? `<div class="listing-footer">
+    <p class="listing-count mono-note">${escapeHtml(listingRangeText(locale, rangeStart, rangeEnd, totalArticles))}</p>
+    ${renderPagination(locale, currentPage, totalPages)}
+  </div>` : "";
+  const body = `${renderNewsSequence(feature, cards, locale)}${footer}${currentPage <= 1 ? renderTopicsOverview(locale, topicHubs) : ""}`;
 
   return renderPage({
     locale,
     relativePath: listingRelativePath(locale, currentPage),
     title: listingPageTitle(locale, currentPage),
     description: currentPage <= 1 ? siteConfig.description[locale] : copy.listingIntro,
-    pageHeading: siteConfig.taglines[locale],
-    pageIntro: copy.heroIntro,
+    pageHeading: currentPage <= 1 ? siteConfig.taglines[locale] : copy.listingTitle,
+    pageIntro: currentPage <= 1 ? copy.heroIntro : "",
     body,
     currentNavPath: copy.homePath,
     breadcrumbs: [
@@ -1472,16 +1318,9 @@ export function renderTopicsIndexPage(locale, topicHubs) {
   const copy = localeCopy[locale];
   const relativePath = topicIndexRelativePath(locale);
   const listItems = topicHubListItems(locale, topicHubs);
-  const body = `<section class="panel-block">
-    <div>
-      <p class="section-kicker">${escapeHtml(copy.topicsKicker)}</p>
-      <h2 class="panel-title">${escapeHtml(copy.topicsTitle)}</h2>
-      <p class="panel-copy">${escapeHtml(copy.topicsIntro)}</p>
-    </div>
-    <div class="mt-8 grid gap-5 xl:grid-cols-2">
-      ${topicHubs.map((hub) => renderTopicCard(hub, locale)).join("")}
-    </div>
-  </section>`;
+  const body = `<div class="grid gap-5 xl:grid-cols-2">
+    ${topicHubs.map((hub) => renderTopicCard(hub, locale, {headingTag:"h2"})).join("")}
+  </div>`;
 
   return renderPage({
     locale,
@@ -1509,47 +1348,17 @@ export function renderTopicHubPage(locale, hub) {
   const remainingArticles = hub.articles.slice(1);
   const topicIndexPath = topicIndexRelativePath(locale);
   const listItems = articleListItems(locale, hub.articles);
-  const overview = `<section class="panel-block">
-    <div class="listing-panel-head">
-      <div>
-        <p class="section-kicker">${escapeHtml(copy.topicsHubLabel)}</p>
-        <h2 class="panel-title">${escapeHtml(hub.category)}</h2>
-        <p class="panel-copy">${escapeHtml(hub.descriptions[locale])}</p>
-      </div>
-      <div class="listing-page-meta">
-        <p class="search-count">${escapeHtml(copy.topicsCountLabel)} ${hub.articleCount}</p>
-        <p class="search-hint">${escapeHtml(copy.topicsLatestLabel)} ${escapeHtml(
-          formatDisplayDate(hub.latestModified.slice(0, 10), locale)
-        )}</p>
-      </div>
-    </div>
-    ${renderTopicTagRow(hub)}
-  </section>
-  ${renderTopicGuide(locale, hub.guide?.[locale])}`;
+  const overview = `<div class="topic-summary mono-note">
+    <span>${escapeHtml(copy.topicsCountLabel)} ${hub.articleCount}</span>
+    <span>${escapeHtml(copy.topicsLatestLabel)} ${escapeHtml(formatDisplayDate(hub.latestModified.slice(0, 10), locale))}</span>
+  </div>`;
   const feature = featuredArticle
     ? renderEditorialBriefing(featuredArticle, locale, {
-        kicker: copy.topicsHubLatestLabel,
-        title: copy.topicsHubFeatureTitle,
-        intro: copy.topicsHubFeatureIntro,
-        headingTag: "h3",
-        panelClassName: "topic-featured-briefing",
-        secondaryAction: {
-          href: localizedPath(locale, topicIndexPath.replace(/^en\//, "")),
-          label: copy.topicsOpenIndex
-        }
+        panelClassName: "topic-featured-briefing"
       })
     : "";
-  const intro = remainingArticles.length
-    ? `<section class="news-intro">
-    <div>
-      <p class="section-kicker">${escapeHtml(copy.topicsHubListTitle)}</p>
-      <h2 class="panel-title">${escapeHtml(copy.topicsHubListTitle)}</h2>
-      <p class="panel-copy">${escapeHtml(copy.topicsHubListIntro)}</p>
-    </div>
-  </section>`
-    : "";
-  const cards = remainingArticles.map(article => renderArticleCard(article, locale, {headingTag:"h3"})).join("");
-  const body = overview + renderNewsSequence(feature, cards, intro);
+  const cards = remainingArticles.map(article => renderArticleCard(article, locale)).join("");
+  const body = renderNewsSequence(feature, cards, locale) + renderTopicGuide(locale, hub.guide?.[locale]);
 
   return renderPage({
     locale,
@@ -1558,6 +1367,7 @@ export function renderTopicHubPage(locale, hub) {
     description: hub.descriptions[locale],
     pageHeading: hub.category,
     pageIntro: hub.descriptions[locale],
+    pageMeta: overview,
     body,
     currentNavPath: locale === "ja" ? "topics/" : "en/topics/",
     breadcrumbs: [
@@ -1747,7 +1557,6 @@ function renderSources(article, locale) {
   return `<section class="panel-block">
     <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
       <div>
-        <p class="section-kicker">${escapeHtml(copy.sourceHeading)}</p>
         <h2 class="panel-title">${escapeHtml(copy.sourceHeading)}</h2>
       </div>
       <p class="panel-copy max-w-xl md:mt-0">${escapeHtml(copy.sourceNote)}</p>
@@ -1784,11 +1593,6 @@ function renderTopicBacklink(article, locale, hub) {
   const hubHref = topicHubHref(locale, hub);
 
   return `<section class="panel-block topic-backlink">
-    <div>
-      <p class="section-kicker">${escapeHtml(copy.topicsHubLabel)}</p>
-      <h2 class="panel-title">${escapeHtml(copy.topicsBacklinkTitle)}</h2>
-      <p class="panel-copy">${escapeHtml(copy.topicsBacklinkIntro)}</p>
-    </div>
     <div class="topic-backlink-actions">
       <span class="meta-pill is-accent">${escapeHtml(article.category)}</span>
       <span class="mono-note">${escapeHtml(copy.topicsCountLabel)}: ${hub.articleCount}</span>

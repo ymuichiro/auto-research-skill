@@ -1456,14 +1456,24 @@
   .skip-link:focus { top: .5rem; }
 
   .hero-panel-home { position: relative; border: 0; padding-bottom: .5rem; }
-  .hero-panel-home::after {
-    position: absolute; top: 1rem; right: 2%; width: clamp(6rem, 12vw, 10rem); aspect-ratio: 1;
-    border: 1px solid rgba(91, 155, 168, .22); border-radius: 50%;
-    background: radial-gradient(circle at 38% 34%, rgba(255,255,255,.84), rgba(213,235,239,.24) 44%, transparent 72%);
-    box-shadow: inset 0 0 24px rgba(255,255,255,.7), 0 12px 32px rgba(88,132,150,.08);
-    pointer-events: none;
-  }
-  .hero-panel-home .hero-title { max-width: 30ch; font-size: clamp(1.9rem, 3.4vw, 3.1rem); line-height: 1.52; }
+  .hero-panel { border: 0; padding-bottom: 0; }
+  .hero-panel .hero-title { margin-top: 0; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.4; text-wrap: balance; }
+  .hero-term { display: inline-block; max-width: 100%; }
+  .hero-panel-home .hero-title { max-width: 42ch; font-size: clamp(1.6rem, 2.6vw, 2.35rem); line-height: 1.5; }
+  .hero-panel-home .hero-copy { margin-top: 1rem; }
+  .site-main { gap: 2rem; padding-top: 2rem; }
+  .content-stack { gap: 2.5rem; }
+  .topic-summary { display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; margin-top: 1rem; }
+  .panel-title:first-child { margin-top: 0; }
+  .topic-card .article-card-title { margin-top: .75rem; }
+  .listing-footer { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem; border-top: 1px solid var(--ard-border); padding-top: 1rem; }
+  .listing-footer .pagination-nav { margin: 0; padding: 0; border: 0; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: .6rem; }
+  .listing-footer .pagination-edge { width: auto; }
+  .listing-footer .pagination-link { min-height: 44px; }
+  .timeline-overview { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1.5rem; }
+  .timeline-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem 2rem; margin: 0; }
+  .timeline-stats dt { color: var(--ard-dim); font-size: .75rem; }
+  .timeline-stats dd { margin: .4rem 0 0; color: var(--ard-text-strong); font-size: 1.25rem; font-weight: 600; }
   .hero-copy { max-width: 62ch; line-height: 1.95; }
   .section-kicker { color: var(--ard-signal); font-size: .7rem; font-weight: 600; letter-spacing: .12em; }
   .mono-note, .search-hint, .search-count { color: var(--ard-dim); font-size: .73rem; letter-spacing: .035em; text-transform: none; }
@@ -1492,7 +1502,6 @@
   .news-sequence { position: relative; min-width: 0; flex-shrink: 0; overflow-anchor: none; }
   .news-viewport { position: relative; }
   .news-deck { position: relative; display: grid; gap: 1.5rem; width: 100%; max-width: 960px; margin-inline: auto; padding-inline: .25rem; }
-  .news-intro { min-width: 0; }
   .news-sequence .editorial-briefing-grid { margin-top: 0; gap: 1.25rem; }
   .news-sequence .editorial-briefing-title { margin-top: .75rem; font-size: clamp(1.35rem, 2.6vw, 2rem); }
   .news-sequence .editorial-briefing-side { padding: .75rem; }
@@ -1505,8 +1514,9 @@
   .news-sequence.is-pinned [data-listing-motion] { height: 100%; transform-origin: center center; }
   .news-sequence.is-pinned [data-listing-motion="featured"] { display: flex; flex-direction: column; }
   .news-sequence.is-pinned .editorial-briefing { flex: 1; display: flex; flex-direction: column; background: #fff; backdrop-filter: none; }
-  .news-sequence.is-pinned .editorial-briefing-grid { flex: 1; align-content: center; }
+  .news-sequence.is-pinned .editorial-briefing-grid { flex: 1; align-content: start; }
   .news-sequence.is-pinned .article-card { background: #fff; backdrop-filter: none; }
+  .news-sequence.is-pinned .editorial-briefing, .news-sequence.is-pinned .article-card { box-shadow: 0 6px 16px rgba(66,100,120,.06), inset 0 1px 0 rgba(255,255,255,.9); }
   @media (max-width: 767px) {
     .news-sequence .editorial-briefing { padding: 1.1rem; }
     .news-sequence .editorial-briefing-grid { gap: .85rem; }
@@ -1516,11 +1526,9 @@
     .news-sequence .editorial-briefing-side .text-link:last-child { padding: .65rem .6rem; }
     .news-sequence .meta-tags { margin-top: .75rem; }
   }
-  .home-featured-briefing { position: relative; z-index: 1; border: 1px solid rgba(255,255,255,.96); background: rgba(255,255,255,.86); box-shadow: inset 0 0 0 1px rgba(173,208,218,.46), 0 28px 70px rgba(53,91,114,.15); backdrop-filter: blur(20px) saturate(125%); }
+  .home-featured-briefing { background: rgba(255,255,255,.92); }
   .editorial-briefing-title { max-width: none; }
   .editorial-briefing-side { position: relative; overflow: hidden; border: 0; border-radius: 1rem; background: linear-gradient(145deg, rgba(235,246,248,.8), rgba(239,248,244,.7)); padding: 1.25rem; }
-  .editorial-briefing-side::after { position: absolute; top: -2.7rem; right: -2.3rem; width: 8rem; aspect-ratio: 1; border: 1px solid rgba(82,153,159,.18); border-radius: 50%; box-shadow: inset 0 0 20px rgba(255,255,255,.7), 0 0 0 1rem rgba(255,255,255,.13); content: ""; pointer-events: none; }
-  .editorial-briefing-side > * { position: relative; z-index: 1; }
   .editorial-briefing-side .text-link:last-child { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; border-radius: 999px; background: #337f80; color: white; padding: .7rem 1.25rem; text-decoration: none; }
 
   [data-page-type="article"] .site-main { padding-top: 2.25rem; }
@@ -1657,9 +1665,9 @@
   .has-site-ui .nav-toggle[aria-expanded="true"] ~ .site-nav { display: flex; flex-wrap: wrap; }
   .site-header .site-nav { width: 100%; margin: 0; padding: 0; }
   .brand-copy { font-size: .63rem; letter-spacing: .055em; }
-  .site-main { gap: 2.75rem; padding: 2rem 1rem 4rem; }
+  .site-main { gap: 1.5rem; padding: 1.5rem 1rem 4rem; }
+  .timeline-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; }
   .content-stack { gap: 2.5rem; }
-  .hero-panel-home::after { top: 0; right: 0; width: 5rem; opacity: .62; }
   .hero-panel-home .hero-title { max-width: 25ch; font-size: clamp(1.7rem,7vw,2.5rem); line-height: 1.55; }
   .hero-copy { font-size: .94rem; }
   [data-page-type="article"] .site-main { padding: 1rem .65rem 3rem; }

@@ -65,15 +65,18 @@ if (roots.length) {
         node.parentElement.style.zIndex = '';
         delete node.dataset.sceneFront;
       });
-      const natural = Math.max(...scene.nodes.map(node => node.parentElement.getBoundingClientRect().height));
+      const natural = Math.max(0, ...scene.nodes.map(node => node.parentElement.getBoundingClientRect().height));
       scene.pinned = !reduced.matches && scene.nodes.length > 1 && natural <= height-24;
-      scene.height = height;
-      scene.step = Math.max(260, Math.min(560, height * .62));
+      // The scene wraps the cards' real content instead of reserving an empty
+      // full-screen stage and an arbitrary minimum card height.
+      const cardHeight = Math.max(0, Math.min(height-24, natural));
+      scene.height = Math.min(height, cardHeight+48);
+      scene.step = Math.max(260, Math.min(560, scene.height * .62));
       scene.root.dataset.sceneMode = scene.pinned ? 'pinned' : 'static';
       scene.root.style.setProperty('--scene-top', `${headerHeight+6}px`);
-      scene.root.style.setProperty('--scene-height', `${height}px`);
-      scene.root.style.setProperty('--scene-card-height', `${Math.min(height-24, Math.max(natural, Math.min(580, height*.72)))}px`);
-      scene.root.style.setProperty('--scene-span', `${height+(scene.nodes.length-1+.45)*scene.step}px`);
+      scene.root.style.setProperty('--scene-height', `${scene.height}px`);
+      scene.root.style.setProperty('--scene-card-height', `${cardHeight}px`);
+      scene.root.style.setProperty('--scene-span', `${scene.height+(scene.nodes.length-1+.45)*scene.step}px`);
       scene.root.classList.toggle('is-pinned', scene.pinned);
       scene.painted = [];
     }
