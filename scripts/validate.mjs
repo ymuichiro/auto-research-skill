@@ -518,8 +518,8 @@ async function validateBuiltOutput(articles) {
       `<meta name="description" content="${escapeHtml(sampleArticle.seo.en.description)}">`,
       "English article is missing the resolved SEO description."
     );
-    assertContains(jaHtml, 'class="panel-block article-authorship"', "Japanese article is missing the editorial authorship block.");
-    assertContains(enHtml, 'class="panel-block article-authorship"', "English article is missing the editorial authorship block.");
+    assertCondition(!jaHtml.includes('article-authorship'), 'Japanese articles must not include the removed editorial section.');
+    assertCondition(!enHtml.includes('article-authorship'), 'English articles must not include the removed editorial section.');
     assertContains(
       jaHtml,
       `"author":{"@type":"Organization","name":"${siteConfig.owner}"}`,
@@ -590,7 +590,7 @@ async function validateBuiltOutput(articles) {
       assertContains(enHtml, 'class="panel-block topic-backlink"', "English article is missing the topic backlink block.");
       for (const markup of [jaHtml, enHtml]) {
         assertNotContains(markup, 'class="panel-block briefing-summary"', "Article should not repeat its introduction in a summary panel.");
-        assertCondition(markup.indexOf('class="article-body"') < markup.indexOf('class="panel-block article-authorship"'), "Article text should precede the editorial policy panel.");
+        assertCondition(!markup.includes('article-authorship'), 'Articles must not include the removed editorial section.');
       }
       assertContains(
         jaHubHtml,
@@ -751,9 +751,6 @@ async function validateBuiltOutput(articles) {
       const blocks = [...markup.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)];
       const articleSchema = blocks.map((match) => JSON.parse(match[1])).find((item) => item["@type"] === "NewsArticle");
       assertCondition(articleSchema && !JSON.stringify(articleSchema.image ?? []).includes(absoluteUrl(siteConfig.ogImage)), `${label} must not identify the publication logo as its article image.`);
-      assertContains(markup, `${siteConfig.repositoryUrl}/blob/main/content/articles/${article.sourceDirName}/body.${locale}.html`, `${label} is missing its public source link.`);
-      assertContains(markup, `${siteConfig.repositoryUrl}/commits/main/content/articles/${article.sourceDirName}`, `${label} is missing its revision history.`);
-      assertContains(markup, siteConfig.maintainerUrl, `${label} is missing the maintainer profile.`);
       assertCondition(Date.parse(articleSchema.dateModified) >= Date.parse(siteConfig.articleMetadataUpdatedAt), `${label} does not reflect the substantive metadata update.`);
     }
   }

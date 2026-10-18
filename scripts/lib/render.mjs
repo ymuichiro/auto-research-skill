@@ -20,10 +20,6 @@ const localeCopy = {
     homeTitle: "トップ",
     listingTitle: "公開レポート",
     listingIntro: "公開済みレポートを調査対象日が新しい順に一覧化しています。",
-    articleAuthorKicker: "編集・検証",
-    articleAuthorTitle: "この記事の編集責任",
-    articleAuthorIntro:
-      "Auto Research Digest Editorial Desk が公開根拠を直接確認し、確認できた事実、比較から導く解釈、未解決点を区別して編集しています。",
     articleUpdatedLabel: "最終更新",
     articleSnapshotLabel: "調査対象日",
     articlePublishedLabel: "初公開",
@@ -75,10 +71,6 @@ const localeCopy = {
     homeTitle: "Home",
     listingTitle: "Published Briefings",
     listingIntro: "Published briefings, ordered by their research cutoff.",
-    articleAuthorKicker: "Editorial review",
-    articleAuthorTitle: "How this briefing is reviewed",
-    articleAuthorIntro:
-      "Auto Research Digest Editorial Desk checks the published evidence directly and separates confirmed facts, interpretations drawn from comparisons, and unresolved questions.",
     articleUpdatedLabel: "Updated",
     articleSnapshotLabel: "Research cutoff",
     articlePublishedLabel: "First published",
@@ -506,32 +498,6 @@ function renderEditorialBriefing(
       </div>
     </div>
   </section></div></div>`;
-}
-
-function renderArticleAuthorship(article, locale) {
-  const copy = localeCopy[locale];
-  const sourcePath = `content/articles/${article.sourceDirName}`;
-  const sourceHref = `${siteConfig.repositoryUrl}/blob/main/${sourcePath}/body.${locale}.html`;
-  const historyHref = `${siteConfig.repositoryUrl}/commits/main/${sourcePath}`;
-  const provenance = locale === "ja"
-    ? "公開リポジトリの管理者は ymuichiro です。この記事の本文と出典、修正履歴を公開しています。資料から確認できた結果と本稿の解釈は本文で区別し、説明用の想定例にはその旨を記しています。"
-    : "The public repository is maintained by ymuichiro. The article text, references, and revision history are available for inspection. The body distinguishes sourced results from editorial interpretation and labels explanatory scenarios.";
-
-  return `<section class="panel-block article-authorship">
-    <div>
-      <p class="section-kicker">${escapeHtml(copy.articleAuthorKicker)}</p>
-      <h2 class="panel-title">${escapeHtml(copy.articleAuthorTitle)}</h2>
-    </div>
-    <div>
-      <p class="panel-copy">${escapeHtml(copy.articleAuthorIntro)}</p>
-      <p class="panel-copy mt-3">${escapeHtml(provenance)}</p>
-      <div class="mt-4 flex flex-wrap gap-x-5 gap-y-3">
-        <a class="text-link" href="${siteConfig.maintainerUrl}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "管理者の公開プロフィール" : "Maintainer profile"}</a>
-        <a class="text-link" href="${sourceHref}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "この記事の本文ソース" : "Article source"}</a>
-        <a class="text-link" href="${historyHref}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "この記事の変更履歴" : "Article revision history"}</a>
-      </div>
-    </div>
-  </section>`;
 }
 
 function renderArticleCard(article, locale, { featured = false, eyebrow = "", headingTag = "h2" } = {}) {
@@ -1273,7 +1239,7 @@ export function renderReadingArticle(article, locale, articles = [], { initial =
     </header>
     <div class="article-body">${prepareArticleBody(body)}</div>
     <details class="reading-evidence"><summary>${locale === "ja" ? "出典と編集責任" : "Sources and editorial review"} <span>${article.publishedSources.length}</span></summary>
-      ${renderSources(article, locale)}${renderArticleAuthorship(article, locale)}
+      ${renderSources(article, locale)}
     </details>
     <details class="reading-evidence"><summary>${escapeHtml(copy.relatedHeading)}</summary>${renderTopicBacklink(article, locale, topicHub)}${renderRelatedArticles(article, locale, articles)}</details>
     <dialog class="related-dialog" data-related-dialog aria-label="${locale === "ja" ? "関連の流れ" : "Related timeline"}">
