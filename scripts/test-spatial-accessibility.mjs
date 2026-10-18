@@ -37,7 +37,10 @@ try{
         await page.keyboard.press('Escape');assert.ok(!(await page.locator('.spatial-menu').evaluate(e=>e.open)));
         const current=await page.evaluate(()=>spatialSite.getState().article);
         for(const size of [{width:360,height:664},{width:768,height:1024},viewport]){
-          await page.setViewportSize(size);await page.waitForTimeout(120);
+          await page.setViewportSize(size);
+          // Resize is debounced, then the chapter grid is sized by an observer.
+          // Slow WebKit runners may still show the preceding landscape geometry.
+          await page.waitForFunction(()=>document.querySelector('.reading .chapter.active .chapter-body')?.clientHeight>=70);
           assert.equal(await page.evaluate(()=>spatialSite.getState().article),current);
           const height=await page.locator('.reading .chapter.active .chapter-body').evaluate(e=>e.clientHeight);
           assert.ok(height>=70,`${engine.name()} ${JSON.stringify(size)} body ${height}`);
