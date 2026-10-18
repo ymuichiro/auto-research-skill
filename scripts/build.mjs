@@ -34,10 +34,12 @@ import {
   topicIndexRelativePath
 } from "./lib/site-config.mjs";
 import { buildTopicHubs } from "./lib/topic-hubs.mjs";
+import {spatialCatalog} from './lib/spatial-site.mjs';
+import {prepareArticleBody} from './lib/article-template.mjs';
 import { trustPagesForLocale } from "./lib/trust-pages.mjs";
 import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
-const outputRoot = path.resolve("public");
+const outputRoot = path.resolve(process.env.SITE_OUTPUT_DIR??"public");
 const iconRoot = path.join(outputRoot, "assets");
 const execFileAsync = promisify(execFile);
 let sharpLoader = null;
@@ -145,6 +147,10 @@ async function buildArticleShareScript() {
   for (const name of ["site-ui.js", "article-stream.js", "article-motion.js", "listing-motion.js"]) {
     await writeTextFile(path.join(outputRoot, "assets", name), await readFile(path.resolve("src/assets", name), "utf8"));
   }
+  for(const name of ['spatial-site.js','spatial-copy.js']) {
+    await writeTextFile(path.join(outputRoot,'assets',name),await readFile(path.resolve('src/assets',name),'utf8'));
+  }
+  await writeTextFile(path.join(outputRoot,'assets/spatial-site.css'),await readFile(path.resolve('src/styles/spatial-site.css'),'utf8'));
 }
 
 async function buildSite() {
@@ -168,6 +174,9 @@ async function buildSite() {
     )[0] ?? new Date().toISOString();
 
   await mkdir(iconRoot, { recursive: true });
+  for(const locale of siteConfig.locales) {
+    await writeTextFile(path.join(outputRoot,'assets/spatial',`${locale}.json`),JSON.stringify(spatialCatalog(liveArticles,topicHubs,locale)));
+  }
 
   await writeTextFile(path.join(outputRoot, "404.html"), renderNotFoundPage("ja", liveArticles));
   await writeTextFile(path.join(outputRoot, "en", "404.html"), renderNotFoundPage("en", liveArticles));
@@ -223,8 +232,9 @@ async function buildSite() {
       const nodes = [...headMarkup.matchAll(/<meta\s[^>]*(?:name="(?:description|twitter:[^"]+)"|property="(?:og:|article:)[^"]+")[^>]*>|<link\s[^>]*(?:rel="canonical"|hreflang="[^"]+")[^>]*>|<script type="application\/ld\+json">[\s\S]*?<\/script>/g)].map((match) => match[0]).join("");
       await writeTextFile(path.join(outputRoot, "assets/articles", locale, `${article.sourceDirName}.json`), JSON.stringify({
         id: article.sourceDirName, locale,
+        body: prepareArticleBody(article.bodies[locale]),
         head: { title: pageTitle(article.seo[locale].title, locale), nodes },
-        html: renderReadingArticle(article, locale, liveArticles),
+        html: renderReadingArticle(article, locale, liveArticles,{initial:true}),
         continuation: renderArticleContinuation(article, locale, liveArticles)
       }));
     }

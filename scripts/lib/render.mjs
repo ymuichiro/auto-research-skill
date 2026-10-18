@@ -15,6 +15,7 @@ import { resolveArticleSeo } from "./seo-snippets.mjs";
 import { buildTopicHubs } from "./topic-hubs.mjs";
 import { escapeHtml, formatDisplayDate, formatXml } from "./utils.mjs";
 import { prepareArticleBody, articleReadingMinutes, renderOutline, nextStreamArticle, readingSequence } from "./article-template.mjs";
+import {spatialConfigScript} from './spatial-site.mjs';
 
 const localeCopy = {
   ja: {
@@ -209,14 +210,16 @@ function renderSharedHeadAssets(locale) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="${assetPath("assets/site.css")}">`;
+    <link rel="stylesheet" href="${assetPath("assets/site.css")}">
+    <link rel="stylesheet" href="${assetPath("assets/spatial-site.css")}">`;
 }
 
-function renderSharedPageScript(pageType) {
+function renderSharedPageScript(pageType, spatial) {
   return `    <script src="${assetPath("assets/site-ui.js")}" defer></script>${pageType === "article" ? `
     <script src="${assetPath("assets/article-share.js")}" defer></script>
-    <script type="module" src="${assetPath("assets/article-stream.js")}"></script>` : `
-    <script type="module" src="${assetPath("assets/listing-motion.js")}"></script>`}`;
+    ${spatial ? '' : `<script type="module" src="${assetPath("assets/article-stream.js")}"></script>`}` :
+    (spatial ? '' : `<script type="module" src="${assetPath("assets/listing-motion.js")}"></script>`) }
+    ${spatial ? `<script type="module" src="${assetPath('assets/spatial-site.js')}"></script>` : ''}`;
 }
 
 function localeTag(locale) {
@@ -373,7 +376,8 @@ export function renderPage({
   robotsContent = siteConfig.defaultRobots,
   imagePath = siteConfig.ogImage,
   schemaType,
-  listItems = []
+  listItems = [],
+  spatial = {mode:'document'}
 }) {
   const alternateRelativePath = locale === "ja" ? `en/${relativePath}` : relativePath.replace(/^en\//, "");
   const canonicalUrl = absoluteUrl(relativePath);
@@ -437,7 +441,7 @@ export function renderPage({
     <link rel="alternate" hreflang="${locale === "ja" ? "en" : "ja"}" href="${alternateUrl}">
     <link rel="alternate" hreflang="x-default" href="${defaultLocaleUrl}">
 ${renderSharedHeadAssets(locale)}
-${renderSharedPageScript(pageType)}
+${renderSharedPageScript(pageType,spatial)}
     ${pageType === "article" && article
       ? `${article.publishedAtIso ? `<meta property="article:published_time" content="${escapeHtml(article.publishedAtIso)}">\n    ` : ""}<meta property="article:modified_time" content="${article.lastModified}">
     <meta property="article:section" content="${escapeHtml(article.category)}">
@@ -448,6 +452,7 @@ ${renderSharedPageScript(pageType)}
     ${schemaBlocks}
   </head>
   <body data-page-type="${pageType}">
+    ${spatial ? spatialConfigScript(spatial,locale,relativePath,pageHeading) : ''}
     <div class="page-shell">
       <div class="hero-backdrop"></div>
       <a class="skip-link" href="#main">${locale === "ja" ? "本文へ" : "Skip to content"}</a>
@@ -1103,7 +1108,7 @@ function renderTopicGuide(locale, guide) {
     return "";
   }
 
-  return `<section class="panel-block topic-guide">
+  return `<section class="panel-block topic-guide" id="topic-guide">
     <div>
       <p class="section-kicker">${escapeHtml(guide.kicker)}</p>
       <h2 class="panel-title">${escapeHtml(guide.title)}</h2>
@@ -1310,6 +1315,7 @@ export function renderIndexPage(locale, articles, pagination = {}) {
           : [])
     ],
     pageType: "home",
+    spatial: {mode:'feed',list:articles.map(a=>a.sourceDirName),page:currentPage},
     listItems
   });
 }
@@ -1328,6 +1334,7 @@ export function renderTopicsIndexPage(locale, topicHubs) {
     title: copy.topicsTitle,
     description: copy.topicsIntro,
     pageHeading: copy.topicsTitle,
+    spatial: {mode:'topics'},
     pageIntro: copy.topicsIntro,
     body,
     currentNavPath: locale === "ja" ? "topics/" : "en/topics/",
@@ -1366,6 +1373,7 @@ export function renderTopicHubPage(locale, hub) {
     title: hub.category,
     description: hub.descriptions[locale],
     pageHeading: hub.category,
+    spatial: {mode:'feed',topic:hub.category,list:hub.articles.map(a=>a.sourceDirName)},
     pageIntro: hub.descriptions[locale],
     pageMeta: overview,
     body,
@@ -1470,6 +1478,7 @@ export function renderTimelinePage(locale, articles, topicHubs = []) {
     title: copy.timelineTitle,
     description: copy.timelineIntro,
     pageHeading: copy.timelineTitle,
+    spatial: {mode:'timeline'},
     pageIntro: copy.timelineIntro,
     body,
     currentNavPath: locale === "ja" ? "timeline/" : "en/timeline/",
@@ -1672,7 +1681,8 @@ export function renderArticlePage(article, locale, articles = []) {
     body: `<div class="article-stream" data-article-stream data-locale="${locale}">${renderReadingArticle(article, locale, articles, { initial: true })}${renderArticleContinuation(article, locale, articles)}</div>`,
     currentNavPath: localeCopy[locale].homePath, article, imagePath: siteConfig.ogImage,
     breadcrumbs: [{ name: localeCopy[locale].homeTitle, path: localeCopy[locale].homePath }, ...(topicHubPath ? [{ name: localeCopy[locale].topicsTitle, path: topicIndexRelativePath(locale) }, { name: article.category, path: topicHubPath }] : []), { name: title, path: relativePath }],
-    pageType: "article"
+    pageType: "article",
+    spatial: {mode:'read',article:article.sourceDirName}
   });
 }
 

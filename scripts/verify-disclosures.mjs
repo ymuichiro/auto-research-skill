@@ -20,7 +20,7 @@ try {for(const [engine,type,executablePath] of [['chromium',chromium,process.env
       for(;;){
         const current=index++;if(current>=files.length)break;
         errors=[];
-        const file=files[current];const response=await page.goto(base+'/'+file,{waitUntil:'domcontentloaded'});
+        const file=files[current];const response=await page.goto(base+'/'+file+'?view=static',{waitUntil:'domcontentloaded'});
         await page.evaluate(()=>{document.querySelectorAll('.reading-evidence, .reading-toc').forEach(el=>el.open=true);});
         await page.evaluate(()=>document.fonts.ready);
         const toc=await page.evaluate(()=>{
@@ -54,5 +54,5 @@ try {for(const [engine,type,executablePath] of [['chromium',chromium,process.env
 }}finally{await preview.close();}
 const failures=checks.filter(r=>r.status!==200||r.toc.count!==r.toc.expected||r.toc.invalid.length||r.overflow.length||r.dialogOverflow.length||r.errors.length);
 await writeFile(`${output}/disclosures.json`,JSON.stringify({articles:files.length,checks:checks.length,failures,results:checks},null,2));
-console.log(`${files.length} article pages × 4 widths × 2 engines: ${checks.length} expanded-source/outline/dialog checks, ${failures.length} failures.`);
+console.log(`Standard-view fallback: ${files.length} article pages × 4 widths × 2 engines: ${checks.length} expanded-source/outline/dialog checks, ${failures.length} failures.`);
 if(failures.length)process.exitCode=1;
