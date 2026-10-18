@@ -141,11 +141,18 @@ async function start(config) {
     node.innerHTML=`<header class="paper-head"><div class="paper-meta"><span class="paper-category">${esc(a.category)}</span><span class="relation-label"></span><time datetime="${a.date}" title="${copy.research}">${date(a.date)}</time></div><h2 class="article-title"><a class="title-open" data-read="${a.id}" href="${a.url}">${esc(a.title)}</a></h2></header><div class="paper-preview"><p class="preview-copy">${esc(a.teaser)}</p><div class="paper-tags">${a.tags.slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="preview-actions"><span>${copy.sources(a.sourceCount)}</span><a class="read-button" data-read="${a.id}" href="${a.url}">${copy.read} <span aria-hidden="true">↗</span></a></div></div><div class="read-pane"></div>`;
     document.getElementById('article-space').append(node);articleNodes.set(a.id,node);
   }
-  const topicNodes=new Map();
-  for(const t of topics) {
-    const node=document.createElement('article');node.className='paper topic-paper';node.dataset.topic=t.id;
-    node.innerHTML=`<div class="month-inner"><h2 class="topic-title"><a href="${t.url}" data-open-topic="${t.id}">${esc(t.title)}</a></h2><p class="month-description">${esc(t.description)}</p><a class="month-open" data-open-topic="${t.id}" href="${t.url}">${copy.theme} <span aria-hidden="true">↗</span></a><span class="topic-count">${copy.articles(t.articles.length)}</span></div>`;
-    document.getElementById('month-space').append(node);topicNodes.set(t.id,node);
+  const topicOverview=document.createElement('section');topicOverview.className='topics-overview';topicOverview.hidden=true;
+  topicOverview.innerHTML=`<h2 class="topics-heading">${copy.topics}</h2><div class="topics-layout"><nav class="topic-selector" aria-label="${copy.topics}">${topics.map(t=>`<button data-select-topic="${t.id}" aria-pressed="false"><span class="topic-symbol" aria-hidden="true">${{'ai-agents':'◈','ai-strategy':'▥','ai-workflows':'⌘','on-device-ai':'▣','agentic-commerce':'◇','ai-security':'⬡','ai-research':'◫'}[t.id]??'◈'}</span><span>${esc(t.title)}</span></button>`).join('')}</nav><section class="topic-results" aria-label="${copy.topics}"></section></div>`;
+  workspace.append(topicOverview);let shownTopic='';
+  function drawTopics(){
+    const t=topics[focusIndex()],results=topicOverview.querySelector('.topic-results');
+    topicOverview.querySelectorAll('[data-select-topic]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.selectTopic===t.id)));
+    if(shownTopic===t.id)return;shownTopic=t.id;
+    const recent=t.articles.map(id=>byId.get(id)).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date)||a.id.localeCompare(b.id)).slice(0,4);
+    results.setAttribute('aria-label',t.title);
+    const imageUrl=new URL('../topic-flow.webp',new URL(config.catalog,location.href));
+    results.innerHTML=`<div class="topic-results-heading"><h2>${esc(t.title)}</h2><a data-open-topic="${t.id}" href="${t.url}">${copy.theme} ↗</a></div><div class="topic-articles">${recent.map((a,i)=>`<article class="topic-article ${i===0?'is-featured':''}" style="--peek:${i}"><a data-read="${a.id}" href="${a.url}" class="topic-article-link"><img src="${/workflows|crm|security|commerce/.test(a.id)?new URL('topic-execution.webp',imageUrl):imageUrl}" alt="" width="480" height="320" style="object-position:${i%2?'80%':'25%'} center"/><div class="topic-article-copy"><time datetime="${a.date}">${date(a.date)}</time><h3>${esc(a.title)}</h3>${i===0?`<p>${esc(a.teaser)}</p><span class="topic-read">${copy.read} ↗</span>`:''}</div></a></article>`).join('')}</div>`;
+    if(!reduced.matches)results.querySelectorAll('.topic-article').forEach((node,i)=>node.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:320,delay:i*35,easing:'ease-out'}));
   }
   let documentKey='';
   function installDocument(body,title,key) {
@@ -182,10 +189,11 @@ async function start(config) {
     });
     if(id!=='__document') {
       const full=new DOMParser().parseFromString(payload.html,'text/html'),evidence=full.querySelector('.reading-evidence');
-      const source=document.createElement('section');source.className='chapter';source.dataset.chapter=sections.length;source.dataset.fragment='sources';source.id='sources';
+      const source=document.createElement('section');source.className='chapter evidence-chapter';source.dataset.chapter=sections.length;source.dataset.fragment='sources';source.id='sources';
       source.innerHTML=`<h3><button class="chapter-toggle" data-chapter="${sections.length}" aria-expanded="false"><span class="chapter-number">${String(sections.length+1).padStart(2,'0')}</span><span class="chapter-name">${copy.evidence}</span></button></h3><div class="chapter-body" tabindex="0" role="region" aria-label="${copy.evidence}">${full.querySelector('.reading-header .meta-row')?.outerHTML??''}${full.querySelector('.reading-duration')?.outerHTML??''}${[...evidence?.children??[]].filter(el=>el.tagName!=='SUMMARY').map(el=>el.outerHTML).join('')}</div>`;
       list.append(source);
     }
+    pane.querySelectorAll('.evidence-chapter .panel-block > div:first-child').forEach(el=>el.className='evidence-heading');
     pane.querySelectorAll('.chapter-body').forEach(body=>{
       const content=document.createElement('div');content.className='chapter-content';content.append(...body.childNodes);body.append(content);
       const preview=document.createElement('p');preview.className='chapter-preview';preview.setAttribute('aria-hidden','true');
@@ -393,7 +401,7 @@ async function start(config) {
     const foldedBottom={x:ax+12,y:h-(compact?40:68),w:aw-24,h:compact?36:64,scale:.95,rx:-9,fold:1,opacity:.82};
     const front={x:ax,y:ay,w:aw,h:Math.max(compact?180:260,ah),scale:1,rx:0,fold:0,opacity:1};
     for(const node of monthNodes.values())pose(node,{x:ax,y:0,w:aw,h:compact?28:40,opacity:0,fold:0});
-    for(const node of topicNodes.values())pose(node,{x:ax,y:h+70,w:aw,h:64,opacity:0,fold:1});
+    topicOverview.hidden=state.mode!=='topics';
     for(const node of articleNodes.values()){
       node.classList.remove('reading');node.removeAttribute('data-relation');
       const title=node.querySelector('.article-title'),tag=(state.mode==='read'&&node.dataset.article===state.article)||(state.mode==='document'&&node.classList.contains('document-paper'))?'H1':'H2';
@@ -431,10 +439,7 @@ async function start(config) {
       const node=articleNodes.get('__document');node.classList.add('reading');chapters();
       const width=Math.min(900,w-32);pose(node,{x:(w-width)/2,y:6,w:width,h:h-16,opacity:1,z:120,front:true});
     } else if(state.mode==='topics') {
-      for(let i=Math.max(0,index-1);i<=Math.min(topics.length-1,index+1);i++){
-        const pos=i===index?mix(front,foldedTop,q):i===index+1?mix(foldedBottom,front,q):{...foldedTop,opacity:foldedTop.opacity*(1-q)**4};
-        pose(topicNodes.get(topics[i].id),{...pos,z:i===activeIndex?110:50-i,front:i===activeIndex});
-      }
+      drawTopics();
     } else if(state.mode==='related') {
       const list=relatedTo(state.origin),source=articleNodes.get(state.origin),cx=mobile?16:Math.max(360,w*.4),cw=mobile?w-32:Math.min(640,w-cx-20);
       const rf={...front,x:cx,w:cw,y:compact?46:mobile?90:86,h:compact?Math.max(180,h-92):Math.max(260,Math.min(420,h-175))};
@@ -456,11 +461,12 @@ async function start(config) {
   function schedule(){if(!frame)frame=requestAnimationFrame(draw);}
   function configureScroll(p=state.progress) {
     step=innerWidth<760?460:540;
-    const distance=['read','document'].includes(state.mode)?0:Math.max(0,ids().length-1)*step;
+    const distance=['read','document','topics'].includes(state.mode)?0:Math.max(0,ids().length-1)*step;
     document.body.classList.toggle('read-mode',['read','document'].includes(state.mode));
     document.body.classList.toggle('document-mode',state.mode==='document');
+    document.body.classList.toggle('topics-mode',state.mode==='topics');
     track.style.height=`${innerHeight+distance}px`;
-    ignoreScroll=true;configuredY=clamp(p,0,ids().length-1)*step;scrollTo({top:configuredY,behavior:'instant'});
+    ignoreScroll=true;configuredY=state.mode==='topics'?0:clamp(p,0,ids().length-1)*step;scrollTo({top:configuredY,behavior:'instant'});
     requestAnimationFrame(()=>requestAnimationFrame(()=>{ignoreScroll=false;}));
   }
   const status=app.querySelector('.workspace-status'),menu=app.querySelector('.spatial-menu');
@@ -547,7 +553,7 @@ async function start(config) {
     if(state.mode==='feed'&&state.topic){void navigate({mode:'topics',progress:topics.findIndex(t=>t.title===state.topic),fragment:''});return;}
     void navigate({mode:'timeline',progress:monthStart(state.month),fragment:''});
   }
-  function seek(index) {scrollTo({top:clamp(index,0,ids().length-1)*step,behavior:reduced.matches?'instant':'smooth'});}
+  function seek(index) {if(state.mode==='topics'){state.progress=clamp(index,0,topics.length-1);draw();topicOverview.querySelector(`[data-select-topic="${focusId()}"]`).focus({preventScroll:true});remember();return;}scrollTo({top:clamp(index,0,ids().length-1)*step,behavior:reduced.matches?'instant':'smooth'});}
 
   app.addEventListener('click',event=>{
     if(event.defaultPrevented)return;
@@ -560,6 +566,7 @@ async function start(config) {
     if(button.tagName==='A'&&(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||button.target||button.hasAttribute('download')))return;
     if(button.classList.contains('spatial-skip')){event.preventDefault();const target=app.querySelector('.reading .chapter.active .chapter-body')??workspace;target.focus({preventScroll:true});return;}
     if(button.dataset.openMonth){void openMonth(button.dataset.openMonth);return;}
+    if(button.dataset.selectTopic){state.progress=topics.findIndex(t=>t.id===button.dataset.selectTopic);draw();remember();return;}
     if(button.dataset.openTopic){event.preventDefault();const topic=topics.find(t=>t.id===button.dataset.openTopic);void navigate({mode:'feed',topic:topic.title,list:topic.articles,path:topic.url,progress:0,fragment:''});return;}
     if(button.dataset.read){event.preventDefault();void openRead(button.dataset.read);return;}
     if(button.tagName==='A'&&button.getAttribute('href').startsWith('#')) {
@@ -613,7 +620,7 @@ async function start(config) {
     }catch(error){if(error.name!=='AbortError'){message(copy.copyError);statusTimer=setTimeout(()=>message(''),2500);}}
   }
   addEventListener('scroll',()=>{
-    if(['read','document'].includes(state.mode)||(ignoreScroll&&Math.abs(scrollY-configuredY)<1)||menu.open)return;
+    if(['read','document','topics'].includes(state.mode)||(ignoreScroll&&Math.abs(scrollY-configuredY)<1)||menu.open)return;
     ignoreScroll=false;
     app.classList.remove('switching');state.progress=clamp(scrollY/step,0,ids().length-1);schedule();
     clearTimeout(saveTimer);saveTimer=setTimeout(remember,160);
