@@ -38,6 +38,8 @@ try{for(const [engine,type]of[['chromium',chromium],['webkit',webkit]]){
       if(url){await p.goto(new URL(url,base).href);await ready(p);}
       const scene=p.locator('[data-news-sequence]');
       assert.equal(await scene.getAttribute('data-scene-mode'),'pinned',`${engine} ${width} ${locale} ${kind}: ${await scene.evaluate(e=>JSON.stringify({style:e.getAttribute('style'),header:document.querySelector('.site-header').clientHeight,natural:[...e.querySelectorAll('[data-listing-motion]')].map(n=>n.parentElement.getBoundingClientRect().height)}))}`);
+      const firstHeading=await scene.locator('.editorial-briefing-title,.article-card-title').first().boundingBox();
+      assert(firstHeading.y+Math.min(44,firstHeading.height)<height,`${engine} ${width} ${locale} ${kind}: an article title should be visible on entry, rather than only explanatory panels (${firstHeading.y}px)`);
       const contents=await scene.locator('[data-listing-motion]').evaluateAll(nodes=>nodes.map(n=>n.textContent));
       const identities=await scene.locator('[data-listing-motion]').evaluateAll(nodes=>nodes.map(n=>({
         href:n.getAttribute('href')??n.querySelector('.editorial-briefing-link').getAttribute('href'),

@@ -58,10 +58,6 @@ export const siteConfig = {
       en: "AI Agent and Generative AI Adoption, Evaluation, and Operations"
     }
   },
-  heroKicker: {
-    ja: "Research Signal",
-    en: "Research Signal"
-  },
   taglines: {
     ja: "AIエージェントと生成AIの業務導入を、一次情報から考える",
     en: "Thinking about adopting AI agents and generative AI for work through primary sources."
