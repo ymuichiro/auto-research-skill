@@ -13,6 +13,7 @@ html{scrollbar-width:none}html::-webkit-scrollbar{display:none}
 #month-space,#article-space{pointer-events:none}
 .article-paper[data-folded=true] .article-title{-webkit-line-clamp:1}
 .title-open{text-wrap:pretty;line-break:strict}
+.article-paper[data-folded=true] .title-open{white-space:nowrap;text-wrap:nowrap;overflow:hidden;text-overflow:ellipsis}
 .chapter-body .comparison-grid{margin:20px 0}
 .chapter-body .comparison-card{padding:16px;border:1px solid #d5e5e8;background:#f3f8fa;border-radius:8px}
 .chapter-body .comparison-card h3{font-size:15px;line-height:1.7}

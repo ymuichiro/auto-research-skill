@@ -30,11 +30,14 @@ async function journey(engine,name,viewport,touch=false){
     recordVideo:{dir:out+'videos',size:viewport}});
   const page=await context.newPage(),errors=[];
   page.on('pageerror',e=>errors.push(e.message));
+  page.on('requestfailed',req=>{if(new URL(req.url()).origin===new URL(url).origin)errors.push(`${req.url()}: ${req.failure()?.errorText}`);});
   const record={name,engine:engine.name(),viewport,checks:[]};
   function check(name,value=true){assert.ok(value,name);record.checks.push(name);}
   try{
-    await page.goto(url);await page.evaluate(()=>document.fonts.ready);await pause(page);
+    await page.goto(url);await page.waitForFunction(()=>window.spatialPrototype);await page.evaluate(()=>document.fonts.ready);await pause(page);
     await page.screenshot({path:out+name+'-timeline.png'});
+    const foldedTitles=await page.locator('.article-paper[data-folded=true]:not([aria-hidden=true]) .title-open').evaluateAll(es=>es.map(e=>({height:e.getBoundingClientRect().height,line:parseFloat(getComputedStyle(e).lineHeight)})));
+    check('folded titles stay on a single readable line',foldedTitles.length>0&&foldedTitles.every(t=>t.height<=t.line+2));
     const workspace=await geometry(page,'#workspace');
     const initialMonth=(await state(page)).focus;
     const monthSelector=`[data-month="${initialMonth}"]`;
@@ -109,7 +112,7 @@ async function journey(engine,name,viewport,touch=false){
     check('no horizontal page overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
     check('no browser script errors',errors.length===0);
     record.status='passed';
-  }catch(error){record.status='failed';record.error=error.stack;await page.screenshot({path:out+name+'-failure.png'});throw error;}
+  }catch(error){record.status='failed';record.error=error.stack;record.browserErrors=errors;await page.screenshot({path:out+name+'-failure.png'});throw error;}
   finally{
     const video=page.video();await context.close();await video.saveAs(out+name+'-journey.webm');
     await browser.close();results.push(record);await writeFile(out+'verification.json',JSON.stringify(results,null,2));

@@ -8,7 +8,7 @@
 
 ```sh
 rtk proxy node prototypes/spatial-reader/build.mjs
-rtk proxy python3 -m http.server 4174 --bind 127.0.0.1 --directory prototypes/spatial-reader
+rtk proxy node prototypes/spatial-reader/serve.mjs
 ```
 
 - 実寸: http://localhost:4174/
@@ -41,8 +41,11 @@ rtk proxy node prototypes/spatial-reader/verify.mjs
 rtk proxy node prototypes/spatial-reader/verify-accessibility.mjs
 rtk proxy node prototypes/spatial-reader/verify-corpus.mjs
 rtk proxy node prototypes/spatial-reader/verify-rendering.mjs
+rtk proxy node prototypes/spatial-reader/verify-startup.mjs
 ```
 
 証拠は `output/spatial-reader/` に保存します。`verify.mjs` は実際にブラウザーを起動し、ホイール、Chromium のタッチ入力エミュレーション、タップ、WebKit のキーボードとタップ、停止・巻き戻し、章、関連記事、履歴を検証し、画面と動画を記録します。WebKit のモバイル設定では Playwright のホイール入力が利用できないため、時系列移動と本文スクロールにはキーボードを使います。スマートフォン実機・本番での検証結果ではありません。
 
 `verify-accessibility.mjs` はキーボード操作・動きを抑える設定・リサイズ・JavaScript 無効時のリンクを、`verify-corpus.mjs` は全記事・全章の本文領域が表示可能かを確認します。`verify-rendering.mjs` は Noto Sans JP の読み込み、既存の比較図の表示、ローカルブラウザーでのフレーム間隔を確認します。これらはアクセシビリティ全体の適合認証、端末性能の保証、全ての図表の実機確認を意味しません。
+
+`verify-startup.mjs` は外部フォントの通信を切り分け、Chromium / WebKit の各4タブでローカルのHTML・データ・スクリプトを同時に初回読み込みします。確認用サーバーは Node.js の標準HTTPサーバーを使い、開発中のキャッシュを無効にしています。
