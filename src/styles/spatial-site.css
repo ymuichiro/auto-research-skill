@@ -121,3 +121,12 @@ html.spatial-active{scrollbar-width:none}html.spatial-active::-webkit-scrollbar{
 #spatial-startup[hidden]{display:none}
 #spatial-startup button{font:inherit;padding:10px 20px;border:1px solid #b8d7d8;border-radius:6px;background:#fff;color:#287e7d;cursor:pointer}
 @media print{#spatial-startup{display:none!important}}
+
+/* Reading unfolds at the end of the current chapter; short chapters keep the next preview close. */
+#spatial-app .chapter-list{position:relative;grid-template-rows:var(--prev-height,0px) minmax(0,var(--active-height,1fr)) var(--next-height,48px);align-content:start}
+#spatial-app .chapter-content{display:flow-root}
+#spatial-app .chapter-preview{display:none;margin:0 2px 10px 34px;font-size:13px;line-height:1.7;color:#6a828c;overflow:hidden}
+#spatial-app .chapter-list[data-preview=true] .chapter.next .chapter-preview{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2}
+#spatial-app .chapter.previous,#spatial-app .chapter.next{overflow:hidden}
+#spatial-app .chapter.pull-previous{display:flex;position:absolute;top:-48px;left:0;right:0;height:48px;z-index:2;background:#f7fbfc}
+#spatial-app .toc-open .chapter-preview{display:none!important}

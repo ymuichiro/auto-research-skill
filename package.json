@@ -24,7 +24,8 @@
     "test:spatial:accessibility": "node scripts/test-spatial-accessibility.mjs",
     "verify:design": "node scripts/test-spatial-quality.mjs",
     "test:authoring": "node scripts/test-authoring.mjs",
-    "verify:disclosures": "node scripts/verify-disclosures.mjs"
+    "verify:disclosures": "node scripts/verify-disclosures.mjs",
+    "test:chapter-scroll": "node scripts/test-chapter-scroll.mjs"
   },
   "devDependencies": {
     "daisyui": "^4.12.24",

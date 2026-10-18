@@ -45,6 +45,7 @@ jobs:
         run: |
           pnpm test:authoring
           pnpm test:spatial
+          pnpm test:chapter-scroll
           pnpm test:spatial:accessibility
           pnpm test:spatial:quality
           pnpm verify:disclosures
