@@ -519,7 +519,13 @@ async function start(config) {
       if(state.mode==='feed'&&!state.topic&&state.path===paths.home)state.list=articles.map(a=>a.id);
       if(['read','document'].includes(state.mode))state.chapter=fragmentChapter(state.mode==='document'?'__document':state.article,state.fragment,state.chapter);
       state.progress=clamp(state.progress,0,ids().length-1);
-      if(animate&&!reduced.matches){app.classList.add('switching');clearTimeout(switchTimer);switchTimer=setTimeout(()=>app.classList.remove('switching'),720);}
+      if(animate&&!reduced.matches){
+        // Commit the current pose before changing modes. WebKit can otherwise
+        // coalesce the starting geometry and expanded geometry into one paint.
+        const openingSurface=articleNodes.get(proposed.mode==='document'?'__document':proposed.article);
+        openingSurface?.getBoundingClientRect();
+        app.classList.add('switching');clearTimeout(switchTimer);switchTimer=setTimeout(()=>app.classList.remove('switching'),720);
+      }
       configureScroll();draw();setHead(record);
       const current=articleNodes.get(state.mode==='document'?'__document':state.article);
       const body=current?.querySelector('.chapter.active .chapter-body');
