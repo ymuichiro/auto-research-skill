@@ -56,11 +56,22 @@ async function journey(engine,locale,viewport){
     await seekExact(0);
     const id=(await getState(page)).focus,article=catalog.articles.find(a=>a.id===id);
     await page.evaluate(id=>{window.originalSurface=document.querySelector(`#spatial-app [data-article="${id}"]`);},id);
+    // Sample in the browser: WebKit on a busy CI runner may finish the
+    // transition before the first geometry request reaches it over the wire.
+    await page.evaluate(()=>{
+      window.testOpeningFrames=[];const started=performance.now();let opened;
+      function sample(){
+        const node=document.querySelector('#spatial-app .reading');
+        if(node){opened??=performance.now();const r=node.getBoundingClientRect();window.testOpeningFrames.push({h:r.height,y:r.y});}
+        if(performance.now()-started<6000&&(!opened||performance.now()-opened<850))requestAnimationFrame(sample);
+      }
+      requestAnimationFrame(sample);
+    });
     // The whole card, including whitespace, opens the article.
     await page.locator('.article-paper[data-front=true]').click({position:{x:25,y:200}});await waitMode(page,'read');
-    await page.waitForTimeout(150);const opening=await geometry(page,'.article-paper[data-front=true]');await settled(page);
-    const complete=await geometry(page,'.article-paper[data-front=true]');
-    check('article unfolds through intermediate geometry',Math.abs(opening.h-complete.h)>2||Math.abs(opening.y-complete.y)>2);
+    await settled(page);
+    const opening=await page.evaluate(()=>window.testOpeningFrames);
+    check('article unfolds through intermediate geometry',opening.length>2&&['h','y'].some(key=>Math.max(...opening.map(r=>r[key]))-Math.min(...opening.map(r=>r[key]))>2));
     check('same article surface opens',await page.evaluate(()=>document.querySelector('#spatial-app .reading')===window.originalSurface));
     check('uses published article URL',new URL(page.url()).pathname===article.url);
     check('language link follows article',new URL(await page.locator('#spatial-language').getAttribute('href'),server.base).pathname===article.alternate);
