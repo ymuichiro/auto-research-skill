@@ -82,15 +82,15 @@ async function start(config) {
   const documentBody=documentSections.length?documentSections.map(s=>s.outerHTML).join(''):`<section><h2>${esc(config.title)}</h2>${fallbackMain.querySelector('.content-stack')?.innerHTML??''}</section>`;
   const app=document.createElement('div');app.id='spatial-app';app.style.visibility='hidden';
   const track=document.createElement('div');track.id='scroll-track';track.setAttribute('aria-hidden','true');
-  const menuLinks=[...new Map([...catalog.navigation,...catalog.footer].map(n=>[n.url,n])).values()].map(n=>`<a href="${esc(n.url)}">${esc(n.label)}</a>`).join('');
+  const menuLinks=[...new Map([...catalog.navigation,...catalog.footer].map(n=>[n.url,n])).values()].map(n=>`<a tabindex="0" href="${esc(n.url)}">${esc(n.label)}</a>`).join('');
   app.innerHTML=`<a class="spatial-skip" href="#workspace">${copy.skip}</a><header class="app-header">
     <a class="brand" href="${paths.home}"><img class="brand-logo" src="${new URL('../favicon.svg',new URL(config.catalog,location.href))}" width="28" height="28" alt="" aria-hidden="true">AUTO RESEARCH DIGEST</a>
-    <div class="header-actions"><a id="spatial-language" class="language-link" href="${fallback.querySelector('.lang-switch').getAttribute('href')}">${copy.language}</a><button data-action="menu" aria-haspopup="dialog">${icon('menu')}<span class="sr-only">${copy.menu}</span></button></div></header>
+    <div class="header-actions"><a id="spatial-language" class="language-link" href="${fallback.querySelector('.lang-switch').getAttribute('href')}">${copy.language}</a><button data-action="menu" aria-haspopup="dialog" aria-controls="navigation-drawer" aria-expanded="false">${icon('menu')}<span class="sr-only">${copy.menu}</span></button></div></header>
     <nav id="breadcrumbs" class="breadcrumbs" aria-label="${copy.workspace}"></nav>
     <main id="workspace" aria-label="${copy.workspace}" tabindex="-1"><h1 id="workspace-heading" class="sr-only">${esc(config.title)}</h1><div class="time-line" aria-hidden="true"></div><svg id="relations" aria-hidden="true"></svg><div id="month-space"></div><div id="article-space"></div></main>
     <nav id="month-rail" class="month-rail" aria-label="${copy.months}"></nav><div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
     <div class="workspace-status" role="status" hidden></div>
-    <dialog class="spatial-menu" aria-label="${copy.menu}"><button data-action="close-menu">${icon('close')}<span class="sr-only">${copy.close}</span></button><nav>${menuLinks}</nav></dialog>`;
+    <dialog id="navigation-drawer" class="spatial-menu" aria-label="${copy.menu}"><button data-action="close-menu">${icon('close')}<span class="sr-only">${copy.close}</span></button><nav>${menuLinks}</nav></dialog>`;
   document.body.append(track,app);
   history.scrollRestoration='manual';
   const byId = new Map(articles.map(a => [a.id,a]));
@@ -366,6 +366,18 @@ async function start(config) {
     requestAnimationFrame(()=>requestAnimationFrame(()=>{ignoreScroll=false;}));
   }
   const status=app.querySelector('.workspace-status'),menu=app.querySelector('.spatial-menu');
+  const menuToggle=app.querySelector('[data-action=menu]');
+  menu.addEventListener('close',()=>{menuToggle.setAttribute('aria-expanded','false');menuToggle.focus({preventScroll:true});});
+  menu.addEventListener('keydown',event=>{
+    if(event.key!=='Tab')return;
+    const items=[...menu.querySelectorAll('button,a[href]')],first=items[0],last=items.at(-1);
+    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}
+  });
+  const outsideMenu=event=>{const r=menu.getBoundingClientRect();return event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom;};
+  let backdropPressed=false;
+  menu.addEventListener('pointerdown',event=>{backdropPressed=event.target===menu&&outsideMenu(event);});
+  menu.addEventListener('click',event=>{if(backdropPressed&&event.target===menu&&outsideMenu(event))menu.close();backdropPressed=false;});
   let retryNavigation=null,statusTimer;
   function message(text,{error=false}={}) {
     clearTimeout(statusTimer);status.hidden=!text;
@@ -490,7 +502,11 @@ async function start(config) {
       case'toc':state.toc=!state.toc;draw();break;
       case'related':void navigate({mode:'related',origin:state.article,progress:0,fragment:''});break;
       case'guide':void navigate({mode:'document',documentPath:state.path,guide:true,chapter:0,fragment:'topic-guide',progress:0});break;
-      case'menu':menu.showModal();break;
+      case'menu':
+        menu.querySelectorAll('nav a').forEach(link=>{if(new URL(link.href).pathname===location.pathname)link.setAttribute('aria-current','page');else link.removeAttribute('aria-current');});
+        menu.showModal();menuToggle.setAttribute('aria-expanded','true');
+        if(!reduced.matches)menu.animate([{transform:'translateX(100%)'},{transform:'translateX(0)'}],{duration:220,easing:'cubic-bezier(.2,.75,.15,1)'});
+        break;
       case'close-menu':menu.close();break;
       case'retry':void retryNavigation?.();break;
       case'share':void share();break;

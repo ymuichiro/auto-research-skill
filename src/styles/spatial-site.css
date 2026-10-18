@@ -39,11 +39,11 @@ body.spatial-active.document-mode #spatial-app #workspace{left:28px;bottom:16px}
 #spatial-app .workspace-status{position:absolute;top:70px;right:20px;z-index:1500;background:#f7fcfbee;border:1px solid #bfd9de;border-radius:8px;padding:8px 12px;font-size:12px;max-width:calc(100% - 32px);box-shadow:0 8px 28px #45677522;pointer-events:none}
 #spatial-app .workspace-status.is-error{pointer-events:auto}
 #spatial-app .workspace-status a,#spatial-app .workspace-status button{color:var(--signal);padding:8px;background:none;white-space:nowrap;display:inline-block}
-#spatial-app .spatial-menu{border:1px solid #c8dde1;border-radius:16px;background:#f7fbfc;color:var(--ink);padding:20px;width:min(440px,calc(100% - 32px));max-height:calc(100svh - 40px);box-shadow:0 24px 90px #2f556333;overflow:auto}
-#spatial-app .spatial-menu::backdrop{background:#274c6040;backdrop-filter:blur(5px)}
+#spatial-app .spatial-menu{position:fixed;inset:0 0 0 auto;margin:0;border:0;border-radius:0;background:#f7fbfc;color:var(--ink);padding:max(20px,env(safe-area-inset-top)) 20px max(20px,env(safe-area-inset-bottom));width:min(320px,86vw);max-width:none;height:100dvh;max-height:none;box-shadow:-16px 0 60px #2f55631c;overflow:auto;overscroll-behavior:contain}
+#spatial-app .spatial-menu::backdrop{background:#274c6033}
 #spatial-app .spatial-menu>button{display:block;margin-left:auto;background:none;padding:8px 12px;min-height:44px;font-size:13px}
 #spatial-app .spatial-menu nav{display:flex;flex-direction:column}
-#spatial-app .spatial-menu nav a{padding:12px 8px;min-height:44px;font-size:14px;border:0;color:var(--ink)}
+#spatial-app .spatial-menu nav a{padding:16px;min-height:52px;font-size:14px;border:0;border-radius:7px;color:var(--ink);text-decoration:none}#spatial-app .spatial-menu nav{gap:6px;margin-top:24px}#spatial-app .spatial-menu nav a:hover,#spatial-app .spatial-menu nav a[aria-current=page]{background:#e1f2ef;color:#246f72}
 #spatial-app .paper[inert]{will-change:auto}
 #spatial-app .chapter-body{overflow-anchor:none}
 #spatial-app .chapter-list{grid-template-columns:minmax(0,1fr)}

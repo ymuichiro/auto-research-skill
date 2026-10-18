@@ -29,7 +29,8 @@
     "test:topics-evidence": "node scripts/test-topics-evidence.mjs",
     "verify:illustrations": "node scripts/verify-illustrations.mjs",
     "test:illustrations": "node scripts/test-illustrations.mjs",
-    "test:timeline-preview": "node scripts/test-timeline-preview.mjs"
+    "test:timeline-preview": "node scripts/test-timeline-preview.mjs",
+    "test:navigation-drawer": "node scripts/test-navigation-drawer.mjs"
   },
   "devDependencies": {
     "daisyui": "^4.12.24",
