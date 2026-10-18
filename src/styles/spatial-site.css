@@ -61,7 +61,6 @@ body.spatial-active.document-mode #spatial-app #workspace{left:28px;bottom:16px}
   #spatial-app .language-link{font-size:9px;padding:6px 3px}
   body.spatial-active.document-mode #spatial-app #workspace{left:0}
   #spatial-app .reader-toolbar{gap:2px}
-  #spatial-app .reader-toolbar button[data-action=copy]{min-width:38px;justify-content:center;display:flex;align-items:center}
 }
 @media(max-height:539px){
   #spatial-app .app-header{height:48px;padding:0 16px}
@@ -207,3 +206,10 @@ body.spatial-active.topics-mode #spatial-app .time-line{display:none}
 
 #spatial-app .brand-logo{display:block;width:28px;height:28px;flex:none}
 @media(max-width:759px){#spatial-app .brand-logo{width:25px;height:25px}}
+
+#spatial-app .reader-toolbar{justify-content:flex-start;gap:8px;padding-bottom:12px}
+#spatial-app .reader-toolbar button{display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:8px 16px;border:0;border-radius:7px;background:#eef6f6;color:#365f6b;box-shadow:0 2px 5px #45677508;transition:background .15s,color .15s}
+#spatial-app .reader-toolbar button:hover{background:#dfefed;color:#246f72}
+#spatial-app .reader-toolbar button:active,#spatial-app .reader-toolbar button[aria-pressed=true]{background:#d9eeea;color:#205f64}
+@media(max-width:759px){#spatial-app .reader-toolbar{gap:7px;padding-bottom:10px}#spatial-app .reader-toolbar button{min-height:44px;padding:8px 12px;font-size:11px;flex:1}}
+@media(max-height:539px){#spatial-app .reader-toolbar{padding-bottom:5px}#spatial-app .reader-toolbar button{min-height:36px;padding:5px 12px}}

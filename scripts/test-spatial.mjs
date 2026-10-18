@@ -96,9 +96,11 @@ async function journey(engine,locale,viewport){
     const scroll=await page.locator(body).evaluate(e=>({top:e.scrollTop,max:e.scrollHeight-e.clientHeight,h:e.clientHeight}));
     check('body is readable',scroll.h>=100);if(scroll.max>2)check('native input scrolls body',scroll.top>0);
     check('body scroll does not advance workspace',await page.evaluate(()=>scrollY===0));
-    await page.locator('.reading [data-action=copy]').click();
-    check('copy uses canonical URL and chapter',await page.evaluate(()=>window.testCopied.includes('#section-4')&&window.testCopied.includes('https://research.notelligent.app/')));
+    check('no standalone copy button',await page.locator('.reading [data-action=copy]').count()===0);
     await page.locator('.reading [data-action=share]').click();check('share contract follows current article',await page.evaluate(()=>window.testShared.url.includes('#section-4')));
+    await page.evaluate(()=>Object.defineProperty(navigator,'share',{configurable:true,value:undefined}));
+    await page.locator('.reading [data-action=share]').click();
+    check('share fallback copies canonical chapter URL',await page.evaluate(()=>window.testCopied.includes('#section-4')&&window.testCopied.includes('https://research.notelligent.app/')));
     await page.locator('.reading [data-action=related]').click();await waitMode(page,'related');await settled(page);
     await page.screenshot({path:`${out}/${name}-related.png`});
     const target=(await getState(page)).focus;

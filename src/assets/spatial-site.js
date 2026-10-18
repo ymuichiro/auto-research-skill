@@ -177,7 +177,7 @@ async function start(config) {
     if(pane.dataset.built)return;
     const a=byId.get(id),payload=payloads.get(id),doc=new DOMParser().parseFromString(id==='__document'?a.body:payload.body,'text/html');
     const sections=[...doc.body.children].filter(el=>el.matches('section'));
-    pane.innerHTML=`<div class="reader-toolbar"><button data-action="toc" aria-pressed="false">${copy.toc}</button>${id==='__document'?'':`<button data-action="copy" aria-label="${copy.copy}" title="${copy.copy}"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 5H5v12"/></svg></button><button data-action="share" ${typeof navigator.share==='function'?'':'hidden'}>${copy.share}</button><button data-action="related">${copy.related} <span aria-hidden="true">↗</span></button>`}</div><div class="chapter-list" aria-label="${copy.chapter}"></div>`;
+    pane.innerHTML=`<div class="reader-toolbar"><button data-action="toc" aria-pressed="false">${copy.toc}</button>${id==='__document'?'':`<button data-action="share">${copy.share}</button><button data-action="related">${copy.related} <span aria-hidden="true">↗</span></button>`}</div><div class="chapter-list" aria-label="${copy.chapter}"></div>`;
     const list=pane.querySelector('.chapter-list');
     sections.forEach((source,i)=>{
       const heading=source.querySelector('h2')??source.querySelector('h3,.section-kicker'),name=heading?.textContent.trim()??config.title;
@@ -586,8 +586,7 @@ async function start(config) {
       case'menu':menu.showModal();break;
       case'close-menu':menu.close();break;
       case'retry':void retryNavigation?.();break;
-      case'copy':void share(false);break;
-      case'share':void share(true);break;
+      case'share':void share();break;
     }
   });
   function selectChapter(chapter,fragment,{direction=0}={}) {
@@ -611,10 +610,10 @@ async function start(config) {
     }else node.querySelector('.chapter.active .chapter-toggle').focus({preventScroll:true});
     readPositions.set(id,{chapter:state.chapter,fragment:state.fragment,bodyScroll:body.scrollTop});remember();
   }
-  async function share(native) {
+  async function share() {
     const a=byId.get(state.article),url=new URL(a.url,canonicalOrigin);url.hash=state.fragment;
     try {
-      if(native&&navigator.share)await navigator.share({title:a.title,url:url.href});
+      if(typeof navigator.share==='function')await navigator.share({title:a.title,url:url.href});
       else {await navigator.clipboard.writeText(`${a.title}\n${url.href}`);message(copy.copied);statusTimer=setTimeout(()=>message(''),1800);}
     }catch(error){if(error.name!=='AbortError'){message(copy.copyError);statusTimer=setTimeout(()=>message(''),2500);}}
   }
