@@ -19,8 +19,8 @@ for(const [engine,mobile] of [[chromium,false],[webkit,false],[chromium,true]]){
  // Read to the edge with actual input; reaching the edge alone must not skip chapters.
  if(mobile){for(let i=0;i<12&&await body.evaluate(e=>e.scrollTop<e.scrollHeight-e.clientHeight-2);i++)await swipe(180);}else await wheel(1200);
  await page.waitForTimeout(350);assert.equal(await chapter(),0);
- if(mobile){await swipe(50);assert.equal(await chapter(),0);await swipe(220,true);}else{
- await wheel(35);assert.equal(await chapter(),0);assert.match(await page.locator('.reading .chapter.next').getAttribute('style'),/translateY/);await page.screenshot({path:`${out}/${name}-pull.png`});await page.waitForTimeout(450);assert.equal(await page.locator('.reading .chapter.next').evaluate(e=>e.style.transform),'');await wheel(65,6);
+ if(mobile){await swipe(50);assert.equal(await chapter(),0);await swipe(130,true);}else{
+ await wheel(35);assert.equal(await chapter(),0);assert.match(await page.locator('.reading .chapter.next').getAttribute('style'),/translateY/);await page.screenshot({path:`${out}/${name}-pull.png`});await page.waitForTimeout(450);assert.equal(await page.locator('.reading .chapter.next').evaluate(e=>e.style.transform),'');await wheel(65,3);
  }
  await page.waitForFunction(()=>spatialSite.getState().chapter===1);if(!mobile){await wheel(65,5);assert.equal(await chapter(),1);}await page.waitForTimeout(450);assert.equal(await chapter(),1);await page.screenshot({path:`${out}/${name}-after.png`});
  if(!mobile){await page.waitForTimeout(650);await wheel(-65,5);}else await swipe(-220);
