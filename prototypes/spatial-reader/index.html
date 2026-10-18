@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:,">
+  <title>時間と記事を手繰る — Auto Research Digest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <script src="data.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div id="scroll-track" aria-hidden="true"></div>
+  <div id="app" data-mode="timeline">
+    <header class="app-header">
+      <button class="brand" data-action="timeline" aria-label="タイムラインへ"><span aria-hidden="true">≋</span> AUTO RESEARCH DIGEST</button>
+      <button class="back-button" data-action="back">戻る</button>
+    </header>
+    <nav class="breadcrumbs" aria-label="現在の位置" id="breadcrumbs"></nav>
+    <main id="workspace" aria-label="時間と記事の作業面">
+      <h1 class="sr-only">調査対象月から記事と関連をたどる</h1>
+      <div class="time-line" aria-hidden="true"></div>
+      <svg id="relations" aria-hidden="true"></svg>
+      <div id="month-space"></div>
+      <div id="article-space"></div>
+    </main>
+    <nav class="month-rail" id="month-rail" aria-label="調査対象月"></nav>
+    <div class="sr-only" role="status" aria-live="polite" id="announcement"></div>
+    <noscript><p>この操作プロトタイプはJavaScriptを使用します。<a href="https://research.notelligent.app/timeline/">公開版のタイムライン</a></p></noscript>
+  </div>
+</body>
+</html>

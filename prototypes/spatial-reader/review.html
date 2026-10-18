@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" href="data:,">
+  <title>表示サイズを選んで確認 — 操作プロトタイプ</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;background:#dbe8ec;color:#203b48;font-family:system-ui,sans-serif}
+    header{height:64px;display:flex;align-items:center;justify-content:center;gap:8px;padding:8px;background:#f3f8f9;flex-wrap:wrap}
+    button,a{font:inherit;font-size:13px;color:inherit;border:1px solid #b9d2d8;border-radius:6px;padding:8px 12px;background:transparent;cursor:pointer}
+    button[aria-pressed=true]{background:#287e7d;color:white;border-color:#287e7d}a{text-decoration:none}
+    main{position:relative;height:calc(100svh - 64px);overflow:hidden}iframe{position:absolute;border:0;transform-origin:top left;border-radius:12px;box-shadow:0 16px 60px #264e6222;background:#edf5f7}
+    @media(max-width:650px){header{height:100px;gap:4px}button,a{font-size:11px;padding:7px}main{height:calc(100svh - 100px)}}
+  </style>
+</head>
+<body>
+  <header aria-label="確認用の表示サイズ">
+    <button data-size="1440,900" aria-pressed="false">デスクトップ</button>
+    <button data-size="390,844" aria-pressed="true">スマートフォン</button>
+    <button data-size="360,664" aria-pressed="false">小型スマートフォン</button>
+    <a href="./" target="_blank" rel="noopener">実寸で開く ↗</a>
+  </header>
+  <main><iframe src="./" width="390" height="844" title="タイムラインから記事を読む操作プロトタイプ"></iframe></main>
+  <script>
+    const frame=document.querySelector('iframe'),area=document.querySelector('main');
+    function fit(){const w=Number(frame.width),h=Number(frame.height),s=Math.min(1,(area.clientWidth-24)/w,(area.clientHeight-24)/h);frame.style.transform=`scale(${s})`;frame.style.left=`${(area.clientWidth-w*s)/2}px`;frame.style.top=`${(area.clientHeight-h*s)/2}px`;}
+    document.querySelector('header').addEventListener('click',e=>{const button=e.target.closest('[data-size]');if(!button)return;[frame.width,frame.height]=button.dataset.size.split(',');document.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));fit();});
+    new ResizeObserver(fit).observe(area);fit();
+  </script>
+</body>
+</html>
