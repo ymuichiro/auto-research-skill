@@ -274,9 +274,11 @@ async function start(config) {
     node.style.transform=`translate3d(${p.x.toFixed(3)}px,${p.y.toFixed(3)}px,0) scale(${p.scale??1}) rotateX(${reduced.matches?0:p.rx??0}deg)`;
     node.style.opacity=String(p.opacity);node.style.zIndex=String(p.z??1);
     node.style.setProperty('--spatial-fold',String(p.fold??0));
+    const reveal=state.mode==='timeline'?clamp((.16-(p.fold??0))/.12):1;
+    node.style.setProperty('--preview-reveal',String(reveal));
     node.style.visibility=visible?'visible':'hidden';
     node.dataset.front=String(!!p.front);node.dataset.folded=String((p.fold??0)>.8);node.inert=!visible;
-    node.querySelectorAll('.paper-preview,.month-description,.month-open').forEach(el=>el.inert=!visible||(p.fold??0)>.8);
+    node.querySelectorAll('.paper-preview,.month-description,.month-open').forEach(el=>el.inert=!visible||(p.fold??0)>.8||(state.mode==='timeline'&&reveal===0));
     node.setAttribute('aria-hidden',String(!visible));
     node.style.pointerEvents=visible?'auto':'none';
   }
@@ -287,6 +289,7 @@ async function start(config) {
     pendingPoses.clear();
     const w=workspace.clientWidth,h=workspace.clientHeight,mobile=w<760||innerHeight<540,compact=h<420;
     const ay=compact?42:72, aw=Math.min(mobile?w-32:740,w-40), ax=(w-aw)/2;
+    if(state.mode==='timeline')app.style.setProperty('--preview-width',`${aw}px`);
     const ah=compact?Math.max(180,h-116):Math.min(mobile?440:420,h-160);
     const p=reduced.matches?Math.round(state.progress):state.progress,index=Math.floor(p),q=ease(clamp((p-index-.15)/.7));
     const activeIndex=clamp(Math.round(p),0,ids().length-1);

@@ -28,7 +28,8 @@
     "test:chapter-scroll": "node scripts/test-chapter-scroll.mjs",
     "test:topics-evidence": "node scripts/test-topics-evidence.mjs",
     "verify:illustrations": "node scripts/verify-illustrations.mjs",
-    "test:illustrations": "node scripts/test-illustrations.mjs"
+    "test:illustrations": "node scripts/test-illustrations.mjs",
+    "test:timeline-preview": "node scripts/test-timeline-preview.mjs"
   },
   "devDependencies": {
     "daisyui": "^4.12.24",

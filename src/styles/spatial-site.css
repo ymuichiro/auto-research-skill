@@ -245,3 +245,8 @@ body.spatial-active.topics-mode #spatial-app .time-line{display:none}
 #spatial-app .breadcrumb-icon{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px}
 #spatial-app .header-actions [data-action=menu],#spatial-app .spatial-menu>button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px}
 #spatial-app .spatial-menu>button{display:flex}
+
+/* Move the surface first; reveal its full-size summary only near the front. */
+#spatial-app[data-mode=timeline] .paper-preview{flex:0 0 auto;width:var(--preview-width);grid-template-rows:auto auto auto;opacity:var(--preview-reveal,1)}
+#spatial-app[data-mode=timeline] .preview-copy{flex-shrink:0}
+#spatial-app[data-mode=timeline] .preview-illustration{flex-shrink:0}
