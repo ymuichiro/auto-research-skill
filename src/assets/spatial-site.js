@@ -253,13 +253,13 @@ async function start(config) {
     const {target,body}=chapterPull;
     if(target){
       const transform=target.style.transform;
-      if(animate&&!reduced.matches&&transform)target.animate([{transform},{transform:'translateY(0)'}],{duration:140,easing:'ease-out'});
+      if(animate&&!reduced.matches&&transform)target.animate([{transform},{transform:'translateY(0)'}],{duration:110,easing:'ease-out'});
       target.style.transform='';
-      if(animate)chapterPull.release=setTimeout(()=>target.classList.remove('pull-previous'),140);else target.classList.remove('pull-previous');
+      if(animate)chapterPull.release=setTimeout(()=>target.classList.remove('pull-previous'),110);else target.classList.remove('pull-previous');
     }
     if(body){
       const transform=body.style.transform;
-      if(animate&&!reduced.matches&&transform)body.animate([{transform},{transform:'translateY(0)'}],{duration:140,easing:'ease-out'});
+      if(animate&&!reduced.matches&&transform)body.animate([{transform},{transform:'translateY(0)'}],{duration:110,easing:'ease-out'});
       body.style.transform='';
     }
     chapterPull.energy=0;chapterPull.direction=0;chapterPull.target=null;chapterPull.body=null;chapterPull.list=null;
@@ -286,11 +286,11 @@ async function start(config) {
     app.querySelectorAll('.pull-previous').forEach(el=>el.classList.remove('pull-previous'));
     chapterPull.direction=direction;chapterPull.target=target;chapterPull.body=input.body;chapterPull.list=input.list;
     chapterPull.energy+=Math.min(Math.abs(delta),kind==='wheel'?48:60);
-    const threshold=kind==='wheel'?120:80;
+    const threshold=kind==='wheel'?90:60;
     const progress=clamp(chapterPull.energy/threshold);
     if(!reduced.matches){
       if(direction<0)target.classList.add('pull-previous');
-      const distance=26*(1-Math.exp(-progress*1.6));
+      const distance=16*(1-Math.exp(-progress*1.6));
       target.style.transform=`translateY(${-direction*distance}px)`;
       input.body.style.transform=`translateY(${-direction*distance*.18}px)`;
     }
