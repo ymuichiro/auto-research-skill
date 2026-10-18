@@ -91,8 +91,9 @@ async function start(config) {
   const ease = n => n*n*(3-2*n);
   const date = value => value.replaceAll('-','.');
   const monthLabel = copy.month;
+  const monthStart=id=>articles.findIndex(a=>a.date.startsWith(id));
   let state = {mode:config.mode,path:config.path,list:config.mode==='feed'&&!config.topic&&config.page===1?articles.map(a=>a.id):(config.list??articles.map(a=>a.id)),topic:config.topic??null,
-    month:months[0].id,article:config.article??articles[0].id,chapter:0,fragment:'',origin:null,progress:0,toc:false,depth:0};
+    month:months[0].id,article:config.article??articles[0].id,chapter:0,fragment:'',origin:null,progress:0,toc:false,depth:0,timelineVersion:2};
   let generation=0;
   let step=480, frame=0, ignoreScroll=false, configuredY=0, switchTimer, saveTimer, announced='', lastRail='';
 
@@ -108,7 +109,7 @@ async function start(config) {
       .sort((x,y)=>y.score-x.score).slice(0,3).map(x=>x.b.id);
   }
   function ids() {
-    return state.mode==='timeline'?months.map(m=>m.id):state.mode==='month'?monthById.get(state.month).articles:state.mode==='related'?relatedTo(state.origin):state.mode==='feed'?state.list:state.mode==='topics'?topics.map(t=>t.id):[state.mode==='document'?'__document':state.article];
+    return state.mode==='timeline'?articles.map(a=>a.id):state.mode==='month'?monthById.get(state.month).articles:state.mode==='related'?relatedTo(state.origin):state.mode==='feed'?state.list:state.mode==='topics'?topics.map(t=>t.id):[state.mode==='document'?'__document':state.article];
   }
   function focusIndex() { return clamp(Math.round(state.progress),0,ids().length-1); }
   function focusId() { return ids()[focusIndex()]; }
@@ -117,7 +118,7 @@ async function start(config) {
     return {...state,bodyScroll:restore?.token===generation&&restore.revision===inputRevision?restore.top:body?.scrollTop??0};
   }
   function hash() {
-    if(state.mode==='timeline')return paths.timeline+(state.progress>0?`?month=${focusId()}`:'');
+    if(state.mode==='timeline')return paths.timeline+(state.progress>0?`?month=${byId.get(focusId()).date.slice(0,7)}&item=${focusId()}`:'');
     if(state.mode==='month')return `${paths.timeline}?month=${state.month}&item=${focusId()}`;
     if(state.mode==='related')return `${byId.get(state.origin).url}?related=${focusId()}`;
     if(state.mode==='feed')return state.path+(state.progress>0?`?item=${focusId()}`:'');
@@ -128,7 +129,7 @@ async function start(config) {
 
   for(const m of months) {
     const node=document.createElement('article');node.className='paper month-paper';node.dataset.month=m.id;
-    node.innerHTML=`<div class="month-inner"><h2 class="month-heading"><span class="month-year">${m.id.slice(0,4)}</span><span class="month-number">${m.id.slice(5)}</span><span class="month-count">${copy.articles(m.articles.length)}</span></h2><p class="month-description">${m.categories.map(esc).join(' · ')}</p><button class="month-open" data-open-month="${m.id}">${copy.open} <span aria-hidden="true">↗</span></button></div>`;
+    node.innerHTML=`<div class="month-inner"><h2 class="month-heading"><span class="month-year">${m.id.slice(0,4)}</span><span class="month-number">${config.locale==='ja'?`${Number(m.id.slice(5))}月`:monthLabel(m.id).split(' ')[0]}</span><span class="month-count">${copy.articles(m.articles.length)}</span></h2></div>`;
     document.getElementById('month-space').append(node);monthNodes.set(m.id,node);
     const button=document.createElement('button');button.className='rail-month';button.dataset.openMonth=m.id;
     button.setAttribute('aria-label',monthLabel(m.id));button.innerHTML=config.locale==='ja'?`<span class="rail-year">${m.id.slice(0,4)}</span><span>${m.id.slice(5)}月</span>`:esc(monthLabel(m.id));
@@ -226,7 +227,7 @@ async function start(config) {
     }
     if(crumbs.innerHTML!==html)crumbs.innerHTML=html;
     app.querySelector('.back-button').hidden=['timeline','topics'].includes(state.mode)||(state.mode==='feed'&&!state.topic&&state.depth===0);
-    const current=state.mode==='timeline'?focusId():['feed','month'].includes(state.mode)?byId.get(focusId()).date.slice(0,7):(a?a.date.slice(0,7):state.month);
+    const current=['timeline','feed','month'].includes(state.mode)?byId.get(focusId()).date.slice(0,7):(a?a.date.slice(0,7):state.month);
     for(const button of rail.children) {
       if(button.dataset.openMonth===current)button.setAttribute('aria-current','date');else button.removeAttribute('aria-current');
     }
@@ -235,7 +236,7 @@ async function start(config) {
       if(active){if(innerWidth<760)rail.scrollTo({left:active.offsetLeft-rail.clientWidth/2+active.clientWidth/2,behavior:'instant'});else if(active.offsetTop<rail.scrollTop||active.offsetTop>rail.scrollTop+rail.clientHeight-30)rail.scrollTop=active.offsetTop-rail.clientHeight/2;}
       lastRail=current;
     }
-    const label=state.mode==='timeline'?monthLabel(focusId()):state.mode==='topics'?topics.find(t=>t.id===focusId()).title:state.mode==='document'?byId.get('__document').title:state.mode==='related'?`${relation(a,byId.get(focusId()))} · ${byId.get(focusId()).title}`:byId.get(focusId()).title;
+    const label=state.mode==='topics'?topics.find(t=>t.id===focusId()).title:state.mode==='document'?byId.get('__document').title:state.mode==='related'?`${relation(a,byId.get(focusId()))} · ${byId.get(focusId()).title}`:byId.get(focusId()).title;
     if(label!==announced){announcement.textContent=label;announced=label;}
     const doc=state.mode==='document';rail.hidden=doc||state.mode==='topics';
     const heading=app.querySelector('#workspace-heading');
@@ -266,15 +267,14 @@ async function start(config) {
     frame=0;
     pendingPoses.clear();
     const w=workspace.clientWidth,h=workspace.clientHeight,mobile=w<760||innerHeight<540,compact=h<420;
-    const mw=Math.min(mobile?w-32:650,w-40), mx=(w-mw)/2;
     const ay=compact?42:72, aw=Math.min(mobile?w-32:740,w-40), ax=(w-aw)/2;
-    const ah=compact?Math.max(180,h-116):Math.min(mobile?440:420,h-160), mh=compact?Math.max(155,h-126):Math.min(mobile?250:270,h-230), my=compact?42:76;
+    const ah=compact?Math.max(180,h-116):Math.min(mobile?440:420,h-160);
     const p=reduced.matches?Math.round(state.progress):state.progress,index=Math.floor(p),q=ease(clamp((p-index-.15)/.7));
     const activeIndex=clamp(Math.round(p),0,ids().length-1);
     const foldedTop={x:ax+12,y:2,w:aw-24,h:compact?36:64,scale:.95,rx:9,fold:1,opacity:.76};
     const foldedBottom={x:ax+12,y:h-(compact?40:68),w:aw-24,h:compact?36:64,scale:.95,rx:-9,fold:1,opacity:.82};
     const front={x:ax,y:ay,w:aw,h:Math.max(compact?180:260,ah),scale:1,rx:0,fold:0,opacity:1};
-    for(const node of monthNodes.values())pose(node,{x:mx,y:my,w:mw,h:Math.max(180,mh),opacity:0,fold:1});
+    for(const node of monthNodes.values())pose(node,{x:ax,y:0,w:aw,h:compact?28:40,opacity:0,fold:0});
     for(const node of topicNodes.values())pose(node,{x:ax,y:h+70,w:aw,h:64,opacity:0,fold:1});
     for(const node of articleNodes.values()){
       node.classList.remove('reading');node.removeAttribute('data-relation');
@@ -284,20 +284,14 @@ async function start(config) {
     }
     document.getElementById('relations').innerHTML='';
     if(state.mode==='timeline') {
-      const monthFront={x:mx,y:my,w:mw,h:Math.max(180,mh),scale:1,rx:0,fold:0,opacity:1};
-      const mt={x:mx+14,y:2,w:mw-28,h:58,scale:.95,rx:12,fold:1,opacity:.7};
-      const mb={x:mx+14,y:h-62,w:mw-28,h:58,scale:.95,rx:-12,fold:1,opacity:.76};
-      for(let i=Math.max(0,index-1);i<=Math.min(months.length-1,index+1);i++){
-        let pos=i===index?mix(monthFront,mt,q):i===index+1?mix(mb,monthFront,q):{...mt,opacity:mt.opacity*(1-q)**4};
-        pose(monthNodes.get(months[i].id),{...pos,z:i===activeIndex?100:30-i,front:i===activeIndex});
-      }
-      const previewCount=Math.max(0,Math.min(mobile?2:3,Math.floor((h-78-my-monthFront.h-14)/64)));
-      for(const [mi,phase] of [[index,0],[index+1,1]]) {
-        if(!months[mi])continue;
-        const visibility=phase?clamp((q-.6)/.4):clamp(1-q/.4);
-        months[mi].articles.slice(0,previewCount).forEach((id,i)=>pose(articleNodes.get(id),{
-          x:mx+18+i*9,y:my+monthFront.h+14+i*64+(phase?(1-q)*110:-q*110),w:mw-36-i*10,h:62,scale:1,rx:-3,fold:1,opacity:(i===0?.94:.76)*visibility,z:150-i
-        }));
+      // Months divide a single article stream; they are never a selection gate.
+      const list=ids(),currentMonth=byId.get(list[activeIndex]).date.slice(0,7);
+      pose(monthNodes.get(currentMonth),{x:ax,y:0,w:aw,h:compact?28:40,opacity:1,fold:0,z:130});
+      const tf={...front,y:compact?44:92,h:Math.max(compact?160:240,Math.min(ah,h-(compact?94:184)))};
+      const tt={...foldedTop,y:compact?30:46,h:compact?28:40};
+      for(let i=Math.max(0,index-1);i<=Math.min(list.length-1,index+2);i++){
+        const pos=i===index?mix(tf,tt,q):i===index+1?mix(foldedBottom,tf,q):i===index+2?{...foldedBottom,opacity:foldedBottom.opacity*q**4}:{...tt,opacity:compact?0:tt.opacity*(1-q)**4};
+        pose(articleNodes.get(list[i]),{...pos,z:i===activeIndex?100:40-i,front:i===activeIndex});
       }
     } else if(state.mode==='month'||state.mode==='feed') {
       const list=ids();
@@ -412,7 +406,7 @@ async function start(config) {
     apply();document.fonts.ready.then(()=>requestAnimationFrame(()=>{if(apply())remember();}));
     setTimeout(()=>{if(apply()){bodyRestores.delete(body);remember();}},app.classList.contains('switching')?740:0);
   }
-  function openMonth(id) {return navigate({mode:'month',month:id,progress:0,origin:null,fragment:''});}
+  function openMonth(id) {return navigate({mode:'timeline',month:id,progress:monthStart(id),origin:null,fragment:''});}
   function openRead(id) {
     if(state.mode==='read'&&id===state.article)return;
     if(state.mode==='read'&&id!==state.article)return navigate({mode:'related',origin:state.article,progress:relatedTo(state.article).indexOf(id),fragment:''});
@@ -432,12 +426,18 @@ async function start(config) {
     const topic=topics.find(t=>t.title===byId.get(state.article)?.category);
     if(state.mode==='read'&&topic){void navigate({mode:'feed',topic:topic.title,list:topic.articles,path:topic.url,progress:0,fragment:''});return;}
     if(state.mode==='feed'&&state.topic){void navigate({mode:'topics',progress:topics.findIndex(t=>t.title===state.topic),fragment:''});return;}
-    void navigate({mode:'timeline',progress:months.findIndex(m=>m.id===state.month),fragment:''});
+    void navigate({mode:'timeline',progress:monthStart(state.month),fragment:''});
   }
   function seek(index) {scrollTo({top:clamp(index,0,ids().length-1)*step,behavior:reduced.matches?'instant':'smooth'});}
 
   app.addEventListener('click',event=>{
-    const button=event.target.closest('button,a');if(!button||event.defaultPrevented)return;
+    if(event.defaultPrevented)return;
+    const button=event.target.closest('button,a');
+    if(!button){
+      const card=event.target.closest('.article-paper[data-article]:not(.reading)');
+      if(card&&!getSelection()?.toString())void openRead(card.dataset.article);
+      return;
+    }
     if(button.tagName==='A'&&(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey||button.target||button.hasAttribute('download')))return;
     if(button.classList.contains('spatial-skip')){event.preventDefault();const target=app.querySelector('.reading .chapter.active .chapter-body')??workspace;target.focus({preventScroll:true});return;}
     if(button.dataset.openMonth){void openMonth(button.dataset.openMonth);return;}
@@ -452,7 +452,7 @@ async function start(config) {
       selectChapter(Number(button.dataset.chapter));return;
     }
     switch(button.dataset.action){
-      case'timeline':void navigate({mode:'timeline',progress:months.findIndex(m=>m.id===(state.mode==='timeline'?focusId():state.month)),fragment:''});break;
+      case'timeline':void navigate({mode:'timeline',progress:state.mode==='timeline'?state.progress:monthStart(state.month),fragment:''});break;
       case'month':void openMonth(state.mode==='related'?byId.get(state.origin).date.slice(0,7):state.month);break;
       case'back':back();break;
       case'toc':state.toc=!state.toc;draw();break;
@@ -500,7 +500,7 @@ async function start(config) {
     if(['read','document'].includes(state.mode))return;
     if(event.key==='ArrowDown'||event.key==='ArrowRight'){event.preventDefault();seek(focusIndex()+1);}
     if(event.key==='ArrowUp'||event.key==='ArrowLeft'){event.preventDefault();seek(focusIndex()-1);}
-    if(event.key==='Enter'&&(event.target===document.body||event.target===workspace)){if(state.mode==='timeline')void openMonth(focusId());else if(state.mode==='topics'){const topic=topics.find(t=>t.id===focusId());void navigate({mode:'feed',path:topic.url,topic:topic.title,list:topic.articles,progress:0});}else void openRead(focusId());}
+    if(event.key==='Enter'&&(event.target===document.body||event.target===workspace)){if(state.mode==='topics'){const topic=topics.find(t=>t.id===focusId());void navigate({mode:'feed',path:topic.url,topic:topic.title,list:topic.articles,progress:0});}else void openRead(focusId());}
   });
   let routePending='';
   async function applyHashRoute() {
@@ -527,7 +527,7 @@ async function start(config) {
   reduced.addEventListener('change',()=>{app.classList.remove('switching');draw();});
 
   const url=new URL(location.href),item=url.searchParams.get('item'),month=url.searchParams.get('month'),topic=url.searchParams.get('topic'),related=url.searchParams.get('related');
-  if(config.mode==='timeline'&&monthById.has(month)){state.month=month;if(item&&monthById.get(month).articles.includes(item)){state.mode='month';state.progress=monthById.get(month).articles.indexOf(item);}else state.progress=months.findIndex(m=>m.id===month);}
+  if(config.mode==='timeline'&&monthById.has(month)){state.month=month;state.progress=item&&monthById.get(month).articles.includes(item)?articles.findIndex(a=>a.id===item):monthStart(month);}
   if(config.mode==='feed'&&state.list.includes(item))state.progress=state.list.indexOf(item);
   if(config.mode==='topics'&&topics.some(t=>t.id===topic))state.progress=topics.findIndex(t=>t.id===topic);
   if(config.mode==='read'){state.month=byId.get(config.article).date.slice(0,7);if(related&&relatedTo(config.article).includes(related)){state.mode='related';state.origin=config.article;state.progress=relatedTo(config.article).indexOf(related);}}
@@ -536,6 +536,11 @@ async function start(config) {
   let saved=history.state?.spatial;
   try{if(!saved)saved=JSON.parse(sessionStorage.getItem(`ard-spatial:${location.href}`));}catch{}
   if(saved&&['timeline','month','read','related','feed','topics','document'].includes(saved.mode)&&byId.has(saved.article)&&(saved.fragment??'')===state.fragment&&statePath(saved)===url.pathname)state={...state,...saved};
+  if(config.mode==='timeline'&&['timeline','month'].includes(state.mode)&&(saved?.timelineVersion!==2||state.mode==='month')){
+    state.mode='timeline';
+    state.progress=item&&byId.has(item)?articles.findIndex(a=>a.id===item):monthById.has(month)?monthStart(month):0;
+    state.timelineVersion=2;
+  }
   if(state.mode==='feed'&&!state.topic&&state.path===paths.home)state.list=articles.map(a=>a.id);
   if(state.mode==='read'){await ensureArticle(state.article);state.chapter=fragmentChapter(state.article,state.fragment,state.chapter);}
   if(state.mode==='related')await ensureArticle(state.origin);

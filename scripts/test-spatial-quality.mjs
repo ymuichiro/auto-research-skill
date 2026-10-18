@@ -119,7 +119,6 @@ async function basePath(){
     await copyFile('public/assets/site.css',path.join(root,'assets/site.css'));
     preview=await serveBuild({root,basePath:prefix});browser=await chromium.launch();const page=await browser.newPage();
     await ready(page,preview.base+'/timeline/');
-    await page.locator('.month-paper[data-front=true] .month-open').click();await page.waitForFunction(()=>spatialSite.getState().mode==='month');await page.waitForTimeout(750);
     await page.locator('.article-paper[data-front=true] .read-button').click();await page.waitForFunction(()=>spatialSite.getState().mode==='read');
     assert.ok(new URL(page.url()).pathname.startsWith('/preview/'));
     assert.ok((await page.locator('link[rel=canonical]').getAttribute('href')).startsWith('https://research.notelligent.app/preview/'));
@@ -127,7 +126,52 @@ async function basePath(){
   }finally{if(browser)await browser.close();if(preview)await preview.close();await rm(temp,{recursive:true,force:true});}
   results.push({suite:'deployment-base-path',path:prefix,status:'passed'});console.log('base path passed');
 }
+async function timeline(){
+  let checks=0;
+  for(const engine of [chromium,webkit]){
+    const browser=await engine.launch();
+    try{for(const viewport of [{width:1440,height:900},{width:390,height:844}]){
+      const page=await browser.newPage({viewport}),c=catalogs.ja;
+      await ready(page,server.base+c.paths.timeline);
+      assert.equal(await page.locator('.month-paper button').count(),0,'no month selection gate');
+      for(let i=0;i<c.articles.length;i++){
+        await page.evaluate(i=>scrollTo({top:i*spatialSite.getState().step,behavior:'instant'}),i);
+        await page.waitForFunction(id=>spatialSite.getState().focus===id,c.articles[i].id);
+        const surface=page.locator('.article-paper[data-front=true]');
+        assert.equal(await surface.getAttribute('data-article'),c.articles[i].id);
+        assert.equal(await surface.getAttribute('data-folded'),'false');
+        const divider=page.locator('.month-paper:not([aria-hidden=true])');
+        assert.equal(await divider.getAttribute('data-month'),c.articles[i].date.slice(0,7));
+        assert.ok((await divider.boundingBox()).height<=40);
+        assert.ok((await surface.boundingBox()).height>=240);
+        assert.equal(await page.locator('.rail-month[aria-current]').getAttribute('data-open-month'),c.articles[i].date.slice(0,7));
+        checks++;
+      }
+      for(const progress of [.4,.75,.9,3.9]){
+        await page.evaluate(p=>scrollTo({top:p*spatialSite.getState().step,behavior:'instant'}),progress);
+        await page.waitForFunction(p=>Math.abs(spatialSite.getState().progress-p)<.01,progress);
+        const next=c.articles[Math.round(progress)+1];
+        assert.equal(await page.locator(`[data-article="${next.id}"]`).getAttribute('aria-hidden'),'false','next candidate remains visible between scroll stops');
+      }
+      const month=c.months[1];
+      await page.locator(`.rail-month[data-open-month="${month.id}"]`).click();
+      await page.waitForFunction(id=>spatialSite.getState().mode==='timeline'&&spatialSite.getState().focus===id,month.articles[0]);
+      await page.waitForTimeout(750);
+      await page.locator('.article-paper[data-front=true] .paper-meta').click();
+      await page.waitForFunction(id=>spatialSite.getState().mode==='read'&&spatialSite.getState().article===id,month.articles[0]);
+      await page.waitForTimeout(150);
+      assert.ok(await page.locator(`.month-paper[data-month="${month.id}"]`).evaluate(el=>el.getBoundingClientRect().height<=40),'month divider stays thin while opening the article');
+      await page.goBack();await page.waitForFunction(()=>spatialSite.getState().mode==='timeline');
+      assert.equal(await page.evaluate(()=>spatialSite.getState().focus),month.articles[0]);
+      await page.reload();await page.waitForFunction(()=>window.spatialSite);
+      assert.equal(await page.evaluate(()=>spatialSite.getState().focus),month.articles[0]);
+      await page.screenshot({path:`${out}/timeline-stream-${engine.name()}-${viewport.width}.png`});
+      await page.close();
+    }}finally{await browser.close();}
+  }
+  results.push({suite:'continuous-timeline-articles',articlePositions:checks,status:'passed'});console.log('timeline',checks,'passed');
+}
 try{
-  const suites={corpus,pages,resilience,basePath};
+  const suites={corpus,pages,resilience,basePath,timeline};
   for(const [name,run] of Object.entries(suites))if(!process.env.SPATIAL_SUITE||process.env.SPATIAL_SUITE===name){await run();await writeFile(`${out}/quality.json`,JSON.stringify(results,null,2));}
 }finally{await server.close();}

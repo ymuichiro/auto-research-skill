@@ -19,7 +19,6 @@ try{
         const first=await page.evaluate(()=>spatialSite.getState().focus);
         await page.keyboard.press('ArrowDown');await page.waitForFunction(first=>spatialSite.getState().focus!==first,first);
         await page.keyboard.press('ArrowUp');await page.waitForFunction(first=>spatialSite.getState().focus===first,first);
-        await page.keyboard.press('Enter');await page.waitForFunction(()=>spatialSite.getState().mode==='month');
         await page.keyboard.press('Enter');await page.waitForFunction(()=>spatialSite.getState().mode==='read');
         assert.ok((await page.locator('.reading').evaluate(e=>getComputedStyle(e).transitionDuration)).split(',').every(v=>parseFloat(v)===0));
         await page.locator('.reading [data-action=toc]').focus();await page.keyboard.press('Enter');
@@ -44,7 +43,7 @@ try{
           assert.ok(height>=70,`${engine.name()} ${JSON.stringify(size)} body ${height}`);
         }
         await page.keyboard.press('Escape');await page.waitForFunction(()=>spatialSite.getState().mode==='read'&&spatialSite.getState().chapter===2);
-        await page.keyboard.press('Escape');await page.waitForFunction(()=>spatialSite.getState().mode==='month');
+        await page.keyboard.press('Escape');await page.waitForFunction(()=>spatialSite.getState().mode==='timeline');
         assert.deepEqual(errors,[]);
         results.push({engine:engine.name(),viewport,reducedMotion:true,keyboard:'arrows, enter, chapter, native hash, skip, dialog, escape',resize:true,status:'passed'});
         await page.close();

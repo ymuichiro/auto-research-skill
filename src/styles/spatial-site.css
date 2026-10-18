@@ -11,6 +11,16 @@ body.spatial-active{color-scheme:light;--ink:#203b48;--muted:#647e89;--signal:#2
 @property --spatial-fold{syntax:"<number>";inherits:true;initial-value:0}
 /* Static HTML remains the readable fallback and print source. */
 body.spatial-active>.page-shell{display:none}
+#spatial-app .month-paper{border-radius:6px;box-shadow:none;background:#f7fcfaaa;pointer-events:none!important}
+#spatial-app .month-paper .month-inner{padding:4px 14px;justify-content:center}
+#spatial-app .month-paper .month-heading{gap:10px;align-items:center}
+#spatial-app .month-paper .month-year{font-size:12px}
+#spatial-app .month-paper .month-number{font-size:18px;letter-spacing:0;line-height:1.3}
+#spatial-app .month-paper .month-count{font-size:11px}
+#spatial-app .article-paper:not(.reading){cursor:pointer}
+#spatial-app[data-mode=timeline] .article-paper[data-folded=true] .paper-meta{display:none}
+#spatial-app[data-mode=timeline] .article-paper[data-folded=true] .paper-head{padding:8px 12px}
+#spatial-app[data-mode=timeline] .article-paper[data-folded=true] .article-title{margin:0;font-size:14px;line-height:1.5}
 #spatial-app [hidden]{display:none!important}
 #spatial-app a{text-decoration:none}
 #spatial-app .chapter-body a{text-decoration:underline}

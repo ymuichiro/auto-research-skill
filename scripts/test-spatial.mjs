@@ -34,7 +34,9 @@ async function journey(engine,locale,viewport){
   try{
     await ready(page,server.base+catalog.paths.timeline);await settled(page);
     await page.screenshot({path:`${out}/${name}-timeline.png`});
-    const workspace=await geometry(page,'#workspace'),month=(await getState(page)).focus,selector=`[data-month="${month}"]`;
+    const workspace=await geometry(page,'#workspace'),first=(await getState(page)).focus,selector=`[data-article="${first}"]`;
+    check('month is a thin divider',(await geometry(page,'.month-paper:not([aria-hidden=true])')).h<=40);
+    check('first article opens without selecting a month',await page.locator('.article-paper[data-front=true] .paper-preview').isVisible());
     const before=await geometry(page,selector);
     if(mobile&&engine===chromium)await swipe(page,'#workspace',125);
     else if(mobile){await page.keyboard.press('ArrowDown');await settled(page);}
@@ -48,13 +50,13 @@ async function journey(engine,locale,viewport){
     await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),step*.4);await page.waitForTimeout(100);
     assert.deepEqual(await geometry(page,selector),at40);check('reverse restores exact geometry');
     await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(100);
-    await page.locator('.month-paper[data-front=true] .month-open').click();await waitMode(page,'month');
+    const id=(await getState(page)).focus,article=catalog.articles.find(a=>a.id===id);
+    await page.evaluate(id=>{window.originalSurface=document.querySelector(`#spatial-app [data-article="${id}"]`);},id);
+    // The whole card, including whitespace, opens the article.
+    await page.locator('.article-paper[data-front=true]').click({position:{x:25,y:200}});await waitMode(page,'read');
     await page.waitForTimeout(150);const opening=await geometry(page,'.article-paper[data-front=true]');await settled(page);
     const complete=await geometry(page,'.article-paper[data-front=true]');
     check('article unfolds through intermediate geometry',Math.abs(opening.h-complete.h)>2||Math.abs(opening.y-complete.y)>2);
-    const id=(await getState(page)).focus,article=catalog.articles.find(a=>a.id===id);
-    await page.evaluate(id=>{window.originalSurface=document.querySelector(`#spatial-app [data-article="${id}"]`);},id);
-    await page.locator('.article-paper[data-front=true] .read-button').click();await waitMode(page,'read');await settled(page);
     check('same article surface opens',await page.evaluate(()=>document.querySelector('#spatial-app .reading')===window.originalSurface));
     check('uses published article URL',new URL(page.url()).pathname===article.url);
     check('language link follows article',new URL(await page.locator('#spatial-language').getAttribute('href'),server.base).pathname===article.alternate);
