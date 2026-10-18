@@ -41,23 +41,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <link rel="stylesheet" href="/assets/spatial-site.css">
     <script src="/assets/site-ui.js" defer></script>
-    <script type="module" src="/assets/listing-motion.js"></script>
+    <script id="spatial-entry" type="module" src="/assets/spatial-site.js"></script>
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"AI Workflows","description":"資料作成、営業、既存デスクトップ業務、AIとの共同作業を対象に、入力から成果物や更新操作へ進む工程をどこまで自動化し、どこに確認を残すかを整理するテーマです。","inLanguage":"ja","url":"https://research.notelligent.app/topics/ai-workflows/","isPartOf":{"@type":"WebSite","name":"Auto Research Digest","url":"https://research.notelligent.app/"},"publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"mainEntity":{"@context":"https://schema.org","@type":"ItemList","name":"AI Workflows","itemListOrder":"https://schema.org/ItemListOrderDescending","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","name":"AIにうまく頼めない仕事では、小さな案から希望を具体化する","url":"https://research.notelligent.app/2026-08-01-ai-collaboration-starts-with-first-artifact.html","description":"完璧な依頼を待つより、条件を確かめ、小さな案で残す説明と直す点を選ぶ。","inLanguage":"ja"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","name":"画面操作AIに任せる業務：入力から保存の確認までつなぐ","url":"https://research.notelligent.app/2026-06-30-agents-operate-legacy-desktop-workflows.html","description":"保存ボタンの後で困らないために。操作、管理環境、業務結果の照合を分けてつなぐ。","inLanguage":"ja"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","name":"営業AIのCRM更新：発言、見込み、合意を分けて引き継ぐ","url":"https://research.notelligent.app/2026-06-08-sales-agents-turn-notes-into-crm-actions.html","description":"顧客の希望を成約見込みへ変える前に、どの案件と判断を引き継ぐかを確かめる。","inLanguage":"ja"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","name":"AIで作るプレゼン資料：伝える判断と、次の修正を残す","url":"https://research.notelligent.app/2026-05-08-presentation-generation-becomes-artifact-workflow.html","description":"数字と注記を一度直して、見栄えの先にある資料の使いやすさを確かめる。","inLanguage":"ja"}}]}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"トップ","item":"https://research.notelligent.app/"},{"@type":"ListItem","position":2,"name":"トピック","item":"https://research.notelligent.app/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/topics/ai-workflows/"}],"inLanguage":"ja"}</script>
   </head>
   <body data-page-type="page">
-    <div class="page-shell">
+    <script type="application/json" id="spatial-config">{"mode":"feed","topic":"AI Workflows","list":["2026-08-01-ai-collaboration-starts-with-first-artifact","2026-06-30-agents-operate-legacy-desktop-workflows","2026-06-08-sales-agents-turn-notes-into-crm-actions","2026-05-08-presentation-generation-becomes-artifact-workflow"],"locale":"ja","title":"AI Workflows","path":"/topics/ai-workflows/","catalog":"/assets/spatial/ja.json"}</script>
+    <section id="spatial-startup" role="status" data-error="読み込めませんでした。">
+      <p id="spatial-startup-message">読み込んでいます</p>
+      <button id="spatial-startup-retry" type="button" hidden>再試行</button>
+      <noscript><style>#spatial-startup-message{display:none}</style><p>このサイトの表示にはJavaScriptが必要です。</p></noscript>
+    </section>
+    <div class="page-shell" aria-hidden="true" inert>
       <div class="hero-backdrop"></div>
       <a class="skip-link" href="#main">本文へ</a>
       <header class="site-header">
         <a class="brand-mark" href="/">
-          <span class="brand-badge" aria-hidden="true">≋</span>
+          <img class="brand-logo" src="/assets/favicon.svg" width="28" height="28" alt="" aria-hidden="true">
           <span class="brand-copy">Auto Research Digest</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>メニュー</button>
-        <nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション"><a class="nav-link " href="/">トップ</a><a class="nav-link is-active" href="/topics/">トピック</a><a class="nav-link " href="/timeline/">タイムライン</a></nav>
+        <nav class="site-nav" id="site-navigation" aria-label="メインナビゲーション"><a class="nav-link " href="/">トップ</a><a class="nav-link is-active" href="/topics/">トピック</a></nav>
         <a class="lang-switch" href="/en/topics/ai-workflows/">English</a>
       </header>
       <main class="site-main" id="main">
@@ -138,7 +145,7 @@
       <span class="text-link">レポートを開く</span>
     </div>
   </a></div></div></div>
-  </section><section class="panel-block topic-guide">
+  </section><section class="panel-block topic-guide" id="topic-guide">
     <div>
       <p class="section-kicker">成果物までの工程</p>
       <h2 class="panel-title">AIを使う仕事を、入力から更新操作まで一つの工程として読む</h2>
@@ -166,7 +173,7 @@
         <div class="footer-meta">
           <a class="footer-brand" href="/">Auto Research Digest</a>
         </div>
-        <nav class="footer-links" aria-label="フッターナビゲーション"><a class="footer-link" href="/topics/">トピック</a><a class="footer-link" href="/sitemap.html">サイトマップ</a><a class="footer-link" href="/about.html">このサイトについて</a><a class="footer-link" href="/editorial-policy.html">調査・編集方針</a><a class="footer-link" href="/contact.html">お問い合わせ</a><a class="footer-link" href="/privacy-policy.html">プライバシーポリシー</a><a class="footer-link" href="/terms.html">利用規約</a><a class="footer-link" href="/disclaimer.html">免責事項</a><a class="footer-link" href="/advertising-policy.html">広告掲載方針</a></nav>
+        <nav class="footer-links" aria-label="フッターナビゲーション"><a class="footer-link" href="/topics/">トピック</a></nav>
       </footer>
     </div>
   </body>

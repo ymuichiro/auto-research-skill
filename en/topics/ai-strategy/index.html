@@ -41,23 +41,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <link rel="stylesheet" href="/assets/spatial-site.css">
     <script src="/assets/site-ui.js" defer></script>
-    <script type="module" src="/assets/listing-motion.js"></script>
+    <script id="spatial-entry" type="module" src="/assets/spatial-site.js"></script>
     
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","name":"AI Strategy","description":"A topic for comparing the design and operating conditions of generative AI across interfaces, presentations, voice, video, sales work, and existing business workflows.","inLanguage":"en","url":"https://research.notelligent.app/en/topics/ai-strategy/","isPartOf":{"@type":"WebSite","name":"Auto Research Digest","url":"https://research.notelligent.app/"},"publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"mainEntity":{"@context":"https://schema.org","@type":"ItemList","name":"AI Strategy","itemListOrder":"https://schema.org/ItemListOrderDescending","numberOfItems":4,"itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"WebPage","name":"Should LLMs replace every if statement? Understanding Jev’s decision API","url":"https://research.notelligent.app/en/2026-09-21-jev-decision-api.html","description":"Interpreting a customer request and verifying the action are different jobs. How does Jev’s decision API change their division?","inLanguage":"en"}},{"@type":"ListItem","position":2,"item":{"@type":"WebPage","name":"HACW: helping people and AI continue the same work","url":"https://research.notelligent.app/en/2026-08-12-beyond-ai-agents-hacw.html","description":"A finished AI draft does not by itself pass its assumptions to the next owner.","inLanguage":"en"}},{"@type":"ListItem","position":3,"item":{"@type":"WebPage","name":"Compare video AI through revision: references, sound, and editing","url":"https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html","description":"Change the background, and the product changes too. Compare preservation, revision, and handoff through documented features from five vendors.","inLanguage":"en"}},{"@type":"ListItem","position":4,"item":{"@type":"WebPage","name":"AI chat UI: when to add an editor or a visible plan","url":"https://research.notelligent.app/en/2026-03-24-why-ai-products-converge-on-chat-ui.html","description":"A conversational request and a precise edit solve different problems. Compare drafts, shared versions, editable plans, and recurring forms.","inLanguage":"en"}}]}}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Strategy","item":"https://research.notelligent.app/en/topics/ai-strategy/"}],"inLanguage":"en"}</script>
   </head>
   <body data-page-type="page">
-    <div class="page-shell">
+    <script type="application/json" id="spatial-config">{"mode":"feed","topic":"AI Strategy","list":["2026-09-21-jev-decision-api","2026-08-12-beyond-ai-agents-hacw","2026-03-28-video-generation-ai-product-landscape","2026-03-24-why-ai-products-converge-on-chat-ui"],"locale":"en","title":"AI Strategy","path":"/en/topics/ai-strategy/","catalog":"/assets/spatial/en.json"}</script>
+    <section id="spatial-startup" role="status" data-error="Could not load this page.">
+      <p id="spatial-startup-message">Loading</p>
+      <button id="spatial-startup-retry" type="button" hidden>Retry</button>
+      <noscript><style>#spatial-startup-message{display:none}</style><p>JavaScript is required to display this site.</p></noscript>
+    </section>
+    <div class="page-shell" aria-hidden="true" inert>
       <div class="hero-backdrop"></div>
       <a class="skip-link" href="#main">Skip to content</a>
       <header class="site-header">
         <a class="brand-mark" href="/en/">
-          <span class="brand-badge" aria-hidden="true">≋</span>
+          <img class="brand-logo" src="/assets/favicon.svg" width="28" height="28" alt="" aria-hidden="true">
           <span class="brand-copy">Auto Research Digest</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu</button>
-        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link " href="/en/">Home</a><a class="nav-link is-active" href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link " href="/en/">Home</a><a class="nav-link is-active" href="/en/topics/">Topics</a></nav>
         <a class="lang-switch" href="/topics/ai-strategy/">日本語</a>
       </header>
       <main class="site-main" id="main">
@@ -138,7 +145,7 @@
       <span class="text-link">Open briefing</span>
     </div>
   </a></div></div></div>
-  </section><section class="panel-block topic-guide">
+  </section><section class="panel-block topic-guide" id="topic-guide">
     <div>
       <p class="section-kicker">Conditions for adoption</p>
       <h2 class="panel-title">What feature comparison misses when generative AI enters real work</h2>
@@ -163,7 +170,7 @@
         <div class="footer-meta">
           <a class="footer-brand" href="/en/">Auto Research Digest</a>
         </div>
-        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a><a class="footer-link" href="/en/sitemap.html">Sitemap</a><a class="footer-link" href="/en/about.html">About</a><a class="footer-link" href="/en/editorial-policy.html">Editorial Policy</a><a class="footer-link" href="/en/contact.html">Contact</a><a class="footer-link" href="/en/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/en/terms.html">Terms</a><a class="footer-link" href="/en/disclaimer.html">Disclaimer</a><a class="footer-link" href="/en/advertising-policy.html">Advertising Policy</a></nav>
+        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a></nav>
       </footer>
     </div>
   </body>

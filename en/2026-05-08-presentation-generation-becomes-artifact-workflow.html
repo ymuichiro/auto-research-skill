@@ -41,9 +41,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+    <link rel="stylesheet" href="/assets/spatial-site.css">
     <script src="/assets/site-ui.js" defer></script>
-    <script src="/assets/article-share.js" defer></script>
-    <script type="module" src="/assets/article-stream.js"></script>
+    <script id="spatial-entry" type="module" src="/assets/spatial-site.js"></script>
     <meta property="article:modified_time" content="2026-10-11T01:18:42+09:00">
     <meta property="article:section" content="AI Workflows">
     <meta property="article:tag" content="Generative AI">
@@ -52,20 +52,26 @@
     <meta property="article:tag" content="Image Generation">
     <meta property="article:tag" content="Automation">
     <meta property="article:tag" content="Evaluation">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI-generated presentations: preserve the argument and the next edit","description":"Compare AI presentation outlines, images, SVG, PPTX, and Google Slides. Choose formats through the argument, source evidence, and the recipient’s next edit.","dateModified":"2026-10-11T01:18:42+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/en/about.html"},"url":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"NewsArticle","headline":"AI-generated presentations: preserve the argument and the next edit","description":"Compare AI presentation outlines, images, SVG, PPTX, and Google Slides. Choose formats through the argument, source evidence, and the recipient’s next edit.","dateModified":"2026-10-11T01:18:42+09:00","inLanguage":"en","isAccessibleForFree":true,"articleSection":"AI Workflows","keywords":"Generative AI, Presentation, PPTX, Image Generation, Automation, Evaluation","mainEntityOfPage":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","publisher":{"@type":"Organization","name":"Auto Research Digest Editorial Desk","url":"https://research.notelligent.app/","logo":{"@type":"ImageObject","url":"https://research.notelligent.app/assets/favicon-512.png","width":512,"height":512}},"author":{"@type":"Organization","name":"Auto Research Digest Editorial Desk"},"url":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html"}</script>
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://research.notelligent.app/en/"},{"@type":"ListItem","position":2,"name":"Topics","item":"https://research.notelligent.app/en/topics/"},{"@type":"ListItem","position":3,"name":"AI Workflows","item":"https://research.notelligent.app/en/topics/ai-workflows/"},{"@type":"ListItem","position":4,"name":"AI-generated presentations: preserve the argument and the next edit","item":"https://research.notelligent.app/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html"}],"inLanguage":"en"}</script>
   </head>
   <body data-page-type="article">
-    <div class="page-shell">
+    <script type="application/json" id="spatial-config">{"mode":"read","article":"2026-05-08-presentation-generation-becomes-artifact-workflow","locale":"en","title":"AI-generated presentations: preserve the argument and the next edit","path":"/en/2026-05-08-presentation-generation-becomes-artifact-workflow.html","catalog":"/assets/spatial/en.json"}</script>
+    <section id="spatial-startup" role="status" data-error="Could not load this page.">
+      <p id="spatial-startup-message">Loading</p>
+      <button id="spatial-startup-retry" type="button" hidden>Retry</button>
+      <noscript><style>#spatial-startup-message{display:none}</style><p>JavaScript is required to display this site.</p></noscript>
+    </section>
+    <div class="page-shell" aria-hidden="true" inert>
       <div class="hero-backdrop"></div>
       <a class="skip-link" href="#main">Skip to content</a>
       <header class="site-header">
         <a class="brand-mark" href="/en/">
-          <span class="brand-badge" aria-hidden="true">≋</span>
+          <img class="brand-logo" src="/assets/favicon.svg" width="28" height="28" alt="" aria-hidden="true">
           <span class="brand-copy">Auto Research Digest</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>Menu</button>
-        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a><a class="nav-link " href="/en/timeline/">Timeline</a></nav>
+        <nav class="site-nav" id="site-navigation" aria-label="Main navigation"><a class="nav-link is-active" href="/en/">Home</a><a class="nav-link " href="/en/topics/">Topics</a></nav>
         <a class="lang-switch" href="/2026-05-08-presentation-generation-becomes-artifact-workflow.html">日本語</a>
       </header>
       <main class="site-main" id="main">
@@ -132,7 +138,7 @@
     <span class="sr-only" data-share-status aria-live="polite" role="status"></span>
   </section>
     </header>
-    <div class="article-body"><section class="report-section">
+    <div class="article-body"><figure class="article-illustration"><img src="/assets/illustrations/article/2026-05-08-presentation-generation-becomes-artifact-workflow.webp" width="1200" height="800" alt="" loading="lazy" decoding="async"></figure><section class="report-section">
 <h2 id="section-1">Can the finished deck survive its next revision?</h2>
 <p>A weekly report is ready. Its diagrams look good and its text is concise. Before the meeting, sales figures change and a note must explain that forecasts are included. Where does the owner make those edits? Replacing an image, updating chart data, and regenerating the deck leave different work for the person receiving it.</p>
 <p>This is a scenario for explaining the mechanisms, not a measured customer deployment. Primary sources available through May 8, 2026 cover outline generation, image creation, PowerPoint and Google Slides APIs, and research that inspects rendered slides. These approaches help with different parts of producing a presentation.</p>
@@ -342,22 +348,6 @@
             <span class="source-action">Open</span>
           </a>
     </div>
-  </section><section class="panel-block article-authorship">
-    <div>
-      <p class="section-kicker">Editorial review</p>
-      <h2 class="panel-title">How this briefing is reviewed</h2>
-    </div>
-    <div>
-      <p class="panel-copy">Auto Research Digest Editorial Desk checks the published evidence directly and separates confirmed facts, interpretations drawn from comparisons, and unresolved questions.</p>
-      <p class="panel-copy mt-3">The public repository is maintained by ymuichiro. The article text, references, and revision history are available for inspection. The body distinguishes sourced results from editorial interpretation and labels explanatory scenarios.</p>
-      <div class="mt-4 flex flex-wrap gap-x-5 gap-y-3">
-        <a class="text-link" href="/en/about.html">About this publication</a>
-        <a class="text-link" href="/en/editorial-policy.html">Editorial policy</a>
-        <a class="text-link" href="https://github.com/ymuichiro" target="_blank" rel="noopener noreferrer">Maintainer profile</a>
-        <a class="text-link" href="https://github.com/ymuichiro/auto-research-skill/blob/main/content/articles/2026-05-08-presentation-generation-becomes-artifact-workflow/body.en.html" target="_blank" rel="noopener noreferrer">Article source</a>
-        <a class="text-link" href="https://github.com/ymuichiro/auto-research-skill/commits/main/content/articles/2026-05-08-presentation-generation-becomes-artifact-workflow" target="_blank" rel="noopener noreferrer">Article revision history</a>
-      </div>
-    </div>
   </section>
     </details>
     <details class="reading-evidence"><summary>Continue reading</summary><section class="panel-block topic-backlink">
@@ -431,7 +421,7 @@
         <div class="footer-meta">
           <a class="footer-brand" href="/en/">Auto Research Digest</a>
         </div>
-        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a><a class="footer-link" href="/en/sitemap.html">Sitemap</a><a class="footer-link" href="/en/about.html">About</a><a class="footer-link" href="/en/editorial-policy.html">Editorial Policy</a><a class="footer-link" href="/en/contact.html">Contact</a><a class="footer-link" href="/en/privacy-policy.html">Privacy Policy</a><a class="footer-link" href="/en/terms.html">Terms</a><a class="footer-link" href="/en/disclaimer.html">Disclaimer</a><a class="footer-link" href="/en/advertising-policy.html">Advertising Policy</a></nav>
+        <nav class="footer-links" aria-label="Footer navigation"><a class="footer-link" href="/en/topics/">Topics</a></nav>
       </footer>
     </div>
   </body>
