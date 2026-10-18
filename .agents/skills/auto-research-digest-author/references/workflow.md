@@ -2,13 +2,13 @@
 
 ## 1. Canonical repo files
 
-Read these first when the skill triggers:
+Resolve paths from the active checkout. Read these first when the skill triggers:
 
-- `/Users/you/github/ymuichiro/auto-research-skill/guidelines/information-sourcing-policy.md`
-- `/Users/you/github/ymuichiro/auto-research-skill/guidelines/editorial-expression-guideline.md`
-- `/Users/you/github/ymuichiro/auto-research-skill/scripts/new-article.mjs`
-- `/Users/you/github/ymuichiro/auto-research-skill/package.json`
-- `/Users/you/github/ymuichiro/auto-research-skill/scripts/lib/site-config.mjs`
+- `guidelines/information-sourcing-policy.md`
+- `guidelines/editorial-expression-guideline.md`
+- `scripts/new-article.mjs`
+- `package.json`
+- `scripts/lib/site-config.mjs`
 
 ## 2. Article contract
 
@@ -117,13 +117,17 @@ Depth rules:
 - for retrospective or backfilled public articles, keep the narration in publication-day voice rather than hindsight voice
 - for weekly posts, write from the perspective of what was knowable by that publication date
 
-## 5. Build and verification
+## 5. Illustrations, build and verification
+
+Before publishing a new article, follow [illustrations.md](illustrations.md). Generate its own content-specific image, register it in `src/assets/illustrations/manifest.json`, and create a distinct category image if the category is new. Reuse an existing image only between the Japanese and English versions of the same article; do not reuse images across articles or categories. For an existing article, inspect its illustration when the subject or thesis changes.
 
 Core commands:
 
 - `pnpm new:article --date YYYY-MM-DD --slug topic-slug`
 - `pnpm build`
 - `pnpm validate`
+- `pnpm verify:illustrations`
+- `pnpm test:illustrations`
 
 Useful checks:
 
@@ -138,10 +142,10 @@ If the user wants publication:
 1. `git status --short`
 2. `git add ...`
 3. `git commit -m "..."` with a clear summary
-4. `git push origin main`
+4. Push the intended branch and follow the repository's approved PR/merge/deployment workflow; do not assume the active checkout should push directly to `main`.
 5. `gh run list -R ymuichiro/auto-research-skill -L 5`
 6. `gh run watch -R ymuichiro/auto-research-skill <run-id> --exit-status`
-7. verify the public page at `https://ymuichiro.github.io/auto-research-skill/`
+7. Read the configured production URL from `scripts/lib/site-config.mjs`, verify the public article and its registered illustration assets, and run `pnpm verify:public -- --base-url <configured-production-URL>`. Keep local-preview checks separate from production verification.
 
 ## 7. Quality bar
 
@@ -156,5 +160,8 @@ Before you stop, check:
 - hypothetical scenarios are labeled and are not presented as deployed implementations
 - replacing the subject with an unrelated technology makes the central claims fail; otherwise the prose is too generic
 - every section advances the central question and the article reads like a coherent argument, not a source dump or checklist
+- the article has its own generated illustration, its category has a separate registered image, and no other article/category image is reused
+- the picture communicates the article's actual mechanism, preserves the clean white/cyan/mint style, and is not misrepresented as a screenshot or evidence
+- `pnpm verify:illustrations` succeeds; article opening, listing preview, topic preview, and category selector are checked in PC and smartphone-width browsers
 - `pnpm build` succeeds
 - if published, GitHub Actions deploy succeeds

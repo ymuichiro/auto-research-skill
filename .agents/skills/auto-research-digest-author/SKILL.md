@@ -1,24 +1,24 @@
 ---
 name: auto-research-digest-author
-description: Research, write, and update evidence-led Auto Research Digest articles about LLM, AI, and AI agents in this repository. Use for current-trend research, official-doc or paper collection, bilingual article creation or revision, infographic-style HTML reports, retrospective snapshots, and publication. Build one explicit thesis from primary evidence, support major claims with concrete sourced cases, use clearly labeled scenarios only to explain supported mechanisms, preserve the author's reasoned interpretation, and keep every section connected to that thesis. Browse for current information, collect at least 20 primary-source URLs as a research gate rather than a coverage quota, update Japanese and English article files plus meta.json, and preserve the evidence and publication contracts.
+description: Research, write, and update evidence-led Auto Research Digest articles about LLM, AI, and AI agents in this repository. Use for current-trend research, official-doc or paper collection, bilingual article creation or revision, infographic-style HTML reports, retrospective snapshots, and publication. Build one explicit thesis from primary evidence, support major claims with concrete sourced cases, use clearly labeled scenarios only to explain supported mechanisms, preserve the author's reasoned interpretation, and keep every section connected to that thesis. Browse for current information, collect at least 20 primary-source URLs as a research gate rather than a coverage quota, update Japanese and English article files plus meta.json, create dedicated content-specific illustrations, and preserve the evidence and publication contracts.
 ---
 
 # Auto Research Digest Author
 
-Use this skill for the repository at `/Users/you/github/ymuichiro/auto-research-skill`.
+Use this skill in the active `auto-research-skill` checkout. Resolve repository-relative paths below from that checkout; do not switch to an older checkout at a hard-coded location.
 
 ## Read First
 
 Before writing, read these files:
 
-- `/Users/you/github/ymuichiro/auto-research-skill/guidelines/information-sourcing-policy.md`
-- `/Users/you/github/ymuichiro/auto-research-skill/guidelines/editorial-expression-guideline.md`
-- `/Users/you/github/ymuichiro/auto-research-skill/guidelines/design-system.md`
-- `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/auto-research-digest-author/references/workflow.md`
-- `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/write-concrete-coherent-prose/SKILL.md`
-- `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/japanese-tech-writing/SKILL.md`
+- `guidelines/information-sourcing-policy.md`
+- `guidelines/editorial-expression-guideline.md`
+- `guidelines/design-system.md`
+- `.agents/skills/auto-research-digest-author/references/workflow.md`
+- `.agents/skills/write-concrete-coherent-prose/SKILL.md`
+- `.agents/skills/japanese-tech-writing/SKILL.md`
 
-Read `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/cognitive-rhythm-writing/SKILL.md` only after the claims, evidence, examples, and section order are stable. Rhythm must not create new claims or filler.
+Read `.agents/skills/cognitive-rhythm-writing/SKILL.md` only after the claims, evidence, examples, and section order are stable. Rhythm must not create new claims or filler.
 
 When updating an existing article, also read that article's `meta.json`, `body.ja.html`, and `body.en.html`.
 
@@ -38,8 +38,9 @@ When updating an existing article, also read that article's `meta.json`, `body.j
    - `meta.json`
    - `body.ja.html`
    - `body.en.html`
-10. Run `pnpm build` after edits. Use `pnpm validate` if you need a separate validation pass.
-11. If the user wants the change published, commit, push, watch GitHub Actions, and verify the public page.
+10. Before publishing a new article, create and register its own generated illustration. For a substantial rewrite, check that the existing illustration still expresses the thesis and regenerate it if the meaning changed. Read [Illustration workflow](references/illustrations.md) for generation, file registration, and checks. A new category also needs its own separate generated image.
+11. Run `pnpm build`, `pnpm verify:illustrations`, and the image/browser checks described in the illustration workflow. A draft may omit an image; a published article may not.
+12. If the user wants the change published, commit, push, watch GitHub Actions, and verify the public page and its image assets.
 
 ## Weekly Publishing Rules
 
@@ -133,13 +134,21 @@ For the normal weekly cadence, also make sure each article answers:
   - `public/en/YYYY-MM-DD-slug.html`
 - New article content should fit the shared design system automatically. Only add new reusable semantic blocks when the existing shared classes are insufficient.
 
-For exact commands, file fields, and publish steps, read `/Users/you/github/ymuichiro/auto-research-skill/.agents/skills/auto-research-digest-author/references/workflow.md`.
+For exact commands, file fields, and publish steps, read `.agents/skills/auto-research-digest-author/references/workflow.md`.
+
+## Illustration Requirement
+
+Every published article needs an individually generated image that explains its specific subject or mechanism. Use the available `imagegen` skill and built-in image generation tool; do not substitute stock images, vendor screenshots, generic SVG placeholders, or another article's image. Keep the established clean white, pale cyan, and muted mint style, but choose objects and relationships from the article's thesis rather than generic decorative shapes. The Japanese and English versions of the same article share its image. Different articles and categories do not share images.
+
+Use [references/illustrations.md](references/illustrations.md) before creating or replacing an image. Registration in `src/assets/illustrations/manifest.json` drives the shared UI automatically; do not add duplicate image tags or page-specific styling to article bodies.
 
 ## Commands
 
 - Create a draft: `pnpm new:article --date YYYY-MM-DD --slug topic-slug`
 - Build and validate: `pnpm build`
 - Validate only: `pnpm validate`
+- Verify generated-image coverage and provenance: `pnpm verify:illustrations`
+- Verify article/category images in PC and smartphone-width browsers: `pnpm test:illustrations`
 
 ## Example Triggers
 
