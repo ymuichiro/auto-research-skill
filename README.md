@@ -13,8 +13,6 @@ Auto Research Digest is a public research publication about adopting, evaluating
 
 - [AI Agents トピック](https://research.notelligent.app/topics/ai-agents/)
 - [AIエージェント評価の記事](https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html)
-- [このサイトについて](https://research.notelligent.app/about.html)
-- [調査・編集方針](https://research.notelligent.app/editorial-policy.html)
 
 ## 目的
 
@@ -69,13 +67,25 @@ pnpm new:article --date YYYY-MM-DD --slug topic-slug
 pnpm build
 pnpm validate
 pnpm dev
-pnpm test:design
-pnpm verify:design  # ローカルサーバーを起動した状態で全ページを確認
+pnpm test:spatial          # 日英・PC/スマートフォン幅の操作、履歴、共有URL
+pnpm test:spatial:accessibility # キーボード、動きを減らす設定、表示サイズ変更
+pnpm test:spatial:quality  # 全記事・全章、ページ種別、通信失敗、サブパス配信
+pnpm verify:disclosures   # 新しい画面の目次・出典・関連記事
 ```
 
 本文にはデザイン用のクラスや色を指定する必要はありません。
 [記事テンプレートの使い方](guidelines/article-template.md)と[内容構造の雛形](templates/article/visual-blocks.html)を使い、`PREVIEW_ARTICLE=YYYY-MM-DD-topic-slug pnpm dev`で下書きを確認できます。
 ブラウザー検証の初回は`pnpm exec playwright install chromium webkit`を実行します。
+
+トップ・トピック・記事は、共通のワークスペースを使います。スクロール位置から候補の移動と折りたたみ量を決め、本文では一章を開いて読みます。長い章は本文の中を通常どおりスクロールできます。URL、章のハッシュ、ブラウザーの戻る・進む、言語切り替えに対応します。OS の「視差効果を減らす」設定では動きを止めます。
+
+トップでは全公開記事を連続して手繰れます。既存の2ページ目以降のURLと、JavaScriptを使わない表示のページ分割は保持しています。トピック内では、そのテーマの記事だけを手繰り、テーマガイドも同じ読書面で開けます。
+
+トップでは月を細い区切りとして表示し、全記事を一続きに手繰れます。月の選択を挟まずに各記事が前面に開き、記事面のクリックで本文を開きます。月の一覧は、その月の最初の記事へのショートカットです。独立したタイムライン画面は廃止し、旧 `/timeline/` と `/en/timeline/` は月・記事指定を引き継いで各言語のトップへ転送します。
+
+画面は共通ワークスペースに一本化しています。旧画面への切り替え・障害時の復帰は廃止し、読み込み失敗時は再試行を表示します。旧 `?view=static` URLも新しい画面で開きます。検索向けの本文HTMLと印刷用本文は保持します。記事の本文JSONは選択時に読み込み、初期表示で全記事の本文を転送しません。共有・コピーには公開URLを使用し、コピーでは現在の章も含めます。
+
+`test:design` / `test:motion` / `test:navigation` などの従来のコマンドは新しい共通テストへ接続しています。新UIの検証結果は `output/spatial-site/` に保存されます。スマートフォン幅のブラウザーエミュレーションは実機の検証とは区別してください。`test:authoring` は出力を再生成するため、上記のブラウザーテストと同時に実行しないでください。
 
 ## Codex ルール
 

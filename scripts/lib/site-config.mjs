@@ -8,25 +8,10 @@ const siteOrigin = new URL(siteUrl);
 const basePath = siteOrigin.pathname.replace(/\/$/, "");
 const cname = siteOrigin.hostname.endsWith(".github.io") ? null : siteOrigin.hostname;
 
-export const trustPagePaths = {
-  about: "about.html",
-  editorialPolicy: "editorial-policy.html",
-  contact: "contact.html",
-  privacyPolicy: "privacy-policy.html",
-  terms: "terms.html",
-  disclaimer: "disclaimer.html",
-  advertisingPolicy: "advertising-policy.html"
-};
-
-export const trustPageOrder = [
-  "about",
-  "editorialPolicy",
-  "contact",
-  "privacyPolicy",
-  "terms",
-  "disclaimer",
-  "advertisingPolicy"
-];
+export const removedHtmlPages = [
+  "about.html", "editorial-policy.html", "contact.html", "privacy-policy.html",
+  "terms.html", "disclaimer.html", "advertising-policy.html", "sitemap.html"
+].flatMap(page => [page, `en/${page}`]);
 
 export const siteConfig = {
   name: "Auto Research Digest",
@@ -65,38 +50,16 @@ export const siteConfig = {
   nav: {
     ja: [
       { label: "トップ", path: "" },
-      { label: "トピック", path: "topics/" },
-      { label: "タイムライン", path: "timeline/" }
+      { label: "トピック", path: "topics/" }
     ],
     en: [
       { label: "Home", path: "en/" },
-      { label: "Topics", path: "en/topics/" },
-      { label: "Timeline", path: "en/timeline/" }
+      { label: "Topics", path: "en/topics/" }
     ]
   },
   footerNav: {
-    ja: [
-      { label: "トピック", path: "topics/" },
-      { label: "サイトマップ", path: "sitemap.html" },
-      { label: "このサイトについて", path: trustPagePaths.about },
-      { label: "調査・編集方針", path: trustPagePaths.editorialPolicy },
-      { label: "お問い合わせ", path: trustPagePaths.contact },
-      { label: "プライバシーポリシー", path: trustPagePaths.privacyPolicy },
-      { label: "利用規約", path: trustPagePaths.terms },
-      { label: "免責事項", path: trustPagePaths.disclaimer },
-      { label: "広告掲載方針", path: trustPagePaths.advertisingPolicy }
-    ],
-    en: [
-      { label: "Topics", path: "topics/" },
-      { label: "Sitemap", path: "sitemap.html" },
-      { label: "About", path: trustPagePaths.about },
-      { label: "Editorial Policy", path: trustPagePaths.editorialPolicy },
-      { label: "Contact", path: trustPagePaths.contact },
-      { label: "Privacy Policy", path: trustPagePaths.privacyPolicy },
-      { label: "Terms", path: trustPagePaths.terms },
-      { label: "Disclaimer", path: trustPagePaths.disclaimer },
-      { label: "Advertising Policy", path: trustPagePaths.advertisingPolicy }
-    ]
+    ja: [{label: "トピック", path: "topics/"}],
+    en: [{label: "Topics", path: "topics/"}]
   }
 };
 
@@ -128,10 +91,6 @@ export function topicHubRelativePath(locale, slug) {
 
 export function timelineRelativePath(locale) {
   return locale === "ja" ? "timeline/" : "en/timeline/";
-}
-
-export function sitemapHtmlRelativePath(locale) {
-  return locale === "ja" ? "sitemap.html" : "en/sitemap.html";
 }
 
 export function feedRelativePath(locale) {

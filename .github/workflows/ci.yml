@@ -43,10 +43,11 @@ jobs:
 
       - name: Verify reading, motion and keyboard flows
         run: |
-          pnpm test:design
-          pnpm test:motion
-          pnpm test:listing
-          pnpm test:arrival
-          pnpm test:navigation
-          pnpm test:quality --functional-only
+          pnpm test:authoring
+          pnpm test:spatial
+          pnpm test:illustrations
+          pnpm test:topics-evidence
+          pnpm test:chapter-scroll
+          pnpm test:spatial:accessibility
+          pnpm test:spatial:quality
           pnpm verify:disclosures

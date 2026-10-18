@@ -20,7 +20,7 @@ try {
   execFileSync(process.execPath,['scripts/new-article.mjs','--date','2026-10-12','--slug','template-local-preview-check']);
   const original=await readFile(path.join(directory,'body.ja.html'),'utf8');
   assert(!/class=|style=/.test(original));
-  child=spawn(process.execPath,['scripts/dev.mjs'],{env:{...process.env,PREVIEW_ARTICLE:id,PORT:'4174'},stdio:['ignore','pipe','pipe']});
+  child=spawn(process.execPath,['scripts/dev.mjs'],{env:{...process.env,PREVIEW_ARTICLE:id,PORT:'4174'},detached:process.platform!=='win32',stdio:['ignore','pipe','pipe']});
   let log='';child.stdout.on('data',data=>{log=(log+data).slice(-6000);});child.stderr.on('data',data=>{log=(log+data).slice(-6000);});
   const html=await waitFor(`http://127.0.0.1:4174/${id}.html`,html=>html.includes('reading-article'));
   assert(html.includes('noindex,nofollow'),'Draft preview must be excluded from indexing');
@@ -33,7 +33,10 @@ try {
   console.log('Class-free scaffold → draft preview → save → automatic rebuild passed in both locales.');
 } finally {
   if(child&&child.exitCode===null) {
-    const exited=new Promise(resolve=>child.once('exit',resolve));child.kill('SIGINT');await exited;
+    // Stop the CSS watcher and rebuild children before cleaning their output.
+    const exited=new Promise(resolve=>child.once('exit',resolve));
+    if(process.platform==='win32')child.kill('SIGINT');else process.kill(-child.pid,'SIGTERM');
+    await exited;
   }
   await rm(directory,{recursive:true,force:true});
   execFileSync('pnpm',['build'],{stdio:'inherit'});

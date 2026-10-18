@@ -1,5 +1,5 @@
 import path from "node:path";
-import { mkdir, readFile } from "node:fs/promises";
+import { mkdir, readFile, rm } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import pngToIco from "png-to-ico";
@@ -12,32 +12,31 @@ import {
   renderDefaultOgSvg,
   renderFaviconSvg,
   renderFeed,
-  renderHtmlSitemapPage,
   renderIndexPage,
   renderNotFoundPage,
   renderRobots,
   renderSitemap,
   renderSitemapIndex,
-  renderTimelinePage,
+  renderTimelineRedirect,
   renderTopicHubPage,
   renderTopicsIndexPage,
-  renderTrustPage,
   renderWebManifest
 } from "./lib/render.mjs";
 import {
   feedRelativePath,
   listingRelativePath,
-  sitemapHtmlRelativePath,
+  removedHtmlPages,
   siteConfig,
   timelineRelativePath,
   topicHubRelativePath,
   topicIndexRelativePath
 } from "./lib/site-config.mjs";
 import { buildTopicHubs } from "./lib/topic-hubs.mjs";
-import { trustPagesForLocale } from "./lib/trust-pages.mjs";
+import {spatialCatalog} from './lib/spatial-site.mjs';
+import {prepareArticleBody} from './lib/article-template.mjs';
 import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
-const outputRoot = path.resolve("public");
+const outputRoot = path.resolve(process.env.SITE_OUTPUT_DIR??"public");
 const iconRoot = path.join(outputRoot, "assets");
 const execFileAsync = promisify(execFile);
 let sharpLoader = null;
@@ -137,14 +136,18 @@ async function buildSocialCardAsset() {
   await writeBufferFile(path.join(outputRoot, "assets", "og-twitter-card.png"), imageBuffer);
 }
 
-async function buildArticleShareScript() {
-  const sourcePath = path.resolve("src/assets/article-share.js");
-  const targetPath = path.join(outputRoot, "assets", "article-share.js");
-  const scriptText = await readFile(sourcePath, "utf8");
-  await writeTextFile(targetPath, scriptText);
-  for (const name of ["site-ui.js", "article-stream.js", "article-motion.js", "listing-motion.js"]) {
-    await writeTextFile(path.join(outputRoot, "assets", name), await readFile(path.resolve("src/assets", name), "utf8"));
+async function buildSpatialAssets() {
+  const illustrations=JSON.parse(await readFile('src/assets/illustrations/manifest.json','utf8'));
+  for(const item of illustrations.items){const file=`${item.kind}/${item.id}.webp`;await writeBufferFile(path.join(outputRoot,'assets/illustrations',file),await readFile(path.resolve('src/assets/illustrations',file)));}
+  for(const name of ['flow','execution'])await rm(path.join(outputRoot,`assets/topic-${name}.webp`),{force:true});
+  for(const name of ['article-share.js','article-stream.js','article-motion.js','listing-motion.js']) {
+    await rm(path.join(outputRoot,'assets',name),{force:true});
   }
+  await writeTextFile(path.join(outputRoot,'assets/site-ui.js'),await readFile(path.resolve('src/assets/site-ui.js'),'utf8'));
+  for(const name of ['spatial-site.js','spatial-copy.js','timeline-redirect.js']) {
+    await writeTextFile(path.join(outputRoot,'assets',name),await readFile(path.resolve('src/assets',name),'utf8'));
+  }
+  await writeTextFile(path.join(outputRoot,'assets/spatial-site.css'),await readFile(path.resolve('src/styles/spatial-site.css'),'utf8'));
 }
 
 async function buildSite() {
@@ -156,26 +159,24 @@ async function buildSite() {
 
   const liveArticles = publishedArticles(articles);
   const topicHubs = buildTopicHubs(liveArticles);
-  const trustPages = siteConfig.locales.flatMap((locale) => trustPagesForLocale(locale));
   const listingPages = paginateArticles(liveArticles, siteConfig.pagination.articleListPageSize);
   const listingPagination = {
     totalArticles: liveArticles.length,
     totalPages: listingPages.length
   };
   const latestUpdate =
-    [...liveArticles.map((article) => article.lastModified), ...trustPages.map((page) => page.lastModified)].sort((left, right) =>
+    liveArticles.map((article) => article.lastModified).sort((left, right) =>
       right.localeCompare(left)
     )[0] ?? new Date().toISOString();
 
   await mkdir(iconRoot, { recursive: true });
+  await Promise.all(removedHtmlPages.map(page=>rm(path.join(outputRoot,page),{force:true})));
+  for(const locale of siteConfig.locales) {
+    await writeTextFile(path.join(outputRoot,'assets/spatial',`${locale}.json`),JSON.stringify(spatialCatalog(liveArticles,topicHubs,locale)));
+  }
 
   await writeTextFile(path.join(outputRoot, "404.html"), renderNotFoundPage("ja", liveArticles));
   await writeTextFile(path.join(outputRoot, "en", "404.html"), renderNotFoundPage("en", liveArticles));
-
-  for (const page of trustPages) {
-    const locale = page.relativePath.startsWith("en/") ? "en" : "ja";
-    await writeTextFile(path.join(outputRoot, page.relativePath), renderTrustPage(page, locale));
-  }
 
   for (const locale of siteConfig.locales) {
     for (const page of listingPages) {
@@ -201,18 +202,7 @@ async function buildSite() {
       );
     }
 
-    const localizedTrustPages = trustPages.filter((page) =>
-      locale === "en" ? page.relativePath.startsWith("en/") : !page.relativePath.startsWith("en/")
-    );
-    await writeTextFile(
-      path.join(outputRoot, sitemapHtmlRelativePath(locale)),
-      renderHtmlSitemapPage(locale, liveArticles, {
-        topicHubs,
-        trustPages: localizedTrustPages,
-        latestUpdate
-      })
-    );
-    await writeTextFile(path.join(outputRoot, timelineRelativePath(locale), "index.html"), renderTimelinePage(locale, liveArticles, topicHubs));
+    await writeTextFile(path.join(outputRoot, timelineRelativePath(locale), "index.html"), renderTimelineRedirect(locale));
   }
 
   for (const article of liveArticles) {
@@ -223,8 +213,9 @@ async function buildSite() {
       const nodes = [...headMarkup.matchAll(/<meta\s[^>]*(?:name="(?:description|twitter:[^"]+)"|property="(?:og:|article:)[^"]+")[^>]*>|<link\s[^>]*(?:rel="canonical"|hreflang="[^"]+")[^>]*>|<script type="application\/ld\+json">[\s\S]*?<\/script>/g)].map((match) => match[0]).join("");
       await writeTextFile(path.join(outputRoot, "assets/articles", locale, `${article.sourceDirName}.json`), JSON.stringify({
         id: article.sourceDirName, locale,
+        body: prepareArticleBody(article.bodies[locale]),
         head: { title: pageTitle(article.seo[locale].title, locale), nodes },
-        html: renderReadingArticle(article, locale, liveArticles),
+        html: renderReadingArticle(article, locale, liveArticles,{initial:true}),
         continuation: renderArticleContinuation(article, locale, liveArticles)
       }));
     }
@@ -269,67 +260,6 @@ async function buildSite() {
       ]
     });
   }
-
-  for (const pageId of new Set(trustPages.map((page) => page.id))) {
-    const jaPage = trustPages.find((page) => page.id === pageId && !page.relativePath.startsWith("en/"));
-    const enPage = trustPages.find((page) => page.id === pageId && page.relativePath.startsWith("en/"));
-
-    pageSitemapEntries.push({
-      path: jaPage.relativePath,
-      lastModified: jaPage.lastModified,
-      alternates: [
-        { hreflang: "ja", path: jaPage.relativePath },
-        { hreflang: "en", path: enPage.relativePath },
-        { hreflang: "x-default", path: jaPage.relativePath }
-      ]
-    });
-    pageSitemapEntries.push({
-      path: enPage.relativePath,
-      lastModified: enPage.lastModified,
-      alternates: [
-        { hreflang: "ja", path: jaPage.relativePath },
-        { hreflang: "en", path: enPage.relativePath },
-        { hreflang: "x-default", path: jaPage.relativePath }
-      ]
-    });
-  }
-
-  pageSitemapEntries.push({
-    path: sitemapHtmlRelativePath("ja"),
-    lastModified: latestUpdate,
-    alternates: [
-      { hreflang: "ja", path: sitemapHtmlRelativePath("ja") },
-      { hreflang: "en", path: sitemapHtmlRelativePath("en") },
-      { hreflang: "x-default", path: sitemapHtmlRelativePath("ja") }
-    ]
-  });
-  pageSitemapEntries.push({
-    path: sitemapHtmlRelativePath("en"),
-    lastModified: latestUpdate,
-    alternates: [
-      { hreflang: "ja", path: sitemapHtmlRelativePath("ja") },
-      { hreflang: "en", path: sitemapHtmlRelativePath("en") },
-      { hreflang: "x-default", path: sitemapHtmlRelativePath("ja") }
-    ]
-  });
-  pageSitemapEntries.push({
-    path: timelineRelativePath("ja"),
-    lastModified: latestUpdate,
-    alternates: [
-      { hreflang: "ja", path: timelineRelativePath("ja") },
-      { hreflang: "en", path: timelineRelativePath("en") },
-      { hreflang: "x-default", path: timelineRelativePath("ja") }
-    ]
-  });
-  pageSitemapEntries.push({
-    path: timelineRelativePath("en"),
-    lastModified: latestUpdate,
-    alternates: [
-      { hreflang: "ja", path: timelineRelativePath("ja") },
-      { hreflang: "en", path: timelineRelativePath("en") },
-      { hreflang: "x-default", path: timelineRelativePath("ja") }
-    ]
-  });
 
   pageSitemapEntries.push({
     path: topicIndexRelativePath("ja"),
@@ -414,7 +344,7 @@ async function buildSite() {
   await writeTextFile(path.join(outputRoot, ".nojekyll"), "");
   await writeTextFile(path.join(outputRoot, "assets", "og-default.svg"), renderDefaultOgSvg());
   await buildSocialCardAsset();
-  await buildArticleShareScript();
+  await buildSpatialAssets();
   await buildFaviconAssets();
 }
 
