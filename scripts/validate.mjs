@@ -256,7 +256,7 @@ async function validateBuiltOutput(articles) {
     "site.webmanifest",
     ".nojekyll",
     "assets/site.css",
-    "assets/article-share.js",
+    "assets/spatial-site.js",
     siteConfig.ogImage,
     "assets/og-default.svg",
     "assets/favicon.svg",
@@ -518,7 +518,7 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, 'class="related-articles"', `${label} is missing the related articles block.`);
       assertContains(markup, 'data-native-share', `${label} is missing the native share trigger.`);
       assertContains(markup, 'data-copy-share', `${label} is missing the copy share trigger.`);
-      assertContains(markup, 'assets/article-share.js', `${label} is missing the article share script.`);
+      assertContains(markup, 'assets/spatial-site.js', `${label} is missing the spatial application.`);
       assertSocialCardMarkup(markup, label);
     }
 

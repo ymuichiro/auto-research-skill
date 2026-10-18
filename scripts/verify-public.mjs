@@ -23,8 +23,8 @@ const pages = [...new Set(sitemaps.slice(1).flatMap((xml) => [...xml.matchAll(/<
 const payloads = (await Promise.all(["ja", "en"].map(async locale =>
   (await readdir(path.join("public/assets/articles", locale))).filter(file => file.endsWith(".json")).map(file => `assets/articles/${locale}/${file}`)))).flat();
 const paths = [...new Set([...pages.map((url) => new URL(url).pathname.slice(new URL(siteConfig.siteUrl).pathname.length)), ...sitemapPaths,
-  "robots.txt", "favicon.ico", "assets/favicon.ico", "assets/og-twitter-card.png", siteConfig.ogImage, "assets/site.css", "assets/article-share.js",
-  "assets/site-ui.js", "assets/article-stream.js", "assets/article-motion.js", "assets/listing-motion.js", ...payloads])];
+  "robots.txt", "favicon.ico", "assets/favicon.ico", "assets/og-twitter-card.png", siteConfig.ogImage, "assets/site.css",
+  "assets/site-ui.js", "assets/spatial-site.js", "assets/spatial-copy.js", "assets/spatial-site.css", "assets/spatial/ja.json", "assets/spatial/en.json", ...payloads])];
 const digest = (bytes) => createHash("sha256").update(bytes).digest("hex");
 let report;
 for (let attempt = 1; attempt <= attempts; attempt += 1) {

@@ -136,14 +136,11 @@ async function buildSocialCardAsset() {
   await writeBufferFile(path.join(outputRoot, "assets", "og-twitter-card.png"), imageBuffer);
 }
 
-async function buildArticleShareScript() {
-  const sourcePath = path.resolve("src/assets/article-share.js");
-  const targetPath = path.join(outputRoot, "assets", "article-share.js");
-  const scriptText = await readFile(sourcePath, "utf8");
-  await writeTextFile(targetPath, scriptText);
-  for (const name of ["site-ui.js", "article-stream.js", "article-motion.js", "listing-motion.js"]) {
-    await writeTextFile(path.join(outputRoot, "assets", name), await readFile(path.resolve("src/assets", name), "utf8"));
+async function buildSpatialAssets() {
+  for(const name of ['article-share.js','article-stream.js','article-motion.js','listing-motion.js']) {
+    await rm(path.join(outputRoot,'assets',name),{force:true});
   }
+  await writeTextFile(path.join(outputRoot,'assets/site-ui.js'),await readFile(path.resolve('src/assets/site-ui.js'),'utf8'));
   for(const name of ['spatial-site.js','spatial-copy.js']) {
     await writeTextFile(path.join(outputRoot,'assets',name),await readFile(path.resolve('src/assets',name),'utf8'));
   }
@@ -363,7 +360,7 @@ async function buildSite() {
   await writeTextFile(path.join(outputRoot, ".nojekyll"), "");
   await writeTextFile(path.join(outputRoot, "assets", "og-default.svg"), renderDefaultOgSvg());
   await buildSocialCardAsset();
-  await buildArticleShareScript();
+  await buildSpatialAssets();
   await buildFaviconAssets();
 }
 

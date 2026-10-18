@@ -176,12 +176,9 @@ function renderSharedHeadAssets(locale) {
     <link rel="stylesheet" href="${assetPath("assets/spatial-site.css")}">`;
 }
 
-function renderSharedPageScript(pageType, spatial) {
-  return `    <script src="${assetPath("assets/site-ui.js")}" defer></script>${pageType === "article" ? `
-    <script src="${assetPath("assets/article-share.js")}" defer></script>
-    ${spatial ? '' : `<script type="module" src="${assetPath("assets/article-stream.js")}"></script>`}` :
-    (spatial ? '' : `<script type="module" src="${assetPath("assets/listing-motion.js")}"></script>`) }
-    ${spatial ? `<script type="module" src="${assetPath('assets/spatial-site.js')}"></script>` : ''}`;
+function renderSharedPageScript() {
+  return `    <script src="${assetPath('assets/site-ui.js')}" defer></script>
+    <script id="spatial-entry" type="module" src="${assetPath('assets/spatial-site.js')}"></script>`;
 }
 
 function localeTag(locale) {
@@ -398,7 +395,7 @@ export function renderPage({
     <link rel="alternate" hreflang="${locale === "ja" ? "en" : "ja"}" href="${alternateUrl}">
     <link rel="alternate" hreflang="x-default" href="${defaultLocaleUrl}">
 ${renderSharedHeadAssets(locale)}
-${renderSharedPageScript(pageType,spatial)}
+${renderSharedPageScript()}
     ${pageType === "article" && article
       ? `${article.publishedAtIso ? `<meta property="article:published_time" content="${escapeHtml(article.publishedAtIso)}">\n    ` : ""}<meta property="article:modified_time" content="${article.lastModified}">
     <meta property="article:section" content="${escapeHtml(article.category)}">
@@ -410,7 +407,12 @@ ${renderSharedPageScript(pageType,spatial)}
   </head>
   <body data-page-type="${pageType}">
     ${spatial ? spatialConfigScript(spatial,locale,relativePath,pageHeading) : ''}
-    <div class="page-shell">
+    <section id="spatial-startup" role="status" data-error="${locale==='ja'?'読み込めませんでした。':'Could not load this page.'}">
+      <p id="spatial-startup-message">${locale==='ja'?'読み込んでいます':'Loading'}</p>
+      <button id="spatial-startup-retry" type="button" hidden>${locale==='ja'?'再試行':'Retry'}</button>
+      <noscript><style>#spatial-startup-message{display:none}</style><p>${locale==='ja'?'このサイトの表示にはJavaScriptが必要です。':'JavaScript is required to display this site.'}</p></noscript>
+    </section>
+    <div class="page-shell" aria-hidden="true" inert>
       <div class="hero-backdrop"></div>
       <a class="skip-link" href="#main">${locale === "ja" ? "本文へ" : "Skip to content"}</a>
       <header class="site-header">

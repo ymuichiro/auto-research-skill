@@ -86,7 +86,7 @@ async function resilience(){
     await page.locator('.article-paper[data-front=true] .read-button').click();
     await page.locator('.workspace-status [data-action=retry]').waitFor();
     assert.equal(await page.evaluate(()=>spatialSite.getState().mode),'feed');
-    assert.ok((await page.locator('.workspace-status a').getAttribute('href')).includes('view=static'));
+    assert.equal(await page.locator('.workspace-status a').count(),0,'no alternate screen on loading failure');
     await page.locator('[data-action=retry]').click();await page.waitForFunction(()=>spatialSite.getState().mode==='read');
     assert.equal(await page.locator('.workspace-status').isVisible(),false);
     await page.close();
@@ -101,17 +101,29 @@ async function resilience(){
     assert.equal(await race.evaluate(()=>spatialSite.getState().article),c.articles[1].id);await race.close();
     for(const behavior of ['catalog-failure','script-failure','static-query','javascript-disabled']){
       const context=await browser.newContext({javaScriptEnabled:behavior!=='javascript-disabled',viewport:{width:390,height:844}}),p=await context.newPage();
-      if(behavior==='catalog-failure')await p.route('**/assets/spatial/ja.json',r=>r.fulfill({status:503,body:''}));
-      if(behavior==='script-failure')await p.route('**/assets/spatial-site.js',r=>r.abort());
+      let failures=0;
+      if(behavior==='catalog-failure')await p.route('**/assets/spatial/ja.json',r=>++failures===1?r.fulfill({status:503,body:''}):r.continue());
+      if(behavior==='script-failure')await p.route('**/assets/spatial-site.js',r=>++failures===1?r.abort():r.continue());
       await p.goto(server.base+c.articles[0].url+(behavior==='static-query'?'?view=static':''));
-      if(behavior==='catalog-failure')await p.waitForFunction(()=>!document.getElementById('spatial-app'));
-      assert.ok(await p.locator('.page-shell .reading-title').isVisible(),behavior);
-      assert.ok(await p.locator('.page-shell .article-body').isVisible(),behavior);
-      assert.ok(await p.locator('.page-shell a[href]').count()>10);
+      if(behavior==='static-query'){
+        await p.waitForFunction(()=>window.spatialSite?.getState().mode==='read');
+        assert.equal(new URL(p.url()).searchParams.has('view'),false);
+        assert.equal(await p.locator('#spatial-app a[href*="view=static"]').count(),0);
+      }else if(behavior==='javascript-disabled'){
+        assert.ok(await p.locator('#spatial-startup noscript p').isVisible());
+      }else{
+        await p.locator('#spatial-startup-retry').waitFor({state:'visible'});
+        assert.ok(await p.locator('#spatial-startup').isVisible());
+        await p.locator('#spatial-startup-retry').click();
+        await p.waitForFunction(()=>window.spatialSite?.getState().mode==='read');
+        assert.equal(await p.locator('#spatial-startup').isVisible(),false,'retry restores the new screen');
+      }
+      assert.equal(await p.locator('.page-shell').isVisible(),false,'the retired screen never appears');
       await context.close();
     }
+    for(const name of ['article-share.js','article-stream.js','article-motion.js','listing-motion.js'])assert.equal((await fetch(`${server.base}/assets/${name}`)).status,404,'retired screen scripts are not distributed');
   }finally{await browser.close();}
-  results.push({suite:'network-retry-race-and-fallback',checks:6,status:'passed'});console.log('resilience passed');
+  results.push({suite:'network-retry-race-and-startup',checks:6,status:'passed'});console.log('resilience passed');
 }
 async function basePath(){
   const temp=await mkdtemp(path.join(tmpdir(),'ard-spatial-')),prefix='/preview',root=path.join(temp,'site');let preview,browser;
@@ -195,7 +207,8 @@ async function removedPages(){
       await ready(page,server.base+c.paths.home);
       await page.locator('#spatial-app [data-action=menu]').click();
       const menuLinks=await page.locator('.spatial-menu a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname));
-      assert.ok(menuLinks.length>=3);
+      assert.equal(menuLinks.length,3,'menu contains only site navigation');
+      assert.equal(await page.locator('.spatial-menu a[href*="view=static"]').count(),0);
       for(const file of removedHtmlPages)assert.ok(!menuLinks.some(url=>url.endsWith('/'+file)));
       if(locale==='ja')await page.screenshot({path:`${out}/removed-pages-menu-${engine.name()}.png`});
       await page.goto(server.base+c.articles[0].url+'?view=static');

@@ -1,15 +1,16 @@
 import {spatialCopy} from './spatial-copy.js';
 
 const configNode=document.getElementById('spatial-config');
-if(configNode&&!new URL(location.href).searchParams.has('view')) {
+if(configNode) {
+  const entryUrl=new URL(location.href);
+  if(entryUrl.searchParams.get('view')==='static'){entryUrl.searchParams.delete('view');history.replaceState(history.state,'',entryUrl);}
   start(JSON.parse(configNode.textContent)).catch(error=>{
     document.getElementById('spatial-app')?.remove();
     document.getElementById('scroll-track')?.remove();
     document.body.classList.remove('spatial-active','read-mode');
     document.documentElement.classList.remove('spatial-active');
-    const fallback=document.querySelector('.page-shell');
-    if(fallback){fallback.inert=false;fallback.removeAttribute('aria-hidden');}
-    console.error('Spatial workspace unavailable; standard page retained.',error);
+    dispatchEvent(new Event('spatial-unavailable'));
+    console.error('Spatial workspace unavailable.',error);
   });
 }
 
@@ -22,7 +23,7 @@ async function start(config) {
     return response;
   }
   const catalog=await (await request(config.catalog)).json();
-  if(catalog.version!==1||catalog.locale!==config.locale||!Array.isArray(catalog.articles)||!catalog.articles.length)return;
+  if(catalog.version!==1||catalog.locale!==config.locale||!Array.isArray(catalog.articles)||!catalog.articles.length)throw new Error('Invalid article catalog');
   const {articles,months,topics,paths}=catalog;
   const fallback=document.querySelector('.page-shell'),fallbackMain=fallback.querySelector('#main');
   const headSelector='meta[name="description"],meta[property^="og:"],meta[name^="twitter:"],meta[property^="article:"],link[rel="canonical"],link[hreflang],script[type="application/ld+json"]';
@@ -67,7 +68,6 @@ async function start(config) {
   const documentBody=documentSections.length?documentSections.map(s=>s.outerHTML).join(''):`<section><h2>${esc(config.title)}</h2>${fallbackMain.querySelector('.content-stack')?.innerHTML??''}</section>`;
   const app=document.createElement('div');app.id='spatial-app';app.style.visibility='hidden';
   const track=document.createElement('div');track.id='scroll-track';track.setAttribute('aria-hidden','true');
-  const staticHref=path=>{const url=new URL(path,location.href);url.searchParams.set('view','static');return url.pathname+url.search+url.hash;};
   const menuLinks=[...new Map([...catalog.navigation,...catalog.footer].map(n=>[n.url,n])).values()].map(n=>`<a href="${esc(n.url)}">${esc(n.label)}</a>`).join('');
   app.innerHTML=`<a class="spatial-skip" href="#workspace">${copy.skip}</a><header class="app-header">
     <a class="brand" href="${paths.home}"><span aria-hidden="true">≋</span>AUTO RESEARCH DIGEST</a>
@@ -76,7 +76,7 @@ async function start(config) {
     <main id="workspace" aria-label="${copy.workspace}" tabindex="-1"><h1 id="workspace-heading" class="sr-only">${esc(config.title)}</h1><div class="time-line" aria-hidden="true"></div><svg id="relations" aria-hidden="true"></svg><div id="month-space"></div><div id="article-space"></div></main>
     <nav id="month-rail" class="month-rail" aria-label="${copy.months}"></nav><div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
     <div class="workspace-status" role="status" hidden></div>
-    <dialog class="spatial-menu" aria-label="${copy.menu}"><button data-action="close-menu">${copy.close}</button><nav>${menuLinks}<a class="standard-view" href="${staticHref(location.href)}">${copy.static}</a></nav></dialog>`;
+    <dialog class="spatial-menu" aria-label="${copy.menu}"><button data-action="close-menu">${copy.close}</button><nav>${menuLinks}</nav></dialog>`;
   document.body.append(track,app);
   history.scrollRestoration='manual';
   const byId = new Map(articles.map(a => [a.id,a]));
@@ -182,7 +182,7 @@ async function start(config) {
     if(id!=='__document') {
       const full=new DOMParser().parseFromString(payload.html,'text/html'),evidence=full.querySelector('.reading-evidence');
       const source=document.createElement('section');source.className='chapter';source.dataset.chapter=sections.length;source.dataset.fragment='sources';source.id='sources';
-      source.innerHTML=`<h3><button class="chapter-toggle" data-chapter="${sections.length}" aria-expanded="false"><span class="chapter-number">${String(sections.length+1).padStart(2,'0')}</span><span class="chapter-name">${copy.evidence}</span></button></h3><div class="chapter-body" tabindex="0" role="region" aria-label="${copy.evidence}">${full.querySelector('.reading-header .meta-row')?.outerHTML??''}${full.querySelector('.reading-duration')?.outerHTML??''}${[...evidence?.children??[]].filter(el=>el.tagName!=='SUMMARY').map(el=>el.outerHTML).join('')}<p><a href="${staticHref(a.url)}">${copy.static} ↗</a></p></div>`;
+      source.innerHTML=`<h3><button class="chapter-toggle" data-chapter="${sections.length}" aria-expanded="false"><span class="chapter-number">${String(sections.length+1).padStart(2,'0')}</span><span class="chapter-name">${copy.evidence}</span></button></h3><div class="chapter-body" tabindex="0" role="region" aria-label="${copy.evidence}">${full.querySelector('.reading-header .meta-row')?.outerHTML??''}${full.querySelector('.reading-duration')?.outerHTML??''}${[...evidence?.children??[]].filter(el=>el.tagName!=='SUMMARY').map(el=>el.outerHTML).join('')}</div>`;
       list.append(source);
     }
     const names=new Map();pane.querySelectorAll('[id]').forEach(el=>{names.set(el.id,`${id}--${el.id}`);el.id=names.get(el.id);});
@@ -242,7 +242,6 @@ async function start(config) {
     const heading=app.querySelector('#workspace-heading');
     heading.hidden=doc||state.mode==='read';
     heading.textContent=state.mode==='timeline'?copy.timeline:state.mode==='topics'?copy.topics:state.mode==='feed'?(state.topic??copy.home):config.title;
-    app.querySelector('.standard-view').href=staticHref(hash());
   }
 
   // Resolve the complete frame before touching the DOM. A visible surface must
@@ -347,10 +346,10 @@ async function start(config) {
   }
   const status=app.querySelector('.workspace-status'),menu=app.querySelector('.spatial-menu');
   let retryNavigation=null,statusTimer;
-  function message(text,{error=false,path}={}) {
+  function message(text,{error=false}={}) {
     clearTimeout(statusTimer);status.hidden=!text;
     status.classList.toggle('is-error',error);
-    status.innerHTML=error?`${esc(text)} <button data-action="retry">${copy.retry}</button><a href="${staticHref(path)}">${copy.static}</a>`:esc(text);
+    status.innerHTML=error?`${esc(text)} <button data-action="retry">${copy.retry}</button>`:esc(text);
   }
   function fragmentChapter(id,fragment,fallbackIndex=0) {
     buildReader(id);const node=articleNodes.get(id),all=[...node.querySelectorAll('.chapter')];
@@ -392,7 +391,7 @@ async function start(config) {
     }catch(error) {
       if(token!==generation)return;
       retryNavigation=()=>navigate(next,{push,animate,save:false,focus});
-      message(copy.error,{error:true,path:statePath(proposed)});
+      message(copy.error,{error:true});
     }finally {if(token===generation)app.setAttribute('aria-busy','false');}
   }
   // A surface changes width while unfolding. Restore again after that reflow,
@@ -547,6 +546,7 @@ async function start(config) {
   if(state.mode==='document'){if(state.guide)installGuide(await pageRecord(state.documentPath),state.documentPath);state.chapter=fragmentChapter('__document',state.fragment,state.chapter);}
   document.body.classList.add('spatial-active');document.documentElement.classList.add('spatial-active');fallback.inert=true;fallback.setAttribute('aria-hidden','true');
   configureScroll();draw();app.style.visibility='visible';
+  document.getElementById('spatial-startup').hidden=true;dispatchEvent(new Event('spatial-ready'));
   const initialBody=app.querySelector('.reading .chapter.active .chapter-body');if(initialBody)restoreBody(initialBody,state.bodyScroll??0);
   remember();
   app.addEventListener('scroll',event=>{

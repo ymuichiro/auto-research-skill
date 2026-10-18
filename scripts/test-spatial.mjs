@@ -41,6 +41,7 @@ async function journey(engine,locale,viewport){
     if(mobile&&engine===chromium)await swipe(page,'#workspace',125);
     else if(mobile){await page.keyboard.press('ArrowDown');await settled(page);}
     else {await page.mouse.move(viewport.width*.6,viewport.height*.5);await page.mouse.wheel(0,200);await page.waitForTimeout(350);}
+    await page.waitForFunction(({selector,height})=>Math.abs(document.querySelector(selector).getBoundingClientRect().height-height)>3,{selector,height:before.h});
     check('native input changes timeline geometry',Math.abs((await geometry(page,selector)).h-before.h)>3);
     assert.deepEqual(await geometry(page,'#workspace'),workspace);check('workspace remains fixed');
     const step=(await getState(page)).step;
