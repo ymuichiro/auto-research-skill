@@ -13,8 +13,6 @@ Auto Research Digest is a public research publication about adopting, evaluating
 
 - [AI Agents トピック](https://research.notelligent.app/topics/ai-agents/)
 - [AIエージェント評価の記事](https://research.notelligent.app/2026-07-11-agent-evaluation-measures-execution-path.html)
-- [このサイトについて](https://research.notelligent.app/about.html)
-- [調査・編集方針](https://research.notelligent.app/editorial-policy.html)
 
 ## 目的
 

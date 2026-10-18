@@ -4,12 +4,10 @@ import {
   feedRelativePath,
   listingRelativePath,
   localizedPath,
-  sitemapHtmlRelativePath,
   siteConfig,
   timelineRelativePath,
   topicHubRelativePath,
   topicIndexRelativePath,
-  trustPagePaths
 } from "./site-config.mjs";
 import { resolveArticleSeo } from "./seo-snippets.mjs";
 import { buildTopicHubs } from "./topic-hubs.mjs";
@@ -26,8 +24,6 @@ const localeCopy = {
     articleAuthorTitle: "この記事の編集責任",
     articleAuthorIntro:
       "Auto Research Digest Editorial Desk が公開根拠を直接確認し、確認できた事実、比較から導く解釈、未解決点を区別して編集しています。",
-    articleAuthorAbout: "このサイトについて",
-    articleAuthorPolicy: "調査・編集方針",
     articleUpdatedLabel: "最終更新",
     articleSnapshotLabel: "調査対象日",
     articlePublishedLabel: "初公開",
@@ -65,19 +61,8 @@ const localeCopy = {
     topicsRepresentativeArticle: "代表記事",
     topicsLatestLabel: "最新更新",
     topicsCountLabel: "記事数",
-    sitemapTitle: "サイトマップ",
-    sitemapIntro: "主要固定ページ、トピックハブ、公開レポートへの導線をまとめた構造索引ページです。",
-    sitemapPagesTitle: "主要ページ",
-    sitemapPagesIntro: "トップ、タイムライン、トピック、公開ポリシー関連ページをまとめて確認できます。",
-    sitemapTopicsTitle: "トピックハブ",
-    sitemapTopicsIntro: "主要カテゴリごとに、同じテーマの公開レポートを連続して追えます。",
-    sitemapArticlesTitle: "公開レポートの月別リンク一覧",
-    sitemapArticlesIntro: "全公開レポートを月別アンカー付きのコンパクトなリンク一覧で掲載しています。詳しい編集年表はタイムラインで確認できます。",
-    sitemapOpenPage: "ページを開く",
-    sitemapBrowseTimeline: "タイムラインを見る",
     timelineTitle: "タイムライン",
     timelineIntro: "公開済みレポートを調査対象の月ごとに整理し、テーマの変化を追えるページです。",
-    timelineBrowseSitemap: "サイトマップを見る",
     timelineStatArticles: "公開レポート",
     timelineStatMonths: "調査対象月",
     timelineStatTopics: "テーマ数",
@@ -85,11 +70,6 @@ const localeCopy = {
     timelineMonthCount: "公開本数",
     timelineMonthThemes: "主なテーマ",
     discoverySitePageLabel: "サイトページ",
-    sitemapMonthAnchorsTitle: "月別アンカー",
-    sitemapMonthAnchorsIntro: "調査対象月から目的の一覧へ移動できます。",
-    sitemapCompactMonthTitle: "調査対象月別リンク",
-    sitemapCompactMonthCount: "記事",
-    sitemapCompactBrowseTimeline: "詳細な年表はタイムラインへ"
   },
   en: {
     homeTitle: "Home",
@@ -99,8 +79,6 @@ const localeCopy = {
     articleAuthorTitle: "How this briefing is reviewed",
     articleAuthorIntro:
       "Auto Research Digest Editorial Desk checks the published evidence directly and separates confirmed facts, interpretations drawn from comparisons, and unresolved questions.",
-    articleAuthorAbout: "About this publication",
-    articleAuthorPolicy: "Editorial policy",
     articleUpdatedLabel: "Updated",
     articleSnapshotLabel: "Research cutoff",
     articlePublishedLabel: "First published",
@@ -139,19 +117,8 @@ const localeCopy = {
     topicsRepresentativeArticle: "Representative article",
     topicsLatestLabel: "Latest update",
     topicsCountLabel: "Articles",
-    sitemapTitle: "Sitemap",
-    sitemapIntro: "An index page tying together the main site pages, topic hubs, and every published briefing.",
-    sitemapPagesTitle: "Main pages",
-    sitemapPagesIntro: "Browse the home, Timeline, Topics, and the public policy pages from one place.",
-    sitemapTopicsTitle: "Topic hubs",
-    sitemapTopicsIntro: "Follow the published briefings as continuous topic streams by category.",
-    sitemapArticlesTitle: "Full article index",
-    sitemapArticlesIntro: "Every published briefing, organized by year and month with title, teaser, topic, and date kept visible.",
-    sitemapOpenPage: "Open page",
-    sitemapBrowseTimeline: "View timeline",
     timelineTitle: "Timeline",
     timelineIntro: "Published briefings grouped by research month to follow changes in their topics.",
-    timelineBrowseSitemap: "View sitemap",
     timelineStatArticles: "Briefings",
     timelineStatMonths: "Research months",
     timelineStatTopics: "Topics",
@@ -159,11 +126,6 @@ const localeCopy = {
     timelineMonthCount: "Briefings",
     timelineMonthThemes: "Main topics",
     discoverySitePageLabel: "Site page",
-    sitemapMonthAnchorsTitle: "Month anchors",
-    sitemapMonthAnchorsIntro: "Jump straight to the month you want to browse.",
-    sitemapCompactMonthTitle: "Links by research month",
-    sitemapCompactMonthCount: "Briefings",
-    sitemapCompactBrowseTimeline: "Use the timeline for the full editorial chronology"
   }
 };
 
@@ -265,10 +227,6 @@ function itemListPayload(locale, title, items) {
   };
 }
 
-function authorProfilePath(locale) {
-  return locale === "ja" ? trustPagePaths.about : `en/${trustPagePaths.about}`;
-}
-
 function publisherSchema() {
   return {
     "@type": "Organization",
@@ -283,11 +241,10 @@ function publisherSchema() {
   };
 }
 
-function authorSchema(locale) {
+function authorSchema() {
   return {
     "@type": "Organization",
-    name: siteConfig.owner,
-    url: absoluteUrl(authorProfilePath(locale))
+    name: siteConfig.owner
   };
 }
 
@@ -318,7 +275,7 @@ function pageSchemas({
       keywords: article.tags.join(", "),
       mainEntityOfPage: canonicalUrl,
       publisher: publisherSchema(),
-      author: authorSchema(locale),
+      author: authorSchema(),
       url: canonicalUrl
     });
   } else {
@@ -486,67 +443,6 @@ ${renderSharedPageScript(pageType,spatial)}
 </html>`;
 }
 
-function renderResourceRows(resources, locale) {
-  if (!resources?.length) {
-    return "";
-  }
-
-  const copy = localeCopy[locale];
-
-  return `<div class="mt-6 grid gap-4">
-    ${resources
-      .map(
-        (resource) => `<a class="source-row" href="${escapeHtml(resource.url)}" target="_blank" rel="noopener noreferrer">
-          <div>
-            <p class="source-title">${escapeHtml(resource.label)}</p>
-            <p class="panel-copy mt-3">${escapeHtml(resource.description)}</p>
-            <p class="source-url">${escapeHtml(resource.url)}</p>
-          </div>
-          <span class="source-action">${escapeHtml(copy.openExternal)}</span>
-        </a>`
-      )
-      .join("")}
-  </div>`;
-}
-
-function renderStaticSection(section, locale) {
-  return `<section class="panel-block">
-    <h2 class="panel-title">${escapeHtml(section.title)}</h2>
-    ${section.paragraphs?.map((paragraph) => `<p class="panel-copy">${escapeHtml(paragraph)}</p>`).join("") ?? ""}
-    ${section.bullets?.length
-      ? `<ul class="bullet-list">${section.bullets.map((bullet) => `<li>${escapeHtml(bullet)}</li>`).join("")}</ul>`
-      : ""}
-    ${renderResourceRows(section.resources, locale)}
-  </section>`;
-}
-
-export function renderTrustPage(page, locale) {
-  const body = `<article class="article-shell">
-    <section class="panel-block">
-      <p class="section-kicker">${escapeHtml(page.noticeTitle)}</p>
-      <p class="panel-copy">${escapeHtml(page.noticeBody)}</p>
-    </section>
-    ${page.sections.map((section) => renderStaticSection(section, locale)).join("")}
-  </article>`;
-
-  return renderPage({
-    locale,
-    relativePath: page.relativePath,
-    title: page.title,
-    description: page.description,
-    pageHeading: page.heading,
-    pageIntro: page.intro,
-    body,
-    currentNavPath: localeCopy[locale].homePath,
-    breadcrumbs: [
-      { name: localeCopy[locale].homeTitle, path: localeCopy[locale].homePath },
-      { name: page.title, path: page.relativePath }
-    ],
-    pageType: "page",
-    schemaType: page.schemaType
-  });
-}
-
 function localizedArticleHref(article, locale) {
   const path = locale === "ja" ? article.outputPaths.ja : article.outputPaths.en;
   return localizedPath(locale, path.replace(/^en\//, ""));
@@ -612,8 +508,6 @@ function renderEditorialBriefing(
 
 function renderArticleAuthorship(article, locale) {
   const copy = localeCopy[locale];
-  const aboutHref = localizedPath(locale, trustPagePaths.about);
-  const policyHref = localizedPath(locale, trustPagePaths.editorialPolicy);
   const sourcePath = `content/articles/${article.sourceDirName}`;
   const sourceHref = `${siteConfig.repositoryUrl}/blob/main/${sourcePath}/body.${locale}.html`;
   const historyHref = `${siteConfig.repositoryUrl}/commits/main/${sourcePath}`;
@@ -630,8 +524,6 @@ function renderArticleAuthorship(article, locale) {
       <p class="panel-copy">${escapeHtml(copy.articleAuthorIntro)}</p>
       <p class="panel-copy mt-3">${escapeHtml(provenance)}</p>
       <div class="mt-4 flex flex-wrap gap-x-5 gap-y-3">
-        <a class="text-link" href="${aboutHref}">${escapeHtml(copy.articleAuthorAbout)}</a>
-        <a class="text-link" href="${policyHref}">${escapeHtml(copy.articleAuthorPolicy)}</a>
         <a class="text-link" href="${siteConfig.maintainerUrl}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "管理者の公開プロフィール" : "Maintainer profile"}</a>
         <a class="text-link" href="${sourceHref}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "この記事の本文ソース" : "Article source"}</a>
         <a class="text-link" href="${historyHref}" target="_blank" rel="noopener noreferrer">${locale === "ja" ? "この記事の変更履歴" : "Article revision history"}</a>
@@ -823,25 +715,6 @@ function summarizeMonthGroup(group, locale) {
   return `${categorySentence} ${tagSentence}`.trim();
 }
 
-function renderDiscoveryLinkCard(entry, locale) {
-  const updatedAt = entry.updatedAt ? formatDisplayDate(entry.updatedAt, locale) : "";
-
-  return `<article class="article-card discovery-link-card">
-    <div class="article-card-main">
-      <div class="meta-row justify-between">
-        <span class="meta-pill is-accent">${escapeHtml(entry.kindLabel)}</span>
-        ${updatedAt ? `<span class="mono-note">${escapeHtml(updatedAt)}</span>` : ""}
-      </div>
-      <h3 class="article-card-title">${escapeHtml(entry.title)}</h3>
-      <p class="article-card-copy discovery-link-copy">${escapeHtml(entry.description)}</p>
-    </div>
-    <div class="article-card-foot">
-      <span class="mono-note">${escapeHtml(entry.href.replace(siteConfig.basePath || "", ""))}</span>
-      <a class="text-link" href="${entry.href}">${escapeHtml(entry.ctaLabel)}</a>
-    </div>
-  </article>`;
-}
-
 function renderDiscoveryArticleRow(article, locale, topicHubMap) {
   const copy = localeCopy[locale];
   const seo = article.seo?.[locale] ?? resolveArticleSeo(article)[locale];
@@ -864,24 +737,6 @@ function renderDiscoveryArticleRow(article, locale, topicHubMap) {
       <a class="text-link" href="${href}">${escapeHtml(copy.readReport)}</a>
     </div>
   </article>`;
-}
-
-function renderSitemapArticleLink(article, locale, topicHubMap) {
-  const title = locale === "ja" ? article.titleJa : article.titleEn;
-  const href = localizedArticleHref(article, locale);
-  const topicLabel = topicHubMap.has(article.category)
-    ? `<span class="meta-pill is-accent">${escapeHtml(article.category)}</span>`
-    : "";
-
-  return `<li class="sitemap-article-link-item">
-    <a class="sitemap-article-link" href="${href}">
-      <span class="sitemap-article-link-title">${escapeHtml(title)}</span>
-      <span class="sitemap-article-link-meta">
-        <time datetime="${article.date}">${escapeHtml(localeCopy[locale].articleSnapshotLabel)} ${escapeHtml(formatDisplayDate(article.date, locale))}</time>
-        ${topicLabel ? `<span aria-hidden="true">•</span>${topicLabel}` : ""}
-      </span>
-    </a>
-  </li>`;
 }
 
 function renderChronologySections(locale, monthGroups, topicHubMap) {
@@ -931,7 +786,7 @@ function renderChronologySections(locale, monthGroups, topicHubMap) {
     .join("");
 }
 
-function renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHref = "") {
+function renderTimelineStats(locale, articles, monthGroups, topicHubs) {
   const copy = localeCopy[locale];
   const stats = [
     [copy.timelineStatArticles, String(articles.length)],
@@ -941,136 +796,7 @@ function renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHr
   ];
   return `<div class="timeline-overview">
     <dl class="timeline-stats">${stats.map(([label, value]) => `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`).join("")}</dl>
-    ${sitemapHref ? `<a class="text-link" href="${sitemapHref}">${escapeHtml(copy.timelineBrowseSitemap)}</a>` : ""}
   </div>`;
-}
-
-function monthAnchorId(monthKey) {
-  return `month-${monthKey}`;
-}
-
-function renderSitemapMonthAnchors(locale, monthGroups) {
-  const copy = localeCopy[locale];
-
-  if (!monthGroups.length) {
-    return "";
-  }
-
-  return `<section class="panel-block sitemap-month-anchor-panel">
-    <div>
-      <p class="section-kicker">${escapeHtml(copy.sitemapTitle)}</p>
-      <h2 class="panel-title">${escapeHtml(copy.sitemapMonthAnchorsTitle)}</h2>
-      <p class="panel-copy">${escapeHtml(copy.sitemapMonthAnchorsIntro)}</p>
-    </div>
-    <nav class="sitemap-month-jump" aria-label="${escapeHtml(copy.sitemapMonthAnchorsTitle)}">
-      ${monthGroups
-        .map(
-          (group) =>
-            `<a class="sitemap-month-chip" href="#${monthAnchorId(group.monthKey)}">${escapeHtml(
-              formatMonthLabel(group.monthKey, locale)
-            )}</a>`
-        )
-        .join("")}
-    </nav>
-  </section>`;
-}
-
-function renderSitemapArticleDirectory(locale, monthGroups, topicHubMap, timelineHref) {
-  const copy = localeCopy[locale];
-
-  if (!monthGroups.length) {
-    return `<section class="panel-block">
-      <div class="empty-state">${escapeHtml(copy.emptyState)}</div>
-    </section>`;
-  }
-
-  return groupMonthsByYear(monthGroups)
-    .map(({ year, months }) => {
-      const articleCount = months.reduce((sum, month) => sum + month.articleCount, 0);
-
-      return `<section class="panel-block sitemap-directory-group">
-        <div class="listing-panel-head">
-          <div>
-            <h2 class="panel-title">${escapeHtml(year)}</h2>
-            <p class="panel-copy">${escapeHtml(
-              locale === "ja"
-                ? `${months.length} か月分・${articleCount} 本の公開リンクをまとめています。`
-                : `A compact index of ${articleCount} briefing links across ${months.length} publishing months.`
-            )}</p>
-          </div>
-          <div class="listing-page-meta">
-            <a class="text-link" href="${timelineHref}">${escapeHtml(copy.sitemapCompactBrowseTimeline)}</a>
-          </div>
-        </div>
-        <div class="sitemap-month-grid">
-          ${months
-            .map(
-              (group) => `<section class="sitemap-month-card" id="${monthAnchorId(group.monthKey)}">
-                <div class="sitemap-month-head">
-                  <div>
-                    <p class="section-kicker">${escapeHtml(copy.sitemapCompactMonthTitle)}</p>
-                    <h3 class="sitemap-month-title">${escapeHtml(formatMonthLabel(group.monthKey, locale))}</h3>
-                  </div>
-                  <span class="mono-note">${group.articleCount} ${escapeHtml(copy.sitemapCompactMonthCount)}</span>
-                </div>
-                <ul class="sitemap-article-links">
-                  ${group.articles.map((article) => renderSitemapArticleLink(article, locale, topicHubMap)).join("")}
-                </ul>
-              </section>`
-            )
-            .join("")}
-        </div>
-      </section>`;
-    })
-    .join("");
-}
-
-function buildSitemapPageEntries(locale, trustPages, latestUpdate) {
-  const copy = localeCopy[locale];
-  const normalizedLatestUpdate = latestUpdate?.slice(0, 10) ?? new Date().toISOString().slice(0, 10);
-
-  return [
-    {
-      kindLabel: copy.discoverySitePageLabel,
-      title: siteConfig.seo.homeTitle[locale],
-      description: siteConfig.description[locale],
-      href: localizedPath(locale, ""),
-      ctaLabel: copy.sitemapOpenPage,
-      updatedAt: normalizedLatestUpdate
-    },
-    {
-      kindLabel: copy.discoverySitePageLabel,
-      title: copy.timelineTitle,
-      description: copy.timelineIntro,
-      href: localizedPath(locale, timelineRelativePath(locale).replace(/^en\//, "")),
-      ctaLabel: copy.sitemapBrowseTimeline,
-      updatedAt: normalizedLatestUpdate
-    },
-    {
-      kindLabel: copy.discoverySitePageLabel,
-      title: copy.topicsTitle,
-      description: copy.topicsIntro,
-      href: localizedPath(locale, topicIndexRelativePath(locale).replace(/^en\//, "")),
-      ctaLabel: copy.sitemapOpenPage,
-      updatedAt: normalizedLatestUpdate
-    },
-    {
-      kindLabel: copy.discoverySitePageLabel,
-      title: copy.sitemapTitle,
-      description: copy.sitemapIntro,
-      href: localizedPath(locale, sitemapHtmlRelativePath(locale).replace(/^en\//, "")),
-      ctaLabel: copy.sitemapOpenPage,
-      updatedAt: normalizedLatestUpdate
-    },
-    ...trustPages.map((page) => ({
-      kindLabel: copy.discoverySitePageLabel,
-      title: page.title,
-      description: page.description,
-      href: localizedPath(locale, page.relativePath.replace(/^en\//, "")),
-      ctaLabel: copy.sitemapOpenPage,
-      updatedAt: page.lastModified.slice(0, 10)
-    }))
-  ];
 }
 
 function sharedTagCount(left, right) {
@@ -1389,87 +1115,12 @@ export function renderTopicHubPage(locale, hub) {
   });
 }
 
-export function renderHtmlSitemapPage(locale, articles, { topicHubs = [], trustPages = [], latestUpdate } = {}) {
-  const copy = localeCopy[locale];
-  const monthGroups = groupArticlesByMonth(articles);
-  const topicHubMap = buildTopicHubMap(topicHubs);
-  const pageEntries = buildSitemapPageEntries(locale, trustPages, latestUpdate);
-  const listItems = pageEntries.map((entry) => ({
-    name: entry.title,
-    url: entry.href,
-    description: entry.description
-  }));
-  const timelineHref = localizedPath(locale, timelineRelativePath(locale).replace(/^en\//, ""));
-  const body = `<section class="panel-block">
-    <div class="listing-panel-head">
-      <div>
-        <p class="section-kicker">${escapeHtml(copy.sitemapTitle)}</p>
-        <h2 class="panel-title">${escapeHtml(copy.sitemapPagesTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.sitemapPagesIntro)}</p>
-      </div>
-      <div class="listing-page-meta">
-        <a class="text-link" href="${timelineHref}">${escapeHtml(copy.sitemapBrowseTimeline)}</a>
-      </div>
-    </div>
-    <div class="mt-8 grid gap-5 xl:grid-cols-2">
-      ${pageEntries.map((entry) => renderDiscoveryLinkCard(entry, locale)).join("")}
-    </div>
-  </section>
-  ${
-    topicHubs.length
-      ? `<section class="panel-block">
-    <div>
-      <p class="section-kicker">${escapeHtml(copy.topicsKicker)}</p>
-      <h2 class="panel-title">${escapeHtml(copy.sitemapTopicsTitle)}</h2>
-      <p class="panel-copy">${escapeHtml(copy.sitemapTopicsIntro)}</p>
-    </div>
-    <div class="mt-8 grid gap-5 xl:grid-cols-2">
-      ${topicHubs.map((hub) => renderTopicCard(hub, locale)).join("")}
-    </div>
-  </section>`
-      : ""
-  }
-  <section class="panel-block">
-    <div class="listing-panel-head">
-      <div>
-        <p class="section-kicker">${escapeHtml(copy.listingTitle)}</p>
-        <h2 class="panel-title">${escapeHtml(copy.sitemapArticlesTitle)}</h2>
-        <p class="panel-copy">${escapeHtml(copy.sitemapArticlesIntro)}</p>
-      </div>
-      <div class="listing-page-meta">
-        <a class="text-link" href="${timelineHref}">${escapeHtml(copy.sitemapBrowseTimeline)}</a>
-      </div>
-    </div>
-  </section>
-  ${renderSitemapMonthAnchors(locale, monthGroups)}
-  ${renderSitemapArticleDirectory(locale, monthGroups, topicHubMap, timelineHref)}`;
-
-  return renderPage({
-    locale,
-    relativePath: sitemapHtmlRelativePath(locale),
-    title: copy.sitemapTitle,
-    description: copy.sitemapIntro,
-    pageHeading: copy.sitemapTitle,
-    pageIntro: copy.sitemapIntro,
-    body,
-    currentNavPath: sitemapHtmlRelativePath(locale),
-    breadcrumbs: [
-      { name: copy.homeTitle, path: copy.homePath },
-      { name: copy.sitemapTitle, path: sitemapHtmlRelativePath(locale) }
-    ],
-    pageType: "page",
-    schemaType: "CollectionPage",
-    listItems
-  });
-}
-
 export function renderTimelinePage(locale, articles, topicHubs = []) {
   const copy = localeCopy[locale];
   const monthGroups = groupArticlesByMonth(articles);
   const topicHubMap = buildTopicHubMap(topicHubs);
-  const sitemapHref = localizedPath(locale, sitemapHtmlRelativePath(locale).replace(/^en\//, ""));
   const listItems = articleListItems(locale, articles);
-  const body = `${renderTimelineStats(locale, articles, monthGroups, topicHubs, sitemapHref)}
+  const body = `${renderTimelineStats(locale, articles, monthGroups, topicHubs)}
   ${renderChronologySections(locale, monthGroups, topicHubMap)}`;
 
   return renderPage({

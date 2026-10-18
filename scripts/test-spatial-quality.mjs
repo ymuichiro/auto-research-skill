@@ -6,6 +6,7 @@ import {execFile} from 'node:child_process';
 import {promisify} from 'node:util';
 import {chromium,webkit} from 'playwright';
 import {serveBuild} from './lib/test-server.mjs';
+import {removedHtmlPages} from './lib/site-config.mjs';
 const out='output/spatial-site';await mkdir(out,{recursive:true});
 const results=[],server=await serveBuild();
 const catalogs=Object.fromEntries(await Promise.all(['ja','en'].map(async l=>[l,JSON.parse(await readFile(`public/assets/spatial/${l}.json`,'utf8'))])));
@@ -50,7 +51,7 @@ async function pages(){
         const c=catalogs[locale],hub=c.topics.find(t=>t.guide),prefix=locale==='en'?'/en':'';
         for(const viewport of [{width:360,height:664},{width:768,height:1024},{width:844,height:390},{width:1440,height:900}]){
           const page=await browser.newPage({viewport,reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
-          for(const [suffix,mode] of [[c.paths.home,'feed'],[c.pages[1].url,'feed'],[c.paths.timeline,'timeline'],[c.paths.topics,'topics'],[hub.url,'feed'],[hub.url+'#topic-guide','document'],[`${prefix}/about.html`,'document'],[`${prefix}/terms.html`,'document'],[`${prefix}/sitemap.html`,'document'],[`${prefix}/404.html`,'document'],[c.articles[0].url,'read']]){
+          for(const [suffix,mode] of [[c.paths.home,'feed'],[c.pages[1].url,'feed'],[c.paths.timeline,'timeline'],[c.paths.topics,'topics'],[hub.url,'feed'],[hub.url+'#topic-guide','document'],[`${prefix}/404.html`,'document'],[c.articles[0].url,'read']]){
             await ready(page,server.base+suffix);
             await page.waitForFunction(mode=>spatialSite.getState().mode===mode,mode);
             assert.equal(await page.evaluate(()=>spatialSite.getState().mode),mode,`${engine.name()} ${suffix} mode`);
@@ -171,7 +172,41 @@ async function timeline(){
   }
   results.push({suite:'continuous-timeline-articles',articlePositions:checks,status:'passed'});console.log('timeline',checks,'passed');
 }
+async function removedPages(){
+  const staleRoot=await mkdtemp(path.join(tmpdir(),'ard-removed-pages-'));
+  try{
+    for(const file of removedHtmlPages){await mkdir(path.dirname(path.join(staleRoot,file)),{recursive:true});await writeFile(path.join(staleRoot,file),'stale removed page');}
+    await promisify(execFile)(process.execPath,['scripts/build.mjs'],{env:{...process.env,SITE_OUTPUT_DIR:staleRoot}});
+    for(const file of removedHtmlPages)await assert.rejects(readFile(path.join(staleRoot,file)),{code:'ENOENT'});
+    for(const file of ['sitemap.xml','sitemap-pages.xml','sitemap-articles.xml'])assert.ok((await readFile(path.join(staleRoot,file),'utf8')).includes('<?xml'));
+  }finally{await rm(staleRoot,{recursive:true,force:true});}
+  for(const file of removedHtmlPages)for(const suffix of ['', '?view=static']){
+    assert.equal((await fetch(`${server.base}/${file}${suffix}`)).status,404,`${file}${suffix} must be removed`);
+  }
+  for(const engine of [chromium,webkit]){
+    const browser=await engine.launch();
+    try{for(const locale of ['ja','en']){
+      const page=await browser.newPage({viewport:{width:390,height:844}}),c=catalogs[locale];
+      for(const [file,root] of [['sitemap.xml','sitemapindex'],['sitemap-pages.xml','urlset'],['sitemap-articles.xml','urlset']]){
+        const response=await page.request.get(`${server.base}/${file}`);assert.equal(response.status(),200);
+        const parsed=await page.evaluate(({xml,root})=>{const doc=new DOMParser().parseFromString(xml,'application/xml');return {root:doc.documentElement.localName,errors:doc.querySelectorAll('parsererror').length,entries:doc.documentElement.children.length};},{xml:await response.text(),root});
+        assert.equal(parsed.root,root);assert.equal(parsed.errors,0);assert.ok(parsed.entries>0);
+      }
+      await ready(page,server.base+c.paths.home);
+      await page.locator('#spatial-app [data-action=menu]').click();
+      const menuLinks=await page.locator('.spatial-menu a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname));
+      assert.ok(menuLinks.length>=3);
+      for(const file of removedHtmlPages)assert.ok(!menuLinks.some(url=>url.endsWith('/'+file)));
+      if(locale==='ja')await page.screenshot({path:`${out}/removed-pages-menu-${engine.name()}.png`});
+      await page.goto(server.base+c.articles[0].url+'?view=static');
+      const links=await page.locator('a[href]').evaluateAll(links=>links.map(a=>new URL(a.href).pathname));
+      for(const file of removedHtmlPages)assert.ok(!links.some(url=>url.endsWith('/'+file)));
+      await page.close();
+    }}finally{await browser.close();}
+  }
+  results.push({suite:'removed-pages-and-retained-xml',removedUrls:removedHtmlPages.length,status:'passed'});console.log('16 removed HTML URLs, menus, article links and 3 XML sitemaps passed');
+}
 try{
-  const suites={corpus,pages,resilience,basePath,timeline};
+  const suites={corpus,pages,resilience,basePath,timeline,removedPages};
   for(const [name,run] of Object.entries(suites))if(!process.env.SPATIAL_SUITE||process.env.SPATIAL_SUITE===name){await run();await writeFile(`${out}/quality.json`,JSON.stringify(results,null,2));}
 }finally{await server.close();}

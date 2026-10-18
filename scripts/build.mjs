@@ -1,5 +1,5 @@
 import path from "node:path";
-import { mkdir, readFile } from "node:fs/promises";
+import { mkdir, readFile, rm } from "node:fs/promises";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
 import pngToIco from "png-to-ico";
@@ -12,7 +12,6 @@ import {
   renderDefaultOgSvg,
   renderFaviconSvg,
   renderFeed,
-  renderHtmlSitemapPage,
   renderIndexPage,
   renderNotFoundPage,
   renderRobots,
@@ -21,13 +20,12 @@ import {
   renderTimelinePage,
   renderTopicHubPage,
   renderTopicsIndexPage,
-  renderTrustPage,
   renderWebManifest
 } from "./lib/render.mjs";
 import {
   feedRelativePath,
   listingRelativePath,
-  sitemapHtmlRelativePath,
+  removedHtmlPages,
   siteConfig,
   timelineRelativePath,
   topicHubRelativePath,
@@ -36,7 +34,6 @@ import {
 import { buildTopicHubs } from "./lib/topic-hubs.mjs";
 import {spatialCatalog} from './lib/spatial-site.mjs';
 import {prepareArticleBody} from './lib/article-template.mjs';
-import { trustPagesForLocale } from "./lib/trust-pages.mjs";
 import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
 const outputRoot = path.resolve(process.env.SITE_OUTPUT_DIR??"public");
@@ -162,29 +159,24 @@ async function buildSite() {
 
   const liveArticles = publishedArticles(articles);
   const topicHubs = buildTopicHubs(liveArticles);
-  const trustPages = siteConfig.locales.flatMap((locale) => trustPagesForLocale(locale));
   const listingPages = paginateArticles(liveArticles, siteConfig.pagination.articleListPageSize);
   const listingPagination = {
     totalArticles: liveArticles.length,
     totalPages: listingPages.length
   };
   const latestUpdate =
-    [...liveArticles.map((article) => article.lastModified), ...trustPages.map((page) => page.lastModified)].sort((left, right) =>
+    liveArticles.map((article) => article.lastModified).sort((left, right) =>
       right.localeCompare(left)
     )[0] ?? new Date().toISOString();
 
   await mkdir(iconRoot, { recursive: true });
+  await Promise.all(removedHtmlPages.map(page=>rm(path.join(outputRoot,page),{force:true})));
   for(const locale of siteConfig.locales) {
     await writeTextFile(path.join(outputRoot,'assets/spatial',`${locale}.json`),JSON.stringify(spatialCatalog(liveArticles,topicHubs,locale)));
   }
 
   await writeTextFile(path.join(outputRoot, "404.html"), renderNotFoundPage("ja", liveArticles));
   await writeTextFile(path.join(outputRoot, "en", "404.html"), renderNotFoundPage("en", liveArticles));
-
-  for (const page of trustPages) {
-    const locale = page.relativePath.startsWith("en/") ? "en" : "ja";
-    await writeTextFile(path.join(outputRoot, page.relativePath), renderTrustPage(page, locale));
-  }
 
   for (const locale of siteConfig.locales) {
     for (const page of listingPages) {
@@ -210,17 +202,6 @@ async function buildSite() {
       );
     }
 
-    const localizedTrustPages = trustPages.filter((page) =>
-      locale === "en" ? page.relativePath.startsWith("en/") : !page.relativePath.startsWith("en/")
-    );
-    await writeTextFile(
-      path.join(outputRoot, sitemapHtmlRelativePath(locale)),
-      renderHtmlSitemapPage(locale, liveArticles, {
-        topicHubs,
-        trustPages: localizedTrustPages,
-        latestUpdate
-      })
-    );
     await writeTextFile(path.join(outputRoot, timelineRelativePath(locale), "index.html"), renderTimelinePage(locale, liveArticles, topicHubs));
   }
 
@@ -280,48 +261,6 @@ async function buildSite() {
     });
   }
 
-  for (const pageId of new Set(trustPages.map((page) => page.id))) {
-    const jaPage = trustPages.find((page) => page.id === pageId && !page.relativePath.startsWith("en/"));
-    const enPage = trustPages.find((page) => page.id === pageId && page.relativePath.startsWith("en/"));
-
-    pageSitemapEntries.push({
-      path: jaPage.relativePath,
-      lastModified: jaPage.lastModified,
-      alternates: [
-        { hreflang: "ja", path: jaPage.relativePath },
-        { hreflang: "en", path: enPage.relativePath },
-        { hreflang: "x-default", path: jaPage.relativePath }
-      ]
-    });
-    pageSitemapEntries.push({
-      path: enPage.relativePath,
-      lastModified: enPage.lastModified,
-      alternates: [
-        { hreflang: "ja", path: jaPage.relativePath },
-        { hreflang: "en", path: enPage.relativePath },
-        { hreflang: "x-default", path: jaPage.relativePath }
-      ]
-    });
-  }
-
-  pageSitemapEntries.push({
-    path: sitemapHtmlRelativePath("ja"),
-    lastModified: latestUpdate,
-    alternates: [
-      { hreflang: "ja", path: sitemapHtmlRelativePath("ja") },
-      { hreflang: "en", path: sitemapHtmlRelativePath("en") },
-      { hreflang: "x-default", path: sitemapHtmlRelativePath("ja") }
-    ]
-  });
-  pageSitemapEntries.push({
-    path: sitemapHtmlRelativePath("en"),
-    lastModified: latestUpdate,
-    alternates: [
-      { hreflang: "ja", path: sitemapHtmlRelativePath("ja") },
-      { hreflang: "en", path: sitemapHtmlRelativePath("en") },
-      { hreflang: "x-default", path: sitemapHtmlRelativePath("ja") }
-    ]
-  });
   pageSitemapEntries.push({
     path: timelineRelativePath("ja"),
     lastModified: latestUpdate,
