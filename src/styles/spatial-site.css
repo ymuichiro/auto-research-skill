@@ -232,3 +232,12 @@ body.spatial-active.topics-mode #spatial-app .time-line{display:none}
  #spatial-app .article-illustration img{max-height:150px}
 }
 @media(max-height:539px){#spatial-app .preview-illustration{display:none}#spatial-app .paper-preview{display:flex}#spatial-app .article-illustration img{max-height:110px}}
+
+/* Shared UI symbols stay distinct from the diagrams inside article content. */
+#spatial-app .ui-icon{display:inline-block;width:18px;height:18px;flex:none;vertical-align:middle}
+#spatial-app .read-button,#spatial-app .topic-read,#spatial-app .topic-results-heading>a{display:inline-flex;align-items:center;gap:7px}
+#spatial-app .crumb-separator{display:inline-flex;align-items:center}
+#spatial-app .crumb-separator .ui-icon{width:12px;height:12px}
+#spatial-app .breadcrumb-icon{display:inline-flex;align-items:center;justify-content:center;min-width:40px;min-height:40px}
+#spatial-app .header-actions [data-action=menu],#spatial-app .spatial-menu>button{display:inline-flex;align-items:center;justify-content:center;min-width:44px;min-height:44px;padding:8px}
+#spatial-app .spatial-menu>button{display:flex}

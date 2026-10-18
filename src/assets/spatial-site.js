@@ -1,5 +1,19 @@
 import {spatialCopy} from './spatial-copy.js';
 
+const iconPaths={
+  home:'<path d="m3 10 9-7 9 7v10H15v-7H9v7H3Z"/>',
+  topics:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+  menu:'<path d="M4 6h16M4 12h16M4 18h16"/>',
+  close:'<path d="m6 6 12 12M18 6 6 18"/>',
+  toc:'<path d="M9 5h12M9 12h12M9 19h12M3 5h1M3 12h1M3 19h1"/>',
+  share:'<path d="M12 15V3m-4 4 4-4 4 4M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/>',
+  related:'<circle cx="5" cy="12" r="3"/><circle cx="18" cy="5" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8 10 7-4M8 14l7 4"/>',
+  open:'<path d="M6 18 18 6M6 6h12v12"/>',
+  next:'<path d="m9 5 7 7-7 7"/>',
+  previous:'<path d="m15 5-7 7 7 7"/>'
+};
+const icon=name=>`<svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">${iconPaths[name]}</svg>`;
+
 const configNode=document.getElementById('spatial-config');
 if(configNode) {
   const entryUrl=new URL(location.href);
@@ -71,12 +85,12 @@ async function start(config) {
   const menuLinks=[...new Map([...catalog.navigation,...catalog.footer].map(n=>[n.url,n])).values()].map(n=>`<a href="${esc(n.url)}">${esc(n.label)}</a>`).join('');
   app.innerHTML=`<a class="spatial-skip" href="#workspace">${copy.skip}</a><header class="app-header">
     <a class="brand" href="${paths.home}"><img class="brand-logo" src="${new URL('../favicon.svg',new URL(config.catalog,location.href))}" width="28" height="28" alt="" aria-hidden="true">AUTO RESEARCH DIGEST</a>
-    <div class="header-actions"><a id="spatial-language" class="language-link" href="${fallback.querySelector('.lang-switch').getAttribute('href')}">${copy.language}</a><button data-action="menu" aria-haspopup="dialog">${copy.menu}</button></div></header>
+    <div class="header-actions"><a id="spatial-language" class="language-link" href="${fallback.querySelector('.lang-switch').getAttribute('href')}">${copy.language}</a><button data-action="menu" aria-haspopup="dialog">${icon('menu')}<span class="sr-only">${copy.menu}</span></button></div></header>
     <nav id="breadcrumbs" class="breadcrumbs" aria-label="${copy.workspace}"></nav>
     <main id="workspace" aria-label="${copy.workspace}" tabindex="-1"><h1 id="workspace-heading" class="sr-only">${esc(config.title)}</h1><div class="time-line" aria-hidden="true"></div><svg id="relations" aria-hidden="true"></svg><div id="month-space"></div><div id="article-space"></div></main>
     <nav id="month-rail" class="month-rail" aria-label="${copy.months}"></nav><div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
     <div class="workspace-status" role="status" hidden></div>
-    <dialog class="spatial-menu" aria-label="${copy.menu}"><button data-action="close-menu">${copy.close}</button><nav>${menuLinks}</nav></dialog>`;
+    <dialog class="spatial-menu" aria-label="${copy.menu}"><button data-action="close-menu">${icon('close')}<span class="sr-only">${copy.close}</span></button><nav>${menuLinks}</nav></dialog>`;
   document.body.append(track,app);
   history.scrollRestoration='manual';
   const byId = new Map(articles.map(a => [a.id,a]));
@@ -138,7 +152,7 @@ async function start(config) {
   }
   for(const a of articles) {
     const node=document.createElement('article');node.className='paper article-paper';node.dataset.article=a.id;
-    node.innerHTML=`<header class="paper-head"><div class="paper-meta"><span class="paper-category">${esc(a.category)}</span><span class="relation-label"></span><time datetime="${a.date}" title="${copy.research}">${date(a.date)}</time></div><h2 class="article-title"><a class="title-open" data-read="${a.id}" href="${a.url}">${esc(a.title)}</a></h2></header><div class="paper-preview">${a.illustration?`<img class="preview-illustration" src="${esc(a.illustration)}" width="480" height="320" alt="" loading="lazy" decoding="async">`:''}<p class="preview-copy">${esc(a.teaser)}</p><div class="paper-tags">${a.tags.slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="preview-actions"><span>${copy.sources(a.sourceCount)}</span><a class="read-button" data-read="${a.id}" href="${a.url}">${copy.read} <span aria-hidden="true">↗</span></a></div></div><div class="read-pane"></div>`;
+    node.innerHTML=`<header class="paper-head"><div class="paper-meta"><span class="paper-category">${esc(a.category)}</span><span class="relation-label"></span><time datetime="${a.date}" title="${copy.research}">${date(a.date)}</time></div><h2 class="article-title"><a class="title-open" data-read="${a.id}" href="${a.url}">${esc(a.title)}</a></h2></header><div class="paper-preview">${a.illustration?`<img class="preview-illustration" src="${esc(a.illustration)}" width="480" height="320" alt="" loading="lazy" decoding="async">`:''}<p class="preview-copy">${esc(a.teaser)}</p><div class="paper-tags">${a.tags.slice(0,4).map(t=>`<span>${esc(t)}</span>`).join('')}</div><div class="preview-actions"><span>${copy.sources(a.sourceCount)}</span><a class="read-button" data-read="${a.id}" href="${a.url}">${copy.read} ${icon('open')}</a></div></div><div class="read-pane"></div>`;
     document.getElementById('article-space').append(node);articleNodes.set(a.id,node);
   }
   const topicOverview=document.createElement('section');topicOverview.className='topics-overview';topicOverview.hidden=true;
@@ -150,7 +164,7 @@ async function start(config) {
     if(shownTopic===t.id)return;shownTopic=t.id;
     const recent=t.articles.map(id=>byId.get(id)).filter(Boolean).sort((a,b)=>b.date.localeCompare(a.date)||a.id.localeCompare(b.id)).slice(0,4);
     results.setAttribute('aria-label',t.title);
-    results.innerHTML=`<div class="topic-results-heading"><h2>${esc(t.title)}</h2><a data-open-topic="${t.id}" href="${t.url}">${copy.theme} ↗</a></div><div class="topic-articles">${recent.map((a,i)=>`<article class="topic-article ${i===0?'is-featured':''}" style="--peek:${i}"><a data-read="${a.id}" href="${a.url}" class="topic-article-link">${a.illustration?`<img src="${esc(a.illustration)}" alt="" width="480" height="320"/>`:''}<div class="topic-article-copy"><time datetime="${a.date}">${date(a.date)}</time><h3>${esc(a.title)}</h3>${i===0?`<p>${esc(a.teaser)}</p><span class="topic-read">${copy.read} ↗</span>`:''}</div></a></article>`).join('')}</div>`;
+    results.innerHTML=`<div class="topic-results-heading"><h2>${esc(t.title)}</h2><a data-open-topic="${t.id}" href="${t.url}">${copy.theme} ${icon('open')}</a></div><div class="topic-articles">${recent.map((a,i)=>`<article class="topic-article ${i===0?'is-featured':''}" style="--peek:${i}"><a data-read="${a.id}" href="${a.url}" class="topic-article-link">${a.illustration?`<img src="${esc(a.illustration)}" alt="" width="480" height="320"/>`:''}<div class="topic-article-copy"><time datetime="${a.date}">${date(a.date)}</time><h3>${esc(a.title)}</h3>${i===0?`<p>${esc(a.teaser)}</p><span class="topic-read">${copy.read} ${icon('open')}</span>`:''}</div></a></article>`).join('')}</div>`;
     if(!reduced.matches)results.querySelectorAll('.topic-article').forEach((node,i)=>node.animate([{opacity:0,transform:'translateY(14px)'},{opacity:1,transform:'translateY(0)'}],{duration:320,delay:i*35,easing:'ease-out'}));
   }
   let documentKey='';
@@ -176,7 +190,7 @@ async function start(config) {
     if(pane.dataset.built)return;
     const a=byId.get(id),payload=payloads.get(id),doc=new DOMParser().parseFromString(id==='__document'?a.body:payload.body,'text/html');
     const sections=[...doc.body.children].filter(el=>el.matches('section'));
-    pane.innerHTML=`<div class="reader-toolbar"><button data-action="toc" aria-pressed="false">${copy.toc}</button>${id==='__document'?'':`<button data-action="share">${copy.share}</button><button data-action="related">${copy.related} <span aria-hidden="true">↗</span></button>`}</div><div class="chapter-list" aria-label="${copy.chapter}"></div>`;
+    pane.innerHTML=`<div class="reader-toolbar"><button data-action="toc" aria-pressed="false">${icon('toc')}${copy.toc}</button>${id==='__document'?'':`<button data-action="share">${icon('share')}${copy.share}</button><button data-action="related">${icon('related')}${copy.related}</button>`}</div><div class="chapter-list" aria-label="${copy.chapter}"></div>`;
     const list=pane.querySelector('.chapter-list');
     sections.forEach((source,i)=>{
       const heading=source.querySelector('h2')??source.querySelector('h3,.section-kicker'),name=heading?.textContent.trim()??config.title;
@@ -343,14 +357,14 @@ async function start(config) {
   function crumb(text,action,extra='') {return `<button data-action="${action}" ${extra}>${esc(text)}</button>`;}
   function updateChrome() {
     const a=state.mode==='read'?byId.get(state.article):state.mode==='related'?byId.get(state.origin):null;
-    let html=state.mode==='feed'?`<a href="${state.topic?paths.topics:paths.home}">${state.topic?copy.topics:copy.home}</a>${state.topic?`<span class="crumb-separator">›</span><span>${esc(state.topic)}</span>`:''}`:state.mode==='topics'?`<span>${copy.topics}</span>`:state.mode==='document'?`<a href="${paths.home}">${copy.home}</a><span class="crumb-separator">›</span><span class="crumb-title">${esc(byId.get('__document').title)}</span>`:crumb(copy.home,'timeline');
+    let html=state.mode==='feed'?`<a href="${state.topic?paths.topics:paths.home}">${state.topic?copy.topics:copy.home}</a>${state.topic?`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span>${esc(state.topic)}</span>`:''}`:state.mode==='topics'?`<span class="breadcrumb-icon" role="img" aria-label="${copy.topics}">${icon('topics')}</span>`:state.mode==='document'?`<a href="${paths.home}">${copy.home}</a><span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span class="crumb-title">${esc(byId.get('__document').title)}</span>`:`<button class="breadcrumb-icon" data-action="timeline" aria-label="${copy.home}">${icon('home')}</button>`;
     if(state.mode==='feed'&&state.topic&&topics.find(t=>t.title===state.topic)?.guide)html+=`<button class="guide-open" data-action="guide">${copy.guide}</button>`;
-    if(['month','read','related'].includes(state.mode))html+=`<span class="crumb-separator" aria-hidden="true">›</span>${crumb(monthLabel(a?a.date.slice(0,7):state.month),'month')}`;
-    if(state.mode==='read')html+=`<span class="crumb-separator" aria-hidden="true">›</span><span aria-current="page">${copy.body}</span>`;
-    if(state.mode==='related')html+=`<span class="crumb-separator" aria-hidden="true">›</span><span aria-current="page">${copy.related}</span>`;
+    if(['month','read','related'].includes(state.mode))html+=`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span>${crumb(monthLabel(a?a.date.slice(0,7):state.month),'month')}`;
+    if(state.mode==='read')html+=`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span aria-current="page">${copy.body}</span>`;
+    if(state.mode==='related')html+=`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span aria-current="page">${copy.related}</span>`;
     if(state.mode==='feed'&&!state.topic&&state.path!==paths.home) {
       const page=catalog.pages.findIndex(p=>p.url===state.path);
-      html+=`<span class="spatial-pagination">${page>0?`<a href="${catalog.pages[page-1].url}" aria-label="${copy.previous}">←</a>`:''}${page>=0&&page<catalog.pages.length-1?`<a href="${catalog.pages[page+1].url}" aria-label="${copy.next}">→</a>`:''}</span>`;
+      html+=`<span class="spatial-pagination">${page>0?`<a href="${catalog.pages[page-1].url}" aria-label="${copy.previous}">${icon('previous')}</a>`:''}${page>=0&&page<catalog.pages.length-1?`<a href="${catalog.pages[page+1].url}" aria-label="${copy.next}">${icon('next')}</a>`:''}</span>`;
     }
     if(crumbs.innerHTML!==html)crumbs.innerHTML=html;
     const current=['timeline','feed','month'].includes(state.mode)?byId.get(focusId()).date.slice(0,7):(a?a.date.slice(0,7):state.month);
