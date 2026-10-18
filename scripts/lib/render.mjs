@@ -348,6 +348,15 @@ function pageSchemas({
   return payloads.map((payload) => jsonLdBlock(payload)).join("\n    ");
 }
 
+function renderPageHeading(text, locale) {
+  if (locale !== "ja") return escapeHtml(text);
+  // Keep the site's key terms together while balancing the heading. The
+  // wrapper can still shrink at large text sizes; it never forces overflow.
+  const terms = new Set(["AIエージェント", "生成AI", "一次情報"]);
+  return text.split(/(AIエージェント|生成AI|一次情報)/).map(part => terms.has(part)
+    ? `<span class="hero-term">${escapeHtml(part)}</span>` : escapeHtml(part)).join("");
+}
+
 export function renderPage({
   locale,
   relativePath,
@@ -453,7 +462,7 @@ ${renderSharedPageScript(pageType)}
       </header>
       <main class="site-main" id="main">
         ${pageType === "article" ? "" : `<section class="hero-panel ${pageType === "home" ? "hero-panel-home" : ""}">
-          <h1 class="hero-title">${escapeHtml(pageHeading)}</h1>
+          <h1 class="hero-title">${renderPageHeading(pageHeading, locale)}</h1>
           ${pageIntro ? `<p class="hero-copy">${escapeHtml(pageIntro)}</p>` : ""}
           ${pageMeta}
         </section>`}

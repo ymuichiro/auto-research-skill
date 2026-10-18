@@ -1458,6 +1458,7 @@
   .hero-panel-home { position: relative; border: 0; padding-bottom: .5rem; }
   .hero-panel { border: 0; padding-bottom: 0; }
   .hero-panel .hero-title { margin-top: 0; font-size: clamp(1.8rem, 3vw, 2.6rem); line-height: 1.4; text-wrap: balance; }
+  .hero-term { display: inline-block; max-width: 100%; }
   .hero-panel-home .hero-title { max-width: 42ch; font-size: clamp(1.6rem, 2.6vw, 2.35rem); line-height: 1.5; }
   .hero-panel-home .hero-copy { margin-top: 1rem; }
   .site-main { gap: 2rem; padding-top: 2rem; }
