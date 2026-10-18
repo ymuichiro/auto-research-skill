@@ -70,7 +70,7 @@ async function start(config) {
   const track=document.createElement('div');track.id='scroll-track';track.setAttribute('aria-hidden','true');
   const menuLinks=[...new Map([...catalog.navigation,...catalog.footer].map(n=>[n.url,n])).values()].map(n=>`<a href="${esc(n.url)}">${esc(n.label)}</a>`).join('');
   app.innerHTML=`<a class="spatial-skip" href="#workspace">${copy.skip}</a><header class="app-header">
-    <a class="brand" href="${paths.home}"><span aria-hidden="true">≋</span>AUTO RESEARCH DIGEST</a>
+    <a class="brand" href="${paths.home}"><img class="brand-logo" src="${new URL('../favicon.svg',new URL(config.catalog,location.href))}" width="28" height="28" alt="" aria-hidden="true">AUTO RESEARCH DIGEST</a>
     <div class="header-actions"><button class="back-button" data-action="back">${copy.back}</button><a id="spatial-language" class="language-link" href="${fallback.querySelector('.lang-switch').getAttribute('href')}">${copy.language}</a><button data-action="menu" aria-haspopup="dialog">${copy.menu}</button></div></header>
     <nav id="breadcrumbs" class="breadcrumbs" aria-label="${copy.workspace}"></nav>
     <main id="workspace" aria-label="${copy.workspace}" tabindex="-1"><h1 id="workspace-heading" class="sr-only">${esc(config.title)}</h1><div class="time-line" aria-hidden="true"></div><svg id="relations" aria-hidden="true"></svg><div id="month-space"></div><div id="article-space"></div></main>

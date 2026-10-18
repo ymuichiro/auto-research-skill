@@ -409,7 +409,7 @@ ${renderSharedPageScript()}
       <a class="skip-link" href="#main">${locale === "ja" ? "本文へ" : "Skip to content"}</a>
       <header class="site-header">
         <a class="brand-mark" href="${localizedPath(locale, "")}">
-          <span class="brand-badge" aria-hidden="true">≋</span>
+          <img class="brand-logo" src="${assetPath('assets/favicon.svg')}" width="28" height="28" alt="" aria-hidden="true">
           <span class="brand-copy">${escapeHtml(siteConfig.name)}</span>
         </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" hidden>${locale === "ja" ? "メニュー" : "Menu"}</button>
@@ -1449,13 +1449,15 @@ export function renderDefaultOgSvg() {
 }
 
 export function renderFaviconSvg() {
+  // The same vector is used in the site header and every generated app icon.
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-labelledby="title desc">
-    <title id="title">Auto Research Digest favicon</title><desc id="desc">Layered research planes in blue and green.</desc>
+    <title id="title">Auto Research Digest</title><desc id="desc">Three flowing research signals.</desc>
     <rect width="256" height="256" rx="56" fill="#eef5f8"/>
-    <path d="m44 92 84-44 84 44-84 44Z" fill="#95b8ca"/>
-    <path d="m44 121 84-44 84 44-84 44Z" fill="#6b9eaf"/>
-    <path d="m44 154 84-44 84 44-84 44Z" fill="#34898a"/>
-    <path d="m44 187 84-44 84 44-84 44Z" fill="#d5e9e7"/>
+    <g fill="none" stroke="#39878d" stroke-width="17" stroke-linecap="round">
+      <path d="M46 83C72 58 98 58 128 78S184 103 210 78"/>
+      <path d="M46 127C72 102 98 102 128 122S184 147 210 122"/>
+      <path d="M46 171C72 146 98 146 128 166S184 191 210 166"/>
+    </g>
   </svg>`;
 }
 
