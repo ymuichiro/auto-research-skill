@@ -51,7 +51,7 @@ async function pages(){
         const c=catalogs[locale],hub=c.topics.find(t=>t.guide),prefix=locale==='en'?'/en':'';
         for(const viewport of [{width:360,height:664},{width:768,height:1024},{width:844,height:390},{width:1440,height:900}]){
           const page=await browser.newPage({viewport,reducedMotion:'reduce'}),errors=[];page.on('pageerror',e=>errors.push(e.message));
-          for(const [suffix,mode] of [[c.paths.home,'feed'],[c.pages[1].url,'feed'],[c.paths.timeline,'timeline'],[c.paths.topics,'topics'],[hub.url,'feed'],[hub.url+'#topic-guide','document'],[`${prefix}/404.html`,'document'],[c.articles[0].url,'read']]){
+          for(const [suffix,mode] of [[c.paths.home,'timeline'],[c.pages[1].url,'feed'],[`${prefix}/timeline/`,'timeline'],[c.paths.topics,'topics'],[hub.url,'feed'],[hub.url+'#topic-guide','document'],[`${prefix}/404.html`,'document'],[c.articles[0].url,'read']]){
             await ready(page,server.base+suffix);
             await page.waitForFunction(mode=>spatialSite.getState().mode===mode,mode);
             assert.equal(await page.evaluate(()=>spatialSite.getState().mode),mode,`${engine.name()} ${suffix} mode`);
@@ -85,7 +85,7 @@ async function resilience(){
     await ready(page,server.base+c.paths.home);
     await page.locator('.article-paper[data-front=true] .read-button').click();
     await page.locator('.workspace-status [data-action=retry]').waitFor();
-    assert.equal(await page.evaluate(()=>spatialSite.getState().mode),'feed');
+    assert.equal(await page.evaluate(()=>spatialSite.getState().mode),'timeline');
     assert.equal(await page.locator('.workspace-status a').count(),0,'no alternate screen on loading failure');
     await page.locator('[data-action=retry]').click();await page.waitForFunction(()=>spatialSite.getState().mode==='read');
     assert.equal(await page.locator('.workspace-status').isVisible(),false);
@@ -207,7 +207,7 @@ async function removedPages(){
       await ready(page,server.base+c.paths.home);
       await page.locator('#spatial-app [data-action=menu]').click();
       const menuLinks=await page.locator('.spatial-menu a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname));
-      assert.equal(menuLinks.length,3,'menu contains only site navigation');
+      assert.equal(menuLinks.length,2,'menu contains only home and topics');
       assert.equal(await page.locator('.spatial-menu a[href*="view=static"]').count(),0);
       for(const file of removedHtmlPages)assert.ok(!menuLinks.some(url=>url.endsWith('/'+file)));
       if(locale==='ja')await page.screenshot({path:`${out}/removed-pages-menu-${engine.name()}.png`});
@@ -219,7 +219,41 @@ async function removedPages(){
   }
   results.push({suite:'removed-pages-and-retained-xml',removedUrls:removedHtmlPages.length,status:'passed'});console.log('16 removed HTML URLs, menus, article links and 3 XML sitemaps passed');
 }
+async function mergedHome(){
+  let checks=0;
+  for(const engine of [chromium,webkit]){
+    const browser=await engine.launch();
+    try{for(const viewport of [{width:1440,height:900},{width:390,height:844}])for(const locale of ['ja','en']){
+      const page=await browser.newPage({viewport,reducedMotion:'reduce'}),c=catalogs[locale],legacy=locale==='ja'?'/timeline/':'/en/timeline/';
+      assert.equal(c.paths.timeline,c.paths.home,'one canonical destination');
+      for(const suffix of ['',`?month=${c.months[1].id}`,`?month=${c.months[0].id}&item=${c.articles[2].id}`,`?item=${c.articles[3].id}`]){
+        await ready(page,server.base+legacy+suffix);
+        assert.equal(new URL(page.url()).pathname,c.paths.home);
+        assert.equal(await page.evaluate(()=>spatialSite.getState().mode),'timeline');
+        const expected=suffix.includes('item=')?new URLSearchParams(suffix).get('item'):suffix?c.months[1].articles[0]:c.articles[0].id;
+        assert.equal(await page.evaluate(()=>spatialSite.getState().focus),expected);
+        assert.ok((await page.locator('.month-paper:not([aria-hidden=true])').boundingBox()).height<=40);
+        assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),new URL(c.paths.home,'https://research.notelligent.app').href);
+        checks++;
+      }
+      await page.locator('#spatial-app [data-action=menu]').click();
+      assert.deepEqual(await page.locator('.spatial-menu a').evaluateAll(links=>links.map(a=>new URL(a.href).pathname)),[c.paths.home,c.paths.topics]);
+      await page.locator('[data-action=close-menu]').click();
+      await page.screenshot({path:`${out}/merged-home-${engine.name()}-${locale}-${viewport.width}.png`});
+      await page.close();
+      const migration=await browser.newPage({viewport,reducedMotion:'reduce'});
+      await migration.addInitScript(({home,article,list})=>{
+        if(location.pathname===home)history.replaceState({spatial:{mode:'feed',path:home,article,list,topic:null,progress:2,fragment:'',timelineVersion:2}},'',location.href);
+      },{home:c.paths.home,article:c.articles[0].id,list:c.articles.map(a=>a.id)});
+      await ready(migration,server.base+c.paths.home);
+      assert.equal(await migration.evaluate(()=>spatialSite.getState().mode),'timeline');
+      assert.equal(await migration.evaluate(()=>spatialSite.getState().focus),c.articles[2].id);
+      await migration.close();checks++;
+    }}finally{await browser.close();}
+  }
+  results.push({suite:'merged-home-and-legacy-redirect',checks,status:'passed'});console.log('merged home',checks,'passed');
+}
 try{
-  const suites={corpus,pages,resilience,basePath,timeline,removedPages};
+  const suites={corpus,pages,resilience,basePath,timeline,removedPages,mergedHome};
   for(const [name,run] of Object.entries(suites))if(!process.env.SPATIAL_SUITE||process.env.SPATIAL_SUITE===name){await run();await writeFile(`${out}/quality.json`,JSON.stringify(results,null,2));}
 }finally{await server.close();}

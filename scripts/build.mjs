@@ -17,7 +17,7 @@ import {
   renderRobots,
   renderSitemap,
   renderSitemapIndex,
-  renderTimelinePage,
+  renderTimelineRedirect,
   renderTopicHubPage,
   renderTopicsIndexPage,
   renderWebManifest
@@ -141,7 +141,7 @@ async function buildSpatialAssets() {
     await rm(path.join(outputRoot,'assets',name),{force:true});
   }
   await writeTextFile(path.join(outputRoot,'assets/site-ui.js'),await readFile(path.resolve('src/assets/site-ui.js'),'utf8'));
-  for(const name of ['spatial-site.js','spatial-copy.js']) {
+  for(const name of ['spatial-site.js','spatial-copy.js','timeline-redirect.js']) {
     await writeTextFile(path.join(outputRoot,'assets',name),await readFile(path.resolve('src/assets',name),'utf8'));
   }
   await writeTextFile(path.join(outputRoot,'assets/spatial-site.css'),await readFile(path.resolve('src/styles/spatial-site.css'),'utf8'));
@@ -199,7 +199,7 @@ async function buildSite() {
       );
     }
 
-    await writeTextFile(path.join(outputRoot, timelineRelativePath(locale), "index.html"), renderTimelinePage(locale, liveArticles, topicHubs));
+    await writeTextFile(path.join(outputRoot, timelineRelativePath(locale), "index.html"), renderTimelineRedirect(locale));
   }
 
   for (const article of liveArticles) {
@@ -257,25 +257,6 @@ async function buildSite() {
       ]
     });
   }
-
-  pageSitemapEntries.push({
-    path: timelineRelativePath("ja"),
-    lastModified: latestUpdate,
-    alternates: [
-      { hreflang: "ja", path: timelineRelativePath("ja") },
-      { hreflang: "en", path: timelineRelativePath("en") },
-      { hreflang: "x-default", path: timelineRelativePath("ja") }
-    ]
-  });
-  pageSitemapEntries.push({
-    path: timelineRelativePath("en"),
-    lastModified: latestUpdate,
-    alternates: [
-      { hreflang: "ja", path: timelineRelativePath("ja") },
-      { hreflang: "en", path: timelineRelativePath("en") },
-      { hreflang: "x-default", path: timelineRelativePath("ja") }
-    ]
-  });
 
   pageSitemapEntries.push({
     path: topicIndexRelativePath("ja"),

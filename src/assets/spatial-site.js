@@ -92,7 +92,7 @@ async function start(config) {
   const date = value => value.replaceAll('-','.');
   const monthLabel = copy.month;
   const monthStart=id=>articles.findIndex(a=>a.date.startsWith(id));
-  let state = {mode:config.mode,path:config.path,list:config.mode==='feed'&&!config.topic&&config.page===1?articles.map(a=>a.id):(config.list??articles.map(a=>a.id)),topic:config.topic??null,
+  let state = {mode:config.mode,path:config.path,list:(config.mode==='timeline'||config.mode==='feed'&&!config.topic&&config.page===1)?articles.map(a=>a.id):(config.list??articles.map(a=>a.id)),topic:config.topic??null,
     month:months[0].id,article:config.article??articles[0].id,chapter:0,fragment:'',origin:null,progress:0,toc:false,depth:0,timelineVersion:2};
   let generation=0;
   let step=480, frame=0, ignoreScroll=false, configuredY=0, switchTimer, saveTimer, announced='', lastRail='';
@@ -216,7 +216,7 @@ async function start(config) {
   function crumb(text,action,extra='') {return `<button data-action="${action}" ${extra}>${esc(text)}</button>`;}
   function updateChrome() {
     const a=state.mode==='read'?byId.get(state.article):state.mode==='related'?byId.get(state.origin):null;
-    let html=state.mode==='feed'?`<a href="${state.topic?paths.topics:paths.home}">${state.topic?copy.topics:copy.home}</a>${state.topic?`<span class="crumb-separator">›</span><span>${esc(state.topic)}</span>`:''}`:state.mode==='topics'?`<span>${copy.topics}</span>`:state.mode==='document'?`<a href="${paths.home}">${copy.home}</a><span class="crumb-separator">›</span><span class="crumb-title">${esc(byId.get('__document').title)}</span>`:crumb(copy.timeline,'timeline');
+    let html=state.mode==='feed'?`<a href="${state.topic?paths.topics:paths.home}">${state.topic?copy.topics:copy.home}</a>${state.topic?`<span class="crumb-separator">›</span><span>${esc(state.topic)}</span>`:''}`:state.mode==='topics'?`<span>${copy.topics}</span>`:state.mode==='document'?`<a href="${paths.home}">${copy.home}</a><span class="crumb-separator">›</span><span class="crumb-title">${esc(byId.get('__document').title)}</span>`:crumb(copy.home,'timeline');
     if(state.mode==='feed'&&state.topic&&topics.find(t=>t.title===state.topic)?.guide)html+=`<button class="guide-open" data-action="guide">${copy.guide}</button>`;
     if(['month','read','related'].includes(state.mode))html+=`<span class="crumb-separator" aria-hidden="true">›</span>${crumb(monthLabel(a?a.date.slice(0,7):state.month),'month')}`;
     if(state.mode==='read')html+=`<span class="crumb-separator" aria-hidden="true">›</span><span aria-current="page">${copy.body}</span>`;
@@ -241,7 +241,7 @@ async function start(config) {
     const doc=state.mode==='document';rail.hidden=doc||state.mode==='topics';
     const heading=app.querySelector('#workspace-heading');
     heading.hidden=doc||state.mode==='read';
-    heading.textContent=state.mode==='timeline'?copy.timeline:state.mode==='topics'?copy.topics:state.mode==='feed'?(state.topic??copy.home):config.title;
+    heading.textContent=state.mode==='timeline'?copy.home:state.mode==='topics'?copy.topics:state.mode==='feed'?(state.topic??copy.home):config.title;
   }
 
   // Resolve the complete frame before touching the DOM. A visible surface must
@@ -526,7 +526,7 @@ async function start(config) {
   reduced.addEventListener('change',()=>{app.classList.remove('switching');draw();});
 
   const url=new URL(location.href),item=url.searchParams.get('item'),month=url.searchParams.get('month'),topic=url.searchParams.get('topic'),related=url.searchParams.get('related');
-  if(config.mode==='timeline'&&monthById.has(month)){state.month=month;state.progress=item&&monthById.get(month).articles.includes(item)?articles.findIndex(a=>a.id===item):monthStart(month);}
+  if(config.mode==='timeline'){if(item&&byId.has(item)){state.progress=articles.findIndex(a=>a.id===item);state.month=byId.get(item).date.slice(0,7);}else if(monthById.has(month)){state.month=month;state.progress=monthStart(month);}}
   if(config.mode==='feed'&&state.list.includes(item))state.progress=state.list.indexOf(item);
   if(config.mode==='topics'&&topics.some(t=>t.id===topic))state.progress=topics.findIndex(t=>t.id===topic);
   if(config.mode==='read'){state.month=byId.get(config.article).date.slice(0,7);if(related&&relatedTo(config.article).includes(related)){state.mode='related';state.origin=config.article;state.progress=relatedTo(config.article).indexOf(related);}}
@@ -535,6 +535,7 @@ async function start(config) {
   let saved=history.state?.spatial;
   try{if(!saved)saved=JSON.parse(sessionStorage.getItem(`ard-spatial:${location.href}`));}catch{}
   if(saved&&['timeline','month','read','related','feed','topics','document'].includes(saved.mode)&&byId.has(saved.article)&&(saved.fragment??'')===state.fragment&&statePath(saved)===url.pathname)state={...state,...saved};
+  if(config.mode==='timeline'&&state.mode==='feed'&&!state.topic){state.mode='timeline';state.list=articles.map(a=>a.id);}
   if(config.mode==='timeline'&&['timeline','month'].includes(state.mode)&&(saved?.timelineVersion!==2||state.mode==='month')){
     state.mode='timeline';
     state.progress=item&&byId.has(item)?articles.findIndex(a=>a.id===item):monthById.has(month)?monthStart(month):0;

@@ -50,13 +50,11 @@ export const siteConfig = {
   nav: {
     ja: [
       { label: "トップ", path: "" },
-      { label: "トピック", path: "topics/" },
-      { label: "タイムライン", path: "timeline/" }
+      { label: "トピック", path: "topics/" }
     ],
     en: [
       { label: "Home", path: "en/" },
-      { label: "Topics", path: "en/topics/" },
-      { label: "Timeline", path: "en/timeline/" }
+      { label: "Topics", path: "en/topics/" }
     ]
   },
   footerNav: {

@@ -1,6 +1,6 @@
 export const spatialCopy = {
   ja: {
-    home:'トップ', timeline:'タイムライン', topics:'トピック', body:'本文', related:'関連記事',
+    home:'トップ', topics:'トピック', body:'本文', related:'関連記事',
     back:'戻る', menu:'メニュー', close:'閉じる', toc:'目次', read:'本文を読む', open:'記事を見る',
     articles:n=>`${n} 記事`, sources:n=>`根拠 ${n}件`, evidence:'出典と編集責任',
     sameTopic:'同じテーマ', sameDate:'同じ調査日', tag:t=>`共通のタグ · ${t}`, nearDate:'近い調査対象日',
@@ -11,7 +11,7 @@ export const spatialCopy = {
     language:'ENGLISH', chapter:'この記事の章', theme:'テーマを開く', guide:'テーマガイド',
   },
   en: {
-    home:'Home', timeline:'Timeline', topics:'Topics', body:'Article', related:'Related articles',
+    home:'Home', topics:'Topics', body:'Article', related:'Related articles',
     back:'Back', menu:'Menu', close:'Close', toc:'Contents', read:'Read article', open:'Explore articles',
     articles:n=>`${n} ${n===1?'article':'articles'}`, sources:n=>`${n} sources`, evidence:'Sources and editorial review',
     sameTopic:'Same topic', sameDate:'Same research date', tag:t=>`Shared tag · ${t}`, nearDate:'Nearby research date',

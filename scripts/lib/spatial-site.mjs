@@ -1,4 +1,4 @@
-import {assetPath, localizedPath, listingRelativePath, topicHubRelativePath, timelineRelativePath, topicIndexRelativePath, siteConfig} from './site-config.mjs';
+import {assetPath, localizedPath, listingRelativePath, topicHubRelativePath, topicIndexRelativePath, siteConfig} from './site-config.mjs';
 
 export function spatialCatalog(articles, hubs, locale) {
   const local = path => localizedPath(locale,path.replace(/^en\//,''));
@@ -13,7 +13,7 @@ export function spatialCatalog(articles, hubs, locale) {
       categories:[...new Set(entries.filter(a=>a.date.startsWith(id)).map(a=>a.category))]})),
     topics:hubs.map(h=>({id:h.slug,title:h.category,description:h.descriptions[locale],
       guide:Boolean(h.guide?.[locale]),articles:h.articles.map(a=>a.sourceDirName),url:local(topicHubRelativePath(locale,h.slug))})),
-    paths:{home:local(''),timeline:local(timelineRelativePath(locale)),topics:local(topicIndexRelativePath(locale))},
+    paths:{home:local(''),timeline:local(''),topics:local(topicIndexRelativePath(locale))},
     pages:Array.from({length:Math.max(1,Math.ceil(articles.length/siteConfig.pagination.articleListPageSize))},(_,i)=>({
       url:local(listingRelativePath(locale,i+1)),articles:articles.slice(i*siteConfig.pagination.articleListPageSize,(i+1)*siteConfig.pagination.articleListPageSize).map(a=>a.sourceDirName)})),
     navigation:siteConfig.nav[locale].map(n=>({label:n.label,url:local(n.path)})),

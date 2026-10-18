@@ -121,21 +121,6 @@ function assertSocialCardMarkup(markup, label) {
   );
 }
 
-function countOccurrences(markup, needle) {
-  let count = 0;
-  let offset = 0;
-
-  while (offset !== -1) {
-    offset = markup.indexOf(needle, offset);
-    if (offset !== -1) {
-      count += 1;
-      offset += needle.length;
-    }
-  }
-
-  return count;
-}
-
 function expectedPageTitle(title, locale) {
   if (title === siteConfig.name) {
     return locale === "ja" ? siteConfig.name : `${siteConfig.name} EN`;
@@ -313,8 +298,6 @@ async function validateBuiltOutput(articles) {
   const socialCard = await readFile(path.join(outputRoot, siteConfig.ogImage));
   const jaTopicsHtml = await readBuiltFile(`${topicIndexRelativePath("ja")}index.html`);
   const enTopicsHtml = await readBuiltFile(`${topicIndexRelativePath("en")}index.html`);
-  const jaTimelineHtml = await readBuiltFile(`${timelineRelativePath("ja")}index.html`);
-  const enTimelineHtml = await readBuiltFile(`${timelineRelativePath("en")}index.html`);
   const publishedMarkup = (await readdir(outputRoot, {recursive: true})).filter(file=>/\.(html|json|xml)$/.test(file));
   for(const file of publishedMarkup) {
     const markup=await readBuiltFile(file);
@@ -322,6 +305,14 @@ async function validateBuiltOutput(articles) {
       assertNotContains(markup,absoluteUrl(removed),`${file} still references removed page ${removed}.`);
       assertNotContains(markup,localizedPath('ja',removed),`${file} still links to removed page ${removed}.`);
     }
+  }
+  for(const locale of ['ja','en']) {
+    const redirect=await readBuiltFile(`${timelineRelativePath(locale)}index.html`);
+    assertContains(redirect,`rel="canonical" href="${absoluteUrl(locale==='en'?'en/':'')}"`,'Legacy timeline must canonicalize to home.');
+    assertContains(redirect,'content="noindex,follow"','Legacy timeline must not remain an indexed destination.');
+    assertContains(redirect,'assets/timeline-redirect.js','Legacy timeline must redirect to home.');
+    assertNotContains(redirect,'spatial-config','Legacy timeline must not render a separate application.');
+    assertNotContains(pageSitemap,absoluteUrl(timelineRelativePath(locale)),'XML must list home rather than the redirect.');
   }
   const rootPath = siteConfig.basePath ? `${siteConfig.basePath}/` : "/";
   const totalPages = Math.max(1, Math.ceil(articles.length / siteConfig.pagination.articleListPageSize));
@@ -367,8 +358,6 @@ async function validateBuiltOutput(articles) {
   assertContains(enHomeHtml, '"@type":"ItemList"', "English home page is missing ItemList schema.");
   assertContains(jaTopicsHtml, '"@type":"ItemList"', "Japanese topics index is missing ItemList schema.");
   assertContains(enTopicsHtml, '"@type":"ItemList"', "English topics index is missing ItemList schema.");
-  assertContains(jaTimelineHtml, '"@type":"ItemList"', "Japanese timeline page is missing ItemList schema.");
-  assertContains(enTimelineHtml, '"@type":"ItemList"', "English timeline page is missing ItemList schema.");
   if (articles[0]) {
     assertContains(
       homeHtml,
@@ -385,8 +374,6 @@ async function validateBuiltOutput(articles) {
   for (const [markup, relativePath, canonicalUrl, label] of [
     [jaTopicsHtml, topicIndexRelativePath("ja"), absoluteUrl(topicIndexRelativePath("ja")), "Japanese topics index"],
     [enTopicsHtml, topicIndexRelativePath("en"), absoluteUrl(topicIndexRelativePath("en")), "English topics index"],
-    [jaTimelineHtml, timelineRelativePath("ja"), absoluteUrl(timelineRelativePath("ja")), "Japanese timeline page"],
-    [enTimelineHtml, timelineRelativePath("en"), absoluteUrl(timelineRelativePath("en")), "English timeline page"]
   ]) {
     assertContains(markup, `rel="canonical" href="${canonicalUrl}"`, `${label} is missing the expected canonical URL.`);
     assertContains(markup, `property="og:url" content="${canonicalUrl}"`, `${label} is missing the expected og:url.`);
@@ -402,8 +389,6 @@ async function validateBuiltOutput(articles) {
     [enHomeHtml, "en", "English home page"],
     [jaTopicsHtml, "ja", "Japanese topics index"],
     [enTopicsHtml, "en", "English topics index"],
-    [jaTimelineHtml, "ja", "Japanese timeline page"],
-    [enTimelineHtml, "en", "English timeline page"]
   ]) {
     for (const link of siteConfig.nav[locale]) {
       assertContains(
@@ -426,11 +411,6 @@ async function validateBuiltOutput(articles) {
       markup,
       `href="${localizedPath(locale, "topics/")}"`,
       `${label} is missing a visible route into the topics section.`
-    );
-    assertContains(
-      markup,
-      `href="${localizedPath(locale, "timeline/")}"`,
-      `${label} is missing a visible route into the timeline section.`
     );
   }
 
@@ -695,16 +675,6 @@ async function validateBuiltOutput(articles) {
       "Article sitemap is missing the English article URL for the configured site."
     );
     assertContains(
-      jaTimelineHtml,
-      `href="${localizedPath("ja", sampleArticle.outputPaths.ja)}"`,
-      "Japanese timeline page is missing a published article link."
-    );
-    assertContains(
-      enTimelineHtml,
-      `href="${localizedPath("en", sampleArticle.outputPaths.en.replace(/^en\//, ""))}"`,
-      "English timeline page is missing a published article link."
-    );
-    assertContains(
       jaFeed,
       `<title>${escapeHtml(sampleArticle.titleJa)}</title>`,
       "Japanese feed is missing the latest article title."
@@ -725,8 +695,6 @@ async function validateBuiltOutput(articles) {
   );
   assertContains(pageSitemap, absoluteUrl(""), "Page sitemap is missing the configured Japanese home URL.");
   assertContains(pageSitemap, absoluteUrl("en/"), "Page sitemap is missing the configured English home URL.");
-  assertContains(pageSitemap, absoluteUrl(timelineRelativePath("ja")), "Page sitemap is missing the Japanese timeline URL.");
-  assertContains(pageSitemap, absoluteUrl(timelineRelativePath("en")), "Page sitemap is missing the English timeline URL.");
   assertContains(pageSitemap, absoluteUrl(topicIndexRelativePath("ja")), "Page sitemap is missing the Japanese topics index URL.");
   assertContains(pageSitemap, absoluteUrl(topicIndexRelativePath("en")), "Page sitemap is missing the English topics index URL.");
   assertContains(
@@ -738,16 +706,6 @@ async function validateBuiltOutput(articles) {
     pageSitemap,
     `hreflang="en" href="${absoluteUrl(topicIndexRelativePath("en"))}"`,
     "Page sitemap is missing the English hreflang alternate for the topics index."
-  );
-  assertContains(
-    pageSitemap,
-    `hreflang="ja" href="${absoluteUrl(timelineRelativePath("ja"))}"`,
-    "Page sitemap is missing the Japanese hreflang alternate for the timeline."
-  );
-  assertContains(
-    pageSitemap,
-    `hreflang="en" href="${absoluteUrl(timelineRelativePath("en"))}"`,
-    "Page sitemap is missing the English hreflang alternate for the timeline."
   );
   assertNotContains(pageSitemap, absoluteUrl("archive/"), "Page sitemap should not contain the removed archive URL.");
   assertNotContains(pageSitemap, absoluteUrl("en/archive/"), "Page sitemap should not contain the removed English archive URL.");
@@ -773,30 +731,6 @@ async function validateBuiltOutput(articles) {
       assertContains(enHubHtml, hub.guide.en.title, `English topic hub ${hub.slug} is missing its guide title.`);
     }
   }
-  const jaTimelineDiscoveryCount = countOccurrences(jaTimelineHtml, 'class="discovery-entry"');
-  const enTimelineDiscoveryCount = countOccurrences(enTimelineHtml, 'class="discovery-entry"');
-
-  assertCondition(
-    jaTimelineDiscoveryCount === articles.length,
-    `Japanese timeline should render ${articles.length} discovery entries, found ${jaTimelineDiscoveryCount}.`
-  );
-  assertCondition(
-    enTimelineDiscoveryCount === articles.length,
-    `English timeline should render ${articles.length} discovery entries, found ${enTimelineDiscoveryCount}.`
-  );
-
-  for (const article of articles) {
-    assertContains(
-      jaTimelineHtml,
-      `href="${localizedPath("ja", article.outputPaths.ja)}"`,
-      `Japanese timeline page is missing ${article.outputPaths.ja}.`
-    );
-    assertContains(
-      enTimelineHtml,
-      `href="${localizedPath("en", article.outputPaths.en.replace(/^en\//, ""))}"`,
-      `English timeline page is missing ${article.outputPaths.en}.`
-    );
-  }
   assertContains(webManifest, `"start_url": "${rootPath}"`, "Web manifest start_url does not match the configured base path.");
   assertContains(webManifest, `"scope": "${rootPath}"`, "Web manifest scope does not match the configured base path.");
 
@@ -805,8 +739,6 @@ async function validateBuiltOutput(articles) {
     [enHomeHtml, "English home page"],
     [jaTopicsHtml, "Japanese topics index"],
     [enTopicsHtml, "English topics index"],
-    [jaTimelineHtml, "Japanese timeline page"],
-    [enTimelineHtml, "English timeline page"]
   ]) {
     assertJsonLdUrlsAreAbsolute(markup, label);
   }

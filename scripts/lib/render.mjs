@@ -1043,7 +1043,7 @@ export function renderIndexPage(locale, articles, pagination = {}) {
           : [])
     ],
     pageType: "home",
-    spatial: {mode:'feed',list:articles.map(a=>a.sourceDirName),page:currentPage},
+    spatial: {mode:currentPage===1?'timeline':'feed',list:articles.map(a=>a.sourceDirName),page:currentPage},
     listItems
   });
 }
@@ -1117,32 +1117,14 @@ export function renderTopicHubPage(locale, hub) {
   });
 }
 
-export function renderTimelinePage(locale, articles, topicHubs = []) {
-  const copy = localeCopy[locale];
-  const monthGroups = groupArticlesByMonth(articles);
-  const topicHubMap = buildTopicHubMap(topicHubs);
-  const listItems = articleListItems(locale, articles);
-  const body = `${renderTimelineStats(locale, articles, monthGroups, topicHubs)}
-  ${renderChronologySections(locale, monthGroups, topicHubMap)}`;
-
-  return renderPage({
-    locale,
-    relativePath: timelineRelativePath(locale),
-    title: copy.timelineTitle,
-    description: copy.timelineIntro,
-    pageHeading: copy.timelineTitle,
-    spatial: {mode:'timeline'},
-    pageIntro: copy.timelineIntro,
-    body,
-    currentNavPath: locale === "ja" ? "timeline/" : "en/timeline/",
-    breadcrumbs: [
-      { name: copy.homeTitle, path: copy.homePath },
-      { name: copy.timelineTitle, path: timelineRelativePath(locale) }
-    ],
-    pageType: "page",
-    schemaType: "CollectionPage",
-    listItems
-  });
+export function renderTimelineRedirect(locale) {
+  const home=localizedPath(locale,'');
+  return `<!doctype html><html lang="${locale}"><head>
+    <meta charset="utf-8"><meta name="robots" content="noindex,follow">
+    <title>${escapeHtml(siteConfig.name)}</title>
+    <link rel="canonical" href="${absoluteUrl(locale==='en'?'en/':'')}">
+    <script src="${assetPath('assets/timeline-redirect.js')}" defer></script>
+  </head><body><noscript><a href="${home}">${locale==='ja'?'トップ':'Home'}</a></noscript></body></html>`;
 }
 
 function renderShareIconX() {

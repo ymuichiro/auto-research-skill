@@ -1,7 +1,7 @@
 import { readFile, readdir, mkdir, writeFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import path from "node:path";
-import { siteConfig } from "./lib/site-config.mjs";
+import { siteConfig, timelineRelativePath } from "./lib/site-config.mjs";
 
 // Compare the deployed bytes with this checkout's built output, not just HTTP 200.
 // This verifies publication. It does not verify Google's indexing or ranking.
@@ -24,7 +24,7 @@ const payloads = (await Promise.all(["ja", "en"].map(async locale =>
   (await readdir(path.join("public/assets/articles", locale))).filter(file => file.endsWith(".json")).map(file => `assets/articles/${locale}/${file}`)))).flat();
 const paths = [...new Set([...pages.map((url) => new URL(url).pathname.slice(new URL(siteConfig.siteUrl).pathname.length)), ...sitemapPaths,
   "robots.txt", "favicon.ico", "assets/favicon.ico", "assets/og-twitter-card.png", siteConfig.ogImage, "assets/site.css",
-  "assets/site-ui.js", "assets/spatial-site.js", "assets/spatial-copy.js", "assets/spatial-site.css", "assets/spatial/ja.json", "assets/spatial/en.json", ...payloads])];
+  timelineRelativePath("ja"), timelineRelativePath("en"), "assets/timeline-redirect.js", "assets/site-ui.js", "assets/spatial-site.js", "assets/spatial-copy.js", "assets/spatial-site.css", "assets/spatial/ja.json", "assets/spatial/en.json", ...payloads])];
 const digest = (bytes) => createHash("sha256").update(bytes).digest("hex");
 let report;
 for (let attempt = 1; attempt <= attempts; attempt += 1) {
