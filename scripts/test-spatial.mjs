@@ -44,12 +44,16 @@ async function journey(engine,locale,viewport){
     check('native input changes timeline geometry',Math.abs((await geometry(page,selector)).h-before.h)>3);
     assert.deepEqual(await geometry(page,'#workspace'),workspace);check('workspace remains fixed');
     const step=(await getState(page)).step;
-    await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),step*.4);await page.waitForTimeout(100);
+    const seekExact=async progress=>{
+      await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),step*progress);
+      await page.waitForFunction(p=>Math.abs(Number(document.getElementById('spatial-app').dataset.progress)-p)<.002,progress);
+    };
+    await seekExact(.4);
     const at40=await geometry(page,selector);await page.waitForTimeout(300);assert.deepEqual(await geometry(page,selector),at40);check('scroll stops animation');
-    await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),step*.75);await page.waitForTimeout(100);
-    await page.evaluate(y=>scrollTo({top:y,behavior:'instant'}),step*.4);await page.waitForTimeout(100);
+    await seekExact(.75);
+    await seekExact(.4);
     assert.deepEqual(await geometry(page,selector),at40);check('reverse restores exact geometry');
-    await page.evaluate(()=>scrollTo({top:0,behavior:'instant'}));await page.waitForTimeout(100);
+    await seekExact(0);
     const id=(await getState(page)).focus,article=catalog.articles.find(a=>a.id===id);
     await page.evaluate(id=>{window.originalSurface=document.querySelector(`#spatial-app [data-article="${id}"]`);},id);
     // The whole card, including whitespace, opens the article.

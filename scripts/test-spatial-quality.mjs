@@ -136,7 +136,7 @@ async function timeline(){
       assert.equal(await page.locator('.month-paper button').count(),0,'no month selection gate');
       for(let i=0;i<c.articles.length;i++){
         await page.evaluate(i=>scrollTo({top:i*spatialSite.getState().step,behavior:'instant'}),i);
-        await page.waitForFunction(id=>spatialSite.getState().focus===id,c.articles[i].id);
+        await page.waitForFunction(id=>document.getElementById('spatial-app').dataset.focus===id,c.articles[i].id);
         const surface=page.locator('.article-paper[data-front=true]');
         assert.equal(await surface.getAttribute('data-article'),c.articles[i].id);
         assert.equal(await surface.getAttribute('data-folded'),'false');
@@ -149,7 +149,7 @@ async function timeline(){
       }
       for(const progress of [.4,.75,.9,3.9]){
         await page.evaluate(p=>scrollTo({top:p*spatialSite.getState().step,behavior:'instant'}),progress);
-        await page.waitForFunction(p=>Math.abs(spatialSite.getState().progress-p)<.01,progress);
+        await page.waitForFunction(p=>Math.abs(Number(document.getElementById('spatial-app').dataset.progress)-p)<.01,progress);
         const next=c.articles[Math.round(progress)+1];
         assert.equal(await page.locator(`[data-article="${next.id}"]`).getAttribute('aria-hidden'),'false','next candidate remains visible between scroll stops');
       }
