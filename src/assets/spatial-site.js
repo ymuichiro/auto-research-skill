@@ -357,9 +357,9 @@ async function start(config) {
   function crumb(text,action,extra='') {return `<button data-action="${action}" ${extra}>${esc(text)}</button>`;}
   function updateChrome() {
     const a=state.mode==='read'?byId.get(state.article):state.mode==='related'?byId.get(state.origin):null;
-    let html=state.mode==='feed'?`<a href="${state.topic?paths.topics:paths.home}">${state.topic?copy.topics:copy.home}</a>${state.topic?`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span>${esc(state.topic)}</span>`:''}`:state.mode==='topics'?`<span class="breadcrumb-icon" role="img" aria-label="${copy.topics}">${icon('topics')}</span>`:state.mode==='document'?`<a href="${paths.home}">${copy.home}</a><span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span class="crumb-title">${esc(byId.get('__document').title)}</span>`:`<button class="breadcrumb-icon" data-action="timeline" aria-label="${copy.home}">${icon('home')}</button>`;
+    let html=state.mode==='feed'?`<a href="${state.topic?paths.topics:paths.home}">${state.topic?copy.topics:copy.home}</a>${state.topic?`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span>${esc(state.topic)}</span>`:''}`:state.mode==='topics'?'':state.mode==='document'?`<a href="${paths.home}">${copy.home}</a><span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span class="crumb-title">${esc(byId.get('__document').title)}</span>`:'';
     if(state.mode==='feed'&&state.topic&&topics.find(t=>t.title===state.topic)?.guide)html+=`<button class="guide-open" data-action="guide">${copy.guide}</button>`;
-    if(['month','read','related'].includes(state.mode))html+=`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span>${crumb(monthLabel(a?a.date.slice(0,7):state.month),'month')}`;
+    if(['month','read','related'].includes(state.mode))html+=`${crumb(monthLabel(a?a.date.slice(0,7):state.month),'month')}`;
     if(state.mode==='read')html+=`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span aria-current="page">${copy.body}</span>`;
     if(state.mode==='related')html+=`<span class="crumb-separator" aria-hidden="true">${icon('next')}</span><span aria-current="page">${copy.related}</span>`;
     if(state.mode==='feed'&&!state.topic&&state.path!==paths.home) {
