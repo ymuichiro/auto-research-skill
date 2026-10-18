@@ -21,7 +21,6 @@ try{for(const [engine,type,executablePath] of [['chromium',chromium,process.env.
         const expected=await page.locator('.page-shell .article-body > section').count()+1;
         await page.locator('.reading [data-action=toc]').click();
         const toc=await page.locator('.reading .chapter-toggle:visible').evaluateAll(buttons=>({count:buttons.length,invalid:buttons.flatMap((button,i)=>button.getBoundingClientRect().height<44||!button.querySelector('.chapter-name').textContent.trim()?[i]:[])}));
-        await page.locator('.reading [data-action=toc]').click();
         await page.locator('.reading .chapter-toggle').last().click();
         const sourceCount=await page.locator('.reading .chapter.active a.source-row').count();
         const expectedSources=await page.locator('.page-shell .reading-evidence a.source-row').count();
