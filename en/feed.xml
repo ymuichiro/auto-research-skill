@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Fri, 16 Oct 2026 16:24:47 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 15:25:05 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Where multi-agent systems have delivered measurable gains</title>
+      <link>https://research.notelligent.app/en/2026-10-21-when-multi-agent-systems-deliver-results.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-10-21-when-multi-agent-systems-deliver-results.html</guid>
+      
+      <description>Examine gains in code–test separation, development with dependencies, long computer-use tasks, parallel research, and answer and hypothesis exploration</description>
+      <category>AI Agents</category>
+    </item>
     <item>
       <title>Letting shopping agents pay: connecting budgets, orders, and returns</title>
       <link>https://research.notelligent.app/en/2026-10-11-agentic-commerce-purchase-and-payment-authorization.html</link>
@@ -158,14 +166,6 @@
       
       <description>Compare MCP, A2A 1.0, and AG-UI through a refund workflow: task completion, interface events, disconnection, and cancellation.</description>
       <category>AI Agents</category>
-    </item>
-    <item>
-      <title>Compare video AI through revision: references, sound, and editing</title>
-      <link>https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-28-video-generation-ai-product-landscape.html</guid>
-      
-      <description>Compare video AI references, audio, footage modification, and editing. Examine versions, limitations, and the work needed for an acceptable revision.</description>
-      <category>AI Strategy</category>
     </item>
   </channel>
 </rss>
