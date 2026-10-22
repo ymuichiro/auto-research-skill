@@ -1,0 +1,105 @@
+{
+  "slug": "when-multi-agent-systems-deliver-results",
+  "date": "2026-10-21",
+  "titleJa": "マルチエージェントは、どんな仕事で成果を出したか",
+  "titleEn": "Where multi-agent systems have delivered measurable gains",
+  "summaryJa": "コードとテストの分業、依存関係のある開発工程、長い画面操作、並列調査、回答と仮説の探索。成果が出た研究を単一構成との比較条件と費用から読み、複数段階の仕事でも分担が有効になる条件を考える。",
+  "summaryEn": "Examine gains in code–test separation, development with dependencies, long computer-use tasks, parallel research, and answer and hypothesis exploration, distinguishing single-agent comparisons from their costs and limits.",
+  "seoTitleJa": "マルチエージェントの成功例と採用条件：論文で比較",
+  "seoTitleEn": "When multi-agent systems work: evidence and adoption criteria",
+  "category": "AI Agents",
+  "tags": [
+    "Multi-Agent",
+    "Evaluation",
+    "AI Research",
+    "Coding Agents"
+  ],
+  "publishedSources": [
+    {
+      "label": "Kim et al., Capable language models can outgrow the benefits of collaboration",
+      "url": "https://www.nature.com/articles/s42256-026-01268-y",
+      "type": "paper"
+    },
+    {
+      "label": "AgentCoder: Multi-Agent Code Generation with Effective Testing and Self-optimisation, v3",
+      "url": "https://arxiv.org/html/2312.13010v3",
+      "type": "paper"
+    },
+    {
+      "label": "Mixture-of-Agents Enhances Large Language Model Capabilities, v1",
+      "url": "https://arxiv.org/html/2406.04692v1",
+      "type": "paper"
+    },
+    {
+      "label": "Multi-agent AI systems outperform human teams in creativity, v1",
+      "url": "https://arxiv.org/html/2605.17885v1",
+      "type": "paper"
+    },
+    {
+      "label": "Accelerating scientific discovery with Co-Scientist, v2",
+      "url": "https://arxiv.org/abs/2502.18864v2",
+      "type": "paper"
+    },
+    {
+      "label": "Anthropic: How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "type": "official"
+    },
+    {
+      "label": "Improving Factuality and Reasoning in Language Models through Multiagent Debate",
+      "url": "https://arxiv.org/abs/2305.14325",
+      "type": "paper"
+    },
+    {
+      "label": "Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?",
+      "url": "https://arxiv.org/abs/2508.17536",
+      "type": "paper"
+    },
+    {
+      "label": "Voting or Consensus? Decision-Making in Multi-Agent Debate",
+      "url": "https://arxiv.org/abs/2502.19130",
+      "type": "paper"
+    },
+    {
+      "label": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "url": "https://arxiv.org/abs/2203.11171",
+      "type": "paper"
+    },
+    {
+      "label": "Why Do Multi-Agent LLM Systems Fail?",
+      "url": "https://arxiv.org/abs/2503.13657",
+      "type": "paper"
+    },
+    {
+      "label": "AI Agents That Matter",
+      "url": "https://arxiv.org/abs/2407.01502",
+      "type": "paper"
+    },
+    {
+      "label": "Effective Strategies for Asynchronous Software Engineering Agents, v2",
+      "url": "https://arxiv.org/html/2603.21489v2",
+      "type": "paper"
+    },
+    {
+      "label": "Optimizing Sequential Multi-Step Tasks with Parallel LLM Agents, v1",
+      "url": "https://arxiv.org/html/2507.08944v1",
+      "type": "paper"
+    },
+    {
+      "label": "Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents, v1",
+      "url": "https://arxiv.org/html/2504.00906v1",
+      "type": "paper"
+    },
+    {
+      "label": "Rethinking the Value of Multi-Agent Workflow: A Strong Single Agent Baseline, v1",
+      "url": "https://arxiv.org/html/2601.12307v1",
+      "type": "paper"
+    },
+    {
+      "label": "When Do Multi-Agent Systems Help? An Information Bottleneck Perspective, v1",
+      "url": "https://arxiv.org/html/2607.16133v1",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}
