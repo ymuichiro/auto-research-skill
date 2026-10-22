@@ -3,6 +3,17 @@
   "items": [
     {
       "kind": "article",
+      "id": "2026-10-21-when-multi-agent-systems-deliver-results",
+      "title": "マルチエージェントは、どんな仕事で成果を出したか",
+      "teaser": "コードとテストの分業、依存関係のある開発工程、長い画面操作、並列調査、回答と仮説の探索。成果が出た研究を単一構成との比較条件と費用から読み、複数段階の仕事でも分担が有効になる条件を考える。",
+      "scene": "Three independently inspected document sets feed one assembled report that is checked with a physical gauge.",
+      "prompt": "Use case: editorial illustration. Asset type: landscape 3:2 hero artwork for an evidence-led article about when multi-agent systems succeed. Create a restrained sculptural 3D still life with a clean ice-white background, matte white surfaces, pale cyan and desaturated mint accents, soft ambient shadows, limited frosted transparent edges. Show three independent shallow work trays fanning out on the left, each containing a distinct document fragment with abstract line grooves and a small inspection lens. Three thin separate paths carry these different fragments into one central assembly tray on the right, where they form a coherent complete report; a simple physical checking gauge straddles the completed report. Emphasize independently gathered contributions, deliberate synthesis, and external checking, with only a few purposeful recognizable objects readable at thumbnail size. No text, letters, numbers, logos, people, robots, screens, decorative floating cubes, circuitry, neon, dark sci-fi, or measured charts. Do not imply that more agents always win. Use generous negative space and preserve all objects within margins.",
+      "sourceFile": "exec-c7c05cfb-ac75-41eb-801f-2ca806443d77.png",
+      "sha256": "4cf5c8aa73f2424351f9a0cd414fdcff8abff2f7ba3ec44c8f47bf85068c9487",
+      "file": "article/2026-10-21-when-multi-agent-systems-deliver-results.webp"
+    },
+    {
+      "kind": "article",
       "id": "2026-10-11-agentic-commerce-purchase-and-payment-authorization",
       "title": "買い物AIに支払いを任せる――予算、注文、返品をどうつなぐか",
       "teaser": "UCP、ACP、AP2 v0.2とStripeの支払いトークンを比較。商品の希望を注文・支払いの許可へ変え、送料変更、追加認証、応答待ち、返品まで同じ取引から追う方法を考える。",

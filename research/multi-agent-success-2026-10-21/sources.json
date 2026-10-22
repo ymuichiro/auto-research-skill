@@ -1,0 +1,288 @@
+{
+  "cutoff": "2026-10-21",
+  "scope": "Focused literature article, not a weekly news roundup",
+  "primaryUrlCount": 28,
+  "counting": "One URL per independent work or implementation; revised versions of the same work are not counted twice. publicBy indicates first submission for unversioned arXiv URLs and the selected revision date for versioned URLs.",
+  "sources": [
+    {
+      "id": "S01",
+      "label": "Kim et al., Capable language models can outgrow the benefits of collaboration",
+      "url": "https://www.nature.com/articles/s42256-026-01268-y",
+      "publicBy": "2026-07-24",
+      "type": "paper",
+      "role": "core",
+      "verification": "Full results, Fig. 2 and methods: 260 configurations, six benchmarks; Finance 0.349 to 0.631, relative +80.8%. Supersedes 180-configuration preprint. Each Finance cell n=50. Matched per-system ceilings, not identical realized spending.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S02",
+      "label": "AgentCoder: Multi-Agent Code Generation with Effective Testing and Self-optimisation, v3",
+      "url": "https://arxiv.org/html/2312.13010v3",
+      "publicBy": "2024-05-24",
+      "type": "paper",
+      "role": "core",
+      "verification": "Full text sections 3.3, 4.7, Tables 6-8. Executor is Python. Table 7 single vs multiple: HumanEval 71.3/79.9, MBPP 79.4/89.9. Values correspond to GPT-3.5-turbo configuration; do not substitute GPT-4 headline or zero-shot baseline. Internal iterative refinement precedes final pass@1.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S03",
+      "label": "Mixture-of-Agents Enhances Large Language Model Capabilities, v1",
+      "url": "https://arxiv.org/html/2406.04692v1",
+      "publicBy": "2024-06-07",
+      "type": "paper",
+      "role": "core",
+      "verification": "Full text Tables 2 and 3. Six proposers/three layers: LC win rate 65.1 vs GPT-4o May-13 57.5. Two layers/six proposals/fixed Qwen1.5-110B aggregator: diverse 61.3 vs same-proposer 56.7. Preference, not factual accuracy; models and costs differ.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S04",
+      "label": "Multi-agent AI systems outperform human teams in creativity, v1",
+      "url": "https://arxiv.org/html/2605.17885v1",
+      "publicBy": "2026-05-18",
+      "type": "paper",
+      "role": "core",
+      "verification": "Full text main results and evaluation methods. GPT-4.1 single .253 vs best multi .298; selected-best comparison. Six tasks; five human judges; product of normalized novelty/usefulness; LLM wording harmonization. Not implemented business outcomes. Token-count regression concerns discussion-structure effects, not an equal-budget causal proof of all single-vs-multi differences.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S05",
+      "label": "Accelerating scientific discovery with Co-Scientist, v2",
+      "url": "https://arxiv.org/abs/2502.18864v2",
+      "publicBy": "2026-06-29",
+      "type": "paper",
+      "role": "core",
+      "verification": "Revised abstract and submission history verified. AML drug candidates and synergistic combinations validated in vitro. Do not present experimental outcome as equal-budget causal isolation of agent multiplicity or clinical efficacy. Title differs from v1.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S06",
+      "label": "Anthropic: How we built our multi-agent research system",
+      "url": "https://www.anthropic.com/engineering/multi-agent-research-system",
+      "publicBy": "2025-06-13",
+      "type": "official",
+      "role": "implementation",
+      "verification": "Official full technical report. Opus4 lead/Sonnet4 workers vs single Opus4 +90.2% internal research eval. About 15x tokens is versus chats, NOT single-agent. Vendor implementation, not peer-reviewed controlled evaluation.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S07",
+      "label": "Improving Factuality and Reasoning in Language Models through Multiagent Debate",
+      "url": "https://arxiv.org/abs/2305.14325",
+      "publicBy": "2023-05-23",
+      "type": "paper",
+      "role": "context",
+      "verification": "Abstract verified. Initial positive debate findings; no unverified numeric gain used.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S08",
+      "label": "Debate or Vote: Which Yields Better Decisions in Multi-Agent Large Language Models?",
+      "url": "https://arxiv.org/abs/2508.17536",
+      "publicBy": "2025-08-24",
+      "type": "paper",
+      "role": "counterevidence",
+      "verification": "Abstract and NeurIPS2025 paper verified. Seven benchmarks; voting accounts for most gains; motivates no-debate voting comparison. Model assumptions of theorem do not establish universal impossibility of useful debate.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S09",
+      "label": "Voting or Consensus? Decision-Making in Multi-Agent Debate",
+      "url": "https://arxiv.org/abs/2502.19130",
+      "publicBy": "2025-02-26",
+      "type": "paper",
+      "role": "counterevidence",
+      "verification": "Abstract v4 verified; ACL2025 Findings. Decision protocol matters, more rounds before voting can degrade. Abstract improvement percentages not used as single-agent deltas.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S10",
+      "label": "Self-Consistency Improves Chain of Thought Reasoning in Language Models",
+      "url": "https://arxiv.org/abs/2203.11171",
+      "publicBy": "2022-03-21",
+      "type": "paper",
+      "role": "baseline",
+      "verification": "Primary abstract verified. Sample multiple paths and aggregate. Baseline for separating ensemble gain from communication gain; no numeric claim used.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S11",
+      "label": "Why Do Multi-Agent LLM Systems Fail?",
+      "url": "https://arxiv.org/abs/2503.13657",
+      "publicBy": "2025-03-17",
+      "type": "paper",
+      "role": "failure-analysis",
+      "verification": "Abstract v3 verified: 1600+ traces, seven frameworks, fourteen modes, three categories. Not a population failure rate for all multi-agent systems.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S12",
+      "label": "AI Agents That Matter",
+      "url": "https://arxiv.org/abs/2407.01502",
+      "publicBy": "2024-07-01",
+      "type": "paper",
+      "role": "evaluation",
+      "verification": "Primary abstract verified. Joint accuracy/cost evaluation and reproducibility. Article pilot methodology is author synthesis, not a verbatim paper protocol.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S13",
+      "label": "More Agents Is All You Need",
+      "url": "https://arxiv.org/abs/2402.05120",
+      "publicBy": "2024-02-03",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Primary abstract verified: sampling-and-voting Agent Forest. No independent evidence of benefits from agent communication; redundant with self-consistency for this narrative.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S14",
+      "label": "Agentless: Demystifying LLM-based Software Engineering Agents",
+      "url": "https://arxiv.org/abs/2407.01489",
+      "publicBy": "2024-07-01",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Primary abstract and author-hosted FSE2025 paper discovered. Simpler pipeline counterexample; excluded from main text to keep focus on positive cases. No cross-version numeric ranking used.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S15",
+      "label": "Magentic-One: A Generalist Multi-Agent System for Solving Complex Tasks",
+      "url": "https://arxiv.org/abs/2411.04468",
+      "publicBy": "2024-11-07",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Abstract verified. Generalist orchestration and competitive GAIA/AssistantBench/WebArena results; omitted as weaker evidence of isolated multi-agent gain than selected studies.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S16",
+      "label": "AutoGen: Enabling Next-Gen LLM Applications via Multi-Agent Conversation",
+      "url": "https://arxiv.org/abs/2308.08155",
+      "publicBy": "2023-08-16",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Primary paper search result and official Microsoft publication verified. Framework background; not treated as proof that conversation alone improves accuracy.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S17",
+      "label": "MetaGPT: Meta Programming for A Multi-Agent Collaborative Framework",
+      "url": "https://arxiv.org/abs/2308.00352",
+      "publicBy": "2023-08-01",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Primary paper and ICLR2024 proceedings verified. SOP-based software work; not necessary to repeat broad development claims alongside AgentCoder ablation.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S18",
+      "label": "ChatDev: Communicative Agents for Software Development",
+      "url": "https://arxiv.org/abs/2307.07924",
+      "publicBy": "2023-07-16",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Primary paper and ACL2024 proceedings verified. Specialized roles and chat-chain design; excluded from narrative to avoid listing frameworks without a comparable causal contrast.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S19",
+      "label": "CAMEL: Communicative Agents for Mind Exploration of Large Language Model Society",
+      "url": "https://arxiv.org/abs/2303.17760",
+      "publicBy": "2023-03-31",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Primary paper search result verified. Role-playing agent background; no outcome number adopted.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S20",
+      "label": "AgentWebBench: Benchmarking Multi-Agent Coordination in Agentic Web",
+      "url": "https://proceedings.mlr.press/v306/zhong26n.html",
+      "publicBy": "2026-07-06",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Official ICML2026 proceedings abstract verified. Decentralized content-agent access generally trails centralized retrieval; question-answering exceptions. Different access regime; not merged with same-tool centralized comparisons.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S21",
+      "label": "Self-Refine: Iterative Refinement with Self-Feedback",
+      "url": "https://arxiv.org/abs/2303.17651",
+      "publicBy": "2023-03-30",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Primary abstract verified. Single-model generation/feedback/refinement comparator; omitted numerical claims since tasks and preferences are heterogeneous.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S22",
+      "label": "Effective Strategies for Asynchronous Software Engineering Agents, v2",
+      "url": "https://arxiv.org/html/2603.21489v2",
+      "publicBy": "2026-07-08",
+      "type": "paper",
+      "role": "workflow-core",
+      "verification": "Current v2, Tables 2/3/7 and sections 2-4. PaperBench Code-Dev, not full reproduction. Claude Sonnet4.5: single57.2, soft-isolation55.5, worktree63.3. Runtime1803.5->2080.4s, cost3.3->6.5. Same base/framework; not same aggregate iterations or token/spend budget. Commit0-Lite53.1->59.1. Same manager dependency-aware scheduler, isolated branches, explicit merge/test; aggregate task has interdependencies but runnable work is selectively parallel.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S23",
+      "label": "Optimizing Sequential Multi-Step Tasks with Parallel LLM Agents, v1",
+      "url": "https://arxiv.org/html/2507.08944v1",
+      "publicBy": "2025-07-11",
+      "type": "paper",
+      "role": "workflow-core",
+      "verification": "ICML2025 MAS workshop, full text sections4/5. GPT-4o-2024-08-06, GAIA validation53/86/26 tasks, main experiments5 runs. Three teams early-stop1.6-1.8x speedup,1.7-1.8x inference cost; aggregate adds mean3/5/1 solved tasks and2.5-3.4x cost with generally more latency. Baseline Magentic-One ALREADY MULTI-AGENT. First returned answer not correctness oracle; best-of-k is oracle ceiling. Local Qwen latency simulated from separate runs, not live parallel hardware evidence; not used in public article.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S24",
+      "label": "Agent S2: A Compositional Generalist-Specialist Framework for Computer Use Agents, v1",
+      "url": "https://arxiv.org/html/2504.00906v1",
+      "publicBy": "2025-04-01",
+      "type": "paper",
+      "role": "workflow-core",
+      "verification": "Table1, screenshot-based OSWorld50-step: CCU Claude3.7=26.0, AgentS2 Claude3.7=34.5. Manager/worker planner plus specialized grounding: UI-TARS72B, OCR, UNO. Heterogeneous compound framework, not causal isolation of multiple copies of same LLM. Ablation65 sampled examples; no equal aggregate inference-cost proof. Avoid calling actions50 dependent reasoning stages.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S25",
+      "label": "Rethinking the Value of Multi-Agent Workflow: A Strong Single Agent Baseline, v1",
+      "url": "https://arxiv.org/html/2601.12307v1",
+      "publicBy": "2026-01-18",
+      "type": "paper",
+      "role": "workflow-baseline",
+      "verification": "Full abstract/introduction/setup verified. Seven benchmarks; single agent can simulate roles/decomposition in homogeneous workflows with KV cache advantages. Supports testing strong single with the same decomposition. Does not establish universal superiority of single agent for every workflow.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S26",
+      "label": "When Do Multi-Agent Systems Help? An Information Bottleneck Perspective, v1",
+      "url": "https://arxiv.org/html/2607.16133v1",
+      "publicBy": "2026-07-17",
+      "type": "paper",
+      "role": "workflow-conditional",
+      "verification": "Full text AppendixC Table6 checked. ALFWorld zero-shot Qwen2.5: ordinary SAS.366, SAS-contextflow.172, MAS.545. Qwen3.5-27B ordinary SAS.903, MAS.895: no gain over ordinary strong single. Uses simulator134episodes,50maxsteps(25+25phases). Same max total steps, not equal tokens/spend. Public article uses raw score cells, not inconsistent gain columns.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S27",
+      "label": "AgentOrchestra: Orchestrating Multi-Agent Intelligence with the TEA Protocol, v5",
+      "url": "https://arxiv.org/html/2506.12508v5",
+      "publicBy": "2026-01-11",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Full Table4 verified: planner36.54 ->+Researcher57.14 ->+Browser72.76 ->+Analyzer79.07 ->+ToolGenerator89.04 onGAIAtest. Adding specialists also changes available tools/capabilities, not equal-tool single vs multi. Main article uses CAID as cleaner same-underlying-agent comparison; not headline89.04 evidence of headcount effect.",
+      "checkedOn": "2026-10-21"
+    },
+    {
+      "id": "S28",
+      "label": "Agentic ERP: Multi-Agent Large Language Model Architecture for Autonomous Enterprise Resource Planning, v1",
+      "url": "https://arxiv.org/html/2607.17331v1",
+      "publicBy": "2026-07-19",
+      "type": "paper",
+      "role": "inventory-only",
+      "verification": "Full sections4.1-4.3/5.3 verified. Controlled tea-trading benchmark, Odoo19, GPT4o-mini, E1 36 designed scenarios once/config, LLMjudge; matched single all46tools vsroleaverage9.2. Complex67->100%, but dynamic tool-scoped single missing. E3 365day SIMULATION; single terminated day29; notyearlongfielddeployment, not20xperquery. Kept outside main evidence because small controlled suite and weak-tool-routing comparator.",
+      "checkedOn": "2026-10-21"
+    }
+  ]
+}
