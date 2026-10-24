@@ -23,6 +23,8 @@ if(configNode) {
     document.getElementById('scroll-track')?.remove();
     document.body.classList.remove('spatial-active','read-mode');
     document.documentElement.classList.remove('spatial-active');
+    const fallback=document.querySelector('.page-shell');
+    if(fallback){fallback.inert=false;fallback.removeAttribute('aria-hidden');}
     dispatchEvent(new Event('spatial-unavailable'));
     console.error('Spatial workspace unavailable.',error);
   });

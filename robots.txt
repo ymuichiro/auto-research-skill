@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://research.notelligent.app/sitemap.xml
+Sitemap: https://research.notelligent.app/sitemap-articles.xml
+Sitemap: https://research.notelligent.app/sitemap-pages.xml
