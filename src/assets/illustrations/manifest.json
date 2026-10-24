@@ -3,6 +3,18 @@
   "items": [
     {
       "kind": "article",
+      "id": "2026-10-24-personal-assistant-memory-and-agent-coordination",
+      "title": "複数のAIに仕事を任せ続けるために、パーソナルアシスタントは何を覚えるべきか",
+      "teaser": "頼んだテストは進め、サービスの追加は相談し、止めた仕事は動かさない。そのために何を覚えるか。",
+      "scene": "A central indexed folio with a checking lens connects three task stations to one human decision station. A key gate marks permission and a pause barrier marks a held task. Conceptual illustration, not an implementation or observed result.",
+      "prompt": "Use case: editorial illustration. Asset type: landscape 3:2 hero artwork for an article about a personal assistant coordinating multiple coding agents through memory and explicit permission. Primary scene: three small matte-white task workstations on the right feed separate thin pale-cyan paths into a central open folio with layered index cards representing a user's goals and past decisions. A small clear lens over the folio signifies checking current information against remembered context. From this central folio a single muted-mint path leads toward a simple human decision station on the left, holding one question card; other paths return to two task stations through a small physical key-shaped permission gate. One task remains still behind a small pause barrier, suggesting an explicit hold. Make relationships simple and readable at thumbnail size, with all objects grounded on a clean white plane, shallow three-dimensional depth, soft shadows, matte white, pale cyan and muted mint, limited frosted edges, generous margins. No text, letters, numbers, logos, robots, faces, dark UI, actual screenshots, charts, neon, circuitry, decorative cubes. This is a conceptual editorial illustration, not experimental evidence. Do not suggest that remembering a preference itself grants execution permission.",
+      "revision": "Edit this conceptual editorial illustration. Preserve the white/cyan/mint sculptural style, central open indexed memory folio and its lens, human decision station with question mark at upper left, and exactly THREE task workstations on the RIGHT (circle at top, triangle at middle, cube behind pause barrier at bottom). Remove BOTH extra task workstations at lower left completely and remove the two mint branches that lead to them. Reposition the existing key gate onto the cyan connection between the central folio and the middle-right triangle workstation. Keep the single mint arrow from the central memory folio to the human decision station. The final composition must have one human station, one central memory folio, exactly three task stations on the right, one permission key gate on the path to an active task, and one pause barrier in front of the bottom task. Do not add any task workstations, text, letters, numbers, logos, charts or decoration. Keep all objects fully inside the frame.",
+      "sourceFile": "exec-ffd9fe97-2f32-4ea3-9c58-11b05d33e63a.png",
+      "sha256": "4a568a8fd4c356c40e1d0b6867a3d12d9b7116889003588f65aafbbf2ee54a6d",
+      "file": "article/2026-10-24-personal-assistant-memory-and-agent-coordination.webp"
+    },
+    {
+      "kind": "article",
       "id": "2026-10-21-when-multi-agent-systems-deliver-results",
       "title": "マルチエージェントは、どんな仕事で成果を出したか",
       "teaser": "コードとテストの分業、依存関係のある開発工程、長い画面操作、並列調査、回答と仮説の探索。成果が出た研究を単一構成との比較条件と費用から読み、複数段階の仕事でも分担が有効になる条件を考える。",

@@ -1,0 +1,338 @@
+[
+  {
+    "engine": "chromium",
+    "width": 360,
+    "locale": "ja",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 272,
+        "minFont": 11.657142857142857,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 272,
+        "minFont": 11.657142857142857,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 360,
+    "locale": "en",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 272,
+        "minFont": 11.657142857142857,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 272,
+        "minFont": 11.657142857142857,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 390,
+    "locale": "ja",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 302,
+        "minFont": 12.942857142857143,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 302,
+        "minFont": 12.942857142857143,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 390,
+    "locale": "en",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 302,
+        "minFont": 12.942857142857143,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 302,
+        "minFont": 12.942857142857143,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 768,
+    "locale": "ja",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 768,
+    "locale": "en",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 1440,
+    "locale": "ja",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "chromium",
+    "width": 1440,
+    "locale": "en",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 360,
+    "locale": "ja",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 272,
+        "minFont": 11.657142857142857,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 272,
+        "minFont": 11.657142857142857,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 360,
+    "locale": "en",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 272,
+        "minFont": 11.657142857142857,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 272,
+        "minFont": 11.657142857142857,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 390,
+    "locale": "ja",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 302,
+        "minFont": 12.942857142857143,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 302,
+        "minFont": 12.942857142857143,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 390,
+    "locale": "en",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 302,
+        "minFont": 12.942857142857143,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 302,
+        "minFont": 12.942857142857143,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 768,
+    "locale": "ja",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 768,
+    "locale": "en",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 1440,
+    "locale": "ja",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  },
+  {
+    "engine": "webkit",
+    "width": 1440,
+    "locale": "en",
+    "figures": [
+      {
+        "name": "coordination",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      },
+      {
+        "name": "decision",
+        "width": 420,
+        "minFont": 18,
+        "outside": []
+      }
+    ],
+    "noindex": true,
+    "pageErrors": []
+  }
+]
