@@ -105,7 +105,7 @@ async function resilience(){
       const context=await browser.newContext({javaScriptEnabled:behavior!=='javascript-disabled',viewport:{width:390,height:844}}),p=await context.newPage();
       let failures=0;
       if(behavior==='catalog-failure')await p.route('**/assets/spatial/ja.json',r=>++failures===1?r.fulfill({status:503,body:''}):r.continue());
-      if(behavior==='script-failure')await p.route('**/assets/spatial-site.js',r=>++failures===1?r.abort():r.continue());
+      if(behavior==='script-failure')await p.route('**/assets/spatial-site*.js',r=>++failures===1?r.abort():r.continue());
       await p.goto(server.base+c.articles[0].url+(behavior==='static-query'?'?view=static':''));
       if(behavior==='static-query'){
         await p.waitForFunction(()=>window.spatialSite?.getState().mode==='read');

@@ -22,8 +22,9 @@ const sitemaps = await Promise.all(sitemapPaths.map((file) => readFile(path.join
 const pages = [...new Set(sitemaps.slice(1).flatMap((xml) => [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])))];
 const payloads = (await Promise.all(["ja", "en"].map(async locale =>
   (await readdir(path.join("public/assets/articles", locale))).filter(file => file.endsWith(".json")).map(file => `assets/articles/${locale}/${file}`)))).flat();
+const runtimeFiles=(await readdir('public/assets')).filter(file=>/\.[0-9a-f]{12}\.(?:js|css)$/.test(file)).map(file=>`assets/${file}`);
 const paths = [...new Set([...pages.map((url) => new URL(url).pathname.slice(new URL(siteConfig.siteUrl).pathname.length)), ...sitemapPaths,
-  "robots.txt", "favicon.ico", "assets/favicon.ico", "assets/og-twitter-card.png", siteConfig.ogImage, "assets/site.css",
+  "robots.txt", "favicon.ico", "assets/favicon.ico", "assets/og-twitter-card.png", siteConfig.ogImage, "assets/site.css", ...runtimeFiles,
   timelineRelativePath("ja"), timelineRelativePath("en"), "assets/timeline-redirect.js", "assets/site-ui.js", "assets/spatial-site.js", "assets/spatial-copy.js", "assets/spatial-site.css", ...JSON.parse(await readFile('src/assets/illustrations/manifest.json','utf8')).items.map(item=>`assets/illustrations/${item.kind}/${item.id}.webp`), "assets/spatial/ja.json", "assets/spatial/en.json", ...payloads])];
 const digest = (bytes) => createHash("sha256").update(bytes).digest("hex");
 let report;

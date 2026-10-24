@@ -498,7 +498,7 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, 'class="related-articles"', `${label} is missing the related articles block.`);
       assertContains(markup, 'data-native-share', `${label} is missing the native share trigger.`);
       assertContains(markup, 'data-copy-share', `${label} is missing the copy share trigger.`);
-      assertContains(markup, 'assets/spatial-site.js', `${label} is missing the spatial application.`);
+      assertCondition(/assets\/spatial-site\.[0-9a-f]{12}\.js/.test(markup), `${label} is missing the versioned spatial application.`);
       assertSocialCardMarkup(markup, label);
     }
 

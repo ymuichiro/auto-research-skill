@@ -1,4 +1,5 @@
 import {illustrationPath} from './spatial-site.mjs';
+import {runtimeAssetPath} from './runtime-assets.mjs';
 import {
   absoluteUrl,
   assetPath,
@@ -166,12 +167,12 @@ function renderSharedHeadAssets(locale) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="${assetPath("assets/site.css")}">
-    <link rel="stylesheet" href="${assetPath("assets/spatial-site.css")}">`;
+    <link rel="stylesheet" href="${runtimeAssetPath('spatial-site.css')}">`;
 }
 
 function renderSharedPageScript() {
-  return `    <script src="${assetPath('assets/site-ui.js')}" defer></script>
-    <script id="spatial-entry" type="module" src="${assetPath('assets/spatial-site.js')}"></script>`;
+  return `    <script src="${runtimeAssetPath('site-ui.js')}" defer></script>
+    <script id="spatial-entry" type="module" src="${runtimeAssetPath('spatial-site.js')}"></script>`;
 }
 
 function localeTag(locale) {

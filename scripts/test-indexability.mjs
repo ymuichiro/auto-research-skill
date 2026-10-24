@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import {mkdir, writeFile} from 'node:fs/promises';
 import {chromium, webkit} from 'playwright';
+import {createHash} from 'node:crypto';
 import {serveBuild} from './lib/test-server.mjs';
 
 // Test the reader's actual rendered content, not just text in an HTML response.
@@ -16,7 +17,7 @@ try {
   }));
   const urls=[...new Set(xml.flatMap(s=>[...s.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1])))];
   const paths=urls.map(u=>new URL(u).pathname);
-  const pathSet=new Set(paths),links=new Map();
+  const pathSet=new Set(paths),links=new Map(),assets=new Set();
   browser=await chromium.launch();
   const context=await browser.newContext({javaScriptEnabled:false,viewport:{width:390,height:844}});
   await context.route('https://fonts.googleapis.com/**',route=>route.abort());
@@ -31,6 +32,13 @@ try {
     assert.ok(await page.locator('#main h1').isVisible(),`${pathname}: main heading visible`);
     assert.equal(await page.locator('link[rel=canonical]').getAttribute('href'),urls[paths.indexOf(pathname)]);
     assert.equal(await page.locator('meta[name=robots]').evaluate(e=>e.content.includes('noindex')),false);
+    for(const href of await page.locator('script[src],link[rel=stylesheet]').evaluateAll(nodes=>nodes.map(n=>n.src||n.href))){
+      const match=href.match(/\.([0-9a-f]{12})\.(?:js|css)$/);
+      if(!match||assets.has(href))continue;
+      const response=await fetch(href);assert.equal(response.status,200,href);
+      assert.equal(createHash('sha256').update(Buffer.from(await response.arrayBuffer())).digest('hex').slice(0,12),match[1],'runtime asset fingerprint matches its delivered bytes');
+      assets.add(href);
+    }
     if(await page.locator('.article-body').count()){
       assert.ok(await page.locator('.article-body').isVisible(),`${pathname}: readable body`);
       const paragraphs=page.locator('.article-body p');
@@ -67,7 +75,7 @@ try {
         if(failure==='delayed-catalog')await gate;
         return route.continue();
       });
-      if(failure==='script-failure')await page.route('**/assets/spatial-site.js',route=>route.abort());
+      if(failure==='script-failure')await page.route('**/assets/spatial-site*.js',route=>route.abort());
       const article=`${locale==='en'?'/en':''}/2026-08-12-beyond-ai-agents-hacw.html`;
       await page.goto(new URL(article,base).href,{waitUntil:'domcontentloaded'});
       assert.ok(await page.locator('.page-shell .article-body').isVisible(),`${engine.name()}/${locale}/${failure}: body available before enhancement`);
