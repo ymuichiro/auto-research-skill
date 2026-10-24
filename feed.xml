@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Thu, 22 Oct 2026 15:25:05 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 04:48:13 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>複数のAIに仕事を任せ続けるために、パーソナルアシスタントは何を覚えるべきか</title>
+      <link>https://research.notelligent.app/2026-10-24-personal-assistant-memory-and-agent-coordination.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-10-24-personal-assistant-memory-and-agent-coordination.html</guid>
+      
+      <description>複数のCodexタスクから届く質問や報告を、アシスタントのdotに整理してもらう。何を頼み、なぜそう答え、後からどう変えたかを覚えておくには何が必要か。長期対話の記憶に関する論文を読み、具体例と図で考える。</description>
+      <category>AI Agents</category>
+    </item>
     <item>
       <title>マルチエージェントは、どんな仕事で成果を出したか</title>
       <link>https://research.notelligent.app/2026-10-21-when-multi-agent-systems-deliver-results.html</link>
@@ -157,14 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
       
       <description>subagentへの委任を、小型モデル、並列化、文脈、実行順序、途中記録から比較する。各社の設計と、根拠を返し統合する人の負担を分析。</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>MCP・A2A・AG-UIでつなぐ仕事：何の完了を受け渡すか</title>
-      <link>https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/2026-03-28-open-agent-protocol-stack.html</guid>
-      
-      <description>MCP、A2A 1.0、AG-UIを返金処理で比較。ツール結果、調査、画面表示の完了の違いと、切断・取消後の確認から選択条件を考える。</description>
       <category>AI Agents</category>
     </item>
   </channel>

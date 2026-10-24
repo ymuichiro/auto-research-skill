@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 22 Oct 2026 15:25:05 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 24 Oct 2026 04:48:13 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>What a personal assistant should remember to coordinate work across AI agents</title>
+      <link>https://research.notelligent.app/en/2026-10-24-personal-assistant-memory-and-agent-coordination.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/en/2026-10-24-personal-assistant-memory-and-agent-coordination.html</guid>
+      
+      <description>I ask dot to organize questions and reports from several Codex tasks. What does an assistant need to remember what was requested, why the user answered that way</description>
+      <category>AI Agents</category>
+    </item>
     <item>
       <title>Where multi-agent systems have delivered measurable gains</title>
       <link>https://research.notelligent.app/en/2026-10-21-when-multi-agent-systems-deliver-results.html</link>
@@ -157,14 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
       
       <description>Compare subagent designs across five vendors through model choice, parallel work, context, ordering, progress records, evidence handoffs, and human synthesis.</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>Connecting work with MCP, A2A, and AG-UI: what has finished?</title>
-      <link>https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/en/2026-03-28-open-agent-protocol-stack.html</guid>
-      
-      <description>Compare MCP, A2A 1.0, and AG-UI through a refund workflow: task completion, interface events, disconnection, and cancellation.</description>
       <category>AI Agents</category>
     </item>
   </channel>
