@@ -498,7 +498,7 @@ async function validateBuiltOutput(articles) {
       assertContains(markup, 'class="related-articles"', `${label} is missing the related articles block.`);
       assertContains(markup, 'data-native-share', `${label} is missing the native share trigger.`);
       assertContains(markup, 'data-copy-share', `${label} is missing the copy share trigger.`);
-      assertContains(markup, 'assets/spatial-site.js', `${label} is missing the spatial application.`);
+      assertCondition(/assets\/spatial-site\.[0-9a-f]{12}\.js/.test(markup), `${label} is missing the versioned spatial application.`);
       assertSocialCardMarkup(markup, label);
     }
 
@@ -687,6 +687,9 @@ async function validateBuiltOutput(articles) {
   }
 
   assertContains(robotsTxt, `Sitemap: ${absoluteUrl("sitemap.xml")}`, "robots.txt is missing the configured sitemap URL.");
+  for (const file of ["sitemap-articles.xml", "sitemap-pages.xml"]) {
+    assertContains(robotsTxt, `Sitemap: ${absoluteUrl(file)}`, `robots.txt must advertise ${file} directly as well as through the index.`);
+  }
   assertContains(sitemapIndex, absoluteUrl("sitemap-pages.xml"), "Sitemap index is missing the configured page sitemap URL.");
   assertContains(
     sitemapIndex,

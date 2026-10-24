@@ -33,6 +33,7 @@ import {
 } from "./lib/site-config.mjs";
 import { buildTopicHubs } from "./lib/topic-hubs.mjs";
 import {spatialCatalog} from './lib/spatial-site.mjs';
+import {runtimeAssets} from './lib/runtime-assets.mjs';
 import {prepareArticleBody} from './lib/article-template.mjs';
 import { writeBufferFile, writeTextFile } from "./lib/utils.mjs";
 
@@ -148,6 +149,7 @@ async function buildSpatialAssets() {
     await writeTextFile(path.join(outputRoot,'assets',name),await readFile(path.resolve('src/assets',name),'utf8'));
   }
   await writeTextFile(path.join(outputRoot,'assets/spatial-site.css'),await readFile(path.resolve('src/styles/spatial-site.css'),'utf8'));
+  for(const asset of runtimeAssets)await writeTextFile(path.join(outputRoot,'assets',asset.filename),asset.content);
 }
 
 async function buildSite() {

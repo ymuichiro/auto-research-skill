@@ -43,6 +43,7 @@ jobs:
 
       - name: Verify reading, motion and keyboard flows
         run: |
+          node scripts/test-indexability.mjs
           pnpm test:authoring
           pnpm test:spatial
           pnpm test:timeline-preview

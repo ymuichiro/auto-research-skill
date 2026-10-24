@@ -105,22 +105,26 @@ async function resilience(){
       const context=await browser.newContext({javaScriptEnabled:behavior!=='javascript-disabled',viewport:{width:390,height:844}}),p=await context.newPage();
       let failures=0;
       if(behavior==='catalog-failure')await p.route('**/assets/spatial/ja.json',r=>++failures===1?r.fulfill({status:503,body:''}):r.continue());
-      if(behavior==='script-failure')await p.route('**/assets/spatial-site.js',r=>++failures===1?r.abort():r.continue());
+      if(behavior==='script-failure')await p.route('**/assets/spatial-site*.js',r=>++failures===1?r.abort():r.continue());
       await p.goto(server.base+c.articles[0].url+(behavior==='static-query'?'?view=static':''));
       if(behavior==='static-query'){
         await p.waitForFunction(()=>window.spatialSite?.getState().mode==='read');
         assert.equal(new URL(p.url()).searchParams.has('view'),false);
         assert.equal(await p.locator('#spatial-app a[href*="view=static"]').count(),0);
       }else if(behavior==='javascript-disabled'){
-        assert.ok(await p.locator('#spatial-startup noscript p').isVisible());
+        assert.ok(await p.locator('.page-shell .article-body').isVisible());
+        assert.equal(await p.locator('.page-shell').evaluate(e=>e.inert),false);
+        assert.equal(await p.locator('#spatial-startup').isVisible(),false);
       }else{
         await p.locator('#spatial-startup-retry').waitFor({state:'visible'});
         assert.ok(await p.locator('#spatial-startup').isVisible());
+        assert.ok(await p.locator('.page-shell .article-body').isVisible(),'failed startup retains readable content');
+        assert.equal(await p.locator('.page-shell').evaluate(e=>e.inert),false);
         await p.locator('#spatial-startup-retry').click();
         await p.waitForFunction(()=>window.spatialSite?.getState().mode==='read');
         assert.equal(await p.locator('#spatial-startup').isVisible(),false,'retry restores the new screen');
       }
-      assert.equal(await p.locator('.page-shell').isVisible(),false,'the retired screen never appears');
+      assert.equal(await p.locator('.page-shell').isVisible(),behavior==='javascript-disabled','only a successful enhancement replaces the HTML view');
       await context.close();
     }
     for(const name of ['article-share.js','article-stream.js','article-motion.js','listing-motion.js'])assert.equal((await fetch(`${server.base}/assets/${name}`)).status,404,'retired screen scripts are not distributed');
