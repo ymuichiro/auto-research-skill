@@ -1,0 +1,22 @@
+[
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "checks": 98
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "checks": 98
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "checks": 98
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "checks": 98
+  }
+]

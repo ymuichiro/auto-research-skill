@@ -1,0 +1,169 @@
+<section>
+  <h2>Several AI agents can work, but one person still answers their questions</h2>
+  <p>Ask one AI agent to implement a feature and another to research a topic.
+They can work independently, but their questions and reports arrive in separate conversations.
+Each time, the user has to reopen the conversation and remember what they asked for and how they answered before.
+Adding agents does not add hours to the person's day.</p>
+  <p>I am experimenting with a personal assistant called <strong>dot</strong> as the point of contact for several Codex tasks running in local environments.
+Here, a task means a conversation working on a particular request, such as research or implementation.
+I ask dot to read those conversations and identify what is finished, what remains, and what needs my answer.</p>
+  <p>Consider three hypothetical tasks, which we will return to throughout the article.
+A has implemented a requested feature but has not run the tests included in the same request.
+B asks whether it may introduce an external service.
+C is work the user explicitly paused.
+I want dot to tell A to run the tests, bring B's question to me, and leave C paused.</p>
+  <p>The latest progress reports alone cannot support those choices.
+Dot also needs to remember <strong>what the user requested, why they made earlier decisions, and what they later changed</strong>.
+Research on long-term conversational memory helps identify what to retain and how to use it.</p>
+  <figure>
+    <figcaption>Figure 1. The user requests work; dot reads the task conversations and returns questions and results. This conceptual diagram describes an individual experiment, not an official OpenAI architecture or communication map.</figcaption>
+    <!-- coordination-overview -->
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="525" viewBox="0 0 420 525" role="img" aria-labelledby="coordination-en-title coordination-en-desc" font-family="var(--ard-font-ui)" fill="var(--ard-text-strong)">
+<title id="coordination-en-title">Dot reads conversations and finds questions and unfinished work</title><desc id="coordination-en-desc">The user requests work. Dot reads task conversations, asks tasks to finish requested work, and returns questions and results to the user.</desc>
+<rect x="55" y="10" width="310" height="86" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="45" text-anchor="middle" font-size="26">User</text><text x="210" y="76" text-anchor="middle" font-size="18">Request work, answer questions</text><path d="M105 96V120" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="105,120 109,111 101,111" fill="var(--ard-signal)"/><text x="105" y="148" text-anchor="middle" font-size="18">Requests and answers</text><path d="M105 163V188" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="105,188 109,179 101,179" fill="var(--ard-signal)"/><path d="M315 188V163" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="315,163 311,172 319,172" fill="var(--ard-signal)"/><text x="315" y="148" text-anchor="middle" font-size="18">Questions and reports</text><path d="M315 120V96" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="315,96 311,105 319,105" fill="var(--ard-signal)"/><rect x="55" y="190" width="310" height="114" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="227" text-anchor="middle" font-size="30">dot</text><text x="210" y="258" text-anchor="middle" font-size="18">Read task conversations</text><text x="210" y="285" text-anchor="middle" font-size="18">Find questions and unfinished work</text><path d="M105 304V326" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="105,326 109,317 101,317" fill="var(--ard-signal)"/><text x="105" y="354" text-anchor="middle" font-size="18">Ask to finish the work</text><path d="M105 369V394" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="105,394 109,385 101,385" fill="var(--ard-signal)"/><path d="M315 394V369" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="315,369 311,378 319,378" fill="var(--ard-signal)"/><text x="315" y="354" text-anchor="middle" font-size="18">Progress and questions</text><path d="M315 326V304" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="315,304 311,313 319,313" fill="var(--ard-signal)"/><path d="M70 414V396H350V414" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><path d="M210 396V414" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><rect x="8" y="416" width="124" height="96" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="70" y="451" text-anchor="middle" font-size="22">Codex A</text><text x="70" y="480" text-anchor="middle" font-size="18">Research</text><text x="70" y="500" text-anchor="middle" font-size="18">Code, verify</text><rect x="148" y="416" width="124" height="96" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="451" text-anchor="middle" font-size="22">Codex B</text><text x="210" y="480" text-anchor="middle" font-size="18">Research</text><text x="210" y="500" text-anchor="middle" font-size="18">Code, verify</text><rect x="288" y="416" width="124" height="96" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="350" y="451" text-anchor="middle" font-size="22">Codex C</text><text x="350" y="480" text-anchor="middle" font-size="18">Research</text><text x="350" y="500" text-anchor="middle" font-size="18">Code, verify</text>
+</svg>
+<!-- /coordination-overview -->
+  </figure>
+</section>
+<section>
+  <h2>Finishing the work does not necessarily reduce questions for the user</h2>
+  <p>A reports, “Implementation is done. What next?”
+If the user must repeatedly reply, “Run the tests, as originally requested,” execution has been delegated but prompting the next step remains their job.
+I want the assistant to reread the request so the user does not have to explain it again.</p>
+  <p>Researchers have long considered when an assistant should act and when it should ask.
+<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/chi99horvitz.pdf">Horvitz's 1999 paper</a> discusses uncertainty about user intent, the cost of interrupting someone, and memory of recent interactions.
+These principles help frame dot's job: use information already available and ask about what it cannot determine.</p>
+  <p>What difference does remembering earlier conversations make?
+<a href="https://arxiv.org/html/2605.14678v1">π-Bench</a> evaluates 100 tasks across five personas.
+Some tasks require preferences or conditions established in previous conversations or other work.
+It separately measures final completeness and whether the agent resolves or elicits missing requirements before the user supplies them.</p>
+  <p>In §4.3, the authors remove preceding sessions for the final task in groups with strong dependencies.
+Across three reported models, the average proactivity score falls by 9.5 points, while completeness falls by 2.5 points.
+An agent may eventually finish after the user explains the missing conditions, yet fail to reduce repeated explanation.</p>
+  <p>The experiment uses simulated users and one agent scaffold; it does not measure minutes saved by real people.
+It nevertheless shows why evaluating dot only by completed work would miss the effort of answering questions.
+I also want to count repeated questions and occasions when the user rereads conversations to answer them.</p>
+</section>
+<section>
+  <h2>Remember what was requested and why the user decided it</h2>
+  <p>Suppose B's external service was previously considered and put on hold because its data destination was unclear.
+Remembering only “do not use an external service” could keep blocking it after that question is resolved.
+Remembering “do not use it until the data destination is checked” identifies what to investigate next.</p>
+  <p>Research distinguishes memories by what they support, beyond simply saving conversations.
+<a href="https://arxiv.org/html/2309.02427v3">CoALA</a> organizes working memory for current decisions, episodic memory for experiences, semantic memory for knowledge, and procedural memory for ways of acting.
+It is a conceptual design framework, not an experiment showing that creating stores with these names improves performance.</p>
+  <p>The following proposal turns that distinction into records I would like dot to retain.</p>
+  <figure>
+    <figcaption>Table 1. What dot should remember and when it would use it.</figcaption>
+    <table>
+      <thead><tr><th>What to remember</th><th>Example record</th><th>What it helps do</th></tr></thead>
+      <tbody>
+        <tr><th>Current priorities</th><td>Prioritize release preparation over features this week</td><td>Choose which work to advance first</td></tr>
+        <tr><th>Reasons for earlier answers</th><td>B's service is on hold because its data destination is unknown</td><td>Check that destination before asking the same question again</td></tr>
+        <tr><th>What remains in each task</th><td>A has implemented the feature but not run the requested tests</td><td>Tell A to run those tests</td></tr>
+        <tr><th>Usual verification steps</th><td>Changes to this app require interaction checks on a device</td><td>Avoid treating a successful build as completion</td></tr>
+        <tr><th>Work requested and work paused</th><td>A includes testing; C is paused</td><td>Advance A without restarting C</td></tr>
+      </tbody>
+    </table>
+  </figure>
+  <p>The assistant need not receive every saved conversation on every call.
+<a href="https://arxiv.org/abs/2310.08560v2">MemGPT</a> separates limited model input from external memory and moves needed information between them.
+For A, dot could retrieve the original request, earlier answers, and the latest test results.
+Keeping a path back to the original statements would let it check whether a summary omitted “including the tests.”</p>
+</section>
+<section>
+  <h2>Do not confuse old instructions with current ones, or answers across jobs</h2>
+  <p>Suppose the user paused C and later said, “Resume it.”
+If dot remembers only the earlier stop, C remains paused indefinitely.
+Finding an instruction is not enough; the assistant must also read later cancellations and changes.</p>
+  <p><a href="https://arxiv.org/html/2410.10813v2">LongMemEval</a> evaluates five abilities: recalling information, combining evidence across sessions, reasoning about time, updating knowledge, and abstaining when information is unavailable.
+For dot, this suggests checking whether a question was answered later, a stop was lifted, or a relevant conversation could not be read.
+The paper mainly evaluates question answering; correctly restarting actual tasks requires separate verification.</p>
+  <p>Remembering a change also does not guarantee using it.
+<a href="https://arxiv.org/html/2504.14225v1">PersonaMem</a> studies changing preferences in simulated long-term conversations.
+It reports cases where applying the latest preference is harder than recalling how preferences changed.
+A test asking what changed can therefore differ from a test asking the assistant to make a suitable recommendation.</p>
+  <p>User preferences can also change which procedure to follow.
+The October 2026 preprint <a href="https://arxiv.org/html/2610.20022v2">PraxisMemBench</a> evaluates tasks requiring both personal and procedural memory.
+Its comparisons include DualMem, which stores the two separately and combines retrieved contents at task time.
+It exposes difficulty preserving the relationship between a user's circumstances and the procedure to use across long interactions.
+The evaluation uses fictional personas, synthetic histories, and isolated applications; effectiveness for real users remains a separate question.</p>
+  <p>For dot, simply remembering “the user allowed an external service” would be risky.
+Suppose one project allows trying such a service while another forbids sending recordings outside the environment.
+Using an external-transfer procedure in the second project would be wrong even though both instructions came from the same person.</p>
+  <p>I would therefore record which project and operation an instruction concerns, alongside who said it and when.
+Later changes should remain linked to the original instruction.
+A newer instruction about a different job should not erase the earlier job's conditions.</p>
+</section>
+<section>
+  <h2>Run the requested tests; ask before adding a service</h2>
+  <p>The opening tasks A, B, and C need different responses.
+A's tests were already requested, so dot should tell A to run them.
+B's service has not been approved, so dot should explain what it would do and which data it would receive, then ask the user.
+C must remain paused until the user requests resumption.</p>
+  <p>The assistant must distinguish a choice the user might like from work they actually requested.
+Frequently choosing external services in the past does not approve B's service.
+Even for A, newly discovered external transfers or charges require checking whether the original request covers them.</p>
+  <p><a href="https://arxiv.org/html/2602.11865v1">Intelligent AI Delegation</a> argues that delegation includes defining permitted actions, monitoring progress, and verifying completion as well as assigning work.
+I would include that whole sequence in dot's role.
+The paper proposes a design framework; it does not experimentally evaluate dot.</p>
+  <p>In practice, dot should read the request and subsequent conversation to check whether remaining work was requested and whether the user later stopped it.
+The tools executing work also need to prevent unrequested operations.
+If a conversation cannot be read, the assistant should report what it cannot check rather than assume it may proceed.</p>
+  <figure>
+    <figcaption>Figure 2. Check the earlier request and current progress, then continue the work, ask the user, or leave it stopped. This shows a proposed design to develop.</figcaption>
+    <!-- memory-decision-flow -->
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="720" viewBox="0 0 420 720" role="img" aria-labelledby="decision-en-title decision-en-desc" font-family="var(--ard-font-ui)" fill="var(--ard-text-strong)">
+<title id="decision-en-title">Run A’s tests, ask about B, and keep C paused</title><desc id="decision-en-desc">Read earlier requests and current progress. Run A’s already requested tests, ask the user about B’s service, and keep C paused until the user requests resumption.</desc>
+<rect x="8" y="10" width="196" height="100" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><rect x="216" y="10" width="196" height="100" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="106" y="43" text-anchor="middle" font-size="20">Earlier conversations</text><text x="106" y="73" text-anchor="middle" font-size="18">What was requested</text><text x="106" y="96" text-anchor="middle" font-size="18">Later changes</text><text x="314" y="43" text-anchor="middle" font-size="21">Current progress</text><text x="314" y="73" text-anchor="middle" font-size="18">What is finished</text><text x="314" y="96" text-anchor="middle" font-size="18">What remains</text><path d="M106 110V130H210V153" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="210,153 214,144 206,144" fill="var(--ard-signal)"/><path d="M314 110V130H210" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><rect x="38" y="157" width="344" height="103" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="191" text-anchor="middle" font-size="21">Check requests and changes</text><text x="210" y="221" text-anchor="middle" font-size="18">What was requested or paused</text><text x="210" y="247" text-anchor="middle" font-size="18">Ask about unreadable conversations</text><path d="M210 260V287" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="210,287 214,278 206,278" fill="var(--ard-signal)"/><rect x="38" y="290" width="344" height="74" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="320" text-anchor="middle" font-size="21">Choose a reply for each task</text><text x="210" y="348" text-anchor="middle" font-size="18">Already requested, or a new question?</text><path d="M210 364V383H20V656" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><path d="M20 433H44" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="44,433 35,429 35,437" fill="var(--ard-signal)"/><rect x="47" y="395" width="357" height="88" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="225" y="429" text-anchor="middle" font-size="20">A: Run the requested tests</text><text x="225" y="460" text-anchor="middle" font-size="18">Requested, still unfinished</text><path d="M20 545H44" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="44,545 35,541 35,549" fill="var(--ard-signal)"/><rect x="47" y="507" width="357" height="88" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="225" y="541" text-anchor="middle" font-size="20">B: Ask about the service</text><text x="225" y="572" text-anchor="middle" font-size="18">Not yet approved by the user</text><path d="M20 657H44" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="44,657 35,653 35,661" fill="var(--ard-signal)"/><rect x="47" y="619" width="357" height="88" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="225" y="653" text-anchor="middle" font-size="20">C: Keep the work paused</text><text x="225" y="684" text-anchor="middle" font-size="18">Wait until the user says resume</text>
+</svg>
+<!-- /memory-decision-flow -->
+  </figure>
+  <p>When the user answers B, return that answer to B's conversation.
+Do not automatically apply it to A or C.
+Also retain whether it means “try it this time” or “try it again under these conditions.”
+Remembering the answer with the circumstances where it applies helps determine what needs to be asked next time.</p>
+  <p>Sending A “run the tests” does not mean the tests are done.
+Dot needs to check whether A ran them and whether they passed.
+Reporting completion requires results as well as a record of the instruction being sent.</p>
+</section>
+<section>
+  <h2>What I am trying with dot and what I still want to build</h2>
+  <p>My operating notes describe dot listing accessible tasks and reading their conversations to identify progress and unanswered questions.
+It checks whether apparently pending questions received later answers, returns the user's answers to the original tasks, and asks tasks to finish work already requested.
+Tasks the user paused are not restarted.</p>
+  <p>An “idle” label alone does not distinguish finished work from waiting for the user's answer.
+An unreadable conversation also does not establish that the task has no problems.
+Reports should distinguish tasks dot checked from tasks it could not check.</p>
+  <p>Reading conversations today differs from reliably remembering and using months of instructions.
+Consistently keeping the records in Table 1, linking amendments, and retrieving what a particular job needs are mechanisms I still want to implement and evaluate.
+Current practice does not establish that all the memory mechanisms described here are complete.</p>
+  <p>Data handling needs inspection too.
+Tasks running locally do not establish that conversation storage or model input stays on the same device.
+Actual connections determine what information goes where.</p>
+</section>
+<section>
+  <h2>Does the user explain less while the requested work proceeds correctly?</h2>
+  <p>I want to compare managing tasks directly with managing them through dot.
+Comparable task types and difficulty would let me record repeated explanations, rereading conversations, and time spent waiting.
+Fewer questions would not count as success if the assistant skipped necessary checks and advanced the wrong work.</p>
+  <figure>
+    <figcaption>Table 2. Measures to collect. Time savings and manageable task counts have not yet been measured.</figcaption>
+    <table>
+      <thead><tr><th>What to find out</th><th>What to count</th><th>Mistakes to check alongside it</th></tr></thead>
+      <tbody>
+        <tr><th>Does the user repeat fewer explanations?</th><td>Questions already answered; conversations reread to answer</td><td>Different conditions mistakenly treated as the same question</td></tr>
+        <tr><th>Does requested work proceed without waiting?</th><td>Time from the next step becoming possible to actually starting</td><td>Restarting paused work, duplicate instructions, unrequested actions</td></tr>
+        <tr><th>Are changed instructions remembered?</th><td>Whether “resume” or “cancel this time” is applied</td><td>Using old instructions or an answer intended for another task</td></tr>
+        <tr><th>Can completion reports be trusted?</th><td>Verification results and time spent on human corrections</td><td>Tests not run, missed checks, and rework</td></tr>
+      </tbody>
+    </table>
+  </figure>
+  <p>The research shows why retrieval, updating, and using memories in later work need separate checks.
+For dot, I also want to verify that it advances only requested work and checks the results.
+There are not yet measurements supporting general claims about time saved or how many tasks it can manage.</p>
+  <p>The goal is for the user to focus on the new question of whether to adopt B's service.
+Starting A's already requested tests should require less repeated instruction.
+Keeping C paused should require less reminding.
+That is why I want dot to remember what I requested, the reasons behind it, and the instructions I later changed.</p>
+</section>

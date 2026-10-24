@@ -1,0 +1,173 @@
+<section>
+  <h2>AIに仕事を分けても、質問に答える人は一人</h2>
+  <p>あるAIには実装を、別のAIには調査を頼む。
+それぞれが仕事を進めてくれる一方で、質問や報告も別々の会話に届く。
+人間はそのたびに会話を開き、何を頼んだのか、前にどう答えたのかを思い出す。
+仕事を分担するAIが増えても、それを追いかける自分の時間は増えない。</p>
+  <p>筆者は、この負担を減らすために、パーソナルアシスタントの <strong>dot</strong> を窓口にして、ローカル環境の複数の Codex タスクを管理する方法を試している。
+ここでいうタスクは、調査や実装など、一つの依頼について作業する会話を指す。
+dot に各タスクの会話を読んでもらい、何が終わり、何が残り、何を人間に聞く必要があるかを整理してもらう。</p>
+  <p>仕組みを説明するために、三つのタスクがあるとしよう。
+Aは、頼んだ機能を実装したが、同じ依頼に含まれるテストをまだ実行していない。
+Bは、新しい外部サービスを使ってよいか尋ねている。
+Cは、人間が「いったん止めて」と伝えた仕事である。
+dot には、Aにはテストを進めるよう伝え、Bの相談を人間へ届け、Cは止めたままにしてほしい。
+この三つは、以下でも使う架空の例である。</p>
+  <p>それを任せるには、各タスクの最新の報告だけでは足りない。
+<strong>人間が何を頼み、なぜそう決め、その後に何を変更したか</strong>も覚えておく必要がある。
+長期対話の記憶を研究した論文を読みながら、dot にどんな情報を持たせ、どう使ってもらうかを考える。</p>
+  <figure>
+    <figcaption>図1　人間は仕事を頼み、dot は各タスクの会話を読み、必要な相談と結果を人間へ返す。個人の運用を説明する概念図であり、OpenAI の公式なシステム構成や通信経路を示す図ではない。</figcaption>
+    <!-- coordination-overview -->
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="525" viewBox="0 0 420 525" role="img" aria-labelledby="coordination-ja-title coordination-ja-desc" font-family="var(--ard-font-ui)" fill="var(--ard-text-strong)">
+<title id="coordination-ja-title">dotが会話を読み、質問と残った作業を整理する</title><desc id="coordination-ja-desc">人間が仕事を頼む。dotはタスクの会話を読んで残った作業を進めるよう指示し、人間に答えてほしい相談と作業の結果を返す。</desc>
+<rect x="55" y="10" width="310" height="86" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="45" text-anchor="middle" font-size="26">人間</text><text x="210" y="76" text-anchor="middle" font-size="18">仕事を頼む、相談に答える</text><path d="M105 96V120" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="105,120 109,111 101,111" fill="var(--ard-signal)"/><text x="105" y="148" text-anchor="middle" font-size="18">依頼と回答</text><path d="M105 163V188" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="105,188 109,179 101,179" fill="var(--ard-signal)"/><path d="M315 188V163" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="315,163 311,172 319,172" fill="var(--ard-signal)"/><text x="315" y="148" text-anchor="middle" font-size="18">相談と報告</text><path d="M315 120V96" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="315,96 311,105 319,105" fill="var(--ard-signal)"/><rect x="55" y="190" width="310" height="114" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="227" text-anchor="middle" font-size="30">dot</text><text x="210" y="258" text-anchor="middle" font-size="18">タスクの会話を読む</text><text x="210" y="285" text-anchor="middle" font-size="18">質問と残った作業を整理</text><path d="M105 304V326" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="105,326 109,317 101,317" fill="var(--ard-signal)"/><text x="105" y="354" text-anchor="middle" font-size="18">続きを指示</text><path d="M105 369V394" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="105,394 109,385 101,385" fill="var(--ard-signal)"/><path d="M315 394V369" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="315,369 311,378 319,378" fill="var(--ard-signal)"/><text x="315" y="354" text-anchor="middle" font-size="18">進み具合と質問</text><path d="M315 326V304" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="315,304 311,313 319,313" fill="var(--ard-signal)"/><path d="M70 414V396H350V414" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><path d="M210 396V414" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><rect x="8" y="416" width="124" height="96" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="70" y="451" text-anchor="middle" font-size="22">Codex A</text><text x="70" y="480" text-anchor="middle" font-size="18">調査、実装</text><text x="70" y="500" text-anchor="middle" font-size="18">検証</text><rect x="148" y="416" width="124" height="96" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="451" text-anchor="middle" font-size="22">Codex B</text><text x="210" y="480" text-anchor="middle" font-size="18">調査、実装</text><text x="210" y="500" text-anchor="middle" font-size="18">検証</text><rect x="288" y="416" width="124" height="96" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="350" y="451" text-anchor="middle" font-size="22">Codex C</text><text x="350" y="480" text-anchor="middle" font-size="18">調査、実装</text><text x="350" y="500" text-anchor="middle" font-size="18">検証</text>
+</svg>
+<!-- /coordination-overview -->
+  </figure>
+</section>
+<section>
+  <h2>仕事が終わっても、人間への質問が減るとは限らない</h2>
+  <p>Aの会話に「実装しました。次はどうしますか」と届く。
+人間が毎回「最初に頼んだとおり、テストまで進めて」と答えるなら、作業の一部は任せられても、次の一歩を促す負担は残る。
+アシスタントに期待するのは、以前の依頼を読み、同じ説明を求めずに仕事を進められるようにすることだ。</p>
+  <p>人間にいつ話しかけ、いつ自動で動くかは、以前から研究されてきた。
+<a href="https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/chi99horvitz.pdf">Horvitz の1999年の論文</a>は、ユーザーが何を望んでいるか確信が持てない場合の確認や、作業中の人に話しかける負担を扱っている。
+最近のやり取りを覚えておくことも、その設計原則の一つである。
+答えられる質問を何度も人に戻さず、判断できない点を聞く、という dot の設計を考える手掛かりになる。</p>
+  <p>では、過去の会話を覚えていると、実際に何が変わるのか。
+<a href="https://arxiv.org/html/2605.14678v1">π-Bench</a>は、5種類の人物設定に対して100のタスクを用意した評価である。
+以前の会話で分かっている希望や、別の仕事で決まった条件を使わないと、依頼を十分にこなせない課題を含む。
+最終的に仕事が完成したかと、ユーザーに不足条件を説明してもらう前にAIが気付き、解決したり尋ねたりできたかを、別々に測っている。</p>
+  <p>同論文の §4.3 では、前の会話の内容が必要な一連のタスクについて、最後のタスクだけを残し、それ以前の会話を取り除いた。
+報告された3モデルの平均では、先回りして要求を解決する指標が9.5ポイント下がった一方、最終的な完成度は2.5ポイントの低下だった。
+つまり、後からユーザーに教えてもらえば仕事を完成できても、何度も説明してもらう負担は減らせない場合がある。</p>
+  <p>この実験は模擬ユーザーと一つの実行構成によるもので、人間の時間が何分減るかを測ったものではない。
+それでも、dot の評価で「仕事が終わったか」だけを見ていては、質問に答え続ける負担を見落とすと分かる。
+同じことを聞かれた回数や、答えるために会話を読み直した回数も記録したい。</p>
+</section>
+<section>
+  <h2>覚えてほしいのは、何を頼み、なぜそう決めたか</h2>
+  <p>たとえば、Bの外部サービスを以前も検討し、データの送信先が分からないため保留したとしよう。
+「外部サービスは使わない」とだけ覚えると、送信先を確認できた後も、同じ理由で止め続けるかもしれない。
+「送信先を確認するまでは使わない」と、判断した理由まで残しておけば、次に何を調べればよいかが分かる。</p>
+  <p>ただ会話を保存するだけでなく、何のために使う記憶なのかを分けて考える研究がある。
+<a href="https://arxiv.org/html/2309.02427v3">CoALA</a>は、今の作業に使う情報を置く「ワーキングメモリ」と、過去の出来事を残す「エピソード記憶」、知識を残す「意味記憶」、作業の方法を担う「手続き記憶」を整理している。
+これはエージェントの設計を考えるための分類で、この名前の保存先を用意すれば性能が上がると実証したものではない。</p>
+  <p>dot に何を覚えてほしいかも、この考え方から具体的に書き出せる。
+次の表は、これから整えたい記録の案である。</p>
+  <figure>
+    <figcaption>表1　dot に覚えてほしいことと、それを使う場面。</figcaption>
+    <table>
+      <thead><tr><th>覚えてほしいこと</th><th>残す記録の例</th><th>何に使うか</th></tr></thead>
+      <tbody>
+        <tr><th>今、何を優先しているか</th><td>今週は機能追加よりリリース準備を優先する</td><td>どの仕事から進めるか決める</td></tr>
+        <tr><th>以前、なぜそう答えたか</th><td>Bのサービスは、データの送信先が不明なので保留した</td><td>同じ相談が来たとき、まず送信先を確認する</td></tr>
+        <tr><th>各タスクで何が残っているか</th><td>Aは実装済みだが、頼んだテストは未実行</td><td>テストを進めるようAに伝える</td></tr>
+        <tr><th>いつもの確認方法</th><td>このアプリの変更は、実機で操作して確かめる</td><td>ビルドできただけで完了にしない</td></tr>
+        <tr><th>何を任せ、何を止めたか</th><td>Aはテストまで任せる。Cは一時停止する</td><td>Aを進め、Cを勝手に再開しない</td></tr>
+      </tbody>
+    </table>
+  </figure>
+  <p>保存した会話を、毎回すべてAIへ渡す必要もない。
+<a href="https://arxiv.org/abs/2310.08560v2">MemGPT</a>は、AIが一度に読める入力と、その外に保存する記憶を分け、必要な情報を出し入れする構成を提案した。
+dot でも、Aの次の作業を考えるときには、Aへの依頼、過去の回答、最新のテスト結果を取り出す方法が考えられる。
+要約に疑問があれば元の発言へ戻れるようにしておけば、「テストまで」という一言が抜けていないかも確認できる。</p>
+</section>
+<section>
+  <h2>古い指示や、別の仕事での回答を取り違えない</h2>
+  <p>Cの仕事は止めていたが、その後に人間が「再開して」と伝えたとする。
+dot が最初の停止指示だけを覚えていれば、Cはいつまでも止まったままになる。
+記憶から指示を見つけるだけでなく、その後に取り消しや変更がなかったかまで読む必要がある。</p>
+  <p><a href="https://arxiv.org/html/2410.10813v2">LongMemEval</a>は、長い対話を覚えているかを五つの面から評価する。
+前に出た情報を思い出す、別々の会話の内容を合わせる、出来事の前後を読む、新しい情報で覚え直す、分からないことは分からないと答える、という能力である。
+dot なら、「その質問には後で回答したか」「停止指示は解除されたか」「そもそも読めていない会話がないか」を確かめる検査に使える考え方だ。
+ただし論文の評価は主に質問応答であり、実際のタスクを正しく再開できるかは別に確かめる必要がある。</p>
+  <p>変更を覚えていても、それを回答に使えるとは限らない。
+<a href="https://arxiv.org/html/2504.14225v1">PersonaMem</a>は、模擬的な長期対話でユーザーの好みが変わる場面を扱う。
+論文では、好みがどう変わったかを答えられても、最新の好みに合わせた回答を作る方が難しい場合があった。
+たとえば、好みが変わったと答える検査と、その人に合う提案を作る検査は、同じ結果になるとは限らない。</p>
+  <p>また、ユーザーの希望によって、使う作業手順も変わる。
+2026年10月公開のプレプリント<a href="https://arxiv.org/html/2610.20022v2">PraxisMemBench</a>は、ユーザーについて覚えたことと、作業手順の両方を使わなければ解けない課題を評価している。
+両方を別々に保存し、作業時に検索結果を合わせる DualMem も比較し、どの希望にどの手順を使うのかという関係を、長い対話の間に保つ難しさを示した。
+架空の人物と合成した履歴、隔離したアプリによる評価で、実利用者への効果はまだ別の問題である。</p>
+  <p>この問題を dot の仕事で考えると、単に「この人は外部サービスを使ってよいと言った」と覚えるだけでは危うい。
+仮に、あるプロジェクトでは外部サービスを試してよく、別のプロジェクトでは録音データを外へ送ってはいけないとする。
+同じユーザーの発言でも、後者に外部送信の手順を使えば間違いになる。</p>
+  <p>そのため、覚えるときには「誰が、いつ言ったか」に加え、「どのプロジェクトの、どの作業への指示か」を残したい。
+指示を変更した発言も、元の指示と一緒に読めるようにする。
+日付が新しいというだけで、別の仕事の条件まで書き換えないためである。</p>
+</section>
+<section>
+  <h2>頼んだテストは進め、サービスの追加は人に聞く</h2>
+  <p>冒頭のA、B、Cには、違う対応が必要になる。
+Aのテストは既に頼んでいるので、dot から「残っているテストを進めて」と伝えてほしい。
+Bのサービスはまだ使うと決めていないので、何に使い、どのデータを送るのかを整理して、人間に聞いてほしい。
+Cは止めた仕事なので、再開の指示があるまで動かしてはいけない。</p>
+  <p>ここで大事なのは、ユーザーが好みそうな選択と、実際に頼まれた作業を分けることだ。
+過去に外部サービスを選ぶことが多くても、Bのサービスを使ってよいという回答にはならない。
+Aでも、テストの実行に新しい外部送信や費用が必要だと分かったなら、それまでの依頼に含まれるか確認が必要になる。</p>
+  <p><a href="https://arxiv.org/html/2602.11865v1">「Intelligent AI Delegation」</a>は、仕事を任せる際には、担当を決めるだけでなく、何をしてよいかを決め、進み具合を追い、最後に結果を確かめる必要があると論じている。
+dot の設計にも、この一連の仕事を取り入れたい。
+これは設計を提案する論文で、dot の効果を実験したものではない。</p>
+  <p>具体的には、dot は依頼とその後の会話を読み、残っている作業が最初に頼まれたものか、「止めて」という発言がないかを確認する。
+作業を実行する道具側でも、頼まれていない操作を防ぐ必要がある。
+会話を読めず判断できないときは、進めてよいと推測せず、何を確認できていないかを人間へ伝える。</p>
+  <figure>
+    <figcaption>図2　前に頼んだことと、今の進み具合を確かめて、作業を進めるか、人に聞くか、止めておくかを決める。今後整えたい設計を表した図。</figcaption>
+    <!-- memory-decision-flow -->
+<svg xmlns="http://www.w3.org/2000/svg" width="420" height="720" viewBox="0 0 420 720" role="img" aria-labelledby="decision-ja-title decision-ja-desc" font-family="var(--ard-font-ui)" fill="var(--ard-text-strong)">
+<title id="decision-ja-title">Aはテストを進め、Bは相談し、Cは止めておく</title><desc id="decision-ja-desc">前の依頼と今の進み具合を読む。Aのテストは既に頼んだので進める。Bのサービス追加は人間に聞く。Cは再開の指示があるまで止めておく。</desc>
+<rect x="8" y="10" width="196" height="100" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><rect x="216" y="10" width="196" height="100" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="106" y="43" text-anchor="middle" font-size="20">前に話したこと</text><text x="106" y="73" text-anchor="middle" font-size="18">何を頼んだか</text><text x="106" y="96" text-anchor="middle" font-size="18">後から変えた指示</text><text x="314" y="43" text-anchor="middle" font-size="21">今の進み具合</text><text x="314" y="73" text-anchor="middle" font-size="18">何が終わったか</text><text x="314" y="96" text-anchor="middle" font-size="18">何が残っているか</text><path d="M106 110V130H210V153" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="210,153 214,144 206,144" fill="var(--ard-signal)"/><path d="M314 110V130H210" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><rect x="38" y="157" width="344" height="103" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="191" text-anchor="middle" font-size="21">依頼と変更を読み直す</text><text x="210" y="221" text-anchor="middle" font-size="18">何を任せ、何を止めたか</text><text x="210" y="247" text-anchor="middle" font-size="18">読めない会話は人間に確認</text><path d="M210 260V287" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="210,287 214,278 206,278" fill="var(--ard-signal)"/><rect x="38" y="290" width="344" height="74" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="210" y="320" text-anchor="middle" font-size="21">仕事ごとに返事を分ける</text><text x="210" y="348" text-anchor="middle" font-size="18">頼んだことか、新しい相談か</text><path d="M210 364V383H20V656" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><path d="M20 433H44" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="44,433 35,429 35,437" fill="var(--ard-signal)"/><rect x="47" y="395" width="357" height="88" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="225" y="429" text-anchor="middle" font-size="21">A：テストを進める</text><text x="225" y="460" text-anchor="middle" font-size="18">依頼に含まれ、まだ終わっていない</text><path d="M20 545H44" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="44,545 35,541 35,549" fill="var(--ard-signal)"/><rect x="47" y="507" width="357" height="88" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="225" y="541" text-anchor="middle" font-size="21">B：サービスの相談を人間へ</text><text x="225" y="572" text-anchor="middle" font-size="18">まだ使ってよいと答えていない</text><path d="M20 657H44" fill="none" stroke="var(--ard-signal)" stroke-width="2"/><polygon points="44,657 35,653 35,661" fill="var(--ard-signal)"/><rect x="47" y="619" width="357" height="88" rx="12" fill="var(--ard-surface)" stroke="var(--ard-border-strong)"/><text x="225" y="653" text-anchor="middle" font-size="21">C：止めたままにする</text><text x="225" y="684" text-anchor="middle" font-size="18">再開してと言われるまで動かさない</text>
+</svg>
+<!-- /memory-decision-flow -->
+  </figure>
+  <p>Bについて人間から回答が来たら、Bの会話へ返す。
+その回答を、別のAやCにも使ってよいとは考えない。
+「今回は試してよい」のか、「次回からも同じ条件なら試してよい」のかも残す。
+こうして回答と使ってよい場面を一緒に覚えれば、次に同じ相談が来たとき、何を聞き直す必要があるかが分かる。</p>
+  <p>また、dot がAへ「テストを進めて」と送っただけで、テストが済んだことにはならない。
+Aが実際にテストを実行したか、結果は成功だったかまで確認する。
+人間に「終わりました」と伝えるには、指示を送った記録に加えて、作業した結果が必要である。</p>
+</section>
+<section>
+  <h2>dot で試していることと、これから作ること</h2>
+  <p>筆者の運用記録では、dot がアクセスできるタスクを一覧し、会話を読んで、進み具合と未回答の質問を整理している。
+保留に見える質問にも後から回答がないかを確認する。
+人間の回答を元のタスクへ返し、既に頼んだ作業が残っていれば、続きを進めるよう伝える。
+人間が止めたタスクは再開しない。</p>
+  <p>ただし、画面に「待機中」とあるだけでは、仕事が終わったのか、人間の回答を待っているのかは分からない。
+会話を読めないタスクについては、問題がないとも判断できない。
+dot が確かめられたタスクと、確かめられなかったタスクを分けて報告する必要がある。</p>
+  <p>さらに、会話を読んで整理することと、数か月分の指示を間違えずに覚えて使うことは違う。
+表1のような記録を揃え、変更前と変更後の指示を結び付け、今回の仕事に必要な情報を取り出す仕組みは、これから実装して確かめたい部分である。
+現在の運用だけで、この記事の記憶の仕組みがすべて完成しているとは言えない。</p>
+  <p>情報の扱いにも確認が要る。
+各タスクがローカル環境で動いていても、会話の保存やモデルへの入力まで、すべて同じ端末の中で処理されるとは限らない。
+どこへ何を送るかは、実際に使う接続ごとに確かめる必要がある。</p>
+</section>
+<section>
+  <h2>説明し直す回数が減り、任せた仕事が正しく進むか</h2>
+  <p>この試みが役立つかは、人間が各タスクを直接追う場合と、dot に任せる場合を比べて確かめたい。
+比べる仕事の種類と難しさを揃え、同じことを説明した回数、会話を読み直した回数、仕事が待っていた時間を記録する。
+質問が減っても、必要な確認を飛ばして間違った仕事を進めたのなら成功とは言えない。</p>
+  <figure>
+    <figcaption>表2　これから測りたいこと。時間が減った割合や、管理できるタスク数はまだ測定していない。</figcaption>
+    <table>
+      <thead><tr><th>確かめたいこと</th><th>数えるもの</th><th>一緒に調べる間違い</th></tr></thead>
+      <tbody>
+        <tr><th>同じ説明を繰り返さずに済むか</th><td>回答済みの再質問、答えるために会話を読み直した回数</td><td>条件の違う質問まで同じものとして扱っていないか</td></tr>
+        <tr><th>頼んだ仕事が待たずに進むか</th><td>次の作業を始められるようになってから、実際に始めるまでの時間</td><td>止めた仕事の再開、二重の指示、頼んでいない操作</td></tr>
+        <tr><th>指示の変更を覚えているか</th><td>「再開して」「今回はやめる」などの変更を反映できたか</td><td>古い指示や別タスクへの回答を使っていないか</td></tr>
+        <tr><th>終わったという報告を信頼できるか</th><td>テストなどの確認結果と、人間が直した時間</td><td>未実行のテスト、確認漏れ、やり直し</td></tr>
+      </tbody>
+    </table>
+  </figure>
+  <p>研究からは、過去の情報を探すこと、変更を覚え直すこと、覚えた情報を次の仕事に使うことを、分けて確かめる必要があると分かる。
+dot では、それに加えて、頼まれた作業だけを進め、結果まで確かめられるかを検証したい。
+どれだけ時間を減らせるか、何件のタスクを任せられるかについて、一般化できる測定結果はまだない。</p>
+  <p>目指しているのは、人間がBのサービスを使うかという新しい相談に集中できることだ。
+既に頼んだAのテストを始めるために、同じ指示を繰り返す必要は減らしたい。
+Cについても、止めたことを毎回念押しせずに済ませたい。
+そのために dot には、頼んだ内容だけでなく、その理由と後から変えた指示まで覚えていてほしい。</p>
+</section>

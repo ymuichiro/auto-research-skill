@@ -1,0 +1,63 @@
+{
+  "slug": "personal-assistant-memory-and-agent-coordination",
+  "date": "2026-10-24",
+  "titleJa": "複数のAIに仕事を任せ続けるために、パーソナルアシスタントは何を覚えるべきか",
+  "titleEn": "What a personal assistant should remember to coordinate work across AI agents",
+  "summaryJa": "複数のCodexタスクから届く質問や報告を、アシスタントのdotに整理してもらう。何を頼み、なぜそう答え、後からどう変えたかを覚えておくには何が必要か。長期対話の記憶に関する論文を読み、具体例と図で考える。",
+  "summaryEn": "I ask dot to organize questions and reports from several Codex tasks. What does an assistant need to remember what was requested, why the user answered that way, and what later changed? Research on long-term conversational memory, concrete examples, and diagrams help explain the design.",
+  "seoTitleJa": "パーソナルアシスタントの記憶設計と複数AIのタスク調整",
+  "seoTitleEn": "Memory design for personal assistants coordinating AI agents",
+  "teaserJa": "頼んだテストは進め、サービスの追加は相談し、止めた仕事は動かさない。そのために何を覚えるか。",
+  "teaserEn": "Run requested tests, ask before adding a service, and leave paused work stopped. What does an assistant need to remember?",
+  "category": "AI Agents",
+  "tags": [
+    "Agent Memory",
+    "Personal Assistants",
+    "Multi-Agent",
+    "Human-AI Interaction",
+    "Evaluation"
+  ],
+  "publishedSources": [
+    {
+      "label": "Horvitz, Principles of Mixed-Initiative User Interfaces (CHI 1999)",
+      "url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/chi99horvitz.pdf",
+      "type": "paper"
+    },
+    {
+      "label": "π-Bench: Evaluating Proactive Personal Assistant Agents in Long-Horizon Workflows, v1",
+      "url": "https://arxiv.org/html/2605.14678v1",
+      "type": "paper"
+    },
+    {
+      "label": "Cognitive Architectures for Language Agents (CoALA), v3",
+      "url": "https://arxiv.org/html/2309.02427v3",
+      "type": "paper"
+    },
+    {
+      "label": "MemGPT: Towards LLMs as Operating Systems, v2",
+      "url": "https://arxiv.org/abs/2310.08560v2",
+      "type": "paper"
+    },
+    {
+      "label": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory, v2",
+      "url": "https://arxiv.org/html/2410.10813v2",
+      "type": "paper"
+    },
+    {
+      "label": "Know Me, Respond to Me: Benchmarking LLMs for Dynamic User Profiling and Personalized Responses at Scale (PersonaMem), v1",
+      "url": "https://arxiv.org/html/2504.14225v1",
+      "type": "paper"
+    },
+    {
+      "label": "Memorizing Who, Knowing How: Benchmarking Personal and Procedural Memory for Persistent Assistants (PraxisMemBench), v2",
+      "url": "https://arxiv.org/html/2610.20022v2",
+      "type": "paper"
+    },
+    {
+      "label": "Intelligent AI Delegation, v1",
+      "url": "https://arxiv.org/html/2602.11865v1",
+      "type": "paper"
+    }
+  ],
+  "draft": false
+}
