@@ -687,6 +687,9 @@ async function validateBuiltOutput(articles) {
   }
 
   assertContains(robotsTxt, `Sitemap: ${absoluteUrl("sitemap.xml")}`, "robots.txt is missing the configured sitemap URL.");
+  for (const file of ["sitemap-articles.xml", "sitemap-pages.xml"]) {
+    assertContains(robotsTxt, `Sitemap: ${absoluteUrl(file)}`, `robots.txt must advertise ${file} directly as well as through the index.`);
+  }
   assertContains(sitemapIndex, absoluteUrl("sitemap-pages.xml"), "Sitemap index is missing the configured page sitemap URL.");
   assertContains(
     sitemapIndex,

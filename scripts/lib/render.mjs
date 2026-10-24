@@ -400,12 +400,11 @@ ${renderSharedPageScript()}
   </head>
   <body data-page-type="${pageType}">
     ${spatial ? spatialConfigScript(spatial,locale,relativePath,pageHeading) : ''}
-    <section id="spatial-startup" role="status" data-error="${locale==='ja'?'読み込めませんでした。':'Could not load this page.'}">
-      <p id="spatial-startup-message">${locale==='ja'?'読み込んでいます':'Loading'}</p>
+    <section id="spatial-startup" role="status" hidden data-error="${locale==='ja'?'表示の切り替えに失敗しました。記事やリンクはこのまま利用できます。':'The interactive view could not load. You can still read the page and follow its links.'}">
+      <p id="spatial-startup-message"></p>
       <button id="spatial-startup-retry" type="button" hidden>${locale==='ja'?'再試行':'Retry'}</button>
-      <noscript><style>#spatial-startup-message{display:none}</style><p>${locale==='ja'?'このサイトの表示にはJavaScriptが必要です。':'JavaScript is required to display this site.'}</p></noscript>
     </section>
-    <div class="page-shell" aria-hidden="true" inert>
+    <div class="page-shell">
       <div class="hero-backdrop"></div>
       <a class="skip-link" href="#main">${locale === "ja" ? "本文へ" : "Skip to content"}</a>
       <header class="site-header">
@@ -1430,6 +1429,8 @@ export function renderRobots() {
 Allow: /
 
 Sitemap: ${absoluteUrl("sitemap.xml")}
+Sitemap: ${absoluteUrl("sitemap-articles.xml")}
+Sitemap: ${absoluteUrl("sitemap-pages.xml")}
 `;
 }
 
