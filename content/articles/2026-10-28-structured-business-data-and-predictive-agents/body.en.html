@@ -1,0 +1,139 @@
+<section>
+  <h2>Combining answers from documents with business predictions</h2>
+  <p>Ask an internal AI assistant which customers the team should contact first next month.
+  Finding the customer-contact policy will not settle the priority order.
+  The task also requires aggregating orders, predicting future purchasing, and considering how many people the team can contact.
+  This is a hypothetical workflow used here to make the additional work of using predictions concrete.</p>
+  <p><a href="https://blogs.nvidia.com/blog/enterprise-platforms-agent-toolkit/">NVIDIA's October 21 expansion of Agent Toolkit</a> presents this combination in a product architecture.
+  Agent Knowledge Foundation includes Nemotron Retriever for finding relevant information alongside Kumo for predictions from structured data.
+  Beyond turning tables into text for an LLM to read, an agent can call predictive models suited to the data's structure as tools.</p>
+  <p>The announcement date needs to be distinguished from when the technology appeared.
+  <a href="https://huggingface.co/blog/nvidia/kumo-tabular">Kumo Tabular's technical announcement dates to September 29</a>, and <a href="https://huggingface.co/nvidia/Kumo-Anomaly">Kumo Anomaly's model card lists June 29 as its release date</a>.
+  The development highlighted by this announcement is the presentation of retrieval and prediction together in an enterprise agent stack, rather than the invention of every predictive component this week.</p>
+</section>
+<section>
+  <h2>Three different answers behind a customer-contact decision</h2>
+  <p>The opening request contains three different questions: what rules govern customer contact, whose orders have recently declined, and whose orders are likely to stop in the future.
+  Even if the team eventually sees a single candidate list, the methods used to produce and verify its columns differ.</p>
+  <figure>
+    <table>
+      <thead><tr><th>What the team needs to know</th><th>Processing and result</th><th>What needs verification</th></tr></thead>
+      <tbody>
+        <tr><td>Rules for contacting customers</td><td>Document retrieval and generation of a cited explanation</td><td>Policy version, applicability, and fidelity to the citation</td></tr>
+        <tr><td>Changes in past orders</td><td>SQL or other computation of recorded counts and amounts</td><td>Customers, period, joins, and aggregation</td></tr>
+        <tr><td>Likelihood that orders will stop</td><td>A model's probability or ranking for a defined event</td><td>Performance on an unseen period and reliability of probabilities</td></tr>
+      </tbody>
+    </table>
+    <figcaption>A decomposition of the hypothetical workflow, not evidence of a deployment or measured outcome.</figcaption>
+  </figure>
+  <p><strong>Retrieval-augmented generation (RAG)</strong> uses retrieved material to support generation, as described in <a href="https://arxiv.org/abs/2005.11401">the original paper</a>.
+  An LLM can also receive order aggregates and prediction outputs when composing an explanation.
+  Fluent prose, however, does not establish the accuracy of the underlying prediction.</p>
+  <p>SQL can invoke predictive models or retrieve stored predictions as well.
+  The distinction here concerns whether a value is computed from recorded events or estimates an outcome that is not yet known, rather than the language or interface used.
+  In my view, retaining that distinction in the explanation is the starting point for adding predictive tools to enterprise AI.</p>
+</section>
+<section>
+  <h2>One table, or tables connecting customers to orders</h2>
+  <p>Passing prediction to a separate tool also changes the input.
+  <a href="https://huggingface.co/nvidia/Kumo-Tabular">Kumo Tabular</a> receives rows with known outcomes separately from the rows whose outcomes are to be predicted.
+  It returns class probabilities for classification or numerical predictions for regression.
+  A pretrained model uses known examples through <strong>in-context learning</strong>, without requiring a weight update each time it is used.</p>
+  <p>Customer information need not fit into one table.
+  A customer table may contain one row per customer, an order table one per order, and a product table one per product, connected by identifiers.
+  A single-table approach can first aggregate features such as purchase counts or days since the last order.
+  Which period is aggregated changes the information the prediction receives.</p>
+  <p><a href="https://huggingface.co/nvidia/Kumo-Relational">Kumo Relational</a> supports prediction across related tables.
+  Its model card describes combining row representations with relational message passing.
+  <a href="https://arxiv.org/html/2604.12596v1">The underlying KumoRFM-2 paper</a> describes using connected records and time without manually flattening the database into one table.
+  The relationships through which useful predictive records can be reached therefore matter.</p>
+  <p>Reducing table preparation does not remove the need to define what the data means.
+  Official documentation covers both <a href="https://nvidia.github.io/structured-data-models/tensor.html">column semantics</a> and <a href="https://docs.nvidia.com/sdgm/kumo-relational/user-guide/prepare-data/time-columns">time columns</a>.
+  Incorrect customer identifiers, monetary units, or record-availability times change what reaches the model.
+  Avoiding retraining does not mean there is no data left to check.</p>
+</section>
+<section>
+  <h2>What the published customer-churn example establishes</h2>
+  <p>The AdventureWorks example described in NVIDIA's official documentation makes this process tangible.
+  <a href="https://docs.nvidia.com/sdgm/about-nvidia-kumo/overview">The overview</a> describes predicting whether an active customer will place no orders during the next 90 days, using customer and order history.
+  <a href="https://docs.nvidia.com/sdgm/kumo-relational/user-guide/examples-and-notebooks/notebooks">The notebook guide</a> describes building a relational graph from four tables and submitting prediction requests in PQL.
+  It requires a deployed Kumo Relational NIM endpoint and the specified data files.</p>
+  <p>Churn here does not directly measure a customer's feelings.
+  It is defined as an observable event over a specified period without orders.
+  Applying the same 90 days to a customer who purchases annually changes its business meaning.
+  Adapting the example to a company starts with deciding whose outcome to predict, over which period, and what the outcome is.</p>
+  <p><a href="https://docs.nvidia.com/sdgm/kumo-relational/user-guide/make-predictions/writing-predictive-queries">The official PQL tutorial</a> gives a separate example specifying each customer's order amount over the next 30 days.
+  The useful property is explicit specification of the customers, amount, and future interval.
+  Even if an LLM translates a natural-language request into that query, checking its customers and interval remains separate work.</p>
+  <figure>
+    <ol>
+      <li><strong>Define the question: </strong><span>Specify customers, an outcome such as no orders, and a horizon such as 90 days.</span></li>
+      <li><strong>Prepare historical records: </strong><span>Preserve relationships and time; separate known outcomes from prediction inputs.</span></li>
+      <li><strong>Request predictions: </strong><span>Receive entity identifiers and probabilities or rankings.</span></li>
+      <li><strong>Have the team reconcile results: </strong><span>Consider policy, previous contacts, and available contact capacity.</span></li>
+    </ol>
+    <figcaption>A proposed workflow informed by the public example. The final reconciliation is this article's recommendation, not evidence that the notebook automates an entire business process.</figcaption>
+  </figure>
+  <p>Customer-level predictions also differ from daily demand forecasts.
+  <a href="https://huggingface.co/nvidia/Kumo-Forecast">Kumo Forecast</a> returns future values from timestamped numerical history; <a href="https://huggingface.co/nvidia/Kumo-Anomaly">Kumo Anomaly</a> detects anomalies in time series.
+  Predicting who will stop buying and predicting next week's sales volume call for different inputs and evaluation.
+  Sharing the Kumo name does not make these tools interchangeable.</p>
+</section>
+<section>
+  <h2>Use only records available on the prediction date</h2>
+  <p>For a prediction with a future horizon, merely using historical data is insufficient.
+  Suppose an evaluation simulates a prediction on September 30 but includes cancellations finalized in October or customer categories updated later.
+  It uses information unavailable on the supposed prediction date, an example of <strong>data leakage</strong>.
+  Apparent accuracy in that evaluation would not be reproducible with the inputs available in production.</p>
+  <p><a href="https://docs.nvidia.com/sdgm/kumo-relational/user-guide/prepare-data/time-columns">Kumo's time-column documentation</a> describes specifying when a record became available and, where relevant, ceased to be valid, to select information for the prediction's anchor time.
+  A datetime column need not represent availability, and a last-modified field is not automatically suitable.
+  Reconstructing historical feature values also appears in <a href="https://docs.feast.dev/getting-started/concepts/point-in-time-joins">Feast's point-in-time joins</a>.
+  Changing predictive tools does not remove the need to align what could have been known.</p>
+  <p>Time should also survive the result handoff.
+  <a href="https://docs.nvidia.com/sdgm/kumo-relational/user-guide/work-with-prediction-results/prediction-results">The official result specification</a> describes using the entity identifier, <code>ENTITY</code>, and the anchor time, <code>ANCHOR_TIMESTAMP</code>, when present, to join predictions to downstream data.
+  Attaching customer names by row position or displaying last month's probability as today's value can misdirect a decision even after successful inference.</p>
+  <p>The explanation needs similar care.
+  <a href="https://docs.nvidia.com/sdgm/kumo-relational/user-guide/explain-predictions/prediction-explainability">Kumo's explainability documentation</a> separates structured attribution for relevant records from an optional summary by a separately configured language model.
+  I would give the team a way back from the summary to those records and the anchor time.
+  Attribution must not be reinterpreted as proof of why a customer will leave, or that contacting them will improve the outcome.</p>
+</section>
+<section>
+  <h2>From benchmark rankings to evaluation on company data</h2>
+  <p>There is evidence supporting a trial of these methods.
+  <a href="https://arxiv.org/html/2604.12596v1">KumoRFM-2's authors report evaluation on 41 predictive tasks across 15 relational databases</a>, comparing supervised methods and other foundation models.
+  The evaluation draws on <a href="https://arxiv.org/abs/2407.20060">RelBench</a>, which includes purchasing tasks, and <a href="https://arxiv.org/abs/2602.12606">RelBench v2</a>, which adds domains including ERP.
+  These offer a basis for comparison on relevant predictions rather than inferring suitability from language-generation scores.</p>
+  <p><a href="https://huggingface.co/blog/nvidia/kumo-relational">NVIDIA's October 21 technical explanation</a> reports an average improvement of nearly four AUROC points over gradient-boosted trees with expert-engineered features on RelBench V1 classification tasks.
+  AUROC measures how well positives are ranked above negatives; that difference does not mean contacting customers increases revenue by 4%.
+  Including an expert-engineered relational baseline, alongside methods given only an entity table, helps assess the value of using connected records.</p>
+  <p>They do not justify replacing every existing company model.
+  <a href="https://arxiv.org/abs/2506.16791">TabArena</a> shows that validation methods, tuning budgets, and model ensembles affect comparisons, with gradient-boosted trees remaining strong practical baselines.
+  <a href="https://arxiv.org/abs/2606.30410">BeyondArena</a> extends evaluation to settings including temporal and grouped tasks.
+  Where customers and seasons change, random row splits alone are an inadequate basis for a deployment decision.</p>
+  <p>Using probabilities as business thresholds requires more than a good ranking.
+  <a href="https://arxiv.org/html/2610.13654v1">TabReliBench, published October 9</a>, compares predictive performance, distributions, and subgroup calibration, reporting changes in rankings across metrics.
+  <strong>Calibration</strong> concerns whether events occur about 80% of the time among cases assigned an 80% probability, for example.
+  Its evaluated models do not include Kumo, so it neither validates nor disproves Kumo's probabilities directly.
+  It nevertheless supports measuring probability reliability separately from predictive accuracy and ranking.</p>
+  <p>For the opening hypothetical workflow, I would compare candidates generated at identical historical cutoff dates against both a days-since-last-order rule and any existing predictive model.
+  At the number of customers the team can actually contact, measure how many later stopped ordering and whether probabilities match observed frequencies.
+  Record data-preparation, inference, and human-review time too.
+  This is an evaluation proposal, not a measured benefit from a completed trial.</p>
+</section>
+<section>
+  <h2>Start with a candidate list the team can verify</h2>
+  <p>Even a useful prediction leaves the effect of contacting customers to be tested.
+  Those most likely to stop ordering need not be those whose purchases would increase after contact.
+  Selecting an effective intervention requires a comparison of the intervention's outcomes in addition to prediction evaluation.
+  Calling a model and improving revenue should not be presented as one demonstrated achievement.</p>
+  <p>I therefore recommend starting with a candidate list whose evidence the team can inspect.
+  Retain customer identifiers, anchor dates, prediction horizons, probabilities, and relevant records; let the LLM explain them alongside policy and past contact history.
+  Staff can exclude duplicate contacts and already resolved cases before choosing a limited set.
+  This stage allows comparison of predictive usefulness with the burden of checking and correcting results.</p>
+  <p>Adding structured predictive models lets an enterprise assistant combine policy reading, recorded-data computation, and estimates of unknown outcomes in one response.
+  Preserving each operation's sources, times, and evaluation makes it possible to prepare material for choosing the next action, alongside producing explanations.
+  I would judge that progress by the additional predictions staff can verify and use, rather than a model's leaderboard position.</p>
+  <p>This article compares official documentation and papers.
+  It does not measure Kumo inference, accuracy on company data, latency, cost, or intervention effects.
+  Public notebook documentation supports the workflow description, not a claim of demonstrated enterprise benefit.</p>
+</section>

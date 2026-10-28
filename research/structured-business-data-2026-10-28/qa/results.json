@@ -1,0 +1,274 @@
+[
+  {
+    "browser": "chromium",
+    "width": 360,
+    "locale": "ja",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 292
+      },
+      {
+        "chapter": 3,
+        "width": 292
+      }
+    ],
+    "canonical": "https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 360,
+    "locale": "en",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 292
+      },
+      {
+        "chapter": 3,
+        "width": 292
+      }
+    ],
+    "canonical": "https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "locale": "ja",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 322
+      },
+      {
+        "chapter": 3,
+        "width": 322
+      }
+    ],
+    "canonical": "https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 390,
+    "locale": "en",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 322
+      },
+      {
+        "chapter": 3,
+        "width": 322
+      }
+    ],
+    "canonical": "https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "locale": "ja",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 476
+      },
+      {
+        "chapter": 3,
+        "width": 476
+      }
+    ],
+    "canonical": "https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 768,
+    "locale": "en",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 476
+      },
+      {
+        "chapter": 3,
+        "width": 476
+      }
+    ],
+    "canonical": "https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "locale": "ja",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 726
+      },
+      {
+        "chapter": 3,
+        "width": 726
+      }
+    ],
+    "canonical": "https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "chromium",
+    "width": 1440,
+    "locale": "en",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 726
+      },
+      {
+        "chapter": 3,
+        "width": 726
+      }
+    ],
+    "canonical": "https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "locale": "ja",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 292
+      },
+      {
+        "chapter": 3,
+        "width": 292
+      }
+    ],
+    "canonical": "https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 360,
+    "locale": "en",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 292
+      },
+      {
+        "chapter": 3,
+        "width": 292
+      }
+    ],
+    "canonical": "https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "locale": "ja",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 322
+      },
+      {
+        "chapter": 3,
+        "width": 322
+      }
+    ],
+    "canonical": "https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 390,
+    "locale": "en",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 322
+      },
+      {
+        "chapter": 3,
+        "width": 322
+      }
+    ],
+    "canonical": "https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "locale": "ja",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 476
+      },
+      {
+        "chapter": 3,
+        "width": 476
+      }
+    ],
+    "canonical": "https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 768,
+    "locale": "en",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 476
+      },
+      {
+        "chapter": 3,
+        "width": 476
+      }
+    ],
+    "canonical": "https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "locale": "ja",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 726
+      },
+      {
+        "chapter": 3,
+        "width": 726
+      }
+    ],
+    "canonical": "https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  },
+  {
+    "browser": "webkit",
+    "width": 1440,
+    "locale": "en",
+    "figures": [
+      {
+        "chapter": 1,
+        "width": 726
+      },
+      {
+        "chapter": 3,
+        "width": 726
+      }
+    ],
+    "canonical": "https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html",
+    "errors": []
+  }
+]
