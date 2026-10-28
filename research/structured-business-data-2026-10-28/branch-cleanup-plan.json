@@ -1,0 +1,31 @@
+{
+  "base": "bec54da",
+  "branches": [
+    {
+      "branch": "codex/indexable-initial-html",
+      "sha": "c26a9af8d9ee025da78409f540d7509c544e43ee",
+      "mergedPR": 62,
+      "reason": "Implementation paths match merged main; main also contains the later memory article.",
+      "remoteRetained": true
+    },
+    {
+      "branch": "codex/publish-multi-agent-results",
+      "sha": "5d9e15986403f85cf03c68064252d7dc7ca5f219",
+      "mergedPR": 61,
+      "reason": "Equivalent published article patch present in main (git cherry minus).",
+      "remoteRetained": true
+    },
+    {
+      "branch": "codex/publish-personal-assistant-memory",
+      "sha": "162e679e216de7e5c2c9ea5314ed425f4fb3ba16",
+      "mergedPR": 63,
+      "reason": "Tree exactly equals origin/main and git cherry minus.",
+      "remoteRetained": true
+    }
+  ],
+  "preserve": [
+    "pre-existing package.json pnpm version change",
+    "all pre-existing untracked files"
+  ],
+  "scope": "Only local branch references are removed after publication; no files, remote branches or unmerged work removed."
+}
