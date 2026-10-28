@@ -5,8 +5,16 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Sat, 24 Oct 2026 04:48:13 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 28 Oct 2026 12:27:04 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>社内資料を探すAIに、顧客や注文の記録から予測する道具を足す</title>
+      <link>https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html</link>
+      <guid isPermaLink="true">https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html</guid>
+      
+      <description>NVIDIA Kumoを手がかりに、文書の検索、過去の集計、未来の予測を組み合わせる業務AIを考える。顧客離反の公開例から、関連する表、予測の基準日時、確率の評価、担当者が確認できる候補一覧までを追う。</description>
+      <category>AI Agents</category>
+    </item>
     <item>
       <title>複数のAIに仕事を任せ続けるために、パーソナルアシスタントは何を覚えるべきか</title>
       <link>https://research.notelligent.app/2026-10-24-personal-assistant-memory-and-agent-coordination.html</link>
@@ -157,14 +165,6 @@
       <guid isPermaLink="true">https://research.notelligent.app/2026-04-06-voice-agents-become-operational-systems.html</guid>
       
       <description>音声AIの訂正と割り込みを、実際の予約結果まで追う。音声直接型と分割型、電話接続、再開、人への引き継ぎ、実音声の試験を分析。</description>
-      <category>AI Agents</category>
-    </item>
-    <item>
-      <title>AIの仕事をsubagentへ分ける：調査の完了を、判断できる結果へつなぐ</title>
-      <link>https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</link>
-      <guid isPermaLink="true">https://research.notelligent.app/2026-03-30-subagents-become-the-practical-unit-of-work-ai.html</guid>
-      
-      <description>subagentへの委任を、小型モデル、並列化、文脈、実行順序、途中記録から比較する。各社の設計と、根拠を返し統合する人の負担を分析。</description>
       <category>AI Agents</category>
     </item>
   </channel>
