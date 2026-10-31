@@ -69,6 +69,9 @@ When updating an existing article, also read that article's `meta.json`, `body.j
 - Prefer a sourced implementation, measured case, named product behavior, or paper result over a generic use case. When a hypothetical operating scenario is useful, label it as a scenario and state exactly what it illustrates; never present it as deployed evidence.
 - Keep causal and operational details that explain why systems differ, even for business readers. Remove only details that do not affect the decision or argument.
 - Give each section one job in the argument. Its opening must receive a question or claim from the preceding section, and its ending must change what the reader can conclude.
+- Remove defensive author-facing caveats that anticipate unlikely objections or repeat an already-labeled hypothetical example. Explain what the evidence measures and the conditions relevant to the reader's decision directly; retain distinctions between actual results and proposed scenarios.
+- Apply the same test to figure captions. Identify what the figure shows, and do not repeat a disclaimer already established in the surrounding text.
+- Remove tangential products, examples, or sudden topic changes when they do not develop the central question. Keep the concrete comparisons, mechanisms, evidence, and limitations needed to support the conclusion.
 - Apply `write-concrete-coherent-prose` before the final language cleanup. Reject undefined umbrella nouns, floating sentences, generic claims that fit any technology, and examples that prove nothing.
 - Keep Japanese and English versions aligned in meaning and confidence level.
 - In Japanese copy, prefer natural Japanese for general concepts and workflow terms. Keep English only when it is the product name, paper title, protocol name, API name, or another identifier that would become less clear if translated.
