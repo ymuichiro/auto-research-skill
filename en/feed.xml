@@ -5,14 +5,14 @@
     <link>https://research.notelligent.app/en/</link>
     <description>A research publication on the design, approval, evaluation, and operation of LLMs, generative AI, and AI agents in real work.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Oct 2026 12:27:04 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 04:04:19 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/en/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Adding predictions from customer and order records to enterprise AI</title>
       <link>https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/en/2026-10-28-structured-business-data-and-predictive-agents.html</guid>
       
-      <description>NVIDIA Kumo makes it concrete to combine document retrieval, historical aggregates, and future predictions in enterprise AI.</description>
+      <description>Use customer and order tables to prepare predictions that help staff choose whom to contact. NVIDIA Kumo examples show how prediction fits with document retrieval</description>
       <category>AI Agents</category>
     </item>
     <item>

@@ -5,14 +5,14 @@
     <link>https://research.notelligent.app/</link>
     <description>LLM、生成AI、AIエージェントを業務に導入する際の設計、評価、承認、運用の判断を、一次情報と論文から整理するリサーチサイト。</description>
     <language>ja</language>
-    <lastBuildDate>Wed, 28 Oct 2026 12:27:04 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 31 Oct 2026 04:04:19 GMT</lastBuildDate>
     <atom:link href="https://research.notelligent.app/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>社内資料を探すAIに、顧客や注文の記録から予測する道具を足す</title>
       <link>https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html</link>
       <guid isPermaLink="true">https://research.notelligent.app/2026-10-28-structured-business-data-and-predictive-agents.html</guid>
       
-      <description>NVIDIA Kumoを手がかりに、文書の検索、過去の集計、未来の予測を組み合わせる業務AIを考える。顧客離反の公開例から、関連する表、予測の基準日時、確率の評価、担当者が確認できる候補一覧までを追う。</description>
+      <description>顧客や注文の表から、担当者が連絡先を選ぶための予測を作る。NVIDIA Kumoの公開例をたどり、文書検索や過去の集計との違い、予測の確かめ方、人が判断するまでを考える。</description>
       <category>AI Agents</category>
     </item>
     <item>
