@@ -3,12 +3,12 @@
   "date": "2026-10-28",
   "titleJa": "社内資料を探すAIに、顧客や注文の記録から予測する道具を足す",
   "titleEn": "Adding predictions from customer and order records to enterprise AI",
-  "summaryJa": "NVIDIA Kumoを手がかりに、文書の検索、過去の集計、未来の予測を組み合わせる業務AIを考える。顧客離反の公開例から、関連する表、予測の基準日時、確率の評価、担当者が確認できる候補一覧までを追う。",
-  "summaryEn": "NVIDIA Kumo makes it concrete to combine document retrieval, historical aggregates, and future predictions in enterprise AI. A published churn example connects related tables, prediction dates, probability evaluation, and a candidate list staff can verify.",
+  "summaryJa": "顧客や注文の表から、担当者が連絡先を選ぶための予測を作る。NVIDIA Kumoの公開例をたどり、文書検索や過去の集計との違い、予測の確かめ方、人が判断するまでを考える。",
+  "summaryEn": "Use customer and order tables to prepare predictions that help staff choose whom to contact. NVIDIA Kumo examples show how prediction fits with document retrieval, historical aggregation, evaluation, and human decisions.",
   "seoTitleJa": "NVIDIA Kumoと業務AI：顧客や注文のデータから予測する",
   "seoTitleEn": "NVIDIA Kumo: Adding structured-data predictions to enterprise AI",
-  "teaserJa": "社内規程を探し、注文を集計し、次の90日を予測する。それぞれの答えをどう確かめるか。",
-  "teaserEn": "Find policy, aggregate orders, and predict the next 90 days. How should each answer be checked?",
+  "teaserJa": "社内規程を探し、注文を集計し、次の90日を予測する。連絡先を選ぶ材料をどうそろえるか。",
+  "teaserEn": "Find policy, aggregate orders, and predict the next 90 days. How can staff assemble the information for choosing whom to contact?",
   "category": "AI Agents",
   "tags": [
     "Structured Data",
@@ -44,43 +44,13 @@
       "type": "official"
     },
     {
-      "label": "Kumo Forecast model card",
-      "url": "https://huggingface.co/nvidia/Kumo-Forecast",
-      "type": "official"
-    },
-    {
-      "label": "Kumo Anomaly model card",
-      "url": "https://huggingface.co/nvidia/Kumo-Anomaly",
-      "type": "official"
-    },
-    {
-      "label": "Kumo Tabular technical announcement",
-      "url": "https://huggingface.co/blog/nvidia/kumo-tabular",
-      "type": "official"
-    },
-    {
       "label": "Kumo Relational technical announcement",
       "url": "https://huggingface.co/blog/nvidia/kumo-relational",
       "type": "official"
     },
     {
-      "label": "Relational notebooks",
-      "url": "https://docs.nvidia.com/sdgm/kumo-relational/user-guide/examples-and-notebooks/notebooks",
-      "type": "official"
-    },
-    {
       "label": "KumoRFM-2 paper v1",
       "url": "https://arxiv.org/html/2604.12596v1",
-      "type": "paper"
-    },
-    {
-      "label": "RelBench",
-      "url": "https://arxiv.org/abs/2407.20060",
-      "type": "paper"
-    },
-    {
-      "label": "RelBench v2",
-      "url": "https://arxiv.org/abs/2602.12606",
       "type": "paper"
     },
     {
@@ -91,11 +61,6 @@
     {
       "label": "TabReliBench v1",
       "url": "https://arxiv.org/html/2610.13654v1",
-      "type": "paper"
-    },
-    {
-      "label": "Beyond IID / BeyondArena",
-      "url": "https://arxiv.org/abs/2606.30410",
       "type": "paper"
     },
     {
@@ -114,18 +79,13 @@
       "type": "official"
     },
     {
-      "label": "Write Predictive Queries",
-      "url": "https://docs.nvidia.com/sdgm/kumo-relational/user-guide/make-predictions/writing-predictive-queries",
-      "type": "official"
-    },
-    {
       "label": "Prediction Results",
       "url": "https://docs.nvidia.com/sdgm/kumo-relational/user-guide/work-with-prediction-results/prediction-results",
       "type": "official"
     },
     {
-      "label": "Prediction Explainability",
-      "url": "https://docs.nvidia.com/sdgm/kumo-relational/user-guide/explain-predictions/prediction-explainability",
+      "label": "Kumo Engine: Predict a Yes or No Outcome on Linux",
+      "url": "https://docs.nvidia.com/sdgm/kumo-engine/1.0.0/user-code-guide/code-examples/linux-deployment/binary-classification",
       "type": "official"
     }
   ],
